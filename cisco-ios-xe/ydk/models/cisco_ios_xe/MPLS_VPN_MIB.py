@@ -26,37 +26,37 @@ class MPLSVPNMIB(Entity):
     .. attribute:: mplsvpnscalars
     
     	
-    	**type**\:  :py:class:`Mplsvpnscalars <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnscalars>`
+    	**type**\:  :py:class:`MplsVpnScalars <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnScalars>`
     
     .. attribute:: mplsvpninterfaceconftable
     
     	This table specifies per\-interface MPLS capability and associated information
-    	**type**\:  :py:class:`Mplsvpninterfaceconftable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpninterfaceconftable>`
+    	**type**\:  :py:class:`MplsVpnInterfaceConfTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable>`
     
     .. attribute:: mplsvpnvrftable
     
     	This table specifies per\-interface MPLS/BGP VPN VRF Table capability and associated information. Entries in this table define VRF routing instances associated with MPLS/VPN interfaces. Note that multiple interfaces can belong to the same VRF instance. The collection of all VRF instances comprises an actual VPN
-    	**type**\:  :py:class:`Mplsvpnvrftable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable>`
+    	**type**\:  :py:class:`MplsVpnVrfTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable>`
     
     .. attribute:: mplsvpnvrfroutetargettable
     
     	This table specifies per\-VRF route target association. Each entry identifies a connectivity policy supported as part of a VPN
-    	**type**\:  :py:class:`Mplsvpnvrfroutetargettable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable>`
+    	**type**\:  :py:class:`MplsVpnVrfRouteTargetTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTargetTable>`
     
     .. attribute:: mplsvpnvrfbgpnbraddrtable
     
     	Each entry in this table specifies a per\-interface  MPLS/EBGP neighbor
-    	**type**\:  :py:class:`Mplsvpnvrfbgpnbraddrtable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable>`
+    	**type**\:  :py:class:`MplsVpnVrfBgpNbrAddrTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable>`
     
     .. attribute:: mplsvpnvrfbgpnbrprefixtable
     
     	This table specifies per\-VRF vpnv4 multi\-protocol prefixes supported by BGP
-    	**type**\:  :py:class:`Mplsvpnvrfbgpnbrprefixtable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable>`
+    	**type**\:  :py:class:`MplsVpnVrfBgpNbrPrefixTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable>`
     
     .. attribute:: mplsvpnvrfroutetable
     
     	This table specifies per\-interface MPLS/BGP VPN VRF Table routing information. Entries in this table define VRF routing entries associated with the specified MPLS/VPN interfaces. Note that this table contains both BGP and IGP routes, as both may appear in the same VRF
-    	**type**\:  :py:class:`Mplsvpnvrfroutetable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable>`
+    	**type**\:  :py:class:`MplsVpnVrfRouteTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTable>`
     
     
 
@@ -74,48 +74,43 @@ class MPLSVPNMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mplsVpnScalars", ("mplsvpnscalars", MPLSVPNMIB.Mplsvpnscalars)), ("mplsVpnInterfaceConfTable", ("mplsvpninterfaceconftable", MPLSVPNMIB.Mplsvpninterfaceconftable)), ("mplsVpnVrfTable", ("mplsvpnvrftable", MPLSVPNMIB.Mplsvpnvrftable)), ("mplsVpnVrfRouteTargetTable", ("mplsvpnvrfroutetargettable", MPLSVPNMIB.Mplsvpnvrfroutetargettable)), ("mplsVpnVrfBgpNbrAddrTable", ("mplsvpnvrfbgpnbraddrtable", MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable)), ("mplsVpnVrfBgpNbrPrefixTable", ("mplsvpnvrfbgpnbrprefixtable", MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable)), ("mplsVpnVrfRouteTable", ("mplsvpnvrfroutetable", MPLSVPNMIB.Mplsvpnvrfroutetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mplsVpnScalars", ("mplsvpnscalars", MPLSVPNMIB.MplsVpnScalars)), ("mplsVpnInterfaceConfTable", ("mplsvpninterfaceconftable", MPLSVPNMIB.MplsVpnInterfaceConfTable)), ("mplsVpnVrfTable", ("mplsvpnvrftable", MPLSVPNMIB.MplsVpnVrfTable)), ("mplsVpnVrfRouteTargetTable", ("mplsvpnvrfroutetargettable", MPLSVPNMIB.MplsVpnVrfRouteTargetTable)), ("mplsVpnVrfBgpNbrAddrTable", ("mplsvpnvrfbgpnbraddrtable", MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable)), ("mplsVpnVrfBgpNbrPrefixTable", ("mplsvpnvrfbgpnbrprefixtable", MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable)), ("mplsVpnVrfRouteTable", ("mplsvpnvrfroutetable", MPLSVPNMIB.MplsVpnVrfRouteTable))])
         self._leafs = OrderedDict()
 
-        self.mplsvpnscalars = MPLSVPNMIB.Mplsvpnscalars()
+        self.mplsvpnscalars = MPLSVPNMIB.MplsVpnScalars()
         self.mplsvpnscalars.parent = self
         self._children_name_map["mplsvpnscalars"] = "mplsVpnScalars"
-        self._children_yang_names.add("mplsVpnScalars")
 
-        self.mplsvpninterfaceconftable = MPLSVPNMIB.Mplsvpninterfaceconftable()
+        self.mplsvpninterfaceconftable = MPLSVPNMIB.MplsVpnInterfaceConfTable()
         self.mplsvpninterfaceconftable.parent = self
         self._children_name_map["mplsvpninterfaceconftable"] = "mplsVpnInterfaceConfTable"
-        self._children_yang_names.add("mplsVpnInterfaceConfTable")
 
-        self.mplsvpnvrftable = MPLSVPNMIB.Mplsvpnvrftable()
+        self.mplsvpnvrftable = MPLSVPNMIB.MplsVpnVrfTable()
         self.mplsvpnvrftable.parent = self
         self._children_name_map["mplsvpnvrftable"] = "mplsVpnVrfTable"
-        self._children_yang_names.add("mplsVpnVrfTable")
 
-        self.mplsvpnvrfroutetargettable = MPLSVPNMIB.Mplsvpnvrfroutetargettable()
+        self.mplsvpnvrfroutetargettable = MPLSVPNMIB.MplsVpnVrfRouteTargetTable()
         self.mplsvpnvrfroutetargettable.parent = self
         self._children_name_map["mplsvpnvrfroutetargettable"] = "mplsVpnVrfRouteTargetTable"
-        self._children_yang_names.add("mplsVpnVrfRouteTargetTable")
 
-        self.mplsvpnvrfbgpnbraddrtable = MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable()
+        self.mplsvpnvrfbgpnbraddrtable = MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable()
         self.mplsvpnvrfbgpnbraddrtable.parent = self
         self._children_name_map["mplsvpnvrfbgpnbraddrtable"] = "mplsVpnVrfBgpNbrAddrTable"
-        self._children_yang_names.add("mplsVpnVrfBgpNbrAddrTable")
 
-        self.mplsvpnvrfbgpnbrprefixtable = MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable()
+        self.mplsvpnvrfbgpnbrprefixtable = MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable()
         self.mplsvpnvrfbgpnbrprefixtable.parent = self
         self._children_name_map["mplsvpnvrfbgpnbrprefixtable"] = "mplsVpnVrfBgpNbrPrefixTable"
-        self._children_yang_names.add("mplsVpnVrfBgpNbrPrefixTable")
 
-        self.mplsvpnvrfroutetable = MPLSVPNMIB.Mplsvpnvrfroutetable()
+        self.mplsvpnvrfroutetable = MPLSVPNMIB.MplsVpnVrfRouteTable()
         self.mplsvpnvrfroutetable.parent = self
         self._children_name_map["mplsvpnvrfroutetable"] = "mplsVpnVrfRouteTable"
-        self._children_yang_names.add("mplsVpnVrfRouteTable")
         self._segment_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(MPLSVPNMIB, [], name, value)
 
-    class Mplsvpnscalars(Entity):
+
+    class MplsVpnScalars(Entity):
         """
         
         
@@ -160,15 +155,14 @@ class MPLSVPNMIB(Entity):
         _revision = '2001-10-15'
 
         def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnscalars, self).__init__()
+            super(MPLSVPNMIB.MplsVpnScalars, self).__init__()
 
             self.yang_name = "mplsVpnScalars"
             self.yang_parent_name = "MPLS-VPN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplsvpnconfiguredvrfs', YLeaf(YType.uint32, 'mplsVpnConfiguredVrfs')),
                 ('mplsvpnactivevrfs', YLeaf(YType.uint32, 'mplsVpnActiveVrfs')),
@@ -185,10 +179,10 @@ class MPLSVPNMIB(Entity):
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnscalars, ['mplsvpnconfiguredvrfs', 'mplsvpnactivevrfs', 'mplsvpnconnectedinterfaces', 'mplsvpnnotificationenable', 'mplsvpnvrfconfmaxpossibleroutes'], name, value)
+            self._perform_setattr(MPLSVPNMIB.MplsVpnScalars, [u'mplsvpnconfiguredvrfs', u'mplsvpnactivevrfs', u'mplsvpnconnectedinterfaces', u'mplsvpnnotificationenable', u'mplsvpnvrfconfmaxpossibleroutes'], name, value)
 
 
-    class Mplsvpninterfaceconftable(Entity):
+    class MplsVpnInterfaceConfTable(Entity):
         """
         This table specifies per\-interface MPLS capability
         and associated information.
@@ -196,7 +190,7 @@ class MPLSVPNMIB(Entity):
         .. attribute:: mplsvpninterfaceconfentry
         
         	An entry in this table is created by an LSR for every interface capable of supporting MPLS/BGP VPN.   Each entry in this table is meant to correspond to an entry in the Interfaces Table
-        	**type**\: list of  		 :py:class:`Mplsvpninterfaceconfentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry>`
+        	**type**\: list of  		 :py:class:`MplsVpnInterfaceConfEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry>`
         
         
 
@@ -206,15 +200,14 @@ class MPLSVPNMIB(Entity):
         _revision = '2001-10-15'
 
         def __init__(self):
-            super(MPLSVPNMIB.Mplsvpninterfaceconftable, self).__init__()
+            super(MPLSVPNMIB.MplsVpnInterfaceConfTable, self).__init__()
 
             self.yang_name = "mplsVpnInterfaceConfTable"
             self.yang_parent_name = "MPLS-VPN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsVpnInterfaceConfEntry", ("mplsvpninterfaceconfentry", MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry))])
+            self._child_classes = OrderedDict([("mplsVpnInterfaceConfEntry", ("mplsvpninterfaceconfentry", MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry))])
             self._leafs = OrderedDict()
 
             self.mplsvpninterfaceconfentry = YList(self)
@@ -222,10 +215,10 @@ class MPLSVPNMIB(Entity):
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpninterfaceconftable, [], name, value)
+            self._perform_setattr(MPLSVPNMIB.MplsVpnInterfaceConfTable, [], name, value)
 
 
-        class Mplsvpninterfaceconfentry(Entity):
+        class MplsVpnInterfaceConfEntry(Entity):
             """
             An entry in this table is created by an LSR for
             every interface capable of supporting MPLS/BGP VPN.
@@ -241,7 +234,7 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..31
             
-            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
+            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
             .. attribute:: mplsvpninterfaceconfindex  (key)
             
@@ -253,17 +246,17 @@ class MPLSVPNMIB(Entity):
             .. attribute:: mplsvpninterfacelabeledgetype
             
             	Either the providerEdge(0) (PE) or customerEdge(1) (CE) bit MUST be set
-            	**type**\:  :py:class:`Mplsvpninterfacelabeledgetype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.Mplsvpninterfacelabeledgetype>`
+            	**type**\:  :py:class:`MplsVpnInterfaceLabelEdgeType <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry.MplsVpnInterfaceLabelEdgeType>`
             
             .. attribute:: mplsvpninterfacevpnclassification
             
             	Denotes whether this link participates in a carrier\-of\-carrier's, enterprise, or inter\-provider scenario
-            	**type**\:  :py:class:`Mplsvpninterfacevpnclassification <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.Mplsvpninterfacevpnclassification>`
+            	**type**\:  :py:class:`MplsVpnInterfaceVpnClassification <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry.MplsVpnInterfaceVpnClassification>`
             
             .. attribute:: mplsvpninterfacevpnroutedistprotocol
             
             	Denotes the route distribution protocol across the PE\-CE link. Note that more than one routing protocol may be enabled at the same time
-            	**type**\:  :py:class:`Mplsvpninterfacevpnroutedistprotocol <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.Mplsvpninterfacevpnroutedistprotocol>`
+            	**type**\:  :py:class:`MplsVpnInterfaceVpnRouteDistProtocol <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry.MplsVpnInterfaceVpnRouteDistProtocol>`
             
             .. attribute:: mplsvpninterfaceconfstoragetype
             
@@ -283,15 +276,14 @@ class MPLSVPNMIB(Entity):
             _revision = '2001-10-15'
 
             def __init__(self):
-                super(MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry, self).__init__()
+                super(MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry, self).__init__()
 
                 self.yang_name = "mplsVpnInterfaceConfEntry"
                 self.yang_parent_name = "mplsVpnInterfaceConfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpninterfaceconfindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
                     ('mplsvpninterfaceconfindex', YLeaf(YType.int32, 'mplsVpnInterfaceConfIndex')),
@@ -312,11 +304,11 @@ class MPLSVPNMIB(Entity):
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnInterfaceConfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry, ['mplsvpnvrfname', 'mplsvpninterfaceconfindex', 'mplsvpninterfacelabeledgetype', 'mplsvpninterfacevpnclassification', 'mplsvpninterfacevpnroutedistprotocol', 'mplsvpninterfaceconfstoragetype', 'mplsvpninterfaceconfrowstatus'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry, [u'mplsvpnvrfname', u'mplsvpninterfaceconfindex', u'mplsvpninterfacelabeledgetype', u'mplsvpninterfacevpnclassification', u'mplsvpninterfacevpnroutedistprotocol', u'mplsvpninterfaceconfstoragetype', u'mplsvpninterfaceconfrowstatus'], name, value)
 
-            class Mplsvpninterfacelabeledgetype(Enum):
+            class MplsVpnInterfaceLabelEdgeType(Enum):
                 """
-                Mplsvpninterfacelabeledgetype (Enum Class)
+                MplsVpnInterfaceLabelEdgeType (Enum Class)
 
                 Either the providerEdge(0) (PE) or customerEdge(1)
 
@@ -333,9 +325,9 @@ class MPLSVPNMIB(Entity):
                 customerEdge = Enum.YLeaf(2, "customerEdge")
 
 
-            class Mplsvpninterfacevpnclassification(Enum):
+            class MplsVpnInterfaceVpnClassification(Enum):
                 """
-                Mplsvpninterfacevpnclassification (Enum Class)
+                MplsVpnInterfaceVpnClassification (Enum Class)
 
                 Denotes whether this link participates in a
 
@@ -359,7 +351,7 @@ class MPLSVPNMIB(Entity):
 
 
 
-    class Mplsvpnvrftable(Entity):
+    class MplsVpnVrfTable(Entity):
         """
         This table specifies per\-interface MPLS/BGP VPN
         VRF Table capability and associated information.
@@ -372,7 +364,7 @@ class MPLSVPNMIB(Entity):
         .. attribute:: mplsvpnvrfentry
         
         	An entry in this table is created by an LSR for every VRF capable of supporting MPLS/BGP VPN. The indexing provides an ordering of VRFs per\-VPN interface
-        	**type**\: list of  		 :py:class:`Mplsvpnvrfentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
+        	**type**\: list of  		 :py:class:`MplsVpnVrfEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
         
         
 
@@ -382,15 +374,14 @@ class MPLSVPNMIB(Entity):
         _revision = '2001-10-15'
 
         def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnvrftable, self).__init__()
+            super(MPLSVPNMIB.MplsVpnVrfTable, self).__init__()
 
             self.yang_name = "mplsVpnVrfTable"
             self.yang_parent_name = "MPLS-VPN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsVpnVrfEntry", ("mplsvpnvrfentry", MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry))])
+            self._child_classes = OrderedDict([("mplsVpnVrfEntry", ("mplsvpnvrfentry", MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry))])
             self._leafs = OrderedDict()
 
             self.mplsvpnvrfentry = YList(self)
@@ -398,10 +389,10 @@ class MPLSVPNMIB(Entity):
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrftable, [], name, value)
+            self._perform_setattr(MPLSVPNMIB.MplsVpnVrfTable, [], name, value)
 
 
-        class Mplsvpnvrfentry(Entity):
+        class MplsVpnVrfEntry(Entity):
             """
             An entry in this table is created by an LSR for
             every VRF capable of supporting MPLS/BGP VPN. The
@@ -437,7 +428,7 @@ class MPLSVPNMIB(Entity):
             .. attribute:: mplsvpnvrfoperstatus
             
             	Denotes whether a VRF is operational or not. A VRF is  up(1) when at least one interface associated with the VRF, which ifOperStatus is up(1). A VRF is down(2) when\:  a. There does not exist at least one interface whose    ifOperStatus is up(1).  b. There are no interfaces associated with the VRF
-            	**type**\:  :py:class:`Mplsvpnvrfoperstatus <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry.Mplsvpnvrfoperstatus>`
+            	**type**\:  :py:class:`MplsVpnVrfOperStatus <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry.MplsVpnVrfOperStatus>`
             
             .. attribute:: mplsvpnvrfactiveinterfaces
             
@@ -534,15 +525,14 @@ class MPLSVPNMIB(Entity):
             _revision = '2001-10-15'
 
             def __init__(self):
-                super(MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry, self).__init__()
+                super(MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry, self).__init__()
 
                 self.yang_name = "mplsVpnVrfEntry"
                 self.yang_parent_name = "mplsVpnVrfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsvpnvrfname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
                     ('mplsvpnvrfdescription', YLeaf(YType.str, 'mplsVpnVrfDescription')),
@@ -585,11 +575,11 @@ class MPLSVPNMIB(Entity):
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry, ['mplsvpnvrfname', 'mplsvpnvrfdescription', 'mplsvpnvrfroutedistinguisher', 'mplsvpnvrfcreationtime', 'mplsvpnvrfoperstatus', 'mplsvpnvrfactiveinterfaces', 'mplsvpnvrfassociatedinterfaces', 'mplsvpnvrfconfmidroutethreshold', 'mplsvpnvrfconfhighroutethreshold', 'mplsvpnvrfconfmaxroutes', 'mplsvpnvrfconflastchanged', 'mplsvpnvrfconfrowstatus', 'mplsvpnvrfconfstoragetype', 'mplsvpnvrfsecillegallabelviolations', 'mplsvpnvrfsecillegallabelrcvthresh', 'mplsvpnvrfperfroutesadded', 'mplsvpnvrfperfroutesdeleted', 'mplsvpnvrfperfcurrnumroutes'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry, [u'mplsvpnvrfname', u'mplsvpnvrfdescription', u'mplsvpnvrfroutedistinguisher', u'mplsvpnvrfcreationtime', u'mplsvpnvrfoperstatus', u'mplsvpnvrfactiveinterfaces', u'mplsvpnvrfassociatedinterfaces', u'mplsvpnvrfconfmidroutethreshold', u'mplsvpnvrfconfhighroutethreshold', u'mplsvpnvrfconfmaxroutes', u'mplsvpnvrfconflastchanged', u'mplsvpnvrfconfrowstatus', u'mplsvpnvrfconfstoragetype', u'mplsvpnvrfsecillegallabelviolations', u'mplsvpnvrfsecillegallabelrcvthresh', u'mplsvpnvrfperfroutesadded', u'mplsvpnvrfperfroutesdeleted', u'mplsvpnvrfperfcurrnumroutes'], name, value)
 
-            class Mplsvpnvrfoperstatus(Enum):
+            class MplsVpnVrfOperStatus(Enum):
                 """
-                Mplsvpnvrfoperstatus (Enum Class)
+                MplsVpnVrfOperStatus (Enum Class)
 
                 Denotes whether a VRF is operational or not. A VRF is 
 
@@ -615,7 +605,7 @@ class MPLSVPNMIB(Entity):
 
 
 
-    class Mplsvpnvrfroutetargettable(Entity):
+    class MplsVpnVrfRouteTargetTable(Entity):
         """
         This table specifies per\-VRF route target association.
         Each entry identifies a connectivity policy supported
@@ -624,7 +614,7 @@ class MPLSVPNMIB(Entity):
         .. attribute:: mplsvpnvrfroutetargetentry
         
         	 An entry in this table is created by an LSR for each route target configured for a VRF supporting a MPLS/BGP VPN instance. The indexing provides an ordering per\-VRF instance
-        	**type**\: list of  		 :py:class:`Mplsvpnvrfroutetargetentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry>`
+        	**type**\: list of  		 :py:class:`MplsVpnVrfRouteTargetEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry>`
         
         
 
@@ -634,15 +624,14 @@ class MPLSVPNMIB(Entity):
         _revision = '2001-10-15'
 
         def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnvrfroutetargettable, self).__init__()
+            super(MPLSVPNMIB.MplsVpnVrfRouteTargetTable, self).__init__()
 
             self.yang_name = "mplsVpnVrfRouteTargetTable"
             self.yang_parent_name = "MPLS-VPN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsVpnVrfRouteTargetEntry", ("mplsvpnvrfroutetargetentry", MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry))])
+            self._child_classes = OrderedDict([("mplsVpnVrfRouteTargetEntry", ("mplsvpnvrfroutetargetentry", MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry))])
             self._leafs = OrderedDict()
 
             self.mplsvpnvrfroutetargetentry = YList(self)
@@ -650,10 +639,10 @@ class MPLSVPNMIB(Entity):
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetargettable, [], name, value)
+            self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTargetTable, [], name, value)
 
 
-        class Mplsvpnvrfroutetargetentry(Entity):
+        class MplsVpnVrfRouteTargetEntry(Entity):
             """
              An entry in this table is created by an LSR for
             each route target configured for a VRF supporting
@@ -667,7 +656,7 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..31
             
-            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
+            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
             .. attribute:: mplsvpnvrfroutetargetindex  (key)
             
@@ -679,7 +668,7 @@ class MPLSVPNMIB(Entity):
             .. attribute:: mplsvpnvrfroutetargettype  (key)
             
             	The route target export distribution type
-            	**type**\:  :py:class:`Mplsvpnvrfroutetargettype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargettype>`
+            	**type**\:  :py:class:`MplsVpnVrfRouteTargetType <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry.MplsVpnVrfRouteTargetType>`
             
             .. attribute:: mplsvpnvrfroutetarget
             
@@ -706,15 +695,14 @@ class MPLSVPNMIB(Entity):
             _revision = '2001-10-15'
 
             def __init__(self):
-                super(MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, self).__init__()
+                super(MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry, self).__init__()
 
                 self.yang_name = "mplsVpnVrfRouteTargetEntry"
                 self.yang_parent_name = "mplsVpnVrfRouteTargetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpnvrfroutetargetindex','mplsvpnvrfroutetargettype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
                     ('mplsvpnvrfroutetargetindex', YLeaf(YType.uint32, 'mplsVpnVrfRouteTargetIndex')),
@@ -733,11 +721,11 @@ class MPLSVPNMIB(Entity):
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTargetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, ['mplsvpnvrfname', 'mplsvpnvrfroutetargetindex', 'mplsvpnvrfroutetargettype', 'mplsvpnvrfroutetarget', 'mplsvpnvrfroutetargetdescr', 'mplsvpnvrfroutetargetrowstatus'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry, [u'mplsvpnvrfname', u'mplsvpnvrfroutetargetindex', u'mplsvpnvrfroutetargettype', u'mplsvpnvrfroutetarget', u'mplsvpnvrfroutetargetdescr', u'mplsvpnvrfroutetargetrowstatus'], name, value)
 
-            class Mplsvpnvrfroutetargettype(Enum):
+            class MplsVpnVrfRouteTargetType(Enum):
                 """
-                Mplsvpnvrfroutetargettype (Enum Class)
+                MplsVpnVrfRouteTargetType (Enum Class)
 
                 The route target export distribution type.
 
@@ -757,7 +745,7 @@ class MPLSVPNMIB(Entity):
 
 
 
-    class Mplsvpnvrfbgpnbraddrtable(Entity):
+    class MplsVpnVrfBgpNbrAddrTable(Entity):
         """
         Each entry in this table specifies a per\-interface 
         MPLS/EBGP neighbor.
@@ -765,7 +753,7 @@ class MPLSVPNMIB(Entity):
         .. attribute:: mplsvpnvrfbgpnbraddrentry
         
         	An entry in this table is created by an LSR for every VRF capable of supporting MPLS/BGP VPN. The indexing provides an ordering of VRFs per\-VPN interface
-        	**type**\: list of  		 :py:class:`Mplsvpnvrfbgpnbraddrentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry>`
+        	**type**\: list of  		 :py:class:`MplsVpnVrfBgpNbrAddrEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry>`
         
         
 
@@ -775,15 +763,14 @@ class MPLSVPNMIB(Entity):
         _revision = '2001-10-15'
 
         def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable, self).__init__()
+            super(MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable, self).__init__()
 
             self.yang_name = "mplsVpnVrfBgpNbrAddrTable"
             self.yang_parent_name = "MPLS-VPN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsVpnVrfBgpNbrAddrEntry", ("mplsvpnvrfbgpnbraddrentry", MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry))])
+            self._child_classes = OrderedDict([("mplsVpnVrfBgpNbrAddrEntry", ("mplsvpnvrfbgpnbraddrentry", MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry))])
             self._leafs = OrderedDict()
 
             self.mplsvpnvrfbgpnbraddrentry = YList(self)
@@ -791,10 +778,10 @@ class MPLSVPNMIB(Entity):
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable, [], name, value)
+            self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable, [], name, value)
 
 
-        class Mplsvpnvrfbgpnbraddrentry(Entity):
+        class MplsVpnVrfBgpNbrAddrEntry(Entity):
             """
             An entry in this table is created by an LSR for
             every VRF capable of supporting MPLS/BGP VPN. The
@@ -808,7 +795,7 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..31
             
-            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
+            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
             .. attribute:: mplsvpninterfaceconfindex  (key)
             
@@ -817,7 +804,7 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`mplsvpninterfaceconfindex <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry>`
+            	**refers to**\:  :py:class:`mplsvpninterfaceconfindex <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry>`
             
             .. attribute:: mplsvpnvrfbgpnbrindex  (key)
             
@@ -829,7 +816,7 @@ class MPLSVPNMIB(Entity):
             .. attribute:: mplsvpnvrfbgpnbrrole
             
             	Denotes the role played by this EBGP neighbor with respect to this VRF
-            	**type**\:  :py:class:`Mplsvpnvrfbgpnbrrole <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrrole>`
+            	**type**\:  :py:class:`MplsVpnVrfBgpNbrRole <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry.MplsVpnVrfBgpNbrRole>`
             
             .. attribute:: mplsvpnvrfbgpnbrtype
             
@@ -861,15 +848,14 @@ class MPLSVPNMIB(Entity):
             _revision = '2001-10-15'
 
             def __init__(self):
-                super(MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry, self).__init__()
+                super(MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry, self).__init__()
 
                 self.yang_name = "mplsVpnVrfBgpNbrAddrEntry"
                 self.yang_parent_name = "mplsVpnVrfBgpNbrAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpninterfaceconfindex','mplsvpnvrfbgpnbrindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
                     ('mplsvpninterfaceconfindex', YLeaf(YType.str, 'mplsVpnInterfaceConfIndex')),
@@ -892,11 +878,11 @@ class MPLSVPNMIB(Entity):
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry, ['mplsvpnvrfname', 'mplsvpninterfaceconfindex', 'mplsvpnvrfbgpnbrindex', 'mplsvpnvrfbgpnbrrole', 'mplsvpnvrfbgpnbrtype', 'mplsvpnvrfbgpnbraddr', 'mplsvpnvrfbgpnbrrowstatus', 'mplsvpnvrfbgpnbrstoragetype'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry, [u'mplsvpnvrfname', u'mplsvpninterfaceconfindex', u'mplsvpnvrfbgpnbrindex', u'mplsvpnvrfbgpnbrrole', u'mplsvpnvrfbgpnbrtype', u'mplsvpnvrfbgpnbraddr', u'mplsvpnvrfbgpnbrrowstatus', u'mplsvpnvrfbgpnbrstoragetype'], name, value)
 
-            class Mplsvpnvrfbgpnbrrole(Enum):
+            class MplsVpnVrfBgpNbrRole(Enum):
                 """
-                Mplsvpnvrfbgpnbrrole (Enum Class)
+                MplsVpnVrfBgpNbrRole (Enum Class)
 
                 Denotes the role played by this EBGP neighbor
 
@@ -914,7 +900,7 @@ class MPLSVPNMIB(Entity):
 
 
 
-    class Mplsvpnvrfbgpnbrprefixtable(Entity):
+    class MplsVpnVrfBgpNbrPrefixTable(Entity):
         """
         This table specifies per\-VRF vpnv4 multi\-protocol
         prefixes supported by BGP.
@@ -922,7 +908,7 @@ class MPLSVPNMIB(Entity):
         .. attribute:: mplsvpnvrfbgpnbrprefixentry
         
         	An entry in this table is created by an LSR for every BGP prefix associated with a VRF supporting a  MPLS/BGP VPN. The indexing provides an ordering of  BGP prefixes per VRF
-        	**type**\: list of  		 :py:class:`Mplsvpnvrfbgpnbrprefixentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry>`
+        	**type**\: list of  		 :py:class:`MplsVpnVrfBgpNbrPrefixEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry>`
         
         
 
@@ -932,15 +918,14 @@ class MPLSVPNMIB(Entity):
         _revision = '2001-10-15'
 
         def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable, self).__init__()
+            super(MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable, self).__init__()
 
             self.yang_name = "mplsVpnVrfBgpNbrPrefixTable"
             self.yang_parent_name = "MPLS-VPN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsVpnVrfBgpNbrPrefixEntry", ("mplsvpnvrfbgpnbrprefixentry", MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry))])
+            self._child_classes = OrderedDict([("mplsVpnVrfBgpNbrPrefixEntry", ("mplsvpnvrfbgpnbrprefixentry", MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry))])
             self._leafs = OrderedDict()
 
             self.mplsvpnvrfbgpnbrprefixentry = YList(self)
@@ -948,10 +933,10 @@ class MPLSVPNMIB(Entity):
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable, [], name, value)
+            self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable, [], name, value)
 
 
-        class Mplsvpnvrfbgpnbrprefixentry(Entity):
+        class MplsVpnVrfBgpNbrPrefixEntry(Entity):
             """
             An entry in this table is created by an LSR for
             every BGP prefix associated with a VRF supporting a 
@@ -965,7 +950,7 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..31
             
-            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
+            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
             .. attribute:: mplsvpnvrfbgppathattripaddrprefix  (key)
             
@@ -991,7 +976,7 @@ class MPLSVPNMIB(Entity):
             .. attribute:: mplsvpnvrfbgppathattrorigin
             
             	The ultimate origin of the path information
-            	**type**\:  :py:class:`Mplsvpnvrfbgppathattrorigin <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrorigin>`
+            	**type**\:  :py:class:`MplsVpnVrfBgpPathAttrOrigin <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrOrigin>`
             
             .. attribute:: mplsvpnvrfbgppathattraspathsegment
             
@@ -1024,7 +1009,7 @@ class MPLSVPNMIB(Entity):
             .. attribute:: mplsvpnvrfbgppathattratomicaggregate
             
             	Whether or not the local system has selected a less specific route without selecting a more specific route
-            	**type**\:  :py:class:`Mplsvpnvrfbgppathattratomicaggregate <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattratomicaggregate>`
+            	**type**\:  :py:class:`MplsVpnVrfBgpPathAttrAtomicAggregate <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrAtomicAggregate>`
             
             .. attribute:: mplsvpnvrfbgppathattraggregatoras
             
@@ -1050,7 +1035,7 @@ class MPLSVPNMIB(Entity):
             .. attribute:: mplsvpnvrfbgppathattrbest
             
             	An indication of whether or not this route was chosen as the best BGP4 route
-            	**type**\:  :py:class:`Mplsvpnvrfbgppathattrbest <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrbest>`
+            	**type**\:  :py:class:`MplsVpnVrfBgpPathAttrBest <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrBest>`
             
             .. attribute:: mplsvpnvrfbgppathattrunknown
             
@@ -1067,15 +1052,14 @@ class MPLSVPNMIB(Entity):
             _revision = '2001-10-15'
 
             def __init__(self):
-                super(MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry, self).__init__()
+                super(MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry, self).__init__()
 
                 self.yang_name = "mplsVpnVrfBgpNbrPrefixEntry"
                 self.yang_parent_name = "mplsVpnVrfBgpNbrPrefixTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpnvrfbgppathattripaddrprefix','mplsvpnvrfbgppathattripaddrprefixlen','mplsvpnvrfbgppathattrpeer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
                     ('mplsvpnvrfbgppathattripaddrprefix', YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrIpAddrPrefix')),
@@ -1112,11 +1096,11 @@ class MPLSVPNMIB(Entity):
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry, ['mplsvpnvrfname', 'mplsvpnvrfbgppathattripaddrprefix', 'mplsvpnvrfbgppathattripaddrprefixlen', 'mplsvpnvrfbgppathattrpeer', 'mplsvpnvrfbgppathattrorigin', 'mplsvpnvrfbgppathattraspathsegment', 'mplsvpnvrfbgppathattrnexthop', 'mplsvpnvrfbgppathattrmultiexitdisc', 'mplsvpnvrfbgppathattrlocalpref', 'mplsvpnvrfbgppathattratomicaggregate', 'mplsvpnvrfbgppathattraggregatoras', 'mplsvpnvrfbgppathattraggregatoraddr', 'mplsvpnvrfbgppathattrcalclocalpref', 'mplsvpnvrfbgppathattrbest', 'mplsvpnvrfbgppathattrunknown'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry, [u'mplsvpnvrfname', u'mplsvpnvrfbgppathattripaddrprefix', u'mplsvpnvrfbgppathattripaddrprefixlen', u'mplsvpnvrfbgppathattrpeer', u'mplsvpnvrfbgppathattrorigin', u'mplsvpnvrfbgppathattraspathsegment', u'mplsvpnvrfbgppathattrnexthop', u'mplsvpnvrfbgppathattrmultiexitdisc', u'mplsvpnvrfbgppathattrlocalpref', u'mplsvpnvrfbgppathattratomicaggregate', u'mplsvpnvrfbgppathattraggregatoras', u'mplsvpnvrfbgppathattraggregatoraddr', u'mplsvpnvrfbgppathattrcalclocalpref', u'mplsvpnvrfbgppathattrbest', u'mplsvpnvrfbgppathattrunknown'], name, value)
 
-            class Mplsvpnvrfbgppathattratomicaggregate(Enum):
+            class MplsVpnVrfBgpPathAttrAtomicAggregate(Enum):
                 """
-                Mplsvpnvrfbgppathattratomicaggregate (Enum Class)
+                MplsVpnVrfBgpPathAttrAtomicAggregate (Enum Class)
 
                 Whether or not the local system has
 
@@ -1135,9 +1119,9 @@ class MPLSVPNMIB(Entity):
                 lessSpecificRouteSelected = Enum.YLeaf(2, "lessSpecificRouteSelected")
 
 
-            class Mplsvpnvrfbgppathattrbest(Enum):
+            class MplsVpnVrfBgpPathAttrBest(Enum):
                 """
-                Mplsvpnvrfbgppathattrbest (Enum Class)
+                MplsVpnVrfBgpPathAttrBest (Enum Class)
 
                 An indication of whether or not this route
 
@@ -1154,9 +1138,9 @@ class MPLSVPNMIB(Entity):
                 true = Enum.YLeaf(2, "true")
 
 
-            class Mplsvpnvrfbgppathattrorigin(Enum):
+            class MplsVpnVrfBgpPathAttrOrigin(Enum):
                 """
-                Mplsvpnvrfbgppathattrorigin (Enum Class)
+                MplsVpnVrfBgpPathAttrOrigin (Enum Class)
 
                 The ultimate origin of the path
 
@@ -1178,7 +1162,7 @@ class MPLSVPNMIB(Entity):
 
 
 
-    class Mplsvpnvrfroutetable(Entity):
+    class MplsVpnVrfRouteTable(Entity):
         """
         This table specifies per\-interface MPLS/BGP VPN VRF Table
         routing information. Entries in this table define VRF routing
@@ -1189,7 +1173,7 @@ class MPLSVPNMIB(Entity):
         .. attribute:: mplsvpnvrfrouteentry
         
         	An entry in this table is created by an LSR for every route present configured (either dynamically or statically) within the context of a specific VRF capable of supporting MPLS/BGP VPN. The indexing provides an ordering of VRFs per\-VPN interface
-        	**type**\: list of  		 :py:class:`Mplsvpnvrfrouteentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry>`
+        	**type**\: list of  		 :py:class:`MplsVpnVrfRouteEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry>`
         
         
 
@@ -1199,15 +1183,14 @@ class MPLSVPNMIB(Entity):
         _revision = '2001-10-15'
 
         def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnvrfroutetable, self).__init__()
+            super(MPLSVPNMIB.MplsVpnVrfRouteTable, self).__init__()
 
             self.yang_name = "mplsVpnVrfRouteTable"
             self.yang_parent_name = "MPLS-VPN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsVpnVrfRouteEntry", ("mplsvpnvrfrouteentry", MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry))])
+            self._child_classes = OrderedDict([("mplsVpnVrfRouteEntry", ("mplsvpnvrfrouteentry", MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry))])
             self._leafs = OrderedDict()
 
             self.mplsvpnvrfrouteentry = YList(self)
@@ -1215,10 +1198,10 @@ class MPLSVPNMIB(Entity):
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetable, [], name, value)
+            self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTable, [], name, value)
 
 
-        class Mplsvpnvrfrouteentry(Entity):
+        class MplsVpnVrfRouteEntry(Entity):
             """
             An entry in this table is created by an LSR for every route
             present configured (either dynamically or statically) within
@@ -1233,7 +1216,7 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..31
             
-            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
+            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
             .. attribute:: mplsvpnvrfroutedest  (key)
             
@@ -1288,12 +1271,12 @@ class MPLSVPNMIB(Entity):
             .. attribute:: mplsvpnvrfroutetype
             
             	The type of route.  Note that local(3)  refers to a route for which the next hop is the final destination; remote(4) refers to a route for that the next  hop is not the final destination. Routes which do not result in traffic forwarding or rejection should not be displayed even if the implementation keeps them stored internally.  reject (2) refers to a route which, if matched, discards the message as unreachable. This is used in some protocols as a means of correctly aggregating routes
-            	**type**\:  :py:class:`Mplsvpnvrfroutetype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.Mplsvpnvrfroutetype>`
+            	**type**\:  :py:class:`MplsVpnVrfRouteType <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry.MplsVpnVrfRouteType>`
             
             .. attribute:: mplsvpnvrfrouteproto
             
             	The routing mechanism via which this route was learned.  Inclusion of values for gateway rout\- ing protocols is not  intended  to  imply  that hosts should support those protocols
-            	**type**\:  :py:class:`Mplsvpnvrfrouteproto <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.Mplsvpnvrfrouteproto>`
+            	**type**\:  :py:class:`MplsVpnVrfRouteProto <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry.MplsVpnVrfRouteProto>`
             
             .. attribute:: mplsvpnvrfrouteage
             
@@ -1369,15 +1352,14 @@ class MPLSVPNMIB(Entity):
             _revision = '2001-10-15'
 
             def __init__(self):
-                super(MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry, self).__init__()
+                super(MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry, self).__init__()
 
                 self.yang_name = "mplsVpnVrfRouteEntry"
                 self.yang_parent_name = "mplsVpnVrfRouteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpnvrfroutedest','mplsvpnvrfroutemask','mplsvpnvrfroutetos','mplsvpnvrfroutenexthop']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
                     ('mplsvpnvrfroutedest', YLeaf(YType.str, 'mplsVpnVrfRouteDest')),
@@ -1426,11 +1408,11 @@ class MPLSVPNMIB(Entity):
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry, ['mplsvpnvrfname', 'mplsvpnvrfroutedest', 'mplsvpnvrfroutemask', 'mplsvpnvrfroutetos', 'mplsvpnvrfroutenexthop', 'mplsvpnvrfroutedestaddrtype', 'mplsvpnvrfroutemaskaddrtype', 'mplsvpnvrfroutenexthopaddrtype', 'mplsvpnvrfrouteifindex', 'mplsvpnvrfroutetype', 'mplsvpnvrfrouteproto', 'mplsvpnvrfrouteage', 'mplsvpnvrfrouteinfo', 'mplsvpnvrfroutenexthopas', 'mplsvpnvrfroutemetric1', 'mplsvpnvrfroutemetric2', 'mplsvpnvrfroutemetric3', 'mplsvpnvrfroutemetric4', 'mplsvpnvrfroutemetric5', 'mplsvpnvrfrouterowstatus', 'mplsvpnvrfroutestoragetype'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry, [u'mplsvpnvrfname', u'mplsvpnvrfroutedest', u'mplsvpnvrfroutemask', u'mplsvpnvrfroutetos', u'mplsvpnvrfroutenexthop', u'mplsvpnvrfroutedestaddrtype', u'mplsvpnvrfroutemaskaddrtype', u'mplsvpnvrfroutenexthopaddrtype', u'mplsvpnvrfrouteifindex', u'mplsvpnvrfroutetype', u'mplsvpnvrfrouteproto', u'mplsvpnvrfrouteage', u'mplsvpnvrfrouteinfo', u'mplsvpnvrfroutenexthopas', u'mplsvpnvrfroutemetric1', u'mplsvpnvrfroutemetric2', u'mplsvpnvrfroutemetric3', u'mplsvpnvrfroutemetric4', u'mplsvpnvrfroutemetric5', u'mplsvpnvrfrouterowstatus', u'mplsvpnvrfroutestoragetype'], name, value)
 
-            class Mplsvpnvrfrouteproto(Enum):
+            class MplsVpnVrfRouteProto(Enum):
                 """
-                Mplsvpnvrfrouteproto (Enum Class)
+                MplsVpnVrfRouteProto (Enum Class)
 
                 The routing mechanism via which this route was
 
@@ -1507,9 +1489,9 @@ class MPLSVPNMIB(Entity):
                 ciscoEigrp = Enum.YLeaf(16, "ciscoEigrp")
 
 
-            class Mplsvpnvrfroutetype(Enum):
+            class MplsVpnVrfRouteType(Enum):
                 """
-                Mplsvpnvrfroutetype (Enum Class)
+                MplsVpnVrfRouteType (Enum Class)
 
                 The type of route.  Note that local(3)  refers
 

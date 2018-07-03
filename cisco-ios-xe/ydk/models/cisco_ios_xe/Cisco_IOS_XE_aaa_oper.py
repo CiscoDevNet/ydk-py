@@ -501,8 +501,7 @@ class AaaData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("aaa-users", ("aaa_users", AaaData.AaaUsers))])
+        self._child_classes = OrderedDict([("aaa-users", ("aaa_users", AaaData.AaaUsers))])
         self._leafs = OrderedDict()
 
         self.aaa_users = YList(self)
@@ -541,8 +540,7 @@ class AaaData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['username']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("aaa-sessions", ("aaa_sessions", AaaData.AaaUsers.AaaSessions))])
+            self._child_classes = OrderedDict([("aaa-sessions", ("aaa_sessions", AaaData.AaaUsers.AaaSessions))])
             self._leafs = OrderedDict([
                 ('username', YLeaf(YType.str, 'username')),
             ])
@@ -614,8 +612,7 @@ class AaaData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['aaa_uid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('aaa_uid', YLeaf(YType.uint32, 'aaa-uid')),
                     ('session_id', YLeaf(YType.uint32, 'session-id')),

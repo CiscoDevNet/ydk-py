@@ -45,15 +45,16 @@ class PlatformPtp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("platform-ptp-servo", ("platform_ptp_servo", PlatformPtp.PlatformPtpServo))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("platform-ptp-servo", ("platform_ptp_servo", PlatformPtp.PlatformPtpServo))])
         self._leafs = OrderedDict()
 
         self.platform_ptp_servo = PlatformPtp.PlatformPtpServo()
         self.platform_ptp_servo.parent = self
         self._children_name_map["platform_ptp_servo"] = "platform-ptp-servo"
-        self._children_yang_names.add("platform-ptp-servo")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PlatformPtp, [], name, value)
 
 
     class PlatformPtpServo(Entity):
@@ -242,8 +243,7 @@ class PlatformPtp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("last-set-time", ("last_set_time", PlatformPtp.PlatformPtpServo.LastSetTime)), ("last-received-t1", ("last_received_t1", PlatformPtp.PlatformPtpServo.LastReceivedT1)), ("last-received-t2", ("last_received_t2", PlatformPtp.PlatformPtpServo.LastReceivedT2)), ("last-received-t3", ("last_received_t3", PlatformPtp.PlatformPtpServo.LastReceivedT3)), ("last-received-t4", ("last_received_t4", PlatformPtp.PlatformPtpServo.LastReceivedT4)), ("pre-received-t1", ("pre_received_t1", PlatformPtp.PlatformPtpServo.PreReceivedT1)), ("pre-received-t2", ("pre_received_t2", PlatformPtp.PlatformPtpServo.PreReceivedT2)), ("pre-received-t3", ("pre_received_t3", PlatformPtp.PlatformPtpServo.PreReceivedT3)), ("pre-received-t4", ("pre_received_t4", PlatformPtp.PlatformPtpServo.PreReceivedT4))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("last-set-time", ("last_set_time", PlatformPtp.PlatformPtpServo.LastSetTime)), ("last-received-t1", ("last_received_t1", PlatformPtp.PlatformPtpServo.LastReceivedT1)), ("last-received-t2", ("last_received_t2", PlatformPtp.PlatformPtpServo.LastReceivedT2)), ("last-received-t3", ("last_received_t3", PlatformPtp.PlatformPtpServo.LastReceivedT3)), ("last-received-t4", ("last_received_t4", PlatformPtp.PlatformPtpServo.LastReceivedT4)), ("pre-received-t1", ("pre_received_t1", PlatformPtp.PlatformPtpServo.PreReceivedT1)), ("pre-received-t2", ("pre_received_t2", PlatformPtp.PlatformPtpServo.PreReceivedT2)), ("pre-received-t3", ("pre_received_t3", PlatformPtp.PlatformPtpServo.PreReceivedT3)), ("pre-received-t4", ("pre_received_t4", PlatformPtp.PlatformPtpServo.PreReceivedT4))])
             self._leafs = OrderedDict([
                 ('lock_status', YLeaf(YType.uint16, 'lock-status')),
                 ('running', YLeaf(YType.boolean, 'running')),
@@ -286,47 +286,38 @@ class PlatformPtp(Entity):
             self.last_set_time = PlatformPtp.PlatformPtpServo.LastSetTime()
             self.last_set_time.parent = self
             self._children_name_map["last_set_time"] = "last-set-time"
-            self._children_yang_names.add("last-set-time")
 
             self.last_received_t1 = PlatformPtp.PlatformPtpServo.LastReceivedT1()
             self.last_received_t1.parent = self
             self._children_name_map["last_received_t1"] = "last-received-t1"
-            self._children_yang_names.add("last-received-t1")
 
             self.last_received_t2 = PlatformPtp.PlatformPtpServo.LastReceivedT2()
             self.last_received_t2.parent = self
             self._children_name_map["last_received_t2"] = "last-received-t2"
-            self._children_yang_names.add("last-received-t2")
 
             self.last_received_t3 = PlatformPtp.PlatformPtpServo.LastReceivedT3()
             self.last_received_t3.parent = self
             self._children_name_map["last_received_t3"] = "last-received-t3"
-            self._children_yang_names.add("last-received-t3")
 
             self.last_received_t4 = PlatformPtp.PlatformPtpServo.LastReceivedT4()
             self.last_received_t4.parent = self
             self._children_name_map["last_received_t4"] = "last-received-t4"
-            self._children_yang_names.add("last-received-t4")
 
             self.pre_received_t1 = PlatformPtp.PlatformPtpServo.PreReceivedT1()
             self.pre_received_t1.parent = self
             self._children_name_map["pre_received_t1"] = "pre-received-t1"
-            self._children_yang_names.add("pre-received-t1")
 
             self.pre_received_t2 = PlatformPtp.PlatformPtpServo.PreReceivedT2()
             self.pre_received_t2.parent = self
             self._children_name_map["pre_received_t2"] = "pre-received-t2"
-            self._children_yang_names.add("pre-received-t2")
 
             self.pre_received_t3 = PlatformPtp.PlatformPtpServo.PreReceivedT3()
             self.pre_received_t3.parent = self
             self._children_name_map["pre_received_t3"] = "pre-received-t3"
-            self._children_yang_names.add("pre-received-t3")
 
             self.pre_received_t4 = PlatformPtp.PlatformPtpServo.PreReceivedT4()
             self.pre_received_t4.parent = self
             self._children_name_map["pre_received_t4"] = "pre-received-t4"
-            self._children_yang_names.add("pre-received-t4")
             self._segment_path = lambda: "platform-ptp-servo"
             self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/%s" % self._segment_path()
 
@@ -367,8 +358,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),
@@ -415,8 +405,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),
@@ -463,8 +452,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),
@@ -511,8 +499,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),
@@ -559,8 +546,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),
@@ -607,8 +593,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),
@@ -655,8 +640,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),
@@ -703,8 +687,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),
@@ -751,8 +734,7 @@ class PlatformPtp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('second', YLeaf(YType.uint32, 'second')),
                     ('nano_second', YLeaf(YType.uint32, 'nano-second')),

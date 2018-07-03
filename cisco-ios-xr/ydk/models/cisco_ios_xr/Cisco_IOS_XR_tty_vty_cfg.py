@@ -34,7 +34,7 @@ class Vty(Entity):
     """
 
     _prefix = 'tty-vty-cfg'
-    _revision = '2015-09-16'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Vty, self).__init__()
@@ -45,15 +45,16 @@ class Vty(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vty-pools", ("vty_pools", Vty.VtyPools))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vty-pools", ("vty_pools", Vty.VtyPools))])
         self._leafs = OrderedDict()
 
         self.vty_pools = Vty.VtyPools()
         self.vty_pools.parent = self
         self._children_name_map["vty_pools"] = "vty-pools"
-        self._children_yang_names.add("vty-pools")
         self._segment_path = lambda: "Cisco-IOS-XR-tty-vty-cfg:vty"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Vty, [], name, value)
 
 
     class VtyPools(Entity):
@@ -70,7 +71,7 @@ class Vty(Entity):
         """
 
         _prefix = 'tty-vty-cfg'
-        _revision = '2015-09-16'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vty.VtyPools, self).__init__()
@@ -80,8 +81,7 @@ class Vty(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vty-pool", ("vty_pool", Vty.VtyPools.VtyPool))])
+            self._child_classes = OrderedDict([("vty-pool", ("vty_pool", Vty.VtyPools.VtyPool))])
             self._leafs = OrderedDict()
 
             self.vty_pool = YList(self)
@@ -108,7 +108,7 @@ class Vty(Entity):
             	First VTY number,For default VTY use 0,For user\-defined use 5,For fault\-manager use 100
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             	**mandatory**\: True
             
@@ -117,7 +117,7 @@ class Vty(Entity):
             	Last VTY number,For default configure between 0\-99,For user\-defined configure between 5\-99 ,For fault\-manager configure between 100\-199
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             	**mandatory**\: True
             
@@ -136,7 +136,7 @@ class Vty(Entity):
             """
 
             _prefix = 'tty-vty-cfg'
-            _revision = '2015-09-16'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vty.VtyPools.VtyPool, self).__init__()
@@ -146,12 +146,11 @@ class Vty(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['pool_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('pool_name', YLeaf(YType.str, 'pool-name')),
-                    ('first_vty', YLeaf(YType.int32, 'first-vty')),
-                    ('last_vty', YLeaf(YType.int32, 'last-vty')),
+                    ('first_vty', YLeaf(YType.uint32, 'first-vty')),
+                    ('last_vty', YLeaf(YType.uint32, 'last-vty')),
                     ('line_template', YLeaf(YType.str, 'line-template')),
                     ('none', YLeaf(YType.str, 'none')),
                 ])

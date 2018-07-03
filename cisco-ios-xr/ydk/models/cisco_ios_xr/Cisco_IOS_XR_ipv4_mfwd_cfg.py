@@ -50,8 +50,6 @@ class Mfwd(Entity):
     	Default Context
     	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext>`
     
-    	**presence node**\: True
-    
     .. attribute:: vrfs
     
     	VRF Table
@@ -59,12 +57,10 @@ class Mfwd(Entity):
     
     
 
-    This class is a :ref:`presence class<presence-class>`
-
     """
 
     _prefix = 'ipv4-mfwd-cfg'
-    _revision = '2016-06-01'
+    _revision = '2017-10-15'
 
     def __init__(self):
         super(Mfwd, self).__init__()
@@ -75,20 +71,20 @@ class Mfwd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("default-context", ("default_context", Mfwd.DefaultContext)), ("vrfs", ("vrfs", Mfwd.Vrfs))])
-        self._child_list_classes = OrderedDict([])
-        self.is_presence_container = True
+        self._child_classes = OrderedDict([("default-context", ("default_context", Mfwd.DefaultContext)), ("vrfs", ("vrfs", Mfwd.Vrfs))])
         self._leafs = OrderedDict()
 
-        self.default_context = None
+        self.default_context = Mfwd.DefaultContext()
+        self.default_context.parent = self
         self._children_name_map["default_context"] = "default-context"
-        self._children_yang_names.add("default-context")
 
         self.vrfs = Mfwd.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Mfwd, [], name, value)
 
 
     class DefaultContext(Entity):
@@ -107,12 +103,10 @@ class Mfwd(Entity):
         
         
 
-        This class is a :ref:`presence class<presence-class>`
-
         """
 
         _prefix = 'ipv4-mfwd-cfg'
-        _revision = '2016-06-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Mfwd.DefaultContext, self).__init__()
@@ -122,22 +116,21 @@ class Mfwd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Mfwd.DefaultContext.Ipv6)), ("ipv4", ("ipv4", Mfwd.DefaultContext.Ipv4))])
-            self._child_list_classes = OrderedDict([])
-            self.is_presence_container = True
+            self._child_classes = OrderedDict([("ipv6", ("ipv6", Mfwd.DefaultContext.Ipv6)), ("ipv4", ("ipv4", Mfwd.DefaultContext.Ipv4))])
             self._leafs = OrderedDict()
 
             self.ipv6 = Mfwd.DefaultContext.Ipv6()
             self.ipv6.parent = self
             self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
 
             self.ipv4 = Mfwd.DefaultContext.Ipv4()
             self.ipv4.parent = self
             self._children_name_map["ipv4"] = "ipv4"
-            self._children_yang_names.add("ipv4")
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mfwd.DefaultContext, [], name, value)
 
 
         class Ipv6(Entity):
@@ -217,7 +210,7 @@ class Mfwd(Entity):
             """
 
             _prefix = 'ipv4-mfwd-cfg'
-            _revision = '2016-06-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mfwd.DefaultContext.Ipv6, self).__init__()
@@ -227,8 +220,7 @@ class Mfwd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.DefaultContext.Ipv6.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.DefaultContext.Ipv6.Interfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.DefaultContext.Ipv6.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.DefaultContext.Ipv6.Interfaces))])
                 self._leafs = OrderedDict([
                     ('enable_on_all_interfaces', YLeaf(YType.empty, 'enable-on-all-interfaces')),
                     ('maximum_checking_disable', YLeaf(YType.empty, 'maximum-checking-disable')),
@@ -255,12 +247,10 @@ class Mfwd(Entity):
                 self.static_rpf_rules = Mfwd.DefaultContext.Ipv6.StaticRpfRules()
                 self.static_rpf_rules.parent = self
                 self._children_name_map["static_rpf_rules"] = "static-rpf-rules"
-                self._children_yang_names.add("static-rpf-rules")
 
                 self.interfaces = Mfwd.DefaultContext.Ipv6.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/%s" % self._segment_path()
 
@@ -282,7 +272,7 @@ class Mfwd(Entity):
                 """
 
                 _prefix = 'ipv4-mfwd-cfg'
-                _revision = '2016-06-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mfwd.DefaultContext.Ipv6.StaticRpfRules, self).__init__()
@@ -292,8 +282,7 @@ class Mfwd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("static-rpf-rule", ("static_rpf_rule", Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule))])
+                    self._child_classes = OrderedDict([("static-rpf-rule", ("static_rpf_rule", Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule))])
                     self._leafs = OrderedDict()
 
                     self.static_rpf_rule = YList(self)
@@ -357,7 +346,7 @@ class Mfwd(Entity):
                     """
 
                     _prefix = 'ipv4-mfwd-cfg'
-                    _revision = '2016-06-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule, self).__init__()
@@ -367,8 +356,7 @@ class Mfwd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['address','prefix_mask']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address', YLeaf(YType.str, 'address')),
                             ('prefix_mask', YLeaf(YType.uint32, 'prefix-mask')),
@@ -400,7 +388,7 @@ class Mfwd(Entity):
                 """
 
                 _prefix = 'ipv4-mfwd-cfg'
-                _revision = '2016-06-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mfwd.DefaultContext.Ipv6.Interfaces, self).__init__()
@@ -410,8 +398,7 @@ class Mfwd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Mfwd.DefaultContext.Ipv6.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Mfwd.DefaultContext.Ipv6.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -457,7 +444,7 @@ class Mfwd(Entity):
                     """
 
                     _prefix = 'ipv4-mfwd-cfg'
-                    _revision = '2016-06-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mfwd.DefaultContext.Ipv6.Interfaces.Interface, self).__init__()
@@ -467,8 +454,7 @@ class Mfwd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
@@ -568,7 +554,7 @@ class Mfwd(Entity):
             """
 
             _prefix = 'ipv4-mfwd-cfg'
-            _revision = '2016-06-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mfwd.DefaultContext.Ipv4, self).__init__()
@@ -578,8 +564,7 @@ class Mfwd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.DefaultContext.Ipv4.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.DefaultContext.Ipv4.Interfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.DefaultContext.Ipv4.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.DefaultContext.Ipv4.Interfaces))])
                 self._leafs = OrderedDict([
                     ('out_of_memory_handling', YLeaf(YType.empty, 'out-of-memory-handling')),
                     ('enable_on_all_interfaces', YLeaf(YType.empty, 'enable-on-all-interfaces')),
@@ -608,12 +593,10 @@ class Mfwd(Entity):
                 self.static_rpf_rules = Mfwd.DefaultContext.Ipv4.StaticRpfRules()
                 self.static_rpf_rules.parent = self
                 self._children_name_map["static_rpf_rules"] = "static-rpf-rules"
-                self._children_yang_names.add("static-rpf-rules")
 
                 self.interfaces = Mfwd.DefaultContext.Ipv4.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/%s" % self._segment_path()
 
@@ -635,7 +618,7 @@ class Mfwd(Entity):
                 """
 
                 _prefix = 'ipv4-mfwd-cfg'
-                _revision = '2016-06-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mfwd.DefaultContext.Ipv4.StaticRpfRules, self).__init__()
@@ -645,8 +628,7 @@ class Mfwd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("static-rpf-rule", ("static_rpf_rule", Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule))])
+                    self._child_classes = OrderedDict([("static-rpf-rule", ("static_rpf_rule", Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule))])
                     self._leafs = OrderedDict()
 
                     self.static_rpf_rule = YList(self)
@@ -710,7 +692,7 @@ class Mfwd(Entity):
                     """
 
                     _prefix = 'ipv4-mfwd-cfg'
-                    _revision = '2016-06-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule, self).__init__()
@@ -720,8 +702,7 @@ class Mfwd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['address','prefix_mask']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address', YLeaf(YType.str, 'address')),
                             ('prefix_mask', YLeaf(YType.uint32, 'prefix-mask')),
@@ -753,7 +734,7 @@ class Mfwd(Entity):
                 """
 
                 _prefix = 'ipv4-mfwd-cfg'
-                _revision = '2016-06-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mfwd.DefaultContext.Ipv4.Interfaces, self).__init__()
@@ -763,8 +744,7 @@ class Mfwd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Mfwd.DefaultContext.Ipv4.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Mfwd.DefaultContext.Ipv4.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -810,7 +790,7 @@ class Mfwd(Entity):
                     """
 
                     _prefix = 'ipv4-mfwd-cfg'
-                    _revision = '2016-06-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mfwd.DefaultContext.Ipv4.Interfaces.Interface, self).__init__()
@@ -820,8 +800,7 @@ class Mfwd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
@@ -853,7 +832,7 @@ class Mfwd(Entity):
         """
 
         _prefix = 'ipv4-mfwd-cfg'
-        _revision = '2016-06-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Mfwd.Vrfs, self).__init__()
@@ -863,8 +842,7 @@ class Mfwd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", Mfwd.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", Mfwd.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -901,7 +879,7 @@ class Mfwd(Entity):
             """
 
             _prefix = 'ipv4-mfwd-cfg'
-            _revision = '2016-06-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mfwd.Vrfs.Vrf, self).__init__()
@@ -911,8 +889,7 @@ class Mfwd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Mfwd.Vrfs.Vrf.Ipv6)), ("ipv4", ("ipv4", Mfwd.Vrfs.Vrf.Ipv4))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv6", ("ipv6", Mfwd.Vrfs.Vrf.Ipv6)), ("ipv4", ("ipv4", Mfwd.Vrfs.Vrf.Ipv4))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -921,12 +898,10 @@ class Mfwd(Entity):
                 self.ipv6 = Mfwd.Vrfs.Vrf.Ipv6()
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
 
                 self.ipv4 = Mfwd.Vrfs.Vrf.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/%s" % self._segment_path()
 
@@ -978,7 +953,7 @@ class Mfwd(Entity):
                 """
 
                 _prefix = 'ipv4-mfwd-cfg'
-                _revision = '2016-06-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mfwd.Vrfs.Vrf.Ipv6, self).__init__()
@@ -988,8 +963,7 @@ class Mfwd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.Vrfs.Vrf.Ipv6.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.Vrfs.Vrf.Ipv6.Interfaces))])
                     self._leafs = OrderedDict([
                         ('enable_on_all_interfaces', YLeaf(YType.empty, 'enable-on-all-interfaces')),
                         ('rate_per_route', YLeaf(YType.empty, 'rate-per-route')),
@@ -1006,12 +980,10 @@ class Mfwd(Entity):
                     self.static_rpf_rules = Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules()
                     self.static_rpf_rules.parent = self
                     self._children_name_map["static_rpf_rules"] = "static-rpf-rules"
-                    self._children_yang_names.add("static-rpf-rules")
 
                     self.interfaces = Mfwd.Vrfs.Vrf.Ipv6.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "ipv6"
 
                 def __setattr__(self, name, value):
@@ -1032,7 +1004,7 @@ class Mfwd(Entity):
                     """
 
                     _prefix = 'ipv4-mfwd-cfg'
-                    _revision = '2016-06-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules, self).__init__()
@@ -1042,8 +1014,7 @@ class Mfwd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("static-rpf-rule", ("static_rpf_rule", Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule))])
+                        self._child_classes = OrderedDict([("static-rpf-rule", ("static_rpf_rule", Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule))])
                         self._leafs = OrderedDict()
 
                         self.static_rpf_rule = YList(self)
@@ -1106,7 +1077,7 @@ class Mfwd(Entity):
                         """
 
                         _prefix = 'ipv4-mfwd-cfg'
-                        _revision = '2016-06-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule, self).__init__()
@@ -1116,8 +1087,7 @@ class Mfwd(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['address','prefix_mask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('prefix_mask', YLeaf(YType.uint32, 'prefix-mask')),
@@ -1148,7 +1118,7 @@ class Mfwd(Entity):
                     """
 
                     _prefix = 'ipv4-mfwd-cfg'
-                    _revision = '2016-06-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mfwd.Vrfs.Vrf.Ipv6.Interfaces, self).__init__()
@@ -1158,8 +1128,7 @@ class Mfwd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -1204,7 +1173,7 @@ class Mfwd(Entity):
                         """
 
                         _prefix = 'ipv4-mfwd-cfg'
-                        _revision = '2016-06-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface, self).__init__()
@@ -1214,8 +1183,7 @@ class Mfwd(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
@@ -1276,7 +1244,7 @@ class Mfwd(Entity):
                 """
 
                 _prefix = 'ipv4-mfwd-cfg'
-                _revision = '2016-06-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mfwd.Vrfs.Vrf.Ipv4, self).__init__()
@@ -1286,8 +1254,7 @@ class Mfwd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.Vrfs.Vrf.Ipv4.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.Vrfs.Vrf.Ipv4.Interfaces))])
                     self._leafs = OrderedDict([
                         ('enable_on_all_interfaces', YLeaf(YType.empty, 'enable-on-all-interfaces')),
                         ('rate_per_route', YLeaf(YType.empty, 'rate-per-route')),
@@ -1304,12 +1271,10 @@ class Mfwd(Entity):
                     self.static_rpf_rules = Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules()
                     self.static_rpf_rules.parent = self
                     self._children_name_map["static_rpf_rules"] = "static-rpf-rules"
-                    self._children_yang_names.add("static-rpf-rules")
 
                     self.interfaces = Mfwd.Vrfs.Vrf.Ipv4.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "ipv4"
 
                 def __setattr__(self, name, value):
@@ -1330,7 +1295,7 @@ class Mfwd(Entity):
                     """
 
                     _prefix = 'ipv4-mfwd-cfg'
-                    _revision = '2016-06-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules, self).__init__()
@@ -1340,8 +1305,7 @@ class Mfwd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("static-rpf-rule", ("static_rpf_rule", Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule))])
+                        self._child_classes = OrderedDict([("static-rpf-rule", ("static_rpf_rule", Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule))])
                         self._leafs = OrderedDict()
 
                         self.static_rpf_rule = YList(self)
@@ -1404,7 +1368,7 @@ class Mfwd(Entity):
                         """
 
                         _prefix = 'ipv4-mfwd-cfg'
-                        _revision = '2016-06-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule, self).__init__()
@@ -1414,8 +1378,7 @@ class Mfwd(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['address','prefix_mask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('prefix_mask', YLeaf(YType.uint32, 'prefix-mask')),
@@ -1446,7 +1409,7 @@ class Mfwd(Entity):
                     """
 
                     _prefix = 'ipv4-mfwd-cfg'
-                    _revision = '2016-06-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mfwd.Vrfs.Vrf.Ipv4.Interfaces, self).__init__()
@@ -1456,8 +1419,7 @@ class Mfwd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -1502,7 +1464,7 @@ class Mfwd(Entity):
                         """
 
                         _prefix = 'ipv4-mfwd-cfg'
-                        _revision = '2016-06-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface, self).__init__()
@@ -1512,8 +1474,7 @@ class Mfwd(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),

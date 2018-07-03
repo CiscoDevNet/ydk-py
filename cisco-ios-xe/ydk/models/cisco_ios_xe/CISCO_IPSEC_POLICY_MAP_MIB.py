@@ -55,12 +55,12 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
     .. attribute:: ikepolmaptable
     
     	The IPSec Phase\-1 Internet Key Exchange Tunnel to Policy Mapping Table. There is one entry in this table for each active IPSec Phase\-1 Tunnel
-    	**type**\:  :py:class:`Ikepolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ikepolmaptable>`
+    	**type**\:  :py:class:`IkePolMapTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.IkePolMapTable>`
     
     .. attribute:: ipsecpolmaptable
     
     	The IPSec Phase\-2 Tunnel to Policy Mapping Table. There is one entry in this table for each active IPSec Phase\-2 Tunnel
-    	**type**\:  :py:class:`Ipsecpolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable>`
+    	**type**\:  :py:class:`IpSecPolMapTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable>`
     
     
 
@@ -78,23 +78,23 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ikePolMapTable", ("ikepolmaptable", CISCOIPSECPOLICYMAPMIB.Ikepolmaptable)), ("ipSecPolMapTable", ("ipsecpolmaptable", CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ikePolMapTable", ("ikepolmaptable", CISCOIPSECPOLICYMAPMIB.IkePolMapTable)), ("ipSecPolMapTable", ("ipsecpolmaptable", CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable))])
         self._leafs = OrderedDict()
 
-        self.ikepolmaptable = CISCOIPSECPOLICYMAPMIB.Ikepolmaptable()
+        self.ikepolmaptable = CISCOIPSECPOLICYMAPMIB.IkePolMapTable()
         self.ikepolmaptable.parent = self
         self._children_name_map["ikepolmaptable"] = "ikePolMapTable"
-        self._children_yang_names.add("ikePolMapTable")
 
-        self.ipsecpolmaptable = CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable()
+        self.ipsecpolmaptable = CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable()
         self.ipsecpolmaptable.parent = self
         self._children_name_map["ipsecpolmaptable"] = "ipSecPolMapTable"
-        self._children_yang_names.add("ipSecPolMapTable")
         self._segment_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPSECPOLICYMAPMIB, [], name, value)
 
-    class Ikepolmaptable(Entity):
+
+    class IkePolMapTable(Entity):
         """
         The IPSec Phase\-1 Internet Key Exchange Tunnel
         to Policy Mapping Table. There is one entry in
@@ -104,7 +104,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         .. attribute:: ikepolmapentry
         
         	Each entry contains the attributes associated with mapping an active IPSec Phase\-1 IKE Tunnel to it's configured Policy definition
-        	**type**\: list of  		 :py:class:`Ikepolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry>`
+        	**type**\: list of  		 :py:class:`IkePolMapEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.IkePolMapTable.IkePolMapEntry>`
         
         
 
@@ -114,15 +114,14 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         _revision = '2000-08-17'
 
         def __init__(self):
-            super(CISCOIPSECPOLICYMAPMIB.Ikepolmaptable, self).__init__()
+            super(CISCOIPSECPOLICYMAPMIB.IkePolMapTable, self).__init__()
 
             self.yang_name = "ikePolMapTable"
             self.yang_parent_name = "CISCO-IPSEC-POLICY-MAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ikePolMapEntry", ("ikepolmapentry", CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry))])
+            self._child_classes = OrderedDict([("ikePolMapEntry", ("ikepolmapentry", CISCOIPSECPOLICYMAPMIB.IkePolMapTable.IkePolMapEntry))])
             self._leafs = OrderedDict()
 
             self.ikepolmapentry = YList(self)
@@ -130,10 +129,10 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ikepolmaptable, [], name, value)
+            self._perform_setattr(CISCOIPSECPOLICYMAPMIB.IkePolMapTable, [], name, value)
 
 
-        class Ikepolmapentry(Entity):
+        class IkePolMapEntry(Entity):
             """
             Each entry contains the attributes associated
             with mapping an active IPSec Phase\-1 IKE Tunnel
@@ -161,15 +160,14 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             _revision = '2000-08-17'
 
             def __init__(self):
-                super(CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry, self).__init__()
+                super(CISCOIPSECPOLICYMAPMIB.IkePolMapTable.IkePolMapEntry, self).__init__()
 
                 self.yang_name = "ikePolMapEntry"
                 self.yang_parent_name = "ikePolMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ikepolmaptunindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ikepolmaptunindex', YLeaf(YType.int32, 'ikePolMapTunIndex')),
                     ('ikepolmappolicynum', YLeaf(YType.int32, 'ikePolMapPolicyNum')),
@@ -180,10 +178,10 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ikePolMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry, ['ikepolmaptunindex', 'ikepolmappolicynum'], name, value)
+                self._perform_setattr(CISCOIPSECPOLICYMAPMIB.IkePolMapTable.IkePolMapEntry, ['ikepolmaptunindex', 'ikepolmappolicynum'], name, value)
 
 
-    class Ipsecpolmaptable(Entity):
+    class IpSecPolMapTable(Entity):
         """
         The IPSec Phase\-2 Tunnel to Policy Mapping Table.
         There is one entry in this table for each active
@@ -192,7 +190,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         .. attribute:: ipsecpolmapentry
         
         	Each entry contains the attributes associated with mapping an active IPSec Phase\-2 Tunnel to its configured Policy definition
-        	**type**\: list of  		 :py:class:`Ipsecpolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry>`
+        	**type**\: list of  		 :py:class:`IpSecPolMapEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable.IpSecPolMapEntry>`
         
         
 
@@ -202,15 +200,14 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         _revision = '2000-08-17'
 
         def __init__(self):
-            super(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable, self).__init__()
+            super(CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable, self).__init__()
 
             self.yang_name = "ipSecPolMapTable"
             self.yang_parent_name = "CISCO-IPSEC-POLICY-MAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipSecPolMapEntry", ("ipsecpolmapentry", CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry))])
+            self._child_classes = OrderedDict([("ipSecPolMapEntry", ("ipsecpolmapentry", CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable.IpSecPolMapEntry))])
             self._leafs = OrderedDict()
 
             self.ipsecpolmapentry = YList(self)
@@ -218,10 +215,10 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable, [], name, value)
+            self._perform_setattr(CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable, [], name, value)
 
 
-        class Ipsecpolmapentry(Entity):
+        class IpSecPolMapEntry(Entity):
             """
             Each entry contains the attributes associated
             with mapping an active IPSec Phase\-2 Tunnel
@@ -264,15 +261,14 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             _revision = '2000-08-17'
 
             def __init__(self):
-                super(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry, self).__init__()
+                super(CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable.IpSecPolMapEntry, self).__init__()
 
                 self.yang_name = "ipSecPolMapEntry"
                 self.yang_parent_name = "ipSecPolMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipsecpolmaptunindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipsecpolmaptunindex', YLeaf(YType.int32, 'ipSecPolMapTunIndex')),
                     ('ipsecpolmapcryptomapname', YLeaf(YType.str, 'ipSecPolMapCryptoMapName')),
@@ -289,7 +285,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ipSecPolMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry, ['ipsecpolmaptunindex', 'ipsecpolmapcryptomapname', 'ipsecpolmapcryptomapnum', 'ipsecpolmapaclstring', 'ipsecpolmapacestring'], name, value)
+                self._perform_setattr(CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable.IpSecPolMapEntry, ['ipsecpolmaptunindex', 'ipsecpolmapcryptomapname', 'ipsecpolmapcryptomapnum', 'ipsecpolmapaclstring', 'ipsecpolmapacestring'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPSECPOLICYMAPMIB()

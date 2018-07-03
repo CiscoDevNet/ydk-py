@@ -25,6 +25,10 @@ class CryptoAlg(Enum):
 
     Crypto alg
 
+    .. data:: alg_aes_128_cmac_96 = 1
+
+    	AES 128 CMAC 96
+
     .. data:: alg_hmac_sha1_12 = 2
 
     	HMAC SHA 1 12
@@ -45,7 +49,17 @@ class CryptoAlg(Enum):
 
     	HMAC SHA 1 20
 
+    .. data:: alg_hmac_sha1_96 = 9
+
+    	HMAC SHA 1 96
+
+    .. data:: alg_hmac_sha_256 = 10
+
+    	HMAC SHA 256
+
     """
+
+    alg_aes_128_cmac_96 = Enum.YLeaf(1, "alg-aes-128-cmac-96")
 
     alg_hmac_sha1_12 = Enum.YLeaf(2, "alg-hmac-sha1-12")
 
@@ -56,6 +70,10 @@ class CryptoAlg(Enum):
     alg_hmac_md5_16 = Enum.YLeaf(5, "alg-hmac-md5-16")
 
     alg_hmac_sha1_20 = Enum.YLeaf(6, "alg-hmac-sha1-20")
+
+    alg_hmac_sha1_96 = Enum.YLeaf(9, "alg-hmac-sha1-96")
+
+    alg_hmac_sha_256 = Enum.YLeaf(10, "alg-hmac-sha-256")
 
 
 class KeyChainMonth(Enum):
@@ -196,7 +214,7 @@ class Keychains(Entity):
     """
 
     _prefix = 'lib-keychain-cfg'
-    _revision = '2017-07-19'
+    _revision = '2017-10-15'
 
     def __init__(self):
         super(Keychains, self).__init__()
@@ -207,8 +225,7 @@ class Keychains(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("keychain", ("keychain", Keychains.Keychain))])
+        self._child_classes = OrderedDict([("keychain", ("keychain", Keychains.Keychain))])
         self._leafs = OrderedDict()
 
         self.keychain = YList(self)
@@ -239,8 +256,6 @@ class Keychains(Entity):
         	Name of the key chain for MACSec
         	**type**\:  :py:class:`MacsecKeychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.MacsecKeychain>`
         
-        	**presence node**\: True
-        
         .. attribute:: keies
         
         	Configure a Key
@@ -251,7 +266,7 @@ class Keychains(Entity):
         """
 
         _prefix = 'lib-keychain-cfg'
-        _revision = '2017-07-19'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Keychains.Keychain, self).__init__()
@@ -261,8 +276,7 @@ class Keychains(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['chain_name']
-            self._child_container_classes = OrderedDict([("accept-tolerance", ("accept_tolerance", Keychains.Keychain.AcceptTolerance)), ("macsec-keychain", ("macsec_keychain", Keychains.Keychain.MacsecKeychain)), ("keies", ("keies", Keychains.Keychain.Keies))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("accept-tolerance", ("accept_tolerance", Keychains.Keychain.AcceptTolerance)), ("macsec-keychain", ("macsec_keychain", Keychains.Keychain.MacsecKeychain)), ("keies", ("keies", Keychains.Keychain.Keies))])
             self._leafs = OrderedDict([
                 ('chain_name', YLeaf(YType.str, 'chain-name')),
             ])
@@ -271,16 +285,14 @@ class Keychains(Entity):
             self.accept_tolerance = Keychains.Keychain.AcceptTolerance()
             self.accept_tolerance.parent = self
             self._children_name_map["accept_tolerance"] = "accept-tolerance"
-            self._children_yang_names.add("accept-tolerance")
 
-            self.macsec_keychain = None
+            self.macsec_keychain = Keychains.Keychain.MacsecKeychain()
+            self.macsec_keychain.parent = self
             self._children_name_map["macsec_keychain"] = "macsec-keychain"
-            self._children_yang_names.add("macsec-keychain")
 
             self.keies = Keychains.Keychain.Keies()
             self.keies.parent = self
             self._children_name_map["keies"] = "keies"
-            self._children_yang_names.add("keies")
             self._segment_path = lambda: "keychain" + "[chain-name='" + str(self.chain_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-cfg:keychains/%s" % self._segment_path()
 
@@ -311,7 +323,7 @@ class Keychains(Entity):
             """
 
             _prefix = 'lib-keychain-cfg'
-            _revision = '2017-07-19'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Keychains.Keychain.AcceptTolerance, self).__init__()
@@ -321,8 +333,7 @@ class Keychains(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('value', YLeaf(YType.uint32, 'value')),
                     ('infinite', YLeaf(YType.boolean, 'infinite')),
@@ -346,12 +357,10 @@ class Keychains(Entity):
             
             
 
-            This class is a :ref:`presence class<presence-class>`
-
             """
 
             _prefix = 'lib-keychain-cfg'
-            _revision = '2017-07-19'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Keychains.Keychain.MacsecKeychain, self).__init__()
@@ -361,16 +370,16 @@ class Keychains(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("macsec-keies", ("macsec_keies", Keychains.Keychain.MacsecKeychain.MacsecKeies))])
-                self._child_list_classes = OrderedDict([])
-                self.is_presence_container = True
+                self._child_classes = OrderedDict([("macsec-keies", ("macsec_keies", Keychains.Keychain.MacsecKeychain.MacsecKeies))])
                 self._leafs = OrderedDict()
 
                 self.macsec_keies = Keychains.Keychain.MacsecKeychain.MacsecKeies()
                 self.macsec_keies.parent = self
                 self._children_name_map["macsec_keies"] = "macsec-keies"
-                self._children_yang_names.add("macsec-keies")
                 self._segment_path = lambda: "macsec-keychain"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Keychains.Keychain.MacsecKeychain, [], name, value)
 
 
             class MacsecKeies(Entity):
@@ -387,7 +396,7 @@ class Keychains(Entity):
                 """
 
                 _prefix = 'lib-keychain-cfg'
-                _revision = '2017-07-19'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Keychains.Keychain.MacsecKeychain.MacsecKeies, self).__init__()
@@ -397,8 +406,7 @@ class Keychains(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("macsec-key", ("macsec_key", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey))])
+                    self._child_classes = OrderedDict([("macsec-key", ("macsec_key", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey))])
                     self._leafs = OrderedDict()
 
                     self.macsec_key = YList(self)
@@ -436,7 +444,7 @@ class Keychains(Entity):
                     """
 
                     _prefix = 'lib-keychain-cfg'
-                    _revision = '2017-07-19'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey, self).__init__()
@@ -446,8 +454,7 @@ class Keychains(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['key_id']
-                        self._child_container_classes = OrderedDict([("macsec-lifetime", ("macsec_lifetime", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime)), ("macsec-key-string", ("macsec_key_string", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecKeyString))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("macsec-lifetime", ("macsec_lifetime", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime)), ("macsec-key-string", ("macsec_key_string", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecKeyString))])
                         self._leafs = OrderedDict([
                             ('key_id', YLeaf(YType.str, 'key-id')),
                         ])
@@ -456,11 +463,9 @@ class Keychains(Entity):
                         self.macsec_lifetime = Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime()
                         self.macsec_lifetime.parent = self
                         self._children_name_map["macsec_lifetime"] = "macsec-lifetime"
-                        self._children_yang_names.add("macsec-lifetime")
 
                         self.macsec_key_string = None
                         self._children_name_map["macsec_key_string"] = "macsec-key-string"
-                        self._children_yang_names.add("macsec-key-string")
                         self._segment_path = lambda: "macsec-key" + "[key-id='" + str(self.key_id) + "']"
 
                     def __setattr__(self, name, value):
@@ -578,7 +583,7 @@ class Keychains(Entity):
                         """
 
                         _prefix = 'lib-keychain-cfg'
-                        _revision = '2017-07-19'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime, self).__init__()
@@ -588,8 +593,7 @@ class Keychains(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('start_hour', YLeaf(YType.uint32, 'start-hour')),
                                 ('start_minutes', YLeaf(YType.uint32, 'start-minutes')),
@@ -661,7 +665,7 @@ class Keychains(Entity):
                         """
 
                         _prefix = 'lib-keychain-cfg'
-                        _revision = '2017-07-19'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecKeyString, self).__init__()
@@ -671,8 +675,7 @@ class Keychains(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('string', YLeaf(YType.str, 'string')),
@@ -702,7 +705,7 @@ class Keychains(Entity):
             """
 
             _prefix = 'lib-keychain-cfg'
-            _revision = '2017-07-19'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Keychains.Keychain.Keies, self).__init__()
@@ -712,8 +715,7 @@ class Keychains(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("key", ("key", Keychains.Keychain.Keies.Key))])
+                self._child_classes = OrderedDict([("key", ("key", Keychains.Keychain.Keies.Key))])
                 self._leafs = OrderedDict()
 
                 self.key = YList(self)
@@ -761,7 +763,7 @@ class Keychains(Entity):
                 """
 
                 _prefix = 'lib-keychain-cfg'
-                _revision = '2017-07-19'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Keychains.Keychain.Keies.Key, self).__init__()
@@ -771,8 +773,7 @@ class Keychains(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['key_id']
-                    self._child_container_classes = OrderedDict([("accept-lifetime", ("accept_lifetime", Keychains.Keychain.Keies.Key.AcceptLifetime)), ("send-lifetime", ("send_lifetime", Keychains.Keychain.Keies.Key.SendLifetime))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("accept-lifetime", ("accept_lifetime", Keychains.Keychain.Keies.Key.AcceptLifetime)), ("send-lifetime", ("send_lifetime", Keychains.Keychain.Keies.Key.SendLifetime))])
                     self._leafs = OrderedDict([
                         ('key_id', YLeaf(YType.str, 'key-id')),
                         ('key_string', YLeaf(YType.str, 'key-string')),
@@ -785,12 +786,10 @@ class Keychains(Entity):
                     self.accept_lifetime = Keychains.Keychain.Keies.Key.AcceptLifetime()
                     self.accept_lifetime.parent = self
                     self._children_name_map["accept_lifetime"] = "accept-lifetime"
-                    self._children_yang_names.add("accept-lifetime")
 
                     self.send_lifetime = Keychains.Keychain.Keies.Key.SendLifetime()
                     self.send_lifetime.parent = self
                     self._children_name_map["send_lifetime"] = "send-lifetime"
-                    self._children_yang_names.add("send-lifetime")
                     self._segment_path = lambda: "key" + "[key-id='" + str(self.key_id) + "']"
 
                 def __setattr__(self, name, value):
@@ -908,7 +907,7 @@ class Keychains(Entity):
                     """
 
                     _prefix = 'lib-keychain-cfg'
-                    _revision = '2017-07-19'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Keychains.Keychain.Keies.Key.AcceptLifetime, self).__init__()
@@ -918,8 +917,7 @@ class Keychains(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('start_hour', YLeaf(YType.uint32, 'start-hour')),
                             ('start_minutes', YLeaf(YType.uint32, 'start-minutes')),
@@ -1067,7 +1065,7 @@ class Keychains(Entity):
                     """
 
                     _prefix = 'lib-keychain-cfg'
-                    _revision = '2017-07-19'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Keychains.Keychain.Keies.Key.SendLifetime, self).__init__()
@@ -1077,8 +1075,7 @@ class Keychains(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('start_hour', YLeaf(YType.uint32, 'start-hour')),
                             ('start_minutes', YLeaf(YType.uint32, 'start-minutes')),

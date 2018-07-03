@@ -27,22 +27,22 @@ class IFMIB(Entity):
     .. attribute:: ifmibobjects
     
     	
-    	**type**\:  :py:class:`Ifmibobjects <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifmibobjects>`
+    	**type**\:  :py:class:`IfMIBObjects <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfMIBObjects>`
     
     .. attribute:: iftable
     
     	A list of interface entries.  The number of entries is given by the value of ifNumber
-    	**type**\:  :py:class:`Iftable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable>`
+    	**type**\:  :py:class:`IfTable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable>`
     
     .. attribute:: ifstacktable
     
     	The table containing information on the relationships between the multiple sub\-layers of network interfaces.  In particular, it contains information on which sub\-layers run 'on top of' which other sub\-layers, where each sub\-layer corresponds to a conceptual row in the ifTable.  For example, when the sub\-layer with ifIndex value x runs over the sub\-layer with ifIndex value y, then this table contains\:    ifStackStatus.x.y=active  For each ifIndex value, I, which identifies an active interface, there are always at least two instantiated rows in this table associated with I.  For one of these rows, I is the value of ifStackHigherLayer; for the other, I is the value of ifStackLowerLayer.  (If I is not involved in multiplexing, then these are the only two rows associated with I.)  For example, two rows exist even for an interface which has no others stacked on top or below it\:    ifStackStatus.0.x=active   ifStackStatus.x.0=active 
-    	**type**\:  :py:class:`Ifstacktable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifstacktable>`
+    	**type**\:  :py:class:`IfStackTable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfStackTable>`
     
     .. attribute:: ifrcvaddresstable
     
     	This table contains an entry for each address (broadcast, multicast, or uni\-cast) for which the system will receive packets/frames on a particular interface, except as follows\:  \- for an interface operating in promiscuous mode, entries are only required for those addresses for which the system would receive frames were it not operating in promiscuous mode.  \- for 802.5 functional addresses, only one entry is required, for the address which has the functional address bit ANDed with the bit mask of all functional addresses for which the interface will accept frames.  A system is normally able to use any unicast address which corresponds to an entry in this table as a source address
-    	**type**\:  :py:class:`Ifrcvaddresstable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifrcvaddresstable>`
+    	**type**\:  :py:class:`IfRcvAddressTable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfRcvAddressTable>`
     
     
 
@@ -60,35 +60,32 @@ class IFMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", IFMIB.Interfaces)), ("ifMIBObjects", ("ifmibobjects", IFMIB.Ifmibobjects)), ("ifTable", ("iftable", IFMIB.Iftable)), ("ifStackTable", ("ifstacktable", IFMIB.Ifstacktable)), ("ifRcvAddressTable", ("ifrcvaddresstable", IFMIB.Ifrcvaddresstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("interfaces", ("interfaces", IFMIB.Interfaces)), ("ifMIBObjects", ("ifmibobjects", IFMIB.IfMIBObjects)), ("ifTable", ("iftable", IFMIB.IfTable)), ("ifStackTable", ("ifstacktable", IFMIB.IfStackTable)), ("ifRcvAddressTable", ("ifrcvaddresstable", IFMIB.IfRcvAddressTable))])
         self._leafs = OrderedDict()
 
         self.interfaces = IFMIB.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
-        self.ifmibobjects = IFMIB.Ifmibobjects()
+        self.ifmibobjects = IFMIB.IfMIBObjects()
         self.ifmibobjects.parent = self
         self._children_name_map["ifmibobjects"] = "ifMIBObjects"
-        self._children_yang_names.add("ifMIBObjects")
 
-        self.iftable = IFMIB.Iftable()
+        self.iftable = IFMIB.IfTable()
         self.iftable.parent = self
         self._children_name_map["iftable"] = "ifTable"
-        self._children_yang_names.add("ifTable")
 
-        self.ifstacktable = IFMIB.Ifstacktable()
+        self.ifstacktable = IFMIB.IfStackTable()
         self.ifstacktable.parent = self
         self._children_name_map["ifstacktable"] = "ifStackTable"
-        self._children_yang_names.add("ifStackTable")
 
-        self.ifrcvaddresstable = IFMIB.Ifrcvaddresstable()
+        self.ifrcvaddresstable = IFMIB.IfRcvAddressTable()
         self.ifrcvaddresstable.parent = self
         self._children_name_map["ifrcvaddresstable"] = "ifRcvAddressTable"
-        self._children_yang_names.add("ifRcvAddressTable")
         self._segment_path = lambda: "IF-MIB:IF-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(IFMIB, [], name, value)
 
 
     class Interfaces(Entity):
@@ -117,8 +114,7 @@ class IFMIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ifnumber', YLeaf(YType.int32, 'ifNumber')),
             ])
@@ -127,10 +123,10 @@ class IFMIB(Entity):
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IFMIB.Interfaces, ['ifnumber'], name, value)
+            self._perform_setattr(IFMIB.Interfaces, [u'ifnumber'], name, value)
 
 
-    class Ifmibobjects(Entity):
+    class IfMIBObjects(Entity):
         """
         
         
@@ -156,15 +152,14 @@ class IFMIB(Entity):
         _revision = '2000-06-14'
 
         def __init__(self):
-            super(IFMIB.Ifmibobjects, self).__init__()
+            super(IFMIB.IfMIBObjects, self).__init__()
 
             self.yang_name = "ifMIBObjects"
             self.yang_parent_name = "IF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('iftablelastchange', YLeaf(YType.uint32, 'ifTableLastChange')),
                 ('ifstacklastchange', YLeaf(YType.uint32, 'ifStackLastChange')),
@@ -175,10 +170,10 @@ class IFMIB(Entity):
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IFMIB.Ifmibobjects, ['iftablelastchange', 'ifstacklastchange'], name, value)
+            self._perform_setattr(IFMIB.IfMIBObjects, [u'iftablelastchange', u'ifstacklastchange'], name, value)
 
 
-    class Iftable(Entity):
+    class IfTable(Entity):
         """
         A list of interface entries.  The number of entries is
         given by the value of ifNumber.
@@ -186,7 +181,7 @@ class IFMIB(Entity):
         .. attribute:: ifentry
         
         	An entry containing management information applicable to a particular interface
-        	**type**\: list of  		 :py:class:`Ifentry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+        	**type**\: list of  		 :py:class:`IfEntry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
         
         
 
@@ -196,15 +191,14 @@ class IFMIB(Entity):
         _revision = '2000-06-14'
 
         def __init__(self):
-            super(IFMIB.Iftable, self).__init__()
+            super(IFMIB.IfTable, self).__init__()
 
             self.yang_name = "ifTable"
             self.yang_parent_name = "IF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ifEntry", ("ifentry", IFMIB.Iftable.Ifentry))])
+            self._child_classes = OrderedDict([("ifEntry", ("ifentry", IFMIB.IfTable.IfEntry))])
             self._leafs = OrderedDict()
 
             self.ifentry = YList(self)
@@ -212,10 +206,10 @@ class IFMIB(Entity):
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IFMIB.Iftable, [], name, value)
+            self._perform_setattr(IFMIB.IfTable, [], name, value)
 
 
-        class Ifentry(Entity):
+        class IfEntry(Entity):
             """
             An entry containing management information applicable to a
             particular interface.
@@ -263,12 +257,12 @@ class IFMIB(Entity):
             .. attribute:: ifadminstatus
             
             	The desired state of the interface.  The testing(3) state indicates that no operational packets can be passed.  When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state.  As a result of either explicit management action or per configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state)
-            	**type**\:  :py:class:`Ifadminstatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Ifadminstatus>`
+            	**type**\:  :py:class:`IfAdminStatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry.IfAdminStatus>`
             
             .. attribute:: ifoperstatus
             
             	The current operational state of the interface.  The testing(3) state indicates that no operational packets can be passed.  If ifAdminStatus is down(2) then ifOperStatus should be down(2).  If ifAdminStatus is changed to up(1) then ifOperStatus should change to up(1) if the interface is ready to transmit and receive network traffic; it should change to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection); it should remain in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state; it should remain in the notPresent(6) state if the interface has missing (typically, hardware) components
-            	**type**\:  :py:class:`Ifoperstatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Ifoperstatus>`
+            	**type**\:  :py:class:`IfOperStatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry.IfOperStatus>`
             
             .. attribute:: iflastchange
             
@@ -468,7 +462,7 @@ class IFMIB(Entity):
             .. attribute:: iflinkupdowntrapenable
             
             	Indicates whether linkUp/linkDown traps should be generated for this interface.  By default, this object should have the value enabled(1) for interfaces which do not operate on 'top' of any other interface (as defined in the ifStackTable), and disabled(2) otherwise
-            	**type**\:  :py:class:`Iflinkupdowntrapenable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Iflinkupdowntrapenable>`
+            	**type**\:  :py:class:`IfLinkUpDownTrapEnable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry.IfLinkUpDownTrapEnable>`
             
             .. attribute:: ifhighspeed
             
@@ -513,7 +507,7 @@ class IFMIB(Entity):
             .. attribute:: ifteststatus
             
             	This object indicates whether or not some manager currently has the necessary 'ownership' required to invoke a test on this interface.  A write to this object is only successful when it changes its value from 'notInUse(1)' to 'inUse(2)'. After completion of a test, the agent resets the value back to 'notInUse(1)'
-            	**type**\:  :py:class:`Ifteststatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Ifteststatus>`
+            	**type**\:  :py:class:`IfTestStatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry.IfTestStatus>`
             
             	**status**\: deprecated
             
@@ -529,7 +523,7 @@ class IFMIB(Entity):
             .. attribute:: iftestresult
             
             	This object contains the result of the most recently requested test, or the value none(1) if no tests have been requested since the last reset.  Note that this facility provides no provision for saving the results of one test when starting another, as could be required if used by multiple managers concurrently
-            	**type**\:  :py:class:`Iftestresult <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Iftestresult>`
+            	**type**\:  :py:class:`IfTestResult <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry.IfTestResult>`
             
             	**status**\: deprecated
             
@@ -557,15 +551,14 @@ class IFMIB(Entity):
             _revision = '2000-06-14'
 
             def __init__(self):
-                super(IFMIB.Iftable.Ifentry, self).__init__()
+                super(IFMIB.IfTable.IfEntry, self).__init__()
 
                 self.yang_name = "ifEntry"
                 self.yang_parent_name = "ifTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.int32, 'ifIndex')),
                     ('ifdescr', YLeaf(YType.str, 'ifDescr')),
@@ -666,11 +659,11 @@ class IFMIB(Entity):
                 self._absolute_path = lambda: "IF-MIB:IF-MIB/ifTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IFMIB.Iftable.Ifentry, ['ifindex', 'ifdescr', 'iftype', 'ifmtu', 'ifspeed', 'ifphysaddress', 'ifadminstatus', 'ifoperstatus', 'iflastchange', 'ifinoctets', 'ifinucastpkts', 'ifinnucastpkts', 'ifindiscards', 'ifinerrors', 'ifinunknownprotos', 'ifoutoctets', 'ifoutucastpkts', 'ifoutnucastpkts', 'ifoutdiscards', 'ifouterrors', 'ifoutqlen', 'ifspecific', 'ifname', 'ifinmulticastpkts', 'ifinbroadcastpkts', 'ifoutmulticastpkts', 'ifoutbroadcastpkts', 'ifhcinoctets', 'ifhcinucastpkts', 'ifhcinmulticastpkts', 'ifhcinbroadcastpkts', 'ifhcoutoctets', 'ifhcoutucastpkts', 'ifhcoutmulticastpkts', 'ifhcoutbroadcastpkts', 'iflinkupdowntrapenable', 'ifhighspeed', 'ifpromiscuousmode', 'ifconnectorpresent', 'ifalias', 'ifcounterdiscontinuitytime', 'iftestid', 'ifteststatus', 'iftesttype', 'iftestresult', 'iftestcode', 'iftestowner'], name, value)
+                self._perform_setattr(IFMIB.IfTable.IfEntry, [u'ifindex', u'ifdescr', u'iftype', u'ifmtu', u'ifspeed', u'ifphysaddress', u'ifadminstatus', u'ifoperstatus', u'iflastchange', u'ifinoctets', u'ifinucastpkts', u'ifinnucastpkts', u'ifindiscards', u'ifinerrors', u'ifinunknownprotos', u'ifoutoctets', u'ifoutucastpkts', u'ifoutnucastpkts', u'ifoutdiscards', u'ifouterrors', u'ifoutqlen', u'ifspecific', u'ifname', u'ifinmulticastpkts', u'ifinbroadcastpkts', u'ifoutmulticastpkts', u'ifoutbroadcastpkts', u'ifhcinoctets', u'ifhcinucastpkts', u'ifhcinmulticastpkts', u'ifhcinbroadcastpkts', u'ifhcoutoctets', u'ifhcoutucastpkts', u'ifhcoutmulticastpkts', u'ifhcoutbroadcastpkts', u'iflinkupdowntrapenable', u'ifhighspeed', u'ifpromiscuousmode', u'ifconnectorpresent', u'ifalias', u'ifcounterdiscontinuitytime', u'iftestid', u'ifteststatus', u'iftesttype', u'iftestresult', u'iftestcode', u'iftestowner'], name, value)
 
-            class Ifadminstatus(Enum):
+            class IfAdminStatus(Enum):
                 """
-                Ifadminstatus (Enum Class)
+                IfAdminStatus (Enum Class)
 
                 The desired state of the interface.  The testing(3) state
 
@@ -703,9 +696,9 @@ class IFMIB(Entity):
                 testing = Enum.YLeaf(3, "testing")
 
 
-            class Iflinkupdowntrapenable(Enum):
+            class IfLinkUpDownTrapEnable(Enum):
                 """
-                Iflinkupdowntrapenable (Enum Class)
+                IfLinkUpDownTrapEnable (Enum Class)
 
                 Indicates whether linkUp/linkDown traps should be generated
 
@@ -730,9 +723,9 @@ class IFMIB(Entity):
                 disabled = Enum.YLeaf(2, "disabled")
 
 
-            class Ifoperstatus(Enum):
+            class IfOperStatus(Enum):
                 """
-                Ifoperstatus (Enum Class)
+                IfOperStatus (Enum Class)
 
                 The current operational state of the interface.  The
 
@@ -791,9 +784,9 @@ class IFMIB(Entity):
                 lowerLayerDown = Enum.YLeaf(7, "lowerLayerDown")
 
 
-            class Iftestresult(Enum):
+            class IfTestResult(Enum):
                 """
-                Iftestresult (Enum Class)
+                IfTestResult (Enum Class)
 
                 This object contains the result of the most recently
 
@@ -838,9 +831,9 @@ class IFMIB(Entity):
                 failed = Enum.YLeaf(7, "failed")
 
 
-            class Ifteststatus(Enum):
+            class IfTestStatus(Enum):
                 """
-                Ifteststatus (Enum Class)
+                IfTestStatus (Enum Class)
 
                 This object indicates whether or not some manager currently
 
@@ -866,7 +859,7 @@ class IFMIB(Entity):
 
 
 
-    class Ifstacktable(Entity):
+    class IfStackTable(Entity):
         """
         The table containing information on the relationships
         between the multiple sub\-layers of network interfaces.  In
@@ -896,7 +889,7 @@ class IFMIB(Entity):
         .. attribute:: ifstackentry
         
         	Information on a particular relationship between two sub\- layers, specifying that one sub\-layer runs on 'top' of the other sub\-layer.  Each sub\-layer corresponds to a conceptual row in the ifTable
-        	**type**\: list of  		 :py:class:`Ifstackentry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifstacktable.Ifstackentry>`
+        	**type**\: list of  		 :py:class:`IfStackEntry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfStackTable.IfStackEntry>`
         
         
 
@@ -906,15 +899,14 @@ class IFMIB(Entity):
         _revision = '2000-06-14'
 
         def __init__(self):
-            super(IFMIB.Ifstacktable, self).__init__()
+            super(IFMIB.IfStackTable, self).__init__()
 
             self.yang_name = "ifStackTable"
             self.yang_parent_name = "IF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ifStackEntry", ("ifstackentry", IFMIB.Ifstacktable.Ifstackentry))])
+            self._child_classes = OrderedDict([("ifStackEntry", ("ifstackentry", IFMIB.IfStackTable.IfStackEntry))])
             self._leafs = OrderedDict()
 
             self.ifstackentry = YList(self)
@@ -922,10 +914,10 @@ class IFMIB(Entity):
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IFMIB.Ifstacktable, [], name, value)
+            self._perform_setattr(IFMIB.IfStackTable, [], name, value)
 
 
-        class Ifstackentry(Entity):
+        class IfStackEntry(Entity):
             """
             Information on a particular relationship between two sub\-
             layers, specifying that one sub\-layer runs on 'top' of the
@@ -959,15 +951,14 @@ class IFMIB(Entity):
             _revision = '2000-06-14'
 
             def __init__(self):
-                super(IFMIB.Ifstacktable.Ifstackentry, self).__init__()
+                super(IFMIB.IfStackTable.IfStackEntry, self).__init__()
 
                 self.yang_name = "ifStackEntry"
                 self.yang_parent_name = "ifStackTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifstackhigherlayer','ifstacklowerlayer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifstackhigherlayer', YLeaf(YType.int32, 'ifStackHigherLayer')),
                     ('ifstacklowerlayer', YLeaf(YType.int32, 'ifStackLowerLayer')),
@@ -980,10 +971,10 @@ class IFMIB(Entity):
                 self._absolute_path = lambda: "IF-MIB:IF-MIB/ifStackTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IFMIB.Ifstacktable.Ifstackentry, ['ifstackhigherlayer', 'ifstacklowerlayer', 'ifstackstatus'], name, value)
+                self._perform_setattr(IFMIB.IfStackTable.IfStackEntry, [u'ifstackhigherlayer', u'ifstacklowerlayer', u'ifstackstatus'], name, value)
 
 
-    class Ifrcvaddresstable(Entity):
+    class IfRcvAddressTable(Entity):
         """
         This table contains an entry for each address (broadcast,
         multicast, or uni\-cast) for which the system will receive
@@ -1005,7 +996,7 @@ class IFMIB(Entity):
         .. attribute:: ifrcvaddressentry
         
         	A list of objects identifying an address for which the system will accept packets/frames on the particular interface identified by the index value ifIndex
-        	**type**\: list of  		 :py:class:`Ifrcvaddressentry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifrcvaddresstable.Ifrcvaddressentry>`
+        	**type**\: list of  		 :py:class:`IfRcvAddressEntry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfRcvAddressTable.IfRcvAddressEntry>`
         
         
 
@@ -1015,15 +1006,14 @@ class IFMIB(Entity):
         _revision = '2000-06-14'
 
         def __init__(self):
-            super(IFMIB.Ifrcvaddresstable, self).__init__()
+            super(IFMIB.IfRcvAddressTable, self).__init__()
 
             self.yang_name = "ifRcvAddressTable"
             self.yang_parent_name = "IF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ifRcvAddressEntry", ("ifrcvaddressentry", IFMIB.Ifrcvaddresstable.Ifrcvaddressentry))])
+            self._child_classes = OrderedDict([("ifRcvAddressEntry", ("ifrcvaddressentry", IFMIB.IfRcvAddressTable.IfRcvAddressEntry))])
             self._leafs = OrderedDict()
 
             self.ifrcvaddressentry = YList(self)
@@ -1031,10 +1021,10 @@ class IFMIB(Entity):
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IFMIB.Ifrcvaddresstable, [], name, value)
+            self._perform_setattr(IFMIB.IfRcvAddressTable, [], name, value)
 
 
-        class Ifrcvaddressentry(Entity):
+        class IfRcvAddressEntry(Entity):
             """
             A list of objects identifying an address for which the
             system will accept packets/frames on the particular
@@ -1047,7 +1037,7 @@ class IFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: ifrcvaddressaddress  (key)
             
@@ -1064,7 +1054,7 @@ class IFMIB(Entity):
             .. attribute:: ifrcvaddresstype
             
             	This object has the value nonVolatile(3) for those entries in the table which are valid and will not be deleted by the next restart of the managed system.  Entries having the value volatile(2) are valid and exist, but have not been saved, so that will not exist after the next restart of the managed system.  Entries having the value other(1) are valid and exist but are not classified as to whether they will continue to exist after the next restart
-            	**type**\:  :py:class:`Ifrcvaddresstype <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifrcvaddresstable.Ifrcvaddressentry.Ifrcvaddresstype>`
+            	**type**\:  :py:class:`IfRcvAddressType <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfRcvAddressTable.IfRcvAddressEntry.IfRcvAddressType>`
             
             
 
@@ -1074,15 +1064,14 @@ class IFMIB(Entity):
             _revision = '2000-06-14'
 
             def __init__(self):
-                super(IFMIB.Ifrcvaddresstable.Ifrcvaddressentry, self).__init__()
+                super(IFMIB.IfRcvAddressTable.IfRcvAddressEntry, self).__init__()
 
                 self.yang_name = "ifRcvAddressEntry"
                 self.yang_parent_name = "ifRcvAddressTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','ifrcvaddressaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('ifrcvaddressaddress', YLeaf(YType.str, 'ifRcvAddressAddress')),
@@ -1097,11 +1086,11 @@ class IFMIB(Entity):
                 self._absolute_path = lambda: "IF-MIB:IF-MIB/ifRcvAddressTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IFMIB.Ifrcvaddresstable.Ifrcvaddressentry, ['ifindex', 'ifrcvaddressaddress', 'ifrcvaddressstatus', 'ifrcvaddresstype'], name, value)
+                self._perform_setattr(IFMIB.IfRcvAddressTable.IfRcvAddressEntry, [u'ifindex', u'ifrcvaddressaddress', u'ifrcvaddressstatus', u'ifrcvaddresstype'], name, value)
 
-            class Ifrcvaddresstype(Enum):
+            class IfRcvAddressType(Enum):
                 """
-                Ifrcvaddresstype (Enum Class)
+                IfRcvAddressType (Enum Class)
 
                 This object has the value nonVolatile(3) for those entries
 

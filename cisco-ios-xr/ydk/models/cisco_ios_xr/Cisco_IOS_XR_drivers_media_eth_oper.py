@@ -332,10 +332,6 @@ class EtherLinkState(Enum):
 
     	OTN Framing Error
 
-    .. data:: shutdown = 28
-
-    	Link is shutdown
-
     """
 
     state_undefined = Enum.YLeaf(0, "state-undefined")
@@ -393,8 +389,6 @@ class EtherLinkState(Enum):
     wan_framing_error = Enum.YLeaf(26, "wan-framing-error")
 
     otn_framing_error = Enum.YLeaf(27, "otn-framing-error")
-
-    shutdown = Enum.YLeaf(28, "shutdown")
 
 
 class EtherPfc(Enum):
@@ -2215,15 +2209,7 @@ class EthernetMedia(Enum):
 
     	Active Twinax cable assembly 10m
 
-    .. data:: ethernet_40gbase_aoc = 355
-
-    	Active optical cable
-
-    .. data:: ethernet_4x10g_base_lr = 356
-
-    	fiber over 4 lane optics (long reach)
-
-    .. data:: ethernet_base_max = 357
+    .. data:: ethernet_base_max = 355
 
     	ethernet base max
 
@@ -2939,11 +2925,7 @@ class EthernetMedia(Enum):
 
     ethernet_10gbase_acu10m = Enum.YLeaf(354, "ethernet-10gbase-acu10m")
 
-    ethernet_40gbase_aoc = Enum.YLeaf(355, "ethernet-40gbase-aoc")
-
-    ethernet_4x10g_base_lr = Enum.YLeaf(356, "ethernet-4x10g-base-lr")
-
-    ethernet_base_max = Enum.YLeaf(357, "ethernet-base-max")
+    ethernet_base_max = Enum.YLeaf(355, "ethernet-base-max")
 
 
 class EthernetPortEnable(Enum):
@@ -3096,25 +3078,24 @@ class EthernetInterface(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("statistics", ("statistics", EthernetInterface.Statistics)), ("interfaces", ("interfaces", EthernetInterface.Interfaces)), ("berts", ("berts", EthernetInterface.Berts))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("statistics", ("statistics", EthernetInterface.Statistics)), ("interfaces", ("interfaces", EthernetInterface.Interfaces)), ("berts", ("berts", EthernetInterface.Berts))])
         self._leafs = OrderedDict()
 
         self.statistics = EthernetInterface.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
 
         self.interfaces = EthernetInterface.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.berts = EthernetInterface.Berts()
         self.berts.parent = self
         self._children_name_map["berts"] = "berts"
-        self._children_yang_names.add("berts")
         self._segment_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(EthernetInterface, [], name, value)
 
 
     class Statistics(Entity):
@@ -3141,8 +3122,7 @@ class EthernetInterface(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("statistic", ("statistic", EthernetInterface.Statistics.Statistic))])
+            self._child_classes = OrderedDict([("statistic", ("statistic", EthernetInterface.Statistics.Statistic))])
             self._leafs = OrderedDict()
 
             self.statistic = YList(self)
@@ -3564,8 +3544,7 @@ class EthernetInterface(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('received_total_bytes', YLeaf(YType.uint64, 'received-total-bytes')),
@@ -3711,8 +3690,7 @@ class EthernetInterface(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", EthernetInterface.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", EthernetInterface.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -3779,8 +3757,7 @@ class EthernetInterface(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("phy-info", ("phy_info", EthernetInterface.Interfaces.Interface.PhyInfo)), ("layer1-info", ("layer1_info", EthernetInterface.Interfaces.Interface.Layer1Info)), ("mac-info", ("mac_info", EthernetInterface.Interfaces.Interface.MacInfo)), ("transport-info", ("transport_info", EthernetInterface.Interfaces.Interface.TransportInfo))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("phy-info", ("phy_info", EthernetInterface.Interfaces.Interface.PhyInfo)), ("layer1-info", ("layer1_info", EthernetInterface.Interfaces.Interface.Layer1Info)), ("mac-info", ("mac_info", EthernetInterface.Interfaces.Interface.MacInfo)), ("transport-info", ("transport_info", EthernetInterface.Interfaces.Interface.TransportInfo))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
@@ -3793,22 +3770,18 @@ class EthernetInterface(Entity):
                 self.phy_info = EthernetInterface.Interfaces.Interface.PhyInfo()
                 self.phy_info.parent = self
                 self._children_name_map["phy_info"] = "phy-info"
-                self._children_yang_names.add("phy-info")
 
                 self.layer1_info = EthernetInterface.Interfaces.Interface.Layer1Info()
                 self.layer1_info.parent = self
                 self._children_name_map["layer1_info"] = "layer1-info"
-                self._children_yang_names.add("layer1-info")
 
                 self.mac_info = EthernetInterface.Interfaces.Interface.MacInfo()
                 self.mac_info.parent = self
                 self._children_name_map["mac_info"] = "mac-info"
-                self._children_yang_names.add("mac-info")
 
                 self.transport_info = EthernetInterface.Interfaces.Interface.TransportInfo()
                 self.transport_info.parent = self
                 self._children_name_map["transport_info"] = "transport-info"
-                self._children_yang_names.add("transport-info")
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/interfaces/%s" % self._segment_path()
 
@@ -3865,8 +3838,7 @@ class EthernetInterface(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("phy-details", ("phy_details", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails)), ("fec-details", ("fec_details", EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails))])
-                    self._child_list_classes = OrderedDict([("extended-loopback", ("extended_loopback", EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback))])
+                    self._child_classes = OrderedDict([("phy-details", ("phy_details", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails)), ("fec-details", ("fec_details", EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails)), ("extended-loopback", ("extended_loopback", EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback))])
                     self._leafs = OrderedDict([
                         ('media_type', YLeaf(YType.enumeration, 'media-type')),
                         ('phy_present', YLeaf(YType.enumeration, 'phy-present')),
@@ -3879,12 +3851,10 @@ class EthernetInterface(Entity):
                     self.phy_details = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails()
                     self.phy_details.parent = self
                     self._children_name_map["phy_details"] = "phy-details"
-                    self._children_yang_names.add("phy-details")
 
                     self.fec_details = EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails()
                     self.fec_details.parent = self
                     self._children_name_map["fec_details"] = "fec-details"
-                    self._children_yang_names.add("fec-details")
 
                     self.extended_loopback = YList(self)
                     self._segment_path = lambda: "phy-info"
@@ -3999,8 +3969,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("lane-field-validity", ("lane_field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity)), ("dig-opt-mon-alarm-thresholds", ("dig_opt_mon_alarm_thresholds", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds)), ("dig-opt-mon-alarms", ("dig_opt_mon_alarms", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms))])
-                        self._child_list_classes = OrderedDict([("lane", ("lane", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane))])
+                        self._child_classes = OrderedDict([("lane-field-validity", ("lane_field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity)), ("dig-opt-mon-alarm-thresholds", ("dig_opt_mon_alarm_thresholds", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds)), ("dig-opt-mon-alarms", ("dig_opt_mon_alarms", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms)), ("lane", ("lane", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane))])
                         self._leafs = OrderedDict([
                             ('vendor', YLeaf(YType.str, 'vendor')),
                             ('vendor_part_number', YLeaf(YType.str, 'vendor-part-number')),
@@ -4029,17 +3998,14 @@ class EthernetInterface(Entity):
                         self.lane_field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity()
                         self.lane_field_validity.parent = self
                         self._children_name_map["lane_field_validity"] = "lane-field-validity"
-                        self._children_yang_names.add("lane-field-validity")
 
                         self.dig_opt_mon_alarm_thresholds = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds()
                         self.dig_opt_mon_alarm_thresholds.parent = self
                         self._children_name_map["dig_opt_mon_alarm_thresholds"] = "dig-opt-mon-alarm-thresholds"
-                        self._children_yang_names.add("dig-opt-mon-alarm-thresholds")
 
                         self.dig_opt_mon_alarms = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms()
                         self.dig_opt_mon_alarms.parent = self
                         self._children_name_map["dig_opt_mon_alarms"] = "dig-opt-mon-alarms"
-                        self._children_yang_names.add("dig-opt-mon-alarms")
 
                         self.lane = YList(self)
                         self._segment_path = lambda: "phy-details"
@@ -4096,8 +4062,7 @@ class EthernetInterface(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wavelength_valid', YLeaf(YType.int32, 'wavelength-valid')),
                                 ('transmit_power_valid', YLeaf(YType.int32, 'transmit-power-valid')),
@@ -4278,8 +4243,7 @@ class EthernetInterface(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("field-validity", ("field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("field-validity", ("field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity))])
                             self._leafs = OrderedDict([
                                 ('transceiver_temperature_alarm_high', YLeaf(YType.int32, 'transceiver-temperature-alarm-high')),
                                 ('transceiver_temperature_warning_high', YLeaf(YType.int32, 'transceiver-temperature-warning-high')),
@@ -4326,7 +4290,6 @@ class EthernetInterface(Entity):
                             self.field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity()
                             self.field_validity.parent = self
                             self._children_name_map["field_validity"] = "field-validity"
-                            self._children_yang_names.add("field-validity")
                             self._segment_path = lambda: "dig-opt-mon-alarm-thresholds"
 
                         def __setattr__(self, name, value):
@@ -4387,8 +4350,7 @@ class EthernetInterface(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('temperature_valid', YLeaf(YType.int32, 'temperature-valid')),
                                     ('voltage_valid', YLeaf(YType.int32, 'voltage-valid')),
@@ -4451,8 +4413,7 @@ class EthernetInterface(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('transceiver_temperature', YLeaf(YType.enumeration, 'transceiver-temperature')),
                                 ('transceiver_voltage', YLeaf(YType.enumeration, 'transceiver-voltage')),
@@ -4531,8 +4492,7 @@ class EthernetInterface(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("dig-opt-mon-alarm", ("dig_opt_mon_alarm", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("dig-opt-mon-alarm", ("dig_opt_mon_alarm", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm))])
                             self._leafs = OrderedDict([
                                 ('center_wavelength', YLeaf(YType.uint32, 'center-wavelength')),
                                 ('transmit_laser_power', YLeaf(YType.int32, 'transmit-laser-power')),
@@ -4549,7 +4509,6 @@ class EthernetInterface(Entity):
                             self.dig_opt_mon_alarm = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm()
                             self.dig_opt_mon_alarm.parent = self
                             self._children_name_map["dig_opt_mon_alarm"] = "dig-opt-mon-alarm"
-                            self._children_yang_names.add("dig-opt-mon-alarm")
                             self._segment_path = lambda: "lane"
 
                         def __setattr__(self, name, value):
@@ -4590,8 +4549,7 @@ class EthernetInterface(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('transmit_laser_power', YLeaf(YType.enumeration, 'transmit-laser-power')),
                                     ('received_laser_power', YLeaf(YType.enumeration, 'received-laser-power')),
@@ -4644,8 +4602,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fec', YLeaf(YType.enumeration, 'fec')),
                             ('corrected_codeword_count', YLeaf(YType.uint64, 'corrected-codeword-count')),
@@ -4691,8 +4648,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('level', YLeaf(YType.uint32, 'level')),
                             ('loopback', YLeaf(YType.enumeration, 'loopback')),
@@ -4810,8 +4766,7 @@ class EthernetInterface(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("autoneg", ("autoneg", EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg)), ("current-alarms", ("current_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms)), ("previous-alarms", ("previous_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms)), ("error-counts", ("error_counts", EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts)), ("ber-monitoring", ("ber_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring)), ("opd-monitoring", ("opd_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring)), ("pfc-info", ("pfc_info", EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("autoneg", ("autoneg", EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg)), ("current-alarms", ("current_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms)), ("previous-alarms", ("previous_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms)), ("error-counts", ("error_counts", EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts)), ("ber-monitoring", ("ber_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring)), ("opd-monitoring", ("opd_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring)), ("pfc-info", ("pfc_info", EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo))])
                     self._leafs = OrderedDict([
                         ('link_state', YLeaf(YType.enumeration, 'link-state')),
                         ('led_state', YLeaf(YType.enumeration, 'led-state')),
@@ -4836,37 +4791,30 @@ class EthernetInterface(Entity):
                     self.autoneg = EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg()
                     self.autoneg.parent = self
                     self._children_name_map["autoneg"] = "autoneg"
-                    self._children_yang_names.add("autoneg")
 
                     self.current_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms()
                     self.current_alarms.parent = self
                     self._children_name_map["current_alarms"] = "current-alarms"
-                    self._children_yang_names.add("current-alarms")
 
                     self.previous_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms()
                     self.previous_alarms.parent = self
                     self._children_name_map["previous_alarms"] = "previous-alarms"
-                    self._children_yang_names.add("previous-alarms")
 
                     self.error_counts = EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts()
                     self.error_counts.parent = self
                     self._children_name_map["error_counts"] = "error-counts"
-                    self._children_yang_names.add("error-counts")
 
                     self.ber_monitoring = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring()
                     self.ber_monitoring.parent = self
                     self._children_name_map["ber_monitoring"] = "ber-monitoring"
-                    self._children_yang_names.add("ber-monitoring")
 
                     self.opd_monitoring = EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring()
                     self.opd_monitoring.parent = self
                     self._children_name_map["opd_monitoring"] = "opd-monitoring"
-                    self._children_yang_names.add("opd-monitoring")
 
                     self.pfc_info = EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo()
                     self.pfc_info.parent = self
                     self._children_name_map["pfc_info"] = "pfc-info"
-                    self._children_yang_names.add("pfc-info")
                     self._segment_path = lambda: "layer1-info"
 
                 def __setattr__(self, name, value):
@@ -4933,8 +4881,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('autoneg_enabled', YLeaf(YType.int32, 'autoneg-enabled')),
                             ('mask', YLeaf(YType.uint32, 'mask')),
@@ -5026,8 +4973,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('received_loss_of_signal_alarm', YLeaf(YType.enumeration, 'received-loss-of-signal-alarm')),
                             ('pcs_loss_of_block_lock_alarm', YLeaf(YType.enumeration, 'pcs-loss-of-block-lock-alarm')),
@@ -5125,8 +5071,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('received_loss_of_signal_alarm', YLeaf(YType.enumeration, 'received-loss-of-signal-alarm')),
                             ('pcs_loss_of_block_lock_alarm', YLeaf(YType.enumeration, 'pcs-loss-of-block-lock-alarm')),
@@ -5188,8 +5133,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sync_header_errors', YLeaf(YType.uint64, 'sync-header-errors')),
                             ('pcsbip_errors', YLeaf(YType.uint64, 'pcsbip-errors')),
@@ -5238,8 +5182,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("settings", ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings)), ("state", ("state", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("settings", ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings)), ("state", ("state", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State))])
                         self._leafs = OrderedDict([
                             ('supported', YLeaf(YType.int32, 'supported')),
                         ])
@@ -5248,12 +5191,10 @@ class EthernetInterface(Entity):
                         self.settings = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings()
                         self.settings.parent = self
                         self._children_name_map["settings"] = "settings"
-                        self._children_yang_names.add("settings")
 
                         self.state = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "ber-monitoring"
 
                     def __setattr__(self, name, value):
@@ -5314,8 +5255,7 @@ class EthernetInterface(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('signal_degrade_threshold', YLeaf(YType.uint32, 'signal-degrade-threshold')),
                                 ('signal_degrade_alarm', YLeaf(YType.int32, 'signal-degrade-alarm')),
@@ -5367,8 +5307,7 @@ class EthernetInterface(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sd_current_ber', YLeaf(YType.uint32, 'sd-current-ber')),
                                 ('sf_current_ber', YLeaf(YType.uint32, 'sf-current-ber')),
@@ -5412,8 +5351,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("settings", ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("settings", ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings))])
                         self._leafs = OrderedDict([
                             ('supported', YLeaf(YType.int32, 'supported')),
                         ])
@@ -5422,7 +5360,6 @@ class EthernetInterface(Entity):
                         self.settings = EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings()
                         self.settings.parent = self
                         self._children_name_map["settings"] = "settings"
-                        self._children_yang_names.add("settings")
                         self._segment_path = lambda: "opd-monitoring"
 
                     def __setattr__(self, name, value):
@@ -5462,8 +5399,7 @@ class EthernetInterface(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('received_optical_power_degrade_threshold_set', YLeaf(YType.int32, 'received-optical-power-degrade-threshold-set')),
                                 ('received_optical_power_degrade_threshold', YLeaf(YType.int32, 'received-optical-power-degrade-threshold')),
@@ -5521,8 +5457,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('priority_flowcontrol', YLeaf(YType.enumeration, 'priority-flowcontrol')),
                             ('priority_enabled_bitmap', YLeaf(YType.uint8, 'priority-enabled-bitmap')),
@@ -5596,8 +5531,7 @@ class EthernetInterface(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("unicast-mac-filters", ("unicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters)), ("multicast-mac-filters", ("multicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("unicast-mac-filters", ("unicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters)), ("multicast-mac-filters", ("multicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters))])
                     self._leafs = OrderedDict([
                         ('mtu', YLeaf(YType.uint32, 'mtu')),
                         ('mru', YLeaf(YType.uint32, 'mru')),
@@ -5612,12 +5546,10 @@ class EthernetInterface(Entity):
                     self.unicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters()
                     self.unicast_mac_filters.parent = self
                     self._children_name_map["unicast_mac_filters"] = "unicast-mac-filters"
-                    self._children_yang_names.add("unicast-mac-filters")
 
                     self.multicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters()
                     self.multicast_mac_filters.parent = self
                     self._children_name_map["multicast_mac_filters"] = "multicast-mac-filters"
-                    self._children_yang_names.add("multicast-mac-filters")
                     self._segment_path = lambda: "mac-info"
 
                 def __setattr__(self, name, value):
@@ -5650,8 +5582,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('unicast_mac_address', YLeafList(YType.str, 'unicast-mac-address')),
                         ])
@@ -5691,8 +5622,7 @@ class EthernetInterface(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("multicast-mac-address", ("multicast_mac_address", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress))])
+                        self._child_classes = OrderedDict([("multicast-mac-address", ("multicast_mac_address", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress))])
                         self._leafs = OrderedDict([
                             ('multicast_promiscuous', YLeaf(YType.boolean, 'multicast-promiscuous')),
                         ])
@@ -5739,8 +5669,7 @@ class EthernetInterface(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mac_address', YLeaf(YType.str, 'mac-address')),
                                 ('mask', YLeaf(YType.str, 'mask')),
@@ -5800,8 +5729,7 @@ class EthernetInterface(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('maintenance_mode_enabled', YLeaf(YType.boolean, 'maintenance-mode-enabled')),
                         ('ains_status', YLeaf(YType.enumeration, 'ains-status')),
@@ -5842,8 +5770,7 @@ class EthernetInterface(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("bert", ("bert", EthernetInterface.Berts.Bert))])
+            self._child_classes = OrderedDict([("bert", ("bert", EthernetInterface.Berts.Bert))])
             self._leafs = OrderedDict()
 
             self.bert = YList(self)
@@ -5901,8 +5828,7 @@ class EthernetInterface(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("bert-status", ("bert_status", EthernetInterface.Berts.Bert.BertStatus))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("bert-status", ("bert_status", EthernetInterface.Berts.Bert.BertStatus))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('time_left', YLeaf(YType.uint32, 'time-left')),
@@ -5915,7 +5841,6 @@ class EthernetInterface(Entity):
                 self.bert_status = EthernetInterface.Berts.Bert.BertStatus()
                 self.bert_status.parent = self
                 self._children_name_map["bert_status"] = "bert-status"
-                self._children_yang_names.add("bert-status")
                 self._segment_path = lambda: "bert" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/berts/%s" % self._segment_path()
 
@@ -5995,8 +5920,7 @@ class EthernetInterface(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('bert_state_enabled', YLeaf(YType.boolean, 'bert-state-enabled')),
                         ('data_availability', YLeaf(YType.uint32, 'data-availability')),

@@ -76,8 +76,6 @@ class Msdp(Entity):
     	Default Context
     	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext>`
     
-    	**presence node**\: True
-    
     .. attribute:: global_max_sa
     
     	Configure the global MAX SA state for the router
@@ -99,7 +97,7 @@ class Msdp(Entity):
     """
 
     _prefix = 'ipv4-msdp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-10-15'
 
     def __init__(self):
         super(Msdp, self).__init__()
@@ -110,8 +108,7 @@ class Msdp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Msdp.Vrfs)), ("default-context", ("default_context", Msdp.DefaultContext))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", Msdp.Vrfs)), ("default-context", ("default_context", Msdp.DefaultContext))])
         self._leafs = OrderedDict([
             ('global_max_sa', YLeaf(YType.uint32, 'global-max-sa')),
             ('nsr_delay', YLeaf(YType.uint32, 'nsr-delay')),
@@ -122,11 +119,10 @@ class Msdp(Entity):
         self.vrfs = Msdp.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
 
-        self.default_context = None
+        self.default_context = Msdp.DefaultContext()
+        self.default_context.parent = self
         self._children_name_map["default_context"] = "default-context"
-        self._children_yang_names.add("default-context")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp"
 
     def __setattr__(self, name, value):
@@ -147,7 +143,7 @@ class Msdp(Entity):
         """
 
         _prefix = 'ipv4-msdp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Msdp.Vrfs, self).__init__()
@@ -157,8 +153,7 @@ class Msdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", Msdp.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", Msdp.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -249,7 +244,7 @@ class Msdp(Entity):
             """
 
             _prefix = 'ipv4-msdp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Msdp.Vrfs.Vrf, self).__init__()
@@ -259,8 +254,7 @@ class Msdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("cache-state", ("cache_state", Msdp.Vrfs.Vrf.CacheState)), ("keep-alive", ("keep_alive", Msdp.Vrfs.Vrf.KeepAlive)), ("peers", ("peers", Msdp.Vrfs.Vrf.Peers)), ("sa-filters", ("sa_filters", Msdp.Vrfs.Vrf.SaFilters))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("cache-state", ("cache_state", Msdp.Vrfs.Vrf.CacheState)), ("keep-alive", ("keep_alive", Msdp.Vrfs.Vrf.KeepAlive)), ("peers", ("peers", Msdp.Vrfs.Vrf.Peers)), ("sa-filters", ("sa_filters", Msdp.Vrfs.Vrf.SaFilters))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
@@ -281,21 +275,17 @@ class Msdp(Entity):
                 self.cache_state = Msdp.Vrfs.Vrf.CacheState()
                 self.cache_state.parent = self
                 self._children_name_map["cache_state"] = "cache-state"
-                self._children_yang_names.add("cache-state")
 
                 self.keep_alive = None
                 self._children_name_map["keep_alive"] = "keep-alive"
-                self._children_yang_names.add("keep-alive")
 
                 self.peers = Msdp.Vrfs.Vrf.Peers()
                 self.peers.parent = self
                 self._children_name_map["peers"] = "peers"
-                self._children_yang_names.add("peers")
 
                 self.sa_filters = Msdp.Vrfs.Vrf.SaFilters()
                 self.sa_filters.parent = self
                 self._children_name_map["sa_filters"] = "sa-filters"
-                self._children_yang_names.add("sa-filters")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/%s" % self._segment_path()
 
@@ -337,7 +327,7 @@ class Msdp(Entity):
                 """
 
                 _prefix = 'ipv4-msdp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Msdp.Vrfs.Vrf.CacheState, self).__init__()
@@ -347,8 +337,7 @@ class Msdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('sa_holdtime', YLeaf(YType.uint32, 'sa-holdtime')),
                         ('list', YLeaf(YType.str, 'list')),
@@ -396,7 +385,7 @@ class Msdp(Entity):
                 """
 
                 _prefix = 'ipv4-msdp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Msdp.Vrfs.Vrf.KeepAlive, self).__init__()
@@ -406,8 +395,7 @@ class Msdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('keep_alive_period', YLeaf(YType.uint32, 'keep-alive-period')),
@@ -435,7 +423,7 @@ class Msdp(Entity):
                 """
 
                 _prefix = 'ipv4-msdp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Msdp.Vrfs.Vrf.Peers, self).__init__()
@@ -445,8 +433,7 @@ class Msdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("peer", ("peer", Msdp.Vrfs.Vrf.Peers.Peer))])
+                    self._child_classes = OrderedDict([("peer", ("peer", Msdp.Vrfs.Vrf.Peers.Peer))])
                     self._leafs = OrderedDict()
 
                     self.peer = YList(self)
@@ -548,7 +535,7 @@ class Msdp(Entity):
                     """
 
                     _prefix = 'ipv4-msdp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Msdp.Vrfs.Vrf.Peers.Peer, self).__init__()
@@ -558,8 +545,7 @@ class Msdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['peer_address']
-                        self._child_container_classes = OrderedDict([("remote-as", ("remote_as", Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs)), ("keep-alive", ("keep_alive", Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive)), ("sa-filters", ("sa_filters", Msdp.Vrfs.Vrf.Peers.Peer.SaFilters))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("remote-as", ("remote_as", Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs)), ("keep-alive", ("keep_alive", Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive)), ("sa-filters", ("sa_filters", Msdp.Vrfs.Vrf.Peers.Peer.SaFilters))])
                         self._leafs = OrderedDict([
                             ('peer_address', YLeaf(YType.str, 'peer-address')),
                             ('shutdown', YLeaf(YType.empty, 'shutdown')),
@@ -585,16 +571,13 @@ class Msdp(Entity):
 
                         self.remote_as = None
                         self._children_name_map["remote_as"] = "remote-as"
-                        self._children_yang_names.add("remote-as")
 
                         self.keep_alive = None
                         self._children_name_map["keep_alive"] = "keep-alive"
-                        self._children_yang_names.add("keep-alive")
 
                         self.sa_filters = Msdp.Vrfs.Vrf.Peers.Peer.SaFilters()
                         self.sa_filters.parent = self
                         self._children_name_map["sa_filters"] = "sa-filters"
-                        self._children_yang_names.add("sa-filters")
                         self._segment_path = lambda: "peer" + "[peer-address='" + str(self.peer_address) + "']"
 
                     def __setattr__(self, name, value):
@@ -630,7 +613,7 @@ class Msdp(Entity):
                         """
 
                         _prefix = 'ipv4-msdp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs, self).__init__()
@@ -640,8 +623,7 @@ class Msdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -688,7 +670,7 @@ class Msdp(Entity):
                         """
 
                         _prefix = 'ipv4-msdp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive, self).__init__()
@@ -698,8 +680,7 @@ class Msdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('keep_alive_period', YLeaf(YType.uint32, 'keep-alive-period')),
@@ -727,7 +708,7 @@ class Msdp(Entity):
                         """
 
                         _prefix = 'ipv4-msdp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters, self).__init__()
@@ -737,8 +718,7 @@ class Msdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter))])
+                            self._child_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter))])
                             self._leafs = OrderedDict()
 
                             self.sa_filter = YList(self)
@@ -776,7 +756,7 @@ class Msdp(Entity):
                             """
 
                             _prefix = 'ipv4-msdp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter, self).__init__()
@@ -786,8 +766,7 @@ class Msdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['list','filter_type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('list', YLeaf(YType.enumeration, 'list')),
                                     ('filter_type', YLeaf(YType.enumeration, 'filter-type')),
@@ -816,7 +795,7 @@ class Msdp(Entity):
                 """
 
                 _prefix = 'ipv4-msdp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Msdp.Vrfs.Vrf.SaFilters, self).__init__()
@@ -826,8 +805,7 @@ class Msdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.Vrfs.Vrf.SaFilters.SaFilter))])
+                    self._child_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.Vrfs.Vrf.SaFilters.SaFilter))])
                     self._leafs = OrderedDict()
 
                     self.sa_filter = YList(self)
@@ -865,7 +843,7 @@ class Msdp(Entity):
                     """
 
                     _prefix = 'ipv4-msdp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Msdp.Vrfs.Vrf.SaFilters.SaFilter, self).__init__()
@@ -875,8 +853,7 @@ class Msdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['list','filter_type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('list', YLeaf(YType.enumeration, 'list')),
                             ('filter_type', YLeaf(YType.enumeration, 'filter-type')),
@@ -961,12 +938,10 @@ class Msdp(Entity):
         
         
 
-        This class is a :ref:`presence class<presence-class>`
-
         """
 
         _prefix = 'ipv4-msdp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Msdp.DefaultContext, self).__init__()
@@ -976,9 +951,7 @@ class Msdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("cache-state", ("cache_state", Msdp.DefaultContext.CacheState)), ("keep-alive", ("keep_alive", Msdp.DefaultContext.KeepAlive)), ("peers", ("peers", Msdp.DefaultContext.Peers)), ("sa-filters", ("sa_filters", Msdp.DefaultContext.SaFilters))])
-            self._child_list_classes = OrderedDict([])
-            self.is_presence_container = True
+            self._child_classes = OrderedDict([("cache-state", ("cache_state", Msdp.DefaultContext.CacheState)), ("keep-alive", ("keep_alive", Msdp.DefaultContext.KeepAlive)), ("peers", ("peers", Msdp.DefaultContext.Peers)), ("sa-filters", ("sa_filters", Msdp.DefaultContext.SaFilters))])
             self._leafs = OrderedDict([
                 ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
                 ('max_peer_sa', YLeaf(YType.uint32, 'max-peer-sa')),
@@ -997,21 +970,17 @@ class Msdp(Entity):
             self.cache_state = Msdp.DefaultContext.CacheState()
             self.cache_state.parent = self
             self._children_name_map["cache_state"] = "cache-state"
-            self._children_yang_names.add("cache-state")
 
             self.keep_alive = None
             self._children_name_map["keep_alive"] = "keep-alive"
-            self._children_yang_names.add("keep-alive")
 
             self.peers = Msdp.DefaultContext.Peers()
             self.peers.parent = self
             self._children_name_map["peers"] = "peers"
-            self._children_yang_names.add("peers")
 
             self.sa_filters = Msdp.DefaultContext.SaFilters()
             self.sa_filters.parent = self
             self._children_name_map["sa_filters"] = "sa-filters"
-            self._children_yang_names.add("sa-filters")
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/%s" % self._segment_path()
 
@@ -1053,7 +1022,7 @@ class Msdp(Entity):
             """
 
             _prefix = 'ipv4-msdp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Msdp.DefaultContext.CacheState, self).__init__()
@@ -1063,8 +1032,7 @@ class Msdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sa_holdtime', YLeaf(YType.uint32, 'sa-holdtime')),
                     ('list', YLeaf(YType.str, 'list')),
@@ -1113,7 +1081,7 @@ class Msdp(Entity):
             """
 
             _prefix = 'ipv4-msdp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Msdp.DefaultContext.KeepAlive, self).__init__()
@@ -1123,8 +1091,7 @@ class Msdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('keep_alive_period', YLeaf(YType.uint32, 'keep-alive-period')),
@@ -1153,7 +1120,7 @@ class Msdp(Entity):
             """
 
             _prefix = 'ipv4-msdp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Msdp.DefaultContext.Peers, self).__init__()
@@ -1163,8 +1130,7 @@ class Msdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("peer", ("peer", Msdp.DefaultContext.Peers.Peer))])
+                self._child_classes = OrderedDict([("peer", ("peer", Msdp.DefaultContext.Peers.Peer))])
                 self._leafs = OrderedDict()
 
                 self.peer = YList(self)
@@ -1267,7 +1233,7 @@ class Msdp(Entity):
                 """
 
                 _prefix = 'ipv4-msdp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Msdp.DefaultContext.Peers.Peer, self).__init__()
@@ -1277,8 +1243,7 @@ class Msdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['peer_address']
-                    self._child_container_classes = OrderedDict([("remote-as", ("remote_as", Msdp.DefaultContext.Peers.Peer.RemoteAs)), ("keep-alive", ("keep_alive", Msdp.DefaultContext.Peers.Peer.KeepAlive)), ("sa-filters", ("sa_filters", Msdp.DefaultContext.Peers.Peer.SaFilters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("remote-as", ("remote_as", Msdp.DefaultContext.Peers.Peer.RemoteAs)), ("keep-alive", ("keep_alive", Msdp.DefaultContext.Peers.Peer.KeepAlive)), ("sa-filters", ("sa_filters", Msdp.DefaultContext.Peers.Peer.SaFilters))])
                     self._leafs = OrderedDict([
                         ('peer_address', YLeaf(YType.str, 'peer-address')),
                         ('shutdown', YLeaf(YType.empty, 'shutdown')),
@@ -1304,16 +1269,13 @@ class Msdp(Entity):
 
                     self.remote_as = None
                     self._children_name_map["remote_as"] = "remote-as"
-                    self._children_yang_names.add("remote-as")
 
                     self.keep_alive = None
                     self._children_name_map["keep_alive"] = "keep-alive"
-                    self._children_yang_names.add("keep-alive")
 
                     self.sa_filters = Msdp.DefaultContext.Peers.Peer.SaFilters()
                     self.sa_filters.parent = self
                     self._children_name_map["sa_filters"] = "sa-filters"
-                    self._children_yang_names.add("sa-filters")
                     self._segment_path = lambda: "peer" + "[peer-address='" + str(self.peer_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/peers/%s" % self._segment_path()
 
@@ -1350,7 +1312,7 @@ class Msdp(Entity):
                     """
 
                     _prefix = 'ipv4-msdp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Msdp.DefaultContext.Peers.Peer.RemoteAs, self).__init__()
@@ -1360,8 +1322,7 @@ class Msdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -1408,7 +1369,7 @@ class Msdp(Entity):
                     """
 
                     _prefix = 'ipv4-msdp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Msdp.DefaultContext.Peers.Peer.KeepAlive, self).__init__()
@@ -1418,8 +1379,7 @@ class Msdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('keep_alive_period', YLeaf(YType.uint32, 'keep-alive-period')),
@@ -1447,7 +1407,7 @@ class Msdp(Entity):
                     """
 
                     _prefix = 'ipv4-msdp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Msdp.DefaultContext.Peers.Peer.SaFilters, self).__init__()
@@ -1457,8 +1417,7 @@ class Msdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter))])
+                        self._child_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter))])
                         self._leafs = OrderedDict()
 
                         self.sa_filter = YList(self)
@@ -1496,7 +1455,7 @@ class Msdp(Entity):
                         """
 
                         _prefix = 'ipv4-msdp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter, self).__init__()
@@ -1506,8 +1465,7 @@ class Msdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['list','filter_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('list', YLeaf(YType.enumeration, 'list')),
                                 ('filter_type', YLeaf(YType.enumeration, 'filter-type')),
@@ -1536,7 +1494,7 @@ class Msdp(Entity):
             """
 
             _prefix = 'ipv4-msdp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Msdp.DefaultContext.SaFilters, self).__init__()
@@ -1546,8 +1504,7 @@ class Msdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.DefaultContext.SaFilters.SaFilter))])
+                self._child_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.DefaultContext.SaFilters.SaFilter))])
                 self._leafs = OrderedDict()
 
                 self.sa_filter = YList(self)
@@ -1586,7 +1543,7 @@ class Msdp(Entity):
                 """
 
                 _prefix = 'ipv4-msdp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Msdp.DefaultContext.SaFilters.SaFilter, self).__init__()
@@ -1596,8 +1553,7 @@ class Msdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['list','filter_type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('list', YLeaf(YType.enumeration, 'list')),
                         ('filter_type', YLeaf(YType.enumeration, 'filter-type')),

@@ -234,7 +234,7 @@ class IPMIB(Entity):
     .. attribute:: iptrafficstats
     
     	
-    	**type**\:  :py:class:`Iptrafficstats <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Iptrafficstats>`
+    	**type**\:  :py:class:`IpTrafficStats <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpTrafficStats>`
     
     .. attribute:: icmp
     
@@ -244,76 +244,76 @@ class IPMIB(Entity):
     .. attribute:: ipaddrtable
     
     	The table of addressing information relevant to this entity's IPv4 addresses.  This table has been deprecated, as a new IP version\-neutral table has been added.  It is loosely replaced by the ipAddressTable although several objects that weren't deemed useful weren't carried forward while another (ipAdEntReasmMaxSize) was moved to the ipv4InterfaceTable
-    	**type**\:  :py:class:`Ipaddrtable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipaddrtable>`
+    	**type**\:  :py:class:`IpAddrTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddrTable>`
     
     	**status**\: deprecated
     
     .. attribute:: ipnettomediatable
     
     	The IPv4 Address Translation table used for mapping from IPv4 addresses to physical addresses.  This table has been deprecated, as a new IP version\-neutral table has been added.  It is loosely replaced by the ipNetToPhysicalTable
-    	**type**\:  :py:class:`Ipnettomediatable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipnettomediatable>`
+    	**type**\:  :py:class:`IpNetToMediaTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToMediaTable>`
     
     	**status**\: deprecated
     
     .. attribute:: ipv4interfacetable
     
     	The table containing per\-interface IPv4\-specific information
-    	**type**\:  :py:class:`Ipv4Interfacetable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4Interfacetable>`
+    	**type**\:  :py:class:`Ipv4InterfaceTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4InterfaceTable>`
     
     .. attribute:: ipv6interfacetable
     
     	The table containing per\-interface IPv6\-specific information
-    	**type**\:  :py:class:`Ipv6Interfacetable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6Interfacetable>`
+    	**type**\:  :py:class:`Ipv6InterfaceTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6InterfaceTable>`
     
     .. attribute:: ipsystemstatstable
     
     	The table containing system wide, IP version specific traffic statistics.  This table and the ipIfStatsTable contain similar objects whose difference is in their granularity.  Where this table contains system wide traffic statistics, the ipIfStatsTable contains the same statistics but counted on a per\-interface basis
-    	**type**\:  :py:class:`Ipsystemstatstable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipsystemstatstable>`
+    	**type**\:  :py:class:`IpSystemStatsTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpSystemStatsTable>`
     
     .. attribute:: ipifstatstable
     
     	The table containing per\-interface traffic statistics.  This table and the ipSystemStatsTable contain similar objects whose difference is in their granularity.  Where this table contains per\-interface statistics, the ipSystemStatsTable contains the same statistics, but counted on a system wide basis
-    	**type**\:  :py:class:`Ipifstatstable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipifstatstable>`
+    	**type**\:  :py:class:`IpIfStatsTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpIfStatsTable>`
     
     .. attribute:: ipaddressprefixtable
     
     	This table allows the user to determine the source of an IP address or set of IP addresses, and allows other tables to share the information via pointer rather than by copying.  For example, when the node configures both a unicast and anycast address for a prefix, the ipAddressPrefix objects for those addresses will point to a single row in this table.  This table primarily provides support for IPv6 prefixes, and several of the objects are less meaningful for IPv4.  The table continues to allow IPv4 addresses to allow future flexibility.  In order to promote a common configuration, this document includes suggestions for default values for IPv4 prefixes.  Each of these values may be overridden if an object is meaningful to the node.  All prefixes used by this entity should be included in this table independent of how the entity learned the prefix. (This table isn't limited to prefixes learned from router   advertisements.)
-    	**type**\:  :py:class:`Ipaddressprefixtable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipaddressprefixtable>`
+    	**type**\:  :py:class:`IpAddressPrefixTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressPrefixTable>`
     
     .. attribute:: ipaddresstable
     
     	This table contains addressing information relevant to the entity's interfaces.  This table does not contain multicast address information. Tables for such information should be contained in multicast specific MIBs, such as RFC 3019.  While this table is writable, the user will note that several objects, such as ipAddressOrigin, are not.  The intention in allowing a user to write to this table is to allow them to add or remove any entry that isn't   permanent.  The user should be allowed to modify objects and entries when that would not cause inconsistencies within the table.  Allowing write access to objects, such as ipAddressOrigin, could allow a user to insert an entry and then label it incorrectly.  Note well\: When including IPv6 link\-local addresses in this table, the entry must use an InetAddressType of 'ipv6z' in order to differentiate between the possible interfaces
-    	**type**\:  :py:class:`Ipaddresstable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipaddresstable>`
+    	**type**\:  :py:class:`IpAddressTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressTable>`
     
     .. attribute:: ipnettophysicaltable
     
     	The IP Address Translation table used for mapping from IP addresses to physical addresses.  The Address Translation tables contain the IP address to 'physical' address equivalences.  Some interfaces do not use translation tables for determining address equivalences (e.g., DDN\-X.25 has an algorithmic method); if all interfaces are of this type, then the Address Translation table is empty, i.e., has zero entries.  While many protocols may be used to populate this table, ARP and Neighbor Discovery are the most likely options
-    	**type**\:  :py:class:`Ipnettophysicaltable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipnettophysicaltable>`
+    	**type**\:  :py:class:`IpNetToPhysicalTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToPhysicalTable>`
     
     .. attribute:: ipv6scopezoneindextable
     
     	The table used to describe IPv6 unicast and multicast scope zones.  For those objects that have names rather than numbers, the names were chosen to coincide with the names used in the IPv6 address architecture document. 
-    	**type**\:  :py:class:`Ipv6Scopezoneindextable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6Scopezoneindextable>`
+    	**type**\:  :py:class:`Ipv6ScopeZoneIndexTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6ScopeZoneIndexTable>`
     
     .. attribute:: ipdefaultroutertable
     
     	The table used to describe the default routers known to this   entity
-    	**type**\:  :py:class:`Ipdefaultroutertable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipdefaultroutertable>`
+    	**type**\:  :py:class:`IpDefaultRouterTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpDefaultRouterTable>`
     
     .. attribute:: ipv6routeradverttable
     
     	The table containing information used to construct router advertisements
-    	**type**\:  :py:class:`Ipv6Routeradverttable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6Routeradverttable>`
+    	**type**\:  :py:class:`Ipv6RouterAdvertTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6RouterAdvertTable>`
     
     .. attribute:: icmpstatstable
     
     	The table of generic system\-wide ICMP counters
-    	**type**\:  :py:class:`Icmpstatstable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Icmpstatstable>`
+    	**type**\:  :py:class:`IcmpStatsTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IcmpStatsTable>`
     
     .. attribute:: icmpmsgstatstable
     
     	The table of system\-wide per\-version, per\-message type ICMP counters
-    	**type**\:  :py:class:`Icmpmsgstatstable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Icmpmsgstatstable>`
+    	**type**\:  :py:class:`IcmpMsgStatsTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IcmpMsgStatsTable>`
     
     
 
@@ -331,95 +331,80 @@ class IPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ip", ("ip", IPMIB.Ip)), ("ipTrafficStats", ("iptrafficstats", IPMIB.Iptrafficstats)), ("icmp", ("icmp", IPMIB.Icmp)), ("ipAddrTable", ("ipaddrtable", IPMIB.Ipaddrtable)), ("ipNetToMediaTable", ("ipnettomediatable", IPMIB.Ipnettomediatable)), ("ipv4InterfaceTable", ("ipv4interfacetable", IPMIB.Ipv4Interfacetable)), ("ipv6InterfaceTable", ("ipv6interfacetable", IPMIB.Ipv6Interfacetable)), ("ipSystemStatsTable", ("ipsystemstatstable", IPMIB.Ipsystemstatstable)), ("ipIfStatsTable", ("ipifstatstable", IPMIB.Ipifstatstable)), ("ipAddressPrefixTable", ("ipaddressprefixtable", IPMIB.Ipaddressprefixtable)), ("ipAddressTable", ("ipaddresstable", IPMIB.Ipaddresstable)), ("ipNetToPhysicalTable", ("ipnettophysicaltable", IPMIB.Ipnettophysicaltable)), ("ipv6ScopeZoneIndexTable", ("ipv6scopezoneindextable", IPMIB.Ipv6Scopezoneindextable)), ("ipDefaultRouterTable", ("ipdefaultroutertable", IPMIB.Ipdefaultroutertable)), ("ipv6RouterAdvertTable", ("ipv6routeradverttable", IPMIB.Ipv6Routeradverttable)), ("icmpStatsTable", ("icmpstatstable", IPMIB.Icmpstatstable)), ("icmpMsgStatsTable", ("icmpmsgstatstable", IPMIB.Icmpmsgstatstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ip", ("ip", IPMIB.Ip)), ("ipTrafficStats", ("iptrafficstats", IPMIB.IpTrafficStats)), ("icmp", ("icmp", IPMIB.Icmp)), ("ipAddrTable", ("ipaddrtable", IPMIB.IpAddrTable)), ("ipNetToMediaTable", ("ipnettomediatable", IPMIB.IpNetToMediaTable)), ("ipv4InterfaceTable", ("ipv4interfacetable", IPMIB.Ipv4InterfaceTable)), ("ipv6InterfaceTable", ("ipv6interfacetable", IPMIB.Ipv6InterfaceTable)), ("ipSystemStatsTable", ("ipsystemstatstable", IPMIB.IpSystemStatsTable)), ("ipIfStatsTable", ("ipifstatstable", IPMIB.IpIfStatsTable)), ("ipAddressPrefixTable", ("ipaddressprefixtable", IPMIB.IpAddressPrefixTable)), ("ipAddressTable", ("ipaddresstable", IPMIB.IpAddressTable)), ("ipNetToPhysicalTable", ("ipnettophysicaltable", IPMIB.IpNetToPhysicalTable)), ("ipv6ScopeZoneIndexTable", ("ipv6scopezoneindextable", IPMIB.Ipv6ScopeZoneIndexTable)), ("ipDefaultRouterTable", ("ipdefaultroutertable", IPMIB.IpDefaultRouterTable)), ("ipv6RouterAdvertTable", ("ipv6routeradverttable", IPMIB.Ipv6RouterAdvertTable)), ("icmpStatsTable", ("icmpstatstable", IPMIB.IcmpStatsTable)), ("icmpMsgStatsTable", ("icmpmsgstatstable", IPMIB.IcmpMsgStatsTable))])
         self._leafs = OrderedDict()
 
         self.ip = IPMIB.Ip()
         self.ip.parent = self
         self._children_name_map["ip"] = "ip"
-        self._children_yang_names.add("ip")
 
-        self.iptrafficstats = IPMIB.Iptrafficstats()
+        self.iptrafficstats = IPMIB.IpTrafficStats()
         self.iptrafficstats.parent = self
         self._children_name_map["iptrafficstats"] = "ipTrafficStats"
-        self._children_yang_names.add("ipTrafficStats")
 
         self.icmp = IPMIB.Icmp()
         self.icmp.parent = self
         self._children_name_map["icmp"] = "icmp"
-        self._children_yang_names.add("icmp")
 
-        self.ipaddrtable = IPMIB.Ipaddrtable()
+        self.ipaddrtable = IPMIB.IpAddrTable()
         self.ipaddrtable.parent = self
         self._children_name_map["ipaddrtable"] = "ipAddrTable"
-        self._children_yang_names.add("ipAddrTable")
 
-        self.ipnettomediatable = IPMIB.Ipnettomediatable()
+        self.ipnettomediatable = IPMIB.IpNetToMediaTable()
         self.ipnettomediatable.parent = self
         self._children_name_map["ipnettomediatable"] = "ipNetToMediaTable"
-        self._children_yang_names.add("ipNetToMediaTable")
 
-        self.ipv4interfacetable = IPMIB.Ipv4Interfacetable()
+        self.ipv4interfacetable = IPMIB.Ipv4InterfaceTable()
         self.ipv4interfacetable.parent = self
         self._children_name_map["ipv4interfacetable"] = "ipv4InterfaceTable"
-        self._children_yang_names.add("ipv4InterfaceTable")
 
-        self.ipv6interfacetable = IPMIB.Ipv6Interfacetable()
+        self.ipv6interfacetable = IPMIB.Ipv6InterfaceTable()
         self.ipv6interfacetable.parent = self
         self._children_name_map["ipv6interfacetable"] = "ipv6InterfaceTable"
-        self._children_yang_names.add("ipv6InterfaceTable")
 
-        self.ipsystemstatstable = IPMIB.Ipsystemstatstable()
+        self.ipsystemstatstable = IPMIB.IpSystemStatsTable()
         self.ipsystemstatstable.parent = self
         self._children_name_map["ipsystemstatstable"] = "ipSystemStatsTable"
-        self._children_yang_names.add("ipSystemStatsTable")
 
-        self.ipifstatstable = IPMIB.Ipifstatstable()
+        self.ipifstatstable = IPMIB.IpIfStatsTable()
         self.ipifstatstable.parent = self
         self._children_name_map["ipifstatstable"] = "ipIfStatsTable"
-        self._children_yang_names.add("ipIfStatsTable")
 
-        self.ipaddressprefixtable = IPMIB.Ipaddressprefixtable()
+        self.ipaddressprefixtable = IPMIB.IpAddressPrefixTable()
         self.ipaddressprefixtable.parent = self
         self._children_name_map["ipaddressprefixtable"] = "ipAddressPrefixTable"
-        self._children_yang_names.add("ipAddressPrefixTable")
 
-        self.ipaddresstable = IPMIB.Ipaddresstable()
+        self.ipaddresstable = IPMIB.IpAddressTable()
         self.ipaddresstable.parent = self
         self._children_name_map["ipaddresstable"] = "ipAddressTable"
-        self._children_yang_names.add("ipAddressTable")
 
-        self.ipnettophysicaltable = IPMIB.Ipnettophysicaltable()
+        self.ipnettophysicaltable = IPMIB.IpNetToPhysicalTable()
         self.ipnettophysicaltable.parent = self
         self._children_name_map["ipnettophysicaltable"] = "ipNetToPhysicalTable"
-        self._children_yang_names.add("ipNetToPhysicalTable")
 
-        self.ipv6scopezoneindextable = IPMIB.Ipv6Scopezoneindextable()
+        self.ipv6scopezoneindextable = IPMIB.Ipv6ScopeZoneIndexTable()
         self.ipv6scopezoneindextable.parent = self
         self._children_name_map["ipv6scopezoneindextable"] = "ipv6ScopeZoneIndexTable"
-        self._children_yang_names.add("ipv6ScopeZoneIndexTable")
 
-        self.ipdefaultroutertable = IPMIB.Ipdefaultroutertable()
+        self.ipdefaultroutertable = IPMIB.IpDefaultRouterTable()
         self.ipdefaultroutertable.parent = self
         self._children_name_map["ipdefaultroutertable"] = "ipDefaultRouterTable"
-        self._children_yang_names.add("ipDefaultRouterTable")
 
-        self.ipv6routeradverttable = IPMIB.Ipv6Routeradverttable()
+        self.ipv6routeradverttable = IPMIB.Ipv6RouterAdvertTable()
         self.ipv6routeradverttable.parent = self
         self._children_name_map["ipv6routeradverttable"] = "ipv6RouterAdvertTable"
-        self._children_yang_names.add("ipv6RouterAdvertTable")
 
-        self.icmpstatstable = IPMIB.Icmpstatstable()
+        self.icmpstatstable = IPMIB.IcmpStatsTable()
         self.icmpstatstable.parent = self
         self._children_name_map["icmpstatstable"] = "icmpStatsTable"
-        self._children_yang_names.add("icmpStatsTable")
 
-        self.icmpmsgstatstable = IPMIB.Icmpmsgstatstable()
+        self.icmpmsgstatstable = IPMIB.IcmpMsgStatsTable()
         self.icmpmsgstatstable.parent = self
         self._children_name_map["icmpmsgstatstable"] = "icmpMsgStatsTable"
-        self._children_yang_names.add("icmpMsgStatsTable")
         self._segment_path = lambda: "IP-MIB:IP-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(IPMIB, [], name, value)
 
 
     class Ip(Entity):
@@ -429,7 +414,7 @@ class IPMIB(Entity):
         .. attribute:: ipforwarding
         
         	The indication of whether this entity is acting as an IPv4 router in respect to the forwarding of datagrams received by, but not addressed to, this entity.  IPv4 routers forward datagrams.  IPv4 hosts do not (except those source\-routed via the host).  When this object is written, the entity should save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system. Note\: a stronger requirement is not used because this object was previously defined
-        	**type**\:  :py:class:`Ipforwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ip.Ipforwarding>`
+        	**type**\:  :py:class:`IpForwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ip.IpForwarding>`
         
         .. attribute:: ipdefaultttl
         
@@ -603,7 +588,7 @@ class IPMIB(Entity):
         .. attribute:: ipv6ipforwarding
         
         	The indication of whether this entity is acting as an IPv6 router on any interface in respect to the forwarding of datagrams received by, but not addressed to, this entity. IPv6 routers forward datagrams.  IPv6 hosts do not (except those source\-routed via the host).  When this object is written, the entity SHOULD save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system
-        	**type**\:  :py:class:`Ipv6Ipforwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ip.Ipv6Ipforwarding>`
+        	**type**\:  :py:class:`Ipv6IpForwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ip.Ipv6IpForwarding>`
         
         .. attribute:: ipv6ipdefaulthoplimit
         
@@ -655,8 +640,7 @@ class IPMIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ipforwarding', YLeaf(YType.enumeration, 'ipForwarding')),
                 ('ipdefaultttl', YLeaf(YType.int32, 'ipDefaultTTL')),
@@ -717,9 +701,9 @@ class IPMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.Ip, ['ipforwarding', 'ipdefaultttl', 'ipinreceives', 'ipinhdrerrors', 'ipinaddrerrors', 'ipforwdatagrams', 'ipinunknownprotos', 'ipindiscards', 'ipindelivers', 'ipoutrequests', 'ipoutdiscards', 'ipoutnoroutes', 'ipreasmtimeout', 'ipreasmreqds', 'ipreasmoks', 'ipreasmfails', 'ipfragoks', 'ipfragfails', 'ipfragcreates', 'iproutingdiscards', 'ipv6ipforwarding', 'ipv6ipdefaulthoplimit', 'ipv4interfacetablelastchange', 'ipv6interfacetablelastchange', 'ipaddressspinlock', 'ipv6routeradvertspinlock'], name, value)
 
-        class Ipforwarding(Enum):
+        class IpForwarding(Enum):
             """
-            Ipforwarding (Enum Class)
+            IpForwarding (Enum Class)
 
             The indication of whether this entity is acting as an IPv4
 
@@ -752,9 +736,9 @@ class IPMIB(Entity):
             notForwarding = Enum.YLeaf(2, "notForwarding")
 
 
-        class Ipv6Ipforwarding(Enum):
+        class Ipv6IpForwarding(Enum):
             """
-            Ipv6Ipforwarding (Enum Class)
+            Ipv6IpForwarding (Enum Class)
 
             The indication of whether this entity is acting as an IPv6
 
@@ -784,7 +768,7 @@ class IPMIB(Entity):
 
 
 
-    class Iptrafficstats(Entity):
+    class IpTrafficStats(Entity):
         """
         
         
@@ -803,15 +787,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Iptrafficstats, self).__init__()
+            super(IPMIB.IpTrafficStats, self).__init__()
 
             self.yang_name = "ipTrafficStats"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ipifstatstablelastchange', YLeaf(YType.uint32, 'ipIfStatsTableLastChange')),
             ])
@@ -820,7 +803,7 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Iptrafficstats, ['ipifstatstablelastchange'], name, value)
+            self._perform_setattr(IPMIB.IpTrafficStats, ['ipifstatstablelastchange'], name, value)
 
 
     class Icmp(Entity):
@@ -1076,8 +1059,7 @@ class IPMIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('icmpinmsgs', YLeaf(YType.uint32, 'icmpInMsgs')),
                 ('icmpinerrors', YLeaf(YType.uint32, 'icmpInErrors')),
@@ -1139,7 +1121,7 @@ class IPMIB(Entity):
             self._perform_setattr(IPMIB.Icmp, ['icmpinmsgs', 'icmpinerrors', 'icmpindestunreachs', 'icmpintimeexcds', 'icmpinparmprobs', 'icmpinsrcquenchs', 'icmpinredirects', 'icmpinechos', 'icmpinechoreps', 'icmpintimestamps', 'icmpintimestampreps', 'icmpinaddrmasks', 'icmpinaddrmaskreps', 'icmpoutmsgs', 'icmpouterrors', 'icmpoutdestunreachs', 'icmpouttimeexcds', 'icmpoutparmprobs', 'icmpoutsrcquenchs', 'icmpoutredirects', 'icmpoutechos', 'icmpoutechoreps', 'icmpouttimestamps', 'icmpouttimestampreps', 'icmpoutaddrmasks', 'icmpoutaddrmaskreps'], name, value)
 
 
-    class Ipaddrtable(Entity):
+    class IpAddrTable(Entity):
         """
         The table of addressing information relevant to this
         entity's IPv4 addresses.
@@ -1153,7 +1135,7 @@ class IPMIB(Entity):
         .. attribute:: ipaddrentry
         
         	The addressing information for one of this entity's IPv4 addresses
-        	**type**\: list of  		 :py:class:`Ipaddrentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipaddrtable.Ipaddrentry>`
+        	**type**\: list of  		 :py:class:`IpAddrEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddrTable.IpAddrEntry>`
         
         	**status**\: deprecated
         
@@ -1165,15 +1147,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipaddrtable, self).__init__()
+            super(IPMIB.IpAddrTable, self).__init__()
 
             self.yang_name = "ipAddrTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipAddrEntry", ("ipaddrentry", IPMIB.Ipaddrtable.Ipaddrentry))])
+            self._child_classes = OrderedDict([("ipAddrEntry", ("ipaddrentry", IPMIB.IpAddrTable.IpAddrEntry))])
             self._leafs = OrderedDict()
 
             self.ipaddrentry = YList(self)
@@ -1181,10 +1162,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipaddrtable, [], name, value)
+            self._perform_setattr(IPMIB.IpAddrTable, [], name, value)
 
 
-        class Ipaddrentry(Entity):
+        class IpAddrEntry(Entity):
             """
             The addressing information for one of this entity's IPv4
             addresses.
@@ -1242,15 +1223,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipaddrtable.Ipaddrentry, self).__init__()
+                super(IPMIB.IpAddrTable.IpAddrEntry, self).__init__()
 
                 self.yang_name = "ipAddrEntry"
                 self.yang_parent_name = "ipAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipadentaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipadentaddr', YLeaf(YType.str, 'ipAdEntAddr')),
                     ('ipadentifindex', YLeaf(YType.int32, 'ipAdEntIfIndex')),
@@ -1267,10 +1247,10 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipaddrtable.Ipaddrentry, ['ipadentaddr', 'ipadentifindex', 'ipadentnetmask', 'ipadentbcastaddr', 'ipadentreasmmaxsize'], name, value)
+                self._perform_setattr(IPMIB.IpAddrTable.IpAddrEntry, ['ipadentaddr', 'ipadentifindex', 'ipadentnetmask', 'ipadentbcastaddr', 'ipadentreasmmaxsize'], name, value)
 
 
-    class Ipnettomediatable(Entity):
+    class IpNetToMediaTable(Entity):
         """
         The IPv4 Address Translation table used for mapping from
         IPv4 addresses to physical addresses.
@@ -1282,7 +1262,7 @@ class IPMIB(Entity):
         .. attribute:: ipnettomediaentry
         
         	Each entry contains one IpAddress to `physical' address equivalence
-        	**type**\: list of  		 :py:class:`Ipnettomediaentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipnettomediatable.Ipnettomediaentry>`
+        	**type**\: list of  		 :py:class:`IpNetToMediaEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToMediaTable.IpNetToMediaEntry>`
         
         	**status**\: deprecated
         
@@ -1294,15 +1274,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipnettomediatable, self).__init__()
+            super(IPMIB.IpNetToMediaTable, self).__init__()
 
             self.yang_name = "ipNetToMediaTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipNetToMediaEntry", ("ipnettomediaentry", IPMIB.Ipnettomediatable.Ipnettomediaentry))])
+            self._child_classes = OrderedDict([("ipNetToMediaEntry", ("ipnettomediaentry", IPMIB.IpNetToMediaTable.IpNetToMediaEntry))])
             self._leafs = OrderedDict()
 
             self.ipnettomediaentry = YList(self)
@@ -1310,10 +1289,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipnettomediatable, [], name, value)
+            self._perform_setattr(IPMIB.IpNetToMediaTable, [], name, value)
 
 
-        class Ipnettomediaentry(Entity):
+        class IpNetToMediaEntry(Entity):
             """
             Each entry contains one IpAddress to `physical' address
             equivalence.
@@ -1348,7 +1327,7 @@ class IPMIB(Entity):
             .. attribute:: ipnettomediatype
             
             	The type of mapping.  Setting this object to the value invalid(2) has the effect   of invalidating the corresponding entry in the ipNetToMediaTable.  That is, it effectively dis\-associates the interface identified with said entry from the mapping identified with said entry.  It is an implementation\- specific matter as to whether the agent removes an invalidated entry from the table.  Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use.  Proper interpretation of such entries requires examination of the relevant ipNetToMediaType object.  As the entries in this table are typically not persistent when this object is written the entity should not save the change to non\-volatile storage.  Note\: a stronger requirement is not used because this object was previously defined
-            	**type**\:  :py:class:`Ipnettomediatype <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipnettomediatable.Ipnettomediaentry.Ipnettomediatype>`
+            	**type**\:  :py:class:`IpNetToMediaType <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToMediaTable.IpNetToMediaEntry.IpNetToMediaType>`
             
             	**status**\: deprecated
             
@@ -1360,15 +1339,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipnettomediatable.Ipnettomediaentry, self).__init__()
+                super(IPMIB.IpNetToMediaTable.IpNetToMediaEntry, self).__init__()
 
                 self.yang_name = "ipNetToMediaEntry"
                 self.yang_parent_name = "ipNetToMediaTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipnettomediaifindex','ipnettomedianetaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipnettomediaifindex', YLeaf(YType.int32, 'ipNetToMediaIfIndex')),
                     ('ipnettomedianetaddress', YLeaf(YType.str, 'ipNetToMediaNetAddress')),
@@ -1383,11 +1361,11 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipNetToMediaTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipnettomediatable.Ipnettomediaentry, ['ipnettomediaifindex', 'ipnettomedianetaddress', 'ipnettomediaphysaddress', 'ipnettomediatype'], name, value)
+                self._perform_setattr(IPMIB.IpNetToMediaTable.IpNetToMediaEntry, ['ipnettomediaifindex', 'ipnettomedianetaddress', 'ipnettomediaphysaddress', 'ipnettomediatype'], name, value)
 
-            class Ipnettomediatype(Enum):
+            class IpNetToMediaType(Enum):
                 """
-                Ipnettomediatype (Enum Class)
+                IpNetToMediaType (Enum Class)
 
                 The type of mapping.
 
@@ -1443,7 +1421,7 @@ class IPMIB(Entity):
 
 
 
-    class Ipv4Interfacetable(Entity):
+    class Ipv4InterfaceTable(Entity):
         """
         The table containing per\-interface IPv4\-specific
         information.
@@ -1451,7 +1429,7 @@ class IPMIB(Entity):
         .. attribute:: ipv4interfaceentry
         
         	An entry containing IPv4\-specific information for a specific interface
-        	**type**\: list of  		 :py:class:`Ipv4Interfaceentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4Interfacetable.Ipv4Interfaceentry>`
+        	**type**\: list of  		 :py:class:`Ipv4InterfaceEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4InterfaceTable.Ipv4InterfaceEntry>`
         
         
 
@@ -1461,15 +1439,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipv4Interfacetable, self).__init__()
+            super(IPMIB.Ipv4InterfaceTable, self).__init__()
 
             self.yang_name = "ipv4InterfaceTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipv4InterfaceEntry", ("ipv4interfaceentry", IPMIB.Ipv4Interfacetable.Ipv4Interfaceentry))])
+            self._child_classes = OrderedDict([("ipv4InterfaceEntry", ("ipv4interfaceentry", IPMIB.Ipv4InterfaceTable.Ipv4InterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.ipv4interfaceentry = YList(self)
@@ -1477,10 +1454,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipv4Interfacetable, [], name, value)
+            self._perform_setattr(IPMIB.Ipv4InterfaceTable, [], name, value)
 
 
-        class Ipv4Interfaceentry(Entity):
+        class Ipv4InterfaceEntry(Entity):
             """
             An entry containing IPv4\-specific information for a specific
             interface.
@@ -1502,7 +1479,7 @@ class IPMIB(Entity):
             .. attribute:: ipv4interfaceenablestatus
             
             	The indication of whether IPv4 is enabled (up) or disabled (down) on this interface.  This object does not affect the state of the interface itself, only its connection to an IPv4 stack.  The IF\-MIB should be used to control the state of the interface
-            	**type**\:  :py:class:`Ipv4Interfaceenablestatus <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4Interfacetable.Ipv4Interfaceentry.Ipv4Interfaceenablestatus>`
+            	**type**\:  :py:class:`Ipv4InterfaceEnableStatus <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4InterfaceTable.Ipv4InterfaceEntry.Ipv4InterfaceEnableStatus>`
             
             .. attribute:: ipv4interfaceretransmittime
             
@@ -1521,15 +1498,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipv4Interfacetable.Ipv4Interfaceentry, self).__init__()
+                super(IPMIB.Ipv4InterfaceTable.Ipv4InterfaceEntry, self).__init__()
 
                 self.yang_name = "ipv4InterfaceEntry"
                 self.yang_parent_name = "ipv4InterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipv4interfaceifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipv4interfaceifindex', YLeaf(YType.int32, 'ipv4InterfaceIfIndex')),
                     ('ipv4interfacereasmmaxsize', YLeaf(YType.int32, 'ipv4InterfaceReasmMaxSize')),
@@ -1544,11 +1520,11 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipv4InterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipv4Interfacetable.Ipv4Interfaceentry, ['ipv4interfaceifindex', 'ipv4interfacereasmmaxsize', 'ipv4interfaceenablestatus', 'ipv4interfaceretransmittime'], name, value)
+                self._perform_setattr(IPMIB.Ipv4InterfaceTable.Ipv4InterfaceEntry, ['ipv4interfaceifindex', 'ipv4interfacereasmmaxsize', 'ipv4interfaceenablestatus', 'ipv4interfaceretransmittime'], name, value)
 
-            class Ipv4Interfaceenablestatus(Enum):
+            class Ipv4InterfaceEnableStatus(Enum):
                 """
-                Ipv4Interfaceenablestatus (Enum Class)
+                Ipv4InterfaceEnableStatus (Enum Class)
 
                 The indication of whether IPv4 is enabled (up) or disabled
 
@@ -1572,7 +1548,7 @@ class IPMIB(Entity):
 
 
 
-    class Ipv6Interfacetable(Entity):
+    class Ipv6InterfaceTable(Entity):
         """
         The table containing per\-interface IPv6\-specific
         information.
@@ -1580,7 +1556,7 @@ class IPMIB(Entity):
         .. attribute:: ipv6interfaceentry
         
         	An entry containing IPv6\-specific information for a given interface
-        	**type**\: list of  		 :py:class:`Ipv6Interfaceentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6Interfacetable.Ipv6Interfaceentry>`
+        	**type**\: list of  		 :py:class:`Ipv6InterfaceEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry>`
         
         
 
@@ -1590,15 +1566,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipv6Interfacetable, self).__init__()
+            super(IPMIB.Ipv6InterfaceTable, self).__init__()
 
             self.yang_name = "ipv6InterfaceTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipv6InterfaceEntry", ("ipv6interfaceentry", IPMIB.Ipv6Interfacetable.Ipv6Interfaceentry))])
+            self._child_classes = OrderedDict([("ipv6InterfaceEntry", ("ipv6interfaceentry", IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.ipv6interfaceentry = YList(self)
@@ -1606,10 +1581,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipv6Interfacetable, [], name, value)
+            self._perform_setattr(IPMIB.Ipv6InterfaceTable, [], name, value)
 
 
-        class Ipv6Interfaceentry(Entity):
+        class Ipv6InterfaceEntry(Entity):
             """
             An entry containing IPv6\-specific information for a given
             interface.
@@ -1638,7 +1613,7 @@ class IPMIB(Entity):
             .. attribute:: ipv6interfaceenablestatus
             
             	The indication of whether IPv6 is enabled (up) or disabled (down) on this interface.  This object does not affect the state of the interface itself, only its connection to an IPv6 stack.  The IF\-MIB should be used to control the state of the interface.  When this object is written, the entity SHOULD save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system
-            	**type**\:  :py:class:`Ipv6Interfaceenablestatus <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6Interfacetable.Ipv6Interfaceentry.Ipv6Interfaceenablestatus>`
+            	**type**\:  :py:class:`Ipv6InterfaceEnableStatus <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry.Ipv6InterfaceEnableStatus>`
             
             .. attribute:: ipv6interfacereachabletime
             
@@ -1661,7 +1636,7 @@ class IPMIB(Entity):
             .. attribute:: ipv6interfaceforwarding
             
             	The indication of whether this entity is acting as an IPv6 router on this interface with respect to the forwarding of datagrams received by, but not addressed to, this entity. IPv6 routers forward datagrams.  IPv6 hosts do not (except those source\-routed via the host).  This object is constrained by ipv6IpForwarding and is ignored if ipv6IpForwarding is set to notForwarding.  Those systems that do not provide per\-interface control of the forwarding function should set this object to forwarding for all interfaces and allow the ipv6IpForwarding object to control the forwarding capability.  When this object is written, the entity SHOULD save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system
-            	**type**\:  :py:class:`Ipv6Interfaceforwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6Interfacetable.Ipv6Interfaceentry.Ipv6Interfaceforwarding>`
+            	**type**\:  :py:class:`Ipv6InterfaceForwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry.Ipv6InterfaceForwarding>`
             
             
 
@@ -1671,15 +1646,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipv6Interfacetable.Ipv6Interfaceentry, self).__init__()
+                super(IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry, self).__init__()
 
                 self.yang_name = "ipv6InterfaceEntry"
                 self.yang_parent_name = "ipv6InterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipv6interfaceifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipv6interfaceifindex', YLeaf(YType.int32, 'ipv6InterfaceIfIndex')),
                     ('ipv6interfacereasmmaxsize', YLeaf(YType.uint32, 'ipv6InterfaceReasmMaxSize')),
@@ -1700,11 +1674,11 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipv6InterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipv6Interfacetable.Ipv6Interfaceentry, ['ipv6interfaceifindex', 'ipv6interfacereasmmaxsize', 'ipv6interfaceidentifier', 'ipv6interfaceenablestatus', 'ipv6interfacereachabletime', 'ipv6interfaceretransmittime', 'ipv6interfaceforwarding'], name, value)
+                self._perform_setattr(IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry, ['ipv6interfaceifindex', 'ipv6interfacereasmmaxsize', 'ipv6interfaceidentifier', 'ipv6interfaceenablestatus', 'ipv6interfacereachabletime', 'ipv6interfaceretransmittime', 'ipv6interfaceforwarding'], name, value)
 
-            class Ipv6Interfaceenablestatus(Enum):
+            class Ipv6InterfaceEnableStatus(Enum):
                 """
-                Ipv6Interfaceenablestatus (Enum Class)
+                Ipv6InterfaceEnableStatus (Enum Class)
 
                 The indication of whether IPv6 is enabled (up) or disabled
 
@@ -1733,9 +1707,9 @@ class IPMIB(Entity):
                 down = Enum.YLeaf(2, "down")
 
 
-            class Ipv6Interfaceforwarding(Enum):
+            class Ipv6InterfaceForwarding(Enum):
                 """
-                Ipv6Interfaceforwarding (Enum Class)
+                Ipv6InterfaceForwarding (Enum Class)
 
                 The indication of whether this entity is acting as an IPv6
 
@@ -1777,7 +1751,7 @@ class IPMIB(Entity):
 
 
 
-    class Ipsystemstatstable(Entity):
+    class IpSystemStatsTable(Entity):
         """
         The table containing system wide, IP version specific
         traffic statistics.  This table and the ipIfStatsTable
@@ -1789,7 +1763,7 @@ class IPMIB(Entity):
         .. attribute:: ipsystemstatsentry
         
         	A statistics entry containing system\-wide objects for a particular IP version
-        	**type**\: list of  		 :py:class:`Ipsystemstatsentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipsystemstatstable.Ipsystemstatsentry>`
+        	**type**\: list of  		 :py:class:`IpSystemStatsEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpSystemStatsTable.IpSystemStatsEntry>`
         
         
 
@@ -1799,15 +1773,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipsystemstatstable, self).__init__()
+            super(IPMIB.IpSystemStatsTable, self).__init__()
 
             self.yang_name = "ipSystemStatsTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipSystemStatsEntry", ("ipsystemstatsentry", IPMIB.Ipsystemstatstable.Ipsystemstatsentry))])
+            self._child_classes = OrderedDict([("ipSystemStatsEntry", ("ipsystemstatsentry", IPMIB.IpSystemStatsTable.IpSystemStatsEntry))])
             self._leafs = OrderedDict()
 
             self.ipsystemstatsentry = YList(self)
@@ -1815,10 +1788,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipsystemstatstable, [], name, value)
+            self._perform_setattr(IPMIB.IpSystemStatsTable, [], name, value)
 
 
-        class Ipsystemstatsentry(Entity):
+        class IpSystemStatsEntry(Entity):
             """
             A statistics entry containing system\-wide objects for a
             particular IP version.
@@ -2153,15 +2126,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipsystemstatstable.Ipsystemstatsentry, self).__init__()
+                super(IPMIB.IpSystemStatsTable.IpSystemStatsEntry, self).__init__()
 
                 self.yang_name = "ipSystemStatsEntry"
                 self.yang_parent_name = "ipSystemStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipsystemstatsipversion']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipsystemstatsipversion', YLeaf(YType.enumeration, 'ipSystemStatsIPVersion')),
                     ('ipsystemstatsinreceives', YLeaf(YType.uint32, 'ipSystemStatsInReceives')),
@@ -2260,10 +2232,10 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipSystemStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipsystemstatstable.Ipsystemstatsentry, ['ipsystemstatsipversion', 'ipsystemstatsinreceives', 'ipsystemstatshcinreceives', 'ipsystemstatsinoctets', 'ipsystemstatshcinoctets', 'ipsystemstatsinhdrerrors', 'ipsystemstatsinnoroutes', 'ipsystemstatsinaddrerrors', 'ipsystemstatsinunknownprotos', 'ipsystemstatsintruncatedpkts', 'ipsystemstatsinforwdatagrams', 'ipsystemstatshcinforwdatagrams', 'ipsystemstatsreasmreqds', 'ipsystemstatsreasmoks', 'ipsystemstatsreasmfails', 'ipsystemstatsindiscards', 'ipsystemstatsindelivers', 'ipsystemstatshcindelivers', 'ipsystemstatsoutrequests', 'ipsystemstatshcoutrequests', 'ipsystemstatsoutnoroutes', 'ipsystemstatsoutforwdatagrams', 'ipsystemstatshcoutforwdatagrams', 'ipsystemstatsoutdiscards', 'ipsystemstatsoutfragreqds', 'ipsystemstatsoutfragoks', 'ipsystemstatsoutfragfails', 'ipsystemstatsoutfragcreates', 'ipsystemstatsouttransmits', 'ipsystemstatshcouttransmits', 'ipsystemstatsoutoctets', 'ipsystemstatshcoutoctets', 'ipsystemstatsinmcastpkts', 'ipsystemstatshcinmcastpkts', 'ipsystemstatsinmcastoctets', 'ipsystemstatshcinmcastoctets', 'ipsystemstatsoutmcastpkts', 'ipsystemstatshcoutmcastpkts', 'ipsystemstatsoutmcastoctets', 'ipsystemstatshcoutmcastoctets', 'ipsystemstatsinbcastpkts', 'ipsystemstatshcinbcastpkts', 'ipsystemstatsoutbcastpkts', 'ipsystemstatshcoutbcastpkts', 'ipsystemstatsdiscontinuitytime', 'ipsystemstatsrefreshrate'], name, value)
+                self._perform_setattr(IPMIB.IpSystemStatsTable.IpSystemStatsEntry, ['ipsystemstatsipversion', 'ipsystemstatsinreceives', 'ipsystemstatshcinreceives', 'ipsystemstatsinoctets', 'ipsystemstatshcinoctets', 'ipsystemstatsinhdrerrors', 'ipsystemstatsinnoroutes', 'ipsystemstatsinaddrerrors', 'ipsystemstatsinunknownprotos', 'ipsystemstatsintruncatedpkts', 'ipsystemstatsinforwdatagrams', 'ipsystemstatshcinforwdatagrams', 'ipsystemstatsreasmreqds', 'ipsystemstatsreasmoks', 'ipsystemstatsreasmfails', 'ipsystemstatsindiscards', 'ipsystemstatsindelivers', 'ipsystemstatshcindelivers', 'ipsystemstatsoutrequests', 'ipsystemstatshcoutrequests', 'ipsystemstatsoutnoroutes', 'ipsystemstatsoutforwdatagrams', 'ipsystemstatshcoutforwdatagrams', 'ipsystemstatsoutdiscards', 'ipsystemstatsoutfragreqds', 'ipsystemstatsoutfragoks', 'ipsystemstatsoutfragfails', 'ipsystemstatsoutfragcreates', 'ipsystemstatsouttransmits', 'ipsystemstatshcouttransmits', 'ipsystemstatsoutoctets', 'ipsystemstatshcoutoctets', 'ipsystemstatsinmcastpkts', 'ipsystemstatshcinmcastpkts', 'ipsystemstatsinmcastoctets', 'ipsystemstatshcinmcastoctets', 'ipsystemstatsoutmcastpkts', 'ipsystemstatshcoutmcastpkts', 'ipsystemstatsoutmcastoctets', 'ipsystemstatshcoutmcastoctets', 'ipsystemstatsinbcastpkts', 'ipsystemstatshcinbcastpkts', 'ipsystemstatsoutbcastpkts', 'ipsystemstatshcoutbcastpkts', 'ipsystemstatsdiscontinuitytime', 'ipsystemstatsrefreshrate'], name, value)
 
 
-    class Ipifstatstable(Entity):
+    class IpIfStatsTable(Entity):
         """
         The table containing per\-interface traffic statistics.  This
         table and the ipSystemStatsTable contain similar objects
@@ -2275,7 +2247,7 @@ class IPMIB(Entity):
         .. attribute:: ipifstatsentry
         
         	An interface statistics entry containing objects for a particular interface and version of IP
-        	**type**\: list of  		 :py:class:`Ipifstatsentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipifstatstable.Ipifstatsentry>`
+        	**type**\: list of  		 :py:class:`IpIfStatsEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpIfStatsTable.IpIfStatsEntry>`
         
         
 
@@ -2285,15 +2257,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipifstatstable, self).__init__()
+            super(IPMIB.IpIfStatsTable, self).__init__()
 
             self.yang_name = "ipIfStatsTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipIfStatsEntry", ("ipifstatsentry", IPMIB.Ipifstatstable.Ipifstatsentry))])
+            self._child_classes = OrderedDict([("ipIfStatsEntry", ("ipifstatsentry", IPMIB.IpIfStatsTable.IpIfStatsEntry))])
             self._leafs = OrderedDict()
 
             self.ipifstatsentry = YList(self)
@@ -2301,10 +2272,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipifstatstable, [], name, value)
+            self._perform_setattr(IPMIB.IpIfStatsTable, [], name, value)
 
 
-        class Ipifstatsentry(Entity):
+        class IpIfStatsEntry(Entity):
             """
             An interface statistics entry containing objects for a
             particular interface and version of IP.
@@ -2639,15 +2610,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipifstatstable.Ipifstatsentry, self).__init__()
+                super(IPMIB.IpIfStatsTable.IpIfStatsEntry, self).__init__()
 
                 self.yang_name = "ipIfStatsEntry"
                 self.yang_parent_name = "ipIfStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipifstatsipversion','ipifstatsifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipifstatsipversion', YLeaf(YType.enumeration, 'ipIfStatsIPVersion')),
                     ('ipifstatsifindex', YLeaf(YType.int32, 'ipIfStatsIfIndex')),
@@ -2746,10 +2716,10 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipIfStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipifstatstable.Ipifstatsentry, ['ipifstatsipversion', 'ipifstatsifindex', 'ipifstatsinreceives', 'ipifstatshcinreceives', 'ipifstatsinoctets', 'ipifstatshcinoctets', 'ipifstatsinhdrerrors', 'ipifstatsinnoroutes', 'ipifstatsinaddrerrors', 'ipifstatsinunknownprotos', 'ipifstatsintruncatedpkts', 'ipifstatsinforwdatagrams', 'ipifstatshcinforwdatagrams', 'ipifstatsreasmreqds', 'ipifstatsreasmoks', 'ipifstatsreasmfails', 'ipifstatsindiscards', 'ipifstatsindelivers', 'ipifstatshcindelivers', 'ipifstatsoutrequests', 'ipifstatshcoutrequests', 'ipifstatsoutforwdatagrams', 'ipifstatshcoutforwdatagrams', 'ipifstatsoutdiscards', 'ipifstatsoutfragreqds', 'ipifstatsoutfragoks', 'ipifstatsoutfragfails', 'ipifstatsoutfragcreates', 'ipifstatsouttransmits', 'ipifstatshcouttransmits', 'ipifstatsoutoctets', 'ipifstatshcoutoctets', 'ipifstatsinmcastpkts', 'ipifstatshcinmcastpkts', 'ipifstatsinmcastoctets', 'ipifstatshcinmcastoctets', 'ipifstatsoutmcastpkts', 'ipifstatshcoutmcastpkts', 'ipifstatsoutmcastoctets', 'ipifstatshcoutmcastoctets', 'ipifstatsinbcastpkts', 'ipifstatshcinbcastpkts', 'ipifstatsoutbcastpkts', 'ipifstatshcoutbcastpkts', 'ipifstatsdiscontinuitytime', 'ipifstatsrefreshrate'], name, value)
+                self._perform_setattr(IPMIB.IpIfStatsTable.IpIfStatsEntry, ['ipifstatsipversion', 'ipifstatsifindex', 'ipifstatsinreceives', 'ipifstatshcinreceives', 'ipifstatsinoctets', 'ipifstatshcinoctets', 'ipifstatsinhdrerrors', 'ipifstatsinnoroutes', 'ipifstatsinaddrerrors', 'ipifstatsinunknownprotos', 'ipifstatsintruncatedpkts', 'ipifstatsinforwdatagrams', 'ipifstatshcinforwdatagrams', 'ipifstatsreasmreqds', 'ipifstatsreasmoks', 'ipifstatsreasmfails', 'ipifstatsindiscards', 'ipifstatsindelivers', 'ipifstatshcindelivers', 'ipifstatsoutrequests', 'ipifstatshcoutrequests', 'ipifstatsoutforwdatagrams', 'ipifstatshcoutforwdatagrams', 'ipifstatsoutdiscards', 'ipifstatsoutfragreqds', 'ipifstatsoutfragoks', 'ipifstatsoutfragfails', 'ipifstatsoutfragcreates', 'ipifstatsouttransmits', 'ipifstatshcouttransmits', 'ipifstatsoutoctets', 'ipifstatshcoutoctets', 'ipifstatsinmcastpkts', 'ipifstatshcinmcastpkts', 'ipifstatsinmcastoctets', 'ipifstatshcinmcastoctets', 'ipifstatsoutmcastpkts', 'ipifstatshcoutmcastpkts', 'ipifstatsoutmcastoctets', 'ipifstatshcoutmcastoctets', 'ipifstatsinbcastpkts', 'ipifstatshcinbcastpkts', 'ipifstatsoutbcastpkts', 'ipifstatshcoutbcastpkts', 'ipifstatsdiscontinuitytime', 'ipifstatsrefreshrate'], name, value)
 
 
-    class Ipaddressprefixtable(Entity):
+    class IpAddressPrefixTable(Entity):
         """
         This table allows the user to determine the source of an IP
         address or set of IP addresses, and allows other tables to
@@ -2778,7 +2748,7 @@ class IPMIB(Entity):
         .. attribute:: ipaddressprefixentry
         
         	An entry in the ipAddressPrefixTable
-        	**type**\: list of  		 :py:class:`Ipaddressprefixentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipaddressprefixtable.Ipaddressprefixentry>`
+        	**type**\: list of  		 :py:class:`IpAddressPrefixEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressPrefixTable.IpAddressPrefixEntry>`
         
         
 
@@ -2788,15 +2758,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipaddressprefixtable, self).__init__()
+            super(IPMIB.IpAddressPrefixTable, self).__init__()
 
             self.yang_name = "ipAddressPrefixTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipAddressPrefixEntry", ("ipaddressprefixentry", IPMIB.Ipaddressprefixtable.Ipaddressprefixentry))])
+            self._child_classes = OrderedDict([("ipAddressPrefixEntry", ("ipaddressprefixentry", IPMIB.IpAddressPrefixTable.IpAddressPrefixEntry))])
             self._leafs = OrderedDict()
 
             self.ipaddressprefixentry = YList(self)
@@ -2804,10 +2773,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipaddressprefixtable, [], name, value)
+            self._perform_setattr(IPMIB.IpAddressPrefixTable, [], name, value)
 
 
-        class Ipaddressprefixentry(Entity):
+        class IpAddressPrefixEntry(Entity):
             """
             An entry in the ipAddressPrefixTable.
             
@@ -2878,15 +2847,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipaddressprefixtable.Ipaddressprefixentry, self).__init__()
+                super(IPMIB.IpAddressPrefixTable.IpAddressPrefixEntry, self).__init__()
 
                 self.yang_name = "ipAddressPrefixEntry"
                 self.yang_parent_name = "ipAddressPrefixTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipaddressprefixifindex','ipaddressprefixtype','ipaddressprefixprefix','ipaddressprefixlength']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipaddressprefixifindex', YLeaf(YType.int32, 'ipAddressPrefixIfIndex')),
                     ('ipaddressprefixtype', YLeaf(YType.enumeration, 'ipAddressPrefixType')),
@@ -2911,10 +2879,10 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipAddressPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipaddressprefixtable.Ipaddressprefixentry, ['ipaddressprefixifindex', 'ipaddressprefixtype', 'ipaddressprefixprefix', 'ipaddressprefixlength', 'ipaddressprefixorigin', 'ipaddressprefixonlinkflag', 'ipaddressprefixautonomousflag', 'ipaddressprefixadvpreferredlifetime', 'ipaddressprefixadvvalidlifetime'], name, value)
+                self._perform_setattr(IPMIB.IpAddressPrefixTable.IpAddressPrefixEntry, ['ipaddressprefixifindex', 'ipaddressprefixtype', 'ipaddressprefixprefix', 'ipaddressprefixlength', 'ipaddressprefixorigin', 'ipaddressprefixonlinkflag', 'ipaddressprefixautonomousflag', 'ipaddressprefixadvpreferredlifetime', 'ipaddressprefixadvvalidlifetime'], name, value)
 
 
-    class Ipaddresstable(Entity):
+    class IpAddressTable(Entity):
         """
         This table contains addressing information relevant to the
         entity's interfaces.
@@ -2942,7 +2910,7 @@ class IPMIB(Entity):
         .. attribute:: ipaddressentry
         
         	An address mapping for a particular interface
-        	**type**\: list of  		 :py:class:`Ipaddressentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipaddresstable.Ipaddressentry>`
+        	**type**\: list of  		 :py:class:`IpAddressEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressTable.IpAddressEntry>`
         
         
 
@@ -2952,15 +2920,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipaddresstable, self).__init__()
+            super(IPMIB.IpAddressTable, self).__init__()
 
             self.yang_name = "ipAddressTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipAddressEntry", ("ipaddressentry", IPMIB.Ipaddresstable.Ipaddressentry))])
+            self._child_classes = OrderedDict([("ipAddressEntry", ("ipaddressentry", IPMIB.IpAddressTable.IpAddressEntry))])
             self._leafs = OrderedDict()
 
             self.ipaddressentry = YList(self)
@@ -2968,10 +2935,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipaddresstable, [], name, value)
+            self._perform_setattr(IPMIB.IpAddressTable, [], name, value)
 
 
-        class Ipaddressentry(Entity):
+        class IpAddressEntry(Entity):
             """
             An address mapping for a particular interface.
             
@@ -2997,7 +2964,7 @@ class IPMIB(Entity):
             .. attribute:: ipaddresstype
             
             	The type of address.  broadcast(3) is not a valid value for IPv6 addresses (RFC 3513)
-            	**type**\:  :py:class:`Ipaddresstype <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipaddresstable.Ipaddressentry.Ipaddresstype>`
+            	**type**\:  :py:class:`IpAddressType <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressTable.IpAddressEntry.IpAddressType>`
             
             .. attribute:: ipaddressprefix
             
@@ -3048,15 +3015,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipaddresstable.Ipaddressentry, self).__init__()
+                super(IPMIB.IpAddressTable.IpAddressEntry, self).__init__()
 
                 self.yang_name = "ipAddressEntry"
                 self.yang_parent_name = "ipAddressTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipaddressaddrtype','ipaddressaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipaddressaddrtype', YLeaf(YType.enumeration, 'ipAddressAddrType')),
                     ('ipaddressaddr', YLeaf(YType.str, 'ipAddressAddr')),
@@ -3085,11 +3051,11 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipAddressTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipaddresstable.Ipaddressentry, ['ipaddressaddrtype', 'ipaddressaddr', 'ipaddressifindex', 'ipaddresstype', 'ipaddressprefix', 'ipaddressorigin', 'ipaddressstatus', 'ipaddresscreated', 'ipaddresslastchanged', 'ipaddressrowstatus', 'ipaddressstoragetype'], name, value)
+                self._perform_setattr(IPMIB.IpAddressTable.IpAddressEntry, ['ipaddressaddrtype', 'ipaddressaddr', 'ipaddressifindex', 'ipaddresstype', 'ipaddressprefix', 'ipaddressorigin', 'ipaddressstatus', 'ipaddresscreated', 'ipaddresslastchanged', 'ipaddressrowstatus', 'ipaddressstoragetype'], name, value)
 
-            class Ipaddresstype(Enum):
+            class IpAddressType(Enum):
                 """
-                Ipaddresstype (Enum Class)
+                IpAddressType (Enum Class)
 
                 The type of address.  broadcast(3) is not a valid value for
 
@@ -3111,7 +3077,7 @@ class IPMIB(Entity):
 
 
 
-    class Ipnettophysicaltable(Entity):
+    class IpNetToPhysicalTable(Entity):
         """
         The IP Address Translation table used for mapping from IP
         addresses to physical addresses.
@@ -3130,7 +3096,7 @@ class IPMIB(Entity):
         .. attribute:: ipnettophysicalentry
         
         	Each entry contains one IP address to `physical' address equivalence
-        	**type**\: list of  		 :py:class:`Ipnettophysicalentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipnettophysicaltable.Ipnettophysicalentry>`
+        	**type**\: list of  		 :py:class:`IpNetToPhysicalEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry>`
         
         
 
@@ -3140,15 +3106,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipnettophysicaltable, self).__init__()
+            super(IPMIB.IpNetToPhysicalTable, self).__init__()
 
             self.yang_name = "ipNetToPhysicalTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipNetToPhysicalEntry", ("ipnettophysicalentry", IPMIB.Ipnettophysicaltable.Ipnettophysicalentry))])
+            self._child_classes = OrderedDict([("ipNetToPhysicalEntry", ("ipnettophysicalentry", IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry))])
             self._leafs = OrderedDict()
 
             self.ipnettophysicalentry = YList(self)
@@ -3156,10 +3121,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipnettophysicaltable, [], name, value)
+            self._perform_setattr(IPMIB.IpNetToPhysicalTable, [], name, value)
 
 
-        class Ipnettophysicalentry(Entity):
+        class IpNetToPhysicalEntry(Entity):
             """
             Each entry contains one IP address to `physical' address
             equivalence.
@@ -3200,12 +3165,12 @@ class IPMIB(Entity):
             .. attribute:: ipnettophysicaltype
             
             	The type of mapping.  Setting this object to the value invalid(2) has the effect of invalidating the corresponding entry in the ipNetToPhysicalTable.  That is, it effectively dis\- associates the interface identified with said entry from the mapping identified with said entry.  It is an implementation\-specific matter as to whether the agent   removes an invalidated entry from the table.  Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use.  Proper interpretation of such entries requires examination of the relevant ipNetToPhysicalType object.  The 'dynamic(3)' type indicates that the IP address to physical addresses mapping has been dynamically resolved using e.g., IPv4 ARP or the IPv6 Neighbor Discovery protocol.  The 'static(4)' type indicates that the mapping has been statically configured.  Both of these refer to entries that provide mappings for other entities addresses.  The 'local(5)' type indicates that the mapping is provided for an entity's own interface address.  As the entries in this table are typically not persistent when this object is written the entity SHOULD NOT save the change to non\-volatile storage
-            	**type**\:  :py:class:`Ipnettophysicaltype <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipnettophysicaltable.Ipnettophysicalentry.Ipnettophysicaltype>`
+            	**type**\:  :py:class:`IpNetToPhysicalType <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry.IpNetToPhysicalType>`
             
             .. attribute:: ipnettophysicalstate
             
             	The Neighbor Unreachability Detection state for the interface when the address mapping in this entry is used. If Neighbor Unreachability Detection is not in use (e.g. for IPv4), this object is always unknown(6)
-            	**type**\:  :py:class:`Ipnettophysicalstate <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipnettophysicaltable.Ipnettophysicalentry.Ipnettophysicalstate>`
+            	**type**\:  :py:class:`IpNetToPhysicalState <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry.IpNetToPhysicalState>`
             
             .. attribute:: ipnettophysicalrowstatus
             
@@ -3220,15 +3185,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipnettophysicaltable.Ipnettophysicalentry, self).__init__()
+                super(IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry, self).__init__()
 
                 self.yang_name = "ipNetToPhysicalEntry"
                 self.yang_parent_name = "ipNetToPhysicalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipnettophysicalifindex','ipnettophysicalnetaddresstype','ipnettophysicalnetaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipnettophysicalifindex', YLeaf(YType.int32, 'ipNetToPhysicalIfIndex')),
                     ('ipnettophysicalnetaddresstype', YLeaf(YType.enumeration, 'ipNetToPhysicalNetAddressType')),
@@ -3251,11 +3215,11 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipNetToPhysicalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipnettophysicaltable.Ipnettophysicalentry, ['ipnettophysicalifindex', 'ipnettophysicalnetaddresstype', 'ipnettophysicalnetaddress', 'ipnettophysicalphysaddress', 'ipnettophysicallastupdated', 'ipnettophysicaltype', 'ipnettophysicalstate', 'ipnettophysicalrowstatus'], name, value)
+                self._perform_setattr(IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry, ['ipnettophysicalifindex', 'ipnettophysicalnetaddresstype', 'ipnettophysicalnetaddress', 'ipnettophysicalphysaddress', 'ipnettophysicallastupdated', 'ipnettophysicaltype', 'ipnettophysicalstate', 'ipnettophysicalrowstatus'], name, value)
 
-            class Ipnettophysicalstate(Enum):
+            class IpNetToPhysicalState(Enum):
                 """
-                Ipnettophysicalstate (Enum Class)
+                IpNetToPhysicalState (Enum Class)
 
                 The Neighbor Unreachability Detection state for the
 
@@ -3296,9 +3260,9 @@ class IPMIB(Entity):
                 incomplete = Enum.YLeaf(7, "incomplete")
 
 
-            class Ipnettophysicaltype(Enum):
+            class IpNetToPhysicalType(Enum):
                 """
-                Ipnettophysicaltype (Enum Class)
+                IpNetToPhysicalType (Enum Class)
 
                 The type of mapping.
 
@@ -3374,7 +3338,7 @@ class IPMIB(Entity):
 
 
 
-    class Ipv6Scopezoneindextable(Entity):
+    class Ipv6ScopeZoneIndexTable(Entity):
         """
         The table used to describe IPv6 unicast and multicast scope
         zones.
@@ -3386,7 +3350,7 @@ class IPMIB(Entity):
         .. attribute:: ipv6scopezoneindexentry
         
         	Each entry contains the list of scope identifiers on a given interface
-        	**type**\: list of  		 :py:class:`Ipv6Scopezoneindexentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6Scopezoneindextable.Ipv6Scopezoneindexentry>`
+        	**type**\: list of  		 :py:class:`Ipv6ScopeZoneIndexEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6ScopeZoneIndexTable.Ipv6ScopeZoneIndexEntry>`
         
         
 
@@ -3396,15 +3360,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipv6Scopezoneindextable, self).__init__()
+            super(IPMIB.Ipv6ScopeZoneIndexTable, self).__init__()
 
             self.yang_name = "ipv6ScopeZoneIndexTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipv6ScopeZoneIndexEntry", ("ipv6scopezoneindexentry", IPMIB.Ipv6Scopezoneindextable.Ipv6Scopezoneindexentry))])
+            self._child_classes = OrderedDict([("ipv6ScopeZoneIndexEntry", ("ipv6scopezoneindexentry", IPMIB.Ipv6ScopeZoneIndexTable.Ipv6ScopeZoneIndexEntry))])
             self._leafs = OrderedDict()
 
             self.ipv6scopezoneindexentry = YList(self)
@@ -3412,10 +3375,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipv6Scopezoneindextable, [], name, value)
+            self._perform_setattr(IPMIB.Ipv6ScopeZoneIndexTable, [], name, value)
 
 
-        class Ipv6Scopezoneindexentry(Entity):
+        class Ipv6ScopeZoneIndexEntry(Entity):
             """
             Each entry contains the list of scope identifiers on a given
             interface.
@@ -3519,15 +3482,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipv6Scopezoneindextable.Ipv6Scopezoneindexentry, self).__init__()
+                super(IPMIB.Ipv6ScopeZoneIndexTable.Ipv6ScopeZoneIndexEntry, self).__init__()
 
                 self.yang_name = "ipv6ScopeZoneIndexEntry"
                 self.yang_parent_name = "ipv6ScopeZoneIndexTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipv6scopezoneindexifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipv6scopezoneindexifindex', YLeaf(YType.int32, 'ipv6ScopeZoneIndexIfIndex')),
                     ('ipv6scopezoneindexlinklocal', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexLinkLocal')),
@@ -3560,10 +3522,10 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipv6ScopeZoneIndexTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipv6Scopezoneindextable.Ipv6Scopezoneindexentry, ['ipv6scopezoneindexifindex', 'ipv6scopezoneindexlinklocal', 'ipv6scopezoneindex3', 'ipv6scopezoneindexadminlocal', 'ipv6scopezoneindexsitelocal', 'ipv6scopezoneindex6', 'ipv6scopezoneindex7', 'ipv6scopezoneindexorganizationlocal', 'ipv6scopezoneindex9', 'ipv6scopezoneindexa', 'ipv6scopezoneindexb', 'ipv6scopezoneindexc', 'ipv6scopezoneindexd'], name, value)
+                self._perform_setattr(IPMIB.Ipv6ScopeZoneIndexTable.Ipv6ScopeZoneIndexEntry, ['ipv6scopezoneindexifindex', 'ipv6scopezoneindexlinklocal', 'ipv6scopezoneindex3', 'ipv6scopezoneindexadminlocal', 'ipv6scopezoneindexsitelocal', 'ipv6scopezoneindex6', 'ipv6scopezoneindex7', 'ipv6scopezoneindexorganizationlocal', 'ipv6scopezoneindex9', 'ipv6scopezoneindexa', 'ipv6scopezoneindexb', 'ipv6scopezoneindexc', 'ipv6scopezoneindexd'], name, value)
 
 
-    class Ipdefaultroutertable(Entity):
+    class IpDefaultRouterTable(Entity):
         """
         The table used to describe the default routers known to this
         
@@ -3573,7 +3535,7 @@ class IPMIB(Entity):
         .. attribute:: ipdefaultrouterentry
         
         	Each entry contains information about a default router known to this entity
-        	**type**\: list of  		 :py:class:`Ipdefaultrouterentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipdefaultroutertable.Ipdefaultrouterentry>`
+        	**type**\: list of  		 :py:class:`IpDefaultRouterEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpDefaultRouterTable.IpDefaultRouterEntry>`
         
         
 
@@ -3583,15 +3545,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipdefaultroutertable, self).__init__()
+            super(IPMIB.IpDefaultRouterTable, self).__init__()
 
             self.yang_name = "ipDefaultRouterTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipDefaultRouterEntry", ("ipdefaultrouterentry", IPMIB.Ipdefaultroutertable.Ipdefaultrouterentry))])
+            self._child_classes = OrderedDict([("ipDefaultRouterEntry", ("ipdefaultrouterentry", IPMIB.IpDefaultRouterTable.IpDefaultRouterEntry))])
             self._leafs = OrderedDict()
 
             self.ipdefaultrouterentry = YList(self)
@@ -3599,10 +3560,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipdefaultroutertable, [], name, value)
+            self._perform_setattr(IPMIB.IpDefaultRouterTable, [], name, value)
 
 
-        class Ipdefaultrouterentry(Entity):
+        class IpDefaultRouterEntry(Entity):
             """
             Each entry contains information about a default router known
             to this entity.
@@ -3638,7 +3599,7 @@ class IPMIB(Entity):
             .. attribute:: ipdefaultrouterpreference
             
             	An indication of preference given to this router as a default router as described in he Default Router Preferences document.  Treating the value as a 2 bit signed integer allows for simple arithmetic comparisons.  For IPv4 routers or IPv6 routers that are not using the updated router advertisement format, this object is set to medium (0)
-            	**type**\:  :py:class:`Ipdefaultrouterpreference <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipdefaultroutertable.Ipdefaultrouterentry.Ipdefaultrouterpreference>`
+            	**type**\:  :py:class:`IpDefaultRouterPreference <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpDefaultRouterTable.IpDefaultRouterEntry.IpDefaultRouterPreference>`
             
             
 
@@ -3648,15 +3609,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipdefaultroutertable.Ipdefaultrouterentry, self).__init__()
+                super(IPMIB.IpDefaultRouterTable.IpDefaultRouterEntry, self).__init__()
 
                 self.yang_name = "ipDefaultRouterEntry"
                 self.yang_parent_name = "ipDefaultRouterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipdefaultrouteraddresstype','ipdefaultrouteraddress','ipdefaultrouterifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipdefaultrouteraddresstype', YLeaf(YType.enumeration, 'ipDefaultRouterAddressType')),
                     ('ipdefaultrouteraddress', YLeaf(YType.str, 'ipDefaultRouterAddress')),
@@ -3673,11 +3633,11 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipDefaultRouterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipdefaultroutertable.Ipdefaultrouterentry, ['ipdefaultrouteraddresstype', 'ipdefaultrouteraddress', 'ipdefaultrouterifindex', 'ipdefaultrouterlifetime', 'ipdefaultrouterpreference'], name, value)
+                self._perform_setattr(IPMIB.IpDefaultRouterTable.IpDefaultRouterEntry, ['ipdefaultrouteraddresstype', 'ipdefaultrouteraddress', 'ipdefaultrouterifindex', 'ipdefaultrouterlifetime', 'ipdefaultrouterpreference'], name, value)
 
-            class Ipdefaultrouterpreference(Enum):
+            class IpDefaultRouterPreference(Enum):
                 """
-                Ipdefaultrouterpreference (Enum Class)
+                IpDefaultRouterPreference (Enum Class)
 
                 An indication of preference given to this router as a
 
@@ -3715,7 +3675,7 @@ class IPMIB(Entity):
 
 
 
-    class Ipv6Routeradverttable(Entity):
+    class Ipv6RouterAdvertTable(Entity):
         """
         The table containing information used to construct router
         advertisements.
@@ -3723,7 +3683,7 @@ class IPMIB(Entity):
         .. attribute:: ipv6routeradvertentry
         
         	An entry containing information used to construct router advertisements.  Information in this table is persistent, and when this object is written, the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ipv6Routeradvertentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6Routeradverttable.Ipv6Routeradvertentry>`
+        	**type**\: list of  		 :py:class:`Ipv6RouterAdvertEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6RouterAdvertTable.Ipv6RouterAdvertEntry>`
         
         
 
@@ -3733,15 +3693,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Ipv6Routeradverttable, self).__init__()
+            super(IPMIB.Ipv6RouterAdvertTable, self).__init__()
 
             self.yang_name = "ipv6RouterAdvertTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipv6RouterAdvertEntry", ("ipv6routeradvertentry", IPMIB.Ipv6Routeradverttable.Ipv6Routeradvertentry))])
+            self._child_classes = OrderedDict([("ipv6RouterAdvertEntry", ("ipv6routeradvertentry", IPMIB.Ipv6RouterAdvertTable.Ipv6RouterAdvertEntry))])
             self._leafs = OrderedDict()
 
             self.ipv6routeradvertentry = YList(self)
@@ -3749,10 +3708,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Ipv6Routeradverttable, [], name, value)
+            self._perform_setattr(IPMIB.Ipv6RouterAdvertTable, [], name, value)
 
 
-        class Ipv6Routeradvertentry(Entity):
+        class Ipv6RouterAdvertEntry(Entity):
             """
             An entry containing information used to construct router
             advertisements.
@@ -3855,15 +3814,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Ipv6Routeradverttable.Ipv6Routeradvertentry, self).__init__()
+                super(IPMIB.Ipv6RouterAdvertTable.Ipv6RouterAdvertEntry, self).__init__()
 
                 self.yang_name = "ipv6RouterAdvertEntry"
                 self.yang_parent_name = "ipv6RouterAdvertTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipv6routeradvertifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipv6routeradvertifindex', YLeaf(YType.int32, 'ipv6RouterAdvertIfIndex')),
                     ('ipv6routeradvertsendadverts', YLeaf(YType.boolean, 'ipv6RouterAdvertSendAdverts')),
@@ -3894,17 +3852,17 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipv6RouterAdvertTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Ipv6Routeradverttable.Ipv6Routeradvertentry, ['ipv6routeradvertifindex', 'ipv6routeradvertsendadverts', 'ipv6routeradvertmaxinterval', 'ipv6routeradvertmininterval', 'ipv6routeradvertmanagedflag', 'ipv6routeradvertotherconfigflag', 'ipv6routeradvertlinkmtu', 'ipv6routeradvertreachabletime', 'ipv6routeradvertretransmittime', 'ipv6routeradvertcurhoplimit', 'ipv6routeradvertdefaultlifetime', 'ipv6routeradvertrowstatus'], name, value)
+                self._perform_setattr(IPMIB.Ipv6RouterAdvertTable.Ipv6RouterAdvertEntry, ['ipv6routeradvertifindex', 'ipv6routeradvertsendadverts', 'ipv6routeradvertmaxinterval', 'ipv6routeradvertmininterval', 'ipv6routeradvertmanagedflag', 'ipv6routeradvertotherconfigflag', 'ipv6routeradvertlinkmtu', 'ipv6routeradvertreachabletime', 'ipv6routeradvertretransmittime', 'ipv6routeradvertcurhoplimit', 'ipv6routeradvertdefaultlifetime', 'ipv6routeradvertrowstatus'], name, value)
 
 
-    class Icmpstatstable(Entity):
+    class IcmpStatsTable(Entity):
         """
         The table of generic system\-wide ICMP counters.
         
         .. attribute:: icmpstatsentry
         
         	A conceptual row in the icmpStatsTable
-        	**type**\: list of  		 :py:class:`Icmpstatsentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Icmpstatstable.Icmpstatsentry>`
+        	**type**\: list of  		 :py:class:`IcmpStatsEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IcmpStatsTable.IcmpStatsEntry>`
         
         
 
@@ -3914,15 +3872,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Icmpstatstable, self).__init__()
+            super(IPMIB.IcmpStatsTable, self).__init__()
 
             self.yang_name = "icmpStatsTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("icmpStatsEntry", ("icmpstatsentry", IPMIB.Icmpstatstable.Icmpstatsentry))])
+            self._child_classes = OrderedDict([("icmpStatsEntry", ("icmpstatsentry", IPMIB.IcmpStatsTable.IcmpStatsEntry))])
             self._leafs = OrderedDict()
 
             self.icmpstatsentry = YList(self)
@@ -3930,10 +3887,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Icmpstatstable, [], name, value)
+            self._perform_setattr(IPMIB.IcmpStatsTable, [], name, value)
 
 
-        class Icmpstatsentry(Entity):
+        class IcmpStatsEntry(Entity):
             """
             A conceptual row in the icmpStatsTable.
             
@@ -3978,15 +3935,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Icmpstatstable.Icmpstatsentry, self).__init__()
+                super(IPMIB.IcmpStatsTable.IcmpStatsEntry, self).__init__()
 
                 self.yang_name = "icmpStatsEntry"
                 self.yang_parent_name = "icmpStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['icmpstatsipversion']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('icmpstatsipversion', YLeaf(YType.enumeration, 'icmpStatsIPVersion')),
                     ('icmpstatsinmsgs', YLeaf(YType.uint32, 'icmpStatsInMsgs')),
@@ -4003,10 +3959,10 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/icmpStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Icmpstatstable.Icmpstatsentry, ['icmpstatsipversion', 'icmpstatsinmsgs', 'icmpstatsinerrors', 'icmpstatsoutmsgs', 'icmpstatsouterrors'], name, value)
+                self._perform_setattr(IPMIB.IcmpStatsTable.IcmpStatsEntry, ['icmpstatsipversion', 'icmpstatsinmsgs', 'icmpstatsinerrors', 'icmpstatsoutmsgs', 'icmpstatsouterrors'], name, value)
 
 
-    class Icmpmsgstatstable(Entity):
+    class IcmpMsgStatsTable(Entity):
         """
         The table of system\-wide per\-version, per\-message type ICMP
         counters.
@@ -4014,7 +3970,7 @@ class IPMIB(Entity):
         .. attribute:: icmpmsgstatsentry
         
         	A conceptual row in the icmpMsgStatsTable.  The system should track each ICMP type value, even if that ICMP type is not supported by the system.  However, a given row need not be instantiated unless a message of that type has been processed, i.e., the row for icmpMsgStatsType=X MAY be instantiated before but MUST be instantiated after the first message with Type=X is received or transmitted.  After receiving or transmitting any succeeding messages with Type=X, the relevant counter must be incremented
-        	**type**\: list of  		 :py:class:`Icmpmsgstatsentry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Icmpmsgstatstable.Icmpmsgstatsentry>`
+        	**type**\: list of  		 :py:class:`IcmpMsgStatsEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IcmpMsgStatsTable.IcmpMsgStatsEntry>`
         
         
 
@@ -4024,15 +3980,14 @@ class IPMIB(Entity):
         _revision = '2006-02-02'
 
         def __init__(self):
-            super(IPMIB.Icmpmsgstatstable, self).__init__()
+            super(IPMIB.IcmpMsgStatsTable, self).__init__()
 
             self.yang_name = "icmpMsgStatsTable"
             self.yang_parent_name = "IP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("icmpMsgStatsEntry", ("icmpmsgstatsentry", IPMIB.Icmpmsgstatstable.Icmpmsgstatsentry))])
+            self._child_classes = OrderedDict([("icmpMsgStatsEntry", ("icmpmsgstatsentry", IPMIB.IcmpMsgStatsTable.IcmpMsgStatsEntry))])
             self._leafs = OrderedDict()
 
             self.icmpmsgstatsentry = YList(self)
@@ -4040,10 +3995,10 @@ class IPMIB(Entity):
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMIB.Icmpmsgstatstable, [], name, value)
+            self._perform_setattr(IPMIB.IcmpMsgStatsTable, [], name, value)
 
 
-        class Icmpmsgstatsentry(Entity):
+        class IcmpMsgStatsEntry(Entity):
             """
             A conceptual row in the icmpMsgStatsTable.
             
@@ -4091,15 +4046,14 @@ class IPMIB(Entity):
             _revision = '2006-02-02'
 
             def __init__(self):
-                super(IPMIB.Icmpmsgstatstable.Icmpmsgstatsentry, self).__init__()
+                super(IPMIB.IcmpMsgStatsTable.IcmpMsgStatsEntry, self).__init__()
 
                 self.yang_name = "icmpMsgStatsEntry"
                 self.yang_parent_name = "icmpMsgStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['icmpmsgstatsipversion','icmpmsgstatstype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('icmpmsgstatsipversion', YLeaf(YType.enumeration, 'icmpMsgStatsIPVersion')),
                     ('icmpmsgstatstype', YLeaf(YType.int32, 'icmpMsgStatsType')),
@@ -4114,7 +4068,7 @@ class IPMIB(Entity):
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/icmpMsgStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMIB.Icmpmsgstatstable.Icmpmsgstatsentry, ['icmpmsgstatsipversion', 'icmpmsgstatstype', 'icmpmsgstatsinpkts', 'icmpmsgstatsoutpkts'], name, value)
+                self._perform_setattr(IPMIB.IcmpMsgStatsTable.IcmpMsgStatsEntry, ['icmpmsgstatsipversion', 'icmpmsgstatstype', 'icmpmsgstatsinpkts', 'icmpmsgstatsoutpkts'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IPMIB()

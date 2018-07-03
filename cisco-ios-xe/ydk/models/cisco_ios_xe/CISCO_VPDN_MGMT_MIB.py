@@ -189,66 +189,66 @@ class CISCOVPDNMGMTMIB(Entity):
     .. attribute:: ciscovpdnmgmtmibnotifs
     
     	
-    	**type**\:  :py:class:`Ciscovpdnmgmtmibnotifs <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs>`
+    	**type**\:  :py:class:`CiscoVpdnMgmtMIBNotifs <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CiscoVpdnMgmtMIBNotifs>`
     
     .. attribute:: cvpdnsysteminfo
     
     	
-    	**type**\:  :py:class:`Cvpdnsysteminfo <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnsysteminfo>`
+    	**type**\:  :py:class:`CvpdnSystemInfo <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSystemInfo>`
     
     .. attribute:: cvpdnmultilinkinfo
     
     	
-    	**type**\:  :py:class:`Cvpdnmultilinkinfo <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnmultilinkinfo>`
+    	**type**\:  :py:class:`CvpdnMultilinkInfo <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnMultilinkInfo>`
     
     .. attribute:: cvpdnsystemtable
     
     	Table of information about the VPDN system for all tunnel types
-    	**type**\:  :py:class:`Cvpdnsystemtable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnsystemtable>`
+    	**type**\:  :py:class:`CvpdnSystemTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSystemTable>`
     
     .. attribute:: cvpdntunneltable
     
     	Table of information about the active VPDN tunnels
-    	**type**\:  :py:class:`Cvpdntunneltable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunneltable>`
+    	**type**\:  :py:class:`CvpdnTunnelTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable>`
     
     	**status**\: obsolete
     
     .. attribute:: cvpdntunnelattrtable
     
     	Table of information about the active VPDN tunnels.  An entry is added to the table when a new tunnel is initiated and removed from the table when the tunnel is terminated
-    	**type**\:  :py:class:`Cvpdntunnelattrtable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelattrtable>`
+    	**type**\:  :py:class:`CvpdnTunnelAttrTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable>`
     
     .. attribute:: cvpdntunnelsessiontable
     
     	Table of information about individual user sessions within the active tunnels.  Entry is added to the table when new user session is initiated and be removed from the table when the user session is terminated
-    	**type**\:  :py:class:`Cvpdntunnelsessiontable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable>`
+    	**type**\:  :py:class:`CvpdnTunnelSessionTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable>`
     
     	**status**\: obsolete
     
     .. attribute:: cvpdnsessionattrtable
     
     	Table of information about individual sessions within the active tunnels.  An entry is added to the table when a new session is initiated and removed from the table when the session is terminated
-    	**type**\:  :py:class:`Cvpdnsessionattrtable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnsessionattrtable>`
+    	**type**\:  :py:class:`CvpdnSessionAttrTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSessionAttrTable>`
     
     .. attribute:: cvpdnusertofailhistinfotable
     
     	Table of the record of failure objects which can be referenced by an user name.  Only a name that has a valid item in the Cisco IOS VPDN failure history table will yield a valid entry in this table.  The table has a maximum size of 50 entries.  Only the newest 50 entries will be kept in the table
-    	**type**\:  :py:class:`Cvpdnusertofailhistinfotable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable>`
+    	**type**\:  :py:class:`CvpdnUserToFailHistInfoTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable>`
     
     .. attribute:: cvpdntemplatetable
     
     	Table of information about the VPDN templates.  The VPDN template is a grouping mechanism that allows configuration settings to be shared among multiple VPDN groups.  One such setting is a limit on the number of active sessions across all VPDN groups associated with the template.  The template table allows customers to monitor template\-wide information such as tracking the allocation of sessions across templates
-    	**type**\:  :py:class:`Cvpdntemplatetable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntemplatetable>`
+    	**type**\:  :py:class:`CvpdnTemplateTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTemplateTable>`
     
     .. attribute:: cvpdnbundletable
     
     	Table that describes the multilink PPP attributes of the active VPDN sessions
-    	**type**\:  :py:class:`Cvpdnbundletable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnbundletable>`
+    	**type**\:  :py:class:`CvpdnBundleTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleTable>`
     
     .. attribute:: cvpdnbundlechildtable
     
     	A table that exposes the containment relationship between a multilink PPP bundle and a VPDN tunnel
-    	**type**\:  :py:class:`Cvpdnbundlechildtable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnbundlechildtable>`
+    	**type**\:  :py:class:`CvpdnBundleChildTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleChildTable>`
     
     
 
@@ -266,73 +266,63 @@ class CISCOVPDNMGMTMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoVpdnMgmtMIBNotifs", ("ciscovpdnmgmtmibnotifs", CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs)), ("cvpdnSystemInfo", ("cvpdnsysteminfo", CISCOVPDNMGMTMIB.Cvpdnsysteminfo)), ("cvpdnMultilinkInfo", ("cvpdnmultilinkinfo", CISCOVPDNMGMTMIB.Cvpdnmultilinkinfo)), ("cvpdnSystemTable", ("cvpdnsystemtable", CISCOVPDNMGMTMIB.Cvpdnsystemtable)), ("cvpdnTunnelTable", ("cvpdntunneltable", CISCOVPDNMGMTMIB.Cvpdntunneltable)), ("cvpdnTunnelAttrTable", ("cvpdntunnelattrtable", CISCOVPDNMGMTMIB.Cvpdntunnelattrtable)), ("cvpdnTunnelSessionTable", ("cvpdntunnelsessiontable", CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable)), ("cvpdnSessionAttrTable", ("cvpdnsessionattrtable", CISCOVPDNMGMTMIB.Cvpdnsessionattrtable)), ("cvpdnUserToFailHistInfoTable", ("cvpdnusertofailhistinfotable", CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable)), ("cvpdnTemplateTable", ("cvpdntemplatetable", CISCOVPDNMGMTMIB.Cvpdntemplatetable)), ("cvpdnBundleTable", ("cvpdnbundletable", CISCOVPDNMGMTMIB.Cvpdnbundletable)), ("cvpdnBundleChildTable", ("cvpdnbundlechildtable", CISCOVPDNMGMTMIB.Cvpdnbundlechildtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoVpdnMgmtMIBNotifs", ("ciscovpdnmgmtmibnotifs", CISCOVPDNMGMTMIB.CiscoVpdnMgmtMIBNotifs)), ("cvpdnSystemInfo", ("cvpdnsysteminfo", CISCOVPDNMGMTMIB.CvpdnSystemInfo)), ("cvpdnMultilinkInfo", ("cvpdnmultilinkinfo", CISCOVPDNMGMTMIB.CvpdnMultilinkInfo)), ("cvpdnSystemTable", ("cvpdnsystemtable", CISCOVPDNMGMTMIB.CvpdnSystemTable)), ("cvpdnTunnelTable", ("cvpdntunneltable", CISCOVPDNMGMTMIB.CvpdnTunnelTable)), ("cvpdnTunnelAttrTable", ("cvpdntunnelattrtable", CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable)), ("cvpdnTunnelSessionTable", ("cvpdntunnelsessiontable", CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable)), ("cvpdnSessionAttrTable", ("cvpdnsessionattrtable", CISCOVPDNMGMTMIB.CvpdnSessionAttrTable)), ("cvpdnUserToFailHistInfoTable", ("cvpdnusertofailhistinfotable", CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable)), ("cvpdnTemplateTable", ("cvpdntemplatetable", CISCOVPDNMGMTMIB.CvpdnTemplateTable)), ("cvpdnBundleTable", ("cvpdnbundletable", CISCOVPDNMGMTMIB.CvpdnBundleTable)), ("cvpdnBundleChildTable", ("cvpdnbundlechildtable", CISCOVPDNMGMTMIB.CvpdnBundleChildTable))])
         self._leafs = OrderedDict()
 
-        self.ciscovpdnmgmtmibnotifs = CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs()
+        self.ciscovpdnmgmtmibnotifs = CISCOVPDNMGMTMIB.CiscoVpdnMgmtMIBNotifs()
         self.ciscovpdnmgmtmibnotifs.parent = self
         self._children_name_map["ciscovpdnmgmtmibnotifs"] = "ciscoVpdnMgmtMIBNotifs"
-        self._children_yang_names.add("ciscoVpdnMgmtMIBNotifs")
 
-        self.cvpdnsysteminfo = CISCOVPDNMGMTMIB.Cvpdnsysteminfo()
+        self.cvpdnsysteminfo = CISCOVPDNMGMTMIB.CvpdnSystemInfo()
         self.cvpdnsysteminfo.parent = self
         self._children_name_map["cvpdnsysteminfo"] = "cvpdnSystemInfo"
-        self._children_yang_names.add("cvpdnSystemInfo")
 
-        self.cvpdnmultilinkinfo = CISCOVPDNMGMTMIB.Cvpdnmultilinkinfo()
+        self.cvpdnmultilinkinfo = CISCOVPDNMGMTMIB.CvpdnMultilinkInfo()
         self.cvpdnmultilinkinfo.parent = self
         self._children_name_map["cvpdnmultilinkinfo"] = "cvpdnMultilinkInfo"
-        self._children_yang_names.add("cvpdnMultilinkInfo")
 
-        self.cvpdnsystemtable = CISCOVPDNMGMTMIB.Cvpdnsystemtable()
+        self.cvpdnsystemtable = CISCOVPDNMGMTMIB.CvpdnSystemTable()
         self.cvpdnsystemtable.parent = self
         self._children_name_map["cvpdnsystemtable"] = "cvpdnSystemTable"
-        self._children_yang_names.add("cvpdnSystemTable")
 
-        self.cvpdntunneltable = CISCOVPDNMGMTMIB.Cvpdntunneltable()
+        self.cvpdntunneltable = CISCOVPDNMGMTMIB.CvpdnTunnelTable()
         self.cvpdntunneltable.parent = self
         self._children_name_map["cvpdntunneltable"] = "cvpdnTunnelTable"
-        self._children_yang_names.add("cvpdnTunnelTable")
 
-        self.cvpdntunnelattrtable = CISCOVPDNMGMTMIB.Cvpdntunnelattrtable()
+        self.cvpdntunnelattrtable = CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable()
         self.cvpdntunnelattrtable.parent = self
         self._children_name_map["cvpdntunnelattrtable"] = "cvpdnTunnelAttrTable"
-        self._children_yang_names.add("cvpdnTunnelAttrTable")
 
-        self.cvpdntunnelsessiontable = CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable()
+        self.cvpdntunnelsessiontable = CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable()
         self.cvpdntunnelsessiontable.parent = self
         self._children_name_map["cvpdntunnelsessiontable"] = "cvpdnTunnelSessionTable"
-        self._children_yang_names.add("cvpdnTunnelSessionTable")
 
-        self.cvpdnsessionattrtable = CISCOVPDNMGMTMIB.Cvpdnsessionattrtable()
+        self.cvpdnsessionattrtable = CISCOVPDNMGMTMIB.CvpdnSessionAttrTable()
         self.cvpdnsessionattrtable.parent = self
         self._children_name_map["cvpdnsessionattrtable"] = "cvpdnSessionAttrTable"
-        self._children_yang_names.add("cvpdnSessionAttrTable")
 
-        self.cvpdnusertofailhistinfotable = CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable()
+        self.cvpdnusertofailhistinfotable = CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable()
         self.cvpdnusertofailhistinfotable.parent = self
         self._children_name_map["cvpdnusertofailhistinfotable"] = "cvpdnUserToFailHistInfoTable"
-        self._children_yang_names.add("cvpdnUserToFailHistInfoTable")
 
-        self.cvpdntemplatetable = CISCOVPDNMGMTMIB.Cvpdntemplatetable()
+        self.cvpdntemplatetable = CISCOVPDNMGMTMIB.CvpdnTemplateTable()
         self.cvpdntemplatetable.parent = self
         self._children_name_map["cvpdntemplatetable"] = "cvpdnTemplateTable"
-        self._children_yang_names.add("cvpdnTemplateTable")
 
-        self.cvpdnbundletable = CISCOVPDNMGMTMIB.Cvpdnbundletable()
+        self.cvpdnbundletable = CISCOVPDNMGMTMIB.CvpdnBundleTable()
         self.cvpdnbundletable.parent = self
         self._children_name_map["cvpdnbundletable"] = "cvpdnBundleTable"
-        self._children_yang_names.add("cvpdnBundleTable")
 
-        self.cvpdnbundlechildtable = CISCOVPDNMGMTMIB.Cvpdnbundlechildtable()
+        self.cvpdnbundlechildtable = CISCOVPDNMGMTMIB.CvpdnBundleChildTable()
         self.cvpdnbundlechildtable.parent = self
         self._children_name_map["cvpdnbundlechildtable"] = "cvpdnBundleChildTable"
-        self._children_yang_names.add("cvpdnBundleChildTable")
         self._segment_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOVPDNMGMTMIB, [], name, value)
 
-    class Ciscovpdnmgmtmibnotifs(Entity):
+
+    class CiscoVpdnMgmtMIBNotifs(Entity):
         """
         
         
@@ -346,7 +336,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdnnotifsessionevent
         
         	Indicates the event that generated the L2X session notification.  The events are represented as follows\:  up\:     Session has come up.  down\:   Session has gone down.  pwUp\:   Pseudowire associated with this          session has come up.  pwDown\: Pseudowire associated with this          session has gone down
-        	**type**\:  :py:class:`Cvpdnnotifsessionevent <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs.Cvpdnnotifsessionevent>`
+        	**type**\:  :py:class:`CvpdnNotifSessionEvent <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CiscoVpdnMgmtMIBNotifs.CvpdnNotifSessionEvent>`
         
         
 
@@ -356,15 +346,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs, self).__init__()
+            super(CISCOVPDNMGMTMIB.CiscoVpdnMgmtMIBNotifs, self).__init__()
 
             self.yang_name = "ciscoVpdnMgmtMIBNotifs"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cvpdnnotifsessionid', YLeaf(YType.int32, 'cvpdnNotifSessionID')),
                 ('cvpdnnotifsessionevent', YLeaf(YType.enumeration, 'cvpdnNotifSessionEvent')),
@@ -375,11 +364,11 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs, ['cvpdnnotifsessionid', 'cvpdnnotifsessionevent'], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CiscoVpdnMgmtMIBNotifs, ['cvpdnnotifsessionid', 'cvpdnnotifsessionevent'], name, value)
 
-        class Cvpdnnotifsessionevent(Enum):
+        class CvpdnNotifSessionEvent(Enum):
             """
-            Cvpdnnotifsessionevent (Enum Class)
+            CvpdnNotifSessionEvent (Enum Class)
 
             Indicates the event that generated the L2X session
 
@@ -419,7 +408,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
-    class Cvpdnsysteminfo(Entity):
+    class CvpdnSystemInfo(Entity):
         """
         
         
@@ -464,7 +453,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdnsystemclearsessions
         
         	Clears all the sessions in a given tunnel type.  When reading this object, the value of 'none' will always be returned.  When setting these values, the following operations will be performed\:      none\: no operation.      all\:  clears all the sessions in all the tunnels.      l2f\:  clears all the L2F sessions.      l2tp\: clears all the L2TP sessions.      pptp\: clears all the PPTP sessions
-        	**type**\:  :py:class:`Cvpdnsystemclearsessions <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnsysteminfo.Cvpdnsystemclearsessions>`
+        	**type**\:  :py:class:`CvpdnSystemClearSessions <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSystemInfo.CvpdnSystemClearSessions>`
         
         
 
@@ -474,15 +463,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdnsysteminfo, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnSystemInfo, self).__init__()
 
             self.yang_name = "cvpdnSystemInfo"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cvpdntunneltotal', YLeaf(YType.uint32, 'cvpdnTunnelTotal')),
                 ('cvpdnsessiontotal', YLeaf(YType.uint32, 'cvpdnSessionTotal')),
@@ -499,11 +487,11 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnsysteminfo, ['cvpdntunneltotal', 'cvpdnsessiontotal', 'cvpdndenieduserstotal', 'cvpdnsystemnotifsessionenabled', 'cvpdnsystemclearsessions'], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnSystemInfo, ['cvpdntunneltotal', 'cvpdnsessiontotal', 'cvpdndenieduserstotal', 'cvpdnsystemnotifsessionenabled', 'cvpdnsystemclearsessions'], name, value)
 
-        class Cvpdnsystemclearsessions(Enum):
+        class CvpdnSystemClearSessions(Enum):
             """
-            Cvpdnsystemclearsessions (Enum Class)
+            CvpdnSystemClearSessions (Enum Class)
 
             Clears all the sessions in a given tunnel type.  When
 
@@ -549,7 +537,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
-    class Cvpdnmultilinkinfo(Entity):
+    class CvpdnMultilinkInfo(Entity):
         """
         
         
@@ -589,15 +577,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdnmultilinkinfo, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnMultilinkInfo, self).__init__()
 
             self.yang_name = "cvpdnMultilinkInfo"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cvpdnbundleswithonelink', YLeaf(YType.uint32, 'cvpdnBundlesWithOneLink')),
                 ('cvpdnbundleswithtwolinks', YLeaf(YType.uint32, 'cvpdnBundlesWithTwoLinks')),
@@ -612,10 +599,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnmultilinkinfo, ['cvpdnbundleswithonelink', 'cvpdnbundleswithtwolinks', 'cvpdnbundleswithmorethantwolinks', 'cvpdnbundlelastchanged'], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnMultilinkInfo, ['cvpdnbundleswithonelink', 'cvpdnbundleswithtwolinks', 'cvpdnbundleswithmorethantwolinks', 'cvpdnbundlelastchanged'], name, value)
 
 
-    class Cvpdnsystemtable(Entity):
+    class CvpdnSystemTable(Entity):
         """
         Table of information about the VPDN system for all tunnel
         types.
@@ -623,7 +610,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdnsystementry
         
         	An entry in the table, containing information about a single type of VPDN tunnel
-        	**type**\: list of  		 :py:class:`Cvpdnsystementry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnsystemtable.Cvpdnsystementry>`
+        	**type**\: list of  		 :py:class:`CvpdnSystemEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSystemTable.CvpdnSystemEntry>`
         
         
 
@@ -633,15 +620,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdnsystemtable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnSystemTable, self).__init__()
 
             self.yang_name = "cvpdnSystemTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnSystemEntry", ("cvpdnsystementry", CISCOVPDNMGMTMIB.Cvpdnsystemtable.Cvpdnsystementry))])
+            self._child_classes = OrderedDict([("cvpdnSystemEntry", ("cvpdnsystementry", CISCOVPDNMGMTMIB.CvpdnSystemTable.CvpdnSystemEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdnsystementry = YList(self)
@@ -649,10 +635,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnsystemtable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnSystemTable, [], name, value)
 
 
-        class Cvpdnsystementry(Entity):
+        class CvpdnSystemEntry(Entity):
             """
             An entry in the table, containing information about a
             single type of VPDN tunnel.
@@ -724,15 +710,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdnsystemtable.Cvpdnsystementry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnSystemTable.CvpdnSystemEntry, self).__init__()
 
                 self.yang_name = "cvpdnSystemEntry"
                 self.yang_parent_name = "cvpdnSystemTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdnsystemtunneltype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdnsystemtunneltype', YLeaf(YType.enumeration, 'cvpdnSystemTunnelType')),
                     ('cvpdnsystemtunneltotal', YLeaf(YType.uint32, 'cvpdnSystemTunnelTotal')),
@@ -753,17 +738,17 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnSystemTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnsystemtable.Cvpdnsystementry, ['cvpdnsystemtunneltype', 'cvpdnsystemtunneltotal', 'cvpdnsystemsessiontotal', 'cvpdnsystemdenieduserstotal', 'cvpdnsysteminitialconnreq', 'cvpdnsystemsuccessconnreq', 'cvpdnsystemfailedconnreq'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnSystemTable.CvpdnSystemEntry, ['cvpdnsystemtunneltype', 'cvpdnsystemtunneltotal', 'cvpdnsystemsessiontotal', 'cvpdnsystemdenieduserstotal', 'cvpdnsysteminitialconnreq', 'cvpdnsystemsuccessconnreq', 'cvpdnsystemfailedconnreq'], name, value)
 
 
-    class Cvpdntunneltable(Entity):
+    class CvpdnTunnelTable(Entity):
         """
         Table of information about the active VPDN tunnels.
         
         .. attribute:: cvpdntunnelentry
         
         	An entry in the table, containing information about a single active VPDN tunnel
-        	**type**\: list of  		 :py:class:`Cvpdntunnelentry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry>`
+        	**type**\: list of  		 :py:class:`CvpdnTunnelEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry>`
         
         	**status**\: obsolete
         
@@ -775,15 +760,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdntunneltable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnTunnelTable, self).__init__()
 
             self.yang_name = "cvpdnTunnelTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnTunnelEntry", ("cvpdntunnelentry", CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry))])
+            self._child_classes = OrderedDict([("cvpdnTunnelEntry", ("cvpdntunnelentry", CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdntunnelentry = YList(self)
@@ -791,10 +775,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdntunneltable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTunnelTable, [], name, value)
 
 
-        class Cvpdntunnelentry(Entity):
+        class CvpdnTunnelEntry(Entity):
             """
             An entry in the table, containing information about a
             single active VPDN tunnel.
@@ -854,14 +838,14 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdntunnelorigcause
             
             	The cause which originated an active VPDN tunnel.  The tunnel can be projected via domain name, DNIS or a stack group (SGBP)
-            	**type**\:  :py:class:`Cvpdntunnelorigcause <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry.Cvpdntunnelorigcause>`
+            	**type**\:  :py:class:`CvpdnTunnelOrigCause <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry.CvpdnTunnelOrigCause>`
             
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelstate
             
             	The current state of an active VPDN tunnel.  Each state code is explained below\:         unknown\: The current state of the tunnel is                 unknown.         opening\: The tunnel has just been instigated and                 is pending for a remote end reply to                 complete the process.         open\:    The tunnel is active.         closing\: The tunnel has just been shut down and                 is pending for the remote end to reply                 to complete the process
-            	**type**\:  :py:class:`Cvpdntunnelstate <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry.Cvpdntunnelstate>`
+            	**type**\:  :py:class:`CvpdnTunnelState <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry.CvpdnTunnelState>`
             
             	**status**\: obsolete
             
@@ -897,7 +881,7 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdntunnelnetworkservicetype
             
             	The type of network service used in the active tunnel. For now it is IP only
-            	**type**\:  :py:class:`Cvpdntunnelnetworkservicetype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry.Cvpdntunnelnetworkservicetype>`
+            	**type**\:  :py:class:`CvpdnTunnelNetworkServiceType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry.CvpdnTunnelNetworkServiceType>`
             
             	**status**\: obsolete
             
@@ -936,15 +920,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry, self).__init__()
 
                 self.yang_name = "cvpdnTunnelEntry"
                 self.yang_parent_name = "cvpdnTunnelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdntunneltunnelid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdntunneltunnelid', YLeaf(YType.uint32, 'cvpdnTunnelTunnelId')),
                     ('cvpdntunnelremotetunnelid', YLeaf(YType.uint32, 'cvpdnTunnelRemoteTunnelId')),
@@ -981,11 +964,11 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry, ['cvpdntunneltunnelid', 'cvpdntunnelremotetunnelid', 'cvpdntunnellocalname', 'cvpdntunnelremotename', 'cvpdntunnelremoteendpointname', 'cvpdntunnellocalinitconnection', 'cvpdntunnelorigcause', 'cvpdntunnelstate', 'cvpdntunnelactivesessions', 'cvpdntunneldeniedusers', 'cvpdntunnelsoftshut', 'cvpdntunnelnetworkservicetype', 'cvpdntunnellocalipaddress', 'cvpdntunnelsourceipaddress', 'cvpdntunnelremoteipaddress'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry, ['cvpdntunneltunnelid', 'cvpdntunnelremotetunnelid', 'cvpdntunnellocalname', 'cvpdntunnelremotename', 'cvpdntunnelremoteendpointname', 'cvpdntunnellocalinitconnection', 'cvpdntunnelorigcause', 'cvpdntunnelstate', 'cvpdntunnelactivesessions', 'cvpdntunneldeniedusers', 'cvpdntunnelsoftshut', 'cvpdntunnelnetworkservicetype', 'cvpdntunnellocalipaddress', 'cvpdntunnelsourceipaddress', 'cvpdntunnelremoteipaddress'], name, value)
 
-            class Cvpdntunnelnetworkservicetype(Enum):
+            class CvpdnTunnelNetworkServiceType(Enum):
                 """
-                Cvpdntunnelnetworkservicetype (Enum Class)
+                CvpdnTunnelNetworkServiceType (Enum Class)
 
                 The type of network service used in the active tunnel.
 
@@ -998,9 +981,9 @@ class CISCOVPDNMGMTMIB(Entity):
                 ip = Enum.YLeaf(1, "ip")
 
 
-            class Cvpdntunnelorigcause(Enum):
+            class CvpdnTunnelOrigCause(Enum):
                 """
-                Cvpdntunnelorigcause (Enum Class)
+                CvpdnTunnelOrigCause (Enum Class)
 
                 The cause which originated an active VPDN tunnel.  The
 
@@ -1023,9 +1006,9 @@ class CISCOVPDNMGMTMIB(Entity):
                 stack = Enum.YLeaf(3, "stack")
 
 
-            class Cvpdntunnelstate(Enum):
+            class CvpdnTunnelState(Enum):
                 """
-                Cvpdntunnelstate (Enum Class)
+                CvpdnTunnelState (Enum Class)
 
                 The current state of an active VPDN tunnel.  Each state
 
@@ -1069,7 +1052,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
-    class Cvpdntunnelattrtable(Entity):
+    class CvpdnTunnelAttrTable(Entity):
         """
         Table of information about the active VPDN tunnels.  An
         entry is added to the table when a new tunnel is initiated
@@ -1078,7 +1061,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdntunnelattrentry
         
         	An entry in the table, containing information about a single active VPDN tunnel
-        	**type**\: list of  		 :py:class:`Cvpdntunnelattrentry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry>`
+        	**type**\: list of  		 :py:class:`CvpdnTunnelAttrEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry>`
         
         
 
@@ -1088,15 +1071,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdntunnelattrtable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable, self).__init__()
 
             self.yang_name = "cvpdnTunnelAttrTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnTunnelAttrEntry", ("cvpdntunnelattrentry", CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry))])
+            self._child_classes = OrderedDict([("cvpdnTunnelAttrEntry", ("cvpdntunnelattrentry", CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdntunnelattrentry = YList(self)
@@ -1104,10 +1086,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdntunnelattrtable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable, [], name, value)
 
 
-        class Cvpdntunnelattrentry(Entity):
+        class CvpdnTunnelAttrEntry(Entity):
             """
             An entry in the table, containing information about a
             single active VPDN tunnel.
@@ -1160,12 +1142,12 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdntunnelattrorigcause
             
             	The cause which originated an active VPDN tunnel.  The tunnel can be projected via domain name, DNIS, stack group, or L2 Xconnect
-            	**type**\:  :py:class:`Cvpdntunnelattrorigcause <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry.Cvpdntunnelattrorigcause>`
+            	**type**\:  :py:class:`CvpdnTunnelAttrOrigCause <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry.CvpdnTunnelAttrOrigCause>`
             
             .. attribute:: cvpdntunnelattrstate
             
             	The current state of an active VPDN tunnel. Tunnels of type l2f will have states with the 'l2f' prefix. Tunnels of type l2tp will have states with the 'l2tp' prefix. Tunnels of type pptp will have states with the 'pptp' prefix.  Each state code is explained below\:      unknown\:            The current state of the tunnel is                         unknown.      l2fOpening\:         The tunnel has just been initiated                         and is pending for a remote end                         reply to complete the process.      l2fOpenWait\:        This end received a tunnel open                         request from the remote end and is                         waiting for the tunnel to be                         established.      l2fOpen\:            The tunnel is active.      l2fClosing\:         This end received a tunnel close                         request.      l2fCloseWait\:       The tunnel has just been shut down                         and is pending for the remote end                         to reply to complete the process.      l2tpIdle\:           No tunnel is initiated yet.      l2tpWaitCtlReply\:   The tunnel has been initiated and                         is pending for a remote end reply                         to complete the process.      l2tpEstablished\:    The tunnel is active.      l2tpShuttingDown\:   The tunnel is in progress of                         shutting down.      l2tpNoSessionLeft\:  There is no session left in the                         tunnel.      pptpIdle\:           No tunnel is initiated yet.      pptpWaitConnect\:    The tunnel is waiting for a TCP                         connection.      pptpWaitCtlRequest\: The tunnel has been initiated and                         is pending for a remote end                         request.      pptpWaitCtlReply\:   The tunnel has been initiated and                         is pending for a remote end reply.      pptpEstablished\:    The tunnel is active.      pptpWaitStopReply\:  The tunnel is being shut down and                         is pending for a remote end reply.      pptpTerminal\:       The tunnel has been shut down
-            	**type**\:  :py:class:`Cvpdntunnelattrstate <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry.Cvpdntunnelattrstate>`
+            	**type**\:  :py:class:`CvpdnTunnelAttrState <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry.CvpdnTunnelAttrState>`
             
             .. attribute:: cvpdntunnelattractivesessions
             
@@ -1193,7 +1175,7 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdntunnelattrnetworkservicetype
             
             	The type of network service used in the active tunnel
-            	**type**\:  :py:class:`Cvpdntunnelattrnetworkservicetype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry.Cvpdntunnelattrnetworkservicetype>`
+            	**type**\:  :py:class:`CvpdnTunnelAttrNetworkServiceType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry.CvpdnTunnelAttrNetworkServiceType>`
             
             .. attribute:: cvpdntunnelattrlocalipaddress
             
@@ -1266,15 +1248,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry, self).__init__()
 
                 self.yang_name = "cvpdnTunnelAttrEntry"
                 self.yang_parent_name = "cvpdnTunnelAttrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdnsystemtunneltype','cvpdntunnelattrtunnelid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdnsystemtunneltype', YLeaf(YType.enumeration, 'cvpdnSystemTunnelType')),
                     ('cvpdntunnelattrtunnelid', YLeaf(YType.int32, 'cvpdnTunnelAttrTunnelId')),
@@ -1325,11 +1306,11 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelAttrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry, ['cvpdnsystemtunneltype', 'cvpdntunnelattrtunnelid', 'cvpdntunnelattrremotetunnelid', 'cvpdntunnelattrlocalname', 'cvpdntunnelattrremotename', 'cvpdntunnelattrremoteendpointname', 'cvpdntunnelattrlocalinitconnection', 'cvpdntunnelattrorigcause', 'cvpdntunnelattrstate', 'cvpdntunnelattractivesessions', 'cvpdntunnelattrdeniedusers', 'cvpdntunnelattrsoftshut', 'cvpdntunnelattrnetworkservicetype', 'cvpdntunnelattrlocalipaddress', 'cvpdntunnelattrsourceipaddress', 'cvpdntunnelattrremoteipaddress', 'cvpdntunnelattrlocalinetaddresstype', 'cvpdntunnelattrlocalinetaddress', 'cvpdntunnelattrsourceinetaddresstype', 'cvpdntunnelattrsourceinetaddress', 'cvpdntunnelattrremoteinetaddresstype', 'cvpdntunnelattrremoteinetaddress'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry, ['cvpdnsystemtunneltype', 'cvpdntunnelattrtunnelid', 'cvpdntunnelattrremotetunnelid', 'cvpdntunnelattrlocalname', 'cvpdntunnelattrremotename', 'cvpdntunnelattrremoteendpointname', 'cvpdntunnelattrlocalinitconnection', 'cvpdntunnelattrorigcause', 'cvpdntunnelattrstate', 'cvpdntunnelattractivesessions', 'cvpdntunnelattrdeniedusers', 'cvpdntunnelattrsoftshut', 'cvpdntunnelattrnetworkservicetype', 'cvpdntunnelattrlocalipaddress', 'cvpdntunnelattrsourceipaddress', 'cvpdntunnelattrremoteipaddress', 'cvpdntunnelattrlocalinetaddresstype', 'cvpdntunnelattrlocalinetaddress', 'cvpdntunnelattrsourceinetaddresstype', 'cvpdntunnelattrsourceinetaddress', 'cvpdntunnelattrremoteinetaddresstype', 'cvpdntunnelattrremoteinetaddress'], name, value)
 
-            class Cvpdntunnelattrnetworkservicetype(Enum):
+            class CvpdnTunnelAttrNetworkServiceType(Enum):
                 """
-                Cvpdntunnelattrnetworkservicetype (Enum Class)
+                CvpdnTunnelAttrNetworkServiceType (Enum Class)
 
                 The type of network service used in the active tunnel.
 
@@ -1340,9 +1321,9 @@ class CISCOVPDNMGMTMIB(Entity):
                 ip = Enum.YLeaf(1, "ip")
 
 
-            class Cvpdntunnelattrorigcause(Enum):
+            class CvpdnTunnelAttrOrigCause(Enum):
                 """
-                Cvpdntunnelattrorigcause (Enum Class)
+                CvpdnTunnelAttrOrigCause (Enum Class)
 
                 The cause which originated an active VPDN tunnel.  The
 
@@ -1369,9 +1350,9 @@ class CISCOVPDNMGMTMIB(Entity):
                 xconnect = Enum.YLeaf(4, "xconnect")
 
 
-            class Cvpdntunnelattrstate(Enum):
+            class CvpdnTunnelAttrState(Enum):
                 """
-                Cvpdntunnelattrstate (Enum Class)
+                CvpdnTunnelAttrState (Enum Class)
 
                 The current state of an active VPDN tunnel.
 
@@ -1535,7 +1516,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
-    class Cvpdntunnelsessiontable(Entity):
+    class CvpdnTunnelSessionTable(Entity):
         """
         Table of information about individual user sessions
         within the active tunnels.  Entry is added to the table
@@ -1545,7 +1526,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdntunnelsessionentry
         
         	An entry in the table, containing information about a single user session within the tunnel
-        	**type**\: list of  		 :py:class:`Cvpdntunnelsessionentry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry>`
+        	**type**\: list of  		 :py:class:`CvpdnTunnelSessionEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry>`
         
         	**status**\: obsolete
         
@@ -1557,15 +1538,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable, self).__init__()
 
             self.yang_name = "cvpdnTunnelSessionTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnTunnelSessionEntry", ("cvpdntunnelsessionentry", CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry))])
+            self._child_classes = OrderedDict([("cvpdnTunnelSessionEntry", ("cvpdntunnelsessionentry", CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdntunnelsessionentry = YList(self)
@@ -1573,10 +1553,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable, [], name, value)
 
 
-        class Cvpdntunnelsessionentry(Entity):
+        class CvpdnTunnelSessionEntry(Entity):
             """
             An entry in the table, containing information about a
             single user session within the tunnel.
@@ -1588,7 +1568,7 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cvpdntunneltunnelid <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry>`
+            	**refers to**\:  :py:class:`cvpdntunneltunnelid <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry>`
             
             	**status**\: obsolete
             
@@ -1613,7 +1593,7 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdntunnelsessionstate
             
             	The current state of an active user session.  Each state code is explained below\:      unknown\:          The current state of the tunnel's                       session is unknown.      opening\:          The user session has just been                       initiated through a tunnel and is                       pending for the remote end reply                       to complete the process.      open\:             The user session is active.      closing\:          The user session has just been                       closed and is pending for the                       remote end reply to complete the                       process.      waitingForTunnel\: The user session is in this state                       when the tunnel which this session                       is going through is still in                       CLOSED state.  It waits for the                       tunnel to become OPEN before the                       session is allow to be fully                       established
-            	**type**\:  :py:class:`Cvpdntunnelsessionstate <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry.Cvpdntunnelsessionstate>`
+            	**type**\:  :py:class:`CvpdnTunnelSessionState <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry.CvpdnTunnelSessionState>`
             
             	**status**\: obsolete
             
@@ -1673,7 +1653,7 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdntunnelsessiondevicetype
             
             	The type of physical devices that this user session is attached to for the local end of the tunnel.  The meaning of each device type is explained below\:      other\:              Any device that has not been                         defined.      asyncInternalModem\: Modem Pool device of an access                         server.      async\:              A regular asynchronous serial                         interface.      sync\:               A regular synchronous serial                         interface.      bchan\:              An ISDN call.      xdsl\:               Future application with xDSL                         devices.      cable\:              Future application with Cable                         modem devices
-            	**type**\:  :py:class:`Cvpdntunnelsessiondevicetype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry.Cvpdntunnelsessiondevicetype>`
+            	**type**\:  :py:class:`CvpdnTunnelSessionDeviceType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry.CvpdnTunnelSessionDeviceType>`
             
             	**status**\: obsolete
             
@@ -1771,15 +1751,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry, self).__init__()
 
                 self.yang_name = "cvpdnTunnelSessionEntry"
                 self.yang_parent_name = "cvpdnTunnelSessionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdntunneltunnelid','cvpdntunnelsessionid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdntunneltunnelid', YLeaf(YType.str, 'cvpdnTunnelTunnelId')),
                     ('cvpdntunnelsessionid', YLeaf(YType.uint32, 'cvpdnTunnelSessionId')),
@@ -1826,11 +1805,11 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelSessionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry, ['cvpdntunneltunnelid', 'cvpdntunnelsessionid', 'cvpdntunnelsessionusername', 'cvpdntunnelsessionstate', 'cvpdntunnelsessioncallduration', 'cvpdntunnelsessionpacketsout', 'cvpdntunnelsessionbytesout', 'cvpdntunnelsessionpacketsin', 'cvpdntunnelsessionbytesin', 'cvpdntunnelsessiondevicetype', 'cvpdntunnelsessiondevicecallerid', 'cvpdntunnelsessiondevicephyid', 'cvpdntunnelsessionmultilink', 'cvpdntunnelsessionmodemslotindex', 'cvpdntunnelsessionmodemportindex', 'cvpdntunnelsessionds1slotindex', 'cvpdntunnelsessionds1portindex', 'cvpdntunnelsessionds1channelindex', 'cvpdntunnelsessionmodemcallstarttime', 'cvpdntunnelsessionmodemcallstartindex'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry, ['cvpdntunneltunnelid', 'cvpdntunnelsessionid', 'cvpdntunnelsessionusername', 'cvpdntunnelsessionstate', 'cvpdntunnelsessioncallduration', 'cvpdntunnelsessionpacketsout', 'cvpdntunnelsessionbytesout', 'cvpdntunnelsessionpacketsin', 'cvpdntunnelsessionbytesin', 'cvpdntunnelsessiondevicetype', 'cvpdntunnelsessiondevicecallerid', 'cvpdntunnelsessiondevicephyid', 'cvpdntunnelsessionmultilink', 'cvpdntunnelsessionmodemslotindex', 'cvpdntunnelsessionmodemportindex', 'cvpdntunnelsessionds1slotindex', 'cvpdntunnelsessionds1portindex', 'cvpdntunnelsessionds1channelindex', 'cvpdntunnelsessionmodemcallstarttime', 'cvpdntunnelsessionmodemcallstartindex'], name, value)
 
-            class Cvpdntunnelsessiondevicetype(Enum):
+            class CvpdnTunnelSessionDeviceType(Enum):
                 """
-                Cvpdntunnelsessiondevicetype (Enum Class)
+                CvpdnTunnelSessionDeviceType (Enum Class)
 
                 The type of physical devices that this user session
 
@@ -1899,9 +1878,9 @@ class CISCOVPDNMGMTMIB(Entity):
                 cable = Enum.YLeaf(8, "cable")
 
 
-            class Cvpdntunnelsessionstate(Enum):
+            class CvpdnTunnelSessionState(Enum):
                 """
-                Cvpdntunnelsessionstate (Enum Class)
+                CvpdnTunnelSessionState (Enum Class)
 
                 The current state of an active user session.  Each state
 
@@ -1967,7 +1946,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
-    class Cvpdnsessionattrtable(Entity):
+    class CvpdnSessionAttrTable(Entity):
         """
         Table of information about individual sessions within the
         active tunnels.  An entry is added to the table when a new
@@ -1977,7 +1956,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdnsessionattrentry
         
         	An entry in the table, containing information about a single session within the tunnel
-        	**type**\: list of  		 :py:class:`Cvpdnsessionattrentry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnsessionattrtable.Cvpdnsessionattrentry>`
+        	**type**\: list of  		 :py:class:`CvpdnSessionAttrEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry>`
         
         
 
@@ -1987,15 +1966,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdnsessionattrtable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnSessionAttrTable, self).__init__()
 
             self.yang_name = "cvpdnSessionAttrTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnSessionAttrEntry", ("cvpdnsessionattrentry", CISCOVPDNMGMTMIB.Cvpdnsessionattrtable.Cvpdnsessionattrentry))])
+            self._child_classes = OrderedDict([("cvpdnSessionAttrEntry", ("cvpdnsessionattrentry", CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdnsessionattrentry = YList(self)
@@ -2003,10 +1981,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnsessionattrtable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnSessionAttrTable, [], name, value)
 
 
-        class Cvpdnsessionattrentry(Entity):
+        class CvpdnSessionAttrEntry(Entity):
             """
             An entry in the table, containing information about a
             single session within the tunnel.
@@ -2023,7 +2001,7 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..65535
             
-            	**refers to**\:  :py:class:`cvpdntunnelattrtunnelid <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry>`
+            	**refers to**\:  :py:class:`cvpdntunnelattrtunnelid <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry>`
             
             .. attribute:: cvpdnsessionattrsessionid  (key)
             
@@ -2042,7 +2020,7 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdnsessionattrstate
             
             	The current state of a tunnel session. L2F tunnel sessions will have states with the 'l2f' prefix. L2TP tunnel sessions will have states with the 'l2tp' prefix.  Each state code is explained below\:      unknown\:             The current state of the tunnel's                          session is unknown.      l2fOpening\:          The session has just been                          initiated through a tunnel and is                          pending for the remote end reply                          to complete the process.      l2fOpen\:             The session is active.      l2fCloseWait\:        The session has just been closed                          and is pending for the remote end                          reply to complete the process.      l2fWaitingForTunnel\: The session is in this state when                          the tunnel which this session is                          going through is still in CLOSED                          state.  It waits for the tunnel to                          become OPEN before the session is                          allowed to be fully established.      l2tpIdle\:            No session is initiated yet.      l2tpWaitingTunnel\:   The session is waiting for the                          tunnel to be established.      l2tpWaitReply\:       The session has been initiated and                          is pending for the remote end                          reply to complete the process.      l2tpWaitConnect\:     This end has acknowledged a                          connection request and is waiting                          for the remote end to connect.      l2tpEstablished\:     The session is active.      l2tpShuttingDown\:    The session is in progress of                          shutting down.      pptpWaitVAccess\:     The session is waiting for the                          creation of a virtual access                          interface.      pptpPacEstablished\:  The session is active.      pptpWaitTunnel\:      The session is waiting for the                          tunnel to be established.      pptpWaitOCRP\:        The session has been initiated and                          is pending for the remote end                          reply to complete the process.      pptpPnsEstablished\:  The session is active.      pptpWaitCallDisc\:    Session shutdown is in progress
-            	**type**\:  :py:class:`Cvpdnsessionattrstate <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnsessionattrtable.Cvpdnsessionattrentry.Cvpdnsessionattrstate>`
+            	**type**\:  :py:class:`CvpdnSessionAttrState <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry.CvpdnSessionAttrState>`
             
             .. attribute:: cvpdnsessionattrcallduration
             
@@ -2090,7 +2068,7 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdnsessionattrdevicetype
             
             	The type of physical devices that this session is attached to for the local end of the tunnel.  The meaning of each device type is explained below\:      other\:              Any device that has not been                         defined.      asyncInternalModem\: Modem Pool device of an access                         server.      async\:              A regular asynchronous serial                         interface.      sync\:               A regular synchronous serial                         interface.      bchan\:              An ISDN call.      xdsl\:               xDSL interface.      cable\:              cable modem interface
-            	**type**\:  :py:class:`Cvpdnsessionattrdevicetype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnsessionattrtable.Cvpdnsessionattrentry.Cvpdnsessionattrdevicetype>`
+            	**type**\:  :py:class:`CvpdnSessionAttrDeviceType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry.CvpdnSessionAttrDeviceType>`
             
             .. attribute:: cvpdnsessionattrdevicecallerid
             
@@ -2205,15 +2183,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdnsessionattrtable.Cvpdnsessionattrentry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry, self).__init__()
 
                 self.yang_name = "cvpdnSessionAttrEntry"
                 self.yang_parent_name = "cvpdnSessionAttrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdnsystemtunneltype','cvpdntunnelattrtunnelid','cvpdnsessionattrsessionid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdnsystemtunneltype', YLeaf(YType.enumeration, 'cvpdnSystemTunnelType')),
                     ('cvpdntunnelattrtunnelid', YLeaf(YType.str, 'cvpdnTunnelAttrTunnelId')),
@@ -2272,11 +2249,11 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnSessionAttrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnsessionattrtable.Cvpdnsessionattrentry, ['cvpdnsystemtunneltype', 'cvpdntunnelattrtunnelid', 'cvpdnsessionattrsessionid', 'cvpdnsessionattrusername', 'cvpdnsessionattrstate', 'cvpdnsessionattrcallduration', 'cvpdnsessionattrpacketsout', 'cvpdnsessionattrbytesout', 'cvpdnsessionattrpacketsin', 'cvpdnsessionattrbytesin', 'cvpdnsessionattrdevicetype', 'cvpdnsessionattrdevicecallerid', 'cvpdnsessionattrdevicephyid', 'cvpdnsessionattrmultilink', 'cvpdnsessionattrmodemslotindex', 'cvpdnsessionattrmodemportindex', 'cvpdnsessionattrds1slotindex', 'cvpdnsessionattrds1portindex', 'cvpdnsessionattrds1channelindex', 'cvpdnsessionattrmodemcallstarttime', 'cvpdnsessionattrmodemcallstartindex', 'cvpdnsessionattrvirtualcircuitid', 'cvpdnsessionattrsentpktsdropped', 'cvpdnsessionattrrecvpktsdropped', 'cvpdnsessionattrmultilinkbundle', 'cvpdnsessionattrmultilinkifindex'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry, ['cvpdnsystemtunneltype', 'cvpdntunnelattrtunnelid', 'cvpdnsessionattrsessionid', 'cvpdnsessionattrusername', 'cvpdnsessionattrstate', 'cvpdnsessionattrcallduration', 'cvpdnsessionattrpacketsout', 'cvpdnsessionattrbytesout', 'cvpdnsessionattrpacketsin', 'cvpdnsessionattrbytesin', 'cvpdnsessionattrdevicetype', 'cvpdnsessionattrdevicecallerid', 'cvpdnsessionattrdevicephyid', 'cvpdnsessionattrmultilink', 'cvpdnsessionattrmodemslotindex', 'cvpdnsessionattrmodemportindex', 'cvpdnsessionattrds1slotindex', 'cvpdnsessionattrds1portindex', 'cvpdnsessionattrds1channelindex', 'cvpdnsessionattrmodemcallstarttime', 'cvpdnsessionattrmodemcallstartindex', 'cvpdnsessionattrvirtualcircuitid', 'cvpdnsessionattrsentpktsdropped', 'cvpdnsessionattrrecvpktsdropped', 'cvpdnsessionattrmultilinkbundle', 'cvpdnsessionattrmultilinkifindex'], name, value)
 
-            class Cvpdnsessionattrdevicetype(Enum):
+            class CvpdnSessionAttrDeviceType(Enum):
                 """
-                Cvpdnsessionattrdevicetype (Enum Class)
+                CvpdnSessionAttrDeviceType (Enum Class)
 
                 The type of physical devices that this session is attached
 
@@ -2341,9 +2318,9 @@ class CISCOVPDNMGMTMIB(Entity):
                 cable = Enum.YLeaf(8, "cable")
 
 
-            class Cvpdnsessionattrstate(Enum):
+            class CvpdnSessionAttrState(Enum):
                 """
-                Cvpdnsessionattrstate (Enum Class)
+                CvpdnSessionAttrState (Enum Class)
 
                 The current state of a tunnel session.
 
@@ -2509,7 +2486,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
-    class Cvpdnusertofailhistinfotable(Entity):
+    class CvpdnUserToFailHistInfoTable(Entity):
         """
         Table of the record of failure objects which can be
         referenced by an user name.  Only a name that has a
@@ -2521,7 +2498,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdnusertofailhistinfoentry
         
         	An entry in the table, containing failure history relevant to an user name
-        	**type**\: list of  		 :py:class:`Cvpdnusertofailhistinfoentry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry>`
+        	**type**\: list of  		 :py:class:`CvpdnUserToFailHistInfoEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable.CvpdnUserToFailHistInfoEntry>`
         
         
 
@@ -2531,15 +2508,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable, self).__init__()
 
             self.yang_name = "cvpdnUserToFailHistInfoTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnUserToFailHistInfoEntry", ("cvpdnusertofailhistinfoentry", CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry))])
+            self._child_classes = OrderedDict([("cvpdnUserToFailHistInfoEntry", ("cvpdnusertofailhistinfoentry", CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable.CvpdnUserToFailHistInfoEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdnusertofailhistinfoentry = YList(self)
@@ -2547,10 +2523,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable, [], name, value)
 
 
-        class Cvpdnusertofailhistinfoentry(Entity):
+        class CvpdnUserToFailHistInfoEntry(Entity):
             """
             An entry in the table, containing failure history
             relevant to an user name.
@@ -2671,15 +2647,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable.CvpdnUserToFailHistInfoEntry, self).__init__()
 
                 self.yang_name = "cvpdnUserToFailHistInfoEntry"
                 self.yang_parent_name = "cvpdnUserToFailHistInfoTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdnunametofailhistuname','cvpdnunametofailhisttunnelid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdnunametofailhistuname', YLeaf(YType.str, 'cvpdnUnameToFailHistUname')),
                     ('cvpdnunametofailhisttunnelid', YLeaf(YType.uint32, 'cvpdnUnameToFailHistTunnelId')),
@@ -2718,10 +2693,10 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnUserToFailHistInfoTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry, ['cvpdnunametofailhistuname', 'cvpdnunametofailhisttunnelid', 'cvpdnunametofailhistuserid', 'cvpdnunametofailhistlocalinitconn', 'cvpdnunametofailhistlocalname', 'cvpdnunametofailhistremotename', 'cvpdnunametofailhistsourceip', 'cvpdnunametofailhistdestip', 'cvpdnunametofailhistcount', 'cvpdnunametofailhistfailtime', 'cvpdnunametofailhistfailtype', 'cvpdnunametofailhistfailreason', 'cvpdnunametofailhistsourceinettype', 'cvpdnunametofailhistsourceinetaddr', 'cvpdnunametofailhistdestinettype', 'cvpdnunametofailhistdestinetaddr'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable.CvpdnUserToFailHistInfoEntry, ['cvpdnunametofailhistuname', 'cvpdnunametofailhisttunnelid', 'cvpdnunametofailhistuserid', 'cvpdnunametofailhistlocalinitconn', 'cvpdnunametofailhistlocalname', 'cvpdnunametofailhistremotename', 'cvpdnunametofailhistsourceip', 'cvpdnunametofailhistdestip', 'cvpdnunametofailhistcount', 'cvpdnunametofailhistfailtime', 'cvpdnunametofailhistfailtype', 'cvpdnunametofailhistfailreason', 'cvpdnunametofailhistsourceinettype', 'cvpdnunametofailhistsourceinetaddr', 'cvpdnunametofailhistdestinettype', 'cvpdnunametofailhistdestinetaddr'], name, value)
 
 
-    class Cvpdntemplatetable(Entity):
+    class CvpdnTemplateTable(Entity):
         """
         Table of information about the VPDN templates.  The
         VPDN template is a grouping mechanism that allows
@@ -2735,7 +2710,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdntemplateentry
         
         	An entry in the table, containing information about a single VPDN template
-        	**type**\: list of  		 :py:class:`Cvpdntemplateentry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntemplatetable.Cvpdntemplateentry>`
+        	**type**\: list of  		 :py:class:`CvpdnTemplateEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTemplateTable.CvpdnTemplateEntry>`
         
         
 
@@ -2745,15 +2720,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdntemplatetable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnTemplateTable, self).__init__()
 
             self.yang_name = "cvpdnTemplateTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnTemplateEntry", ("cvpdntemplateentry", CISCOVPDNMGMTMIB.Cvpdntemplatetable.Cvpdntemplateentry))])
+            self._child_classes = OrderedDict([("cvpdnTemplateEntry", ("cvpdntemplateentry", CISCOVPDNMGMTMIB.CvpdnTemplateTable.CvpdnTemplateEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdntemplateentry = YList(self)
@@ -2761,10 +2735,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdntemplatetable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTemplateTable, [], name, value)
 
 
-        class Cvpdntemplateentry(Entity):
+        class CvpdnTemplateEntry(Entity):
             """
             An entry in the table, containing information about a
             single VPDN template.
@@ -2793,15 +2767,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdntemplatetable.Cvpdntemplateentry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnTemplateTable.CvpdnTemplateEntry, self).__init__()
 
                 self.yang_name = "cvpdnTemplateEntry"
                 self.yang_parent_name = "cvpdnTemplateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdntemplatename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdntemplatename', YLeaf(YType.str, 'cvpdnTemplateName')),
                     ('cvpdntemplateactivesessions', YLeaf(YType.uint32, 'cvpdnTemplateActiveSessions')),
@@ -2812,10 +2785,10 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTemplateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdntemplatetable.Cvpdntemplateentry, ['cvpdntemplatename', 'cvpdntemplateactivesessions'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTemplateTable.CvpdnTemplateEntry, ['cvpdntemplatename', 'cvpdntemplateactivesessions'], name, value)
 
 
-    class Cvpdnbundletable(Entity):
+    class CvpdnBundleTable(Entity):
         """
         Table that describes the multilink PPP attributes of the
         active VPDN sessions.
@@ -2823,7 +2796,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdnbundleentry
         
         	An entry in this table represents an active multilink PPP bundle that belongs to a VPDN tunnel
-        	**type**\: list of  		 :py:class:`Cvpdnbundleentry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry>`
+        	**type**\: list of  		 :py:class:`CvpdnBundleEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry>`
         
         
 
@@ -2833,15 +2806,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdnbundletable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnBundleTable, self).__init__()
 
             self.yang_name = "cvpdnBundleTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnBundleEntry", ("cvpdnbundleentry", CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry))])
+            self._child_classes = OrderedDict([("cvpdnBundleEntry", ("cvpdnbundleentry", CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdnbundleentry = YList(self)
@@ -2849,10 +2821,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnbundletable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnBundleTable, [], name, value)
 
 
-        class Cvpdnbundleentry(Entity):
+        class CvpdnBundleEntry(Entity):
             """
             An entry in this table represents an active multilink PPP
             bundle that belongs to a VPDN tunnel.
@@ -2876,7 +2848,7 @@ class CISCOVPDNMGMTMIB(Entity):
             .. attribute:: cvpdnbundleendpointtype
             
             	The multilink PPP bundle discriminator type associated with a VPDN tunnel.  The value of this object represents the type of discriminator used in cvpdnBundleEndpoint.      none\:        No endpoint discriminator was supplied, the                  default value is being used.      hostname\:    The router's hostname is being used as                  discriminator.      string\:      User specified string is being used as                  discriminator.      macAddress\:  A MAC address as defined by the MacAddress                  textual convention is being used as                  discriminator.      ipV4Address\: An IP address as defined by the                  InetAddressIPv4 textual convention is being                  used as discriminator.      ipV6Address\: An IP address as defined by the                  InetAddressIPv6 textual convention is being                  used as discriminator.      phone\:       The PSTN phone number is being used as                  discriminator.      magicNumber\: A magic number is being used as                  discriminator
-            	**type**\:  :py:class:`Cvpdnbundleendpointtype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry.Cvpdnbundleendpointtype>`
+            	**type**\:  :py:class:`CvpdnBundleEndpointType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry.CvpdnBundleEndpointType>`
             
             	**status**\: deprecated
             
@@ -2912,15 +2884,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry, self).__init__()
 
                 self.yang_name = "cvpdnBundleEntry"
                 self.yang_parent_name = "cvpdnBundleTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdnbundlename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdnbundlename', YLeaf(YType.str, 'cvpdnBundleName')),
                     ('cvpdnbundlelinkcount', YLeaf(YType.uint32, 'cvpdnBundleLinkCount')),
@@ -2941,11 +2912,11 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnBundleTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry, ['cvpdnbundlename', 'cvpdnbundlelinkcount', 'cvpdnbundleendpointtype', 'cvpdnbundleendpoint', 'cvpdnbundlepeeripaddrtype', 'cvpdnbundlepeeripaddr', 'cvpdnbundleendpointclass'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry, ['cvpdnbundlename', 'cvpdnbundlelinkcount', 'cvpdnbundleendpointtype', 'cvpdnbundleendpoint', 'cvpdnbundlepeeripaddrtype', 'cvpdnbundlepeeripaddr', 'cvpdnbundleendpointclass'], name, value)
 
-            class Cvpdnbundleendpointtype(Enum):
+            class CvpdnBundleEndpointType(Enum):
                 """
-                Cvpdnbundleendpointtype (Enum Class)
+                CvpdnBundleEndpointType (Enum Class)
 
                 The multilink PPP bundle discriminator type associated with
 
@@ -3027,7 +2998,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
-    class Cvpdnbundlechildtable(Entity):
+    class CvpdnBundleChildTable(Entity):
         """
         A table that exposes the containment relationship between a
         multilink PPP bundle and a VPDN tunnel.
@@ -3035,7 +3006,7 @@ class CISCOVPDNMGMTMIB(Entity):
         .. attribute:: cvpdnbundlechildentry
         
         	An entry in this table represents a session that belongs to a VPDN tunnel and to a multilink PPP bundle
-        	**type**\: list of  		 :py:class:`Cvpdnbundlechildentry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnbundlechildtable.Cvpdnbundlechildentry>`
+        	**type**\: list of  		 :py:class:`CvpdnBundleChildEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleChildTable.CvpdnBundleChildEntry>`
         
         
 
@@ -3045,15 +3016,14 @@ class CISCOVPDNMGMTMIB(Entity):
         _revision = '2009-06-16'
 
         def __init__(self):
-            super(CISCOVPDNMGMTMIB.Cvpdnbundlechildtable, self).__init__()
+            super(CISCOVPDNMGMTMIB.CvpdnBundleChildTable, self).__init__()
 
             self.yang_name = "cvpdnBundleChildTable"
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvpdnBundleChildEntry", ("cvpdnbundlechildentry", CISCOVPDNMGMTMIB.Cvpdnbundlechildtable.Cvpdnbundlechildentry))])
+            self._child_classes = OrderedDict([("cvpdnBundleChildEntry", ("cvpdnbundlechildentry", CISCOVPDNMGMTMIB.CvpdnBundleChildTable.CvpdnBundleChildEntry))])
             self._leafs = OrderedDict()
 
             self.cvpdnbundlechildentry = YList(self)
@@ -3061,10 +3031,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnbundlechildtable, [], name, value)
+            self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnBundleChildTable, [], name, value)
 
 
-        class Cvpdnbundlechildentry(Entity):
+        class CvpdnBundleChildEntry(Entity):
             """
             An entry in this table represents a session that belongs to
             a VPDN tunnel and to a multilink PPP bundle.
@@ -3076,7 +3046,7 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..64
             
-            	**refers to**\:  :py:class:`cvpdnbundlename <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry>`
+            	**refers to**\:  :py:class:`cvpdnbundlename <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry>`
             
             .. attribute:: cvpdnbundlechildtunneltype  (key)
             
@@ -3105,15 +3075,14 @@ class CISCOVPDNMGMTMIB(Entity):
             _revision = '2009-06-16'
 
             def __init__(self):
-                super(CISCOVPDNMGMTMIB.Cvpdnbundlechildtable.Cvpdnbundlechildentry, self).__init__()
+                super(CISCOVPDNMGMTMIB.CvpdnBundleChildTable.CvpdnBundleChildEntry, self).__init__()
 
                 self.yang_name = "cvpdnBundleChildEntry"
                 self.yang_parent_name = "cvpdnBundleChildTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpdnbundlename','cvpdnbundlechildtunneltype','cvpdnbundlechildtunnelid','cvpdnbundlechildsessionid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpdnbundlename', YLeaf(YType.str, 'cvpdnBundleName')),
                     ('cvpdnbundlechildtunneltype', YLeaf(YType.enumeration, 'cvpdnBundleChildTunnelType')),
@@ -3128,7 +3097,7 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnBundleChildTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVPDNMGMTMIB.Cvpdnbundlechildtable.Cvpdnbundlechildentry, ['cvpdnbundlename', 'cvpdnbundlechildtunneltype', 'cvpdnbundlechildtunnelid', 'cvpdnbundlechildsessionid'], name, value)
+                self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnBundleChildTable.CvpdnBundleChildEntry, ['cvpdnbundlename', 'cvpdnbundlechildtunneltype', 'cvpdnbundlechildtunnelid', 'cvpdnbundlechildsessionid'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOVPDNMGMTMIB()

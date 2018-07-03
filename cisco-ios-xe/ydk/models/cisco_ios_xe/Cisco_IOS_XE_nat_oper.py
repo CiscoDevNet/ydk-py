@@ -47,13 +47,11 @@ class NatData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ip-nat-statistics", ("ip_nat_statistics", NatData.IpNatStatistics))])
-        self._child_list_classes = OrderedDict([("ip-nat-translation", ("ip_nat_translation", NatData.IpNatTranslation))])
+        self._child_classes = OrderedDict([("ip-nat-statistics", ("ip_nat_statistics", NatData.IpNatStatistics)), ("ip-nat-translation", ("ip_nat_translation", NatData.IpNatTranslation))])
         self._leafs = OrderedDict()
 
         self.ip_nat_statistics = None
         self._children_name_map["ip_nat_statistics"] = "ip-nat-statistics"
-        self._children_yang_names.add("ip-nat-statistics")
 
         self.ip_nat_translation = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-nat-oper:nat-data"
@@ -235,8 +233,7 @@ class NatData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('initialized', YLeaf(YType.boolean, 'initialized')),
@@ -394,8 +391,7 @@ class NatData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['inside_local_addr','outside_local_addr','inside_local_port','outside_local_port','vrfid','protocol']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('inside_local_addr', YLeaf(YType.str, 'inside-local-addr')),
                 ('outside_local_addr', YLeaf(YType.str, 'outside-local-addr')),

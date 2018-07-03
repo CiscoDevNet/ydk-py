@@ -111,51 +111,55 @@ class IcpeInstallSatState(Enum):
 
     	Updating
 
-    .. data:: icpe_install_sat_state_deactivating = 5
+    .. data:: icpe_install_sat_state_replacing = 5
+
+    	Replacing
+
+    .. data:: icpe_install_sat_state_deactivating = 6
 
     	Deactivating
 
-    .. data:: icpe_install_sat_state_removing = 6
+    .. data:: icpe_install_sat_state_removing = 7
 
     	Removing
 
-    .. data:: icpe_install_sat_state_success = 7
+    .. data:: icpe_install_sat_state_success = 8
 
     	Success
 
-    .. data:: icpe_install_sat_state_failure = 8
+    .. data:: icpe_install_sat_state_failure = 9
 
     	Failure
 
-    .. data:: icpe_install_sat_state_multiple_ops = 9
+    .. data:: icpe_install_sat_state_multiple_ops = 10
 
     	Multiple ops
 
-    .. data:: icpe_install_sat_state_aborted = 10
+    .. data:: icpe_install_sat_state_aborted = 11
 
     	Aborted
 
-    .. data:: icpe_install_sat_state_protocol_version = 11
+    .. data:: icpe_install_sat_state_protocol_version = 12
 
     	Protocol version
 
-    .. data:: icpe_install_sat_state_pkg_not_present = 12
+    .. data:: icpe_install_sat_state_pkg_not_present = 13
 
     	Pkg not present
 
-    .. data:: icpe_install_sat_state_no_image = 13
+    .. data:: icpe_install_sat_state_no_image = 14
 
     	No image
 
-    .. data:: icpe_install_sat_state_no_such_file = 14
+    .. data:: icpe_install_sat_state_no_such_file = 15
 
     	No such file
 
-    .. data:: icpe_install_sat_state_sat_uncfgd = 15
+    .. data:: icpe_install_sat_state_sat_uncfgd = 16
 
     	Sat uncfgd
 
-    .. data:: icpe_install_sat_state_processing = 16
+    .. data:: icpe_install_sat_state_processing = 17
 
     	Processing
 
@@ -171,29 +175,31 @@ class IcpeInstallSatState(Enum):
 
     icpe_install_sat_state_updating = Enum.YLeaf(4, "icpe-install-sat-state-updating")
 
-    icpe_install_sat_state_deactivating = Enum.YLeaf(5, "icpe-install-sat-state-deactivating")
+    icpe_install_sat_state_replacing = Enum.YLeaf(5, "icpe-install-sat-state-replacing")
 
-    icpe_install_sat_state_removing = Enum.YLeaf(6, "icpe-install-sat-state-removing")
+    icpe_install_sat_state_deactivating = Enum.YLeaf(6, "icpe-install-sat-state-deactivating")
 
-    icpe_install_sat_state_success = Enum.YLeaf(7, "icpe-install-sat-state-success")
+    icpe_install_sat_state_removing = Enum.YLeaf(7, "icpe-install-sat-state-removing")
 
-    icpe_install_sat_state_failure = Enum.YLeaf(8, "icpe-install-sat-state-failure")
+    icpe_install_sat_state_success = Enum.YLeaf(8, "icpe-install-sat-state-success")
 
-    icpe_install_sat_state_multiple_ops = Enum.YLeaf(9, "icpe-install-sat-state-multiple-ops")
+    icpe_install_sat_state_failure = Enum.YLeaf(9, "icpe-install-sat-state-failure")
 
-    icpe_install_sat_state_aborted = Enum.YLeaf(10, "icpe-install-sat-state-aborted")
+    icpe_install_sat_state_multiple_ops = Enum.YLeaf(10, "icpe-install-sat-state-multiple-ops")
 
-    icpe_install_sat_state_protocol_version = Enum.YLeaf(11, "icpe-install-sat-state-protocol-version")
+    icpe_install_sat_state_aborted = Enum.YLeaf(11, "icpe-install-sat-state-aborted")
 
-    icpe_install_sat_state_pkg_not_present = Enum.YLeaf(12, "icpe-install-sat-state-pkg-not-present")
+    icpe_install_sat_state_protocol_version = Enum.YLeaf(12, "icpe-install-sat-state-protocol-version")
 
-    icpe_install_sat_state_no_image = Enum.YLeaf(13, "icpe-install-sat-state-no-image")
+    icpe_install_sat_state_pkg_not_present = Enum.YLeaf(13, "icpe-install-sat-state-pkg-not-present")
 
-    icpe_install_sat_state_no_such_file = Enum.YLeaf(14, "icpe-install-sat-state-no-such-file")
+    icpe_install_sat_state_no_image = Enum.YLeaf(14, "icpe-install-sat-state-no-image")
 
-    icpe_install_sat_state_sat_uncfgd = Enum.YLeaf(15, "icpe-install-sat-state-sat-uncfgd")
+    icpe_install_sat_state_no_such_file = Enum.YLeaf(15, "icpe-install-sat-state-no-such-file")
 
-    icpe_install_sat_state_processing = Enum.YLeaf(16, "icpe-install-sat-state-processing")
+    icpe_install_sat_state_sat_uncfgd = Enum.YLeaf(16, "icpe-install-sat-state-sat-uncfgd")
+
+    icpe_install_sat_state_processing = Enum.YLeaf(17, "icpe-install-sat-state-processing")
 
 
 class IcpeOperConflict(Enum):
@@ -484,7 +490,11 @@ class IcpeOperFabricPort(Enum):
 
     	n v fabric- ten gig e
 
-    .. data:: icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = 3
+    .. data:: icpe_oper_fabric_port_n_v_fabric_forty_gig_e = 3
+
+    	n v fabric- forty gig e
+
+    .. data:: icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = 4
 
     	n v fabric- hundred gig e
 
@@ -496,7 +506,9 @@ class IcpeOperFabricPort(Enum):
 
     icpe_oper_fabric_port_n_v_fabric_ten_gig_e = Enum.YLeaf(2, "icpe-oper-fabric-port-n-v-fabric-ten-gig-e")
 
-    icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = Enum.YLeaf(3, "icpe-oper-fabric-port-n-v-fabric-hundred-gig-e")
+    icpe_oper_fabric_port_n_v_fabric_forty_gig_e = Enum.YLeaf(3, "icpe-oper-fabric-port-n-v-fabric-forty-gig-e")
+
+    icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = Enum.YLeaf(4, "icpe-oper-fabric-port-n-v-fabric-hundred-gig-e")
 
 
 class IcpeOperInstallState(Enum):
@@ -590,6 +602,33 @@ class IcpeOperPort(Enum):
     icpe_oper_port_gigabit_ethernet = Enum.YLeaf(1, "icpe-oper-port-gigabit-ethernet")
 
     icpe_oper_port_ten_gig_e = Enum.YLeaf(2, "icpe-oper-port-ten-gig-e")
+
+
+class IcpeOperReloadLevel(Enum):
+    """
+    IcpeOperReloadLevel (Enum Class)
+
+    Icpe oper reload level
+
+    .. data:: icpe_oper_reload_level_unknown = 0
+
+    	Unknown
+
+    .. data:: icpe_oper_reload_level_system = 1
+
+    	System
+
+    .. data:: icpe_oper_reload_level_container = 2
+
+    	Container
+
+    """
+
+    icpe_oper_reload_level_unknown = Enum.YLeaf(0, "icpe-oper-reload-level-unknown")
+
+    icpe_oper_reload_level_system = Enum.YLeaf(1, "icpe-oper-reload-level-system")
+
+    icpe_oper_reload_level_container = Enum.YLeaf(2, "icpe-oper-reload-level-container")
 
 
 class IcpeOperSdacpSessState(Enum):
@@ -1116,11 +1155,6 @@ class NvSatellite(Entity):
     	Current percentage of install table
     	**type**\:  :py:class:`InstallOpProgresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpProgresses>`
     
-    .. attribute:: reload_statuses
-    
-    	Detailed breakdown of reload status table
-    	**type**\:  :py:class:`ReloadStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses>`
-    
     .. attribute:: install
     
     	Satellite Install Information
@@ -1139,7 +1173,7 @@ class NvSatellite(Entity):
     .. attribute:: sdacp_discovery2s
     
     	ICPE Configured interface state information table
-    	**type**\:  :py:class:`SdacpDiscovery2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S>`
+    	**type**\:  :py:class:`SdacpDiscovery2s <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2s>`
     
     .. attribute:: icpe_dpms
     
@@ -1167,90 +1201,72 @@ class NvSatellite(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("reload-op-statuses", ("reload_op_statuses", NvSatellite.ReloadOpStatuses)), ("sdacp-redundancies", ("sdacp_redundancies", NvSatellite.SdacpRedundancies)), ("install-shows", ("install_shows", NvSatellite.InstallShows)), ("satellite-statuses", ("satellite_statuses", NvSatellite.SatelliteStatuses)), ("satellite-priorities", ("satellite_priorities", NvSatellite.SatellitePriorities)), ("satellite-versions", ("satellite_versions", NvSatellite.SatelliteVersions)), ("satellite-topologies", ("satellite_topologies", NvSatellite.SatelliteTopologies)), ("install-reference-info", ("install_reference_info", NvSatellite.InstallReferenceInfo)), ("install-op-progresses", ("install_op_progresses", NvSatellite.InstallOpProgresses)), ("reload-statuses", ("reload_statuses", NvSatellite.ReloadStatuses)), ("install", ("install", NvSatellite.Install)), ("install-op-statuses", ("install_op_statuses", NvSatellite.InstallOpStatuses)), ("satellite-properties", ("satellite_properties", NvSatellite.SatelliteProperties)), ("Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s", ("sdacp_discovery2s", NvSatellite.SdacpDiscovery2S)), ("Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms", ("icpe_dpms", NvSatellite.IcpeDpms)), ("Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls", ("sdacp_controls", NvSatellite.SdacpControls))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("reload-op-statuses", ("reload_op_statuses", NvSatellite.ReloadOpStatuses)), ("sdacp-redundancies", ("sdacp_redundancies", NvSatellite.SdacpRedundancies)), ("install-shows", ("install_shows", NvSatellite.InstallShows)), ("satellite-statuses", ("satellite_statuses", NvSatellite.SatelliteStatuses)), ("satellite-priorities", ("satellite_priorities", NvSatellite.SatellitePriorities)), ("satellite-versions", ("satellite_versions", NvSatellite.SatelliteVersions)), ("satellite-topologies", ("satellite_topologies", NvSatellite.SatelliteTopologies)), ("install-reference-info", ("install_reference_info", NvSatellite.InstallReferenceInfo)), ("install-op-progresses", ("install_op_progresses", NvSatellite.InstallOpProgresses)), ("install", ("install", NvSatellite.Install)), ("install-op-statuses", ("install_op_statuses", NvSatellite.InstallOpStatuses)), ("satellite-properties", ("satellite_properties", NvSatellite.SatelliteProperties)), ("Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s", ("sdacp_discovery2s", NvSatellite.SdacpDiscovery2s)), ("Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms", ("icpe_dpms", NvSatellite.IcpeDpms)), ("Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls", ("sdacp_controls", NvSatellite.SdacpControls))])
         self._leafs = OrderedDict()
 
         self.reload_op_statuses = NvSatellite.ReloadOpStatuses()
         self.reload_op_statuses.parent = self
         self._children_name_map["reload_op_statuses"] = "reload-op-statuses"
-        self._children_yang_names.add("reload-op-statuses")
 
         self.sdacp_redundancies = NvSatellite.SdacpRedundancies()
         self.sdacp_redundancies.parent = self
         self._children_name_map["sdacp_redundancies"] = "sdacp-redundancies"
-        self._children_yang_names.add("sdacp-redundancies")
 
         self.install_shows = NvSatellite.InstallShows()
         self.install_shows.parent = self
         self._children_name_map["install_shows"] = "install-shows"
-        self._children_yang_names.add("install-shows")
 
         self.satellite_statuses = NvSatellite.SatelliteStatuses()
         self.satellite_statuses.parent = self
         self._children_name_map["satellite_statuses"] = "satellite-statuses"
-        self._children_yang_names.add("satellite-statuses")
 
         self.satellite_priorities = NvSatellite.SatellitePriorities()
         self.satellite_priorities.parent = self
         self._children_name_map["satellite_priorities"] = "satellite-priorities"
-        self._children_yang_names.add("satellite-priorities")
 
         self.satellite_versions = NvSatellite.SatelliteVersions()
         self.satellite_versions.parent = self
         self._children_name_map["satellite_versions"] = "satellite-versions"
-        self._children_yang_names.add("satellite-versions")
 
         self.satellite_topologies = NvSatellite.SatelliteTopologies()
         self.satellite_topologies.parent = self
         self._children_name_map["satellite_topologies"] = "satellite-topologies"
-        self._children_yang_names.add("satellite-topologies")
 
         self.install_reference_info = NvSatellite.InstallReferenceInfo()
         self.install_reference_info.parent = self
         self._children_name_map["install_reference_info"] = "install-reference-info"
-        self._children_yang_names.add("install-reference-info")
 
         self.install_op_progresses = NvSatellite.InstallOpProgresses()
         self.install_op_progresses.parent = self
         self._children_name_map["install_op_progresses"] = "install-op-progresses"
-        self._children_yang_names.add("install-op-progresses")
-
-        self.reload_statuses = NvSatellite.ReloadStatuses()
-        self.reload_statuses.parent = self
-        self._children_name_map["reload_statuses"] = "reload-statuses"
-        self._children_yang_names.add("reload-statuses")
 
         self.install = NvSatellite.Install()
         self.install.parent = self
         self._children_name_map["install"] = "install"
-        self._children_yang_names.add("install")
 
         self.install_op_statuses = NvSatellite.InstallOpStatuses()
         self.install_op_statuses.parent = self
         self._children_name_map["install_op_statuses"] = "install-op-statuses"
-        self._children_yang_names.add("install-op-statuses")
 
         self.satellite_properties = NvSatellite.SatelliteProperties()
         self.satellite_properties.parent = self
         self._children_name_map["satellite_properties"] = "satellite-properties"
-        self._children_yang_names.add("satellite-properties")
 
-        self.sdacp_discovery2s = NvSatellite.SdacpDiscovery2S()
+        self.sdacp_discovery2s = NvSatellite.SdacpDiscovery2s()
         self.sdacp_discovery2s.parent = self
         self._children_name_map["sdacp_discovery2s"] = "Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s"
-        self._children_yang_names.add("Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s")
 
         self.icpe_dpms = NvSatellite.IcpeDpms()
         self.icpe_dpms.parent = self
         self._children_name_map["icpe_dpms"] = "Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms"
-        self._children_yang_names.add("Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms")
 
         self.sdacp_controls = NvSatellite.SdacpControls()
         self.sdacp_controls.parent = self
         self._children_name_map["sdacp_controls"] = "Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls"
-        self._children_yang_names.add("Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls")
         self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NvSatellite, [], name, value)
 
 
     class ReloadOpStatuses(Entity):
@@ -1277,8 +1293,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("reload-op-status", ("reload_op_status", NvSatellite.ReloadOpStatuses.ReloadOpStatus))])
+            self._child_classes = OrderedDict([("reload-op-status", ("reload_op_status", NvSatellite.ReloadOpStatuses.ReloadOpStatus))])
             self._leafs = OrderedDict()
 
             self.reload_op_status = YList(self)
@@ -1355,8 +1370,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['operation_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                     ('operation_id_xr', YLeaf(YType.uint32, 'operation-id-xr')),
@@ -1405,8 +1419,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sdacp-redundancy", ("sdacp_redundancy", NvSatellite.SdacpRedundancies.SdacpRedundancy))])
+            self._child_classes = OrderedDict([("sdacp-redundancy", ("sdacp_redundancy", NvSatellite.SdacpRedundancies.SdacpRedundancy))])
             self._leafs = OrderedDict()
 
             self.sdacp_redundancy = YList(self)
@@ -1502,8 +1515,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['iccp_group']
-                self._child_container_classes = OrderedDict([("protocol-state-timestamp", ("protocol_state_timestamp", NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp))])
-                self._child_list_classes = OrderedDict([("channel", ("channel", NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel))])
+                self._child_classes = OrderedDict([("protocol-state-timestamp", ("protocol_state_timestamp", NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp)), ("channel", ("channel", NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel))])
                 self._leafs = OrderedDict([
                     ('iccp_group', YLeaf(YType.uint32, 'iccp-group')),
                     ('iccp_group_xr', YLeaf(YType.uint32, 'iccp-group-xr')),
@@ -1530,14 +1542,13 @@ class NvSatellite(Entity):
                 self.protocol_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp()
                 self.protocol_state_timestamp.parent = self
                 self._children_name_map["protocol_state_timestamp"] = "protocol-state-timestamp"
-                self._children_yang_names.add("protocol-state-timestamp")
 
                 self.channel = YList(self)
                 self._segment_path = lambda: "sdacp-redundancy" + "[iccp-group='" + str(self.iccp_group) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/sdacp-redundancies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy, ['iccp_group', 'iccp_group_xr', 'protocol_state', 'transport_state', 'authentication_state', 'arbitration_state', 'synchronization_state', 'primacy', 'system_mac', 'isolated'], name, value)
+                self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy, ['iccp_group', u'iccp_group_xr', u'protocol_state', u'transport_state', u'authentication_state', u'arbitration_state', u'synchronization_state', u'primacy', u'system_mac', u'isolated'], name, value)
 
 
             class ProtocolStateTimestamp(Entity):
@@ -1577,8 +1588,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('seconds', YLeaf(YType.uint32, 'seconds')),
                         ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1588,7 +1598,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "protocol-state-timestamp"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, ['seconds', 'nanoseconds'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
 
 
             class Channel(Entity):
@@ -1665,8 +1675,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("channel-state-timestamp", ("channel_state_timestamp", NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp)), ("resync-state-timestamp", ("resync_state_timestamp", NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("channel-state-timestamp", ("channel_state_timestamp", NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp)), ("resync-state-timestamp", ("resync_state_timestamp", NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp))])
                     self._leafs = OrderedDict([
                         ('channel_id', YLeaf(YType.uint32, 'channel-id')),
                         ('chan_state', YLeaf(YType.enumeration, 'chan-state')),
@@ -1687,16 +1696,14 @@ class NvSatellite(Entity):
                     self.channel_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp()
                     self.channel_state_timestamp.parent = self
                     self._children_name_map["channel_state_timestamp"] = "channel-state-timestamp"
-                    self._children_yang_names.add("channel-state-timestamp")
 
                     self.resync_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp()
                     self.resync_state_timestamp.parent = self
                     self._children_name_map["resync_state_timestamp"] = "resync-state-timestamp"
-                    self._children_yang_names.add("resync-state-timestamp")
                     self._segment_path = lambda: "channel"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel, ['channel_id', 'chan_state', 'resync_state', 'control_messages_sent', 'normal_messages_sent', 'control_messages_received', 'normal_messages_received'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel, [u'channel_id', u'chan_state', u'resync_state', u'control_messages_sent', u'normal_messages_sent', u'control_messages_received', u'normal_messages_received'], name, value)
 
 
                 class ChannelStateTimestamp(Entity):
@@ -1736,8 +1743,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1747,7 +1753,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "channel-state-timestamp"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class ResyncStateTimestamp(Entity):
@@ -1787,8 +1793,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1798,7 +1803,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "resync-state-timestamp"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
 
 
     class InstallShows(Entity):
@@ -1825,8 +1830,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("install-show", ("install_show", NvSatellite.InstallShows.InstallShow))])
+            self._child_classes = OrderedDict([("install-show", ("install_show", NvSatellite.InstallShows.InstallShow))])
             self._leafs = OrderedDict()
 
             self.install_show = YList(self)
@@ -1923,6 +1927,13 @@ class NvSatellite(Entity):
             
             	**range:** 0..65535
             
+            .. attribute:: sats_replacing
+            
+            	Sats replacing
+            	**type**\: list of int
+            
+            	**range:** 0..65535
+            
             .. attribute:: sats_deactivating
             
             	Sats deactivating
@@ -1958,6 +1969,13 @@ class NvSatellite(Entity):
             
             	**range:** 0..65535
             
+            .. attribute:: sats_replace_failed
+            
+            	Sats replace failed
+            	**type**\: list of int
+            
+            	**range:** 0..65535
+            
             .. attribute:: sats_deactivate_failed
             
             	Sats deactivate failed
@@ -1989,6 +2007,13 @@ class NvSatellite(Entity):
             .. attribute:: sats_update_aborted
             
             	Sats update aborted
+            	**type**\: list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_replace_aborted
+            
+            	Sats replace aborted
             	**type**\: list of int
             
             	**range:** 0..65535
@@ -2046,8 +2071,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['operation_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("satellite", ("satellite", NvSatellite.InstallShows.InstallShow.Satellite))])
+                self._child_classes = OrderedDict([("satellite", ("satellite", NvSatellite.InstallShows.InstallShow.Satellite))])
                 self._leafs = OrderedDict([
                     ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                     ('operation_id_xr', YLeaf(YType.uint32, 'operation-id-xr')),
@@ -2061,16 +2085,19 @@ class NvSatellite(Entity):
                     ('sats_transferring', YLeafList(YType.uint16, 'sats-transferring')),
                     ('sats_activating', YLeafList(YType.uint16, 'sats-activating')),
                     ('sats_updating', YLeafList(YType.uint16, 'sats-updating')),
+                    ('sats_replacing', YLeafList(YType.uint16, 'sats-replacing')),
                     ('sats_deactivating', YLeafList(YType.uint16, 'sats-deactivating')),
                     ('sats_removing', YLeafList(YType.uint16, 'sats-removing')),
                     ('sats_transfer_failed', YLeafList(YType.uint16, 'sats-transfer-failed')),
                     ('sats_activate_failed', YLeafList(YType.uint16, 'sats-activate-failed')),
                     ('sats_update_failed', YLeafList(YType.uint16, 'sats-update-failed')),
+                    ('sats_replace_failed', YLeafList(YType.uint16, 'sats-replace-failed')),
                     ('sats_deactivate_failed', YLeafList(YType.uint16, 'sats-deactivate-failed')),
                     ('sats_remove_failed', YLeafList(YType.uint16, 'sats-remove-failed')),
                     ('sats_transfer_aborted', YLeafList(YType.uint16, 'sats-transfer-aborted')),
                     ('sats_activate_aborted', YLeafList(YType.uint16, 'sats-activate-aborted')),
                     ('sats_update_aborted', YLeafList(YType.uint16, 'sats-update-aborted')),
+                    ('sats_replace_aborted', YLeafList(YType.uint16, 'sats-replace-aborted')),
                     ('sats_deactivate_aborted', YLeafList(YType.uint16, 'sats-deactivate-aborted')),
                     ('sats_remove_aborted', YLeafList(YType.uint16, 'sats-remove-aborted')),
                     ('sats_no_operation', YLeafList(YType.uint16, 'sats-no-operation')),
@@ -2089,16 +2116,19 @@ class NvSatellite(Entity):
                 self.sats_transferring = []
                 self.sats_activating = []
                 self.sats_updating = []
+                self.sats_replacing = []
                 self.sats_deactivating = []
                 self.sats_removing = []
                 self.sats_transfer_failed = []
                 self.sats_activate_failed = []
                 self.sats_update_failed = []
+                self.sats_replace_failed = []
                 self.sats_deactivate_failed = []
                 self.sats_remove_failed = []
                 self.sats_transfer_aborted = []
                 self.sats_activate_aborted = []
                 self.sats_update_aborted = []
+                self.sats_replace_aborted = []
                 self.sats_deactivate_aborted = []
                 self.sats_remove_aborted = []
                 self.sats_no_operation = []
@@ -2110,7 +2140,7 @@ class NvSatellite(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install-shows/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.InstallShows.InstallShow, ['operation_id', 'operation_id_xr', 'satellite_range', 'operation_type', 'progress_percentage', 'start_time', 'end_time', 'ref_state', 'sats_not_initiated', 'sats_transferring', 'sats_activating', 'sats_updating', 'sats_deactivating', 'sats_removing', 'sats_transfer_failed', 'sats_activate_failed', 'sats_update_failed', 'sats_deactivate_failed', 'sats_remove_failed', 'sats_transfer_aborted', 'sats_activate_aborted', 'sats_update_aborted', 'sats_deactivate_aborted', 'sats_remove_aborted', 'sats_no_operation', 'sats_completed', 'name_string'], name, value)
+                self._perform_setattr(NvSatellite.InstallShows.InstallShow, ['operation_id', u'operation_id_xr', u'satellite_range', u'operation_type', u'progress_percentage', u'start_time', u'end_time', u'ref_state', u'sats_not_initiated', u'sats_transferring', u'sats_activating', u'sats_updating', u'sats_replacing', u'sats_deactivating', u'sats_removing', u'sats_transfer_failed', u'sats_activate_failed', u'sats_update_failed', u'sats_replace_failed', u'sats_deactivate_failed', u'sats_remove_failed', u'sats_transfer_aborted', u'sats_activate_aborted', u'sats_update_aborted', u'sats_replace_aborted', u'sats_deactivate_aborted', u'sats_remove_aborted', u'sats_no_operation', u'sats_completed', u'name_string'], name, value)
 
 
             class Satellite(Entity):
@@ -2179,8 +2209,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('satellite_id', YLeaf(YType.uint16, 'satellite-id')),
                         ('state', YLeaf(YType.enumeration, 'state')),
@@ -2200,7 +2229,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "satellite"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.InstallShows.InstallShow.Satellite, ['satellite_id', 'state', 'percentage', 'retries', 'start_time', 'end_time', 'info'], name, value)
+                    self._perform_setattr(NvSatellite.InstallShows.InstallShow.Satellite, [u'satellite_id', u'state', u'percentage', u'retries', u'start_time', u'end_time', u'info'], name, value)
 
 
     class SatelliteStatuses(Entity):
@@ -2227,8 +2256,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("satellite-status", ("satellite_status", NvSatellite.SatelliteStatuses.SatelliteStatus))])
+            self._child_classes = OrderedDict([("satellite-status", ("satellite_status", NvSatellite.SatelliteStatuses.SatelliteStatus))])
             self._leafs = OrderedDict()
 
             self.satellite_status = YList(self)
@@ -2463,6 +2491,11 @@ class NvSatellite(Entity):
             	Remote version
             	**type**\: list of str
             
+            .. attribute:: reload_data
+            
+            	Reload Information table
+            	**type**\: list of  		 :py:class:`ReloadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData>`
+            
             .. attribute:: configured_link
             
             	Configured Links on this Satellite table
@@ -2483,8 +2516,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['satellite_id']
-                self._child_container_classes = OrderedDict([("candidate-fabric-ports", ("candidate_fabric_ports", NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts)), ("optical-status", ("optical_status", NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus)), ("redundancy-out-of-sync-timestamp", ("redundancy_out_of_sync_timestamp", NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp))])
-                self._child_list_classes = OrderedDict([("configured-link", ("configured_link", NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink))])
+                self._child_classes = OrderedDict([("candidate-fabric-ports", ("candidate_fabric_ports", NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts)), ("optical-status", ("optical_status", NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus)), ("redundancy-out-of-sync-timestamp", ("redundancy_out_of_sync_timestamp", NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp)), ("reload-data", ("reload_data", NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData)), ("configured-link", ("configured_link", NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink))])
                 self._leafs = OrderedDict([
                     ('satellite_id', YLeaf(YType.uint32, 'satellite-id')),
                     ('satellite_id_xr', YLeaf(YType.uint16, 'satellite-id-xr')),
@@ -2565,24 +2597,22 @@ class NvSatellite(Entity):
                 self.candidate_fabric_ports = NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts()
                 self.candidate_fabric_ports.parent = self
                 self._children_name_map["candidate_fabric_ports"] = "candidate-fabric-ports"
-                self._children_yang_names.add("candidate-fabric-ports")
 
                 self.optical_status = NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus()
                 self.optical_status.parent = self
                 self._children_name_map["optical_status"] = "optical-status"
-                self._children_yang_names.add("optical-status")
 
                 self.redundancy_out_of_sync_timestamp = NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp()
                 self.redundancy_out_of_sync_timestamp.parent = self
                 self._children_name_map["redundancy_out_of_sync_timestamp"] = "redundancy-out-of-sync-timestamp"
-                self._children_yang_names.add("redundancy-out-of-sync-timestamp")
 
+                self.reload_data = YList(self)
                 self.configured_link = YList(self)
                 self._segment_path = lambda: "satellite-status" + "[satellite-id='" + str(self.satellite_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-statuses/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus, ['satellite_id', 'satellite_id_xr', 'version_check_state', 'remote_version_present', 'type', 'ethernet_fabric_supported', 'optical_supported', 'ip_address', 'ip_address_present', 'ip_address_auto', 'ipv6_address', 'ipv6_address_present', 'vrf_name', 'vrfid', 'description', 'description_present', 'mac_address', 'mac_address_present', 'configured_serial_number', 'configured_serial_number_present', 'received_serial_number', 'received_serial_number_present', 'password', 'password_error', 'received_host_name', 'cfgd_timeout', 'timeout_warning', 'conflict_reason', 'conflict_context', 'redundancy_iccp_group', 'recovery_delay_time_left', 'host_treating_as_active', 'satellite_treating_as_active', 'sdacp_session_state', 'sdacp_session_failure_reason', 'install_state', 'remote_version'], name, value)
+                self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus, ['satellite_id', u'satellite_id_xr', u'version_check_state', u'remote_version_present', u'type', u'ethernet_fabric_supported', u'optical_supported', u'ip_address', u'ip_address_present', u'ip_address_auto', u'ipv6_address', u'ipv6_address_present', u'vrf_name', u'vrfid', u'description', u'description_present', u'mac_address', u'mac_address_present', u'configured_serial_number', u'configured_serial_number_present', u'received_serial_number', u'received_serial_number_present', u'password', u'password_error', u'received_host_name', u'cfgd_timeout', u'timeout_warning', u'conflict_reason', u'conflict_context', u'redundancy_iccp_group', u'recovery_delay_time_left', u'host_treating_as_active', u'satellite_treating_as_active', u'sdacp_session_state', u'sdacp_session_failure_reason', u'install_state', u'remote_version'], name, value)
 
 
             class CandidateFabricPorts(Entity):
@@ -2629,8 +2659,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("configured-port", ("configured_port", NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort)), ("current-port", ("current_port", NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort))])
+                    self._child_classes = OrderedDict([("configured-port", ("configured_port", NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort)), ("current-port", ("current_port", NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort))])
                     self._leafs = OrderedDict([
                         ('channel_up', YLeaf(YType.boolean, 'channel-up')),
                         ('out_of_sync', YLeaf(YType.boolean, 'out-of-sync')),
@@ -2645,7 +2674,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "candidate-fabric-ports"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, ['channel_up', 'out_of_sync', 'error_string'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, [u'channel_up', u'out_of_sync', u'error_string'], name, value)
 
 
                 class ConfiguredPort(Entity):
@@ -2698,8 +2727,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('port_type', YLeaf(YType.enumeration, 'port-type')),
                             ('slot', YLeaf(YType.uint16, 'slot')),
@@ -2715,7 +2743,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "configured-port"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, ['port_type', 'slot', 'subslot', 'port', 'valid'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, [u'port_type', u'slot', u'subslot', u'port', u'valid'], name, value)
 
 
                 class CurrentPort(Entity):
@@ -2774,8 +2802,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('port_type', YLeaf(YType.enumeration, 'port-type')),
                             ('slot', YLeaf(YType.uint16, 'slot')),
@@ -2793,7 +2820,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "current-port"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, ['port_type', 'slot', 'subslot', 'port', 'permanent', 'requested'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, [u'port_type', u'slot', u'subslot', u'port', u'permanent', u'requested'], name, value)
 
 
             class OpticalStatus(Entity):
@@ -2825,8 +2852,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("application", ("application", NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application))])
+                    self._child_classes = OrderedDict([("application", ("application", NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application))])
                     self._leafs = OrderedDict([
                         ('chassis_sync_state', YLeaf(YType.enumeration, 'chassis-sync-state')),
                     ])
@@ -2836,7 +2862,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "optical-status"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, ['chassis_sync_state'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, [u'chassis_sync_state'], name, value)
 
 
                 class Application(Entity):
@@ -2868,8 +2894,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('sync_state', YLeaf(YType.enumeration, 'sync-state')),
@@ -2879,7 +2904,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "application"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, ['name', 'sync_state'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, [u'name', u'sync_state'], name, value)
 
 
             class RedundancyOutOfSyncTimestamp(Entity):
@@ -2919,8 +2944,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('seconds', YLeaf(YType.uint32, 'seconds')),
                         ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -2930,7 +2954,58 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "redundancy-out-of-sync-timestamp"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, ['seconds', 'nanoseconds'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, [u'seconds', u'nanoseconds'], name, value)
+
+
+            class ReloadData(Entity):
+                """
+                Reload Information table
+                
+                .. attribute:: level
+                
+                	Level
+                	**type**\:  :py:class:`IcpeOperReloadLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperReloadLevel>`
+                
+                .. attribute:: time
+                
+                	Time
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: info
+                
+                	Info
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'icpe-infra-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData, self).__init__()
+
+                    self.yang_name = "reload-data"
+                    self.yang_parent_name = "satellite-status"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('level', YLeaf(YType.enumeration, 'level')),
+                        ('time', YLeaf(YType.uint64, 'time')),
+                        ('info', YLeaf(YType.str, 'info')),
+                    ])
+                    self.level = None
+                    self.time = None
+                    self.info = None
+                    self._segment_path = lambda: "reload-data"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData, [u'level', u'time', u'info'], name, value)
 
 
             class ConfiguredLink(Entity):
@@ -3034,8 +3109,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("port-range", ("port_range", NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange)), ("discovered-link", ("discovered_link", NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink))])
+                    self._child_classes = OrderedDict([("port-range", ("port_range", NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange)), ("discovered-link", ("discovered_link", NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink))])
                     self._leafs = OrderedDict([
                         ('interface_handle', YLeaf(YType.str, 'interface-handle')),
                         ('ip_address', YLeaf(YType.str, 'ip-address')),
@@ -3068,7 +3142,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "configured-link"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, ['interface_handle', 'ip_address', 'ip_address_auto', 'vrf_id_present', 'vrf_id', 'minimum_preferred_links', 'number_active_links', 'min_links_satisfied', 'minimum_required_links', 'required_min_links_satisfied', 'conflict_reason', 'conflict_context'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, [u'interface_handle', u'ip_address', u'ip_address_auto', u'vrf_id_present', u'vrf_id', u'minimum_preferred_links', u'number_active_links', u'min_links_satisfied', u'minimum_required_links', u'required_min_links_satisfied', u'conflict_reason', u'conflict_context'], name, value)
 
 
                 class PortRange(Entity):
@@ -3133,8 +3207,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('slot', YLeaf(YType.uint32, 'slot')),
                             ('subslot', YLeaf(YType.uint32, 'subslot')),
@@ -3154,7 +3227,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "port-range"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, ['slot', 'subslot', 'low_port', 'high_port', 'port_type', 'conflict_reason', 'conflict_context'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, [u'slot', u'subslot', u'low_port', u'high_port', u'port_type', u'conflict_reason', u'conflict_context'], name, value)
 
 
                 class DiscoveredLink(Entity):
@@ -3198,8 +3271,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_handle', YLeaf(YType.str, 'interface-handle')),
                             ('state', YLeaf(YType.enumeration, 'state')),
@@ -3213,7 +3285,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "discovered-link"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, ['interface_handle', 'state', 'conflict_reason', 'conflict_context'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, [u'interface_handle', u'state', u'conflict_reason', u'conflict_context'], name, value)
 
 
     class SatellitePriorities(Entity):
@@ -3240,8 +3312,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("satellite-priority", ("satellite_priority", NvSatellite.SatellitePriorities.SatellitePriority))])
+            self._child_classes = OrderedDict([("satellite-priority", ("satellite_priority", NvSatellite.SatellitePriorities.SatellitePriority))])
             self._leafs = OrderedDict()
 
             self.satellite_priority = YList(self)
@@ -3325,8 +3396,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['satellite_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('satellite_id', YLeaf(YType.uint32, 'satellite-id')),
                     ('satellite_id_xr', YLeaf(YType.uint16, 'satellite-id-xr')),
@@ -3349,7 +3419,7 @@ class NvSatellite(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-priorities/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SatellitePriorities.SatellitePriority, ['satellite_id', 'satellite_id_xr', 'rgid', 'best_path_hops', 'configured_priority', 'host_priority', 'partner_priority', 'multichassis_redundancy'], name, value)
+                self._perform_setattr(NvSatellite.SatellitePriorities.SatellitePriority, ['satellite_id', u'satellite_id_xr', u'rgid', u'best_path_hops', u'configured_priority', u'host_priority', u'partner_priority', u'multichassis_redundancy'], name, value)
 
 
     class SatelliteVersions(Entity):
@@ -3376,8 +3446,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("satellite-version", ("satellite_version", NvSatellite.SatelliteVersions.SatelliteVersion))])
+            self._child_classes = OrderedDict([("satellite-version", ("satellite_version", NvSatellite.SatelliteVersions.SatelliteVersion))])
             self._leafs = OrderedDict()
 
             self.satellite_version = YList(self)
@@ -3451,8 +3520,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['satellite_id']
-                self._child_container_classes = OrderedDict([("active-version", ("active_version", NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion)), ("transferred-version", ("transferred_version", NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion)), ("committed-version", ("committed_version", NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("active-version", ("active_version", NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion)), ("transferred-version", ("transferred_version", NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion)), ("committed-version", ("committed_version", NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion))])
                 self._leafs = OrderedDict([
                     ('satellite_id', YLeaf(YType.uint32, 'satellite-id')),
                     ('satellite_id_xr', YLeaf(YType.uint16, 'satellite-id-xr')),
@@ -3469,22 +3537,19 @@ class NvSatellite(Entity):
                 self.active_version = NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion()
                 self.active_version.parent = self
                 self._children_name_map["active_version"] = "active-version"
-                self._children_yang_names.add("active-version")
 
                 self.transferred_version = NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion()
                 self.transferred_version.parent = self
                 self._children_name_map["transferred_version"] = "transferred-version"
-                self._children_yang_names.add("transferred-version")
 
                 self.committed_version = NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion()
                 self.committed_version.parent = self
                 self._children_name_map["committed_version"] = "committed-version"
-                self._children_yang_names.add("committed-version")
                 self._segment_path = lambda: "satellite-version" + "[satellite-id='" + str(self.satellite_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-versions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion, ['satellite_id', 'satellite_id_xr', 'version_check_state', 'remote_version_present', 'remote_version'], name, value)
+                self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion, ['satellite_id', u'satellite_id_xr', u'version_check_state', u'remote_version_present', u'remote_version'], name, value)
 
 
             class ActiveVersion(Entity):
@@ -3521,8 +3586,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('version_check_state', YLeaf(YType.enumeration, 'version-check-state')),
                         ('remote_version_present', YLeaf(YType.boolean, 'remote-version-present')),
@@ -3534,7 +3598,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "active-version"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, [u'version_check_state', u'remote_version_present', u'remote_version'], name, value)
 
 
             class TransferredVersion(Entity):
@@ -3571,8 +3635,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('version_check_state', YLeaf(YType.enumeration, 'version-check-state')),
                         ('remote_version_present', YLeaf(YType.boolean, 'remote-version-present')),
@@ -3584,7 +3647,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "transferred-version"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, [u'version_check_state', u'remote_version_present', u'remote_version'], name, value)
 
 
             class CommittedVersion(Entity):
@@ -3621,8 +3684,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('version_check_state', YLeaf(YType.enumeration, 'version-check-state')),
                         ('remote_version_present', YLeaf(YType.boolean, 'remote-version-present')),
@@ -3634,7 +3696,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "committed-version"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, [u'version_check_state', u'remote_version_present', u'remote_version'], name, value)
 
 
     class SatelliteTopologies(Entity):
@@ -3661,8 +3723,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("satellite-topology", ("satellite_topology", NvSatellite.SatelliteTopologies.SatelliteTopology))])
+            self._child_classes = OrderedDict([("satellite-topology", ("satellite_topology", NvSatellite.SatelliteTopologies.SatelliteTopology))])
             self._leafs = OrderedDict()
 
             self.satellite_topology = YList(self)
@@ -3738,8 +3799,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("discovered-link", ("discovered_link", NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink)), ("satellite", ("satellite", NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite))])
+                self._child_classes = OrderedDict([("discovered-link", ("discovered_link", NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink)), ("satellite", ("satellite", NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
@@ -3761,7 +3821,7 @@ class NvSatellite(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-topologies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology, ['interface_name', 'interface_name_xr', 'interface_handle', 'redundancy_iccp_group', 'is_physical', 'ring_whole'], name, value)
+                self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology, ['interface_name', u'interface_name_xr', u'interface_handle', u'redundancy_iccp_group', u'is_physical', u'ring_whole'], name, value)
 
 
             class DiscoveredLink(Entity):
@@ -3800,8 +3860,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('interface_handle', YLeaf(YType.str, 'interface-handle')),
@@ -3813,7 +3872,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "discovered-link"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink, ['interface_name', 'interface_handle', 'discovery_running'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink, [u'interface_name', u'interface_handle', u'discovery_running'], name, value)
 
 
             class Satellite(Entity):
@@ -3903,8 +3962,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("fabric-link", ("fabric_link", NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink))])
+                    self._child_classes = OrderedDict([("fabric-link", ("fabric_link", NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink))])
                     self._leafs = OrderedDict([
                         ('mac_address', YLeaf(YType.str, 'mac-address')),
                         ('configured', YLeaf(YType.boolean, 'configured')),
@@ -3934,7 +3992,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "satellite"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite, ['mac_address', 'configured', 'num_hops', 'type', 'satellite_id', 'received_serial_number', 'received_serial_number_present', 'vlan_id', 'display_name', 'conflict_reason', 'conflict_context'], name, value)
+                    self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite, [u'mac_address', u'configured', u'num_hops', u'type', u'satellite_id', u'received_serial_number', u'received_serial_number_present', u'vlan_id', u'display_name', u'conflict_reason', u'conflict_context'], name, value)
 
 
                 class FabricLink(Entity):
@@ -3993,8 +4051,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("remote-device", ("remote_device", NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice))])
+                        self._child_classes = OrderedDict([("remote-device", ("remote_device", NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice))])
                         self._leafs = OrderedDict([
                             ('icl_id', YLeaf(YType.uint32, 'icl-id')),
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -4014,7 +4071,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "fabric-link"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink, ['icl_id', 'interface_name', 'display_name', 'redundant', 'active', 'obsolete'], name, value)
+                        self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink, [u'icl_id', u'interface_name', u'display_name', u'redundant', u'active', u'obsolete'], name, value)
 
 
                     class RemoteDevice(Entity):
@@ -4077,8 +4134,7 @@ class NvSatellite(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mac_address', YLeaf(YType.str, 'mac-address')),
                                 ('source', YLeaf(YType.enumeration, 'source')),
@@ -4098,7 +4154,7 @@ class NvSatellite(Entity):
                             self._segment_path = lambda: "remote-device"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice, ['mac_address', 'source', 'remote_is_satellite', 'remote_is_local_host', 'icl_id', 'interface_handle', 'interface_name'], name, value)
+                            self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice, [u'mac_address', u'source', u'remote_is_satellite', u'remote_is_local_host', u'icl_id', u'interface_handle', u'interface_name'], name, value)
 
 
     class InstallReferenceInfo(Entity):
@@ -4125,16 +4181,17 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("references", ("references", NvSatellite.InstallReferenceInfo.References))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("references", ("references", NvSatellite.InstallReferenceInfo.References))])
             self._leafs = OrderedDict()
 
             self.references = NvSatellite.InstallReferenceInfo.References()
             self.references.parent = self
             self._children_name_map["references"] = "references"
-            self._children_yang_names.add("references")
             self._segment_path = lambda: "install-reference-info"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(NvSatellite.InstallReferenceInfo, [], name, value)
 
 
         class References(Entity):
@@ -4161,8 +4218,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("reference", ("reference", NvSatellite.InstallReferenceInfo.References.Reference))])
+                self._child_classes = OrderedDict([("reference", ("reference", NvSatellite.InstallReferenceInfo.References.Reference))])
                 self._leafs = OrderedDict()
 
                 self.reference = YList(self)
@@ -4209,8 +4265,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['reference_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('reference_name', YLeaf(YType.str, 'reference-name')),
                         ('reference_name_xr', YLeaf(YType.str, 'reference-name-xr')),
@@ -4223,7 +4278,7 @@ class NvSatellite(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install-reference-info/references/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.InstallReferenceInfo.References.Reference, ['reference_name', 'reference_name_xr', 'reference_file'], name, value)
+                    self._perform_setattr(NvSatellite.InstallReferenceInfo.References.Reference, ['reference_name', u'reference_name_xr', u'reference_file'], name, value)
 
 
     class InstallOpProgresses(Entity):
@@ -4250,8 +4305,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("install-op-progress", ("install_op_progress", NvSatellite.InstallOpProgresses.InstallOpProgress))])
+            self._child_classes = OrderedDict([("install-op-progress", ("install_op_progress", NvSatellite.InstallOpProgresses.InstallOpProgress))])
             self._leafs = OrderedDict()
 
             self.install_op_progress = YList(self)
@@ -4311,8 +4365,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['operation_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                     ('operation_id_xr', YLeaf(YType.uint32, 'operation-id-xr')),
@@ -4327,125 +4380,7 @@ class NvSatellite(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install-op-progresses/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.InstallOpProgresses.InstallOpProgress, ['operation_id', 'operation_id_xr', 'progress_percentage', 'satellite_count'], name, value)
-
-
-    class ReloadStatuses(Entity):
-        """
-        Detailed breakdown of reload status table
-        
-        .. attribute:: reload_status
-        
-        	Detailed breakdown of reload status
-        	**type**\: list of  		 :py:class:`ReloadStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses.ReloadStatus>`
-        
-        
-
-        """
-
-        _prefix = 'icpe-infra-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(NvSatellite.ReloadStatuses, self).__init__()
-
-            self.yang_name = "reload-statuses"
-            self.yang_parent_name = "nv-satellite"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("reload-status", ("reload_status", NvSatellite.ReloadStatuses.ReloadStatus))])
-            self._leafs = OrderedDict()
-
-            self.reload_status = YList(self)
-            self._segment_path = lambda: "reload-statuses"
-            self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(NvSatellite.ReloadStatuses, [], name, value)
-
-
-        class ReloadStatus(Entity):
-            """
-            Detailed breakdown of reload status
-            
-            .. attribute:: satellite_range  (key)
-            
-            	Satellite range
-            	**type**\: str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: satellite_range_xr
-            
-            	Satellite range
-            	**type**\: str
-            
-            .. attribute:: sats_not_initiated
-            
-            	Sats not initiated
-            	**type**\: list of int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: sats_reloading
-            
-            	Sats reloading
-            	**type**\: list of int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: sats_reloaded
-            
-            	Sats reloaded
-            	**type**\: list of int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: sats_reload_failed
-            
-            	Sats reload failed
-            	**type**\: list of int
-            
-            	**range:** 0..65535
-            
-            
-
-            """
-
-            _prefix = 'icpe-infra-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(NvSatellite.ReloadStatuses.ReloadStatus, self).__init__()
-
-                self.yang_name = "reload-status"
-                self.yang_parent_name = "reload-statuses"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = ['satellite_range']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('satellite_range', YLeaf(YType.str, 'satellite-range')),
-                    ('satellite_range_xr', YLeaf(YType.str, 'satellite-range-xr')),
-                    ('sats_not_initiated', YLeafList(YType.uint16, 'sats-not-initiated')),
-                    ('sats_reloading', YLeafList(YType.uint16, 'sats-reloading')),
-                    ('sats_reloaded', YLeafList(YType.uint16, 'sats-reloaded')),
-                    ('sats_reload_failed', YLeafList(YType.uint16, 'sats-reload-failed')),
-                ])
-                self.satellite_range = None
-                self.satellite_range_xr = None
-                self.sats_not_initiated = []
-                self.sats_reloading = []
-                self.sats_reloaded = []
-                self.sats_reload_failed = []
-                self._segment_path = lambda: "reload-status" + "[satellite-range='" + str(self.satellite_range) + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/reload-statuses/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.ReloadStatuses.ReloadStatus, ['satellite_range', 'satellite_range_xr', 'sats_not_initiated', 'sats_reloading', 'sats_reloaded', 'sats_reload_failed'], name, value)
+                self._perform_setattr(NvSatellite.InstallOpProgresses.InstallOpProgress, ['operation_id', u'operation_id_xr', u'progress_percentage', u'satellite_count'], name, value)
 
 
     class Install(Entity):
@@ -4472,16 +4407,17 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("satellite-software-versions", ("satellite_software_versions", NvSatellite.Install.SatelliteSoftwareVersions))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("satellite-software-versions", ("satellite_software_versions", NvSatellite.Install.SatelliteSoftwareVersions))])
             self._leafs = OrderedDict()
 
             self.satellite_software_versions = NvSatellite.Install.SatelliteSoftwareVersions()
             self.satellite_software_versions.parent = self
             self._children_name_map["satellite_software_versions"] = "satellite-software-versions"
-            self._children_yang_names.add("satellite-software-versions")
             self._segment_path = lambda: "install"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(NvSatellite.Install, [], name, value)
 
 
         class SatelliteSoftwareVersions(Entity):
@@ -4508,8 +4444,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("satellite-software-version", ("satellite_software_version", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion))])
+                self._child_classes = OrderedDict([("satellite-software-version", ("satellite_software_version", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion))])
                 self._leafs = OrderedDict()
 
                 self.satellite_software_version = YList(self)
@@ -4563,8 +4498,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['satellite_id']
-                    self._child_container_classes = OrderedDict([("install-package-info", ("install_package_info", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("install-package-info", ("install_package_info", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo))])
                     self._leafs = OrderedDict([
                         ('satellite_id', YLeaf(YType.uint32, 'satellite-id')),
                         ('satellite_id_xr', YLeaf(YType.uint16, 'satellite-id-xr')),
@@ -4577,12 +4511,11 @@ class NvSatellite(Entity):
                     self.install_package_info = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo()
                     self.install_package_info.parent = self
                     self._children_name_map["install_package_info"] = "install-package-info"
-                    self._children_yang_names.add("install-package-info")
                     self._segment_path = lambda: "satellite-software-version" + "[satellite-id='" + str(self.satellite_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install/satellite-software-versions/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, ['satellite_id', 'satellite_id_xr', 'package_support'], name, value)
+                    self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, ['satellite_id', u'satellite_id_xr', u'package_support'], name, value)
 
 
                 class InstallPackageInfo(Entity):
@@ -4619,25 +4552,24 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("active-packages", ("active_packages", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages)), ("inactive-packages", ("inactive_packages", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages)), ("committed-packages", ("committed_packages", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("active-packages", ("active_packages", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages)), ("inactive-packages", ("inactive_packages", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages)), ("committed-packages", ("committed_packages", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages))])
                         self._leafs = OrderedDict()
 
                         self.active_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages()
                         self.active_packages.parent = self
                         self._children_name_map["active_packages"] = "active-packages"
-                        self._children_yang_names.add("active-packages")
 
                         self.inactive_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages()
                         self.inactive_packages.parent = self
                         self._children_name_map["inactive_packages"] = "inactive-packages"
-                        self._children_yang_names.add("inactive-packages")
 
                         self.committed_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages()
                         self.committed_packages.parent = self
                         self._children_name_map["committed_packages"] = "committed-packages"
-                        self._children_yang_names.add("committed-packages")
                         self._segment_path = lambda: "install-package-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo, [], name, value)
 
 
                     class ActivePackages(Entity):
@@ -4664,8 +4596,7 @@ class NvSatellite(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("package", ("package", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package))])
+                            self._child_classes = OrderedDict([("package", ("package", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package))])
                             self._leafs = OrderedDict()
 
                             self.package = YList(self)
@@ -4709,8 +4640,7 @@ class NvSatellite(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                     ('version', YLeaf(YType.str, 'version')),
@@ -4722,7 +4652,7 @@ class NvSatellite(Entity):
                                 self._segment_path = lambda: "package"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, ['name', 'version', 'is_base_image'], name, value)
+                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, [u'name', u'version', u'is_base_image'], name, value)
 
 
                     class InactivePackages(Entity):
@@ -4749,8 +4679,7 @@ class NvSatellite(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("package", ("package", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package))])
+                            self._child_classes = OrderedDict([("package", ("package", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package))])
                             self._leafs = OrderedDict()
 
                             self.package = YList(self)
@@ -4794,8 +4723,7 @@ class NvSatellite(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                     ('version', YLeaf(YType.str, 'version')),
@@ -4807,7 +4735,7 @@ class NvSatellite(Entity):
                                 self._segment_path = lambda: "package"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, ['name', 'version', 'is_base_image'], name, value)
+                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, [u'name', u'version', u'is_base_image'], name, value)
 
 
                     class CommittedPackages(Entity):
@@ -4834,8 +4762,7 @@ class NvSatellite(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("package", ("package", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package))])
+                            self._child_classes = OrderedDict([("package", ("package", NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package))])
                             self._leafs = OrderedDict()
 
                             self.package = YList(self)
@@ -4879,8 +4806,7 @@ class NvSatellite(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                     ('version', YLeaf(YType.str, 'version')),
@@ -4892,7 +4818,7 @@ class NvSatellite(Entity):
                                 self._segment_path = lambda: "package"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, ['name', 'version', 'is_base_image'], name, value)
+                                self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, [u'name', u'version', u'is_base_image'], name, value)
 
 
     class InstallOpStatuses(Entity):
@@ -4919,8 +4845,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("install-op-status", ("install_op_status", NvSatellite.InstallOpStatuses.InstallOpStatus))])
+            self._child_classes = OrderedDict([("install-op-status", ("install_op_status", NvSatellite.InstallOpStatuses.InstallOpStatus))])
             self._leafs = OrderedDict()
 
             self.install_op_status = YList(self)
@@ -4982,6 +4907,13 @@ class NvSatellite(Entity):
             
             	**range:** 0..65535
             
+            .. attribute:: sats_replacing
+            
+            	Sats replacing
+            	**type**\: list of int
+            
+            	**range:** 0..65535
+            
             .. attribute:: sats_deactivating
             
             	Sats deactivating
@@ -5017,6 +4949,13 @@ class NvSatellite(Entity):
             
             	**range:** 0..65535
             
+            .. attribute:: sats_replace_failed
+            
+            	Sats replace failed
+            	**type**\: list of int
+            
+            	**range:** 0..65535
+            
             .. attribute:: sats_deactivate_failed
             
             	Sats deactivate failed
@@ -5048,6 +4987,13 @@ class NvSatellite(Entity):
             .. attribute:: sats_update_aborted
             
             	Sats update aborted
+            	**type**\: list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_replace_aborted
+            
+            	Sats replace aborted
             	**type**\: list of int
             
             	**range:** 0..65535
@@ -5095,8 +5041,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['operation_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                     ('operation_id_xr', YLeaf(YType.uint32, 'operation-id-xr')),
@@ -5105,16 +5050,19 @@ class NvSatellite(Entity):
                     ('sats_transferring', YLeafList(YType.uint16, 'sats-transferring')),
                     ('sats_activating', YLeafList(YType.uint16, 'sats-activating')),
                     ('sats_updating', YLeafList(YType.uint16, 'sats-updating')),
+                    ('sats_replacing', YLeafList(YType.uint16, 'sats-replacing')),
                     ('sats_deactivating', YLeafList(YType.uint16, 'sats-deactivating')),
                     ('sats_removing', YLeafList(YType.uint16, 'sats-removing')),
                     ('sats_transfer_failed', YLeafList(YType.uint16, 'sats-transfer-failed')),
                     ('sats_activate_failed', YLeafList(YType.uint16, 'sats-activate-failed')),
                     ('sats_update_failed', YLeafList(YType.uint16, 'sats-update-failed')),
+                    ('sats_replace_failed', YLeafList(YType.uint16, 'sats-replace-failed')),
                     ('sats_deactivate_failed', YLeafList(YType.uint16, 'sats-deactivate-failed')),
                     ('sats_remove_failed', YLeafList(YType.uint16, 'sats-remove-failed')),
                     ('sats_transfer_aborted', YLeafList(YType.uint16, 'sats-transfer-aborted')),
                     ('sats_activate_aborted', YLeafList(YType.uint16, 'sats-activate-aborted')),
                     ('sats_update_aborted', YLeafList(YType.uint16, 'sats-update-aborted')),
+                    ('sats_replace_aborted', YLeafList(YType.uint16, 'sats-replace-aborted')),
                     ('sats_deactivate_aborted', YLeafList(YType.uint16, 'sats-deactivate-aborted')),
                     ('sats_remove_aborted', YLeafList(YType.uint16, 'sats-remove-aborted')),
                     ('sats_no_operation', YLeafList(YType.uint16, 'sats-no-operation')),
@@ -5127,16 +5075,19 @@ class NvSatellite(Entity):
                 self.sats_transferring = []
                 self.sats_activating = []
                 self.sats_updating = []
+                self.sats_replacing = []
                 self.sats_deactivating = []
                 self.sats_removing = []
                 self.sats_transfer_failed = []
                 self.sats_activate_failed = []
                 self.sats_update_failed = []
+                self.sats_replace_failed = []
                 self.sats_deactivate_failed = []
                 self.sats_remove_failed = []
                 self.sats_transfer_aborted = []
                 self.sats_activate_aborted = []
                 self.sats_update_aborted = []
+                self.sats_replace_aborted = []
                 self.sats_deactivate_aborted = []
                 self.sats_remove_aborted = []
                 self.sats_no_operation = []
@@ -5145,7 +5096,7 @@ class NvSatellite(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install-op-statuses/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.InstallOpStatuses.InstallOpStatus, ['operation_id', 'operation_id_xr', 'satellite_range', 'sats_not_initiated', 'sats_transferring', 'sats_activating', 'sats_updating', 'sats_deactivating', 'sats_removing', 'sats_transfer_failed', 'sats_activate_failed', 'sats_update_failed', 'sats_deactivate_failed', 'sats_remove_failed', 'sats_transfer_aborted', 'sats_activate_aborted', 'sats_update_aborted', 'sats_deactivate_aborted', 'sats_remove_aborted', 'sats_no_operation', 'sats_completed'], name, value)
+                self._perform_setattr(NvSatellite.InstallOpStatuses.InstallOpStatus, ['operation_id', u'operation_id_xr', u'satellite_range', u'sats_not_initiated', u'sats_transferring', u'sats_activating', u'sats_updating', u'sats_replacing', u'sats_deactivating', u'sats_removing', u'sats_transfer_failed', u'sats_activate_failed', u'sats_update_failed', u'sats_replace_failed', u'sats_deactivate_failed', u'sats_remove_failed', u'sats_transfer_aborted', u'sats_activate_aborted', u'sats_update_aborted', u'sats_replace_aborted', u'sats_deactivate_aborted', u'sats_remove_aborted', u'sats_no_operation', u'sats_completed'], name, value)
 
 
     class SatelliteProperties(Entity):
@@ -5172,16 +5123,17 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("id-ranges", ("id_ranges", NvSatellite.SatelliteProperties.IdRanges))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("id-ranges", ("id_ranges", NvSatellite.SatelliteProperties.IdRanges))])
             self._leafs = OrderedDict()
 
             self.id_ranges = NvSatellite.SatelliteProperties.IdRanges()
             self.id_ranges.parent = self
             self._children_name_map["id_ranges"] = "id-ranges"
-            self._children_yang_names.add("id-ranges")
             self._segment_path = lambda: "satellite-properties"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(NvSatellite.SatelliteProperties, [], name, value)
 
 
         class IdRanges(Entity):
@@ -5208,8 +5160,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("id-range", ("id_range", NvSatellite.SatelliteProperties.IdRanges.IdRange))])
+                self._child_classes = OrderedDict([("id-range", ("id_range", NvSatellite.SatelliteProperties.IdRanges.IdRange))])
                 self._leafs = OrderedDict()
 
                 self.id_range = YList(self)
@@ -5236,14 +5187,14 @@ class NvSatellite(Entity):
                 	Min
                 	**type**\: int
                 
-                	**range:** 0..2147483647
+                	**range:** 100..65534
                 
                 .. attribute:: max
                 
                 	Max
                 	**type**\: int
                 
-                	**range:** 0..2147483647
+                	**range:** 100..65534
                 
                 
 
@@ -5260,8 +5211,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['sat_id_range']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('sat_id_range', YLeaf(YType.str, 'sat-id-range')),
                         ('min', YLeaf(YType.uint32, 'min')),
@@ -5277,7 +5227,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.SatelliteProperties.IdRanges.IdRange, ['sat_id_range', 'min', 'max'], name, value)
 
 
-    class SdacpDiscovery2S(Entity):
+    class SdacpDiscovery2s(Entity):
         """
         ICPE Configured interface state information
         table
@@ -5285,7 +5235,7 @@ class NvSatellite(Entity):
         .. attribute:: sdacp_discovery2
         
         	ICPE Configured interface state information
-        	**type**\: list of  		 :py:class:`SdacpDiscovery2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2>`
+        	**type**\: list of  		 :py:class:`SdacpDiscovery2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2s.SdacpDiscovery2>`
         
         
 
@@ -5295,15 +5245,14 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SdacpDiscovery2S, self).__init__()
+            super(NvSatellite.SdacpDiscovery2s, self).__init__()
 
             self.yang_name = "sdacp-discovery2s"
             self.yang_parent_name = "nv-satellite"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sdacp-discovery2", ("sdacp_discovery2", NvSatellite.SdacpDiscovery2S.SdacpDiscovery2))])
+            self._child_classes = OrderedDict([("sdacp-discovery2", ("sdacp_discovery2", NvSatellite.SdacpDiscovery2s.SdacpDiscovery2))])
             self._leafs = OrderedDict()
 
             self.sdacp_discovery2 = YList(self)
@@ -5311,7 +5260,7 @@ class NvSatellite(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvSatellite.SdacpDiscovery2S, [], name, value)
+            self._perform_setattr(NvSatellite.SdacpDiscovery2s, [], name, value)
 
 
         class SdacpDiscovery2(Entity):
@@ -5333,12 +5282,12 @@ class NvSatellite(Entity):
             .. attribute:: interface
             
             	ICPE Discovery interface state information table
-            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface>`
             
             .. attribute:: satellite
             
             	ICPE Satellite state information table
-            	**type**\: list of  		 :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite>`
+            	**type**\: list of  		 :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite>`
             
             
 
@@ -5348,15 +5297,14 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2, self).__init__()
+                super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2, self).__init__()
 
                 self.yang_name = "sdacp-discovery2"
                 self.yang_parent_name = "sdacp-discovery2s"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface)), ("satellite", ("satellite", NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite))])
+                self._child_classes = OrderedDict([("interface", ("interface", NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface)), ("satellite", ("satellite", NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
@@ -5370,7 +5318,7 @@ class NvSatellite(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2, ['interface_name', 'interface_name_xr'], name, value)
+                self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2, ['interface_name', u'interface_name_xr'], name, value)
 
 
             class Interface(Entity):
@@ -5395,15 +5343,14 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface, self).__init__()
+                    super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "sdacp-discovery2"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('interface_status', YLeaf(YType.enumeration, 'interface-status')),
@@ -5413,7 +5360,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "interface"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface, ['interface_name', 'interface_status'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface, [u'interface_name', u'interface_status'], name, value)
 
 
             class Satellite(Entity):
@@ -5456,7 +5403,7 @@ class NvSatellite(Entity):
                 .. attribute:: interface
                 
                 	ICPE Discovered satellite state information table
-                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface>`
                 
                 
 
@@ -5466,15 +5413,14 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite, self).__init__()
+                    super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite, self).__init__()
 
                     self.yang_name = "satellite"
                     self.yang_parent_name = "sdacp-discovery2"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface))])
                     self._leafs = OrderedDict([
                         ('satellite_id', YLeaf(YType.uint16, 'satellite-id')),
                         ('satellite_status', YLeaf(YType.enumeration, 'satellite-status')),
@@ -5492,7 +5438,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "satellite"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite, ['satellite_id', 'satellite_status', 'conflict_reason', 'satellite_ip_address', 'host_ip_address'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite, [u'satellite_id', u'satellite_status', u'conflict_reason', u'satellite_ip_address', u'host_ip_address'], name, value)
 
 
                 class Interface(Entity):
@@ -5563,15 +5509,14 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface, self).__init__()
+                        super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "satellite"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_handle', YLeaf(YType.str, 'interface-handle')),
                             ('satellite_status', YLeaf(YType.enumeration, 'satellite-status')),
@@ -5595,7 +5540,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "interface"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface, ['interface_handle', 'satellite_status', 'conflict_reason', 'satellite_chassis_vendor', 'satellite_interface_id', 'satellite_interface_mac', 'satellite_chassis_mac', 'satellite_serial_id', 'satellite_module_vendor'], name, value)
+                        self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface, [u'interface_handle', u'satellite_status', u'conflict_reason', u'satellite_chassis_vendor', u'satellite_interface_id', u'satellite_interface_mac', u'satellite_chassis_mac', u'satellite_serial_id', u'satellite_module_vendor'], name, value)
 
 
     class IcpeDpms(Entity):
@@ -5622,8 +5567,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("icpe-dpm", ("icpe_dpm", NvSatellite.IcpeDpms.IcpeDpm))])
+            self._child_classes = OrderedDict([("icpe-dpm", ("icpe_dpm", NvSatellite.IcpeDpms.IcpeDpm))])
             self._leafs = OrderedDict()
 
             self.icpe_dpm = YList(self)
@@ -5766,8 +5710,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['discovery_interface']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("satellite", ("satellite", NvSatellite.IcpeDpms.IcpeDpm.Satellite)), ("remote-host", ("remote_host", NvSatellite.IcpeDpms.IcpeDpm.RemoteHost))])
+                self._child_classes = OrderedDict([("satellite", ("satellite", NvSatellite.IcpeDpms.IcpeDpm.Satellite)), ("remote-host", ("remote_host", NvSatellite.IcpeDpms.IcpeDpm.RemoteHost))])
                 self._leafs = OrderedDict([
                     ('discovery_interface', YLeaf(YType.str, 'discovery-interface')),
                     ('discovery_interface_xr', YLeaf(YType.str, 'discovery-interface-xr')),
@@ -6036,8 +5979,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('satellite_id', YLeaf(YType.uint16, 'satellite-id')),
                         ('satellite_interface_id', YLeaf(YType.uint32, 'satellite-interface-id')),
@@ -6188,8 +6130,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('host_chassis_mac', YLeaf(YType.str, 'host-chassis-mac')),
                         ('host_interface_mac', YLeaf(YType.str, 'host-interface-mac')),
@@ -6238,8 +6179,7 @@ class NvSatellite(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sdacp-control", ("sdacp_control", NvSatellite.SdacpControls.SdacpControl))])
+            self._child_classes = OrderedDict([("sdacp-control", ("sdacp_control", NvSatellite.SdacpControls.SdacpControl))])
             self._leafs = OrderedDict()
 
             self.sdacp_control = YList(self)
@@ -6327,8 +6267,7 @@ class NvSatellite(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['satellite_id']
-                self._child_container_classes = OrderedDict([("protocol-state-timestamp", ("protocol_state_timestamp", NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp)), ("transport-error-timestamp", ("transport_error_timestamp", NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp))])
-                self._child_list_classes = OrderedDict([("channel", ("channel", NvSatellite.SdacpControls.SdacpControl.Channel))])
+                self._child_classes = OrderedDict([("protocol-state-timestamp", ("protocol_state_timestamp", NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp)), ("transport-error-timestamp", ("transport_error_timestamp", NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp)), ("channel", ("channel", NvSatellite.SdacpControls.SdacpControl.Channel))])
                 self._leafs = OrderedDict([
                     ('satellite_id', YLeaf(YType.uint32, 'satellite-id')),
                     ('satellite_id_xr', YLeaf(YType.uint16, 'satellite-id-xr')),
@@ -6349,19 +6288,17 @@ class NvSatellite(Entity):
                 self.protocol_state_timestamp = NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp()
                 self.protocol_state_timestamp.parent = self
                 self._children_name_map["protocol_state_timestamp"] = "protocol-state-timestamp"
-                self._children_yang_names.add("protocol-state-timestamp")
 
                 self.transport_error_timestamp = NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp()
                 self.transport_error_timestamp.parent = self
                 self._children_name_map["transport_error_timestamp"] = "transport-error-timestamp"
-                self._children_yang_names.add("transport-error-timestamp")
 
                 self.channel = YList(self)
                 self._segment_path = lambda: "sdacp-control" + "[satellite-id='" + str(self.satellite_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellite.SdacpControls.SdacpControl, ['satellite_id', 'satellite_id_xr', 'satellite_ip_address', 'ip_address_auto', 'vrf_name', 'control_protocol_state', 'transport_error'], name, value)
+                self._perform_setattr(NvSatellite.SdacpControls.SdacpControl, ['satellite_id', u'satellite_id_xr', u'satellite_ip_address', u'ip_address_auto', u'vrf_name', u'control_protocol_state', u'transport_error'], name, value)
 
 
             class ProtocolStateTimestamp(Entity):
@@ -6401,8 +6338,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('seconds', YLeaf(YType.uint32, 'seconds')),
                         ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -6412,7 +6348,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "protocol-state-timestamp"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp, ['seconds', 'nanoseconds'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
 
 
             class TransportErrorTimestamp(Entity):
@@ -6452,8 +6388,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('seconds', YLeaf(YType.uint32, 'seconds')),
                         ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -6463,7 +6398,7 @@ class NvSatellite(Entity):
                     self._segment_path = lambda: "transport-error-timestamp"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp, ['seconds', 'nanoseconds'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp, [u'seconds', u'nanoseconds'], name, value)
 
 
             class Channel(Entity):
@@ -6575,8 +6510,7 @@ class NvSatellite(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("capabilities", ("capabilities", NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities)), ("resync-state-timestamp", ("resync_state_timestamp", NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp)), ("channel-state-timestamp", ("channel_state_timestamp", NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("capabilities", ("capabilities", NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities)), ("resync-state-timestamp", ("resync_state_timestamp", NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp)), ("channel-state-timestamp", ("channel_state_timestamp", NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp))])
                     self._leafs = OrderedDict([
                         ('channel_id', YLeaf(YType.uint16, 'channel-id')),
                         ('resync_state', YLeaf(YType.enumeration, 'resync-state')),
@@ -6605,21 +6539,18 @@ class NvSatellite(Entity):
                     self.capabilities = NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities()
                     self.capabilities.parent = self
                     self._children_name_map["capabilities"] = "capabilities"
-                    self._children_yang_names.add("capabilities")
 
                     self.resync_state_timestamp = NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp()
                     self.resync_state_timestamp.parent = self
                     self._children_name_map["resync_state_timestamp"] = "resync-state-timestamp"
-                    self._children_yang_names.add("resync-state-timestamp")
 
                     self.channel_state_timestamp = NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp()
                     self.channel_state_timestamp.parent = self
                     self._children_name_map["channel_state_timestamp"] = "channel-state-timestamp"
-                    self._children_yang_names.add("channel-state-timestamp")
                     self._segment_path = lambda: "channel"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel, ['channel_id', 'resync_state', 'channel_state', 'control_messages_sent', 'normal_messages_sent', 'control_messages_received', 'normal_messages_received', 'control_messages_dropped', 'normal_messages_dropped', 'secs_since_last_cleared', 'version'], name, value)
+                    self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel, [u'channel_id', u'resync_state', u'channel_state', u'control_messages_sent', u'normal_messages_sent', u'control_messages_received', u'normal_messages_received', u'control_messages_dropped', u'normal_messages_dropped', u'secs_since_last_cleared', u'version'], name, value)
 
 
                 class Capabilities(Entity):
@@ -6646,8 +6577,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("tl-vs", ("tl_vs", NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs))])
+                        self._child_classes = OrderedDict([("tl-vs", ("tl_vs", NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs))])
                         self._leafs = OrderedDict()
 
                         self.tl_vs = YList(self)
@@ -6695,8 +6625,7 @@ class NvSatellite(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('type', YLeaf(YType.uint32, 'type')),
                                 ('debug', YLeaf(YType.str, 'debug')),
@@ -6708,7 +6637,7 @@ class NvSatellite(Entity):
                             self._segment_path = lambda: "tl-vs"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs, ['type', 'debug', 'value'], name, value)
+                            self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs, [u'type', u'debug', u'value'], name, value)
 
 
                 class ResyncStateTimestamp(Entity):
@@ -6748,8 +6677,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -6759,7 +6687,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "resync-state-timestamp"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class ChannelStateTimestamp(Entity):
@@ -6799,8 +6727,7 @@ class NvSatellite(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -6810,7 +6737,7 @@ class NvSatellite(Entity):
                         self._segment_path = lambda: "channel-state-timestamp"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp, [u'seconds', u'nanoseconds'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NvSatellite()

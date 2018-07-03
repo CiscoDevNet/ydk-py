@@ -45,15 +45,16 @@ class HardwareModuleNp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", HardwareModuleNp.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", HardwareModuleNp.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = HardwareModuleNp.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModuleNp, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class HardwareModuleNp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", HardwareModuleNp.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", HardwareModuleNp.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -123,8 +123,7 @@ class HardwareModuleNp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("nps", ("nps", HardwareModuleNp.Nodes.Node.Nps))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("nps", ("nps", HardwareModuleNp.Nodes.Node.Nps))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -133,7 +132,6 @@ class HardwareModuleNp(Entity):
                 self.nps = HardwareModuleNp.Nodes.Node.Nps()
                 self.nps.parent = self
                 self._children_name_map["nps"] = "nps"
-                self._children_yang_names.add("nps")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/%s" % self._segment_path()
 
@@ -165,8 +163,7 @@ class HardwareModuleNp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("np", ("np", HardwareModuleNp.Nodes.Node.Nps.Np))])
+                    self._child_classes = OrderedDict([("np", ("np", HardwareModuleNp.Nodes.Node.Nps.Np))])
                     self._leafs = OrderedDict()
 
                     self.np = YList(self)
@@ -222,8 +219,7 @@ class HardwareModuleNp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['np_name']
-                        self._child_container_classes = OrderedDict([("chn-load", ("chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad)), ("tcam-summary", ("tcam_summary", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary)), ("counters", ("counters", HardwareModuleNp.Nodes.Node.Nps.Np.Counters)), ("fast-drop", ("fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("chn-load", ("chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad)), ("tcam-summary", ("tcam_summary", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary)), ("counters", ("counters", HardwareModuleNp.Nodes.Node.Nps.Np.Counters)), ("fast-drop", ("fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop))])
                         self._leafs = OrderedDict([
                             ('np_name', YLeaf(YType.str, 'np-name')),
                         ])
@@ -232,22 +228,18 @@ class HardwareModuleNp(Entity):
                         self.chn_load = HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad()
                         self.chn_load.parent = self
                         self._children_name_map["chn_load"] = "chn-load"
-                        self._children_yang_names.add("chn-load")
 
                         self.tcam_summary = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary()
                         self.tcam_summary.parent = self
                         self._children_name_map["tcam_summary"] = "tcam-summary"
-                        self._children_yang_names.add("tcam-summary")
 
                         self.counters = HardwareModuleNp.Nodes.Node.Nps.Np.Counters()
                         self.counters.parent = self
                         self._children_name_map["counters"] = "counters"
-                        self._children_yang_names.add("counters")
 
                         self.fast_drop = HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop()
                         self.fast_drop.parent = self
                         self._children_name_map["fast_drop"] = "fast-drop"
-                        self._children_yang_names.add("fast-drop")
                         self._segment_path = lambda: "np" + "[np-name='" + str(self.np_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -278,8 +270,7 @@ class HardwareModuleNp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("np-chn-load", ("np_chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad.NpChnLoad))])
+                            self._child_classes = OrderedDict([("np-chn-load", ("np_chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad.NpChnLoad))])
                             self._leafs = OrderedDict()
 
                             self.np_chn_load = YList(self)
@@ -348,8 +339,7 @@ class HardwareModuleNp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('flow_ctr_counter', YLeaf(YType.uint32, 'flow-ctr-counter')),
                                     ('avg_rfd_usage', YLeaf(YType.uint32, 'avg-rfd-usage')),
@@ -399,20 +389,20 @@ class HardwareModuleNp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("internal-tcam-info", ("internal_tcam_info", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo)), ("tcam-info", ("tcam_info", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("internal-tcam-info", ("internal_tcam_info", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo)), ("tcam-info", ("tcam_info", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo))])
                             self._leafs = OrderedDict()
 
                             self.internal_tcam_info = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo()
                             self.internal_tcam_info.parent = self
                             self._children_name_map["internal_tcam_info"] = "internal-tcam-info"
-                            self._children_yang_names.add("internal-tcam-info")
 
                             self.tcam_info = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo()
                             self.tcam_info.parent = self
                             self._children_name_map["tcam_info"] = "tcam-info"
-                            self._children_yang_names.add("tcam-info")
                             self._segment_path = lambda: "tcam-summary"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary, [], name, value)
 
 
                         class InternalTcamInfo(Entity):
@@ -449,19 +439,16 @@ class HardwareModuleNp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("tcam-lt-ods2", ("tcam_lt_ods2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2)), ("tcam-lt-ods8", ("tcam_lt_ods8", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8))])
-                                self._child_list_classes = OrderedDict([("tcam-lt-l2", ("tcam_lt_l2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtL2))])
+                                self._child_classes = OrderedDict([("tcam-lt-ods2", ("tcam_lt_ods2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2)), ("tcam-lt-ods8", ("tcam_lt_ods8", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8)), ("tcam-lt-l2", ("tcam_lt_l2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtL2))])
                                 self._leafs = OrderedDict()
 
                                 self.tcam_lt_ods2 = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2()
                                 self.tcam_lt_ods2.parent = self
                                 self._children_name_map["tcam_lt_ods2"] = "tcam-lt-ods2"
-                                self._children_yang_names.add("tcam-lt-ods2")
 
                                 self.tcam_lt_ods8 = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8()
                                 self.tcam_lt_ods8.parent = self
                                 self._children_name_map["tcam_lt_ods8"] = "tcam-lt-ods8"
-                                self._children_yang_names.add("tcam-lt-ods8")
 
                                 self.tcam_lt_l2 = YList(self)
                                 self._segment_path = lambda: "internal-tcam-info"
@@ -538,8 +525,7 @@ class HardwareModuleNp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdPbr)), ("application-edpl-entry", ("application_edpl_entry", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.ApplicationEdplEntry))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdPbr)), ("application-edpl-entry", ("application_edpl_entry", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.ApplicationEdplEntry))])
                                     self._leafs = OrderedDict([
                                         ('max_entries', YLeaf(YType.uint32, 'max-entries')),
                                         ('free_entries', YLeaf(YType.uint32, 'free-entries')),
@@ -550,37 +536,30 @@ class HardwareModuleNp(Entity):
                                     self.app_id_ifib = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdIfib()
                                     self.app_id_ifib.parent = self
                                     self._children_name_map["app_id_ifib"] = "app-id-ifib"
-                                    self._children_yang_names.add("app-id-ifib")
 
                                     self.app_id_qos = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdQos()
                                     self.app_id_qos.parent = self
                                     self._children_name_map["app_id_qos"] = "app-id-qos"
-                                    self._children_yang_names.add("app-id-qos")
 
                                     self.app_id_acl = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAcl()
                                     self.app_id_acl.parent = self
                                     self._children_name_map["app_id_acl"] = "app-id-acl"
-                                    self._children_yang_names.add("app-id-acl")
 
                                     self.app_id_afmon = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAfmon()
                                     self.app_id_afmon.parent = self
                                     self._children_name_map["app_id_afmon"] = "app-id-afmon"
-                                    self._children_yang_names.add("app-id-afmon")
 
                                     self.app_id_li = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdLi()
                                     self.app_id_li.parent = self
                                     self._children_name_map["app_id_li"] = "app-id-li"
-                                    self._children_yang_names.add("app-id-li")
 
                                     self.app_id_pbr = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdPbr()
                                     self.app_id_pbr.parent = self
                                     self._children_name_map["app_id_pbr"] = "app-id-pbr"
-                                    self._children_yang_names.add("app-id-pbr")
 
                                     self.application_edpl_entry = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.ApplicationEdplEntry()
                                     self.application_edpl_entry.parent = self
                                     self._children_name_map["application_edpl_entry"] = "application-edpl-entry"
-                                    self._children_yang_names.add("application-edpl-entry")
                                     self._segment_path = lambda: "tcam-lt-ods2"
 
                                 def __setattr__(self, name, value):
@@ -627,8 +606,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -683,8 +661,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -739,8 +716,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -795,8 +771,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -851,8 +826,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -907,8 +881,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -963,8 +936,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -1047,8 +1019,7 @@ class HardwareModuleNp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdPbr)), ("application-edpl-entry", ("application_edpl_entry", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.ApplicationEdplEntry))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdPbr)), ("application-edpl-entry", ("application_edpl_entry", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.ApplicationEdplEntry))])
                                     self._leafs = OrderedDict([
                                         ('max_entries', YLeaf(YType.uint32, 'max-entries')),
                                         ('free_entries', YLeaf(YType.uint32, 'free-entries')),
@@ -1059,37 +1030,30 @@ class HardwareModuleNp(Entity):
                                     self.app_id_ifib = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdIfib()
                                     self.app_id_ifib.parent = self
                                     self._children_name_map["app_id_ifib"] = "app-id-ifib"
-                                    self._children_yang_names.add("app-id-ifib")
 
                                     self.app_id_qos = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdQos()
                                     self.app_id_qos.parent = self
                                     self._children_name_map["app_id_qos"] = "app-id-qos"
-                                    self._children_yang_names.add("app-id-qos")
 
                                     self.app_id_acl = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAcl()
                                     self.app_id_acl.parent = self
                                     self._children_name_map["app_id_acl"] = "app-id-acl"
-                                    self._children_yang_names.add("app-id-acl")
 
                                     self.app_id_afmon = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAfmon()
                                     self.app_id_afmon.parent = self
                                     self._children_name_map["app_id_afmon"] = "app-id-afmon"
-                                    self._children_yang_names.add("app-id-afmon")
 
                                     self.app_id_li = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdLi()
                                     self.app_id_li.parent = self
                                     self._children_name_map["app_id_li"] = "app-id-li"
-                                    self._children_yang_names.add("app-id-li")
 
                                     self.app_id_pbr = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdPbr()
                                     self.app_id_pbr.parent = self
                                     self._children_name_map["app_id_pbr"] = "app-id-pbr"
-                                    self._children_yang_names.add("app-id-pbr")
 
                                     self.application_edpl_entry = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.ApplicationEdplEntry()
                                     self.application_edpl_entry.parent = self
                                     self._children_name_map["application_edpl_entry"] = "application-edpl-entry"
-                                    self._children_yang_names.add("application-edpl-entry")
                                     self._segment_path = lambda: "tcam-lt-ods8"
 
                                 def __setattr__(self, name, value):
@@ -1136,8 +1100,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -1192,8 +1155,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -1248,8 +1210,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -1304,8 +1265,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -1360,8 +1320,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -1416,8 +1375,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -1472,8 +1430,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
@@ -1528,8 +1485,7 @@ class HardwareModuleNp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('partition_id', YLeaf(YType.uint32, 'partition-id')),
                                         ('valid_entries', YLeaf(YType.uint32, 'valid-entries')),
@@ -1578,19 +1534,16 @@ class HardwareModuleNp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("tcam-lt-ods2", ("tcam_lt_ods2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2)), ("tcam-lt-ods8", ("tcam_lt_ods8", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8))])
-                                self._child_list_classes = OrderedDict([("tcam-lt-l2", ("tcam_lt_l2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtL2))])
+                                self._child_classes = OrderedDict([("tcam-lt-ods2", ("tcam_lt_ods2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2)), ("tcam-lt-ods8", ("tcam_lt_ods8", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8)), ("tcam-lt-l2", ("tcam_lt_l2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtL2))])
                                 self._leafs = OrderedDict()
 
                                 self.tcam_lt_ods2 = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2()
                                 self.tcam_lt_ods2.parent = self
                                 self._children_name_map["tcam_lt_ods2"] = "tcam-lt-ods2"
-                                self._children_yang_names.add("tcam-lt-ods2")
 
                                 self.tcam_lt_ods8 = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8()
                                 self.tcam_lt_ods8.parent = self
                                 self._children_name_map["tcam_lt_ods8"] = "tcam-lt-ods8"
-                                self._children_yang_names.add("tcam-lt-ods8")
 
                                 self.tcam_lt_l2 = YList(self)
                                 self._segment_path = lambda: "tcam-info"
@@ -1672,8 +1625,7 @@ class HardwareModuleNp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("acl-common", ("acl_common", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AclCommon)), ("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdPbr)), ("app-id-edpl", ("app_id_edpl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdEdpl))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("acl-common", ("acl_common", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AclCommon)), ("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdPbr)), ("app-id-edpl", ("app_id_edpl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdEdpl))])
                                     self._leafs = OrderedDict([
                                         ('free_entries', YLeaf(YType.uint32, 'free-entries')),
                                         ('reserved_entries', YLeaf(YType.uint32, 'reserved-entries')),
@@ -1684,42 +1636,34 @@ class HardwareModuleNp(Entity):
                                     self.acl_common = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AclCommon()
                                     self.acl_common.parent = self
                                     self._children_name_map["acl_common"] = "acl-common"
-                                    self._children_yang_names.add("acl-common")
 
                                     self.app_id_ifib = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdIfib()
                                     self.app_id_ifib.parent = self
                                     self._children_name_map["app_id_ifib"] = "app-id-ifib"
-                                    self._children_yang_names.add("app-id-ifib")
 
                                     self.app_id_qos = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdQos()
                                     self.app_id_qos.parent = self
                                     self._children_name_map["app_id_qos"] = "app-id-qos"
-                                    self._children_yang_names.add("app-id-qos")
 
                                     self.app_id_acl = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAcl()
                                     self.app_id_acl.parent = self
                                     self._children_name_map["app_id_acl"] = "app-id-acl"
-                                    self._children_yang_names.add("app-id-acl")
 
                                     self.app_id_afmon = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAfmon()
                                     self.app_id_afmon.parent = self
                                     self._children_name_map["app_id_afmon"] = "app-id-afmon"
-                                    self._children_yang_names.add("app-id-afmon")
 
                                     self.app_id_li = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdLi()
                                     self.app_id_li.parent = self
                                     self._children_name_map["app_id_li"] = "app-id-li"
-                                    self._children_yang_names.add("app-id-li")
 
                                     self.app_id_pbr = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdPbr()
                                     self.app_id_pbr.parent = self
                                     self._children_name_map["app_id_pbr"] = "app-id-pbr"
-                                    self._children_yang_names.add("app-id-pbr")
 
                                     self.app_id_edpl = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdEdpl()
                                     self.app_id_edpl.parent = self
                                     self._children_name_map["app_id_edpl"] = "app-id-edpl"
-                                    self._children_yang_names.add("app-id-edpl")
                                     self._segment_path = lambda: "tcam-lt-ods2"
 
                                 def __setattr__(self, name, value):
@@ -1759,8 +1703,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('free_entries', YLeaf(YType.uint32, 'free-entries')),
                                             ('allocated_entries', YLeaf(YType.uint32, 'allocated-entries')),
@@ -1813,8 +1756,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -1869,8 +1811,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -1925,8 +1866,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -1981,8 +1921,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2037,8 +1976,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2093,8 +2031,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2149,8 +2086,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2238,8 +2174,7 @@ class HardwareModuleNp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("acl-common", ("acl_common", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AclCommon)), ("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdPbr)), ("app-id-edpl", ("app_id_edpl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdEdpl))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("acl-common", ("acl_common", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AclCommon)), ("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdPbr)), ("app-id-edpl", ("app_id_edpl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdEdpl))])
                                     self._leafs = OrderedDict([
                                         ('free_entries', YLeaf(YType.uint32, 'free-entries')),
                                         ('reserved_entries', YLeaf(YType.uint32, 'reserved-entries')),
@@ -2250,42 +2185,34 @@ class HardwareModuleNp(Entity):
                                     self.acl_common = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AclCommon()
                                     self.acl_common.parent = self
                                     self._children_name_map["acl_common"] = "acl-common"
-                                    self._children_yang_names.add("acl-common")
 
                                     self.app_id_ifib = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdIfib()
                                     self.app_id_ifib.parent = self
                                     self._children_name_map["app_id_ifib"] = "app-id-ifib"
-                                    self._children_yang_names.add("app-id-ifib")
 
                                     self.app_id_qos = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdQos()
                                     self.app_id_qos.parent = self
                                     self._children_name_map["app_id_qos"] = "app-id-qos"
-                                    self._children_yang_names.add("app-id-qos")
 
                                     self.app_id_acl = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAcl()
                                     self.app_id_acl.parent = self
                                     self._children_name_map["app_id_acl"] = "app-id-acl"
-                                    self._children_yang_names.add("app-id-acl")
 
                                     self.app_id_afmon = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAfmon()
                                     self.app_id_afmon.parent = self
                                     self._children_name_map["app_id_afmon"] = "app-id-afmon"
-                                    self._children_yang_names.add("app-id-afmon")
 
                                     self.app_id_li = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdLi()
                                     self.app_id_li.parent = self
                                     self._children_name_map["app_id_li"] = "app-id-li"
-                                    self._children_yang_names.add("app-id-li")
 
                                     self.app_id_pbr = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdPbr()
                                     self.app_id_pbr.parent = self
                                     self._children_name_map["app_id_pbr"] = "app-id-pbr"
-                                    self._children_yang_names.add("app-id-pbr")
 
                                     self.app_id_edpl = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdEdpl()
                                     self.app_id_edpl.parent = self
                                     self._children_name_map["app_id_edpl"] = "app-id-edpl"
-                                    self._children_yang_names.add("app-id-edpl")
                                     self._segment_path = lambda: "tcam-lt-ods8"
 
                                 def __setattr__(self, name, value):
@@ -2325,8 +2252,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('free_entries', YLeaf(YType.uint32, 'free-entries')),
                                             ('allocated_entries', YLeaf(YType.uint32, 'allocated-entries')),
@@ -2379,8 +2305,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2435,8 +2360,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2491,8 +2415,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2547,8 +2470,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2603,8 +2525,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2659,8 +2580,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2715,8 +2635,7 @@ class HardwareModuleNp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
                                             ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
@@ -2778,8 +2697,7 @@ class HardwareModuleNp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('partition_id', YLeaf(YType.uint32, 'partition-id')),
                                         ('priority', YLeaf(YType.uint32, 'priority')),
@@ -2820,8 +2738,7 @@ class HardwareModuleNp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("np-counter", ("np_counter", HardwareModuleNp.Nodes.Node.Nps.Np.Counters.NpCounter))])
+                            self._child_classes = OrderedDict([("np-counter", ("np_counter", HardwareModuleNp.Nodes.Node.Nps.Np.Counters.NpCounter))])
                             self._leafs = OrderedDict()
 
                             self.np_counter = YList(self)
@@ -2883,8 +2800,7 @@ class HardwareModuleNp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter_index', YLeaf(YType.uint32, 'counter-index')),
                                     ('counter_value', YLeaf(YType.uint64, 'counter-value')),
@@ -2927,8 +2843,7 @@ class HardwareModuleNp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("np-fast-drop", ("np_fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop.NpFastDrop))])
+                            self._child_classes = OrderedDict([("np-fast-drop", ("np_fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop.NpFastDrop))])
                             self._leafs = OrderedDict()
 
                             self.np_fast_drop = YList(self)
@@ -2969,8 +2884,7 @@ class HardwareModuleNp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                     ('counter_value', YLeaf(YType.uint64, 'counter-value')),

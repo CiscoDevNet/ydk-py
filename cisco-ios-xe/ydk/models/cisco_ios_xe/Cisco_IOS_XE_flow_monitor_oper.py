@@ -202,8 +202,7 @@ class FlowMonitors(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("flow-monitor", ("flow_monitor", FlowMonitors.FlowMonitor)), ("flow-export-statistics", ("flow_export_statistics", FlowMonitors.FlowExportStatistics)), ("flow-cache-statistics", ("flow_cache_statistics", FlowMonitors.FlowCacheStatistics)), ("flow-monitor-statistics", ("flow_monitor_statistics", FlowMonitors.FlowMonitorStatistics))])
+        self._child_classes = OrderedDict([("flow-monitor", ("flow_monitor", FlowMonitors.FlowMonitor)), ("flow-export-statistics", ("flow_export_statistics", FlowMonitors.FlowExportStatistics)), ("flow-cache-statistics", ("flow_cache_statistics", FlowMonitors.FlowCacheStatistics)), ("flow-monitor-statistics", ("flow_monitor_statistics", FlowMonitors.FlowMonitorStatistics))])
         self._leafs = OrderedDict()
 
         self.flow_monitor = YList(self)
@@ -252,8 +251,7 @@ class FlowMonitors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("flows", ("flows", FlowMonitors.FlowMonitor.Flows))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("flows", ("flows", FlowMonitors.FlowMonitor.Flows))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('time_collected', YLeaf(YType.uint64, 'time-collected')),
@@ -264,7 +262,6 @@ class FlowMonitors(Entity):
             self.flows = FlowMonitors.FlowMonitor.Flows()
             self.flows.parent = self
             self._children_name_map["flows"] = "flows"
-            self._children_yang_names.add("flows")
             self._segment_path = lambda: "flow-monitor" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/%s" % self._segment_path()
 
@@ -296,8 +293,7 @@ class FlowMonitors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("flow", ("flow", FlowMonitors.FlowMonitor.Flows.Flow))])
+                self._child_classes = OrderedDict([("flow", ("flow", FlowMonitors.FlowMonitor.Flows.Flow))])
                 self._leafs = OrderedDict()
 
                 self.flow = YList(self)
@@ -398,8 +394,7 @@ class FlowMonitors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['source_address','destination_address','interface_input','is_multicast','vrf_id_input','source_port','destination_port','ip_tos','ip_protocol']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('source_address', YLeaf(YType.str, 'source-address')),
                         ('destination_address', YLeaf(YType.str, 'destination-address')),
@@ -466,8 +461,7 @@ class FlowMonitors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("transport-stats", ("transport_stats", FlowMonitors.FlowExportStatistics.TransportStats))])
-            self._child_list_classes = OrderedDict([("export-client", ("export_client", FlowMonitors.FlowExportStatistics.ExportClient))])
+            self._child_classes = OrderedDict([("transport-stats", ("transport_stats", FlowMonitors.FlowExportStatistics.TransportStats)), ("export-client", ("export_client", FlowMonitors.FlowExportStatistics.ExportClient))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
             ])
@@ -476,7 +470,6 @@ class FlowMonitors(Entity):
             self.transport_stats = FlowMonitors.FlowExportStatistics.TransportStats()
             self.transport_stats.parent = self
             self._children_name_map["transport_stats"] = "transport-stats"
-            self._children_yang_names.add("transport-stats")
 
             self.export_client = YList(self)
             self._segment_path = lambda: "flow-export-statistics" + "[name='" + str(self.name) + "']"
@@ -517,8 +510,7 @@ class FlowMonitors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("flow-exporter-stats", ("flow_exporter_stats", FlowMonitors.FlowExportStatistics.TransportStats.FlowExporterStats))])
+                self._child_classes = OrderedDict([("flow-exporter-stats", ("flow_exporter_stats", FlowMonitors.FlowExportStatistics.TransportStats.FlowExporterStats))])
                 self._leafs = OrderedDict([
                     ('last_cleared', YLeaf(YType.str, 'last-cleared')),
                 ])
@@ -569,8 +561,7 @@ class FlowMonitors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('type', YLeaf(YType.enumeration, 'type')),
                         ('pkt_counts', YLeaf(YType.uint64, 'pkt-counts')),
@@ -619,8 +610,7 @@ class FlowMonitors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("protocol-stats", ("protocol_stats", FlowMonitors.FlowExportStatistics.ExportClient.ProtocolStats))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("protocol-stats", ("protocol_stats", FlowMonitors.FlowExportStatistics.ExportClient.ProtocolStats))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('group', YLeaf(YType.str, 'group')),
@@ -631,7 +621,6 @@ class FlowMonitors(Entity):
                 self.protocol_stats = FlowMonitors.FlowExportStatistics.ExportClient.ProtocolStats()
                 self.protocol_stats.parent = self
                 self._children_name_map["protocol_stats"] = "protocol-stats"
-                self._children_yang_names.add("protocol-stats")
                 self._segment_path = lambda: "export-client"
 
             def __setattr__(self, name, value):
@@ -699,8 +688,7 @@ class FlowMonitors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('bytes_added', YLeaf(YType.uint64, 'bytes-added')),
                         ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
@@ -794,8 +782,7 @@ class FlowMonitors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('cache_size', YLeaf(YType.uint64, 'cache-size')),
@@ -934,8 +921,7 @@ class FlowMonitors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['monitor_name']
-            self._child_container_classes = OrderedDict([("cache-data", ("cache_data", FlowMonitors.FlowMonitorStatistics.CacheData))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("cache-data", ("cache_data", FlowMonitors.FlowMonitorStatistics.CacheData))])
             self._leafs = OrderedDict([
                 ('monitor_name', YLeaf(YType.str, 'monitor-name')),
                 ('description', YLeaf(YType.str, 'description')),
@@ -972,7 +958,6 @@ class FlowMonitors(Entity):
             self.cache_data = FlowMonitors.FlowMonitorStatistics.CacheData()
             self.cache_data.parent = self
             self._children_name_map["cache_data"] = "cache-data"
-            self._children_yang_names.add("cache-data")
             self._segment_path = lambda: "flow-monitor-statistics" + "[monitor-name='" + str(self.monitor_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/%s" % self._segment_path()
 
@@ -1033,8 +1018,7 @@ class FlowMonitors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('state', YLeaf(YType.enumeration, 'state')),
                     ('type', YLeaf(YType.str, 'type')),

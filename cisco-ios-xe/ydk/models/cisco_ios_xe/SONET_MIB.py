@@ -23,82 +23,82 @@ class SONETMIB(Entity):
     .. attribute:: sonetmedium
     
     	
-    	**type**\:  :py:class:`Sonetmedium <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetmedium>`
+    	**type**\:  :py:class:`SonetMedium <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMedium>`
     
     .. attribute:: sonetmediumtable
     
     	The SONET/SDH Medium table
-    	**type**\:  :py:class:`Sonetmediumtable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetmediumtable>`
+    	**type**\:  :py:class:`SonetMediumTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable>`
     
     .. attribute:: sonetsectioncurrenttable
     
     	The SONET/SDH Section Current table
-    	**type**\:  :py:class:`Sonetsectioncurrenttable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetsectioncurrenttable>`
+    	**type**\:  :py:class:`SonetSectionCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetSectionCurrentTable>`
     
     .. attribute:: sonetsectionintervaltable
     
     	The SONET/SDH Section Interval table
-    	**type**\:  :py:class:`Sonetsectionintervaltable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetsectionintervaltable>`
+    	**type**\:  :py:class:`SonetSectionIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetSectionIntervalTable>`
     
     .. attribute:: sonetlinecurrenttable
     
     	The SONET/SDH Line Current table
-    	**type**\:  :py:class:`Sonetlinecurrenttable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetlinecurrenttable>`
+    	**type**\:  :py:class:`SonetLineCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetLineCurrentTable>`
     
     .. attribute:: sonetlineintervaltable
     
     	The SONET/SDH Line Interval table
-    	**type**\:  :py:class:`Sonetlineintervaltable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetlineintervaltable>`
+    	**type**\:  :py:class:`SonetLineIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetLineIntervalTable>`
     
     .. attribute:: sonetfarendlinecurrenttable
     
     	The SONET/SDH Far End Line Current table
-    	**type**\:  :py:class:`Sonetfarendlinecurrenttable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendlinecurrenttable>`
+    	**type**\:  :py:class:`SonetFarEndLineCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndLineCurrentTable>`
     
     .. attribute:: sonetfarendlineintervaltable
     
     	The SONET/SDH Far End Line Interval table
-    	**type**\:  :py:class:`Sonetfarendlineintervaltable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendlineintervaltable>`
+    	**type**\:  :py:class:`SonetFarEndLineIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndLineIntervalTable>`
     
     .. attribute:: sonetpathcurrenttable
     
     	The SONET/SDH Path Current table
-    	**type**\:  :py:class:`Sonetpathcurrenttable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathcurrenttable>`
+    	**type**\:  :py:class:`SonetPathCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable>`
     
     .. attribute:: sonetpathintervaltable
     
     	The SONET/SDH Path Interval table
-    	**type**\:  :py:class:`Sonetpathintervaltable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathintervaltable>`
+    	**type**\:  :py:class:`SonetPathIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathIntervalTable>`
     
     .. attribute:: sonetfarendpathcurrenttable
     
     	The SONET/SDH Far End Path Current table
-    	**type**\:  :py:class:`Sonetfarendpathcurrenttable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendpathcurrenttable>`
+    	**type**\:  :py:class:`SonetFarEndPathCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndPathCurrentTable>`
     
     .. attribute:: sonetfarendpathintervaltable
     
     	The SONET/SDH Far End Path Interval table
-    	**type**\:  :py:class:`Sonetfarendpathintervaltable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendpathintervaltable>`
+    	**type**\:  :py:class:`SonetFarEndPathIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndPathIntervalTable>`
     
     .. attribute:: sonetvtcurrenttable
     
     	The SONET/SDH VT Current table
-    	**type**\:  :py:class:`Sonetvtcurrenttable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetvtcurrenttable>`
+    	**type**\:  :py:class:`SonetVTCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTCurrentTable>`
     
     .. attribute:: sonetvtintervaltable
     
     	The SONET/SDH VT Interval table
-    	**type**\:  :py:class:`Sonetvtintervaltable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetvtintervaltable>`
+    	**type**\:  :py:class:`SonetVTIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTIntervalTable>`
     
     .. attribute:: sonetfarendvtcurrenttable
     
     	The SONET/SDH Far End VT Current table
-    	**type**\:  :py:class:`Sonetfarendvtcurrenttable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendvtcurrenttable>`
+    	**type**\:  :py:class:`SonetFarEndVTCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndVTCurrentTable>`
     
     .. attribute:: sonetfarendvtintervaltable
     
     	The SONET/SDH Far End VT Interval table
-    	**type**\:  :py:class:`Sonetfarendvtintervaltable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendvtintervaltable>`
+    	**type**\:  :py:class:`SonetFarEndVTIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndVTIntervalTable>`
     
     
 
@@ -116,100 +116,86 @@ class SONETMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("sonetMedium", ("sonetmedium", SONETMIB.Sonetmedium)), ("sonetMediumTable", ("sonetmediumtable", SONETMIB.Sonetmediumtable)), ("sonetSectionCurrentTable", ("sonetsectioncurrenttable", SONETMIB.Sonetsectioncurrenttable)), ("sonetSectionIntervalTable", ("sonetsectionintervaltable", SONETMIB.Sonetsectionintervaltable)), ("sonetLineCurrentTable", ("sonetlinecurrenttable", SONETMIB.Sonetlinecurrenttable)), ("sonetLineIntervalTable", ("sonetlineintervaltable", SONETMIB.Sonetlineintervaltable)), ("sonetFarEndLineCurrentTable", ("sonetfarendlinecurrenttable", SONETMIB.Sonetfarendlinecurrenttable)), ("sonetFarEndLineIntervalTable", ("sonetfarendlineintervaltable", SONETMIB.Sonetfarendlineintervaltable)), ("sonetPathCurrentTable", ("sonetpathcurrenttable", SONETMIB.Sonetpathcurrenttable)), ("sonetPathIntervalTable", ("sonetpathintervaltable", SONETMIB.Sonetpathintervaltable)), ("sonetFarEndPathCurrentTable", ("sonetfarendpathcurrenttable", SONETMIB.Sonetfarendpathcurrenttable)), ("sonetFarEndPathIntervalTable", ("sonetfarendpathintervaltable", SONETMIB.Sonetfarendpathintervaltable)), ("sonetVTCurrentTable", ("sonetvtcurrenttable", SONETMIB.Sonetvtcurrenttable)), ("sonetVTIntervalTable", ("sonetvtintervaltable", SONETMIB.Sonetvtintervaltable)), ("sonetFarEndVTCurrentTable", ("sonetfarendvtcurrenttable", SONETMIB.Sonetfarendvtcurrenttable)), ("sonetFarEndVTIntervalTable", ("sonetfarendvtintervaltable", SONETMIB.Sonetfarendvtintervaltable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("sonetMedium", ("sonetmedium", SONETMIB.SonetMedium)), ("sonetMediumTable", ("sonetmediumtable", SONETMIB.SonetMediumTable)), ("sonetSectionCurrentTable", ("sonetsectioncurrenttable", SONETMIB.SonetSectionCurrentTable)), ("sonetSectionIntervalTable", ("sonetsectionintervaltable", SONETMIB.SonetSectionIntervalTable)), ("sonetLineCurrentTable", ("sonetlinecurrenttable", SONETMIB.SonetLineCurrentTable)), ("sonetLineIntervalTable", ("sonetlineintervaltable", SONETMIB.SonetLineIntervalTable)), ("sonetFarEndLineCurrentTable", ("sonetfarendlinecurrenttable", SONETMIB.SonetFarEndLineCurrentTable)), ("sonetFarEndLineIntervalTable", ("sonetfarendlineintervaltable", SONETMIB.SonetFarEndLineIntervalTable)), ("sonetPathCurrentTable", ("sonetpathcurrenttable", SONETMIB.SonetPathCurrentTable)), ("sonetPathIntervalTable", ("sonetpathintervaltable", SONETMIB.SonetPathIntervalTable)), ("sonetFarEndPathCurrentTable", ("sonetfarendpathcurrenttable", SONETMIB.SonetFarEndPathCurrentTable)), ("sonetFarEndPathIntervalTable", ("sonetfarendpathintervaltable", SONETMIB.SonetFarEndPathIntervalTable)), ("sonetVTCurrentTable", ("sonetvtcurrenttable", SONETMIB.SonetVTCurrentTable)), ("sonetVTIntervalTable", ("sonetvtintervaltable", SONETMIB.SonetVTIntervalTable)), ("sonetFarEndVTCurrentTable", ("sonetfarendvtcurrenttable", SONETMIB.SonetFarEndVTCurrentTable)), ("sonetFarEndVTIntervalTable", ("sonetfarendvtintervaltable", SONETMIB.SonetFarEndVTIntervalTable))])
         self._leafs = OrderedDict()
 
-        self.sonetmedium = SONETMIB.Sonetmedium()
+        self.sonetmedium = SONETMIB.SonetMedium()
         self.sonetmedium.parent = self
         self._children_name_map["sonetmedium"] = "sonetMedium"
-        self._children_yang_names.add("sonetMedium")
 
-        self.sonetmediumtable = SONETMIB.Sonetmediumtable()
+        self.sonetmediumtable = SONETMIB.SonetMediumTable()
         self.sonetmediumtable.parent = self
         self._children_name_map["sonetmediumtable"] = "sonetMediumTable"
-        self._children_yang_names.add("sonetMediumTable")
 
-        self.sonetsectioncurrenttable = SONETMIB.Sonetsectioncurrenttable()
+        self.sonetsectioncurrenttable = SONETMIB.SonetSectionCurrentTable()
         self.sonetsectioncurrenttable.parent = self
         self._children_name_map["sonetsectioncurrenttable"] = "sonetSectionCurrentTable"
-        self._children_yang_names.add("sonetSectionCurrentTable")
 
-        self.sonetsectionintervaltable = SONETMIB.Sonetsectionintervaltable()
+        self.sonetsectionintervaltable = SONETMIB.SonetSectionIntervalTable()
         self.sonetsectionintervaltable.parent = self
         self._children_name_map["sonetsectionintervaltable"] = "sonetSectionIntervalTable"
-        self._children_yang_names.add("sonetSectionIntervalTable")
 
-        self.sonetlinecurrenttable = SONETMIB.Sonetlinecurrenttable()
+        self.sonetlinecurrenttable = SONETMIB.SonetLineCurrentTable()
         self.sonetlinecurrenttable.parent = self
         self._children_name_map["sonetlinecurrenttable"] = "sonetLineCurrentTable"
-        self._children_yang_names.add("sonetLineCurrentTable")
 
-        self.sonetlineintervaltable = SONETMIB.Sonetlineintervaltable()
+        self.sonetlineintervaltable = SONETMIB.SonetLineIntervalTable()
         self.sonetlineintervaltable.parent = self
         self._children_name_map["sonetlineintervaltable"] = "sonetLineIntervalTable"
-        self._children_yang_names.add("sonetLineIntervalTable")
 
-        self.sonetfarendlinecurrenttable = SONETMIB.Sonetfarendlinecurrenttable()
+        self.sonetfarendlinecurrenttable = SONETMIB.SonetFarEndLineCurrentTable()
         self.sonetfarendlinecurrenttable.parent = self
         self._children_name_map["sonetfarendlinecurrenttable"] = "sonetFarEndLineCurrentTable"
-        self._children_yang_names.add("sonetFarEndLineCurrentTable")
 
-        self.sonetfarendlineintervaltable = SONETMIB.Sonetfarendlineintervaltable()
+        self.sonetfarendlineintervaltable = SONETMIB.SonetFarEndLineIntervalTable()
         self.sonetfarendlineintervaltable.parent = self
         self._children_name_map["sonetfarendlineintervaltable"] = "sonetFarEndLineIntervalTable"
-        self._children_yang_names.add("sonetFarEndLineIntervalTable")
 
-        self.sonetpathcurrenttable = SONETMIB.Sonetpathcurrenttable()
+        self.sonetpathcurrenttable = SONETMIB.SonetPathCurrentTable()
         self.sonetpathcurrenttable.parent = self
         self._children_name_map["sonetpathcurrenttable"] = "sonetPathCurrentTable"
-        self._children_yang_names.add("sonetPathCurrentTable")
 
-        self.sonetpathintervaltable = SONETMIB.Sonetpathintervaltable()
+        self.sonetpathintervaltable = SONETMIB.SonetPathIntervalTable()
         self.sonetpathintervaltable.parent = self
         self._children_name_map["sonetpathintervaltable"] = "sonetPathIntervalTable"
-        self._children_yang_names.add("sonetPathIntervalTable")
 
-        self.sonetfarendpathcurrenttable = SONETMIB.Sonetfarendpathcurrenttable()
+        self.sonetfarendpathcurrenttable = SONETMIB.SonetFarEndPathCurrentTable()
         self.sonetfarendpathcurrenttable.parent = self
         self._children_name_map["sonetfarendpathcurrenttable"] = "sonetFarEndPathCurrentTable"
-        self._children_yang_names.add("sonetFarEndPathCurrentTable")
 
-        self.sonetfarendpathintervaltable = SONETMIB.Sonetfarendpathintervaltable()
+        self.sonetfarendpathintervaltable = SONETMIB.SonetFarEndPathIntervalTable()
         self.sonetfarendpathintervaltable.parent = self
         self._children_name_map["sonetfarendpathintervaltable"] = "sonetFarEndPathIntervalTable"
-        self._children_yang_names.add("sonetFarEndPathIntervalTable")
 
-        self.sonetvtcurrenttable = SONETMIB.Sonetvtcurrenttable()
+        self.sonetvtcurrenttable = SONETMIB.SonetVTCurrentTable()
         self.sonetvtcurrenttable.parent = self
         self._children_name_map["sonetvtcurrenttable"] = "sonetVTCurrentTable"
-        self._children_yang_names.add("sonetVTCurrentTable")
 
-        self.sonetvtintervaltable = SONETMIB.Sonetvtintervaltable()
+        self.sonetvtintervaltable = SONETMIB.SonetVTIntervalTable()
         self.sonetvtintervaltable.parent = self
         self._children_name_map["sonetvtintervaltable"] = "sonetVTIntervalTable"
-        self._children_yang_names.add("sonetVTIntervalTable")
 
-        self.sonetfarendvtcurrenttable = SONETMIB.Sonetfarendvtcurrenttable()
+        self.sonetfarendvtcurrenttable = SONETMIB.SonetFarEndVTCurrentTable()
         self.sonetfarendvtcurrenttable.parent = self
         self._children_name_map["sonetfarendvtcurrenttable"] = "sonetFarEndVTCurrentTable"
-        self._children_yang_names.add("sonetFarEndVTCurrentTable")
 
-        self.sonetfarendvtintervaltable = SONETMIB.Sonetfarendvtintervaltable()
+        self.sonetfarendvtintervaltable = SONETMIB.SonetFarEndVTIntervalTable()
         self.sonetfarendvtintervaltable.parent = self
         self._children_name_map["sonetfarendvtintervaltable"] = "sonetFarEndVTIntervalTable"
-        self._children_yang_names.add("sonetFarEndVTIntervalTable")
         self._segment_path = lambda: "SONET-MIB:SONET-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(SONETMIB, [], name, value)
 
-    class Sonetmedium(Entity):
+
+    class SonetMedium(Entity):
         """
         
         
         .. attribute:: sonetsesthresholdset
         
         	An enumerated integer indicating which recognized set of SES thresholds that the agent uses for determining severely errored seconds and unavailable time.  other(1)   None of the following.  bellcore1991(2)   Bellcore TR\-NWT\-000253, 1991 [TR253], or   ANSI T1M1.3/93\-005R2, 1993 [T1M1.3].   See also Appendix B.  ansi1993(3)   ANSI T1.231, 1993 [T1.231a], or   Bellcore GR\-253\-CORE, Issue 2, 1995 [GR253]  itu1995(4)   ITU Recommendation G.826, 1995 [G.826]  ansi1997(5)   ANSI T1.231, 1997 [T1.231b]  If a manager changes the value of this object then the SES statistics collected prior to this change must be invalidated
-        	**type**\:  :py:class:`Sonetsesthresholdset <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetmedium.Sonetsesthresholdset>`
+        	**type**\:  :py:class:`SonetSESthresholdSet <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMedium.SonetSESthresholdSet>`
         
         
 
@@ -219,15 +205,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetmedium, self).__init__()
+            super(SONETMIB.SonetMedium, self).__init__()
 
             self.yang_name = "sonetMedium"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('sonetsesthresholdset', YLeaf(YType.enumeration, 'sonetSESthresholdSet')),
             ])
@@ -236,11 +221,11 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetmedium, ['sonetsesthresholdset'], name, value)
+            self._perform_setattr(SONETMIB.SonetMedium, [u'sonetsesthresholdset'], name, value)
 
-        class Sonetsesthresholdset(Enum):
+        class SonetSESthresholdSet(Enum):
             """
-            Sonetsesthresholdset (Enum Class)
+            SonetSESthresholdSet (Enum Class)
 
             An enumerated integer indicating which
 
@@ -306,14 +291,14 @@ class SONETMIB(Entity):
 
 
 
-    class Sonetmediumtable(Entity):
+    class SonetMediumTable(Entity):
         """
         The SONET/SDH Medium table.
         
         .. attribute:: sonetmediumentry
         
         	An entry in the SONET/SDH Medium table
-        	**type**\: list of  		 :py:class:`Sonetmediumentry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetmediumtable.Sonetmediumentry>`
+        	**type**\: list of  		 :py:class:`SonetMediumEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry>`
         
         
 
@@ -323,15 +308,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetmediumtable, self).__init__()
+            super(SONETMIB.SonetMediumTable, self).__init__()
 
             self.yang_name = "sonetMediumTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetMediumEntry", ("sonetmediumentry", SONETMIB.Sonetmediumtable.Sonetmediumentry))])
+            self._child_classes = OrderedDict([("sonetMediumEntry", ("sonetmediumentry", SONETMIB.SonetMediumTable.SonetMediumEntry))])
             self._leafs = OrderedDict()
 
             self.sonetmediumentry = YList(self)
@@ -339,10 +323,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetmediumtable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetMediumTable, [], name, value)
 
 
-        class Sonetmediumentry(Entity):
+        class SonetMediumEntry(Entity):
             """
             An entry in the SONET/SDH Medium table.
             
@@ -353,12 +337,12 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetmediumtype
             
             	This variable identifies whether a SONET or a SDH signal is used across this interface
-            	**type**\:  :py:class:`Sonetmediumtype <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetmediumtable.Sonetmediumentry.Sonetmediumtype>`
+            	**type**\:  :py:class:`SonetMediumType <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry.SonetMediumType>`
             
             .. attribute:: sonetmediumtimeelapsed
             
@@ -377,12 +361,12 @@ class SONETMIB(Entity):
             .. attribute:: sonetmediumlinecoding
             
             	This variable describes the line coding for this interface. The B3ZS and CMI are used for electrical SONET/SDH signals (STS\-1 and STS\-3). The Non\-Return to Zero (NRZ) and the Return to Zero are used for optical SONET/SDH signals
-            	**type**\:  :py:class:`Sonetmediumlinecoding <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetmediumtable.Sonetmediumentry.Sonetmediumlinecoding>`
+            	**type**\:  :py:class:`SonetMediumLineCoding <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry.SonetMediumLineCoding>`
             
             .. attribute:: sonetmediumlinetype
             
             	This variable describes the line type for this interface. The line types are Short and Long Range Single Mode fiber or Multi\-Mode fiber interfaces, and coax and UTP for electrical interfaces.  The value sonetOther should be used when the Line Type is not one of the listed values
-            	**type**\:  :py:class:`Sonetmediumlinetype <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetmediumtable.Sonetmediumentry.Sonetmediumlinetype>`
+            	**type**\:  :py:class:`SonetMediumLineType <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry.SonetMediumLineType>`
             
             .. attribute:: sonetmediumcircuitidentifier
             
@@ -401,7 +385,7 @@ class SONETMIB(Entity):
             .. attribute:: sonetmediumloopbackconfig
             
             	The current loopback state of the SONET/SDH interface.  The values mean\:    sonetNoLoop      Not in the loopback state. A device that is not      capable of performing a loopback on this interface      shall always return this value.    sonetFacilityLoop      The received signal at this interface is looped back      out through the corresponding transmitter in the return      direction.    sonetTerminalLoop      The signal that is about to be transmitted is connected      to the associated incoming receiver.    sonetOtherLoop      Loopbacks that are not defined here
-            	**type**\:  :py:class:`Sonetmediumloopbackconfig <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetmediumtable.Sonetmediumentry.Sonetmediumloopbackconfig>`
+            	**type**\:  :py:class:`SonetMediumLoopbackConfig <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry.SonetMediumLoopbackConfig>`
             
             
 
@@ -411,15 +395,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetmediumtable.Sonetmediumentry, self).__init__()
+                super(SONETMIB.SonetMediumTable.SonetMediumEntry, self).__init__()
 
                 self.yang_name = "sonetMediumEntry"
                 self.yang_parent_name = "sonetMediumTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetmediumtype', YLeaf(YType.enumeration, 'sonetMediumType')),
@@ -444,11 +427,11 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetMediumTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetmediumtable.Sonetmediumentry, ['ifindex', 'sonetmediumtype', 'sonetmediumtimeelapsed', 'sonetmediumvalidintervals', 'sonetmediumlinecoding', 'sonetmediumlinetype', 'sonetmediumcircuitidentifier', 'sonetmediuminvalidintervals', 'sonetmediumloopbackconfig'], name, value)
+                self._perform_setattr(SONETMIB.SonetMediumTable.SonetMediumEntry, [u'ifindex', u'sonetmediumtype', u'sonetmediumtimeelapsed', u'sonetmediumvalidintervals', u'sonetmediumlinecoding', u'sonetmediumlinetype', u'sonetmediumcircuitidentifier', u'sonetmediuminvalidintervals', u'sonetmediumloopbackconfig'], name, value)
 
-            class Sonetmediumlinecoding(Enum):
+            class SonetMediumLineCoding(Enum):
                 """
-                Sonetmediumlinecoding (Enum Class)
+                SonetMediumLineCoding (Enum Class)
 
                 This variable describes the line coding for
 
@@ -483,9 +466,9 @@ class SONETMIB(Entity):
                 sonetMediumRZ = Enum.YLeaf(5, "sonetMediumRZ")
 
 
-            class Sonetmediumlinetype(Enum):
+            class SonetMediumLineType(Enum):
                 """
-                Sonetmediumlinetype (Enum Class)
+                SonetMediumLineType (Enum Class)
 
                 This variable describes the line type for
 
@@ -528,9 +511,9 @@ class SONETMIB(Entity):
                 sonetUTP = Enum.YLeaf(6, "sonetUTP")
 
 
-            class Sonetmediumtype(Enum):
+            class SonetMediumType(Enum):
                 """
-                Sonetmediumtype (Enum Class)
+                SonetMediumType (Enum Class)
 
                 This variable identifies whether a SONET
 
@@ -548,14 +531,14 @@ class SONETMIB(Entity):
 
 
 
-    class Sonetsectioncurrenttable(Entity):
+    class SonetSectionCurrentTable(Entity):
         """
         The SONET/SDH Section Current table.
         
         .. attribute:: sonetsectioncurrententry
         
         	An entry in the SONET/SDH Section Current table
-        	**type**\: list of  		 :py:class:`Sonetsectioncurrententry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetsectioncurrenttable.Sonetsectioncurrententry>`
+        	**type**\: list of  		 :py:class:`SonetSectionCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetSectionCurrentTable.SonetSectionCurrentEntry>`
         
         
 
@@ -565,15 +548,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetsectioncurrenttable, self).__init__()
+            super(SONETMIB.SonetSectionCurrentTable, self).__init__()
 
             self.yang_name = "sonetSectionCurrentTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetSectionCurrentEntry", ("sonetsectioncurrententry", SONETMIB.Sonetsectioncurrenttable.Sonetsectioncurrententry))])
+            self._child_classes = OrderedDict([("sonetSectionCurrentEntry", ("sonetsectioncurrententry", SONETMIB.SonetSectionCurrentTable.SonetSectionCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.sonetsectioncurrententry = YList(self)
@@ -581,10 +563,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetsectioncurrenttable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetSectionCurrentTable, [], name, value)
 
 
-        class Sonetsectioncurrententry(Entity):
+        class SonetSectionCurrentEntry(Entity):
             """
             An entry in the SONET/SDH Section Current table.
             
@@ -595,7 +577,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetsectioncurrentstatus
             
@@ -640,15 +622,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetsectioncurrenttable.Sonetsectioncurrententry, self).__init__()
+                super(SONETMIB.SonetSectionCurrentTable.SonetSectionCurrentEntry, self).__init__()
 
                 self.yang_name = "sonetSectionCurrentEntry"
                 self.yang_parent_name = "sonetSectionCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetsectioncurrentstatus', YLeaf(YType.int32, 'sonetSectionCurrentStatus')),
@@ -667,17 +648,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetSectionCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetsectioncurrenttable.Sonetsectioncurrententry, ['ifindex', 'sonetsectioncurrentstatus', 'sonetsectioncurrentess', 'sonetsectioncurrentsess', 'sonetsectioncurrentsefss', 'sonetsectioncurrentcvs'], name, value)
+                self._perform_setattr(SONETMIB.SonetSectionCurrentTable.SonetSectionCurrentEntry, [u'ifindex', u'sonetsectioncurrentstatus', u'sonetsectioncurrentess', u'sonetsectioncurrentsess', u'sonetsectioncurrentsefss', u'sonetsectioncurrentcvs'], name, value)
 
 
-    class Sonetsectionintervaltable(Entity):
+    class SonetSectionIntervalTable(Entity):
         """
         The SONET/SDH Section Interval table.
         
         .. attribute:: sonetsectionintervalentry
         
         	An entry in the SONET/SDH Section Interval table
-        	**type**\: list of  		 :py:class:`Sonetsectionintervalentry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetsectionintervaltable.Sonetsectionintervalentry>`
+        	**type**\: list of  		 :py:class:`SonetSectionIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetSectionIntervalTable.SonetSectionIntervalEntry>`
         
         
 
@@ -687,15 +668,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetsectionintervaltable, self).__init__()
+            super(SONETMIB.SonetSectionIntervalTable, self).__init__()
 
             self.yang_name = "sonetSectionIntervalTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetSectionIntervalEntry", ("sonetsectionintervalentry", SONETMIB.Sonetsectionintervaltable.Sonetsectionintervalentry))])
+            self._child_classes = OrderedDict([("sonetSectionIntervalEntry", ("sonetsectionintervalentry", SONETMIB.SonetSectionIntervalTable.SonetSectionIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.sonetsectionintervalentry = YList(self)
@@ -703,10 +683,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetsectionintervaltable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetSectionIntervalTable, [], name, value)
 
 
-        class Sonetsectionintervalentry(Entity):
+        class SonetSectionIntervalEntry(Entity):
             """
             An entry in the SONET/SDH Section Interval table.
             
@@ -717,7 +697,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetsectionintervalnumber  (key)
             
@@ -767,15 +747,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetsectionintervaltable.Sonetsectionintervalentry, self).__init__()
+                super(SONETMIB.SonetSectionIntervalTable.SonetSectionIntervalEntry, self).__init__()
 
                 self.yang_name = "sonetSectionIntervalEntry"
                 self.yang_parent_name = "sonetSectionIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','sonetsectionintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetsectionintervalnumber', YLeaf(YType.int32, 'sonetSectionIntervalNumber')),
@@ -796,17 +775,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetSectionIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetsectionintervaltable.Sonetsectionintervalentry, ['ifindex', 'sonetsectionintervalnumber', 'sonetsectionintervaless', 'sonetsectionintervalsess', 'sonetsectionintervalsefss', 'sonetsectionintervalcvs', 'sonetsectionintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetSectionIntervalTable.SonetSectionIntervalEntry, [u'ifindex', u'sonetsectionintervalnumber', u'sonetsectionintervaless', u'sonetsectionintervalsess', u'sonetsectionintervalsefss', u'sonetsectionintervalcvs', u'sonetsectionintervalvaliddata'], name, value)
 
 
-    class Sonetlinecurrenttable(Entity):
+    class SonetLineCurrentTable(Entity):
         """
         The SONET/SDH Line Current table.
         
         .. attribute:: sonetlinecurrententry
         
         	An entry in the SONET/SDH Line Current table
-        	**type**\: list of  		 :py:class:`Sonetlinecurrententry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetlinecurrenttable.Sonetlinecurrententry>`
+        	**type**\: list of  		 :py:class:`SonetLineCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetLineCurrentTable.SonetLineCurrentEntry>`
         
         
 
@@ -816,15 +795,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetlinecurrenttable, self).__init__()
+            super(SONETMIB.SonetLineCurrentTable, self).__init__()
 
             self.yang_name = "sonetLineCurrentTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetLineCurrentEntry", ("sonetlinecurrententry", SONETMIB.Sonetlinecurrenttable.Sonetlinecurrententry))])
+            self._child_classes = OrderedDict([("sonetLineCurrentEntry", ("sonetlinecurrententry", SONETMIB.SonetLineCurrentTable.SonetLineCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.sonetlinecurrententry = YList(self)
@@ -832,10 +810,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetlinecurrenttable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetLineCurrentTable, [], name, value)
 
 
-        class Sonetlinecurrententry(Entity):
+        class SonetLineCurrentEntry(Entity):
             """
             An entry in the SONET/SDH Line Current table.
             
@@ -846,7 +824,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetlinecurrentstatus
             
@@ -891,15 +869,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetlinecurrenttable.Sonetlinecurrententry, self).__init__()
+                super(SONETMIB.SonetLineCurrentTable.SonetLineCurrentEntry, self).__init__()
 
                 self.yang_name = "sonetLineCurrentEntry"
                 self.yang_parent_name = "sonetLineCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetlinecurrentstatus', YLeaf(YType.int32, 'sonetLineCurrentStatus')),
@@ -918,17 +895,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetLineCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetlinecurrenttable.Sonetlinecurrententry, ['ifindex', 'sonetlinecurrentstatus', 'sonetlinecurrentess', 'sonetlinecurrentsess', 'sonetlinecurrentcvs', 'sonetlinecurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetLineCurrentTable.SonetLineCurrentEntry, [u'ifindex', u'sonetlinecurrentstatus', u'sonetlinecurrentess', u'sonetlinecurrentsess', u'sonetlinecurrentcvs', u'sonetlinecurrentuass'], name, value)
 
 
-    class Sonetlineintervaltable(Entity):
+    class SonetLineIntervalTable(Entity):
         """
         The SONET/SDH Line Interval table.
         
         .. attribute:: sonetlineintervalentry
         
         	An entry in the SONET/SDH Line Interval table
-        	**type**\: list of  		 :py:class:`Sonetlineintervalentry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetlineintervaltable.Sonetlineintervalentry>`
+        	**type**\: list of  		 :py:class:`SonetLineIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetLineIntervalTable.SonetLineIntervalEntry>`
         
         
 
@@ -938,15 +915,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetlineintervaltable, self).__init__()
+            super(SONETMIB.SonetLineIntervalTable, self).__init__()
 
             self.yang_name = "sonetLineIntervalTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetLineIntervalEntry", ("sonetlineintervalentry", SONETMIB.Sonetlineintervaltable.Sonetlineintervalentry))])
+            self._child_classes = OrderedDict([("sonetLineIntervalEntry", ("sonetlineintervalentry", SONETMIB.SonetLineIntervalTable.SonetLineIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.sonetlineintervalentry = YList(self)
@@ -954,10 +930,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetlineintervaltable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetLineIntervalTable, [], name, value)
 
 
-        class Sonetlineintervalentry(Entity):
+        class SonetLineIntervalEntry(Entity):
             """
             An entry in the SONET/SDH Line Interval table.
             
@@ -968,7 +944,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetlineintervalnumber  (key)
             
@@ -1018,15 +994,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetlineintervaltable.Sonetlineintervalentry, self).__init__()
+                super(SONETMIB.SonetLineIntervalTable.SonetLineIntervalEntry, self).__init__()
 
                 self.yang_name = "sonetLineIntervalEntry"
                 self.yang_parent_name = "sonetLineIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','sonetlineintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetlineintervalnumber', YLeaf(YType.int32, 'sonetLineIntervalNumber')),
@@ -1047,17 +1022,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetLineIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetlineintervaltable.Sonetlineintervalentry, ['ifindex', 'sonetlineintervalnumber', 'sonetlineintervaless', 'sonetlineintervalsess', 'sonetlineintervalcvs', 'sonetlineintervaluass', 'sonetlineintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetLineIntervalTable.SonetLineIntervalEntry, [u'ifindex', u'sonetlineintervalnumber', u'sonetlineintervaless', u'sonetlineintervalsess', u'sonetlineintervalcvs', u'sonetlineintervaluass', u'sonetlineintervalvaliddata'], name, value)
 
 
-    class Sonetfarendlinecurrenttable(Entity):
+    class SonetFarEndLineCurrentTable(Entity):
         """
         The SONET/SDH Far End Line Current table.
         
         .. attribute:: sonetfarendlinecurrententry
         
         	An entry in the SONET/SDH Far End Line Current table
-        	**type**\: list of  		 :py:class:`Sonetfarendlinecurrententry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry>`
+        	**type**\: list of  		 :py:class:`SonetFarEndLineCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry>`
         
         
 
@@ -1067,15 +1042,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetfarendlinecurrenttable, self).__init__()
+            super(SONETMIB.SonetFarEndLineCurrentTable, self).__init__()
 
             self.yang_name = "sonetFarEndLineCurrentTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetFarEndLineCurrentEntry", ("sonetfarendlinecurrententry", SONETMIB.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry))])
+            self._child_classes = OrderedDict([("sonetFarEndLineCurrentEntry", ("sonetfarendlinecurrententry", SONETMIB.SonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.sonetfarendlinecurrententry = YList(self)
@@ -1083,10 +1057,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetfarendlinecurrenttable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetFarEndLineCurrentTable, [], name, value)
 
 
-        class Sonetfarendlinecurrententry(Entity):
+        class SonetFarEndLineCurrentEntry(Entity):
             """
             An entry in the SONET/SDH Far End Line Current table.
             
@@ -1097,7 +1071,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetfarendlinecurrentess
             
@@ -1135,15 +1109,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry, self).__init__()
+                super(SONETMIB.SonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry, self).__init__()
 
                 self.yang_name = "sonetFarEndLineCurrentEntry"
                 self.yang_parent_name = "sonetFarEndLineCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetfarendlinecurrentess', YLeaf(YType.uint32, 'sonetFarEndLineCurrentESs')),
@@ -1160,17 +1133,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndLineCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry, ['ifindex', 'sonetfarendlinecurrentess', 'sonetfarendlinecurrentsess', 'sonetfarendlinecurrentcvs', 'sonetfarendlinecurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry, [u'ifindex', u'sonetfarendlinecurrentess', u'sonetfarendlinecurrentsess', u'sonetfarendlinecurrentcvs', u'sonetfarendlinecurrentuass'], name, value)
 
 
-    class Sonetfarendlineintervaltable(Entity):
+    class SonetFarEndLineIntervalTable(Entity):
         """
         The SONET/SDH Far End Line Interval table.
         
         .. attribute:: sonetfarendlineintervalentry
         
         	An entry in the SONET/SDH Far End Line Interval table
-        	**type**\: list of  		 :py:class:`Sonetfarendlineintervalentry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry>`
+        	**type**\: list of  		 :py:class:`SonetFarEndLineIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry>`
         
         
 
@@ -1180,15 +1153,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetfarendlineintervaltable, self).__init__()
+            super(SONETMIB.SonetFarEndLineIntervalTable, self).__init__()
 
             self.yang_name = "sonetFarEndLineIntervalTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetFarEndLineIntervalEntry", ("sonetfarendlineintervalentry", SONETMIB.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry))])
+            self._child_classes = OrderedDict([("sonetFarEndLineIntervalEntry", ("sonetfarendlineintervalentry", SONETMIB.SonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.sonetfarendlineintervalentry = YList(self)
@@ -1196,10 +1168,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetfarendlineintervaltable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetFarEndLineIntervalTable, [], name, value)
 
 
-        class Sonetfarendlineintervalentry(Entity):
+        class SonetFarEndLineIntervalEntry(Entity):
             """
             An entry in the SONET/SDH Far
             End Line Interval table.
@@ -1211,7 +1183,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetfarendlineintervalnumber  (key)
             
@@ -1261,15 +1233,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry, self).__init__()
+                super(SONETMIB.SonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry, self).__init__()
 
                 self.yang_name = "sonetFarEndLineIntervalEntry"
                 self.yang_parent_name = "sonetFarEndLineIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','sonetfarendlineintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetfarendlineintervalnumber', YLeaf(YType.int32, 'sonetFarEndLineIntervalNumber')),
@@ -1290,17 +1261,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndLineIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry, ['ifindex', 'sonetfarendlineintervalnumber', 'sonetfarendlineintervaless', 'sonetfarendlineintervalsess', 'sonetfarendlineintervalcvs', 'sonetfarendlineintervaluass', 'sonetfarendlineintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry, [u'ifindex', u'sonetfarendlineintervalnumber', u'sonetfarendlineintervaless', u'sonetfarendlineintervalsess', u'sonetfarendlineintervalcvs', u'sonetfarendlineintervaluass', u'sonetfarendlineintervalvaliddata'], name, value)
 
 
-    class Sonetpathcurrenttable(Entity):
+    class SonetPathCurrentTable(Entity):
         """
         The SONET/SDH Path Current table.
         
         .. attribute:: sonetpathcurrententry
         
         	An entry in the SONET/SDH Path Current table
-        	**type**\: list of  		 :py:class:`Sonetpathcurrententry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry>`
+        	**type**\: list of  		 :py:class:`SonetPathCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry>`
         
         
 
@@ -1310,15 +1281,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetpathcurrenttable, self).__init__()
+            super(SONETMIB.SonetPathCurrentTable, self).__init__()
 
             self.yang_name = "sonetPathCurrentTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetPathCurrentEntry", ("sonetpathcurrententry", SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry))])
+            self._child_classes = OrderedDict([("sonetPathCurrentEntry", ("sonetpathcurrententry", SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.sonetpathcurrententry = YList(self)
@@ -1326,10 +1296,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetpathcurrenttable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetPathCurrentTable, [], name, value)
 
 
-        class Sonetpathcurrententry(Entity):
+        class SonetPathCurrentEntry(Entity):
             """
             An entry in the SONET/SDH Path Current table.
             
@@ -1340,12 +1310,12 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetpathcurrentwidth
             
             	A value that indicates the type of the SONET/SDH Path.  For SONET, the assigned types are the STS\-Nc SPEs, where N = 1, 3, 12, 24, 48, 192 and 768. STS\-1 is equal to 51.84 Mbps.  For SDH, the assigned types are the STM\-Nc VCs, where N = 1, 4, 16, 64 and 256
-            	**type**\:  :py:class:`Sonetpathcurrentwidth <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry.Sonetpathcurrentwidth>`
+            	**type**\:  :py:class:`SonetPathCurrentWidth <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.SonetPathCurrentWidth>`
             
             .. attribute:: sonetpathcurrentstatus
             
@@ -1385,22 +1355,22 @@ class SONETMIB(Entity):
             .. attribute:: cspsonetpathpayload
             
             	Specifies the payload carried by the SONET/SDH Path. The payload specification corresponds to C2 (Signal Label) overhead byte in SONET/SDH Path Overhead\: unequipped(1)    \: Path is not provisioned to carry any payload. unspecified(2)   \: Path is carrying an unspecifed payload. ds3(3)           \: Path is carrying a DS3 path as payload. vt15vc11(4)      \: Path is carrying SONET\-VT1.5/SDH\-VC11 payload. vt2vc12(5)       \: Path is carrying SONET\-VT2/SDH\-VC12 as payload. atmCell(6)       \: Path is carrying ATM Cells as payload. hdlcFr(7)        \: Path is carrying Frame Relay (HDLC) payload. e3(8)            \: Path is carrying an E3 path as payload. vtStructured(9)  \: Path is carrying VTGs/TUG3s/TUG2s which may                    each carry a different payload.  A write operation on this object will result in update to C2 overhead byte in the Path Overhead
-            	**type**\:  :py:class:`Cspsonetpathpayload <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry.Cspsonetpathpayload>`
+            	**type**\:  :py:class:`CspSonetPathPayload <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.CspSonetPathPayload>`
             
             .. attribute:: csptributarymappingtype
             
             	This object represents the VT/VC mapping type. asynchronous\: In this mode, the channel structure of                DS1/E1 is neither visible nor preserved.  byteSynchronous\: In this mode, the DS0 signals inside                   the VT/VC can be found and extracted                   from the frame. The initial value is asynchronous(1)
-            	**type**\:  :py:class:`Csptributarymappingtype <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry.Csptributarymappingtype>`
+            	**type**\:  :py:class:`CspTributaryMappingType <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.CspTributaryMappingType>`
             
             .. attribute:: cspsignallingtransportmode
             
             	This object represents the mode used to transport DS0  Signalling information for T1 byteSynchronous mapping (GR253). In signallingTransferMode(2), the robbed\-bit signalling  is transferred to the VT header. In clearMode(3), only  the framing bit is transferred to the VT header.           The initial value is signallingTransferMode(2)  if csTributaryMappingType is byteSynchronous.  For asynchronous mapping, it is  notApplicable(1).  The value notApplicable(1) can not be set
-            	**type**\:  :py:class:`Cspsignallingtransportmode <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry.Cspsignallingtransportmode>`
+            	**type**\:  :py:class:`CspSignallingTransportMode <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.CspSignallingTransportMode>`
             
             .. attribute:: csptributarygroupingtype
             
             	This object represents the method used to group VCs into an STM\-1 signal. Applicable only to SDH.  au3Grouping\: STM1<\-AU\-3<\-TUG\-2<\-TU\-12<\-VC12 or              STM1<\-AU\-3<\-TUG\-2<\-TU\-11<\-VC11.  au4Grouping\: STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-12<\-VC12 or              STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-11<\-VC11.  The initial value is au3Grouping(2) for SDH and  notApplicable(1) for SONET
-            	**type**\:  :py:class:`Csptributarygroupingtype <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry.Csptributarygroupingtype>`
+            	**type**\:  :py:class:`CspTributaryGroupingType <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.CspTributaryGroupingType>`
             
             
 
@@ -1410,15 +1380,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry, self).__init__()
+                super(SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry, self).__init__()
 
                 self.yang_name = "sonetPathCurrentEntry"
                 self.yang_parent_name = "sonetPathCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetpathcurrentwidth', YLeaf(YType.enumeration, 'sonetPathCurrentWidth')),
@@ -1447,11 +1416,11 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetPathCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry, ['ifindex', 'sonetpathcurrentwidth', 'sonetpathcurrentstatus', 'sonetpathcurrentess', 'sonetpathcurrentsess', 'sonetpathcurrentcvs', 'sonetpathcurrentuass', 'cspsonetpathpayload', 'csptributarymappingtype', 'cspsignallingtransportmode', 'csptributarygroupingtype'], name, value)
+                self._perform_setattr(SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry, [u'ifindex', u'sonetpathcurrentwidth', u'sonetpathcurrentstatus', u'sonetpathcurrentess', u'sonetpathcurrentsess', u'sonetpathcurrentcvs', u'sonetpathcurrentuass', 'cspsonetpathpayload', 'csptributarymappingtype', 'cspsignallingtransportmode', 'csptributarygroupingtype'], name, value)
 
-            class Cspsignallingtransportmode(Enum):
+            class CspSignallingTransportMode(Enum):
                 """
-                Cspsignallingtransportmode (Enum Class)
+                CspSignallingTransportMode (Enum Class)
 
                 This object represents the mode used to transport DS0 
 
@@ -1490,9 +1459,9 @@ class SONETMIB(Entity):
                 clearMode = Enum.YLeaf(3, "clearMode")
 
 
-            class Cspsonetpathpayload(Enum):
+            class CspSonetPathPayload(Enum):
                 """
-                Cspsonetpathpayload (Enum Class)
+                CspSonetPathPayload (Enum Class)
 
                 Specifies the payload carried by the SONET/SDH Path.
 
@@ -1563,9 +1532,9 @@ class SONETMIB(Entity):
                 vtStructured = Enum.YLeaf(9, "vtStructured")
 
 
-            class Csptributarygroupingtype(Enum):
+            class CspTributaryGroupingType(Enum):
                 """
-                Csptributarygroupingtype (Enum Class)
+                CspTributaryGroupingType (Enum Class)
 
                 This object represents the method used to group VCs into
 
@@ -1598,9 +1567,9 @@ class SONETMIB(Entity):
                 au4Grouping = Enum.YLeaf(3, "au4Grouping")
 
 
-            class Csptributarymappingtype(Enum):
+            class CspTributaryMappingType(Enum):
                 """
-                Csptributarymappingtype (Enum Class)
+                CspTributaryMappingType (Enum Class)
 
                 This object represents the VT/VC mapping type.
 
@@ -1627,9 +1596,9 @@ class SONETMIB(Entity):
                 byteSynchronous = Enum.YLeaf(2, "byteSynchronous")
 
 
-            class Sonetpathcurrentwidth(Enum):
+            class SonetPathCurrentWidth(Enum):
                 """
-                Sonetpathcurrentwidth (Enum Class)
+                SonetPathCurrentWidth (Enum Class)
 
                 A value that indicates the type of the SONET/SDH
 
@@ -1673,14 +1642,14 @@ class SONETMIB(Entity):
 
 
 
-    class Sonetpathintervaltable(Entity):
+    class SonetPathIntervalTable(Entity):
         """
         The SONET/SDH Path Interval table.
         
         .. attribute:: sonetpathintervalentry
         
         	An entry in the SONET/SDH Path Interval table
-        	**type**\: list of  		 :py:class:`Sonetpathintervalentry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetpathintervaltable.Sonetpathintervalentry>`
+        	**type**\: list of  		 :py:class:`SonetPathIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathIntervalTable.SonetPathIntervalEntry>`
         
         
 
@@ -1690,15 +1659,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetpathintervaltable, self).__init__()
+            super(SONETMIB.SonetPathIntervalTable, self).__init__()
 
             self.yang_name = "sonetPathIntervalTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetPathIntervalEntry", ("sonetpathintervalentry", SONETMIB.Sonetpathintervaltable.Sonetpathintervalentry))])
+            self._child_classes = OrderedDict([("sonetPathIntervalEntry", ("sonetpathintervalentry", SONETMIB.SonetPathIntervalTable.SonetPathIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.sonetpathintervalentry = YList(self)
@@ -1706,10 +1674,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetpathintervaltable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetPathIntervalTable, [], name, value)
 
 
-        class Sonetpathintervalentry(Entity):
+        class SonetPathIntervalEntry(Entity):
             """
             An entry in the SONET/SDH Path Interval table.
             
@@ -1720,7 +1688,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetpathintervalnumber  (key)
             
@@ -1770,15 +1738,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetpathintervaltable.Sonetpathintervalentry, self).__init__()
+                super(SONETMIB.SonetPathIntervalTable.SonetPathIntervalEntry, self).__init__()
 
                 self.yang_name = "sonetPathIntervalEntry"
                 self.yang_parent_name = "sonetPathIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','sonetpathintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetpathintervalnumber', YLeaf(YType.int32, 'sonetPathIntervalNumber')),
@@ -1799,17 +1766,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetPathIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetpathintervaltable.Sonetpathintervalentry, ['ifindex', 'sonetpathintervalnumber', 'sonetpathintervaless', 'sonetpathintervalsess', 'sonetpathintervalcvs', 'sonetpathintervaluass', 'sonetpathintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetPathIntervalTable.SonetPathIntervalEntry, [u'ifindex', u'sonetpathintervalnumber', u'sonetpathintervaless', u'sonetpathintervalsess', u'sonetpathintervalcvs', u'sonetpathintervaluass', u'sonetpathintervalvaliddata'], name, value)
 
 
-    class Sonetfarendpathcurrenttable(Entity):
+    class SonetFarEndPathCurrentTable(Entity):
         """
         The SONET/SDH Far End Path Current table.
         
         .. attribute:: sonetfarendpathcurrententry
         
         	An entry in the SONET/SDH Far End Path Current table
-        	**type**\: list of  		 :py:class:`Sonetfarendpathcurrententry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry>`
+        	**type**\: list of  		 :py:class:`SonetFarEndPathCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry>`
         
         
 
@@ -1819,15 +1786,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetfarendpathcurrenttable, self).__init__()
+            super(SONETMIB.SonetFarEndPathCurrentTable, self).__init__()
 
             self.yang_name = "sonetFarEndPathCurrentTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetFarEndPathCurrentEntry", ("sonetfarendpathcurrententry", SONETMIB.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry))])
+            self._child_classes = OrderedDict([("sonetFarEndPathCurrentEntry", ("sonetfarendpathcurrententry", SONETMIB.SonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.sonetfarendpathcurrententry = YList(self)
@@ -1835,10 +1801,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetfarendpathcurrenttable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetFarEndPathCurrentTable, [], name, value)
 
 
-        class Sonetfarendpathcurrententry(Entity):
+        class SonetFarEndPathCurrentEntry(Entity):
             """
             An entry in the SONET/SDH Far End Path Current table.
             
@@ -1849,7 +1815,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetfarendpathcurrentess
             
@@ -1887,15 +1853,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry, self).__init__()
+                super(SONETMIB.SonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry, self).__init__()
 
                 self.yang_name = "sonetFarEndPathCurrentEntry"
                 self.yang_parent_name = "sonetFarEndPathCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetfarendpathcurrentess', YLeaf(YType.uint32, 'sonetFarEndPathCurrentESs')),
@@ -1912,17 +1877,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndPathCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry, ['ifindex', 'sonetfarendpathcurrentess', 'sonetfarendpathcurrentsess', 'sonetfarendpathcurrentcvs', 'sonetfarendpathcurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry, [u'ifindex', u'sonetfarendpathcurrentess', u'sonetfarendpathcurrentsess', u'sonetfarendpathcurrentcvs', u'sonetfarendpathcurrentuass'], name, value)
 
 
-    class Sonetfarendpathintervaltable(Entity):
+    class SonetFarEndPathIntervalTable(Entity):
         """
         The SONET/SDH Far End Path Interval table.
         
         .. attribute:: sonetfarendpathintervalentry
         
         	An entry in the SONET/SDH Far End Path Interval table
-        	**type**\: list of  		 :py:class:`Sonetfarendpathintervalentry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry>`
+        	**type**\: list of  		 :py:class:`SonetFarEndPathIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry>`
         
         
 
@@ -1932,15 +1897,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetfarendpathintervaltable, self).__init__()
+            super(SONETMIB.SonetFarEndPathIntervalTable, self).__init__()
 
             self.yang_name = "sonetFarEndPathIntervalTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetFarEndPathIntervalEntry", ("sonetfarendpathintervalentry", SONETMIB.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry))])
+            self._child_classes = OrderedDict([("sonetFarEndPathIntervalEntry", ("sonetfarendpathintervalentry", SONETMIB.SonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.sonetfarendpathintervalentry = YList(self)
@@ -1948,10 +1912,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetfarendpathintervaltable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetFarEndPathIntervalTable, [], name, value)
 
 
-        class Sonetfarendpathintervalentry(Entity):
+        class SonetFarEndPathIntervalEntry(Entity):
             """
             An entry in the SONET/SDH Far
             End Path Interval table.
@@ -1963,7 +1927,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetfarendpathintervalnumber  (key)
             
@@ -2013,15 +1977,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry, self).__init__()
+                super(SONETMIB.SonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry, self).__init__()
 
                 self.yang_name = "sonetFarEndPathIntervalEntry"
                 self.yang_parent_name = "sonetFarEndPathIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','sonetfarendpathintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetfarendpathintervalnumber', YLeaf(YType.int32, 'sonetFarEndPathIntervalNumber')),
@@ -2042,17 +2005,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndPathIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry, ['ifindex', 'sonetfarendpathintervalnumber', 'sonetfarendpathintervaless', 'sonetfarendpathintervalsess', 'sonetfarendpathintervalcvs', 'sonetfarendpathintervaluass', 'sonetfarendpathintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry, [u'ifindex', u'sonetfarendpathintervalnumber', u'sonetfarendpathintervaless', u'sonetfarendpathintervalsess', u'sonetfarendpathintervalcvs', u'sonetfarendpathintervaluass', u'sonetfarendpathintervalvaliddata'], name, value)
 
 
-    class Sonetvtcurrenttable(Entity):
+    class SonetVTCurrentTable(Entity):
         """
         The SONET/SDH VT Current table.
         
         .. attribute:: sonetvtcurrententry
         
         	An entry in the SONET/SDH VT Current table
-        	**type**\: list of  		 :py:class:`Sonetvtcurrententry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetvtcurrenttable.Sonetvtcurrententry>`
+        	**type**\: list of  		 :py:class:`SonetVTCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry>`
         
         
 
@@ -2062,15 +2025,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetvtcurrenttable, self).__init__()
+            super(SONETMIB.SonetVTCurrentTable, self).__init__()
 
             self.yang_name = "sonetVTCurrentTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetVTCurrentEntry", ("sonetvtcurrententry", SONETMIB.Sonetvtcurrenttable.Sonetvtcurrententry))])
+            self._child_classes = OrderedDict([("sonetVTCurrentEntry", ("sonetvtcurrententry", SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.sonetvtcurrententry = YList(self)
@@ -2078,10 +2040,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetvtcurrenttable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetVTCurrentTable, [], name, value)
 
 
-        class Sonetvtcurrententry(Entity):
+        class SonetVTCurrentEntry(Entity):
             """
             An entry in the SONET/SDH VT Current table.
             
@@ -2092,12 +2054,12 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetvtcurrentwidth
             
             	A value that indicates the type of the SONET VT and SDH VC.  Assigned widths are VT1.5/VC11, VT2/VC12, VT3, VT6/VC2, and VT6c
-            	**type**\:  :py:class:`Sonetvtcurrentwidth <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetvtcurrenttable.Sonetvtcurrententry.Sonetvtcurrentwidth>`
+            	**type**\:  :py:class:`SonetVTCurrentWidth <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry.SonetVTCurrentWidth>`
             
             .. attribute:: sonetvtcurrentstatus
             
@@ -2142,15 +2104,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetvtcurrenttable.Sonetvtcurrententry, self).__init__()
+                super(SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry, self).__init__()
 
                 self.yang_name = "sonetVTCurrentEntry"
                 self.yang_parent_name = "sonetVTCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetvtcurrentwidth', YLeaf(YType.enumeration, 'sonetVTCurrentWidth')),
@@ -2171,11 +2132,11 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetVTCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetvtcurrenttable.Sonetvtcurrententry, ['ifindex', 'sonetvtcurrentwidth', 'sonetvtcurrentstatus', 'sonetvtcurrentess', 'sonetvtcurrentsess', 'sonetvtcurrentcvs', 'sonetvtcurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry, [u'ifindex', u'sonetvtcurrentwidth', u'sonetvtcurrentstatus', u'sonetvtcurrentess', u'sonetvtcurrentsess', u'sonetvtcurrentcvs', u'sonetvtcurrentuass'], name, value)
 
-            class Sonetvtcurrentwidth(Enum):
+            class SonetVTCurrentWidth(Enum):
                 """
-                Sonetvtcurrentwidth (Enum Class)
+                SonetVTCurrentWidth (Enum Class)
 
                 A value that indicates the type of the SONET
 
@@ -2207,14 +2168,14 @@ class SONETMIB(Entity):
 
 
 
-    class Sonetvtintervaltable(Entity):
+    class SonetVTIntervalTable(Entity):
         """
         The SONET/SDH VT Interval table.
         
         .. attribute:: sonetvtintervalentry
         
         	An entry in the SONET/SDH VT Interval table
-        	**type**\: list of  		 :py:class:`Sonetvtintervalentry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetvtintervaltable.Sonetvtintervalentry>`
+        	**type**\: list of  		 :py:class:`SonetVTIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTIntervalTable.SonetVTIntervalEntry>`
         
         
 
@@ -2224,15 +2185,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetvtintervaltable, self).__init__()
+            super(SONETMIB.SonetVTIntervalTable, self).__init__()
 
             self.yang_name = "sonetVTIntervalTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetVTIntervalEntry", ("sonetvtintervalentry", SONETMIB.Sonetvtintervaltable.Sonetvtintervalentry))])
+            self._child_classes = OrderedDict([("sonetVTIntervalEntry", ("sonetvtintervalentry", SONETMIB.SonetVTIntervalTable.SonetVTIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.sonetvtintervalentry = YList(self)
@@ -2240,10 +2200,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetvtintervaltable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetVTIntervalTable, [], name, value)
 
 
-        class Sonetvtintervalentry(Entity):
+        class SonetVTIntervalEntry(Entity):
             """
             An entry in the SONET/SDH VT Interval table.
             
@@ -2254,7 +2214,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetvtintervalnumber  (key)
             
@@ -2304,15 +2264,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetvtintervaltable.Sonetvtintervalentry, self).__init__()
+                super(SONETMIB.SonetVTIntervalTable.SonetVTIntervalEntry, self).__init__()
 
                 self.yang_name = "sonetVTIntervalEntry"
                 self.yang_parent_name = "sonetVTIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','sonetvtintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetvtintervalnumber', YLeaf(YType.int32, 'sonetVTIntervalNumber')),
@@ -2333,17 +2292,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetVTIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetvtintervaltable.Sonetvtintervalentry, ['ifindex', 'sonetvtintervalnumber', 'sonetvtintervaless', 'sonetvtintervalsess', 'sonetvtintervalcvs', 'sonetvtintervaluass', 'sonetvtintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetVTIntervalTable.SonetVTIntervalEntry, [u'ifindex', u'sonetvtintervalnumber', u'sonetvtintervaless', u'sonetvtintervalsess', u'sonetvtintervalcvs', u'sonetvtintervaluass', u'sonetvtintervalvaliddata'], name, value)
 
 
-    class Sonetfarendvtcurrenttable(Entity):
+    class SonetFarEndVTCurrentTable(Entity):
         """
         The SONET/SDH Far End VT Current table.
         
         .. attribute:: sonetfarendvtcurrententry
         
         	An entry in the SONET/SDH Far End VT Current table
-        	**type**\: list of  		 :py:class:`Sonetfarendvtcurrententry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry>`
+        	**type**\: list of  		 :py:class:`SonetFarEndVTCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry>`
         
         
 
@@ -2353,15 +2312,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetfarendvtcurrenttable, self).__init__()
+            super(SONETMIB.SonetFarEndVTCurrentTable, self).__init__()
 
             self.yang_name = "sonetFarEndVTCurrentTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetFarEndVTCurrentEntry", ("sonetfarendvtcurrententry", SONETMIB.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry))])
+            self._child_classes = OrderedDict([("sonetFarEndVTCurrentEntry", ("sonetfarendvtcurrententry", SONETMIB.SonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.sonetfarendvtcurrententry = YList(self)
@@ -2369,10 +2327,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetfarendvtcurrenttable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetFarEndVTCurrentTable, [], name, value)
 
 
-        class Sonetfarendvtcurrententry(Entity):
+        class SonetFarEndVTCurrentEntry(Entity):
             """
             An entry in the SONET/SDH Far End VT Current table.
             
@@ -2383,7 +2341,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetfarendvtcurrentess
             
@@ -2421,15 +2379,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry, self).__init__()
+                super(SONETMIB.SonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry, self).__init__()
 
                 self.yang_name = "sonetFarEndVTCurrentEntry"
                 self.yang_parent_name = "sonetFarEndVTCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetfarendvtcurrentess', YLeaf(YType.uint32, 'sonetFarEndVTCurrentESs')),
@@ -2446,17 +2403,17 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndVTCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry, ['ifindex', 'sonetfarendvtcurrentess', 'sonetfarendvtcurrentsess', 'sonetfarendvtcurrentcvs', 'sonetfarendvtcurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry, [u'ifindex', u'sonetfarendvtcurrentess', u'sonetfarendvtcurrentsess', u'sonetfarendvtcurrentcvs', u'sonetfarendvtcurrentuass'], name, value)
 
 
-    class Sonetfarendvtintervaltable(Entity):
+    class SonetFarEndVTIntervalTable(Entity):
         """
         The SONET/SDH Far End VT Interval table.
         
         .. attribute:: sonetfarendvtintervalentry
         
         	An entry in the SONET/SDH Far End VT Interval table
-        	**type**\: list of  		 :py:class:`Sonetfarendvtintervalentry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry>`
+        	**type**\: list of  		 :py:class:`SonetFarEndVTIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry>`
         
         
 
@@ -2466,15 +2423,14 @@ class SONETMIB(Entity):
         _revision = '2003-08-11'
 
         def __init__(self):
-            super(SONETMIB.Sonetfarendvtintervaltable, self).__init__()
+            super(SONETMIB.SonetFarEndVTIntervalTable, self).__init__()
 
             self.yang_name = "sonetFarEndVTIntervalTable"
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sonetFarEndVTIntervalEntry", ("sonetfarendvtintervalentry", SONETMIB.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry))])
+            self._child_classes = OrderedDict([("sonetFarEndVTIntervalEntry", ("sonetfarendvtintervalentry", SONETMIB.SonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.sonetfarendvtintervalentry = YList(self)
@@ -2482,10 +2438,10 @@ class SONETMIB(Entity):
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.Sonetfarendvtintervaltable, [], name, value)
+            self._perform_setattr(SONETMIB.SonetFarEndVTIntervalTable, [], name, value)
 
 
-        class Sonetfarendvtintervalentry(Entity):
+        class SonetFarEndVTIntervalEntry(Entity):
             """
             An entry in the SONET/SDH Far
             End VT Interval table.
@@ -2497,7 +2453,7 @@ class SONETMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: sonetfarendvtintervalnumber  (key)
             
@@ -2547,15 +2503,14 @@ class SONETMIB(Entity):
             _revision = '2003-08-11'
 
             def __init__(self):
-                super(SONETMIB.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry, self).__init__()
+                super(SONETMIB.SonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry, self).__init__()
 
                 self.yang_name = "sonetFarEndVTIntervalEntry"
                 self.yang_parent_name = "sonetFarEndVTIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','sonetfarendvtintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('sonetfarendvtintervalnumber', YLeaf(YType.int32, 'sonetFarEndVTIntervalNumber')),
@@ -2576,7 +2531,7 @@ class SONETMIB(Entity):
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndVTIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry, ['ifindex', 'sonetfarendvtintervalnumber', 'sonetfarendvtintervaless', 'sonetfarendvtintervalsess', 'sonetfarendvtintervalcvs', 'sonetfarendvtintervaluass', 'sonetfarendvtintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry, [u'ifindex', u'sonetfarendvtintervalnumber', u'sonetfarendvtintervaless', u'sonetfarendvtintervalsess', u'sonetfarendvtintervalcvs', u'sonetfarendvtintervaluass', u'sonetfarendvtintervalvaliddata'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SONETMIB()

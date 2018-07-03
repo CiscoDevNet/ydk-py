@@ -140,8 +140,7 @@ class Nacm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("groups", ("groups", Nacm.Groups))])
-        self._child_list_classes = OrderedDict([("rule-list", ("rule_list", Nacm.RuleList))])
+        self._child_classes = OrderedDict([("groups", ("groups", Nacm.Groups)), ("rule-list", ("rule_list", Nacm.RuleList))])
         self._leafs = OrderedDict([
             ('enable_nacm', YLeaf(YType.boolean, 'enable-nacm')),
             ('read_default', YLeaf(YType.enumeration, 'read-default')),
@@ -164,7 +163,6 @@ class Nacm(Entity):
         self.groups = Nacm.Groups()
         self.groups.parent = self
         self._children_name_map["groups"] = "groups"
-        self._children_yang_names.add("groups")
 
         self.rule_list = YList(self)
         self._segment_path = lambda: "ietf-netconf-acm:nacm"
@@ -197,8 +195,7 @@ class Nacm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("group", ("group", Nacm.Groups.Group))])
+            self._child_classes = OrderedDict([("group", ("group", Nacm.Groups.Group))])
             self._leafs = OrderedDict()
 
             self.group = YList(self)
@@ -244,8 +241,7 @@ class Nacm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('user_name', YLeafList(YType.str, 'user-name')),
@@ -303,8 +299,7 @@ class Nacm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rule", ("rule", Nacm.RuleList.Rule))])
+            self._child_classes = OrderedDict([("rule", ("rule", Nacm.RuleList.Rule))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('group', YLeafList(YType.str, 'group')),
@@ -419,8 +414,7 @@ class Nacm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('module_name', YLeaf(YType.str, 'module-name')),

@@ -29,62 +29,62 @@ class MPLSLDPSTDMIB(Entity):
     .. attribute:: mplsldplsrobjects
     
     	
-    	**type**\:  :py:class:`Mplsldplsrobjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldplsrobjects>`
+    	**type**\:  :py:class:`MplsLdpLsrObjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLsrObjects>`
     
     .. attribute:: mplsldpentityobjects
     
     	
-    	**type**\:  :py:class:`Mplsldpentityobjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentityobjects>`
+    	**type**\:  :py:class:`MplsLdpEntityObjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityObjects>`
     
     .. attribute:: mplsldpsessionobjects
     
     	
-    	**type**\:  :py:class:`Mplsldpsessionobjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpsessionobjects>`
+    	**type**\:  :py:class:`MplsLdpSessionObjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpSessionObjects>`
     
     .. attribute:: mplsfecobjects
     
     	
-    	**type**\:  :py:class:`Mplsfecobjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsfecobjects>`
+    	**type**\:  :py:class:`MplsFecObjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsFecObjects>`
     
     .. attribute:: mplsldpentitytable
     
     	This table contains information about the MPLS Label Distribution Protocol Entities which exist on this Label Switching Router (LSR) or Label Edge Router (LER)
-    	**type**\:  :py:class:`Mplsldpentitytable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable>`
+    	**type**\:  :py:class:`MplsLdpEntityTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable>`
     
     .. attribute:: mplsldppeertable
     
     	Information about LDP peers known by Entities in the mplsLdpEntityTable.  The information in this table is based on information from the Entity\-Peer interaction during session initialization but is not appropriate for the mplsLdpSessionTable, because objects in this table may or may not be used in session establishment
-    	**type**\:  :py:class:`Mplsldppeertable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable>`
+    	**type**\:  :py:class:`MplsLdpPeerTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable>`
     
     .. attribute:: mplsldphelloadjacencytable
     
     	A table of Hello Adjacencies for Sessions
-    	**type**\:  :py:class:`Mplsldphelloadjacencytable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldphelloadjacencytable>`
+    	**type**\:  :py:class:`MplsLdpHelloAdjacencyTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable>`
     
     .. attribute:: mplsinsegmentldplsptable
     
     	A table of LDP LSP's which map to the mplsInSegmentTable in the MPLS\-LSR\-STD\-MIB module
-    	**type**\:  :py:class:`Mplsinsegmentldplsptable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsinsegmentldplsptable>`
+    	**type**\:  :py:class:`MplsInSegmentLdpLspTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsInSegmentLdpLspTable>`
     
     .. attribute:: mplsoutsegmentldplsptable
     
     	A table of LDP LSP's which map to the mplsOutSegmentTable in the MPLS\-LSR\-STD\-MIB
-    	**type**\:  :py:class:`Mplsoutsegmentldplsptable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsoutsegmentldplsptable>`
+    	**type**\:  :py:class:`MplsOutSegmentLdpLspTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable>`
     
     .. attribute:: mplsfectable
     
     	This table represents the FEC (Forwarding Equivalence Class) Information associated with an LSP
-    	**type**\:  :py:class:`Mplsfectable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsfectable>`
+    	**type**\:  :py:class:`MplsFecTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsFecTable>`
     
     .. attribute:: mplsldplspfectable
     
     	A table which shows the relationship between LDP LSPs and FECs.  Each row represents a single LDP LSP to FEC association
-    	**type**\:  :py:class:`Mplsldplspfectable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldplspfectable>`
+    	**type**\:  :py:class:`MplsLdpLspFecTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLspFecTable>`
     
     .. attribute:: mplsldpsessionpeeraddrtable
     
     	This table 'extends' the mplsLdpSessionTable. This table is used to store Label Address Information from Label Address Messages received by this LSR from Peers.  This table is read\-only and should be updated   when Label Withdraw Address Messages are received, i.e., Rows should be deleted as appropriate.  NOTE\:  since more than one address may be contained in a Label Address Message, this table 'sparse augments', the mplsLdpSessionTable's information
-    	**type**\:  :py:class:`Mplsldpsessionpeeraddrtable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable>`
+    	**type**\:  :py:class:`MplsLdpSessionPeerAddrTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable>`
     
     
 
@@ -102,73 +102,63 @@ class MPLSLDPSTDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mplsLdpLsrObjects", ("mplsldplsrobjects", MPLSLDPSTDMIB.Mplsldplsrobjects)), ("mplsLdpEntityObjects", ("mplsldpentityobjects", MPLSLDPSTDMIB.Mplsldpentityobjects)), ("mplsLdpSessionObjects", ("mplsldpsessionobjects", MPLSLDPSTDMIB.Mplsldpsessionobjects)), ("mplsFecObjects", ("mplsfecobjects", MPLSLDPSTDMIB.Mplsfecobjects)), ("mplsLdpEntityTable", ("mplsldpentitytable", MPLSLDPSTDMIB.Mplsldpentitytable)), ("mplsLdpPeerTable", ("mplsldppeertable", MPLSLDPSTDMIB.Mplsldppeertable)), ("mplsLdpHelloAdjacencyTable", ("mplsldphelloadjacencytable", MPLSLDPSTDMIB.Mplsldphelloadjacencytable)), ("mplsInSegmentLdpLspTable", ("mplsinsegmentldplsptable", MPLSLDPSTDMIB.Mplsinsegmentldplsptable)), ("mplsOutSegmentLdpLspTable", ("mplsoutsegmentldplsptable", MPLSLDPSTDMIB.Mplsoutsegmentldplsptable)), ("mplsFecTable", ("mplsfectable", MPLSLDPSTDMIB.Mplsfectable)), ("mplsLdpLspFecTable", ("mplsldplspfectable", MPLSLDPSTDMIB.Mplsldplspfectable)), ("mplsLdpSessionPeerAddrTable", ("mplsldpsessionpeeraddrtable", MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mplsLdpLsrObjects", ("mplsldplsrobjects", MPLSLDPSTDMIB.MplsLdpLsrObjects)), ("mplsLdpEntityObjects", ("mplsldpentityobjects", MPLSLDPSTDMIB.MplsLdpEntityObjects)), ("mplsLdpSessionObjects", ("mplsldpsessionobjects", MPLSLDPSTDMIB.MplsLdpSessionObjects)), ("mplsFecObjects", ("mplsfecobjects", MPLSLDPSTDMIB.MplsFecObjects)), ("mplsLdpEntityTable", ("mplsldpentitytable", MPLSLDPSTDMIB.MplsLdpEntityTable)), ("mplsLdpPeerTable", ("mplsldppeertable", MPLSLDPSTDMIB.MplsLdpPeerTable)), ("mplsLdpHelloAdjacencyTable", ("mplsldphelloadjacencytable", MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable)), ("mplsInSegmentLdpLspTable", ("mplsinsegmentldplsptable", MPLSLDPSTDMIB.MplsInSegmentLdpLspTable)), ("mplsOutSegmentLdpLspTable", ("mplsoutsegmentldplsptable", MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable)), ("mplsFecTable", ("mplsfectable", MPLSLDPSTDMIB.MplsFecTable)), ("mplsLdpLspFecTable", ("mplsldplspfectable", MPLSLDPSTDMIB.MplsLdpLspFecTable)), ("mplsLdpSessionPeerAddrTable", ("mplsldpsessionpeeraddrtable", MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable))])
         self._leafs = OrderedDict()
 
-        self.mplsldplsrobjects = MPLSLDPSTDMIB.Mplsldplsrobjects()
+        self.mplsldplsrobjects = MPLSLDPSTDMIB.MplsLdpLsrObjects()
         self.mplsldplsrobjects.parent = self
         self._children_name_map["mplsldplsrobjects"] = "mplsLdpLsrObjects"
-        self._children_yang_names.add("mplsLdpLsrObjects")
 
-        self.mplsldpentityobjects = MPLSLDPSTDMIB.Mplsldpentityobjects()
+        self.mplsldpentityobjects = MPLSLDPSTDMIB.MplsLdpEntityObjects()
         self.mplsldpentityobjects.parent = self
         self._children_name_map["mplsldpentityobjects"] = "mplsLdpEntityObjects"
-        self._children_yang_names.add("mplsLdpEntityObjects")
 
-        self.mplsldpsessionobjects = MPLSLDPSTDMIB.Mplsldpsessionobjects()
+        self.mplsldpsessionobjects = MPLSLDPSTDMIB.MplsLdpSessionObjects()
         self.mplsldpsessionobjects.parent = self
         self._children_name_map["mplsldpsessionobjects"] = "mplsLdpSessionObjects"
-        self._children_yang_names.add("mplsLdpSessionObjects")
 
-        self.mplsfecobjects = MPLSLDPSTDMIB.Mplsfecobjects()
+        self.mplsfecobjects = MPLSLDPSTDMIB.MplsFecObjects()
         self.mplsfecobjects.parent = self
         self._children_name_map["mplsfecobjects"] = "mplsFecObjects"
-        self._children_yang_names.add("mplsFecObjects")
 
-        self.mplsldpentitytable = MPLSLDPSTDMIB.Mplsldpentitytable()
+        self.mplsldpentitytable = MPLSLDPSTDMIB.MplsLdpEntityTable()
         self.mplsldpentitytable.parent = self
         self._children_name_map["mplsldpentitytable"] = "mplsLdpEntityTable"
-        self._children_yang_names.add("mplsLdpEntityTable")
 
-        self.mplsldppeertable = MPLSLDPSTDMIB.Mplsldppeertable()
+        self.mplsldppeertable = MPLSLDPSTDMIB.MplsLdpPeerTable()
         self.mplsldppeertable.parent = self
         self._children_name_map["mplsldppeertable"] = "mplsLdpPeerTable"
-        self._children_yang_names.add("mplsLdpPeerTable")
 
-        self.mplsldphelloadjacencytable = MPLSLDPSTDMIB.Mplsldphelloadjacencytable()
+        self.mplsldphelloadjacencytable = MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable()
         self.mplsldphelloadjacencytable.parent = self
         self._children_name_map["mplsldphelloadjacencytable"] = "mplsLdpHelloAdjacencyTable"
-        self._children_yang_names.add("mplsLdpHelloAdjacencyTable")
 
-        self.mplsinsegmentldplsptable = MPLSLDPSTDMIB.Mplsinsegmentldplsptable()
+        self.mplsinsegmentldplsptable = MPLSLDPSTDMIB.MplsInSegmentLdpLspTable()
         self.mplsinsegmentldplsptable.parent = self
         self._children_name_map["mplsinsegmentldplsptable"] = "mplsInSegmentLdpLspTable"
-        self._children_yang_names.add("mplsInSegmentLdpLspTable")
 
-        self.mplsoutsegmentldplsptable = MPLSLDPSTDMIB.Mplsoutsegmentldplsptable()
+        self.mplsoutsegmentldplsptable = MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable()
         self.mplsoutsegmentldplsptable.parent = self
         self._children_name_map["mplsoutsegmentldplsptable"] = "mplsOutSegmentLdpLspTable"
-        self._children_yang_names.add("mplsOutSegmentLdpLspTable")
 
-        self.mplsfectable = MPLSLDPSTDMIB.Mplsfectable()
+        self.mplsfectable = MPLSLDPSTDMIB.MplsFecTable()
         self.mplsfectable.parent = self
         self._children_name_map["mplsfectable"] = "mplsFecTable"
-        self._children_yang_names.add("mplsFecTable")
 
-        self.mplsldplspfectable = MPLSLDPSTDMIB.Mplsldplspfectable()
+        self.mplsldplspfectable = MPLSLDPSTDMIB.MplsLdpLspFecTable()
         self.mplsldplspfectable.parent = self
         self._children_name_map["mplsldplspfectable"] = "mplsLdpLspFecTable"
-        self._children_yang_names.add("mplsLdpLspFecTable")
 
-        self.mplsldpsessionpeeraddrtable = MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable()
+        self.mplsldpsessionpeeraddrtable = MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable()
         self.mplsldpsessionpeeraddrtable.parent = self
         self._children_name_map["mplsldpsessionpeeraddrtable"] = "mplsLdpSessionPeerAddrTable"
-        self._children_yang_names.add("mplsLdpSessionPeerAddrTable")
         self._segment_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(MPLSLDPSTDMIB, [], name, value)
 
-    class Mplsldplsrobjects(Entity):
+
+    class MplsLdpLsrObjects(Entity):
         """
         
         
@@ -182,7 +172,7 @@ class MPLSLDPSTDMIB(Entity):
         .. attribute:: mplsldplsrloopdetectioncapable
         
         	A indication of whether this Label Switching Router supports loop detection.  none(1) \-\- Loop Detection is not supported            on this LSR.  other(2) \-\- Loop Detection is supported but             by a method other than those             listed below.  hopCount(3) \-\- Loop Detection is supported by                Hop Count only.  pathVector(4) \-\- Loop Detection is supported by                  Path Vector only.  hopCountAndPathVector(5) \-\- Loop Detection is                      supported by both Hop Count                      And Path Vector.  Since Loop Detection is determined during Session Initialization, an individual session may not be running with loop detection.  This object simply gives an indication of whether or not the LSR has the ability to support Loop Detection and which types
-        	**type**\:  :py:class:`Mplsldplsrloopdetectioncapable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldplsrobjects.Mplsldplsrloopdetectioncapable>`
+        	**type**\:  :py:class:`MplsLdpLsrLoopDetectionCapable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLsrObjects.MplsLdpLsrLoopDetectionCapable>`
         
         
 
@@ -192,15 +182,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsldplsrobjects, self).__init__()
+            super(MPLSLDPSTDMIB.MplsLdpLsrObjects, self).__init__()
 
             self.yang_name = "mplsLdpLsrObjects"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplsldplsrid', YLeaf(YType.str, 'mplsLdpLsrId')),
                 ('mplsldplsrloopdetectioncapable', YLeaf(YType.enumeration, 'mplsLdpLsrLoopDetectionCapable')),
@@ -211,11 +200,11 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsldplsrobjects, ['mplsldplsrid', 'mplsldplsrloopdetectioncapable'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLsrObjects, [u'mplsldplsrid', u'mplsldplsrloopdetectioncapable'], name, value)
 
-        class Mplsldplsrloopdetectioncapable(Enum):
+        class MplsLdpLsrLoopDetectionCapable(Enum):
             """
-            Mplsldplsrloopdetectioncapable (Enum Class)
+            MplsLdpLsrLoopDetectionCapable (Enum Class)
 
             A indication of whether this
 
@@ -283,7 +272,7 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
-    class Mplsldpentityobjects(Entity):
+    class MplsLdpEntityObjects(Entity):
         """
         
         
@@ -309,15 +298,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsldpentityobjects, self).__init__()
+            super(MPLSLDPSTDMIB.MplsLdpEntityObjects, self).__init__()
 
             self.yang_name = "mplsLdpEntityObjects"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplsldpentitylastchange', YLeaf(YType.uint32, 'mplsLdpEntityLastChange')),
                 ('mplsldpentityindexnext', YLeaf(YType.uint32, 'mplsLdpEntityIndexNext')),
@@ -328,10 +316,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsldpentityobjects, ['mplsldpentitylastchange', 'mplsldpentityindexnext'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityObjects, [u'mplsldpentitylastchange', u'mplsldpentityindexnext'], name, value)
 
 
-    class Mplsldpsessionobjects(Entity):
+    class MplsLdpSessionObjects(Entity):
         """
         
         
@@ -357,15 +345,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsldpsessionobjects, self).__init__()
+            super(MPLSLDPSTDMIB.MplsLdpSessionObjects, self).__init__()
 
             self.yang_name = "mplsLdpSessionObjects"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplsldppeerlastchange', YLeaf(YType.uint32, 'mplsLdpPeerLastChange')),
                 ('mplsldplspfeclastchange', YLeaf(YType.uint32, 'mplsLdpLspFecLastChange')),
@@ -376,10 +363,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsldpsessionobjects, ['mplsldppeerlastchange', 'mplsldplspfeclastchange'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionObjects, [u'mplsldppeerlastchange', u'mplsldplspfeclastchange'], name, value)
 
 
-    class Mplsfecobjects(Entity):
+    class MplsFecObjects(Entity):
         """
         
         
@@ -405,15 +392,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsfecobjects, self).__init__()
+            super(MPLSLDPSTDMIB.MplsFecObjects, self).__init__()
 
             self.yang_name = "mplsFecObjects"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplsfeclastchange', YLeaf(YType.uint32, 'mplsFecLastChange')),
                 ('mplsfecindexnext', YLeaf(YType.uint32, 'mplsFecIndexNext')),
@@ -424,10 +410,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsfecobjects, ['mplsfeclastchange', 'mplsfecindexnext'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsFecObjects, [u'mplsfeclastchange', u'mplsfecindexnext'], name, value)
 
 
-    class Mplsldpentitytable(Entity):
+    class MplsLdpEntityTable(Entity):
         """
         This table contains information about the
         MPLS Label Distribution Protocol Entities which
@@ -437,7 +423,7 @@ class MPLSLDPSTDMIB(Entity):
         .. attribute:: mplsldpentityentry
         
         	An entry in this table represents an LDP entity. An entry can be created by a network administrator or by an SNMP agent as instructed by LDP
-        	**type**\: list of  		 :py:class:`Mplsldpentityentry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+        	**type**\: list of  		 :py:class:`MplsLdpEntityEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
         
         
 
@@ -447,15 +433,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsldpentitytable, self).__init__()
+            super(MPLSLDPSTDMIB.MplsLdpEntityTable, self).__init__()
 
             self.yang_name = "mplsLdpEntityTable"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsLdpEntityEntry", ("mplsldpentityentry", MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry))])
+            self._child_classes = OrderedDict([("mplsLdpEntityEntry", ("mplsldpentityentry", MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry))])
             self._leafs = OrderedDict()
 
             self.mplsldpentityentry = YList(self)
@@ -463,10 +448,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsldpentitytable, [], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityTable, [], name, value)
 
 
-        class Mplsldpentityentry(Entity):
+        class MplsLdpEntityEntry(Entity):
             """
             An entry in this table represents an LDP entity.
             An entry can be created by a network administrator
@@ -494,12 +479,12 @@ class MPLSLDPSTDMIB(Entity):
             .. attribute:: mplsldpentityadminstatus
             
             	The administrative status of this LDP Entity. If this object is changed from 'enable' to 'disable' and this entity has already attempted to establish contact with a Peer, then all contact with that Peer is lost and all information from that Peer needs to be removed from the MIB. (This implies that the network management subsystem should clean up any related entry in the mplsLdpPeerTable.  This further implies that a 'tear\-down' for that session is issued and the session and all information related to that session cease to exist).  At this point the operator is able to change values which are related to this entity.  When the admin status is set back to 'enable', then this Entity will attempt to establish a new session with the Peer
-            	**type**\:  :py:class:`Mplsldpentityadminstatus <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry.Mplsldpentityadminstatus>`
+            	**type**\:  :py:class:`MplsLdpEntityAdminStatus <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityAdminStatus>`
             
             .. attribute:: mplsldpentityoperstatus
             
             	The operational status of this LDP Entity.  The value of unknown(1) indicates that the operational status cannot be determined at this time.  The value of unknown should be a transient condition before changing to enabled(2) or disabled(3)
-            	**type**\:  :py:class:`Mplsldpentityoperstatus <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry.Mplsldpentityoperstatus>`
+            	**type**\:  :py:class:`MplsLdpEntityOperStatus <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityOperStatus>`
             
             .. attribute:: mplsldpentitytcpport
             
@@ -576,7 +561,7 @@ class MPLSLDPSTDMIB(Entity):
             .. attribute:: mplsldpentitytransportaddrkind
             
             	This specifies whether the loopback or interface address is to be used as the transport address in the transport address TLV of the hello message.  If the value is interface(1), then the IP address of the interface from which hello messages are sent is used as the transport address in the hello message.  Otherwise, if the value is loopback(2), then the IP address of the loopback interface is used as the transport address in the hello message
-            	**type**\:  :py:class:`Mplsldpentitytransportaddrkind <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry.Mplsldpentitytransportaddrkind>`
+            	**type**\:  :py:class:`MplsLdpEntityTransportAddrKind <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityTransportAddrKind>`
             
             .. attribute:: mplsldpentitytargetpeer
             
@@ -716,15 +701,14 @@ class MPLSLDPSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry, self).__init__()
+                super(MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry, self).__init__()
 
                 self.yang_name = "mplsLdpEntityEntry"
                 self.yang_parent_name = "mplsLdpEntityTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
                     ('mplsldpentityindex', YLeaf(YType.uint32, 'mplsLdpEntityIndex')),
@@ -803,11 +787,11 @@ class MPLSLDPSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpEntityTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldpentityprotocolversion', 'mplsldpentityadminstatus', 'mplsldpentityoperstatus', 'mplsldpentitytcpport', 'mplsldpentityudpdscport', 'mplsldpentitymaxpdulength', 'mplsldpentitykeepaliveholdtimer', 'mplsldpentityhelloholdtimer', 'mplsldpentityinitsessionthreshold', 'mplsldpentitylabeldistmethod', 'mplsldpentitylabelretentionmode', 'mplsldpentitypathvectorlimit', 'mplsldpentityhopcountlimit', 'mplsldpentitytransportaddrkind', 'mplsldpentitytargetpeer', 'mplsldpentitytargetpeeraddrtype', 'mplsldpentitytargetpeeraddr', 'mplsldpentitylabeltype', 'mplsldpentitydiscontinuitytime', 'mplsldpentitystoragetype', 'mplsldpentityrowstatus', 'mplsldpentitystatssessionattempts', 'mplsldpentitystatssessionrejectednohelloerrors', 'mplsldpentitystatssessionrejectedaderrors', 'mplsldpentitystatssessionrejectedmaxpduerrors', 'mplsldpentitystatssessionrejectedlrerrors', 'mplsldpentitystatsbadldpidentifiererrors', 'mplsldpentitystatsbadpdulengtherrors', 'mplsldpentitystatsbadmessagelengtherrors', 'mplsldpentitystatsbadtlvlengtherrors', 'mplsldpentitystatsmalformedtlvvalueerrors', 'mplsldpentitystatskeepalivetimerexperrors', 'mplsldpentitystatsshutdownreceivednotifications', 'mplsldpentitystatsshutdownsentnotifications'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldpentityprotocolversion', u'mplsldpentityadminstatus', u'mplsldpentityoperstatus', u'mplsldpentitytcpport', u'mplsldpentityudpdscport', u'mplsldpentitymaxpdulength', u'mplsldpentitykeepaliveholdtimer', u'mplsldpentityhelloholdtimer', u'mplsldpentityinitsessionthreshold', u'mplsldpentitylabeldistmethod', u'mplsldpentitylabelretentionmode', u'mplsldpentitypathvectorlimit', u'mplsldpentityhopcountlimit', u'mplsldpentitytransportaddrkind', u'mplsldpentitytargetpeer', u'mplsldpentitytargetpeeraddrtype', u'mplsldpentitytargetpeeraddr', u'mplsldpentitylabeltype', u'mplsldpentitydiscontinuitytime', u'mplsldpentitystoragetype', u'mplsldpentityrowstatus', u'mplsldpentitystatssessionattempts', u'mplsldpentitystatssessionrejectednohelloerrors', u'mplsldpentitystatssessionrejectedaderrors', u'mplsldpentitystatssessionrejectedmaxpduerrors', u'mplsldpentitystatssessionrejectedlrerrors', u'mplsldpentitystatsbadldpidentifiererrors', u'mplsldpentitystatsbadpdulengtherrors', u'mplsldpentitystatsbadmessagelengtherrors', u'mplsldpentitystatsbadtlvlengtherrors', u'mplsldpentitystatsmalformedtlvvalueerrors', u'mplsldpentitystatskeepalivetimerexperrors', u'mplsldpentitystatsshutdownreceivednotifications', u'mplsldpentitystatsshutdownsentnotifications'], name, value)
 
-            class Mplsldpentityadminstatus(Enum):
+            class MplsLdpEntityAdminStatus(Enum):
                 """
-                Mplsldpentityadminstatus (Enum Class)
+                MplsLdpEntityAdminStatus (Enum Class)
 
                 The administrative status of this LDP Entity.
 
@@ -852,9 +836,9 @@ class MPLSLDPSTDMIB(Entity):
                 disable = Enum.YLeaf(2, "disable")
 
 
-            class Mplsldpentityoperstatus(Enum):
+            class MplsLdpEntityOperStatus(Enum):
                 """
-                Mplsldpentityoperstatus (Enum Class)
+                MplsLdpEntityOperStatus (Enum Class)
 
                 The operational status of this LDP Entity.
 
@@ -883,9 +867,9 @@ class MPLSLDPSTDMIB(Entity):
                 disabled = Enum.YLeaf(3, "disabled")
 
 
-            class Mplsldpentitytransportaddrkind(Enum):
+            class MplsLdpEntityTransportAddrKind(Enum):
                 """
-                Mplsldpentitytransportaddrkind (Enum Class)
+                MplsLdpEntityTransportAddrKind (Enum Class)
 
                 This specifies whether the loopback or interface
 
@@ -921,7 +905,7 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
-    class Mplsldppeertable(Entity):
+    class MplsLdpPeerTable(Entity):
         """
         Information about LDP peers known by Entities in
         the mplsLdpEntityTable.  The information in this table
@@ -933,7 +917,7 @@ class MPLSLDPSTDMIB(Entity):
         .. attribute:: mplsldppeerentry
         
         	Information about a single Peer which is related to a Session.  This table is augmented by the mplsLdpSessionTable
-        	**type**\: list of  		 :py:class:`Mplsldppeerentry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
+        	**type**\: list of  		 :py:class:`MplsLdpPeerEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
         
         
 
@@ -943,15 +927,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsldppeertable, self).__init__()
+            super(MPLSLDPSTDMIB.MplsLdpPeerTable, self).__init__()
 
             self.yang_name = "mplsLdpPeerTable"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsLdpPeerEntry", ("mplsldppeerentry", MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry))])
+            self._child_classes = OrderedDict([("mplsLdpPeerEntry", ("mplsldppeerentry", MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry))])
             self._leafs = OrderedDict()
 
             self.mplsldppeerentry = YList(self)
@@ -959,10 +942,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsldppeertable, [], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpPeerTable, [], name, value)
 
 
-        class Mplsldppeerentry(Entity):
+        class MplsLdpPeerEntry(Entity):
             """
             Information about a single Peer which is related
             to a Session.  This table is augmented by
@@ -973,7 +956,7 @@ class MPLSLDPSTDMIB(Entity):
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldpentityindex  (key)
             
@@ -982,7 +965,7 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldppeerldpid  (key)
             
@@ -1023,12 +1006,12 @@ class MPLSLDPSTDMIB(Entity):
             .. attribute:: mplsldpsessionstate
             
             	The current state of the session, all of the states 1 to 5 are based on the state machine for session negotiation behavior
-            	**type**\:  :py:class:`Mplsldpsessionstate <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry.Mplsldpsessionstate>`
+            	**type**\:  :py:class:`MplsLdpSessionState <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry.MplsLdpSessionState>`
             
             .. attribute:: mplsldpsessionrole
             
             	During session establishment the LSR/LER takes either the active role or the passive role based on address comparisons.  This object indicates whether this LSR/LER was behaving in an active role or passive role during this session's establishment.  The value of unknown(1), indicates that the role is not able to be determined at the present time
-            	**type**\:  :py:class:`Mplsldpsessionrole <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry.Mplsldpsessionrole>`
+            	**type**\:  :py:class:`MplsLdpSessionRole <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry.MplsLdpSessionRole>`
             
             .. attribute:: mplsldpsessionprotocolversion
             
@@ -1091,15 +1074,14 @@ class MPLSLDPSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry, self).__init__()
+                super(MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry, self).__init__()
 
                 self.yang_name = "mplsLdpPeerEntry"
                 self.yang_parent_name = "mplsLdpPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
                     ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
@@ -1140,11 +1122,11 @@ class MPLSLDPSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldppeerlabeldistmethod', 'mplsldppeerpathvectorlimit', 'mplsldppeertransportaddrtype', 'mplsldppeertransportaddr', 'mplsldpsessionstatelastchange', 'mplsldpsessionstate', 'mplsldpsessionrole', 'mplsldpsessionprotocolversion', 'mplsldpsessionkeepaliveholdtimerem', 'mplsldpsessionkeepalivetime', 'mplsldpsessionmaxpdulength', 'mplsldpsessiondiscontinuitytime', 'mplsldpsessionstatsunknownmestypeerrors', 'mplsldpsessionstatsunknowntlverrors'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldppeerlabeldistmethod', u'mplsldppeerpathvectorlimit', u'mplsldppeertransportaddrtype', u'mplsldppeertransportaddr', u'mplsldpsessionstatelastchange', u'mplsldpsessionstate', u'mplsldpsessionrole', u'mplsldpsessionprotocolversion', u'mplsldpsessionkeepaliveholdtimerem', u'mplsldpsessionkeepalivetime', u'mplsldpsessionmaxpdulength', u'mplsldpsessiondiscontinuitytime', u'mplsldpsessionstatsunknownmestypeerrors', u'mplsldpsessionstatsunknowntlverrors'], name, value)
 
-            class Mplsldpsessionrole(Enum):
+            class MplsLdpSessionRole(Enum):
                 """
-                Mplsldpsessionrole (Enum Class)
+                MplsLdpSessionRole (Enum Class)
 
                 During session establishment the LSR/LER takes either
 
@@ -1175,9 +1157,9 @@ class MPLSLDPSTDMIB(Entity):
                 passive = Enum.YLeaf(3, "passive")
 
 
-            class Mplsldpsessionstate(Enum):
+            class MplsLdpSessionState(Enum):
                 """
-                Mplsldpsessionstate (Enum Class)
+                MplsLdpSessionState (Enum Class)
 
                 The current state of the session, all of the
 
@@ -1209,14 +1191,14 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
-    class Mplsldphelloadjacencytable(Entity):
+    class MplsLdpHelloAdjacencyTable(Entity):
         """
         A table of Hello Adjacencies for Sessions.
         
         .. attribute:: mplsldphelloadjacencyentry
         
         	Each row represents a single LDP Hello Adjacency. An LDP Session can have one or more Hello Adjacencies
-        	**type**\: list of  		 :py:class:`Mplsldphelloadjacencyentry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry>`
+        	**type**\: list of  		 :py:class:`MplsLdpHelloAdjacencyEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry>`
         
         
 
@@ -1226,15 +1208,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsldphelloadjacencytable, self).__init__()
+            super(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable, self).__init__()
 
             self.yang_name = "mplsLdpHelloAdjacencyTable"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsLdpHelloAdjacencyEntry", ("mplsldphelloadjacencyentry", MPLSLDPSTDMIB.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry))])
+            self._child_classes = OrderedDict([("mplsLdpHelloAdjacencyEntry", ("mplsldphelloadjacencyentry", MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry))])
             self._leafs = OrderedDict()
 
             self.mplsldphelloadjacencyentry = YList(self)
@@ -1242,10 +1223,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsldphelloadjacencytable, [], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable, [], name, value)
 
 
-        class Mplsldphelloadjacencyentry(Entity):
+        class MplsLdpHelloAdjacencyEntry(Entity):
             """
             Each row represents a single LDP Hello Adjacency.
             An LDP Session can have one or more Hello
@@ -1256,7 +1237,7 @@ class MPLSLDPSTDMIB(Entity):
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldpentityindex  (key)
             
@@ -1265,14 +1246,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
+            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
             
             .. attribute:: mplsldphelloadjacencyindex  (key)
             
@@ -1300,7 +1281,7 @@ class MPLSLDPSTDMIB(Entity):
             .. attribute:: mplsldphelloadjacencytype
             
             	This adjacency is the result of a 'link' hello if the value of this object is link(1).   Otherwise, it is a result of a 'targeted' hello, targeted(2)
-            	**type**\:  :py:class:`Mplsldphelloadjacencytype <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry.Mplsldphelloadjacencytype>`
+            	**type**\:  :py:class:`MplsLdpHelloAdjacencyType <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry.MplsLdpHelloAdjacencyType>`
             
             
 
@@ -1310,15 +1291,14 @@ class MPLSLDPSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPSTDMIB.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry, self).__init__()
+                super(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry, self).__init__()
 
                 self.yang_name = "mplsLdpHelloAdjacencyEntry"
                 self.yang_parent_name = "mplsLdpHelloAdjacencyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldphelloadjacencyindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
                     ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
@@ -1339,11 +1319,11 @@ class MPLSLDPSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpHelloAdjacencyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldphelloadjacencyindex', 'mplsldphelloadjacencyholdtimerem', 'mplsldphelloadjacencyholdtime', 'mplsldphelloadjacencytype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldphelloadjacencyindex', u'mplsldphelloadjacencyholdtimerem', u'mplsldphelloadjacencyholdtime', u'mplsldphelloadjacencytype'], name, value)
 
-            class Mplsldphelloadjacencytype(Enum):
+            class MplsLdpHelloAdjacencyType(Enum):
                 """
-                Mplsldphelloadjacencytype (Enum Class)
+                MplsLdpHelloAdjacencyType (Enum Class)
 
                 This adjacency is the result of a 'link'
 
@@ -1365,7 +1345,7 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
-    class Mplsinsegmentldplsptable(Entity):
+    class MplsInSegmentLdpLspTable(Entity):
         """
         A table of LDP LSP's which
         map to the mplsInSegmentTable in the
@@ -1374,7 +1354,7 @@ class MPLSLDPSTDMIB(Entity):
         .. attribute:: mplsinsegmentldplspentry
         
         	An entry in this table represents information on a single LDP LSP which is represented by a session's index triple (mplsLdpEntityLdpId, mplsLdpEntityIndex, mplsLdpPeerLdpId) AND the index for the mplsInSegmentTable (mplsInSegmentLdpLspLabelIndex) from the MPLS\-LSR\-STD\-MIB.  The information contained in a row is read\-only
-        	**type**\: list of  		 :py:class:`Mplsinsegmentldplspentry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry>`
+        	**type**\: list of  		 :py:class:`MplsInSegmentLdpLspEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry>`
         
         
 
@@ -1384,15 +1364,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsinsegmentldplsptable, self).__init__()
+            super(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable, self).__init__()
 
             self.yang_name = "mplsInSegmentLdpLspTable"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsInSegmentLdpLspEntry", ("mplsinsegmentldplspentry", MPLSLDPSTDMIB.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry))])
+            self._child_classes = OrderedDict([("mplsInSegmentLdpLspEntry", ("mplsinsegmentldplspentry", MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry))])
             self._leafs = OrderedDict()
 
             self.mplsinsegmentldplspentry = YList(self)
@@ -1400,10 +1379,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsinsegmentldplsptable, [], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable, [], name, value)
 
 
-        class Mplsinsegmentldplspentry(Entity):
+        class MplsInSegmentLdpLspEntry(Entity):
             """
             An entry in this table represents information
             on a single LDP LSP which is represented by
@@ -1420,7 +1399,7 @@ class MPLSLDPSTDMIB(Entity):
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldpentityindex  (key)
             
@@ -1429,14 +1408,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
+            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
             
             .. attribute:: mplsinsegmentldplspindex  (key)
             
@@ -1463,15 +1442,14 @@ class MPLSLDPSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPSTDMIB.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry, self).__init__()
+                super(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry, self).__init__()
 
                 self.yang_name = "mplsInSegmentLdpLspEntry"
                 self.yang_parent_name = "mplsInSegmentLdpLspTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsinsegmentldplspindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
                     ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
@@ -1490,10 +1468,10 @@ class MPLSLDPSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsInSegmentLdpLspTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsinsegmentldplspindex', 'mplsinsegmentldplsplabeltype', 'mplsinsegmentldplsptype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsinsegmentldplspindex', u'mplsinsegmentldplsplabeltype', u'mplsinsegmentldplsptype'], name, value)
 
 
-    class Mplsoutsegmentldplsptable(Entity):
+    class MplsOutSegmentLdpLspTable(Entity):
         """
         A table of LDP LSP's which
         map to the mplsOutSegmentTable in the
@@ -1502,7 +1480,7 @@ class MPLSLDPSTDMIB(Entity):
         .. attribute:: mplsoutsegmentldplspentry
         
         	An entry in this table represents information on a single LDP LSP which is represented by a session's index triple (mplsLdpEntityLdpId, mplsLdpEntityIndex, mplsLdpPeerLdpId) AND the index (mplsOutSegmentLdpLspIndex) for the mplsOutSegmentTable.  The information contained in a row is read\-only
-        	**type**\: list of  		 :py:class:`Mplsoutsegmentldplspentry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry>`
+        	**type**\: list of  		 :py:class:`MplsOutSegmentLdpLspEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry>`
         
         
 
@@ -1512,15 +1490,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsoutsegmentldplsptable, self).__init__()
+            super(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable, self).__init__()
 
             self.yang_name = "mplsOutSegmentLdpLspTable"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsOutSegmentLdpLspEntry", ("mplsoutsegmentldplspentry", MPLSLDPSTDMIB.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry))])
+            self._child_classes = OrderedDict([("mplsOutSegmentLdpLspEntry", ("mplsoutsegmentldplspentry", MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry))])
             self._leafs = OrderedDict()
 
             self.mplsoutsegmentldplspentry = YList(self)
@@ -1528,10 +1505,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsoutsegmentldplsptable, [], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable, [], name, value)
 
 
-        class Mplsoutsegmentldplspentry(Entity):
+        class MplsOutSegmentLdpLspEntry(Entity):
             """
             An entry in this table represents information
             on a single LDP LSP which is represented by
@@ -1547,7 +1524,7 @@ class MPLSLDPSTDMIB(Entity):
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldpentityindex  (key)
             
@@ -1556,14 +1533,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
+            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
             
             .. attribute:: mplsoutsegmentldplspindex  (key)
             
@@ -1590,15 +1567,14 @@ class MPLSLDPSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPSTDMIB.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry, self).__init__()
+                super(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry, self).__init__()
 
                 self.yang_name = "mplsOutSegmentLdpLspEntry"
                 self.yang_parent_name = "mplsOutSegmentLdpLspTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsoutsegmentldplspindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
                     ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
@@ -1617,10 +1593,10 @@ class MPLSLDPSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsOutSegmentLdpLspTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsoutsegmentldplspindex', 'mplsoutsegmentldplsplabeltype', 'mplsoutsegmentldplsptype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsoutsegmentldplspindex', u'mplsoutsegmentldplsplabeltype', u'mplsoutsegmentldplsptype'], name, value)
 
 
-    class Mplsfectable(Entity):
+    class MplsFecTable(Entity):
         """
         This table represents the FEC
         (Forwarding Equivalence Class)
@@ -1629,7 +1605,7 @@ class MPLSLDPSTDMIB(Entity):
         .. attribute:: mplsfecentry
         
         	Each row represents a single FEC Element
-        	**type**\: list of  		 :py:class:`Mplsfecentry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsfectable.Mplsfecentry>`
+        	**type**\: list of  		 :py:class:`MplsFecEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry>`
         
         
 
@@ -1639,15 +1615,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsfectable, self).__init__()
+            super(MPLSLDPSTDMIB.MplsFecTable, self).__init__()
 
             self.yang_name = "mplsFecTable"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsFecEntry", ("mplsfecentry", MPLSLDPSTDMIB.Mplsfectable.Mplsfecentry))])
+            self._child_classes = OrderedDict([("mplsFecEntry", ("mplsfecentry", MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry))])
             self._leafs = OrderedDict()
 
             self.mplsfecentry = YList(self)
@@ -1655,10 +1630,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsfectable, [], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsFecTable, [], name, value)
 
 
-        class Mplsfecentry(Entity):
+        class MplsFecEntry(Entity):
             """
             Each row represents a single FEC Element.
             
@@ -1672,7 +1647,7 @@ class MPLSLDPSTDMIB(Entity):
             .. attribute:: mplsfectype
             
             	The type of the FEC.  If the value of this object is 'prefix(1)' then the FEC type described by this row is an address prefix.  If the value of this object is 'hostAddress(2)' then the FEC type described by this row is a host address
-            	**type**\:  :py:class:`Mplsfectype <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsfectable.Mplsfecentry.Mplsfectype>`
+            	**type**\:  :py:class:`MplsFecType <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry.MplsFecType>`
             
             .. attribute:: mplsfecaddrprefixlength
             
@@ -1711,15 +1686,14 @@ class MPLSLDPSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPSTDMIB.Mplsfectable.Mplsfecentry, self).__init__()
+                super(MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry, self).__init__()
 
                 self.yang_name = "mplsFecEntry"
                 self.yang_parent_name = "mplsFecTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsfecindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsfecindex', YLeaf(YType.uint32, 'mplsFecIndex')),
                     ('mplsfectype', YLeaf(YType.enumeration, 'mplsFecType')),
@@ -1740,11 +1714,11 @@ class MPLSLDPSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsFecTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.Mplsfectable.Mplsfecentry, ['mplsfecindex', 'mplsfectype', 'mplsfecaddrprefixlength', 'mplsfecaddrtype', 'mplsfecaddr', 'mplsfecstoragetype', 'mplsfecrowstatus'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry, [u'mplsfecindex', u'mplsfectype', u'mplsfecaddrprefixlength', u'mplsfecaddrtype', u'mplsfecaddr', u'mplsfecstoragetype', u'mplsfecrowstatus'], name, value)
 
-            class Mplsfectype(Enum):
+            class MplsFecType(Enum):
                 """
-                Mplsfectype (Enum Class)
+                MplsFecType (Enum Class)
 
                 The type of the FEC.  If the value of this object
 
@@ -1768,7 +1742,7 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
-    class Mplsldplspfectable(Entity):
+    class MplsLdpLspFecTable(Entity):
         """
         A table which shows the relationship between
         LDP LSPs and FECs.  Each row represents
@@ -1777,7 +1751,7 @@ class MPLSLDPSTDMIB(Entity):
         .. attribute:: mplsldplspfecentry
         
         	An entry represents a LDP LSP to FEC association
-        	**type**\: list of  		 :py:class:`Mplsldplspfecentry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldplspfectable.Mplsldplspfecentry>`
+        	**type**\: list of  		 :py:class:`MplsLdpLspFecEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry>`
         
         
 
@@ -1787,15 +1761,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsldplspfectable, self).__init__()
+            super(MPLSLDPSTDMIB.MplsLdpLspFecTable, self).__init__()
 
             self.yang_name = "mplsLdpLspFecTable"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsLdpLspFecEntry", ("mplsldplspfecentry", MPLSLDPSTDMIB.Mplsldplspfectable.Mplsldplspfecentry))])
+            self._child_classes = OrderedDict([("mplsLdpLspFecEntry", ("mplsldplspfecentry", MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry))])
             self._leafs = OrderedDict()
 
             self.mplsldplspfecentry = YList(self)
@@ -1803,10 +1776,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsldplspfectable, [], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLspFecTable, [], name, value)
 
 
-        class Mplsldplspfecentry(Entity):
+        class MplsLdpLspFecEntry(Entity):
             """
             An entry represents a LDP LSP
             to FEC association.
@@ -1816,7 +1789,7 @@ class MPLSLDPSTDMIB(Entity):
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldpentityindex  (key)
             
@@ -1825,19 +1798,19 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
+            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
             
             .. attribute:: mplsldplspfecsegment  (key)
             
             	If the value is inSegment(1), then this indicates that the following index, mplsLdpLspFecSegmentIndex, contains the same value as the mplsInSegmentLdpLspIndex.  Otherwise, if the value of this object is   outSegment(2),  then this indicates that following index, mplsLdpLspFecSegmentIndex, contains the same value as the mplsOutSegmentLdpLspIndex
-            	**type**\:  :py:class:`Mplsldplspfecsegment <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldplspfectable.Mplsldplspfecentry.Mplsldplspfecsegment>`
+            	**type**\:  :py:class:`MplsLdpLspFecSegment <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry.MplsLdpLspFecSegment>`
             
             .. attribute:: mplsldplspfecsegmentindex  (key)
             
@@ -1871,15 +1844,14 @@ class MPLSLDPSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPSTDMIB.Mplsldplspfectable.Mplsldplspfecentry, self).__init__()
+                super(MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry, self).__init__()
 
                 self.yang_name = "mplsLdpLspFecEntry"
                 self.yang_parent_name = "mplsLdpLspFecTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldplspfecsegment','mplsldplspfecsegmentindex','mplsldplspfecindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
                     ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
@@ -1902,11 +1874,11 @@ class MPLSLDPSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpLspFecTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.Mplsldplspfectable.Mplsldplspfecentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldplspfecsegment', 'mplsldplspfecsegmentindex', 'mplsldplspfecindex', 'mplsldplspfecstoragetype', 'mplsldplspfecrowstatus'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldplspfecsegment', u'mplsldplspfecsegmentindex', u'mplsldplspfecindex', u'mplsldplspfecstoragetype', u'mplsldplspfecrowstatus'], name, value)
 
-            class Mplsldplspfecsegment(Enum):
+            class MplsLdpLspFecSegment(Enum):
                 """
-                Mplsldplspfecsegment (Enum Class)
+                MplsLdpLspFecSegment (Enum Class)
 
                 If the value is inSegment(1), then this
 
@@ -1938,7 +1910,7 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
-    class Mplsldpsessionpeeraddrtable(Entity):
+    class MplsLdpSessionPeerAddrTable(Entity):
         """
         This table 'extends' the mplsLdpSessionTable.
         This table is used to store Label Address Information
@@ -1956,7 +1928,7 @@ class MPLSLDPSTDMIB(Entity):
         .. attribute:: mplsldpsessionpeeraddrentry
         
         	An entry in this table represents information on a session's single next hop address which was advertised in an Address Message from the LDP peer. The information contained in a row is read\-only
-        	**type**\: list of  		 :py:class:`Mplsldpsessionpeeraddrentry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry>`
+        	**type**\: list of  		 :py:class:`MplsLdpSessionPeerAddrEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry>`
         
         
 
@@ -1966,15 +1938,14 @@ class MPLSLDPSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable, self).__init__()
+            super(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable, self).__init__()
 
             self.yang_name = "mplsLdpSessionPeerAddrTable"
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsLdpSessionPeerAddrEntry", ("mplsldpsessionpeeraddrentry", MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry))])
+            self._child_classes = OrderedDict([("mplsLdpSessionPeerAddrEntry", ("mplsldpsessionpeeraddrentry", MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry))])
             self._leafs = OrderedDict()
 
             self.mplsldpsessionpeeraddrentry = YList(self)
@@ -1982,10 +1953,10 @@ class MPLSLDPSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable, [], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable, [], name, value)
 
 
-        class Mplsldpsessionpeeraddrentry(Entity):
+        class MplsLdpSessionPeerAddrEntry(Entity):
             """
             An entry in this table represents information on
             a session's single next hop address which was
@@ -1997,7 +1968,7 @@ class MPLSLDPSTDMIB(Entity):
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldpentityindex  (key)
             
@@ -2006,14 +1977,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
+            	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
             
             .. attribute:: mplsldpsessionpeeraddrindex  (key)
             
@@ -2042,15 +2013,14 @@ class MPLSLDPSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry, self).__init__()
+                super(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry, self).__init__()
 
                 self.yang_name = "mplsLdpSessionPeerAddrEntry"
                 self.yang_parent_name = "mplsLdpSessionPeerAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldpsessionpeeraddrindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
                     ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
@@ -2069,7 +2039,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpSessionPeerAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldpsessionpeeraddrindex', 'mplsldpsessionpeernexthopaddrtype', 'mplsldpsessionpeernexthopaddr'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldpsessionpeeraddrindex', u'mplsldpsessionpeernexthopaddrtype', u'mplsldpsessionpeernexthopaddr'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MPLSLDPSTDMIB()

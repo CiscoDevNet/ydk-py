@@ -48,17 +48,17 @@ class CISCORADIUSEXTMIB(Entity):
     .. attribute:: creclientglobal
     
     	
-    	**type**\:  :py:class:`Creclientglobal <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.Creclientglobal>`
+    	**type**\:  :py:class:`CreClientGlobal <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.CreClientGlobal>`
     
     .. attribute:: creclientauthentication
     
     	
-    	**type**\:  :py:class:`Creclientauthentication <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.Creclientauthentication>`
+    	**type**\:  :py:class:`CreClientAuthentication <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.CreClientAuthentication>`
     
     .. attribute:: creclientaccounting
     
     	
-    	**type**\:  :py:class:`Creclientaccounting <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.Creclientaccounting>`
+    	**type**\:  :py:class:`CreClientAccounting <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.CreClientAccounting>`
     
     
 
@@ -76,28 +76,27 @@ class CISCORADIUSEXTMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("creClientGlobal", ("creclientglobal", CISCORADIUSEXTMIB.Creclientglobal)), ("creClientAuthentication", ("creclientauthentication", CISCORADIUSEXTMIB.Creclientauthentication)), ("creClientAccounting", ("creclientaccounting", CISCORADIUSEXTMIB.Creclientaccounting))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("creClientGlobal", ("creclientglobal", CISCORADIUSEXTMIB.CreClientGlobal)), ("creClientAuthentication", ("creclientauthentication", CISCORADIUSEXTMIB.CreClientAuthentication)), ("creClientAccounting", ("creclientaccounting", CISCORADIUSEXTMIB.CreClientAccounting))])
         self._leafs = OrderedDict()
 
-        self.creclientglobal = CISCORADIUSEXTMIB.Creclientglobal()
+        self.creclientglobal = CISCORADIUSEXTMIB.CreClientGlobal()
         self.creclientglobal.parent = self
         self._children_name_map["creclientglobal"] = "creClientGlobal"
-        self._children_yang_names.add("creClientGlobal")
 
-        self.creclientauthentication = CISCORADIUSEXTMIB.Creclientauthentication()
+        self.creclientauthentication = CISCORADIUSEXTMIB.CreClientAuthentication()
         self.creclientauthentication.parent = self
         self._children_name_map["creclientauthentication"] = "creClientAuthentication"
-        self._children_yang_names.add("creClientAuthentication")
 
-        self.creclientaccounting = CISCORADIUSEXTMIB.Creclientaccounting()
+        self.creclientaccounting = CISCORADIUSEXTMIB.CreClientAccounting()
         self.creclientaccounting.parent = self
         self._children_name_map["creclientaccounting"] = "creClientAccounting"
-        self._children_yang_names.add("creClientAccounting")
         self._segment_path = lambda: "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCORADIUSEXTMIB, [], name, value)
 
-    class Creclientglobal(Entity):
+
+    class CreClientGlobal(Entity):
         """
         
         
@@ -180,15 +179,14 @@ class CISCORADIUSEXTMIB(Entity):
         _revision = '2010-05-25'
 
         def __init__(self):
-            super(CISCORADIUSEXTMIB.Creclientglobal, self).__init__()
+            super(CISCORADIUSEXTMIB.CreClientGlobal, self).__init__()
 
             self.yang_name = "creClientGlobal"
             self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('creclienttotalmaxinqlength', YLeaf(YType.uint32, 'creClientTotalMaxInQLength')),
                 ('creclienttotalmaxwaitqlength', YLeaf(YType.uint32, 'creClientTotalMaxWaitQLength')),
@@ -213,10 +211,10 @@ class CISCORADIUSEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORADIUSEXTMIB.Creclientglobal, ['creclienttotalmaxinqlength', 'creclienttotalmaxwaitqlength', 'creclienttotalmaxdoneqlength', 'creclienttotalaccessrejects', 'creclienttotalaverageresponsedelay', 'creclientsourceportrangestart', 'creclientsourceportrangeend', 'creclientlastusedsourceport', 'creclientlastusedsourceid'], name, value)
+            self._perform_setattr(CISCORADIUSEXTMIB.CreClientGlobal, ['creclienttotalmaxinqlength', 'creclienttotalmaxwaitqlength', 'creclienttotalmaxdoneqlength', 'creclienttotalaccessrejects', 'creclienttotalaverageresponsedelay', 'creclientsourceportrangestart', 'creclientsourceportrangeend', 'creclientlastusedsourceport', 'creclientlastusedsourceid'], name, value)
 
 
-    class Creclientauthentication(Entity):
+    class CreClientAuthentication(Entity):
         """
         
         
@@ -339,15 +337,14 @@ class CISCORADIUSEXTMIB(Entity):
         _revision = '2010-05-25'
 
         def __init__(self):
-            super(CISCORADIUSEXTMIB.Creclientauthentication, self).__init__()
+            super(CISCORADIUSEXTMIB.CreClientAuthentication, self).__init__()
 
             self.yang_name = "creClientAuthentication"
             self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('creauthclientbadauthenticators', YLeaf(YType.uint32, 'creAuthClientBadAuthenticators')),
                 ('creauthclientunknownresponses', YLeaf(YType.uint32, 'creAuthClientUnknownResponses')),
@@ -380,10 +377,10 @@ class CISCORADIUSEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORADIUSEXTMIB.Creclientauthentication, ['creauthclientbadauthenticators', 'creauthclientunknownresponses', 'creauthclienttotalpacketswithresponses', 'creauthclientbufferallocfailures', 'creauthclienttotalresponses', 'creauthclienttotalpacketswithoutresponses', 'creauthclientaverageresponsedelay', 'creauthclientmaxresponsedelay', 'creauthclientmaxbuffersize', 'creauthclienttimeouts', 'creauthclientdupids', 'creauthclientmalformedresponses', 'creauthclientlastusedsourceid'], name, value)
+            self._perform_setattr(CISCORADIUSEXTMIB.CreClientAuthentication, ['creauthclientbadauthenticators', 'creauthclientunknownresponses', 'creauthclienttotalpacketswithresponses', 'creauthclientbufferallocfailures', 'creauthclienttotalresponses', 'creauthclienttotalpacketswithoutresponses', 'creauthclientaverageresponsedelay', 'creauthclientmaxresponsedelay', 'creauthclientmaxbuffersize', 'creauthclienttimeouts', 'creauthclientdupids', 'creauthclientmalformedresponses', 'creauthclientlastusedsourceid'], name, value)
 
 
-    class Creclientaccounting(Entity):
+    class CreClientAccounting(Entity):
         """
         
         
@@ -506,15 +503,14 @@ class CISCORADIUSEXTMIB(Entity):
         _revision = '2010-05-25'
 
         def __init__(self):
-            super(CISCORADIUSEXTMIB.Creclientaccounting, self).__init__()
+            super(CISCORADIUSEXTMIB.CreClientAccounting, self).__init__()
 
             self.yang_name = "creClientAccounting"
             self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('creacctclientbadauthenticators', YLeaf(YType.uint32, 'creAcctClientBadAuthenticators')),
                 ('creacctclientunknownresponses', YLeaf(YType.uint32, 'creAcctClientUnknownResponses')),
@@ -547,7 +543,7 @@ class CISCORADIUSEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORADIUSEXTMIB.Creclientaccounting, ['creacctclientbadauthenticators', 'creacctclientunknownresponses', 'creacctclienttotalpacketswithresponses', 'creacctclientbufferallocfailures', 'creacctclienttotalresponses', 'creacctclienttotalpacketswithoutresponses', 'creacctclientaverageresponsedelay', 'creacctclientmaxresponsedelay', 'creacctclientmaxbuffersize', 'creacctclienttimeouts', 'creacctclientdupids', 'creacctclientmalformedresponses', 'creacctclientlastusedsourceid'], name, value)
+            self._perform_setattr(CISCORADIUSEXTMIB.CreClientAccounting, ['creacctclientbadauthenticators', 'creacctclientunknownresponses', 'creacctclienttotalpacketswithresponses', 'creacctclientbufferallocfailures', 'creacctclienttotalresponses', 'creacctclienttotalpacketswithoutresponses', 'creacctclientaverageresponsedelay', 'creacctclientmaxresponsedelay', 'creacctclientmaxbuffersize', 'creacctclienttimeouts', 'creacctclientdupids', 'creacctclientmalformedresponses', 'creacctclientlastusedsourceid'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCORADIUSEXTMIB()

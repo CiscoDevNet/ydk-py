@@ -45,8 +45,7 @@ class FileSystem(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("node", ("node", FileSystem.Node))])
+        self._child_classes = OrderedDict([("node", ("node", FileSystem.Node))])
         self._leafs = OrderedDict()
 
         self.node = YList(self)
@@ -87,8 +86,7 @@ class FileSystem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("file-system", ("file_system", FileSystem.Node.FileSystem_))])
+            self._child_classes = OrderedDict([("file-system", ("file_system", FileSystem.Node.FileSystem_))])
             self._leafs = OrderedDict([
                 ('node_name', YLeaf(YType.str, 'node-name')),
             ])
@@ -150,8 +148,7 @@ class FileSystem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('size', YLeaf(YType.str, 'size')),
                     ('free', YLeaf(YType.str, 'free')),

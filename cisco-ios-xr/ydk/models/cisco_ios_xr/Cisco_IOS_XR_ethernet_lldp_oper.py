@@ -71,20 +71,20 @@ class Lldp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("global-lldp", ("global_lldp", Lldp.GlobalLldp)), ("nodes", ("nodes", Lldp.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("global-lldp", ("global_lldp", Lldp.GlobalLldp)), ("nodes", ("nodes", Lldp.Nodes))])
         self._leafs = OrderedDict()
 
         self.global_lldp = Lldp.GlobalLldp()
         self.global_lldp.parent = self
         self._children_name_map["global_lldp"] = "global-lldp"
-        self._children_yang_names.add("global-lldp")
 
         self.nodes = Lldp.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Lldp, [], name, value)
 
 
     class GlobalLldp(Entity):
@@ -111,16 +111,17 @@ class Lldp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("lldp-info", ("lldp_info", Lldp.GlobalLldp.LldpInfo))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("lldp-info", ("lldp_info", Lldp.GlobalLldp.LldpInfo))])
             self._leafs = OrderedDict()
 
             self.lldp_info = Lldp.GlobalLldp.LldpInfo()
             self.lldp_info.parent = self
             self._children_name_map["lldp_info"] = "lldp-info"
-            self._children_yang_names.add("lldp-info")
             self._segment_path = lambda: "global-lldp"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Lldp.GlobalLldp, [], name, value)
 
 
         class LldpInfo(Entity):
@@ -180,8 +181,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('chassis_id', YLeaf(YType.str, 'chassis-id')),
                     ('chassis_id_sub_type', YLeaf(YType.uint8, 'chassis-id-sub-type')),
@@ -200,7 +200,7 @@ class Lldp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp/global-lldp/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lldp.GlobalLldp.LldpInfo, ['chassis_id', 'chassis_id_sub_type', 'system_name', 'timer', 'hold_time', 're_init'], name, value)
+                self._perform_setattr(Lldp.GlobalLldp.LldpInfo, [u'chassis_id', u'chassis_id_sub_type', u'system_name', u'timer', u'hold_time', u're_init'], name, value)
 
 
     class Nodes(Entity):
@@ -227,8 +227,7 @@ class Lldp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Lldp.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Lldp.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -280,8 +279,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Lldp.Nodes.Node.Neighbors)), ("interfaces", ("interfaces", Lldp.Nodes.Node.Interfaces)), ("statistics", ("statistics", Lldp.Nodes.Node.Statistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("neighbors", ("neighbors", Lldp.Nodes.Node.Neighbors)), ("interfaces", ("interfaces", Lldp.Nodes.Node.Interfaces)), ("statistics", ("statistics", Lldp.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -290,17 +288,14 @@ class Lldp(Entity):
                 self.neighbors = Lldp.Nodes.Node.Neighbors()
                 self.neighbors.parent = self
                 self._children_name_map["neighbors"] = "neighbors"
-                self._children_yang_names.add("neighbors")
 
                 self.interfaces = Lldp.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.statistics = Lldp.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp/nodes/%s" % self._segment_path()
 
@@ -342,25 +337,24 @@ class Lldp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("devices", ("devices", Lldp.Nodes.Node.Neighbors.Devices)), ("details", ("details", Lldp.Nodes.Node.Neighbors.Details)), ("summaries", ("summaries", Lldp.Nodes.Node.Neighbors.Summaries))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("devices", ("devices", Lldp.Nodes.Node.Neighbors.Devices)), ("details", ("details", Lldp.Nodes.Node.Neighbors.Details)), ("summaries", ("summaries", Lldp.Nodes.Node.Neighbors.Summaries))])
                     self._leafs = OrderedDict()
 
                     self.devices = Lldp.Nodes.Node.Neighbors.Devices()
                     self.devices.parent = self
                     self._children_name_map["devices"] = "devices"
-                    self._children_yang_names.add("devices")
 
                     self.details = Lldp.Nodes.Node.Neighbors.Details()
                     self.details.parent = self
                     self._children_name_map["details"] = "details"
-                    self._children_yang_names.add("details")
 
                     self.summaries = Lldp.Nodes.Node.Neighbors.Summaries()
                     self.summaries.parent = self
                     self._children_name_map["summaries"] = "summaries"
-                    self._children_yang_names.add("summaries")
                     self._segment_path = lambda: "neighbors"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Lldp.Nodes.Node.Neighbors, [], name, value)
 
 
                 class Devices(Entity):
@@ -388,8 +382,7 @@ class Lldp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("device", ("device", Lldp.Nodes.Node.Neighbors.Devices.Device))])
+                        self._child_classes = OrderedDict([("device", ("device", Lldp.Nodes.Node.Neighbors.Devices.Device))])
                         self._leafs = OrderedDict()
 
                         self.device = YList(self)
@@ -436,8 +429,7 @@ class Lldp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor))])
+                            self._child_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor))])
                             self._leafs = OrderedDict([
                                 ('device_id', YLeaf(YType.str, 'device-id')),
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -534,8 +526,7 @@ class Lldp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib))])
                                 self._leafs = OrderedDict([
                                     ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
                                     ('receiving_parent_interface_name', YLeaf(YType.str, 'receiving-parent-interface-name')),
@@ -560,12 +551,10 @@ class Lldp(Entity):
                                 self.detail = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail()
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
-                                self._children_yang_names.add("detail")
 
                                 self.mib = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib()
                                 self.mib.parent = self
                                 self._children_name_map["mib"] = "mib"
-                                self._children_yang_names.add("mib")
                                 self._segment_path = lambda: "lldp-neighbor"
 
                             def __setattr__(self, name, value):
@@ -659,8 +648,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses))])
                                     self._leafs = OrderedDict([
                                         ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
                                         ('port_description', YLeaf(YType.str, 'port-description')),
@@ -689,7 +677,6 @@ class Lldp(Entity):
                                     self.network_addresses = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
                                     self._children_name_map["network_addresses"] = "network-addresses"
-                                    self._children_yang_names.add("network-addresses")
                                     self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
@@ -720,8 +707,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry))])
+                                        self._child_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_addr_entry = YList(self)
@@ -769,8 +755,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address))])
                                             self._leafs = OrderedDict([
                                                 ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
                                                 ('if_num', YLeaf(YType.uint32, 'if-num')),
@@ -781,7 +766,6 @@ class Lldp(Entity):
                                             self.address = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
-                                            self._children_yang_names.add("address")
                                             self._segment_path = lambda: "lldp-addr-entry"
 
                                         def __setattr__(self, name, value):
@@ -826,8 +810,7 @@ class Lldp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -927,8 +910,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList))])
                                     self._leafs = OrderedDict([
                                         ('rem_time_mark', YLeaf(YType.uint32, 'rem-time-mark')),
                                         ('rem_local_port_num', YLeaf(YType.uint32, 'rem-local-port-num')),
@@ -951,12 +933,10 @@ class Lldp(Entity):
                                     self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList()
                                     self.unknown_tlv_list.parent = self
                                     self._children_name_map["unknown_tlv_list"] = "unknown-tlv-list"
-                                    self._children_yang_names.add("unknown-tlv-list")
 
                                     self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList()
                                     self.org_def_tlv_list.parent = self
                                     self._children_name_map["org_def_tlv_list"] = "org-def-tlv-list"
-                                    self._children_yang_names.add("org-def-tlv-list")
                                     self._segment_path = lambda: "mib"
 
                                 def __setattr__(self, name, value):
@@ -987,8 +967,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-unknown-tlv-entry", ("lldp_unknown_tlv_entry", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry))])
+                                        self._child_classes = OrderedDict([("lldp-unknown-tlv-entry", ("lldp_unknown_tlv_entry", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_unknown_tlv_entry = YList(self)
@@ -1031,8 +1010,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('tlv_type', YLeaf(YType.uint8, 'tlv-type')),
                                                 ('tlv_value', YLeaf(YType.str, 'tlv-value')),
@@ -1069,8 +1047,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-org-def-tlv-entry", ("lldp_org_def_tlv_entry", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry))])
+                                        self._child_classes = OrderedDict([("lldp-org-def-tlv-entry", ("lldp_org_def_tlv_entry", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_org_def_tlv_entry = YList(self)
@@ -1127,8 +1104,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('oui', YLeaf(YType.uint32, 'oui')),
                                                 ('tlv_subtype', YLeaf(YType.uint8, 'tlv-subtype')),
@@ -1169,8 +1145,7 @@ class Lldp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Details.Detail))])
+                        self._child_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Details.Detail))])
                         self._leafs = OrderedDict()
 
                         self.detail = YList(self)
@@ -1217,8 +1192,7 @@ class Lldp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor))])
+                            self._child_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor))])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('device_id', YLeaf(YType.str, 'device-id')),
@@ -1315,8 +1289,7 @@ class Lldp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib))])
                                 self._leafs = OrderedDict([
                                     ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
                                     ('receiving_parent_interface_name', YLeaf(YType.str, 'receiving-parent-interface-name')),
@@ -1341,12 +1314,10 @@ class Lldp(Entity):
                                 self.detail = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_()
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
-                                self._children_yang_names.add("detail")
 
                                 self.mib = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib()
                                 self.mib.parent = self
                                 self._children_name_map["mib"] = "mib"
-                                self._children_yang_names.add("mib")
                                 self._segment_path = lambda: "lldp-neighbor"
 
                             def __setattr__(self, name, value):
@@ -1440,8 +1411,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses))])
                                     self._leafs = OrderedDict([
                                         ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
                                         ('port_description', YLeaf(YType.str, 'port-description')),
@@ -1470,7 +1440,6 @@ class Lldp(Entity):
                                     self.network_addresses = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses()
                                     self.network_addresses.parent = self
                                     self._children_name_map["network_addresses"] = "network-addresses"
-                                    self._children_yang_names.add("network-addresses")
                                     self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
@@ -1501,8 +1470,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry))])
+                                        self._child_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_addr_entry = YList(self)
@@ -1550,8 +1518,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address))])
                                             self._leafs = OrderedDict([
                                                 ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
                                                 ('if_num', YLeaf(YType.uint32, 'if-num')),
@@ -1562,7 +1529,6 @@ class Lldp(Entity):
                                             self.address = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address()
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
-                                            self._children_yang_names.add("address")
                                             self._segment_path = lambda: "lldp-addr-entry"
 
                                         def __setattr__(self, name, value):
@@ -1607,8 +1573,7 @@ class Lldp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1708,8 +1673,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList))])
                                     self._leafs = OrderedDict([
                                         ('rem_time_mark', YLeaf(YType.uint32, 'rem-time-mark')),
                                         ('rem_local_port_num', YLeaf(YType.uint32, 'rem-local-port-num')),
@@ -1732,12 +1696,10 @@ class Lldp(Entity):
                                     self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList()
                                     self.unknown_tlv_list.parent = self
                                     self._children_name_map["unknown_tlv_list"] = "unknown-tlv-list"
-                                    self._children_yang_names.add("unknown-tlv-list")
 
                                     self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList()
                                     self.org_def_tlv_list.parent = self
                                     self._children_name_map["org_def_tlv_list"] = "org-def-tlv-list"
-                                    self._children_yang_names.add("org-def-tlv-list")
                                     self._segment_path = lambda: "mib"
 
                                 def __setattr__(self, name, value):
@@ -1768,8 +1730,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-unknown-tlv-entry", ("lldp_unknown_tlv_entry", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry))])
+                                        self._child_classes = OrderedDict([("lldp-unknown-tlv-entry", ("lldp_unknown_tlv_entry", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_unknown_tlv_entry = YList(self)
@@ -1812,8 +1773,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('tlv_type', YLeaf(YType.uint8, 'tlv-type')),
                                                 ('tlv_value', YLeaf(YType.str, 'tlv-value')),
@@ -1850,8 +1810,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-org-def-tlv-entry", ("lldp_org_def_tlv_entry", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry))])
+                                        self._child_classes = OrderedDict([("lldp-org-def-tlv-entry", ("lldp_org_def_tlv_entry", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_org_def_tlv_entry = YList(self)
@@ -1908,8 +1867,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('oui', YLeaf(YType.uint32, 'oui')),
                                                 ('tlv_subtype', YLeaf(YType.uint8, 'tlv-subtype')),
@@ -1950,8 +1908,7 @@ class Lldp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("summary", ("summary", Lldp.Nodes.Node.Neighbors.Summaries.Summary))])
+                        self._child_classes = OrderedDict([("summary", ("summary", Lldp.Nodes.Node.Neighbors.Summaries.Summary))])
                         self._leafs = OrderedDict()
 
                         self.summary = YList(self)
@@ -1998,8 +1955,7 @@ class Lldp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor))])
+                            self._child_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor))])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('device_id', YLeaf(YType.str, 'device-id')),
@@ -2096,8 +2052,7 @@ class Lldp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib))])
                                 self._leafs = OrderedDict([
                                     ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
                                     ('receiving_parent_interface_name', YLeaf(YType.str, 'receiving-parent-interface-name')),
@@ -2122,12 +2077,10 @@ class Lldp(Entity):
                                 self.detail = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail()
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
-                                self._children_yang_names.add("detail")
 
                                 self.mib = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib()
                                 self.mib.parent = self
                                 self._children_name_map["mib"] = "mib"
-                                self._children_yang_names.add("mib")
                                 self._segment_path = lambda: "lldp-neighbor"
 
                             def __setattr__(self, name, value):
@@ -2221,8 +2174,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses))])
                                     self._leafs = OrderedDict([
                                         ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
                                         ('port_description', YLeaf(YType.str, 'port-description')),
@@ -2251,7 +2203,6 @@ class Lldp(Entity):
                                     self.network_addresses = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
                                     self._children_name_map["network_addresses"] = "network-addresses"
-                                    self._children_yang_names.add("network-addresses")
                                     self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
@@ -2282,8 +2233,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry))])
+                                        self._child_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_addr_entry = YList(self)
@@ -2331,8 +2281,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address))])
                                             self._leafs = OrderedDict([
                                                 ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
                                                 ('if_num', YLeaf(YType.uint32, 'if-num')),
@@ -2343,7 +2292,6 @@ class Lldp(Entity):
                                             self.address = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
-                                            self._children_yang_names.add("address")
                                             self._segment_path = lambda: "lldp-addr-entry"
 
                                         def __setattr__(self, name, value):
@@ -2388,8 +2336,7 @@ class Lldp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2489,8 +2436,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList))])
                                     self._leafs = OrderedDict([
                                         ('rem_time_mark', YLeaf(YType.uint32, 'rem-time-mark')),
                                         ('rem_local_port_num', YLeaf(YType.uint32, 'rem-local-port-num')),
@@ -2513,12 +2459,10 @@ class Lldp(Entity):
                                     self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList()
                                     self.unknown_tlv_list.parent = self
                                     self._children_name_map["unknown_tlv_list"] = "unknown-tlv-list"
-                                    self._children_yang_names.add("unknown-tlv-list")
 
                                     self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList()
                                     self.org_def_tlv_list.parent = self
                                     self._children_name_map["org_def_tlv_list"] = "org-def-tlv-list"
-                                    self._children_yang_names.add("org-def-tlv-list")
                                     self._segment_path = lambda: "mib"
 
                                 def __setattr__(self, name, value):
@@ -2549,8 +2493,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-unknown-tlv-entry", ("lldp_unknown_tlv_entry", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry))])
+                                        self._child_classes = OrderedDict([("lldp-unknown-tlv-entry", ("lldp_unknown_tlv_entry", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_unknown_tlv_entry = YList(self)
@@ -2593,8 +2536,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('tlv_type', YLeaf(YType.uint8, 'tlv-type')),
                                                 ('tlv_value', YLeaf(YType.str, 'tlv-value')),
@@ -2631,8 +2573,7 @@ class Lldp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("lldp-org-def-tlv-entry", ("lldp_org_def_tlv_entry", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry))])
+                                        self._child_classes = OrderedDict([("lldp-org-def-tlv-entry", ("lldp_org_def_tlv_entry", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.lldp_org_def_tlv_entry = YList(self)
@@ -2689,8 +2630,7 @@ class Lldp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('oui', YLeaf(YType.uint32, 'oui')),
                                                 ('tlv_subtype', YLeaf(YType.uint8, 'tlv-subtype')),
@@ -2732,8 +2672,7 @@ class Lldp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Lldp.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Lldp.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -2830,8 +2769,7 @@ class Lldp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("local-network-addresses", ("local_network_addresses", Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("local-network-addresses", ("local_network_addresses", Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
@@ -2858,7 +2796,6 @@ class Lldp(Entity):
                         self.local_network_addresses = Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses()
                         self.local_network_addresses.parent = self
                         self._children_name_map["local_network_addresses"] = "local-network-addresses"
-                        self._children_yang_names.add("local-network-addresses")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -2889,8 +2826,7 @@ class Lldp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry))])
+                            self._child_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry))])
                             self._leafs = OrderedDict()
 
                             self.lldp_addr_entry = YList(self)
@@ -2938,8 +2874,7 @@ class Lldp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address))])
                                 self._leafs = OrderedDict([
                                     ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
                                     ('if_num', YLeaf(YType.uint32, 'if-num')),
@@ -2950,7 +2885,6 @@ class Lldp(Entity):
                                 self.address = Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address()
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
-                                self._children_yang_names.add("address")
                                 self._segment_path = lambda: "lldp-addr-entry"
 
                             def __setattr__(self, name, value):
@@ -2995,8 +2929,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                         ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3107,8 +3040,7 @@ class Lldp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('transmitted_packets', YLeaf(YType.uint32, 'transmitted-packets')),
                         ('aged_out_entries', YLeaf(YType.uint32, 'aged-out-entries')),

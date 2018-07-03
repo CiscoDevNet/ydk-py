@@ -46,19 +46,16 @@ class Action(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Action.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Action.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "tailf-actions:action"
 
 
@@ -86,8 +83,7 @@ class Action(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('data', YLeaf(YType.str, 'data')),
             ])
@@ -123,8 +119,7 @@ class Action(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('data', YLeaf(YType.str, 'data')),
             ])

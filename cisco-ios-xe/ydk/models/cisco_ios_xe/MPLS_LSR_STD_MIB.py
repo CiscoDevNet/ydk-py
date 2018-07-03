@@ -29,37 +29,37 @@ class MPLSLSRSTDMIB(Entity):
     .. attribute:: mplslsrobjects
     
     	
-    	**type**\:  :py:class:`Mplslsrobjects <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslsrobjects>`
+    	**type**\:  :py:class:`MplsLsrObjects <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsLsrObjects>`
     
     .. attribute:: mplsinterfacetable
     
     	This table specifies per\-interface MPLS capability and associated information
-    	**type**\:  :py:class:`Mplsinterfacetable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinterfacetable>`
+    	**type**\:  :py:class:`MplsInterfaceTable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsInterfaceTable>`
     
     .. attribute:: mplsinsegmenttable
     
     	This table contains a description of the incoming MPLS segments (labels) to an LSR and their associated parameters. The index for this table is mplsInSegmentIndex. The index structure of this table is specifically designed to handle many different MPLS implementations that manage their labels both in a distributed and centralized manner. The table is also designed to handle existing MPLS labels as defined in RFC3031 as well as longer ones that may be necessary in the future.  In cases where the label cannot fit into the mplsInSegmentLabel object, the mplsInSegmentLabelPtr will indicate this by being set to the first accessible column in the appropriate extension table's row. In this case an additional table MUST be provided and MUST be indexed by at least the indexes used by this table. In all other cases when the label is represented within the mplsInSegmentLabel object, the mplsInSegmentLabelPtr MUST be set to 0.0. Due to the fact that MPLS labels may not exceed 24 bits, the mplsInSegmentLabelPtr object is only a provision for future\-proofing the MIB module. Thus, the definition of any extension tables is beyond the scope of this MIB module
-    	**type**\:  :py:class:`Mplsinsegmenttable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmenttable>`
+    	**type**\:  :py:class:`MplsInSegmentTable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsInSegmentTable>`
     
     .. attribute:: mplsoutsegmenttable
     
     	This table contains a representation of the outgoing segments from an LSR
-    	**type**\:  :py:class:`Mplsoutsegmenttable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsoutsegmenttable>`
+    	**type**\:  :py:class:`MplsOutSegmentTable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsOutSegmentTable>`
     
     .. attribute:: mplsxctable
     
     	This table specifies information for switching between LSP segments.  It supports point\-to\-point, point\-to\-multipoint and multipoint\-to\-point connections.  mplsLabelStackTable specifies the label stack information for a cross\-connect LSR and is referred to from mplsXCTable
-    	**type**\:  :py:class:`Mplsxctable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable>`
+    	**type**\:  :py:class:`MplsXCTable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable>`
     
     .. attribute:: mplslabelstacktable
     
     	This table specifies the label stack to be pushed onto a packet, beneath the top label.  Entries into this table are referred to from mplsXCTable
-    	**type**\:  :py:class:`Mplslabelstacktable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslabelstacktable>`
+    	**type**\:  :py:class:`MplsLabelStackTable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsLabelStackTable>`
     
     .. attribute:: mplsinsegmentmaptable
     
     	This table specifies the mapping from the mplsInSegmentIndex to the corresponding mplsInSegmentInterface and mplsInSegmentLabel objects. The purpose of this table is to provide the manager with an alternative means by which to locate in\-segments
-    	**type**\:  :py:class:`Mplsinsegmentmaptable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmentmaptable>`
+    	**type**\:  :py:class:`MplsInSegmentMapTable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsInSegmentMapTable>`
     
     
 
@@ -77,48 +77,43 @@ class MPLSLSRSTDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mplsLsrObjects", ("mplslsrobjects", MPLSLSRSTDMIB.Mplslsrobjects)), ("mplsInterfaceTable", ("mplsinterfacetable", MPLSLSRSTDMIB.Mplsinterfacetable)), ("mplsInSegmentTable", ("mplsinsegmenttable", MPLSLSRSTDMIB.Mplsinsegmenttable)), ("mplsOutSegmentTable", ("mplsoutsegmenttable", MPLSLSRSTDMIB.Mplsoutsegmenttable)), ("mplsXCTable", ("mplsxctable", MPLSLSRSTDMIB.Mplsxctable)), ("mplsLabelStackTable", ("mplslabelstacktable", MPLSLSRSTDMIB.Mplslabelstacktable)), ("mplsInSegmentMapTable", ("mplsinsegmentmaptable", MPLSLSRSTDMIB.Mplsinsegmentmaptable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mplsLsrObjects", ("mplslsrobjects", MPLSLSRSTDMIB.MplsLsrObjects)), ("mplsInterfaceTable", ("mplsinterfacetable", MPLSLSRSTDMIB.MplsInterfaceTable)), ("mplsInSegmentTable", ("mplsinsegmenttable", MPLSLSRSTDMIB.MplsInSegmentTable)), ("mplsOutSegmentTable", ("mplsoutsegmenttable", MPLSLSRSTDMIB.MplsOutSegmentTable)), ("mplsXCTable", ("mplsxctable", MPLSLSRSTDMIB.MplsXCTable)), ("mplsLabelStackTable", ("mplslabelstacktable", MPLSLSRSTDMIB.MplsLabelStackTable)), ("mplsInSegmentMapTable", ("mplsinsegmentmaptable", MPLSLSRSTDMIB.MplsInSegmentMapTable))])
         self._leafs = OrderedDict()
 
-        self.mplslsrobjects = MPLSLSRSTDMIB.Mplslsrobjects()
+        self.mplslsrobjects = MPLSLSRSTDMIB.MplsLsrObjects()
         self.mplslsrobjects.parent = self
         self._children_name_map["mplslsrobjects"] = "mplsLsrObjects"
-        self._children_yang_names.add("mplsLsrObjects")
 
-        self.mplsinterfacetable = MPLSLSRSTDMIB.Mplsinterfacetable()
+        self.mplsinterfacetable = MPLSLSRSTDMIB.MplsInterfaceTable()
         self.mplsinterfacetable.parent = self
         self._children_name_map["mplsinterfacetable"] = "mplsInterfaceTable"
-        self._children_yang_names.add("mplsInterfaceTable")
 
-        self.mplsinsegmenttable = MPLSLSRSTDMIB.Mplsinsegmenttable()
+        self.mplsinsegmenttable = MPLSLSRSTDMIB.MplsInSegmentTable()
         self.mplsinsegmenttable.parent = self
         self._children_name_map["mplsinsegmenttable"] = "mplsInSegmentTable"
-        self._children_yang_names.add("mplsInSegmentTable")
 
-        self.mplsoutsegmenttable = MPLSLSRSTDMIB.Mplsoutsegmenttable()
+        self.mplsoutsegmenttable = MPLSLSRSTDMIB.MplsOutSegmentTable()
         self.mplsoutsegmenttable.parent = self
         self._children_name_map["mplsoutsegmenttable"] = "mplsOutSegmentTable"
-        self._children_yang_names.add("mplsOutSegmentTable")
 
-        self.mplsxctable = MPLSLSRSTDMIB.Mplsxctable()
+        self.mplsxctable = MPLSLSRSTDMIB.MplsXCTable()
         self.mplsxctable.parent = self
         self._children_name_map["mplsxctable"] = "mplsXCTable"
-        self._children_yang_names.add("mplsXCTable")
 
-        self.mplslabelstacktable = MPLSLSRSTDMIB.Mplslabelstacktable()
+        self.mplslabelstacktable = MPLSLSRSTDMIB.MplsLabelStackTable()
         self.mplslabelstacktable.parent = self
         self._children_name_map["mplslabelstacktable"] = "mplsLabelStackTable"
-        self._children_yang_names.add("mplsLabelStackTable")
 
-        self.mplsinsegmentmaptable = MPLSLSRSTDMIB.Mplsinsegmentmaptable()
+        self.mplsinsegmentmaptable = MPLSLSRSTDMIB.MplsInSegmentMapTable()
         self.mplsinsegmentmaptable.parent = self
         self._children_name_map["mplsinsegmentmaptable"] = "mplsInSegmentMapTable"
-        self._children_yang_names.add("mplsInSegmentMapTable")
         self._segment_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(MPLSLSRSTDMIB, [], name, value)
 
-    class Mplslsrobjects(Entity):
+
+    class MplsLsrObjects(Entity):
         """
         
         
@@ -170,15 +165,14 @@ class MPLSLSRSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLSRSTDMIB.Mplslsrobjects, self).__init__()
+            super(MPLSLSRSTDMIB.MplsLsrObjects, self).__init__()
 
             self.yang_name = "mplsLsrObjects"
             self.yang_parent_name = "MPLS-LSR-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplsinsegmentindexnext', YLeaf(YType.str, 'mplsInSegmentIndexNext')),
                 ('mplsoutsegmentindexnext', YLeaf(YType.str, 'mplsOutSegmentIndexNext')),
@@ -197,10 +191,10 @@ class MPLSLSRSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplslsrobjects, ['mplsinsegmentindexnext', 'mplsoutsegmentindexnext', 'mplsxcindexnext', 'mplsmaxlabelstackdepth', 'mplslabelstackindexnext', 'mplsxcnotificationsenable'], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.MplsLsrObjects, [u'mplsinsegmentindexnext', u'mplsoutsegmentindexnext', u'mplsxcindexnext', u'mplsmaxlabelstackdepth', u'mplslabelstackindexnext', u'mplsxcnotificationsenable'], name, value)
 
 
-    class Mplsinterfacetable(Entity):
+    class MplsInterfaceTable(Entity):
         """
         This table specifies per\-interface MPLS capability
         and associated information.
@@ -208,7 +202,7 @@ class MPLSLSRSTDMIB(Entity):
         .. attribute:: mplsinterfaceentry
         
         	A conceptual row in this table is created automatically by an LSR for every interface capable of supporting MPLS and which is configured to do so. A conceptual row in this table will exist if and only if a corresponding entry in ifTable exists with ifType = mpls(166). If this associated entry in ifTable is operationally disabled (thus removing MPLS capabilities on that interface), the corresponding entry in this table MUST be deleted shortly thereafter. An conceptual row with index 0 is created if the LSR supports per\-platform labels. This conceptual row represents the per\-platform label space and contains parameters that apply to all interfaces that participate in the per\-platform label space. Other conceptual rows in this table represent MPLS interfaces that may participate in either the per\-platform or per\- interface label spaces, or both.  Implementations that either only support per\-platform labels, or have only them configured, may choose to return just the mplsInterfaceEntry of 0 and not return the other rows. This will greatly reduce the number of objects returned. Further information about label space participation of an interface is provided in the DESCRIPTION clause of mplsInterfaceLabelParticipationType
-        	**type**\: list of  		 :py:class:`Mplsinterfaceentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry>`
+        	**type**\: list of  		 :py:class:`MplsInterfaceEntry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsInterfaceTable.MplsInterfaceEntry>`
         
         
 
@@ -218,15 +212,14 @@ class MPLSLSRSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLSRSTDMIB.Mplsinterfacetable, self).__init__()
+            super(MPLSLSRSTDMIB.MplsInterfaceTable, self).__init__()
 
             self.yang_name = "mplsInterfaceTable"
             self.yang_parent_name = "MPLS-LSR-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsInterfaceEntry", ("mplsinterfaceentry", MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry))])
+            self._child_classes = OrderedDict([("mplsInterfaceEntry", ("mplsinterfaceentry", MPLSLSRSTDMIB.MplsInterfaceTable.MplsInterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.mplsinterfaceentry = YList(self)
@@ -234,10 +227,10 @@ class MPLSLSRSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplsinterfacetable, [], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.MplsInterfaceTable, [], name, value)
 
 
-        class Mplsinterfaceentry(Entity):
+        class MplsInterfaceEntry(Entity):
             """
             A conceptual row in this table is created
             automatically by an LSR for every interface capable
@@ -319,7 +312,7 @@ class MPLSLSRSTDMIB(Entity):
             .. attribute:: mplsinterfacelabelparticipationtype
             
             	If the value of the mplsInterfaceIndex for this entry is zero, then this entry corresponds to the per\-platform label space for all interfaces configured to use that label space. In this case the perPlatform(0) bit MUST be set; the perInterface(1) bit is meaningless and MUST be ignored.  The remainder of this description applies to entries with a non\-zero value of mplsInterfaceIndex.  If the perInterface(1) bit is set then the value of mplsInterfaceLabelMinIn, mplsInterfaceLabelMaxIn, mplsInterfaceLabelMinOut, and mplsInterfaceLabelMaxOut for this entry reflect the label ranges for this interface.  If only the perPlatform(0) bit is set, then the value of mplsInterfaceLabelMinIn, mplsInterfaceLabelMaxIn, mplsInterfaceLabelMinOut, and mplsInterfaceLabelMaxOut for this entry MUST be identical to the instance of these objects with index 0.  These objects may only vary from the entry with index 0 if both the perPlatform(0) and perInterface(1) bits are set.  In all cases, at a minimum one of the perPlatform(0) or perInterface(1) bits MUST be set to indicate that at least one label space is in use by this interface. In all cases, agents MUST ensure that label ranges are specified consistently and MUST return an inconsistentValue error when they do not
-            	**type**\:  :py:class:`Mplsinterfacelabelparticipationtype <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry.Mplsinterfacelabelparticipationtype>`
+            	**type**\:  :py:class:`MplsInterfaceLabelParticipationType <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsInterfaceTable.MplsInterfaceEntry.MplsInterfaceLabelParticipationType>`
             
             .. attribute:: mplsinterfaceperfinlabelsinuse
             
@@ -357,15 +350,14 @@ class MPLSLSRSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry, self).__init__()
+                super(MPLSLSRSTDMIB.MplsInterfaceTable.MplsInterfaceEntry, self).__init__()
 
                 self.yang_name = "mplsInterfaceEntry"
                 self.yang_parent_name = "mplsInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsinterfaceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsinterfaceindex', YLeaf(YType.int32, 'mplsInterfaceIndex')),
                     ('mplsinterfacelabelminin', YLeaf(YType.uint32, 'mplsInterfaceLabelMinIn')),
@@ -396,10 +388,10 @@ class MPLSLSRSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry, ['mplsinterfaceindex', 'mplsinterfacelabelminin', 'mplsinterfacelabelmaxin', 'mplsinterfacelabelminout', 'mplsinterfacelabelmaxout', 'mplsinterfacetotalbandwidth', 'mplsinterfaceavailablebandwidth', 'mplsinterfacelabelparticipationtype', 'mplsinterfaceperfinlabelsinuse', 'mplsinterfaceperfinlabellookupfailures', 'mplsinterfaceperfoutlabelsinuse', 'mplsinterfaceperfoutfragmentedpkts'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsInterfaceTable.MplsInterfaceEntry, [u'mplsinterfaceindex', u'mplsinterfacelabelminin', u'mplsinterfacelabelmaxin', u'mplsinterfacelabelminout', u'mplsinterfacelabelmaxout', u'mplsinterfacetotalbandwidth', u'mplsinterfaceavailablebandwidth', u'mplsinterfacelabelparticipationtype', u'mplsinterfaceperfinlabelsinuse', u'mplsinterfaceperfinlabellookupfailures', u'mplsinterfaceperfoutlabelsinuse', u'mplsinterfaceperfoutfragmentedpkts'], name, value)
 
 
-    class Mplsinsegmenttable(Entity):
+    class MplsInSegmentTable(Entity):
         """
         This table contains a description of the incoming MPLS
         segments (labels) to an LSR and their associated parameters.
@@ -429,7 +421,7 @@ class MPLSLSRSTDMIB(Entity):
         .. attribute:: mplsinsegmententry
         
         	An entry in this table represents one incoming segment as is represented in an LSR's LFIB. An entry can be created by a network administrator or an SNMP agent, or an MPLS signaling protocol.  The creator of the entry is denoted by mplsInSegmentOwner. The value of mplsInSegmentRowStatus cannot be active(1) unless the ifTable entry corresponding to mplsInSegmentInterface exists.  An entry in this table must match any incoming packets, and indicates an instance of mplsXCEntry based on which forwarding and/or switching actions are taken
-        	**type**\: list of  		 :py:class:`Mplsinsegmententry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmenttable.Mplsinsegmententry>`
+        	**type**\: list of  		 :py:class:`MplsInSegmentEntry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsInSegmentTable.MplsInSegmentEntry>`
         
         
 
@@ -439,15 +431,14 @@ class MPLSLSRSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLSRSTDMIB.Mplsinsegmenttable, self).__init__()
+            super(MPLSLSRSTDMIB.MplsInSegmentTable, self).__init__()
 
             self.yang_name = "mplsInSegmentTable"
             self.yang_parent_name = "MPLS-LSR-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsInSegmentEntry", ("mplsinsegmententry", MPLSLSRSTDMIB.Mplsinsegmenttable.Mplsinsegmententry))])
+            self._child_classes = OrderedDict([("mplsInSegmentEntry", ("mplsinsegmententry", MPLSLSRSTDMIB.MplsInSegmentTable.MplsInSegmentEntry))])
             self._leafs = OrderedDict()
 
             self.mplsinsegmententry = YList(self)
@@ -455,10 +446,10 @@ class MPLSLSRSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmenttable, [], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentTable, [], name, value)
 
 
-        class Mplsinsegmententry(Entity):
+        class MplsInSegmentEntry(Entity):
             """
             An entry in this table represents one incoming
             segment as is represented in an LSR's LFIB.
@@ -592,15 +583,14 @@ class MPLSLSRSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLSRSTDMIB.Mplsinsegmenttable.Mplsinsegmententry, self).__init__()
+                super(MPLSLSRSTDMIB.MplsInSegmentTable.MplsInSegmentEntry, self).__init__()
 
                 self.yang_name = "mplsInSegmentEntry"
                 self.yang_parent_name = "mplsInSegmentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsinsegmentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsinsegmentindex', YLeaf(YType.str, 'mplsInSegmentIndex')),
                     ('mplsinsegmentinterface', YLeaf(YType.int32, 'mplsInSegmentInterface')),
@@ -641,10 +631,10 @@ class MPLSLSRSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInSegmentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmenttable.Mplsinsegmententry, ['mplsinsegmentindex', 'mplsinsegmentinterface', 'mplsinsegmentlabel', 'mplsinsegmentlabelptr', 'mplsinsegmentnpop', 'mplsinsegmentaddrfamily', 'mplsinsegmentxcindex', 'mplsinsegmentowner', 'mplsinsegmenttrafficparamptr', 'mplsinsegmentrowstatus', 'mplsinsegmentstoragetype', 'mplsinsegmentperfoctets', 'mplsinsegmentperfpackets', 'mplsinsegmentperferrors', 'mplsinsegmentperfdiscards', 'mplsinsegmentperfhcoctets', 'mplsinsegmentperfdiscontinuitytime'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentTable.MplsInSegmentEntry, [u'mplsinsegmentindex', u'mplsinsegmentinterface', u'mplsinsegmentlabel', u'mplsinsegmentlabelptr', u'mplsinsegmentnpop', u'mplsinsegmentaddrfamily', u'mplsinsegmentxcindex', u'mplsinsegmentowner', u'mplsinsegmenttrafficparamptr', u'mplsinsegmentrowstatus', u'mplsinsegmentstoragetype', u'mplsinsegmentperfoctets', u'mplsinsegmentperfpackets', u'mplsinsegmentperferrors', u'mplsinsegmentperfdiscards', u'mplsinsegmentperfhcoctets', u'mplsinsegmentperfdiscontinuitytime'], name, value)
 
 
-    class Mplsoutsegmenttable(Entity):
+    class MplsOutSegmentTable(Entity):
         """
         This table contains a representation of the outgoing
         segments from an LSR.
@@ -652,7 +642,7 @@ class MPLSLSRSTDMIB(Entity):
         .. attribute:: mplsoutsegmententry
         
         	An entry in this table represents one outgoing segment.  An entry can be created by a network administrator, an SNMP agent, or an MPLS signaling protocol.  The object mplsOutSegmentOwner indicates the creator of this entry. The value of mplsOutSegmentRowStatus cannot be active(1) unless the ifTable entry corresponding to mplsOutSegmentInterface exists.  Note that the indexing of this table uses a single, arbitrary index (mplsOutSegmentIndex) to indicate which out\-segment (i.e.\: label) is being switched to from which in\-segment (i.e\: label) or in\-segments. This is necessary because it is possible to have an equal\-cost multi\-path situation where two identical out\-going labels are assigned to the same cross\-connect (i.e.\: they go to two different neighboring LSRs); thus, requiring two out\-segments. In order to preserve the uniqueness of the references by the mplsXCEntry, an arbitrary integer must be used as the index for this table
-        	**type**\: list of  		 :py:class:`Mplsoutsegmententry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsoutsegmenttable.Mplsoutsegmententry>`
+        	**type**\: list of  		 :py:class:`MplsOutSegmentEntry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsOutSegmentTable.MplsOutSegmentEntry>`
         
         
 
@@ -662,15 +652,14 @@ class MPLSLSRSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLSRSTDMIB.Mplsoutsegmenttable, self).__init__()
+            super(MPLSLSRSTDMIB.MplsOutSegmentTable, self).__init__()
 
             self.yang_name = "mplsOutSegmentTable"
             self.yang_parent_name = "MPLS-LSR-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsOutSegmentEntry", ("mplsoutsegmententry", MPLSLSRSTDMIB.Mplsoutsegmenttable.Mplsoutsegmententry))])
+            self._child_classes = OrderedDict([("mplsOutSegmentEntry", ("mplsoutsegmententry", MPLSLSRSTDMIB.MplsOutSegmentTable.MplsOutSegmentEntry))])
             self._leafs = OrderedDict()
 
             self.mplsoutsegmententry = YList(self)
@@ -678,10 +667,10 @@ class MPLSLSRSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplsoutsegmenttable, [], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.MplsOutSegmentTable, [], name, value)
 
 
-        class Mplsoutsegmententry(Entity):
+        class MplsOutSegmentEntry(Entity):
             """
             An entry in this table represents one outgoing
             segment.  An entry can be created by a network
@@ -829,15 +818,14 @@ class MPLSLSRSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLSRSTDMIB.Mplsoutsegmenttable.Mplsoutsegmententry, self).__init__()
+                super(MPLSLSRSTDMIB.MplsOutSegmentTable.MplsOutSegmentEntry, self).__init__()
 
                 self.yang_name = "mplsOutSegmentEntry"
                 self.yang_parent_name = "mplsOutSegmentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsoutsegmentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsoutsegmentindex', YLeaf(YType.str, 'mplsOutSegmentIndex')),
                     ('mplsoutsegmentinterface', YLeaf(YType.int32, 'mplsOutSegmentInterface')),
@@ -880,10 +868,10 @@ class MPLSLSRSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsOutSegmentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsoutsegmenttable.Mplsoutsegmententry, ['mplsoutsegmentindex', 'mplsoutsegmentinterface', 'mplsoutsegmentpushtoplabel', 'mplsoutsegmenttoplabel', 'mplsoutsegmenttoplabelptr', 'mplsoutsegmentnexthopaddrtype', 'mplsoutsegmentnexthopaddr', 'mplsoutsegmentxcindex', 'mplsoutsegmentowner', 'mplsoutsegmenttrafficparamptr', 'mplsoutsegmentrowstatus', 'mplsoutsegmentstoragetype', 'mplsoutsegmentperfoctets', 'mplsoutsegmentperfpackets', 'mplsoutsegmentperferrors', 'mplsoutsegmentperfdiscards', 'mplsoutsegmentperfhcoctets', 'mplsoutsegmentperfdiscontinuitytime'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsOutSegmentTable.MplsOutSegmentEntry, [u'mplsoutsegmentindex', u'mplsoutsegmentinterface', u'mplsoutsegmentpushtoplabel', u'mplsoutsegmenttoplabel', u'mplsoutsegmenttoplabelptr', u'mplsoutsegmentnexthopaddrtype', u'mplsoutsegmentnexthopaddr', u'mplsoutsegmentxcindex', u'mplsoutsegmentowner', u'mplsoutsegmenttrafficparamptr', u'mplsoutsegmentrowstatus', u'mplsoutsegmentstoragetype', u'mplsoutsegmentperfoctets', u'mplsoutsegmentperfpackets', u'mplsoutsegmentperferrors', u'mplsoutsegmentperfdiscards', u'mplsoutsegmentperfhcoctets', u'mplsoutsegmentperfdiscontinuitytime'], name, value)
 
 
-    class Mplsxctable(Entity):
+    class MplsXCTable(Entity):
         """
         This table specifies information for switching
         between LSP segments.  It supports point\-to\-point,
@@ -895,7 +883,7 @@ class MPLSLSRSTDMIB(Entity):
         .. attribute:: mplsxcentry
         
         	A row in this table represents one cross\-connect entry.  It is indexed by the following objects\:  \- cross\-connect index mplsXCIndex that uniquely   identifies a group of cross\-connect entries  \- in\-segment index, mplsXCInSegmentIndex  \- out\-segment index, mplsXCOutSegmentIndex  LSPs originating at this LSR\: These are represented by using the special of value of mplsXCInSegmentIndex set to the string containing a single octet 0x00. In this case the mplsXCOutSegmentIndex MUST not be the string containing a single octet 0x00.  LSPs terminating at this LSR\: These are represented by using the special value mplsXCOutSegmentIndex set to the string containing a single octet 0x00.  Special labels\: Entries indexed by the strings containing the reserved MPLS label values as a single octet 0x00 through 0x0f (inclusive) imply LSPs terminating at this LSR.  Note that situations where LSPs are terminated with incoming label equal to the string containing a single octet 0x00 can be distinguished from LSPs originating at this LSR because the mplsXCOutSegmentIndex equals the string containing the single octet 0x00.  An entry can be created by a network administrator or by an SNMP agent as instructed by an MPLS signaling protocol
-        	**type**\: list of  		 :py:class:`Mplsxcentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry>`
+        	**type**\: list of  		 :py:class:`MplsXCEntry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry>`
         
         
 
@@ -905,15 +893,14 @@ class MPLSLSRSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLSRSTDMIB.Mplsxctable, self).__init__()
+            super(MPLSLSRSTDMIB.MplsXCTable, self).__init__()
 
             self.yang_name = "mplsXCTable"
             self.yang_parent_name = "MPLS-LSR-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsXCEntry", ("mplsxcentry", MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry))])
+            self._child_classes = OrderedDict([("mplsXCEntry", ("mplsxcentry", MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry))])
             self._leafs = OrderedDict()
 
             self.mplsxcentry = YList(self)
@@ -921,10 +908,10 @@ class MPLSLSRSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplsxctable, [], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.MplsXCTable, [], name, value)
 
 
-        class Mplsxcentry(Entity):
+        class MplsXCEntry(Entity):
             """
             A row in this table represents one cross\-connect
             entry.  It is indexed by the following objects\:
@@ -1017,12 +1004,12 @@ class MPLSLSRSTDMIB(Entity):
             .. attribute:: mplsxcadminstatus
             
             	The desired operational status of this segment
-            	**type**\:  :py:class:`Mplsxcadminstatus <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry.Mplsxcadminstatus>`
+            	**type**\:  :py:class:`MplsXCAdminStatus <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry.MplsXCAdminStatus>`
             
             .. attribute:: mplsxcoperstatus
             
             	The actual operational status of this cross\- connect
-            	**type**\:  :py:class:`Mplsxcoperstatus <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry.Mplsxcoperstatus>`
+            	**type**\:  :py:class:`MplsXCOperStatus <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry.MplsXCOperStatus>`
             
             
 
@@ -1032,15 +1019,14 @@ class MPLSLSRSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry, self).__init__()
+                super(MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry, self).__init__()
 
                 self.yang_name = "mplsXCEntry"
                 self.yang_parent_name = "mplsXCTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsxcindex','mplsxcinsegmentindex','mplsxcoutsegmentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsxcindex', YLeaf(YType.str, 'mplsXCIndex')),
                     ('mplsxcinsegmentindex', YLeaf(YType.str, 'mplsXCInSegmentIndex')),
@@ -1067,11 +1053,11 @@ class MPLSLSRSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsXCTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry, ['mplsxcindex', 'mplsxcinsegmentindex', 'mplsxcoutsegmentindex', 'mplsxclspid', 'mplsxclabelstackindex', 'mplsxcowner', 'mplsxcrowstatus', 'mplsxcstoragetype', 'mplsxcadminstatus', 'mplsxcoperstatus'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry, [u'mplsxcindex', u'mplsxcinsegmentindex', u'mplsxcoutsegmentindex', u'mplsxclspid', u'mplsxclabelstackindex', u'mplsxcowner', u'mplsxcrowstatus', u'mplsxcstoragetype', u'mplsxcadminstatus', u'mplsxcoperstatus'], name, value)
 
-            class Mplsxcadminstatus(Enum):
+            class MplsXCAdminStatus(Enum):
                 """
-                Mplsxcadminstatus (Enum Class)
+                MplsXCAdminStatus (Enum Class)
 
                 The desired operational status of this segment.
 
@@ -1090,9 +1076,9 @@ class MPLSLSRSTDMIB(Entity):
                 testing = Enum.YLeaf(3, "testing")
 
 
-            class Mplsxcoperstatus(Enum):
+            class MplsXCOperStatus(Enum):
                 """
-                Mplsxcoperstatus (Enum Class)
+                MplsXCOperStatus (Enum Class)
 
                 The actual operational status of this cross\-
 
@@ -1130,7 +1116,7 @@ class MPLSLSRSTDMIB(Entity):
 
 
 
-    class Mplslabelstacktable(Entity):
+    class MplsLabelStackTable(Entity):
         """
         This table specifies the label stack to be pushed
         onto a packet, beneath the top label.  Entries into
@@ -1139,7 +1125,7 @@ class MPLSLSRSTDMIB(Entity):
         .. attribute:: mplslabelstackentry
         
         	An entry in this table represents one label which is to be pushed onto an outgoing packet, beneath the top label.  An entry can be created by a network administrator or by an SNMP agent as instructed by an MPLS signaling protocol
-        	**type**\: list of  		 :py:class:`Mplslabelstackentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry>`
+        	**type**\: list of  		 :py:class:`MplsLabelStackEntry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsLabelStackTable.MplsLabelStackEntry>`
         
         
 
@@ -1149,15 +1135,14 @@ class MPLSLSRSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLSRSTDMIB.Mplslabelstacktable, self).__init__()
+            super(MPLSLSRSTDMIB.MplsLabelStackTable, self).__init__()
 
             self.yang_name = "mplsLabelStackTable"
             self.yang_parent_name = "MPLS-LSR-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsLabelStackEntry", ("mplslabelstackentry", MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry))])
+            self._child_classes = OrderedDict([("mplsLabelStackEntry", ("mplslabelstackentry", MPLSLSRSTDMIB.MplsLabelStackTable.MplsLabelStackEntry))])
             self._leafs = OrderedDict()
 
             self.mplslabelstackentry = YList(self)
@@ -1165,10 +1150,10 @@ class MPLSLSRSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplslabelstacktable, [], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.MplsLabelStackTable, [], name, value)
 
 
-        class Mplslabelstackentry(Entity):
+        class MplsLabelStackEntry(Entity):
             """
             An entry in this table represents one label which is
             to be pushed onto an outgoing packet, beneath the
@@ -1222,15 +1207,14 @@ class MPLSLSRSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry, self).__init__()
+                super(MPLSLSRSTDMIB.MplsLabelStackTable.MplsLabelStackEntry, self).__init__()
 
                 self.yang_name = "mplsLabelStackEntry"
                 self.yang_parent_name = "mplsLabelStackTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplslabelstackindex','mplslabelstacklabelindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplslabelstackindex', YLeaf(YType.str, 'mplsLabelStackIndex')),
                     ('mplslabelstacklabelindex', YLeaf(YType.uint32, 'mplsLabelStackLabelIndex')),
@@ -1249,10 +1233,10 @@ class MPLSLSRSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsLabelStackTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry, ['mplslabelstackindex', 'mplslabelstacklabelindex', 'mplslabelstacklabel', 'mplslabelstacklabelptr', 'mplslabelstackrowstatus', 'mplslabelstackstoragetype'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsLabelStackTable.MplsLabelStackEntry, [u'mplslabelstackindex', u'mplslabelstacklabelindex', u'mplslabelstacklabel', u'mplslabelstacklabelptr', u'mplslabelstackrowstatus', u'mplslabelstackstoragetype'], name, value)
 
 
-    class Mplsinsegmentmaptable(Entity):
+    class MplsInSegmentMapTable(Entity):
         """
         This table specifies the mapping from the
         mplsInSegmentIndex to the corresponding
@@ -1264,7 +1248,7 @@ class MPLSLSRSTDMIB(Entity):
         .. attribute:: mplsinsegmentmapentry
         
         	An entry in this table represents one interface and incoming label pair.  In cases where the label cannot fit into the mplsInSegmentLabel object, the mplsInSegmentLabelPtr will indicate this by being set to the first accessible column in the appropriate extension table's row, and the mplsInSegmentLabel SHOULD be set to 0. In all other cases when the label is represented within the mplsInSegmentLabel object, the mplsInSegmentLabelPtr MUST be 0.0.  Implementors need to be aware that if the value of the mplsInSegmentMapLabelPtrIndex (an OID) has more that 111 sub\-identifiers, then OIDs of column instances in this table will have more than 128 sub\-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
-        	**type**\: list of  		 :py:class:`Mplsinsegmentmapentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry>`
+        	**type**\: list of  		 :py:class:`MplsInSegmentMapEntry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsInSegmentMapTable.MplsInSegmentMapEntry>`
         
         
 
@@ -1274,15 +1258,14 @@ class MPLSLSRSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLSRSTDMIB.Mplsinsegmentmaptable, self).__init__()
+            super(MPLSLSRSTDMIB.MplsInSegmentMapTable, self).__init__()
 
             self.yang_name = "mplsInSegmentMapTable"
             self.yang_parent_name = "MPLS-LSR-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsInSegmentMapEntry", ("mplsinsegmentmapentry", MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry))])
+            self._child_classes = OrderedDict([("mplsInSegmentMapEntry", ("mplsinsegmentmapentry", MPLSLSRSTDMIB.MplsInSegmentMapTable.MplsInSegmentMapEntry))])
             self._leafs = OrderedDict()
 
             self.mplsinsegmentmapentry = YList(self)
@@ -1290,10 +1273,10 @@ class MPLSLSRSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmentmaptable, [], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentMapTable, [], name, value)
 
 
-        class Mplsinsegmentmapentry(Entity):
+        class MplsInSegmentMapEntry(Entity):
             """
             An entry in this table represents one interface
             and incoming label pair.
@@ -1350,15 +1333,14 @@ class MPLSLSRSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry, self).__init__()
+                super(MPLSLSRSTDMIB.MplsInSegmentMapTable.MplsInSegmentMapEntry, self).__init__()
 
                 self.yang_name = "mplsInSegmentMapEntry"
                 self.yang_parent_name = "mplsInSegmentMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsinsegmentmapinterface','mplsinsegmentmaplabel','mplsinsegmentmaplabelptrindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsinsegmentmapinterface', YLeaf(YType.int32, 'mplsInSegmentMapInterface')),
                     ('mplsinsegmentmaplabel', YLeaf(YType.uint32, 'mplsInSegmentMapLabel')),
@@ -1373,7 +1355,7 @@ class MPLSLSRSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInSegmentMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry, ['mplsinsegmentmapinterface', 'mplsinsegmentmaplabel', 'mplsinsegmentmaplabelptrindex', 'mplsinsegmentmapindex'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentMapTable.MplsInSegmentMapEntry, [u'mplsinsegmentmapinterface', u'mplsinsegmentmaplabel', u'mplsinsegmentmaplabelptrindex', u'mplsinsegmentmapindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MPLSLSRSTDMIB()

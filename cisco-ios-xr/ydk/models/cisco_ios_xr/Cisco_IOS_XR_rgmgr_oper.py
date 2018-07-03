@@ -46,15 +46,16 @@ class RedundancyGroupManager(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("controllers", ("controllers", RedundancyGroupManager.Controllers))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("controllers", ("controllers", RedundancyGroupManager.Controllers))])
         self._leafs = OrderedDict()
 
         self.controllers = RedundancyGroupManager.Controllers()
         self.controllers.parent = self
         self._children_name_map["controllers"] = "controllers"
-        self._children_yang_names.add("controllers")
         self._segment_path = lambda: "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(RedundancyGroupManager, [], name, value)
 
 
     class Controllers(Entity):
@@ -81,8 +82,7 @@ class RedundancyGroupManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("controller", ("controller", RedundancyGroupManager.Controllers.Controller))])
+            self._child_classes = OrderedDict([("controller", ("controller", RedundancyGroupManager.Controllers.Controller))])
             self._leafs = OrderedDict()
 
             self.controller = YList(self)
@@ -168,8 +168,7 @@ class RedundancyGroupManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['controller_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('controller_name', YLeaf(YType.str, 'controller-name')),
                     ('multi_router_aps_group_number', YLeaf(YType.str, 'multi-router-aps-group-number')),

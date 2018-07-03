@@ -114,15 +114,16 @@ class LptsPifib_(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", LptsPifib_.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", LptsPifib_.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = LptsPifib_.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(LptsPifib_, [], name, value)
 
 
     class Nodes(Entity):
@@ -149,8 +150,7 @@ class LptsPifib_(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", LptsPifib_.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", LptsPifib_.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -202,8 +202,7 @@ class LptsPifib_(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("type-values", ("type_values", LptsPifib_.Nodes.Node.TypeValues)), ("dynamic-flows-stats", ("dynamic_flows_stats", LptsPifib_.Nodes.Node.DynamicFlowsStats)), ("Cisco-IOS-XR-platform-pifib-oper:hardware", ("hardware", LptsPifib_.Nodes.Node.Hardware))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("type-values", ("type_values", LptsPifib_.Nodes.Node.TypeValues)), ("dynamic-flows-stats", ("dynamic_flows_stats", LptsPifib_.Nodes.Node.DynamicFlowsStats)), ("Cisco-IOS-XR-platform-pifib-oper:hardware", ("hardware", LptsPifib_.Nodes.Node.Hardware))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -212,17 +211,14 @@ class LptsPifib_(Entity):
                 self.type_values = LptsPifib_.Nodes.Node.TypeValues()
                 self.type_values.parent = self
                 self._children_name_map["type_values"] = "type-values"
-                self._children_yang_names.add("type-values")
 
                 self.dynamic_flows_stats = LptsPifib_.Nodes.Node.DynamicFlowsStats()
                 self.dynamic_flows_stats.parent = self
                 self._children_name_map["dynamic_flows_stats"] = "dynamic-flows-stats"
-                self._children_yang_names.add("dynamic-flows-stats")
 
                 self.hardware = LptsPifib_.Nodes.Node.Hardware()
                 self.hardware.parent = self
                 self._children_name_map["hardware"] = "Cisco-IOS-XR-platform-pifib-oper:hardware"
-                self._children_yang_names.add("Cisco-IOS-XR-platform-pifib-oper:hardware")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/%s" % self._segment_path()
 
@@ -254,8 +250,7 @@ class LptsPifib_(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("type-value", ("type_value", LptsPifib_.Nodes.Node.TypeValues.TypeValue))])
+                    self._child_classes = OrderedDict([("type-value", ("type_value", LptsPifib_.Nodes.Node.TypeValues.TypeValue))])
                     self._leafs = OrderedDict()
 
                     self.type_value = YList(self)
@@ -294,8 +289,7 @@ class LptsPifib_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['pifib_type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("entry", ("entry", LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry))])
+                        self._child_classes = OrderedDict([("entry", ("entry", LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry))])
                         self._leafs = OrderedDict([
                             ('pifib_type', YLeaf(YType.enumeration, 'pifib-type')),
                         ])
@@ -490,8 +484,7 @@ class LptsPifib_(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['entry']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('entry', YLeaf(YType.str, 'entry')),
                                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -551,7 +544,7 @@ class LptsPifib_(Entity):
                             self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'destination_addr', 'source_addr', 'destination_type', 'destination_value', 'source_port', 'is_frag', 'is_syn', 'opcode', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'accepts', 'drops', 'stale', 'pifib_type', 'pifib_program_time'], name, value)
+                            self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', u'vrf_name', u'vid', u'l3protocol', u'l4protocol', u'intf_name', u'intf_handle', u'destination_addr', u'source_addr', u'destination_type', u'destination_value', u'source_port', u'is_frag', u'is_syn', u'opcode', u'flow_type', u'listener_tag', u'local_flag', u'is_fgid', u'deliver_list_short', u'deliver_list_long', u'min_ttl', u'accepts', u'drops', u'stale', u'pifib_type', u'pifib_program_time'], name, value)
 
 
             class DynamicFlowsStats(Entity):
@@ -618,8 +611,7 @@ class LptsPifib_(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("flow", ("flow", LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow))])
+                    self._child_classes = OrderedDict([("flow", ("flow", LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow))])
                     self._leafs = OrderedDict([
                         ('dynamic_flows_enabled', YLeaf(YType.boolean, 'dynamic-flows-enabled')),
                         ('platform_supported_max', YLeaf(YType.uint32, 'platform-supported-max')),
@@ -639,7 +631,7 @@ class LptsPifib_(Entity):
                     self._segment_path = lambda: "dynamic-flows-stats"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats, ['dynamic_flows_enabled', 'platform_supported_max', 'platform_configured_max', 'platform_total_configured', 'total_hw_entries', 'total_sw_entries'], name, value)
+                    self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats, [u'dynamic_flows_enabled', u'platform_supported_max', u'platform_configured_max', u'platform_total_configured', u'total_hw_entries', u'total_sw_entries'], name, value)
 
 
                 class Flow(Entity):
@@ -714,8 +706,7 @@ class LptsPifib_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('flow_name', YLeaf(YType.str, 'flow-name')),
                             ('configurable', YLeaf(YType.boolean, 'configurable')),
@@ -739,7 +730,7 @@ class LptsPifib_(Entity):
                         self._segment_path = lambda: "flow"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, ['flow_name', 'configurable', 'configured', 'default_max', 'configured_max', 'active_max', 'hardware_count', 'software_count', 'pending_software_entries'], name, value)
+                        self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, [u'flow_name', u'configurable', u'configured', u'default_max', u'configured_max', u'active_max', u'hardware_count', u'software_count', u'pending_software_entries'], name, value)
 
 
             class Hardware(Entity):
@@ -791,40 +782,36 @@ class LptsPifib_(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("usage-entries", ("usage_entries", LptsPifib_.Nodes.Node.Hardware.UsageEntries)), ("police", ("police", LptsPifib_.Nodes.Node.Hardware.Police)), ("static-police", ("static_police", LptsPifib_.Nodes.Node.Hardware.StaticPolice)), ("bfd", ("bfd", LptsPifib_.Nodes.Node.Hardware.Bfd)), ("statistics", ("statistics", LptsPifib_.Nodes.Node.Hardware.Statistics)), ("index-entries", ("index_entries", LptsPifib_.Nodes.Node.Hardware.IndexEntries))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("usage-entries", ("usage_entries", LptsPifib_.Nodes.Node.Hardware.UsageEntries)), ("police", ("police", LptsPifib_.Nodes.Node.Hardware.Police)), ("static-police", ("static_police", LptsPifib_.Nodes.Node.Hardware.StaticPolice)), ("bfd", ("bfd", LptsPifib_.Nodes.Node.Hardware.Bfd)), ("statistics", ("statistics", LptsPifib_.Nodes.Node.Hardware.Statistics)), ("index-entries", ("index_entries", LptsPifib_.Nodes.Node.Hardware.IndexEntries))])
                     self._leafs = OrderedDict()
 
                     self.usage_entries = LptsPifib_.Nodes.Node.Hardware.UsageEntries()
                     self.usage_entries.parent = self
                     self._children_name_map["usage_entries"] = "usage-entries"
-                    self._children_yang_names.add("usage-entries")
 
                     self.police = LptsPifib_.Nodes.Node.Hardware.Police()
                     self.police.parent = self
                     self._children_name_map["police"] = "police"
-                    self._children_yang_names.add("police")
 
                     self.static_police = LptsPifib_.Nodes.Node.Hardware.StaticPolice()
                     self.static_police.parent = self
                     self._children_name_map["static_police"] = "static-police"
-                    self._children_yang_names.add("static-police")
 
                     self.bfd = LptsPifib_.Nodes.Node.Hardware.Bfd()
                     self.bfd.parent = self
                     self._children_name_map["bfd"] = "bfd"
-                    self._children_yang_names.add("bfd")
 
                     self.statistics = LptsPifib_.Nodes.Node.Hardware.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
 
                     self.index_entries = LptsPifib_.Nodes.Node.Hardware.IndexEntries()
                     self.index_entries.parent = self
                     self._children_name_map["index_entries"] = "index-entries"
-                    self._children_yang_names.add("index-entries")
                     self._segment_path = lambda: "Cisco-IOS-XR-platform-pifib-oper:hardware"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(LptsPifib_.Nodes.Node.Hardware, [], name, value)
 
 
                 class UsageEntries(Entity):
@@ -851,8 +838,7 @@ class LptsPifib_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("usage-entry", ("usage_entry", LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry))])
+                        self._child_classes = OrderedDict([("usage-entry", ("usage_entry", LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry))])
                         self._leafs = OrderedDict()
 
                         self.usage_entry = YList(self)
@@ -891,8 +877,7 @@ class LptsPifib_(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['region_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("usage-info", ("usage_info", LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo))])
+                            self._child_classes = OrderedDict([("usage-info", ("usage_info", LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo))])
                             self._leafs = OrderedDict([
                                 ('region_id', YLeaf(YType.enumeration, 'region-id')),
                             ])
@@ -959,8 +944,7 @@ class LptsPifib_(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pipe_id', YLeaf(YType.uint8, 'pipe-id')),
                                     ('region', YLeaf(YType.uint8, 'region')),
@@ -1003,8 +987,7 @@ class LptsPifib_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("police-info", ("police_info", LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo))])
+                        self._child_classes = OrderedDict([("police-info", ("police_info", LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo))])
                         self._leafs = OrderedDict()
 
                         self.police_info = YList(self)
@@ -1110,8 +1093,7 @@ class LptsPifib_(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('avgrate', YLeaf(YType.uint32, 'avgrate')),
                                 ('burst', YLeaf(YType.uint32, 'burst')),
@@ -1166,8 +1148,7 @@ class LptsPifib_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("static-info", ("static_info", LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo))])
+                        self._child_classes = OrderedDict([("static-info", ("static_info", LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo))])
                         self._leafs = OrderedDict()
 
                         self.static_info = YList(self)
@@ -1252,8 +1233,7 @@ class LptsPifib_(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('punt_reason', YLeaf(YType.uint32, 'punt-reason')),
                                 ('sid', YLeaf(YType.uint32, 'sid')),
@@ -1302,8 +1282,7 @@ class LptsPifib_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("bfd-entry-info", ("bfd_entry_info", LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo))])
+                        self._child_classes = OrderedDict([("bfd-entry-info", ("bfd_entry_info", LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo))])
                         self._leafs = OrderedDict()
 
                         self.bfd_entry_info = YList(self)
@@ -1367,8 +1346,7 @@ class LptsPifib_(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('index', YLeaf(YType.uint8, 'index')),
                                 ('is_mcast', YLeaf(YType.uint8, 'is-mcast')),
@@ -1434,8 +1412,7 @@ class LptsPifib_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('accepted', YLeaf(YType.uint64, 'accepted')),
                             ('dropped', YLeaf(YType.uint64, 'dropped')),
@@ -1476,8 +1453,7 @@ class LptsPifib_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("index-entry", ("index_entry", LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry))])
+                        self._child_classes = OrderedDict([("index-entry", ("index_entry", LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry))])
                         self._leafs = OrderedDict()
 
                         self.index_entry = YList(self)
@@ -1496,7 +1472,7 @@ class LptsPifib_(Entity):
                         	Index
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: l3protocol
                         
@@ -1832,10 +1808,9 @@ class LptsPifib_(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['index']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("hw-info", ("hw_info", LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo))])
+                            self._child_classes = OrderedDict([("hw-info", ("hw_info", LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo))])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.int32, 'index')),
+                                ('index', YLeaf(YType.uint32, 'index')),
                                 ('l3protocol', YLeaf(YType.uint32, 'l3protocol')),
                                 ('l4protocol', YLeaf(YType.uint32, 'l4protocol')),
                                 ('intf_handle', YLeaf(YType.uint32, 'intf-handle')),
@@ -1999,8 +1974,7 @@ class LptsPifib_(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('policer', YLeaf(YType.uint32, 'policer')),
                                     ('stats_ptr', YLeaf(YType.uint32, 'stats-ptr')),

@@ -46,19 +46,16 @@ class Ping(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Ping.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Ping.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XR-ping-act:ping"
 
 
@@ -96,19 +93,16 @@ class Ping(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("destination", ("destination", Ping.Input.Destination)), ("ipv6", ("ipv6", Ping.Input.Ipv6))])
-            self._child_list_classes = OrderedDict([("ipv4", ("ipv4", Ping.Input.Ipv4))])
+            self._child_classes = OrderedDict([("destination", ("destination", Ping.Input.Destination)), ("ipv4", ("ipv4", Ping.Input.Ipv4)), ("ipv6", ("ipv6", Ping.Input.Ipv6))])
             self._leafs = OrderedDict()
 
             self.destination = Ping.Input.Destination()
             self.destination.parent = self
             self._children_name_map["destination"] = "destination"
-            self._children_yang_names.add("destination")
 
             self.ipv6 = Ping.Input.Ipv6()
             self.ipv6.parent = self
             self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
 
             self.ipv4 = YList(self)
             self._segment_path = lambda: "input"
@@ -236,8 +230,7 @@ class Ping(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('destination', YLeaf(YType.str, 'destination')),
                     ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
@@ -383,8 +376,7 @@ class Ping(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['destination']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('destination', YLeaf(YType.str, 'destination')),
                     ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
@@ -521,8 +513,7 @@ class Ping(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('destination', YLeaf(YType.str, 'destination')),
                     ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
@@ -580,16 +571,17 @@ class Ping(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ping-response", ("ping_response", Ping.Output.PingResponse))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("ping-response", ("ping_response", Ping.Output.PingResponse))])
             self._leafs = OrderedDict()
 
             self.ping_response = Ping.Output.PingResponse()
             self.ping_response.parent = self
             self._children_name_map["ping_response"] = "ping-response"
-            self._children_yang_names.add("ping-response")
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ping.Output, [], name, value)
 
 
         class PingResponse(Entity):
@@ -621,14 +613,12 @@ class Ping(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Ping.Output.PingResponse.Ipv6))])
-                self._child_list_classes = OrderedDict([("ipv4", ("ipv4", Ping.Output.PingResponse.Ipv4))])
+                self._child_classes = OrderedDict([("ipv4", ("ipv4", Ping.Output.PingResponse.Ipv4)), ("ipv6", ("ipv6", Ping.Output.PingResponse.Ipv6))])
                 self._leafs = OrderedDict()
 
                 self.ipv6 = Ping.Output.PingResponse.Ipv6()
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
 
                 self.ipv4 = YList(self)
                 self._segment_path = lambda: "ping-response"
@@ -783,8 +773,7 @@ class Ping(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['destination']
-                    self._child_container_classes = OrderedDict([("replies", ("replies", Ping.Output.PingResponse.Ipv4.Replies))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("replies", ("replies", Ping.Output.PingResponse.Ipv4.Replies))])
                     self._leafs = OrderedDict([
                         ('destination', YLeaf(YType.str, 'destination')),
                         ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
@@ -825,7 +814,6 @@ class Ping(Entity):
                     self.replies = Ping.Output.PingResponse.Ipv4.Replies()
                     self.replies.parent = self
                     self._children_name_map["replies"] = "replies"
-                    self._children_yang_names.add("replies")
                     self._segment_path = lambda: "ipv4" + "[destination='" + str(self.destination) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self._segment_path()
 
@@ -857,8 +845,7 @@ class Ping(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("reply", ("reply", Ping.Output.PingResponse.Ipv4.Replies.Reply))])
+                        self._child_classes = OrderedDict([("reply", ("reply", Ping.Output.PingResponse.Ipv4.Replies.Reply))])
                         self._leafs = OrderedDict()
 
                         self.reply = YList(self)
@@ -904,8 +891,7 @@ class Ping(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['reply_index']
-                            self._child_container_classes = OrderedDict([("broadcast-reply-addresses", ("broadcast_reply_addresses", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("broadcast-reply-addresses", ("broadcast_reply_addresses", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses))])
                             self._leafs = OrderedDict([
                                 ('reply_index', YLeaf(YType.uint64, 'reply-index')),
                                 ('result', YLeaf(YType.str, 'result')),
@@ -916,7 +902,6 @@ class Ping(Entity):
                             self.broadcast_reply_addresses = Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses()
                             self.broadcast_reply_addresses.parent = self
                             self._children_name_map["broadcast_reply_addresses"] = "broadcast-reply-addresses"
-                            self._children_yang_names.add("broadcast-reply-addresses")
                             self._segment_path = lambda: "reply" + "[reply-index='" + str(self.reply_index) + "']"
 
                         def __setattr__(self, name, value):
@@ -947,8 +932,7 @@ class Ping(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("broadcast-reply-address", ("broadcast_reply_address", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress))])
+                                self._child_classes = OrderedDict([("broadcast-reply-address", ("broadcast_reply_address", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress))])
                                 self._leafs = OrderedDict()
 
                                 self.broadcast_reply_address = YList(self)
@@ -987,8 +971,7 @@ class Ping(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['reply_address']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('reply_address', YLeaf(YType.str, 'reply-address')),
                                         ('result', YLeaf(YType.str, 'result')),
@@ -1141,8 +1124,7 @@ class Ping(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("replies", ("replies", Ping.Output.PingResponse.Ipv6.Replies))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("replies", ("replies", Ping.Output.PingResponse.Ipv6.Replies))])
                     self._leafs = OrderedDict([
                         ('destination', YLeaf(YType.str, 'destination')),
                         ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
@@ -1181,7 +1163,6 @@ class Ping(Entity):
                     self.replies = Ping.Output.PingResponse.Ipv6.Replies()
                     self.replies.parent = self
                     self._children_name_map["replies"] = "replies"
-                    self._children_yang_names.add("replies")
                     self._segment_path = lambda: "ipv6"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self._segment_path()
 
@@ -1213,8 +1194,7 @@ class Ping(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("reply", ("reply", Ping.Output.PingResponse.Ipv6.Replies.Reply))])
+                        self._child_classes = OrderedDict([("reply", ("reply", Ping.Output.PingResponse.Ipv6.Replies.Reply))])
                         self._leafs = OrderedDict()
 
                         self.reply = YList(self)
@@ -1256,8 +1236,7 @@ class Ping(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['reply_index']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('reply_index', YLeaf(YType.uint64, 'reply-index')),
                                 ('result', YLeaf(YType.str, 'result')),

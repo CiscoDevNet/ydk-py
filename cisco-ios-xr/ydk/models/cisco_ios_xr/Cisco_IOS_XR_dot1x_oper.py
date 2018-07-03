@@ -20,24 +20,24 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Dot1X(Entity):
+class Dot1x(Entity):
     """
     Dot1x operational data
     
     .. attribute:: statistics
     
     	Dot1x operational data
-    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics>`
     
     .. attribute:: nodes
     
     	Node\-specific Dot1x operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes>`
     
     .. attribute:: session
     
     	Dot1x operational data
-    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session>`
+    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session>`
     
     
 
@@ -47,7 +47,7 @@ class Dot1X(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Dot1X, self).__init__()
+        super(Dot1x, self).__init__()
         self._top_entity = None
 
         self.yang_name = "dot1x"
@@ -55,25 +55,24 @@ class Dot1X(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("statistics", ("statistics", Dot1X.Statistics)), ("nodes", ("nodes", Dot1X.Nodes)), ("session", ("session", Dot1X.Session))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("statistics", ("statistics", Dot1x.Statistics)), ("nodes", ("nodes", Dot1x.Nodes)), ("session", ("session", Dot1x.Session))])
         self._leafs = OrderedDict()
 
-        self.statistics = Dot1X.Statistics()
+        self.statistics = Dot1x.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
 
-        self.nodes = Dot1X.Nodes()
+        self.nodes = Dot1x.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
 
-        self.session = Dot1X.Session()
+        self.session = Dot1x.Session()
         self.session.parent = self
         self._children_name_map["session"] = "session"
-        self._children_yang_names.add("session")
         self._segment_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Dot1x, [], name, value)
 
 
     class Statistics(Entity):
@@ -83,7 +82,7 @@ class Dot1X(Entity):
         .. attribute:: interface_statistics
         
         	Interfaces with Dot1x
-        	**type**\:  :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics>`
+        	**type**\:  :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics>`
         
         
 
@@ -93,23 +92,24 @@ class Dot1X(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Dot1X.Statistics, self).__init__()
+            super(Dot1x.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "dot1x"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("interface-statistics", ("interface_statistics", Dot1X.Statistics.InterfaceStatistics))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("interface-statistics", ("interface_statistics", Dot1x.Statistics.InterfaceStatistics))])
             self._leafs = OrderedDict()
 
-            self.interface_statistics = Dot1X.Statistics.InterfaceStatistics()
+            self.interface_statistics = Dot1x.Statistics.InterfaceStatistics()
             self.interface_statistics.parent = self
             self._children_name_map["interface_statistics"] = "interface-statistics"
-            self._children_yang_names.add("interface-statistics")
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Dot1x.Statistics, [], name, value)
 
 
         class InterfaceStatistics(Entity):
@@ -119,7 +119,7 @@ class Dot1X(Entity):
             .. attribute:: interface_statistic
             
             	Dot1x Data for that Interface
-            	**type**\: list of  		 :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic>`
+            	**type**\: list of  		 :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic>`
             
             
 
@@ -129,15 +129,14 @@ class Dot1X(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dot1X.Statistics.InterfaceStatistics, self).__init__()
+                super(Dot1x.Statistics.InterfaceStatistics, self).__init__()
 
                 self.yang_name = "interface-statistics"
                 self.yang_parent_name = "statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface-statistic", ("interface_statistic", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic))])
+                self._child_classes = OrderedDict([("interface-statistic", ("interface_statistic", Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic))])
                 self._leafs = OrderedDict()
 
                 self.interface_statistic = YList(self)
@@ -145,7 +144,7 @@ class Dot1X(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Dot1X.Statistics.InterfaceStatistics, [], name, value)
+                self._perform_setattr(Dot1x.Statistics.InterfaceStatistics, [], name, value)
 
 
             class InterfaceStatistic(Entity):
@@ -162,17 +161,17 @@ class Dot1X(Entity):
                 .. attribute:: idb
                 
                 	Dot1x interface database Statistics
-                	**type**\:  :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb>`
+                	**type**\:  :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb>`
                 
                 .. attribute:: auth
                 
                 	Dot1x Authenticator Port Statistics
-                	**type**\:  :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth>`
+                	**type**\:  :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth>`
                 
                 .. attribute:: supp
                 
                 	Dot1x Supplicant Port Statistics
-                	**type**\:  :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp>`
+                	**type**\:  :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp>`
                 
                 .. attribute:: interface_name
                 
@@ -192,15 +191,14 @@ class Dot1X(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic, self).__init__()
+                    super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, self).__init__()
 
                     self.yang_name = "interface-statistic"
                     self.yang_parent_name = "interface-statistics"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("idb", ("idb", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb)), ("auth", ("auth", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth)), ("supp", ("supp", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("idb", ("idb", Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb)), ("auth", ("auth", Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth)), ("supp", ("supp", Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -210,25 +208,22 @@ class Dot1X(Entity):
                     self.interface_name = None
                     self.pae = None
 
-                    self.idb = Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb()
+                    self.idb = Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb()
                     self.idb.parent = self
                     self._children_name_map["idb"] = "idb"
-                    self._children_yang_names.add("idb")
 
-                    self.auth = Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth()
+                    self.auth = Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth()
                     self.auth.parent = self
                     self._children_name_map["auth"] = "auth"
-                    self._children_yang_names.add("auth")
 
-                    self.supp = Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp()
+                    self.supp = Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp()
                     self.supp.parent = self
                     self._children_name_map["supp"] = "supp"
-                    self._children_yang_names.add("supp")
                     self._segment_path = lambda: "interface-statistic" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/interface-statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic, ['name', 'interface_name', 'pae'], name, value)
+                    self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, ['name', u'interface_name', u'pae'], name, value)
 
 
                 class Idb(Entity):
@@ -264,15 +259,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, self).__init__()
+                        super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, self).__init__()
 
                         self.yang_name = "idb"
                         self.yang_parent_name = "interface-statistic"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rx_total', YLeaf(YType.uint32, 'rx-total')),
                             ('tx_total', YLeaf(YType.uint32, 'tx-total')),
@@ -284,7 +278,7 @@ class Dot1X(Entity):
                         self._segment_path = lambda: "idb"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, ['rx_total', 'tx_total', 'no_rx_on_intf_down'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, [u'rx_total', u'tx_total', u'no_rx_on_intf_down'], name, value)
 
 
                 class Auth(Entity):
@@ -376,15 +370,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, self).__init__()
+                        super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, self).__init__()
 
                         self.yang_name = "auth"
                         self.yang_parent_name = "interface-statistic"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rx_start', YLeaf(YType.uint32, 'rx-start')),
                             ('rx_logoff', YLeaf(YType.uint32, 'rx-logoff')),
@@ -412,7 +405,7 @@ class Dot1X(Entity):
                         self._segment_path = lambda: "auth"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, ['rx_start', 'rx_logoff', 'rx_resp', 'rx_resp_id', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_req', 'tx_reqid', 'tx_total'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, [u'rx_start', u'rx_logoff', u'rx_resp', u'rx_resp_id', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_req', u'tx_reqid', u'tx_total'], name, value)
 
 
                 class Supp(Entity):
@@ -490,15 +483,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, self).__init__()
+                        super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, self).__init__()
 
                         self.yang_name = "supp"
                         self.yang_parent_name = "interface-statistic"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rx_req', YLeaf(YType.uint32, 'rx-req')),
                             ('rx_invalid', YLeaf(YType.uint32, 'rx-invalid')),
@@ -522,7 +514,7 @@ class Dot1X(Entity):
                         self._segment_path = lambda: "supp"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, ['rx_req', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_start', 'tx_logoff', 'tx_resp', 'tx_total'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, [u'rx_req', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_start', u'tx_logoff', u'tx_resp', u'tx_total'], name, value)
 
 
     class Nodes(Entity):
@@ -532,7 +524,7 @@ class Dot1X(Entity):
         .. attribute:: node
         
         	Dot1x operational data for a particular node
-        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node>`
         
         
 
@@ -542,15 +534,14 @@ class Dot1X(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Dot1X.Nodes, self).__init__()
+            super(Dot1x.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "dot1x"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Dot1X.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Dot1x.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -558,7 +549,7 @@ class Dot1X(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Dot1X.Nodes, [], name, value)
+            self._perform_setattr(Dot1x.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -575,12 +566,12 @@ class Dot1X(Entity):
             .. attribute:: dot1x_defaults
             
             	Dot1x Default Values
-            	**type**\:  :py:class:`Dot1XDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults>`
+            	**type**\:  :py:class:`Dot1xDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Dot1xDefaults>`
             
             .. attribute:: statistics
             
             	Dot1x Default Values
-            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics>`
             
             
 
@@ -590,49 +581,46 @@ class Dot1X(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dot1X.Nodes.Node, self).__init__()
+                super(Dot1x.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("dot1x-defaults", ("dot1x_defaults", Dot1X.Nodes.Node.Dot1XDefaults)), ("statistics", ("statistics", Dot1X.Nodes.Node.Statistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("dot1x-defaults", ("dot1x_defaults", Dot1x.Nodes.Node.Dot1xDefaults)), ("statistics", ("statistics", Dot1x.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
                 self.node_name = None
 
-                self.dot1x_defaults = Dot1X.Nodes.Node.Dot1XDefaults()
+                self.dot1x_defaults = Dot1x.Nodes.Node.Dot1xDefaults()
                 self.dot1x_defaults.parent = self
                 self._children_name_map["dot1x_defaults"] = "dot1x-defaults"
-                self._children_yang_names.add("dot1x-defaults")
 
-                self.statistics = Dot1X.Nodes.Node.Statistics()
+                self.statistics = Dot1x.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Dot1X.Nodes.Node, ['node_name'], name, value)
+                self._perform_setattr(Dot1x.Nodes.Node, ['node_name'], name, value)
 
 
-            class Dot1XDefaults(Entity):
+            class Dot1xDefaults(Entity):
                 """
                 Dot1x Default Values
                 
                 .. attribute:: auth_timers
                 
                 	Dot1x Authenticator default Timer values
-                	**type**\:  :py:class:`AuthTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers>`
+                	**type**\:  :py:class:`AuthTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers>`
                 
                 .. attribute:: supp_timers
                 
                 	Dot1x Supllicant default Timer values
-                	**type**\:  :py:class:`SuppTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers>`
+                	**type**\:  :py:class:`SuppTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers>`
                 
                 .. attribute:: version
                 
@@ -649,33 +637,30 @@ class Dot1X(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1X.Nodes.Node.Dot1XDefaults, self).__init__()
+                    super(Dot1x.Nodes.Node.Dot1xDefaults, self).__init__()
 
                     self.yang_name = "dot1x-defaults"
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("auth-timers", ("auth_timers", Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers)), ("supp-timers", ("supp_timers", Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("auth-timers", ("auth_timers", Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers)), ("supp-timers", ("supp_timers", Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers))])
                     self._leafs = OrderedDict([
                         ('version', YLeaf(YType.uint32, 'version')),
                     ])
                     self.version = None
 
-                    self.auth_timers = Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers()
+                    self.auth_timers = Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers()
                     self.auth_timers.parent = self
                     self._children_name_map["auth_timers"] = "auth-timers"
-                    self._children_yang_names.add("auth-timers")
 
-                    self.supp_timers = Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers()
+                    self.supp_timers = Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers()
                     self.supp_timers.parent = self
                     self._children_name_map["supp_timers"] = "supp-timers"
-                    self._children_yang_names.add("supp-timers")
                     self._segment_path = lambda: "dot1x-defaults"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1X.Nodes.Node.Dot1XDefaults, ['version'], name, value)
+                    self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults, [u'version'], name, value)
 
 
                 class AuthTimers(Entity):
@@ -740,15 +725,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers, self).__init__()
+                        super(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, self).__init__()
 
                         self.yang_name = "auth-timers"
                         self.yang_parent_name = "dot1x-defaults"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('quiet_period', YLeaf(YType.uint32, 'quiet-period')),
                             ('tx_period', YLeaf(YType.uint32, 'tx-period')),
@@ -766,7 +750,7 @@ class Dot1X(Entity):
                         self._segment_path = lambda: "auth-timers"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers, ['quiet_period', 'tx_period', 'max_reauth_req', 'supp_timeout', 'max_req', 'reauth_period'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, [u'quiet_period', u'tx_period', u'max_reauth_req', u'supp_timeout', u'max_req', u'reauth_period'], name, value)
 
 
                 class SuppTimers(Entity):
@@ -815,15 +799,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers, self).__init__()
+                        super(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, self).__init__()
 
                         self.yang_name = "supp-timers"
                         self.yang_parent_name = "dot1x-defaults"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('auth_period', YLeaf(YType.uint32, 'auth-period')),
                             ('held_period', YLeaf(YType.uint32, 'held-period')),
@@ -837,7 +820,7 @@ class Dot1X(Entity):
                         self._segment_path = lambda: "supp-timers"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers, ['auth_period', 'held_period', 'start_period', 'max_start'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, [u'auth_period', u'held_period', u'start_period', u'max_start'], name, value)
 
 
             class Statistics(Entity):
@@ -847,12 +830,12 @@ class Dot1X(Entity):
                 .. attribute:: gl_stats
                 
                 	Global statistics
-                	**type**\:  :py:class:`GlStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.GlStats>`
+                	**type**\:  :py:class:`GlStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.GlStats>`
                 
                 .. attribute:: if_stats
                 
                 	dot1x interface statistics list
-                	**type**\: list of  		 :py:class:`IfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats>`
+                	**type**\: list of  		 :py:class:`IfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats>`
                 
                 
 
@@ -862,27 +845,25 @@ class Dot1X(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1X.Nodes.Node.Statistics, self).__init__()
+                    super(Dot1x.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("gl-stats", ("gl_stats", Dot1X.Nodes.Node.Statistics.GlStats))])
-                    self._child_list_classes = OrderedDict([("if-stats", ("if_stats", Dot1X.Nodes.Node.Statistics.IfStats))])
+                    self._child_classes = OrderedDict([("gl-stats", ("gl_stats", Dot1x.Nodes.Node.Statistics.GlStats)), ("if-stats", ("if_stats", Dot1x.Nodes.Node.Statistics.IfStats))])
                     self._leafs = OrderedDict()
 
-                    self.gl_stats = Dot1X.Nodes.Node.Statistics.GlStats()
+                    self.gl_stats = Dot1x.Nodes.Node.Statistics.GlStats()
                     self.gl_stats.parent = self
                     self._children_name_map["gl_stats"] = "gl-stats"
-                    self._children_yang_names.add("gl-stats")
 
                     self.if_stats = YList(self)
                     self._segment_path = lambda: "statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1X.Nodes.Node.Statistics, [], name, value)
+                    self._perform_setattr(Dot1x.Nodes.Node.Statistics, [], name, value)
 
 
                 class GlStats(Entity):
@@ -918,15 +899,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Nodes.Node.Statistics.GlStats, self).__init__()
+                        super(Dot1x.Nodes.Node.Statistics.GlStats, self).__init__()
 
                         self.yang_name = "gl-stats"
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('tx_total', YLeaf(YType.uint32, 'tx-total')),
                             ('rx_total', YLeaf(YType.uint32, 'rx-total')),
@@ -938,7 +918,7 @@ class Dot1X(Entity):
                         self._segment_path = lambda: "gl-stats"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Nodes.Node.Statistics.GlStats, ['tx_total', 'rx_total', 'rx_no_idb'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats, [u'tx_total', u'rx_total', u'rx_no_idb'], name, value)
 
 
                 class IfStats(Entity):
@@ -948,17 +928,17 @@ class Dot1X(Entity):
                     .. attribute:: idb
                     
                     	Dot1x interface database Statistics
-                    	**type**\:  :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Idb>`
+                    	**type**\:  :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats.Idb>`
                     
                     .. attribute:: auth
                     
                     	Dot1x Authenticator Port Statistics
-                    	**type**\:  :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Auth>`
+                    	**type**\:  :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats.Auth>`
                     
                     .. attribute:: supp
                     
                     	Dot1x Supplicant Port Statistics
-                    	**type**\:  :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Supp>`
+                    	**type**\:  :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats.Supp>`
                     
                     .. attribute:: interface_name
                     
@@ -978,15 +958,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Nodes.Node.Statistics.IfStats, self).__init__()
+                        super(Dot1x.Nodes.Node.Statistics.IfStats, self).__init__()
 
                         self.yang_name = "if-stats"
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("idb", ("idb", Dot1X.Nodes.Node.Statistics.IfStats.Idb)), ("auth", ("auth", Dot1X.Nodes.Node.Statistics.IfStats.Auth)), ("supp", ("supp", Dot1X.Nodes.Node.Statistics.IfStats.Supp))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("idb", ("idb", Dot1x.Nodes.Node.Statistics.IfStats.Idb)), ("auth", ("auth", Dot1x.Nodes.Node.Statistics.IfStats.Auth)), ("supp", ("supp", Dot1x.Nodes.Node.Statistics.IfStats.Supp))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('pae', YLeaf(YType.str, 'pae')),
@@ -994,24 +973,21 @@ class Dot1X(Entity):
                         self.interface_name = None
                         self.pae = None
 
-                        self.idb = Dot1X.Nodes.Node.Statistics.IfStats.Idb()
+                        self.idb = Dot1x.Nodes.Node.Statistics.IfStats.Idb()
                         self.idb.parent = self
                         self._children_name_map["idb"] = "idb"
-                        self._children_yang_names.add("idb")
 
-                        self.auth = Dot1X.Nodes.Node.Statistics.IfStats.Auth()
+                        self.auth = Dot1x.Nodes.Node.Statistics.IfStats.Auth()
                         self.auth.parent = self
                         self._children_name_map["auth"] = "auth"
-                        self._children_yang_names.add("auth")
 
-                        self.supp = Dot1X.Nodes.Node.Statistics.IfStats.Supp()
+                        self.supp = Dot1x.Nodes.Node.Statistics.IfStats.Supp()
                         self.supp.parent = self
                         self._children_name_map["supp"] = "supp"
-                        self._children_yang_names.add("supp")
                         self._segment_path = lambda: "if-stats"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Nodes.Node.Statistics.IfStats, ['interface_name', 'pae'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats, [u'interface_name', u'pae'], name, value)
 
 
                     class Idb(Entity):
@@ -1047,15 +1023,14 @@ class Dot1X(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1X.Nodes.Node.Statistics.IfStats.Idb, self).__init__()
+                            super(Dot1x.Nodes.Node.Statistics.IfStats.Idb, self).__init__()
 
                             self.yang_name = "idb"
                             self.yang_parent_name = "if-stats"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rx_total', YLeaf(YType.uint32, 'rx-total')),
                                 ('tx_total', YLeaf(YType.uint32, 'tx-total')),
@@ -1067,7 +1042,7 @@ class Dot1X(Entity):
                             self._segment_path = lambda: "idb"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1X.Nodes.Node.Statistics.IfStats.Idb, ['rx_total', 'tx_total', 'no_rx_on_intf_down'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Idb, [u'rx_total', u'tx_total', u'no_rx_on_intf_down'], name, value)
 
 
                     class Auth(Entity):
@@ -1159,15 +1134,14 @@ class Dot1X(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1X.Nodes.Node.Statistics.IfStats.Auth, self).__init__()
+                            super(Dot1x.Nodes.Node.Statistics.IfStats.Auth, self).__init__()
 
                             self.yang_name = "auth"
                             self.yang_parent_name = "if-stats"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rx_start', YLeaf(YType.uint32, 'rx-start')),
                                 ('rx_logoff', YLeaf(YType.uint32, 'rx-logoff')),
@@ -1195,7 +1169,7 @@ class Dot1X(Entity):
                             self._segment_path = lambda: "auth"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1X.Nodes.Node.Statistics.IfStats.Auth, ['rx_start', 'rx_logoff', 'rx_resp', 'rx_resp_id', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_req', 'tx_reqid', 'tx_total'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth, [u'rx_start', u'rx_logoff', u'rx_resp', u'rx_resp_id', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_req', u'tx_reqid', u'tx_total'], name, value)
 
 
                     class Supp(Entity):
@@ -1273,15 +1247,14 @@ class Dot1X(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1X.Nodes.Node.Statistics.IfStats.Supp, self).__init__()
+                            super(Dot1x.Nodes.Node.Statistics.IfStats.Supp, self).__init__()
 
                             self.yang_name = "supp"
                             self.yang_parent_name = "if-stats"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rx_req', YLeaf(YType.uint32, 'rx-req')),
                                 ('rx_invalid', YLeaf(YType.uint32, 'rx-invalid')),
@@ -1305,7 +1278,7 @@ class Dot1X(Entity):
                             self._segment_path = lambda: "supp"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1X.Nodes.Node.Statistics.IfStats.Supp, ['rx_req', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_start', 'tx_logoff', 'tx_resp', 'tx_total'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Supp, [u'rx_req', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_start', u'tx_logoff', u'tx_resp', u'tx_total'], name, value)
 
 
     class Session(Entity):
@@ -1315,7 +1288,7 @@ class Dot1X(Entity):
         .. attribute:: interface_sessions
         
         	Interfaces with Dot1x
-        	**type**\:  :py:class:`InterfaceSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions>`
+        	**type**\:  :py:class:`InterfaceSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions>`
         
         
 
@@ -1325,23 +1298,24 @@ class Dot1X(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Dot1X.Session, self).__init__()
+            super(Dot1x.Session, self).__init__()
 
             self.yang_name = "session"
             self.yang_parent_name = "dot1x"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("interface-sessions", ("interface_sessions", Dot1X.Session.InterfaceSessions))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("interface-sessions", ("interface_sessions", Dot1x.Session.InterfaceSessions))])
             self._leafs = OrderedDict()
 
-            self.interface_sessions = Dot1X.Session.InterfaceSessions()
+            self.interface_sessions = Dot1x.Session.InterfaceSessions()
             self.interface_sessions.parent = self
             self._children_name_map["interface_sessions"] = "interface-sessions"
-            self._children_yang_names.add("interface-sessions")
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Dot1x.Session, [], name, value)
 
 
         class InterfaceSessions(Entity):
@@ -1351,7 +1325,7 @@ class Dot1X(Entity):
             .. attribute:: interface_session
             
             	Dot1x Data for that Interface
-            	**type**\: list of  		 :py:class:`InterfaceSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession>`
+            	**type**\: list of  		 :py:class:`InterfaceSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession>`
             
             
 
@@ -1361,15 +1335,14 @@ class Dot1X(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dot1X.Session.InterfaceSessions, self).__init__()
+                super(Dot1x.Session.InterfaceSessions, self).__init__()
 
                 self.yang_name = "interface-sessions"
                 self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface-session", ("interface_session", Dot1X.Session.InterfaceSessions.InterfaceSession))])
+                self._child_classes = OrderedDict([("interface-session", ("interface_session", Dot1x.Session.InterfaceSessions.InterfaceSession))])
                 self._leafs = OrderedDict()
 
                 self.interface_session = YList(self)
@@ -1377,7 +1350,7 @@ class Dot1X(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/session/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Dot1X.Session.InterfaceSessions, [], name, value)
+                self._perform_setattr(Dot1x.Session.InterfaceSessions, [], name, value)
 
 
             class InterfaceSession(Entity):
@@ -1394,12 +1367,12 @@ class Dot1X(Entity):
                 .. attribute:: intf_info
                 
                 	Dot1x interface Info
-                	**type**\:  :py:class:`IntfInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo>`
+                	**type**\:  :py:class:`IntfInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo>`
                 
                 .. attribute:: mka_status_info
                 
                 	MKA session secure status
-                	**type**\:  :py:class:`MkaStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo>`
+                	**type**\:  :py:class:`MkaStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo>`
                 
                 .. attribute:: interface_name
                 
@@ -1434,15 +1407,14 @@ class Dot1X(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1X.Session.InterfaceSessions.InterfaceSession, self).__init__()
+                    super(Dot1x.Session.InterfaceSessions.InterfaceSession, self).__init__()
 
                     self.yang_name = "interface-session"
                     self.yang_parent_name = "interface-sessions"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("intf-info", ("intf_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo)), ("mka-status-info", ("mka_status_info", Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("intf-info", ("intf_info", Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo)), ("mka-status-info", ("mka_status_info", Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -1458,20 +1430,18 @@ class Dot1X(Entity):
                     self.mac = None
                     self.ethertype = None
 
-                    self.intf_info = Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo()
+                    self.intf_info = Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo()
                     self.intf_info.parent = self
                     self._children_name_map["intf_info"] = "intf-info"
-                    self._children_yang_names.add("intf-info")
 
-                    self.mka_status_info = Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo()
+                    self.mka_status_info = Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo()
                     self.mka_status_info.parent = self
                     self._children_name_map["mka_status_info"] = "mka-status-info"
-                    self._children_yang_names.add("mka-status-info")
                     self._segment_path = lambda: "interface-session" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1X.Session.InterfaceSessions.InterfaceSession, ['name', 'interface_name', 'interface_sname', 'if_handle', 'mac', 'ethertype'], name, value)
+                    self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession, ['name', u'interface_name', u'interface_sname', u'if_handle', u'mac', u'ethertype'], name, value)
 
 
                 class IntfInfo(Entity):
@@ -1481,12 +1451,12 @@ class Dot1X(Entity):
                     .. attribute:: auth_info
                     
                     	Dot1x Authenticator info
-                    	**type**\:  :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo>`
+                    	**type**\:  :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo>`
                     
                     .. attribute:: supp_info
                     
                     	Dot1x Supplicant info
-                    	**type**\:  :py:class:`SuppInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo>`
+                    	**type**\:  :py:class:`SuppInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo>`
                     
                     .. attribute:: pae
                     
@@ -1511,15 +1481,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo, self).__init__()
+                        super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, self).__init__()
 
                         self.yang_name = "intf-info"
                         self.yang_parent_name = "interface-session"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("auth-info", ("auth_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo)), ("supp-info", ("supp_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("auth-info", ("auth_info", Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo)), ("supp-info", ("supp_info", Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo))])
                         self._leafs = OrderedDict([
                             ('pae', YLeaf(YType.str, 'pae')),
                             ('port_status', YLeaf(YType.str, 'port-status')),
@@ -1529,19 +1498,17 @@ class Dot1X(Entity):
                         self.port_status = None
                         self.dot1x_profile = None
 
-                        self.auth_info = Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo()
+                        self.auth_info = Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo()
                         self.auth_info.parent = self
                         self._children_name_map["auth_info"] = "auth-info"
-                        self._children_yang_names.add("auth-info")
 
-                        self.supp_info = Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo()
+                        self.supp_info = Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo()
                         self.supp_info.parent = self
                         self._children_name_map["supp_info"] = "supp-info"
-                        self._children_yang_names.add("supp-info")
                         self._segment_path = lambda: "intf-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo, ['pae', 'port_status', 'dot1x_profile'], name, value)
+                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, [u'pae', u'port_status', u'dot1x_profile'], name, value)
 
 
                     class AuthInfo(Entity):
@@ -1561,7 +1528,7 @@ class Dot1X(Entity):
                         .. attribute:: client
                         
                         	Authenticator client list
-                        	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client>`
+                        	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client>`
                         
                         
 
@@ -1571,15 +1538,14 @@ class Dot1X(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, self).__init__()
+                            super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, self).__init__()
 
                             self.yang_name = "auth-info"
                             self.yang_parent_name = "intf-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("client", ("client", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client))])
+                            self._child_classes = OrderedDict([("client", ("client", Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client))])
                             self._leafs = OrderedDict([
                                 ('reauth', YLeaf(YType.str, 'reauth')),
                                 ('config_dependency', YLeaf(YType.str, 'config-dependency')),
@@ -1591,7 +1557,7 @@ class Dot1X(Entity):
                             self._segment_path = lambda: "auth-info"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, ['reauth', 'config_dependency'], name, value)
+                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, [u'reauth', u'config_dependency'], name, value)
 
 
                         class Client(Entity):
@@ -1623,6 +1589,11 @@ class Dot1X(Entity):
                             	Last Authenticated Timestamp (formatted)
                             	**type**\: str
                             
+                            .. attribute:: last_auth_server
+                            
+                            	Last Authenticated Server
+                            	**type**\: str
+                            
                             
 
                             """
@@ -1631,31 +1602,32 @@ class Dot1X(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, self).__init__()
+                                super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "auth-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mac', YLeaf(YType.str, 'mac')),
                                     ('auth_sm_state', YLeaf(YType.str, 'auth-sm-state')),
                                     ('auth_bend_sm_state', YLeaf(YType.str, 'auth-bend-sm-state')),
                                     ('time_to_next_reauth', YLeaf(YType.str, 'time-to-next-reauth')),
                                     ('last_auth_time', YLeaf(YType.str, 'last-auth-time')),
+                                    ('last_auth_server', YLeaf(YType.str, 'last-auth-server')),
                                 ])
                                 self.mac = None
                                 self.auth_sm_state = None
                                 self.auth_bend_sm_state = None
                                 self.time_to_next_reauth = None
                                 self.last_auth_time = None
+                                self.last_auth_server = None
                                 self._segment_path = lambda: "client"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, ['mac', 'auth_sm_state', 'auth_bend_sm_state', 'time_to_next_reauth', 'last_auth_time'], name, value)
+                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, [u'mac', u'auth_sm_state', u'auth_bend_sm_state', u'time_to_next_reauth', u'last_auth_time', u'last_auth_server'], name, value)
 
 
                     class SuppInfo(Entity):
@@ -1675,7 +1647,7 @@ class Dot1X(Entity):
                         .. attribute:: client
                         
                         	Supp Client info
-                        	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client>`
+                        	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client>`
                         
                         
 
@@ -1685,15 +1657,14 @@ class Dot1X(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, self).__init__()
+                            super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, self).__init__()
 
                             self.yang_name = "supp-info"
                             self.yang_parent_name = "intf-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("client", ("client", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client))])
+                            self._child_classes = OrderedDict([("client", ("client", Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client))])
                             self._leafs = OrderedDict([
                                 ('eap_profile', YLeaf(YType.str, 'eap-profile')),
                                 ('config_dependency', YLeaf(YType.str, 'config-dependency')),
@@ -1705,7 +1676,7 @@ class Dot1X(Entity):
                             self._segment_path = lambda: "supp-info"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, ['eap_profile', 'config_dependency'], name, value)
+                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, [u'eap_profile', u'config_dependency'], name, value)
 
 
                         class Client(Entity):
@@ -1745,15 +1716,14 @@ class Dot1X(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, self).__init__()
+                                super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "supp-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mac', YLeaf(YType.str, 'mac')),
                                     ('eap_method', YLeaf(YType.str, 'eap-method')),
@@ -1769,7 +1739,7 @@ class Dot1X(Entity):
                                 self._segment_path = lambda: "client"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, ['mac', 'eap_method', 'last_auth_time', 'auth_sm_state', 'auth_bend_sm_state'], name, value)
+                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, [u'mac', u'eap_method', u'last_auth_time', u'auth_sm_state', u'auth_bend_sm_state'], name, value)
 
 
                 class MkaStatusInfo(Entity):
@@ -1809,15 +1779,14 @@ class Dot1X(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, self).__init__()
+                        super(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, self).__init__()
 
                         self.yang_name = "mka-status-info"
                         self.yang_parent_name = "interface-session"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('tie_break_role', YLeaf(YType.str, 'tie-break-role')),
                             ('eap_based_macsec', YLeaf(YType.str, 'eap-based-macsec')),
@@ -1833,9 +1802,9 @@ class Dot1X(Entity):
                         self._segment_path = lambda: "mka-status-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, ['tie_break_role', 'eap_based_macsec', 'mka_start_time', 'mka_stop_time', 'mka_response_time'], name, value)
+                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, [u'tie_break_role', u'eap_based_macsec', u'mka_start_time', u'mka_stop_time', u'mka_response_time'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = Dot1X()
+        self._top_entity = Dot1x()
         return self._top_entity
 

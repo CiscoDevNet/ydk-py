@@ -41,14 +41,12 @@ class KeyGenerateRsaGeneralKeys(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = KeyGenerateRsaGeneralKeys.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-generate-rsa-general-keys"
 
 
@@ -85,8 +83,7 @@ class KeyGenerateRsaGeneralKeys(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('key_label', YLeaf(YType.str, 'key-label')),
                 ('key_modulus', YLeaf(YType.int32, 'key-modulus')),
@@ -128,14 +125,12 @@ class KeyGenerateRsaUsageKeys(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = KeyGenerateRsaUsageKeys.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-generate-rsa-usage-keys"
 
 
@@ -172,8 +167,7 @@ class KeyGenerateRsaUsageKeys(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('key_label', YLeaf(YType.str, 'key-label')),
                 ('key_modulus', YLeaf(YType.int32, 'key-modulus')),
@@ -215,14 +209,12 @@ class KeyGenerateRsa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = KeyGenerateRsa.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-generate-rsa"
 
 
@@ -259,8 +251,7 @@ class KeyGenerateRsa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('key_label', YLeaf(YType.str, 'key-label')),
                 ('key_modulus', YLeaf(YType.int32, 'key-modulus')),
@@ -302,14 +293,12 @@ class KeyGenerateDsa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = KeyGenerateDsa.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-generate-dsa"
 
 
@@ -341,8 +330,7 @@ class KeyGenerateDsa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('key_modulus', YLeaf(YType.int32, 'key-modulus')),
             ])
@@ -355,6 +343,107 @@ class KeyGenerateDsa(Entity):
 
     def clone_ptr(self):
         self._top_entity = KeyGenerateDsa()
+        return self._top_entity
+
+class KeyGenerateEcdsa(Entity):
+    """
+    Generate a ECDSA key of curve type nistp256 \| nistp384 \| nistp521
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateEcdsa.Input>`
+    
+    
+
+    """
+
+    _prefix = 'crypto-act'
+    _revision = '2016-04-17'
+
+    def __init__(self):
+        super(KeyGenerateEcdsa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-generate-ecdsa"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+
+        self.input = KeyGenerateEcdsa.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-generate-ecdsa"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: key_modulus
+        
+        	
+        	**type**\:  :py:class:`KeyModulus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateEcdsa.Input.KeyModulus>`
+        
+        	**mandatory**\: True
+        
+        .. attribute:: key_label
+        
+        	ECDSA key label
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'crypto-act'
+        _revision = '2016-04-17'
+
+        def __init__(self):
+            super(KeyGenerateEcdsa.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "key-generate-ecdsa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('key_modulus', YLeaf(YType.enumeration, 'key-modulus')),
+                ('key_label', YLeaf(YType.str, 'key-label')),
+            ])
+            self.key_modulus = None
+            self.key_label = None
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-act:key-generate-ecdsa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(KeyGenerateEcdsa.Input, ['key_modulus', 'key_label'], name, value)
+
+        class KeyModulus(Enum):
+            """
+            KeyModulus (Enum Class)
+
+            .. data:: nistp256 = 0
+
+            .. data:: nistp384 = 1
+
+            .. data:: nistp521 = 2
+
+            """
+
+            nistp256 = Enum.YLeaf(0, "nistp256")
+
+            nistp384 = Enum.YLeaf(1, "nistp384")
+
+            nistp521 = Enum.YLeaf(2, "nistp521")
+
+
+    def clone_ptr(self):
+        self._top_entity = KeyGenerateEcdsa()
         return self._top_entity
 
 class KeyZeroizeRsa(Entity):
@@ -382,14 +471,12 @@ class KeyZeroizeRsa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = KeyZeroizeRsa.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-zeroize-rsa"
 
 
@@ -417,8 +504,7 @@ class KeyZeroizeRsa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('key_label', YLeaf(YType.str, 'key-label')),
             ])
@@ -453,13 +539,113 @@ class KeyZeroizeDsa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-zeroize-dsa"
 
     def clone_ptr(self):
         self._top_entity = KeyZeroizeDsa()
+        return self._top_entity
+
+class KeyZeroizeEcdsa(Entity):
+    """
+    Remove ECDSA key of curve type nistp256 \| nistp384 \| nistp521
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyZeroizeEcdsa.Input>`
+    
+    
+
+    """
+
+    _prefix = 'crypto-act'
+    _revision = '2016-04-17'
+
+    def __init__(self):
+        super(KeyZeroizeEcdsa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-zeroize-ecdsa"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+
+        self.input = KeyZeroizeEcdsa.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-zeroize-ecdsa"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: key_modulus
+        
+        	
+        	**type**\:  :py:class:`KeyModulus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyZeroizeEcdsa.Input.KeyModulus>`
+        
+        	**mandatory**\: True
+        
+        .. attribute:: key_label
+        
+        	ECDSA key label
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'crypto-act'
+        _revision = '2016-04-17'
+
+        def __init__(self):
+            super(KeyZeroizeEcdsa.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "key-zeroize-ecdsa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('key_modulus', YLeaf(YType.enumeration, 'key-modulus')),
+                ('key_label', YLeaf(YType.str, 'key-label')),
+            ])
+            self.key_modulus = None
+            self.key_label = None
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-act:key-zeroize-ecdsa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(KeyZeroizeEcdsa.Input, ['key_modulus', 'key_label'], name, value)
+
+        class KeyModulus(Enum):
+            """
+            KeyModulus (Enum Class)
+
+            .. data:: nistp256 = 0
+
+            .. data:: nistp384 = 1
+
+            .. data:: nistp521 = 2
+
+            """
+
+            nistp256 = Enum.YLeaf(0, "nistp256")
+
+            nistp384 = Enum.YLeaf(1, "nistp384")
+
+            nistp521 = Enum.YLeaf(2, "nistp521")
+
+
+    def clone_ptr(self):
+        self._top_entity = KeyZeroizeEcdsa()
         return self._top_entity
 
 class KeyZeroizeAuthenticationRsa(Entity):
@@ -482,8 +668,7 @@ class KeyZeroizeAuthenticationRsa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-zeroize-authentication-rsa"
 
@@ -516,14 +701,12 @@ class KeyImportAuthenticationRsa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = KeyImportAuthenticationRsa.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-import-authentication-rsa"
 
 
@@ -553,8 +736,7 @@ class KeyImportAuthenticationRsa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('path', YLeaf(YType.str, 'path')),
             ])
@@ -594,14 +776,12 @@ class CaAuthenticate(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = CaAuthenticate.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:ca-authenticate"
 
 
@@ -631,8 +811,7 @@ class CaAuthenticate(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('server_name', YLeaf(YType.str, 'server-name')),
             ])
@@ -672,14 +851,12 @@ class CaEnroll(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = CaEnroll.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:ca-enroll"
 
 
@@ -709,8 +886,7 @@ class CaEnroll(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('server_name', YLeaf(YType.str, 'server-name')),
             ])
@@ -750,14 +926,12 @@ class CaImportCertificate(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = CaImportCertificate.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:ca-import-certificate"
 
 
@@ -787,8 +961,7 @@ class CaImportCertificate(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('server_name', YLeaf(YType.str, 'server-name')),
             ])
@@ -828,14 +1001,12 @@ class CaCancelEnroll(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = CaCancelEnroll.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:ca-cancel-enroll"
 
 
@@ -865,8 +1036,7 @@ class CaCancelEnroll(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('server_name', YLeaf(YType.str, 'server-name')),
             ])
@@ -911,19 +1081,16 @@ class CaCrlRequest(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = CaCrlRequest.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = CaCrlRequest.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:ca-crl-request"
 
 
@@ -953,8 +1120,7 @@ class CaCrlRequest(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('uri', YLeaf(YType.str, 'uri')),
             ])
@@ -992,8 +1158,7 @@ class CaCrlRequest(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('certificate', YLeaf(YType.str, 'certificate')),
             ])
@@ -1033,14 +1198,12 @@ class CaTrustpoolImportUrl(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = CaTrustpoolImportUrl.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url"
 
 
@@ -1068,8 +1231,7 @@ class CaTrustpoolImportUrl(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('url', YLeaf(YType.str, 'url')),
             ])
@@ -1109,14 +1271,12 @@ class CaTrustpoolImportUrlClean(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = CaTrustpoolImportUrlClean.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url-clean"
 
 
@@ -1144,8 +1304,7 @@ class CaTrustpoolImportUrlClean(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('url', YLeaf(YType.str, 'url')),
             ])

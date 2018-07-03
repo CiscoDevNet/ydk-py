@@ -45,8 +45,7 @@ class SystemMonitoring(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("cpu-utilization", ("cpu_utilization", SystemMonitoring.CpuUtilization))])
+        self._child_classes = OrderedDict([("cpu-utilization", ("cpu_utilization", SystemMonitoring.CpuUtilization))])
         self._leafs = OrderedDict()
 
         self.cpu_utilization = YList(self)
@@ -108,8 +107,7 @@ class SystemMonitoring(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("process-cpu", ("process_cpu", SystemMonitoring.CpuUtilization.ProcessCpu))])
+            self._child_classes = OrderedDict([("process-cpu", ("process_cpu", SystemMonitoring.CpuUtilization.ProcessCpu))])
             self._leafs = OrderedDict([
                 ('node_name', YLeaf(YType.str, 'node-name')),
                 ('total_cpu_one_minute', YLeaf(YType.uint32, 'total-cpu-one-minute')),
@@ -126,7 +124,7 @@ class SystemMonitoring(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemMonitoring.CpuUtilization, ['node_name', 'total_cpu_one_minute', 'total_cpu_five_minute', 'total_cpu_fifteen_minute'], name, value)
+            self._perform_setattr(SystemMonitoring.CpuUtilization, ['node_name', u'total_cpu_one_minute', u'total_cpu_five_minute', u'total_cpu_fifteen_minute'], name, value)
 
 
         class ProcessCpu(Entity):
@@ -187,8 +185,7 @@ class SystemMonitoring(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('process_name', YLeaf(YType.str, 'process-name')),
                     ('process_id', YLeaf(YType.uint32, 'process-id')),
@@ -204,7 +201,7 @@ class SystemMonitoring(Entity):
                 self._segment_path = lambda: "process-cpu"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SystemMonitoring.CpuUtilization.ProcessCpu, ['process_name', 'process_id', 'process_cpu_one_minute', 'process_cpu_five_minute', 'process_cpu_fifteen_minute'], name, value)
+                self._perform_setattr(SystemMonitoring.CpuUtilization.ProcessCpu, [u'process_name', u'process_id', u'process_cpu_one_minute', u'process_cpu_five_minute', u'process_cpu_fifteen_minute'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SystemMonitoring()

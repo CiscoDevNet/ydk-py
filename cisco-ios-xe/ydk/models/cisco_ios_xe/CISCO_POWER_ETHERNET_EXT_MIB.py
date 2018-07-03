@@ -177,27 +177,27 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
     .. attribute:: cpeextmibobjects
     
     	
-    	**type**\:  :py:class:`Cpeextmibobjects <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextmibobjects>`
+    	**type**\:  :py:class:`CpeExtMIBObjects <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects>`
     
     .. attribute:: cpeextpdstatistics
     
     	
-    	**type**\:  :py:class:`Cpeextpdstatistics <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextpdstatistics>`
+    	**type**\:  :py:class:`CpeExtPdStatistics <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics>`
     
     .. attribute:: cpeextmainpsetable
     
     	This table contains the additional information for the main PSE group in pethMainPseTable
-    	**type**\:  :py:class:`Cpeextmainpsetable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable>`
+    	**type**\:  :py:class:`CpeExtMainPseTable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable>`
     
     .. attribute:: cpeextpdstatstable
     
     	This table contains the statistics information of the powered devices fallen into different power classifications in the system
-    	**type**\:  :py:class:`Cpeextpdstatstable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable>`
+    	**type**\:  :py:class:`CpeExtPdStatsTable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable>`
     
     .. attribute:: cpeextpseportlldptable
     
     	A table provides the Link Layer Discovery Protocol (LLDP) based Data Link Layer (DLL) power classification characteristics of PSE ports and PDs attached to them
-    	**type**\:  :py:class:`Cpeextpseportlldptable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable>`
+    	**type**\:  :py:class:`CpeExtPsePortLldpTable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable>`
     
     
 
@@ -215,38 +215,35 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpeExtMIBObjects", ("cpeextmibobjects", CISCOPOWERETHERNETEXTMIB.Cpeextmibobjects)), ("cpeExtPdStatistics", ("cpeextpdstatistics", CISCOPOWERETHERNETEXTMIB.Cpeextpdstatistics)), ("cpeExtMainPseTable", ("cpeextmainpsetable", CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable)), ("cpeExtPdStatsTable", ("cpeextpdstatstable", CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable)), ("cpeExtPsePortLldpTable", ("cpeextpseportlldptable", CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpeExtMIBObjects", ("cpeextmibobjects", CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects)), ("cpeExtPdStatistics", ("cpeextpdstatistics", CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics)), ("cpeExtMainPseTable", ("cpeextmainpsetable", CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable)), ("cpeExtPdStatsTable", ("cpeextpdstatstable", CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable)), ("cpeExtPsePortLldpTable", ("cpeextpseportlldptable", CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable))])
         self._leafs = OrderedDict()
 
-        self.cpeextmibobjects = CISCOPOWERETHERNETEXTMIB.Cpeextmibobjects()
+        self.cpeextmibobjects = CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects()
         self.cpeextmibobjects.parent = self
         self._children_name_map["cpeextmibobjects"] = "cpeExtMIBObjects"
-        self._children_yang_names.add("cpeExtMIBObjects")
 
-        self.cpeextpdstatistics = CISCOPOWERETHERNETEXTMIB.Cpeextpdstatistics()
+        self.cpeextpdstatistics = CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics()
         self.cpeextpdstatistics.parent = self
         self._children_name_map["cpeextpdstatistics"] = "cpeExtPdStatistics"
-        self._children_yang_names.add("cpeExtPdStatistics")
 
-        self.cpeextmainpsetable = CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable()
+        self.cpeextmainpsetable = CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable()
         self.cpeextmainpsetable.parent = self
         self._children_name_map["cpeextmainpsetable"] = "cpeExtMainPseTable"
-        self._children_yang_names.add("cpeExtMainPseTable")
 
-        self.cpeextpdstatstable = CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable()
+        self.cpeextpdstatstable = CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable()
         self.cpeextpdstatstable.parent = self
         self._children_name_map["cpeextpdstatstable"] = "cpeExtPdStatsTable"
-        self._children_yang_names.add("cpeExtPdStatsTable")
 
-        self.cpeextpseportlldptable = CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable()
+        self.cpeextpseportlldptable = CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable()
         self.cpeextpseportlldptable.parent = self
         self._children_name_map["cpeextpseportlldptable"] = "cpeExtPsePortLldpTable"
-        self._children_yang_names.add("cpeExtPsePortLldpTable")
         self._segment_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOPOWERETHERNETEXTMIB, [], name, value)
 
-    class Cpeextmibobjects(Entity):
+
+    class CpeExtMIBObjects(Entity):
         """
         
         
@@ -277,15 +274,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         _revision = '2009-12-11'
 
         def __init__(self):
-            super(CISCOPOWERETHERNETEXTMIB.Cpeextmibobjects, self).__init__()
+            super(CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects, self).__init__()
 
             self.yang_name = "cpeExtMIBObjects"
             self.yang_parent_name = "CISCO-POWER-ETHERNET-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpeextdefaultallocation', YLeaf(YType.uint32, 'cpeExtDefaultAllocation')),
                 ('cpeextpolicingnotifenable', YLeaf(YType.boolean, 'cpeExtPolicingNotifEnable')),
@@ -298,10 +294,10 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.Cpeextmibobjects, ['cpeextdefaultallocation', 'cpeextpolicingnotifenable', 'cpeextpowerpriorityenable'], name, value)
+            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects, ['cpeextdefaultallocation', 'cpeextpolicingnotifenable', 'cpeextpowerpriorityenable'], name, value)
 
 
-    class Cpeextpdstatistics(Entity):
+    class CpeExtPdStatistics(Entity):
         """
         
         
@@ -320,15 +316,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         _revision = '2009-12-11'
 
         def __init__(self):
-            super(CISCOPOWERETHERNETEXTMIB.Cpeextpdstatistics, self).__init__()
+            super(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics, self).__init__()
 
             self.yang_name = "cpeExtPdStatistics"
             self.yang_parent_name = "CISCO-POWER-ETHERNET-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpeextpdstatstotaldevices', YLeaf(YType.uint32, 'cpeExtPdStatsTotalDevices')),
             ])
@@ -337,10 +332,10 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.Cpeextpdstatistics, ['cpeextpdstatstotaldevices'], name, value)
+            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics, ['cpeextpdstatstotaldevices'], name, value)
 
 
-    class Cpeextmainpsetable(Entity):
+    class CpeExtMainPseTable(Entity):
         """
         This table contains the additional information for the
         main PSE group in pethMainPseTable.
@@ -348,7 +343,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         .. attribute:: cpeextmainpseentry
         
         	A cpeExtMainPseEntry contains information about a particular pethMainPseGroupIndex. An entry is created by the agent when a main PSE group is added to the pethMainPseTable. An entry is deleted by the agent when a main PSE group is removed from the pethMainPseTable
-        	**type**\: list of  		 :py:class:`Cpeextmainpseentry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable.Cpeextmainpseentry>`
+        	**type**\: list of  		 :py:class:`CpeExtMainPseEntry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable.CpeExtMainPseEntry>`
         
         
 
@@ -358,15 +353,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         _revision = '2009-12-11'
 
         def __init__(self):
-            super(CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable, self).__init__()
+            super(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable, self).__init__()
 
             self.yang_name = "cpeExtMainPseTable"
             self.yang_parent_name = "CISCO-POWER-ETHERNET-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpeExtMainPseEntry", ("cpeextmainpseentry", CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable.Cpeextmainpseentry))])
+            self._child_classes = OrderedDict([("cpeExtMainPseEntry", ("cpeextmainpseentry", CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable.CpeExtMainPseEntry))])
             self._leafs = OrderedDict()
 
             self.cpeextmainpseentry = YList(self)
@@ -374,10 +368,10 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable, [], name, value)
+            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable, [], name, value)
 
 
-        class Cpeextmainpseentry(Entity):
+        class CpeExtMainPseEntry(Entity):
             """
             A cpeExtMainPseEntry contains information about
             a particular pethMainPseGroupIndex. An entry is
@@ -393,7 +387,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`pethmainpsegroupindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.Pethmainpsetable.Pethmainpseentry>`
+            	**refers to**\:  :py:class:`pethmainpsegroupindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.PethMainPseTable.PethMainPseEntry>`
             
             .. attribute:: cpeextmainpseentphyindex
             
@@ -438,15 +432,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             _revision = '2009-12-11'
 
             def __init__(self):
-                super(CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable.Cpeextmainpseentry, self).__init__()
+                super(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable.CpeExtMainPseEntry, self).__init__()
 
                 self.yang_name = "cpeExtMainPseEntry"
                 self.yang_parent_name = "cpeExtMainPseTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['pethmainpsegroupindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('pethmainpsegroupindex', YLeaf(YType.str, 'pethMainPseGroupIndex')),
                     ('cpeextmainpseentphyindex', YLeaf(YType.int32, 'cpeExtMainPseEntPhyIndex')),
@@ -465,10 +458,10 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtMainPseTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable.Cpeextmainpseentry, ['pethmainpsegroupindex', 'cpeextmainpseentphyindex', 'cpeextmainpsedescr', 'cpeextmainpsepwrmonitorcapable', 'cpeextmainpseusedpower', 'cpeextmainpseremainingpower'], name, value)
+                self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable.CpeExtMainPseEntry, ['pethmainpsegroupindex', 'cpeextmainpseentphyindex', 'cpeextmainpsedescr', 'cpeextmainpsepwrmonitorcapable', 'cpeextmainpseusedpower', 'cpeextmainpseremainingpower'], name, value)
 
 
-    class Cpeextpdstatstable(Entity):
+    class CpeExtPdStatsTable(Entity):
         """
         This table contains the statistics information
         of the powered devices fallen into different power
@@ -477,7 +470,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         .. attribute:: cpeextpdstatsentry
         
         	A cpeExtPdStatsEntry contains the statistics information about a particular power classification defined in cpeExtPdStatsIndex
-        	**type**\: list of  		 :py:class:`Cpeextpdstatsentry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable.Cpeextpdstatsentry>`
+        	**type**\: list of  		 :py:class:`CpeExtPdStatsEntry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry>`
         
         
 
@@ -487,15 +480,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         _revision = '2009-12-11'
 
         def __init__(self):
-            super(CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable, self).__init__()
+            super(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable, self).__init__()
 
             self.yang_name = "cpeExtPdStatsTable"
             self.yang_parent_name = "CISCO-POWER-ETHERNET-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpeExtPdStatsEntry", ("cpeextpdstatsentry", CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable.Cpeextpdstatsentry))])
+            self._child_classes = OrderedDict([("cpeExtPdStatsEntry", ("cpeextpdstatsentry", CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cpeextpdstatsentry = YList(self)
@@ -503,10 +495,10 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable, [], name, value)
+            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable, [], name, value)
 
 
-        class Cpeextpdstatsentry(Entity):
+        class CpeExtPdStatsEntry(Entity):
             """
             A cpeExtPdStatsEntry contains the statistics
             information about a particular power classification
@@ -515,7 +507,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             .. attribute:: cpeextpdstatsclass  (key)
             
             	The power classification as the index for the statistics information for powered devices.  A value of 'cisco' indicates that the powered devices are CISCO proprietary and their power  classification does not fall into any class in IEEE specifications.  A value of 'class0' indicates that the power  classification of the powered devices falls into class 0 in IEEE specifications.  A value of 'class1' indicates that the power classification of the powered devices falls into class 1 in IEEE specifications.  A value of 'class2' indicates that the power classification of the powered devices falls into class 2 in IEEE specifications.  A value of 'class3' indicates that the power classification of the powered devices falls into class 3 in IEEE specifications.  A value of 'class4' indicates that the power classification of the powered devices falls into class 4 in IEEE specifications
-            	**type**\:  :py:class:`Cpeextpdstatsclass <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable.Cpeextpdstatsentry.Cpeextpdstatsclass>`
+            	**type**\:  :py:class:`CpeExtPdStatsClass <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry.CpeExtPdStatsClass>`
             
             .. attribute:: cpeextpdstatsdevicecount
             
@@ -532,15 +524,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             _revision = '2009-12-11'
 
             def __init__(self):
-                super(CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable.Cpeextpdstatsentry, self).__init__()
+                super(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry, self).__init__()
 
                 self.yang_name = "cpeExtPdStatsEntry"
                 self.yang_parent_name = "cpeExtPdStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpeextpdstatsclass']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpeextpdstatsclass', YLeaf(YType.enumeration, 'cpeExtPdStatsClass')),
                     ('cpeextpdstatsdevicecount', YLeaf(YType.uint32, 'cpeExtPdStatsDeviceCount')),
@@ -551,11 +542,11 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtPdStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable.Cpeextpdstatsentry, ['cpeextpdstatsclass', 'cpeextpdstatsdevicecount'], name, value)
+                self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry, ['cpeextpdstatsclass', 'cpeextpdstatsdevicecount'], name, value)
 
-            class Cpeextpdstatsclass(Enum):
+            class CpeExtPdStatsClass(Enum):
                 """
-                Cpeextpdstatsclass (Enum Class)
+                CpeExtPdStatsClass (Enum Class)
 
                 The power classification as the index for the
 
@@ -627,7 +618,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
 
 
 
-    class Cpeextpseportlldptable(Entity):
+    class CpeExtPsePortLldpTable(Entity):
         """
         A table provides the Link Layer Discovery Protocol (LLDP)
         based Data Link Layer (DLL) power classification
@@ -636,7 +627,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         .. attribute:: cpeextpseportlldpentry
         
         	A cpeExtPseDllPowerEntry entry contains the LLDP based DLL power classification characteristics for a particular PSE and the PD attached to it.   A PSE has its entry here when all of the following conditions are satisfied\: \- The LLDP power classification is globally enabled. \- It has a PD attached. \- LLDP is the operational power negotiation protocol between   the PSE and the PD attached
-        	**type**\: list of  		 :py:class:`Cpeextpseportlldpentry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable.Cpeextpseportlldpentry>`
+        	**type**\: list of  		 :py:class:`CpeExtPsePortLldpEntry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry>`
         
         
 
@@ -646,15 +637,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         _revision = '2009-12-11'
 
         def __init__(self):
-            super(CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable, self).__init__()
+            super(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable, self).__init__()
 
             self.yang_name = "cpeExtPsePortLldpTable"
             self.yang_parent_name = "CISCO-POWER-ETHERNET-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpeExtPsePortLldpEntry", ("cpeextpseportlldpentry", CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable.Cpeextpseportlldpentry))])
+            self._child_classes = OrderedDict([("cpeExtPsePortLldpEntry", ("cpeextpseportlldpentry", CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry))])
             self._leafs = OrderedDict()
 
             self.cpeextpseportlldpentry = YList(self)
@@ -662,10 +652,10 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable, [], name, value)
+            self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable, [], name, value)
 
 
-        class Cpeextpseportlldpentry(Entity):
+        class CpeExtPsePortLldpEntry(Entity):
             """
             A cpeExtPseDllPowerEntry entry contains the LLDP
             based DLL power classification characteristics for a particular
@@ -685,7 +675,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`pethpseportgroupindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.Pethpseporttable.Pethpseportentry>`
+            	**refers to**\:  :py:class:`pethpseportgroupindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.PethPsePortTable.PethPsePortEntry>`
             
             .. attribute:: pethpseportindex  (key)
             
@@ -694,7 +684,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`pethpseportindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.Pethpseporttable.Pethpseportentry>`
+            	**refers to**\:  :py:class:`pethpseportindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.PethPsePortTable.PethPsePortEntry>`
             
             .. attribute:: cpeextpseportlldppwrtype
             
@@ -770,15 +760,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             _revision = '2009-12-11'
 
             def __init__(self):
-                super(CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable.Cpeextpseportlldpentry, self).__init__()
+                super(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry, self).__init__()
 
                 self.yang_name = "cpeExtPsePortLldpEntry"
                 self.yang_parent_name = "cpeExtPsePortLldpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['pethpseportgroupindex','pethpseportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('pethpseportgroupindex', YLeaf(YType.str, 'pethPsePortGroupIndex')),
                     ('pethpseportindex', YLeaf(YType.str, 'pethPsePortIndex')),
@@ -809,7 +798,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtPsePortLldpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable.Cpeextpseportlldpentry, ['pethpseportgroupindex', 'pethpseportindex', 'cpeextpseportlldppwrtype', 'cpeextpseportlldppdpwrtype', 'cpeextpseportlldppwrsrc', 'cpeextpseportlldppdpwrsrc', 'cpeextpseportlldppwrpriority', 'cpeextpseportlldppdpwrpriority', 'cpeextpseportlldppwrreq', 'cpeextpseportlldppdpwrreq', 'cpeextpseportlldppwralloc', 'cpeextpseportlldppdpwralloc'], name, value)
+                self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry, ['pethpseportgroupindex', 'pethpseportindex', 'cpeextpseportlldppwrtype', 'cpeextpseportlldppdpwrtype', 'cpeextpseportlldppwrsrc', 'cpeextpseportlldppdpwrsrc', 'cpeextpseportlldppwrpriority', 'cpeextpseportlldppdpwrpriority', 'cpeextpseportlldppwrreq', 'cpeextpseportlldppdpwrreq', 'cpeextpseportlldppwralloc', 'cpeextpseportlldppdpwralloc'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOPOWERETHERNETEXTMIB()

@@ -66,8 +66,7 @@ class Policies(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("policy-entry", ("policy_entry", Policies.PolicyEntry))])
+        self._child_classes = OrderedDict([("policy-entry", ("policy_entry", Policies.PolicyEntry))])
         self._leafs = OrderedDict()
 
         self.policy_entry = YList(self)
@@ -111,8 +110,7 @@ class Policies(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['policy_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("classifier-entry", ("classifier_entry", Policies.PolicyEntry.ClassifierEntry))])
+            self._child_classes = OrderedDict([("classifier-entry", ("classifier_entry", Policies.PolicyEntry.ClassifierEntry))])
             self._leafs = OrderedDict([
                 ('policy_name', YLeaf(YType.str, 'policy-name')),
                 ('policy_descr', YLeaf(YType.str, 'policy-descr')),
@@ -176,8 +174,7 @@ class Policies(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['classifier_entry_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("filter-entry", ("filter_entry", Policies.PolicyEntry.ClassifierEntry.FilterEntry)), ("classifier-action-entry-cfg", ("classifier_action_entry_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg))])
+                self._child_classes = OrderedDict([("filter-entry", ("filter_entry", Policies.PolicyEntry.ClassifierEntry.FilterEntry)), ("classifier-action-entry-cfg", ("classifier_action_entry_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg))])
                 self._leafs = OrderedDict([
                     ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
                     ('classifier_entry_inline', YLeaf(YType.boolean, 'classifier-entry-inline')),
@@ -192,7 +189,7 @@ class Policies(Entity):
                 self._segment_path = lambda: "classifier-entry" + "[classifier-entry-name='" + str(self.classifier_entry_name) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry, ['classifier_entry_name', 'classifier_entry_inline', 'classifier_entry_filter_oper'], name, value)
+                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry, ['classifier_entry_name', u'classifier_entry_inline', u'classifier_entry_filter_oper'], name, value)
 
 
             class FilterEntry(Entity):
@@ -254,8 +251,7 @@ class Policies(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['filter_type','filter_logical_not']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("dscp-cfg", ("dscp_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg)), ("source-ip-address-cfg", ("source_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg)), ("destination-ip-address-cfg", ("destination_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg)), ("source-port-cfg", ("source_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg)), ("destination-port-cfg", ("destination_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg)), ("protocol-cfg", ("protocol_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg))])
+                    self._child_classes = OrderedDict([("dscp-cfg", ("dscp_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg)), ("source-ip-address-cfg", ("source_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg)), ("destination-ip-address-cfg", ("destination_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg)), ("source-port-cfg", ("source_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg)), ("destination-port-cfg", ("destination_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg)), ("protocol-cfg", ("protocol_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg))])
                     self._leafs = OrderedDict([
                         ('filter_type', YLeaf(YType.identityref, 'filter-type')),
                         ('filter_logical_not', YLeaf(YType.boolean, 'filter-logical-not')),
@@ -272,7 +268,7 @@ class Policies(Entity):
                     self._segment_path = lambda: "filter-entry" + "[filter-type='" + str(self.filter_type) + "']" + "[filter-logical-not='" + str(self.filter_logical_not) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry, ['filter_type', 'filter_logical_not'], name, value)
+                    self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry, [u'filter_type', u'filter_logical_not'], name, value)
 
 
                 class DscpCfg(Entity):
@@ -308,8 +304,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['dscp_min','dscp_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('dscp_min', YLeaf(YType.uint8, 'dscp-min')),
                             ('dscp_max', YLeaf(YType.uint8, 'dscp-max')),
@@ -319,7 +314,7 @@ class Policies(Entity):
                         self._segment_path = lambda: "dscp-cfg" + "[dscp-min='" + str(self.dscp_min) + "']" + "[dscp-max='" + str(self.dscp_max) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg, ['dscp_min', 'dscp_max'], name, value)
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg, [u'dscp_min', u'dscp_max'], name, value)
 
 
                 class SourceIpAddressCfg(Entity):
@@ -354,8 +349,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['source_ip_addr']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('source_ip_addr', YLeaf(YType.str, 'source-ip-addr')),
                         ])
@@ -363,7 +357,7 @@ class Policies(Entity):
                         self._segment_path = lambda: "source-ip-address-cfg" + "[source-ip-addr='" + str(self.source_ip_addr) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg, ['source_ip_addr'], name, value)
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg, [u'source_ip_addr'], name, value)
 
 
                 class DestinationIpAddressCfg(Entity):
@@ -398,8 +392,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['destination_ip_addr']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('destination_ip_addr', YLeaf(YType.str, 'destination-ip-addr')),
                         ])
@@ -407,7 +400,7 @@ class Policies(Entity):
                         self._segment_path = lambda: "destination-ip-address-cfg" + "[destination-ip-addr='" + str(self.destination_ip_addr) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, ['destination_ip_addr'], name, value)
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, [u'destination_ip_addr'], name, value)
 
 
                 class SourcePortCfg(Entity):
@@ -443,8 +436,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['source_port_min','source_port_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('source_port_min', YLeaf(YType.uint16, 'source-port-min')),
                             ('source_port_max', YLeaf(YType.uint16, 'source-port-max')),
@@ -454,7 +446,7 @@ class Policies(Entity):
                         self._segment_path = lambda: "source-port-cfg" + "[source-port-min='" + str(self.source_port_min) + "']" + "[source-port-max='" + str(self.source_port_max) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg, ['source_port_min', 'source_port_max'], name, value)
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg, [u'source_port_min', u'source_port_max'], name, value)
 
 
                 class DestinationPortCfg(Entity):
@@ -490,8 +482,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['destination_port_min','destination_port_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('destination_port_min', YLeaf(YType.uint16, 'destination-port-min')),
                             ('destination_port_max', YLeaf(YType.uint16, 'destination-port-max')),
@@ -501,7 +492,7 @@ class Policies(Entity):
                         self._segment_path = lambda: "destination-port-cfg" + "[destination-port-min='" + str(self.destination_port_min) + "']" + "[destination-port-max='" + str(self.destination_port_max) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg, ['destination_port_min', 'destination_port_max'], name, value)
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg, [u'destination_port_min', u'destination_port_max'], name, value)
 
 
                 class ProtocolCfg(Entity):
@@ -537,8 +528,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['protocol_min','protocol_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('protocol_min', YLeaf(YType.uint8, 'protocol-min')),
                             ('protocol_max', YLeaf(YType.uint8, 'protocol-max')),
@@ -548,7 +538,7 @@ class Policies(Entity):
                         self._segment_path = lambda: "protocol-cfg" + "[protocol-min='" + str(self.protocol_min) + "']" + "[protocol-max='" + str(self.protocol_max) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg, ['protocol_min', 'protocol_max'], name, value)
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg, [u'protocol_min', u'protocol_max'], name, value)
 
 
             class ClassifierActionEntryCfg(Entity):
@@ -615,8 +605,7 @@ class Policies(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['action_type']
-                    self._child_container_classes = OrderedDict([("ietf-diffserv-action:marking-cfg", ("marking_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg)), ("ietf-diffserv-action:priority-cfg", ("priority_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg)), ("ietf-diffserv-action:meter-cfg", ("meter_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg)), ("ietf-diffserv-action:min-rate-cfg", ("min_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg)), ("ietf-diffserv-action:max-rate-cfg", ("max_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg)), ("ietf-diffserv-action:drop-cfg", ("drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg)), ("ietf-diffserv-action:tail-drop-cfg", ("tail_drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg)), ("ietf-diffserv-action:random-detect-cfg", ("random_detect_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ietf-diffserv-action:marking-cfg", ("marking_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg)), ("ietf-diffserv-action:priority-cfg", ("priority_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg)), ("ietf-diffserv-action:meter-cfg", ("meter_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg)), ("ietf-diffserv-action:min-rate-cfg", ("min_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg)), ("ietf-diffserv-action:max-rate-cfg", ("max_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg)), ("ietf-diffserv-action:drop-cfg", ("drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg)), ("ietf-diffserv-action:tail-drop-cfg", ("tail_drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg)), ("ietf-diffserv-action:random-detect-cfg", ("random_detect_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg))])
                     self._leafs = OrderedDict([
                         ('action_type', YLeaf(YType.identityref, 'action-type')),
                     ])
@@ -625,42 +614,34 @@ class Policies(Entity):
                     self.marking_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg()
                     self.marking_cfg.parent = self
                     self._children_name_map["marking_cfg"] = "ietf-diffserv-action:marking-cfg"
-                    self._children_yang_names.add("ietf-diffserv-action:marking-cfg")
 
                     self.priority_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg()
                     self.priority_cfg.parent = self
                     self._children_name_map["priority_cfg"] = "ietf-diffserv-action:priority-cfg"
-                    self._children_yang_names.add("ietf-diffserv-action:priority-cfg")
 
                     self.meter_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg()
                     self.meter_cfg.parent = self
                     self._children_name_map["meter_cfg"] = "ietf-diffserv-action:meter-cfg"
-                    self._children_yang_names.add("ietf-diffserv-action:meter-cfg")
 
                     self.min_rate_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg()
                     self.min_rate_cfg.parent = self
                     self._children_name_map["min_rate_cfg"] = "ietf-diffserv-action:min-rate-cfg"
-                    self._children_yang_names.add("ietf-diffserv-action:min-rate-cfg")
 
                     self.max_rate_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg()
                     self.max_rate_cfg.parent = self
                     self._children_name_map["max_rate_cfg"] = "ietf-diffserv-action:max-rate-cfg"
-                    self._children_yang_names.add("ietf-diffserv-action:max-rate-cfg")
 
                     self.drop_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg()
                     self.drop_cfg.parent = self
                     self._children_name_map["drop_cfg"] = "ietf-diffserv-action:drop-cfg"
-                    self._children_yang_names.add("ietf-diffserv-action:drop-cfg")
 
                     self.tail_drop_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg()
                     self.tail_drop_cfg.parent = self
                     self._children_name_map["tail_drop_cfg"] = "ietf-diffserv-action:tail-drop-cfg"
-                    self._children_yang_names.add("ietf-diffserv-action:tail-drop-cfg")
 
                     self.random_detect_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg()
                     self.random_detect_cfg.parent = self
                     self._children_name_map["random_detect_cfg"] = "ietf-diffserv-action:random-detect-cfg"
-                    self._children_yang_names.add("ietf-diffserv-action:random-detect-cfg")
                     self._segment_path = lambda: "classifier-action-entry-cfg" + "[action-type='" + str(self.action_type) + "']"
 
                 def __setattr__(self, name, value):
@@ -693,8 +674,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('dscp', YLeaf(YType.uint8, 'dscp')),
                         ])
@@ -736,8 +716,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("rate-burst", ("rate_burst", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("rate-burst", ("rate_burst", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst))])
                         self._leafs = OrderedDict([
                             ('priority_level', YLeaf(YType.uint8, 'priority-level')),
                         ])
@@ -746,7 +725,6 @@ class Policies(Entity):
                         self.rate_burst = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst()
                         self.rate_burst.parent = self
                         self._children_name_map["rate_burst"] = "rate-burst"
-                        self._children_yang_names.add("rate-burst")
                         self._segment_path = lambda: "ietf-diffserv-action:priority-cfg"
 
                     def __setattr__(self, name, value):
@@ -825,8 +803,7 @@ class Policies(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rate', YLeaf(YType.uint64, 'rate')),
                                 ('absolute_rate_metric', YLeaf(YType.enumeration, 'absolute-rate-metric')),
@@ -873,8 +850,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("meter-list", ("meter_list", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList))])
+                        self._child_classes = OrderedDict([("meter-list", ("meter_list", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList))])
                         self._leafs = OrderedDict()
 
                         self.meter_list = YList(self)
@@ -952,8 +928,7 @@ class Policies(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['meter_id']
-                            self._child_container_classes = OrderedDict([("color", ("color", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color)), ("succeed-action", ("succeed_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction)), ("fail-action", ("fail_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("color", ("color", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color)), ("succeed-action", ("succeed_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction)), ("fail-action", ("fail_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction))])
                             self._leafs = OrderedDict([
                                 ('meter_id', YLeaf(YType.uint16, 'meter-id')),
                                 ('meter_rate', YLeaf(YType.uint64, 'meter-rate')),
@@ -968,17 +943,14 @@ class Policies(Entity):
                             self.color = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color()
                             self.color.parent = self
                             self._children_name_map["color"] = "color"
-                            self._children_yang_names.add("color")
 
                             self.succeed_action = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction()
                             self.succeed_action.parent = self
                             self._children_name_map["succeed_action"] = "succeed-action"
-                            self._children_yang_names.add("succeed-action")
 
                             self.fail_action = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction()
                             self.fail_action.parent = self
                             self._children_name_map["fail_action"] = "fail-action"
-                            self._children_yang_names.add("fail-action")
                             self._segment_path = lambda: "meter-list" + "[meter-id='" + str(self.meter_id) + "']"
 
                         def __setattr__(self, name, value):
@@ -1021,8 +993,7 @@ class Policies(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
                                     ('classifier_entry_descr', YLeaf(YType.str, 'classifier-entry-descr')),
@@ -1034,7 +1005,7 @@ class Policies(Entity):
                                 self._segment_path = lambda: "color"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color, ['classifier_entry_name', 'classifier_entry_descr', 'classifier_entry_filter_operation'], name, value)
+                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color, [u'classifier_entry_name', u'classifier_entry_descr', u'classifier_entry_filter_operation'], name, value)
 
 
                         class SucceedAction(Entity):
@@ -1080,8 +1051,7 @@ class Policies(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('meter_action_type', YLeaf(YType.identityref, 'meter-action-type')),
                                     ('next_meter_id', YLeaf(YType.uint16, 'next-meter-id')),
@@ -1141,8 +1111,7 @@ class Policies(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('meter_action_type', YLeaf(YType.identityref, 'meter-action-type')),
                                     ('next_meter_id', YLeaf(YType.uint16, 'next-meter-id')),
@@ -1218,8 +1187,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("bw-excess-share-cfg", ("bw_excess_share_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("bw-excess-share-cfg", ("bw_excess_share_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg))])
                         self._leafs = OrderedDict([
                             ('min_rate', YLeaf(YType.uint64, 'min-rate')),
                             ('absolute_rate_metric', YLeaf(YType.enumeration, 'absolute-rate-metric')),
@@ -1236,7 +1204,6 @@ class Policies(Entity):
                         self.bw_excess_share_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg()
                         self.bw_excess_share_cfg.parent = self
                         self._children_name_map["bw_excess_share_cfg"] = "bw-excess-share-cfg"
-                        self._children_yang_names.add("bw-excess-share-cfg")
                         self._segment_path = lambda: "ietf-diffserv-action:min-rate-cfg"
 
                     def __setattr__(self, name, value):
@@ -1295,8 +1262,7 @@ class Policies(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('value', YLeaf(YType.uint32, 'value')),
                                 ('absolute_rate_metric', YLeaf(YType.enumeration, 'absolute-rate-metric')),
@@ -1387,8 +1353,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('absolute_rate', YLeaf(YType.uint64, 'absolute-rate')),
                             ('burst_size', YLeaf(YType.uint64, 'burst-size')),
@@ -1435,8 +1400,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('drop_action', YLeaf(YType.empty, 'drop-action')),
                         ])
@@ -1471,8 +1435,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("qlimit-dscp-thresh", ("qlimit_dscp_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh))])
+                        self._child_classes = OrderedDict([("qlimit-dscp-thresh", ("qlimit_dscp_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh))])
                         self._leafs = OrderedDict()
 
                         self.qlimit_dscp_thresh = YList(self)
@@ -1520,8 +1483,7 @@ class Policies(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['dscp_min','dscp_max']
-                            self._child_container_classes = OrderedDict([("threshold", ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("threshold", ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold))])
                             self._leafs = OrderedDict([
                                 ('dscp_min', YLeaf(YType.uint8, 'dscp-min')),
                                 ('dscp_max', YLeaf(YType.uint8, 'dscp-max')),
@@ -1532,7 +1494,6 @@ class Policies(Entity):
                             self.threshold = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold()
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
                             self._segment_path = lambda: "qlimit-dscp-thresh" + "[dscp-min='" + str(self.dscp_min) + "']" + "[dscp-max='" + str(self.dscp_max) + "']"
 
                         def __setattr__(self, name, value):
@@ -1576,8 +1537,7 @@ class Policies(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('threshold_size', YLeaf(YType.uint64, 'threshold-size')),
                                     ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
@@ -1633,8 +1593,7 @@ class Policies(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("red-min-thresh", ("red_min_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh)), ("red-max-thresh", ("red_max_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("red-min-thresh", ("red_min_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh)), ("red-max-thresh", ("red_max_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh))])
                         self._leafs = OrderedDict([
                             ('exp_weighting_const', YLeaf(YType.uint32, 'exp-weighting-const')),
                             ('mark_probability', YLeaf(YType.uint32, 'mark-probability')),
@@ -1645,12 +1604,10 @@ class Policies(Entity):
                         self.red_min_thresh = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh()
                         self.red_min_thresh.parent = self
                         self._children_name_map["red_min_thresh"] = "red-min-thresh"
-                        self._children_yang_names.add("red-min-thresh")
 
                         self.red_max_thresh = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh()
                         self.red_max_thresh.parent = self
                         self._children_name_map["red_max_thresh"] = "red-max-thresh"
-                        self._children_yang_names.add("red-max-thresh")
                         self._segment_path = lambda: "ietf-diffserv-action:random-detect-cfg"
 
                     def __setattr__(self, name, value):
@@ -1681,15 +1638,16 @@ class Policies(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("threshold", ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("threshold", ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold))])
                             self._leafs = OrderedDict()
 
                             self.threshold = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold()
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
                             self._segment_path = lambda: "red-min-thresh"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh, [], name, value)
 
 
                         class Threshold(Entity):
@@ -1729,8 +1687,7 @@ class Policies(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('threshold_size', YLeaf(YType.uint64, 'threshold-size')),
                                     ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
@@ -1767,15 +1724,16 @@ class Policies(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("threshold", ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("threshold", ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold))])
                             self._leafs = OrderedDict()
 
                             self.threshold = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold()
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
                             self._segment_path = lambda: "red-max-thresh"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh, [], name, value)
 
 
                         class Threshold(Entity):
@@ -1815,8 +1773,7 @@ class Policies(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('threshold_size', YLeaf(YType.uint64, 'threshold-size')),
                                     ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),

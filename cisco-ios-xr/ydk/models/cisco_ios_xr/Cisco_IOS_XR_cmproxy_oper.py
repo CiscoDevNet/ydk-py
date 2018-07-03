@@ -45,15 +45,16 @@ class SdrInventoryVm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", SdrInventoryVm.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", SdrInventoryVm.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = SdrInventoryVm.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SdrInventoryVm, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class SdrInventoryVm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", SdrInventoryVm.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", SdrInventoryVm.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -123,8 +123,7 @@ class SdrInventoryVm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("node-entries", ("node_entries", SdrInventoryVm.Nodes.Node.NodeEntries))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("node-entries", ("node_entries", SdrInventoryVm.Nodes.Node.NodeEntries))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -133,7 +132,6 @@ class SdrInventoryVm(Entity):
                 self.node_entries = SdrInventoryVm.Nodes.Node.NodeEntries()
                 self.node_entries.parent = self
                 self._children_name_map["node_entries"] = "node-entries"
-                self._children_yang_names.add("node-entries")
                 self._segment_path = lambda: "node" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/nodes/%s" % self._segment_path()
 
@@ -165,8 +163,7 @@ class SdrInventoryVm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node-entry", ("node_entry", SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry))])
+                    self._child_classes = OrderedDict([("node-entry", ("node_entry", SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry))])
                     self._leafs = OrderedDict()
 
                     self.node_entry = YList(self)
@@ -307,8 +304,7 @@ class SdrInventoryVm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('valid', YLeaf(YType.uint32, 'valid')),
@@ -346,7 +342,7 @@ class SdrInventoryVm(Entity):
                         self._segment_path = lambda: "node-entry" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', 'valid', 'card_type', 'card_type_string', 'nodeid', 'node_name', 'partner_id', 'partner_name', 'red_state', 'red_state_string', 'node_sw_state', 'node_sw_state_string', 'prev_sw_state', 'prev_sw_state_string', 'node_ip', 'node_ipv4_string'], name, value)
+                        self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', u'valid', u'card_type', u'card_type_string', u'nodeid', u'node_name', u'partner_id', u'partner_name', u'red_state', u'red_state_string', u'node_sw_state', u'node_sw_state_string', u'prev_sw_state', u'prev_sw_state_string', u'node_ip', u'node_ipv4_string'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SdrInventoryVm()

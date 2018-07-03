@@ -46,15 +46,16 @@ class MplsEa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", MplsEa.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", MplsEa.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = MplsEa.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ea"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(MplsEa, [], name, value)
 
 
     class Nodes(Entity):
@@ -82,8 +83,7 @@ class MplsEa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", MplsEa.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", MplsEa.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -125,8 +125,7 @@ class MplsEa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("interfaces", ("interfaces", MplsEa.Nodes.Node.Interfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interfaces", ("interfaces", MplsEa.Nodes.Node.Interfaces))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -135,7 +134,6 @@ class MplsEa(Entity):
                 self.interfaces = MplsEa.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ea/nodes/%s" % self._segment_path()
 
@@ -167,8 +165,7 @@ class MplsEa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", MplsEa.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", MplsEa.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -232,8 +229,7 @@ class MplsEa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('mtu', YLeaf(YType.uint32, 'mtu')),
@@ -249,7 +245,7 @@ class MplsEa(Entity):
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', u'mtu', u'bkp_label_stack_depth', u'srte_label_stack_depth', u'pri_label_stack_depth'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsEa()
@@ -280,15 +276,16 @@ class MplsMa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", MplsMa.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", MplsMa.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = MplsMa.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ma"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(MplsMa, [], name, value)
 
 
     class Nodes(Entity):
@@ -316,8 +313,7 @@ class MplsMa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", MplsMa.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", MplsMa.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -359,8 +355,7 @@ class MplsMa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("interfaces", ("interfaces", MplsMa.Nodes.Node.Interfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interfaces", ("interfaces", MplsMa.Nodes.Node.Interfaces))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -369,7 +364,6 @@ class MplsMa(Entity):
                 self.interfaces = MplsMa.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ma/nodes/%s" % self._segment_path()
 
@@ -401,8 +395,7 @@ class MplsMa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", MplsMa.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", MplsMa.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -466,8 +459,7 @@ class MplsMa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('mtu', YLeaf(YType.uint32, 'mtu')),
@@ -483,7 +475,7 @@ class MplsMa(Entity):
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', u'mtu', u'bkp_label_stack_depth', u'srte_label_stack_depth', u'pri_label_stack_depth'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsMa()

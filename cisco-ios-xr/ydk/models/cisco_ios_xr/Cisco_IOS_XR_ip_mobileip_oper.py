@@ -204,15 +204,16 @@ class Pmipv6(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("lma", ("lma", Pmipv6.Lma))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("lma", ("lma", Pmipv6.Lma))])
         self._leafs = OrderedDict()
 
         self.lma = Pmipv6.Lma()
         self.lma.parent = self
         self._children_name_map["lma"] = "lma"
-        self._children_yang_names.add("lma")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Pmipv6, [], name, value)
 
 
     class Lma(Entity):
@@ -254,31 +255,29 @@ class Pmipv6(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("statistics", ("statistics", Pmipv6.Lma.Statistics)), ("bindings", ("bindings", Pmipv6.Lma.Bindings)), ("heartbeats", ("heartbeats", Pmipv6.Lma.Heartbeats)), ("config-variables", ("config_variables", Pmipv6.Lma.ConfigVariables))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("statistics", ("statistics", Pmipv6.Lma.Statistics)), ("bindings", ("bindings", Pmipv6.Lma.Bindings)), ("heartbeats", ("heartbeats", Pmipv6.Lma.Heartbeats)), ("config-variables", ("config_variables", Pmipv6.Lma.ConfigVariables))])
             self._leafs = OrderedDict()
 
             self.statistics = Pmipv6.Lma.Statistics()
             self.statistics.parent = self
             self._children_name_map["statistics"] = "statistics"
-            self._children_yang_names.add("statistics")
 
             self.bindings = Pmipv6.Lma.Bindings()
             self.bindings.parent = self
             self._children_name_map["bindings"] = "bindings"
-            self._children_yang_names.add("bindings")
 
             self.heartbeats = Pmipv6.Lma.Heartbeats()
             self.heartbeats.parent = self
             self._children_name_map["heartbeats"] = "heartbeats"
-            self._children_yang_names.add("heartbeats")
 
             self.config_variables = Pmipv6.Lma.ConfigVariables()
             self.config_variables.parent = self
             self._children_name_map["config_variables"] = "config-variables"
-            self._children_yang_names.add("config-variables")
             self._segment_path = lambda: "lma"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Pmipv6.Lma, [], name, value)
 
 
         class Statistics(Entity):
@@ -320,31 +319,29 @@ class Pmipv6(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("customer-statistics", ("customer_statistics", Pmipv6.Lma.Statistics.CustomerStatistics)), ("license", ("license", Pmipv6.Lma.Statistics.License)), ("global", ("global_", Pmipv6.Lma.Statistics.Global)), ("mag-statistics", ("mag_statistics", Pmipv6.Lma.Statistics.MagStatistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("customer-statistics", ("customer_statistics", Pmipv6.Lma.Statistics.CustomerStatistics)), ("license", ("license", Pmipv6.Lma.Statistics.License)), ("global", ("global_", Pmipv6.Lma.Statistics.Global)), ("mag-statistics", ("mag_statistics", Pmipv6.Lma.Statistics.MagStatistics))])
                 self._leafs = OrderedDict()
 
                 self.customer_statistics = Pmipv6.Lma.Statistics.CustomerStatistics()
                 self.customer_statistics.parent = self
                 self._children_name_map["customer_statistics"] = "customer-statistics"
-                self._children_yang_names.add("customer-statistics")
 
                 self.license = Pmipv6.Lma.Statistics.License()
                 self.license.parent = self
                 self._children_name_map["license"] = "license"
-                self._children_yang_names.add("license")
 
                 self.global_ = Pmipv6.Lma.Statistics.Global()
                 self.global_.parent = self
                 self._children_name_map["global_"] = "global"
-                self._children_yang_names.add("global")
 
                 self.mag_statistics = Pmipv6.Lma.Statistics.MagStatistics()
                 self.mag_statistics.parent = self
                 self._children_name_map["mag_statistics"] = "mag-statistics"
-                self._children_yang_names.add("mag-statistics")
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Pmipv6.Lma.Statistics, [], name, value)
 
 
             class CustomerStatistics(Entity):
@@ -371,8 +368,7 @@ class Pmipv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("customer-statistic", ("customer_statistic", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic))])
+                    self._child_classes = OrderedDict([("customer-statistic", ("customer_statistic", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic))])
                     self._leafs = OrderedDict()
 
                     self.customer_statistic = YList(self)
@@ -452,8 +448,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['customer_name']
-                        self._child_container_classes = OrderedDict([("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics)), ("accounting-statistics", ("accounting_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics)), ("accounting-statistics", ("accounting_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics))])
                         self._leafs = OrderedDict([
                             ('customer_name', YLeaf(YType.str, 'customer-name')),
                             ('lma_identifier', YLeaf(YType.str, 'lma-identifier')),
@@ -472,17 +467,15 @@ class Pmipv6(Entity):
                         self.protocol_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics()
                         self.protocol_statistics.parent = self
                         self._children_name_map["protocol_statistics"] = "protocol-statistics"
-                        self._children_yang_names.add("protocol-statistics")
 
                         self.accounting_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics()
                         self.accounting_statistics.parent = self
                         self._children_name_map["accounting_statistics"] = "accounting-statistics"
-                        self._children_yang_names.add("accounting-statistics")
                         self._segment_path = lambda: "customer-statistic" + "[customer-name='" + str(self.customer_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic, ['customer_name', 'lma_identifier', 'bce_count', 'handoff_count', 'ipv4_mnp_count', 'ipv6_mnp_count'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic, ['customer_name', u'lma_identifier', u'bce_count', u'handoff_count', u'ipv4_mnp_count', u'ipv6_mnp_count'], name, value)
 
 
                     class ProtocolStatistics(Entity):
@@ -534,40 +527,36 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics))])
                             self._leafs = OrderedDict()
 
                             self.pbu_receive_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics()
                             self.pbu_receive_statistics.parent = self
                             self._children_name_map["pbu_receive_statistics"] = "pbu-receive-statistics"
-                            self._children_yang_names.add("pbu-receive-statistics")
 
                             self.pba_send_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics()
                             self.pba_send_statistics.parent = self
                             self._children_name_map["pba_send_statistics"] = "pba-send-statistics"
-                            self._children_yang_names.add("pba-send-statistics")
 
                             self.pbri_send_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics()
                             self.pbri_send_statistics.parent = self
                             self._children_name_map["pbri_send_statistics"] = "pbri-send-statistics"
-                            self._children_yang_names.add("pbri-send-statistics")
 
                             self.pbri_receive_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics()
                             self.pbri_receive_statistics.parent = self
                             self._children_name_map["pbri_receive_statistics"] = "pbri-receive-statistics"
-                            self._children_yang_names.add("pbri-receive-statistics")
 
                             self.pbra_send_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics()
                             self.pbra_send_statistics.parent = self
                             self._children_name_map["pbra_send_statistics"] = "pbra-send-statistics"
-                            self._children_yang_names.add("pbra-send-statistics")
 
                             self.pbra_receive_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics()
                             self.pbra_receive_statistics.parent = self
                             self._children_name_map["pbra_receive_statistics"] = "pbra-receive-statistics"
-                            self._children_yang_names.add("pbra-receive-statistics")
                             self._segment_path = lambda: "protocol-statistics"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics, [], name, value)
 
 
                         class PbuReceiveStatistics(Entity):
@@ -603,8 +592,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbu_count', YLeaf(YType.uint64, 'pbu-count')),
                                     ('pbu_drop_count', YLeaf(YType.uint32, 'pbu-drop-count')),
@@ -614,7 +602,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbu-receive-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics, [u'pbu_count', u'pbu_drop_count'], name, value)
 
 
                         class PbaSendStatistics(Entity):
@@ -832,8 +820,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pba_count', YLeaf(YType.uint64, 'pba-count')),
                                     ('pba_drop_count', YLeaf(YType.uint32, 'pba-drop-count')),
@@ -895,7 +882,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pba-send-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics, [u'pba_count', u'pba_drop_count', u'accepted_count', u'unknown_count', u'unspecified_failure_count', u'admin_failure_count', u'resource_failure_count', u'home_reg_failure_count', u'home_subnet_failure_count', u'bad_sequence_failure_count', u'reg_type_failure_count', u'authen_failure_count', u'proxy_reg_not_enabled_count', u'not_lma_for_this_mn_count', u'no_author_for_proxy_reg_count', u'no_author_for_hnp_count', u'timestamp_mismatch_count', u'timestamp_lower_than_previous_accepted_count', u'missing_hnp_opt_count', u'received_hnps_do_not_match_bce_hnps_count', u'missing_mn_id_opt_count', u'missing_hi_opt_count', u'missing_access_tech_type_opt_count', u'no_author_for_ipv4_mobility_count', u'no_author_for_ipv4_hoa_count', u'no_author_for_ipv6_mobility_count', u'multiple_ipv4_ho_a_not_supported_count', u'gre_key_opt_required_count'], name, value)
 
 
                         class PbriSendStatistics(Entity):
@@ -1001,8 +988,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
                                     ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
@@ -1032,7 +1018,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbri-send-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
 
 
                         class PbriReceiveStatistics(Entity):
@@ -1138,8 +1124,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
                                     ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
@@ -1169,7 +1154,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbri-receive-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
 
 
                         class PbraSendStatistics(Entity):
@@ -1275,8 +1260,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
                                     ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
@@ -1306,7 +1290,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbra-send-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
 
 
                         class PbraReceiveStatistics(Entity):
@@ -1412,8 +1396,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
                                     ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
@@ -1443,7 +1426,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbra-receive-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
 
 
                     class AccountingStatistics(Entity):
@@ -1486,8 +1469,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('accounting_start_sent_count', YLeaf(YType.uint64, 'accounting-start-sent-count')),
                                 ('accounting_update_sent_count', YLeaf(YType.uint64, 'accounting-update-sent-count')),
@@ -1499,7 +1481,7 @@ class Pmipv6(Entity):
                             self._segment_path = lambda: "accounting-statistics"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics, ['accounting_start_sent_count', 'accounting_update_sent_count', 'accounting_stop_sent_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics, [u'accounting_start_sent_count', u'accounting_update_sent_count', u'accounting_stop_sent_count'], name, value)
 
 
             class License(Entity):
@@ -1547,8 +1529,7 @@ class Pmipv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lma_identifier', YLeaf(YType.str, 'lma-identifier')),
                         ('bce_count', YLeaf(YType.uint32, 'bce-count')),
@@ -1563,7 +1544,7 @@ class Pmipv6(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Statistics.License, ['lma_identifier', 'bce_count', 'peak_bce_count', 'peak_bce_count_reset_timestamp'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Statistics.License, [u'lma_identifier', u'bce_count', u'peak_bce_count', u'peak_bce_count_reset_timestamp'], name, value)
 
 
             class Global(Entity):
@@ -1633,8 +1614,7 @@ class Pmipv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("packet-statistics", ("packet_statistics", Pmipv6.Lma.Statistics.Global.PacketStatistics)), ("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics)), ("accounting-statistics", ("accounting_statistics", Pmipv6.Lma.Statistics.Global.AccountingStatistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("packet-statistics", ("packet_statistics", Pmipv6.Lma.Statistics.Global.PacketStatistics)), ("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics)), ("accounting-statistics", ("accounting_statistics", Pmipv6.Lma.Statistics.Global.AccountingStatistics))])
                     self._leafs = OrderedDict([
                         ('lma_identifier', YLeaf(YType.str, 'lma-identifier')),
                         ('bce_count', YLeaf(YType.uint32, 'bce-count')),
@@ -1651,22 +1631,19 @@ class Pmipv6(Entity):
                     self.packet_statistics = Pmipv6.Lma.Statistics.Global.PacketStatistics()
                     self.packet_statistics.parent = self
                     self._children_name_map["packet_statistics"] = "packet-statistics"
-                    self._children_yang_names.add("packet-statistics")
 
                     self.protocol_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics()
                     self.protocol_statistics.parent = self
                     self._children_name_map["protocol_statistics"] = "protocol-statistics"
-                    self._children_yang_names.add("protocol-statistics")
 
                     self.accounting_statistics = Pmipv6.Lma.Statistics.Global.AccountingStatistics()
                     self.accounting_statistics.parent = self
                     self._children_name_map["accounting_statistics"] = "accounting-statistics"
-                    self._children_yang_names.add("accounting-statistics")
                     self._segment_path = lambda: "global"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Statistics.Global, ['lma_identifier', 'bce_count', 'handoff_count', 'single_tenant_count', 'multi_tenant_count'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Statistics.Global, [u'lma_identifier', u'bce_count', u'handoff_count', u'single_tenant_count', u'multi_tenant_count'], name, value)
 
 
                 class PacketStatistics(Entity):
@@ -1751,8 +1728,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('checksum_errors', YLeaf(YType.uint64, 'checksum-errors')),
                             ('send_drops', YLeaf(YType.uint64, 'send-drops')),
@@ -1777,7 +1753,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.PacketStatistics, ['checksum_errors', 'send_drops', 'receive_drops', 'packets_received', 'packets_sent', 'send_drops_ipv6', 'receive_drops_ipv6', 'packets_received_ipv6', 'packets_sent_ipv6'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.PacketStatistics, [u'checksum_errors', u'send_drops', u'receive_drops', u'packets_received', u'packets_sent', u'send_drops_ipv6', u'receive_drops_ipv6', u'packets_received_ipv6', u'packets_sent_ipv6'], name, value)
 
 
                 class ProtocolStatistics(Entity):
@@ -1829,41 +1805,37 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics))])
                         self._leafs = OrderedDict()
 
                         self.pbu_receive_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics()
                         self.pbu_receive_statistics.parent = self
                         self._children_name_map["pbu_receive_statistics"] = "pbu-receive-statistics"
-                        self._children_yang_names.add("pbu-receive-statistics")
 
                         self.pba_send_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics()
                         self.pba_send_statistics.parent = self
                         self._children_name_map["pba_send_statistics"] = "pba-send-statistics"
-                        self._children_yang_names.add("pba-send-statistics")
 
                         self.pbri_send_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics()
                         self.pbri_send_statistics.parent = self
                         self._children_name_map["pbri_send_statistics"] = "pbri-send-statistics"
-                        self._children_yang_names.add("pbri-send-statistics")
 
                         self.pbri_receive_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics()
                         self.pbri_receive_statistics.parent = self
                         self._children_name_map["pbri_receive_statistics"] = "pbri-receive-statistics"
-                        self._children_yang_names.add("pbri-receive-statistics")
 
                         self.pbra_send_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics()
                         self.pbra_send_statistics.parent = self
                         self._children_name_map["pbra_send_statistics"] = "pbra-send-statistics"
-                        self._children_yang_names.add("pbra-send-statistics")
 
                         self.pbra_receive_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics()
                         self.pbra_receive_statistics.parent = self
                         self._children_name_map["pbra_receive_statistics"] = "pbra-receive-statistics"
-                        self._children_yang_names.add("pbra-receive-statistics")
                         self._segment_path = lambda: "protocol-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics, [], name, value)
 
 
                     class PbuReceiveStatistics(Entity):
@@ -1899,8 +1871,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('pbu_count', YLeaf(YType.uint64, 'pbu-count')),
                                 ('pbu_drop_count', YLeaf(YType.uint32, 'pbu-drop-count')),
@@ -1911,7 +1882,7 @@ class Pmipv6(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, [u'pbu_count', u'pbu_drop_count'], name, value)
 
 
                     class PbaSendStatistics(Entity):
@@ -2129,8 +2100,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('pba_count', YLeaf(YType.uint64, 'pba-count')),
                                 ('pba_drop_count', YLeaf(YType.uint32, 'pba-drop-count')),
@@ -2193,7 +2163,7 @@ class Pmipv6(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, [u'pba_count', u'pba_drop_count', u'accepted_count', u'unknown_count', u'unspecified_failure_count', u'admin_failure_count', u'resource_failure_count', u'home_reg_failure_count', u'home_subnet_failure_count', u'bad_sequence_failure_count', u'reg_type_failure_count', u'authen_failure_count', u'proxy_reg_not_enabled_count', u'not_lma_for_this_mn_count', u'no_author_for_proxy_reg_count', u'no_author_for_hnp_count', u'timestamp_mismatch_count', u'timestamp_lower_than_previous_accepted_count', u'missing_hnp_opt_count', u'received_hnps_do_not_match_bce_hnps_count', u'missing_mn_id_opt_count', u'missing_hi_opt_count', u'missing_access_tech_type_opt_count', u'no_author_for_ipv4_mobility_count', u'no_author_for_ipv4_hoa_count', u'no_author_for_ipv6_mobility_count', u'multiple_ipv4_ho_a_not_supported_count', u'gre_key_opt_required_count'], name, value)
 
 
                     class PbriSendStatistics(Entity):
@@ -2299,8 +2269,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
                                 ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
@@ -2331,7 +2300,7 @@ class Pmipv6(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
 
 
                     class PbriReceiveStatistics(Entity):
@@ -2437,8 +2406,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
                                 ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
@@ -2469,7 +2437,7 @@ class Pmipv6(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
 
 
                     class PbraSendStatistics(Entity):
@@ -2575,8 +2543,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
                                 ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
@@ -2607,7 +2574,7 @@ class Pmipv6(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
 
 
                     class PbraReceiveStatistics(Entity):
@@ -2713,8 +2680,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
                                 ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
@@ -2745,7 +2711,7 @@ class Pmipv6(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
 
 
                 class AccountingStatistics(Entity):
@@ -2788,8 +2754,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('accounting_start_sent_count', YLeaf(YType.uint64, 'accounting-start-sent-count')),
                             ('accounting_update_sent_count', YLeaf(YType.uint64, 'accounting-update-sent-count')),
@@ -2802,7 +2767,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.AccountingStatistics, ['accounting_start_sent_count', 'accounting_update_sent_count', 'accounting_stop_sent_count'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.AccountingStatistics, [u'accounting_start_sent_count', u'accounting_update_sent_count', u'accounting_stop_sent_count'], name, value)
 
 
             class MagStatistics(Entity):
@@ -2829,8 +2794,7 @@ class Pmipv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("mag-statistic", ("mag_statistic", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic))])
+                    self._child_classes = OrderedDict([("mag-statistic", ("mag_statistic", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic))])
                     self._leafs = OrderedDict()
 
                     self.mag_statistic = YList(self)
@@ -2877,8 +2841,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['mag_name']
-                        self._child_container_classes = OrderedDict([("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics))])
                         self._leafs = OrderedDict([
                             ('mag_name', YLeaf(YType.str, 'mag-name')),
                             ('lma_identifier', YLeaf(YType.str, 'lma-identifier')),
@@ -2889,12 +2852,11 @@ class Pmipv6(Entity):
                         self.protocol_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics()
                         self.protocol_statistics.parent = self
                         self._children_name_map["protocol_statistics"] = "protocol-statistics"
-                        self._children_yang_names.add("protocol-statistics")
                         self._segment_path = lambda: "mag-statistic" + "[mag-name='" + str(self.mag_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic, ['mag_name', 'lma_identifier'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic, ['mag_name', u'lma_identifier'], name, value)
 
 
                     class ProtocolStatistics(Entity):
@@ -2946,40 +2908,36 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics))])
                             self._leafs = OrderedDict()
 
                             self.pbu_receive_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics()
                             self.pbu_receive_statistics.parent = self
                             self._children_name_map["pbu_receive_statistics"] = "pbu-receive-statistics"
-                            self._children_yang_names.add("pbu-receive-statistics")
 
                             self.pba_send_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics()
                             self.pba_send_statistics.parent = self
                             self._children_name_map["pba_send_statistics"] = "pba-send-statistics"
-                            self._children_yang_names.add("pba-send-statistics")
 
                             self.pbri_send_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics()
                             self.pbri_send_statistics.parent = self
                             self._children_name_map["pbri_send_statistics"] = "pbri-send-statistics"
-                            self._children_yang_names.add("pbri-send-statistics")
 
                             self.pbri_receive_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics()
                             self.pbri_receive_statistics.parent = self
                             self._children_name_map["pbri_receive_statistics"] = "pbri-receive-statistics"
-                            self._children_yang_names.add("pbri-receive-statistics")
 
                             self.pbra_send_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics()
                             self.pbra_send_statistics.parent = self
                             self._children_name_map["pbra_send_statistics"] = "pbra-send-statistics"
-                            self._children_yang_names.add("pbra-send-statistics")
 
                             self.pbra_receive_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics()
                             self.pbra_receive_statistics.parent = self
                             self._children_name_map["pbra_receive_statistics"] = "pbra-receive-statistics"
-                            self._children_yang_names.add("pbra-receive-statistics")
                             self._segment_path = lambda: "protocol-statistics"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics, [], name, value)
 
 
                         class PbuReceiveStatistics(Entity):
@@ -3015,8 +2973,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbu_count', YLeaf(YType.uint64, 'pbu-count')),
                                     ('pbu_drop_count', YLeaf(YType.uint32, 'pbu-drop-count')),
@@ -3026,7 +2983,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbu-receive-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics, [u'pbu_count', u'pbu_drop_count'], name, value)
 
 
                         class PbaSendStatistics(Entity):
@@ -3244,8 +3201,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pba_count', YLeaf(YType.uint64, 'pba-count')),
                                     ('pba_drop_count', YLeaf(YType.uint32, 'pba-drop-count')),
@@ -3307,7 +3263,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pba-send-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics, [u'pba_count', u'pba_drop_count', u'accepted_count', u'unknown_count', u'unspecified_failure_count', u'admin_failure_count', u'resource_failure_count', u'home_reg_failure_count', u'home_subnet_failure_count', u'bad_sequence_failure_count', u'reg_type_failure_count', u'authen_failure_count', u'proxy_reg_not_enabled_count', u'not_lma_for_this_mn_count', u'no_author_for_proxy_reg_count', u'no_author_for_hnp_count', u'timestamp_mismatch_count', u'timestamp_lower_than_previous_accepted_count', u'missing_hnp_opt_count', u'received_hnps_do_not_match_bce_hnps_count', u'missing_mn_id_opt_count', u'missing_hi_opt_count', u'missing_access_tech_type_opt_count', u'no_author_for_ipv4_mobility_count', u'no_author_for_ipv4_hoa_count', u'no_author_for_ipv6_mobility_count', u'multiple_ipv4_ho_a_not_supported_count', u'gre_key_opt_required_count'], name, value)
 
 
                         class PbriSendStatistics(Entity):
@@ -3413,8 +3369,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
                                     ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
@@ -3444,7 +3399,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbri-send-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
 
 
                         class PbriReceiveStatistics(Entity):
@@ -3550,8 +3505,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
                                     ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
@@ -3581,7 +3535,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbri-receive-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
 
 
                         class PbraSendStatistics(Entity):
@@ -3687,8 +3641,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
                                     ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
@@ -3718,7 +3671,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbra-send-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
 
 
                         class PbraReceiveStatistics(Entity):
@@ -3824,8 +3777,7 @@ class Pmipv6(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
                                     ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
@@ -3855,7 +3807,7 @@ class Pmipv6(Entity):
                                 self._segment_path = lambda: "pbra-receive-statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
 
 
         class Bindings(Entity):
@@ -3882,8 +3834,7 @@ class Pmipv6(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("binding", ("binding", Pmipv6.Lma.Bindings.Binding))])
+                self._child_classes = OrderedDict([("binding", ("binding", Pmipv6.Lma.Bindings.Binding))])
                 self._leafs = OrderedDict()
 
                 self.binding = YList(self)
@@ -4113,8 +4064,7 @@ class Pmipv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("coa", ("coa", Pmipv6.Lma.Bindings.Binding.Coa)), ("dmnp-v4", ("dmnp_v4", Pmipv6.Lma.Bindings.Binding.DmnpV4)), ("dmnp-v6", ("dmnp_v6", Pmipv6.Lma.Bindings.Binding.DmnpV6))])
+                    self._child_classes = OrderedDict([("coa", ("coa", Pmipv6.Lma.Bindings.Binding.Coa)), ("dmnp-v4", ("dmnp_v4", Pmipv6.Lma.Bindings.Binding.DmnpV4)), ("dmnp-v6", ("dmnp_v6", Pmipv6.Lma.Bindings.Binding.DmnpV6))])
                     self._leafs = OrderedDict([
                         ('mag_name', YLeaf(YType.str, 'mag-name')),
                         ('nai_string', YLeaf(YType.str, 'nai-string')),
@@ -4183,7 +4133,7 @@ class Pmipv6(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Bindings.Binding, ['mag_name', 'nai_string', 'imsi_string', 'customer_name', 'mnnai', 'customer_name_xr', 'llid', 'peer_id', 'phyintf', 'tunnel', 'state', 'apn', 'att', 'hoa', 'dflt', 'lifetime', 'liferem', 'refresh', 'refresh_rem', 'prefix_len', 'num_hnps', 'num_coa', 'num_dmnp_v4', 'num_dmnp_v6', 'hnps', 'ignore_home_address', 'up_stream_grekey', 'down_stream_grekey', 'vrfid'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Bindings.Binding, ['mag_name', 'nai_string', 'imsi_string', 'customer_name', u'mnnai', u'customer_name_xr', u'llid', u'peer_id', u'phyintf', u'tunnel', u'state', u'apn', u'att', u'hoa', u'dflt', u'lifetime', u'liferem', u'refresh', u'refresh_rem', u'prefix_len', u'num_hnps', u'num_coa', u'num_dmnp_v4', u'num_dmnp_v6', u'hnps', u'ignore_home_address', u'up_stream_grekey', u'down_stream_grekey', u'vrfid'], name, value)
 
 
                 class Coa(Entity):
@@ -4328,8 +4278,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('llid', YLeaf(YType.str, 'llid')),
                             ('peer_name', YLeaf(YType.str, 'peer-name')),
@@ -4378,7 +4327,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.Coa, ['llid', 'peer_name', 'tunnel', 'e_label', 'color', 'roa_min_tf', 'pstate', 'msisdn', 'imsi', 'cdma_nai', 'pgw_apn', 'pgw_trans_vrf', 'att', 'lifetime', 'lifetime_remaining', 'refresh', 'refresh_rem', 'dnkey', 'upkey', 'coa_v4', 'coa_v6'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.Coa, [u'llid', u'peer_name', u'tunnel', u'e_label', u'color', u'roa_min_tf', u'pstate', u'msisdn', u'imsi', u'cdma_nai', u'pgw_apn', u'pgw_trans_vrf', u'att', u'lifetime', u'lifetime_remaining', u'refresh', u'refresh_rem', u'dnkey', u'upkey', u'coa_v4', u'coa_v6'], name, value)
 
 
                 class DmnpV4(Entity):
@@ -4414,8 +4363,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('pfxlen', YLeaf(YType.uint8, 'pfxlen')),
                             ('prefix', YLeaf(YType.str, 'prefix')),
@@ -4426,7 +4374,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV4, ['pfxlen', 'prefix'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV4, [u'pfxlen', u'prefix'], name, value)
 
 
                 class DmnpV6(Entity):
@@ -4462,8 +4410,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('pfxlen', YLeaf(YType.uint8, 'pfxlen')),
                             ('prefix', YLeaf(YType.str, 'prefix')),
@@ -4474,7 +4421,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV6, ['pfxlen', 'prefix'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV6, [u'pfxlen', u'prefix'], name, value)
 
 
         class Heartbeats(Entity):
@@ -4501,8 +4448,7 @@ class Pmipv6(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("heartbeat", ("heartbeat", Pmipv6.Lma.Heartbeats.Heartbeat))])
+                self._child_classes = OrderedDict([("heartbeat", ("heartbeat", Pmipv6.Lma.Heartbeats.Heartbeat))])
                 self._leafs = OrderedDict()
 
                 self.heartbeat = YList(self)
@@ -4607,8 +4553,7 @@ class Pmipv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['peer_addr']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('peer_addr', YLeaf(YType.str, 'peer-addr')),
                         ('vrf', YLeaf(YType.str, 'vrf')),
@@ -4637,7 +4582,7 @@ class Pmipv6(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/heartbeats/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Heartbeats.Heartbeat, ['peer_addr', 'vrf', 'customer_name', 'source_port', 'destination_port', 'source_ipv4_address', 'destination_ipv4_address', 'source_ipv6_address', 'destination_ipv6_address', 'status', 'ipv6_path'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Heartbeats.Heartbeat, ['peer_addr', u'vrf', u'customer_name', u'source_port', u'destination_port', u'source_ipv4_address', u'destination_ipv4_address', u'source_ipv6_address', u'destination_ipv6_address', u'status', u'ipv6_path'], name, value)
 
 
         class ConfigVariables(Entity):
@@ -4669,21 +4614,21 @@ class Pmipv6(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("customer-variables", ("customer_variables", Pmipv6.Lma.ConfigVariables.CustomerVariables)), ("global-variables", ("global_variables", Pmipv6.Lma.ConfigVariables.GlobalVariables))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("customer-variables", ("customer_variables", Pmipv6.Lma.ConfigVariables.CustomerVariables)), ("global-variables", ("global_variables", Pmipv6.Lma.ConfigVariables.GlobalVariables))])
                 self._leafs = OrderedDict()
 
                 self.customer_variables = Pmipv6.Lma.ConfigVariables.CustomerVariables()
                 self.customer_variables.parent = self
                 self._children_name_map["customer_variables"] = "customer-variables"
-                self._children_yang_names.add("customer-variables")
 
                 self.global_variables = Pmipv6.Lma.ConfigVariables.GlobalVariables()
                 self.global_variables.parent = self
                 self._children_name_map["global_variables"] = "global-variables"
-                self._children_yang_names.add("global-variables")
                 self._segment_path = lambda: "config-variables"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Pmipv6.Lma.ConfigVariables, [], name, value)
 
 
             class CustomerVariables(Entity):
@@ -4710,8 +4655,7 @@ class Pmipv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("customer-variable", ("customer_variable", Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable))])
+                    self._child_classes = OrderedDict([("customer-variable", ("customer_variable", Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable))])
                     self._leafs = OrderedDict()
 
                     self.customer_variable = YList(self)
@@ -4768,8 +4712,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['customer_name']
-                        self._child_container_classes = OrderedDict([("mll-service", ("mll_service", Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("mll-service", ("mll_service", Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService))])
                         self._leafs = OrderedDict([
                             ('customer_name', YLeaf(YType.str, 'customer-name')),
                             ('cust_name', YLeaf(YType.str, 'cust-name')),
@@ -4784,12 +4727,11 @@ class Pmipv6(Entity):
                         self.mll_service = Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService()
                         self.mll_service.parent = self
                         self._children_name_map["mll_service"] = "mll-service"
-                        self._children_yang_names.add("mll-service")
                         self._segment_path = lambda: "customer-variable" + "[customer-name='" + str(self.customer_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/customer-variables/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable, ['customer_name', 'cust_name', 'vrf_name', 'auth_option'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable, ['customer_name', u'cust_name', u'vrf_name', u'auth_option'], name, value)
 
 
                     class MllService(Entity):
@@ -4872,8 +4814,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ignore_hoa', YLeaf(YType.boolean, 'ignore-hoa')),
                                 ('mnp_ipv4_lmn_max', YLeaf(YType.uint16, 'mnp-ipv4-lmn-max')),
@@ -4897,7 +4838,7 @@ class Pmipv6(Entity):
                             self._segment_path = lambda: "mll-service"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService, ['ignore_hoa', 'mnp_ipv4_lmn_max', 'mnp_ipv6_lmn_max', 'mnp_lmn_max', 'mnp_ipv4_cust_max', 'mnp_ipv6_cust_max', 'mnp_cust_max', 'mnp_ipv4_cust_cur', 'mnp_ipv6_cust_cur'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService, [u'ignore_hoa', u'mnp_ipv4_lmn_max', u'mnp_ipv6_lmn_max', u'mnp_lmn_max', u'mnp_ipv4_cust_max', u'mnp_ipv6_cust_max', u'mnp_cust_max', u'mnp_ipv4_cust_cur', u'mnp_ipv6_cust_cur'], name, value)
 
 
             class GlobalVariables(Entity):
@@ -5065,8 +5006,7 @@ class Pmipv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("parameters", ("parameters", Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters)), ("mll-service", ("mll_service", Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService))])
-                    self._child_list_classes = OrderedDict([("intf", ("intf", Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf)), ("peer", ("peer", Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer)), ("network", ("network", Pmipv6.Lma.ConfigVariables.GlobalVariables.Network)), ("cust", ("cust", Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust))])
+                    self._child_classes = OrderedDict([("parameters", ("parameters", Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters)), ("mll-service", ("mll_service", Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService)), ("intf", ("intf", Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf)), ("peer", ("peer", Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer)), ("network", ("network", Pmipv6.Lma.ConfigVariables.GlobalVariables.Network)), ("cust", ("cust", Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                         ('selfid', YLeaf(YType.str, 'selfid')),
@@ -5113,12 +5053,10 @@ class Pmipv6(Entity):
                     self.parameters = Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters()
                     self.parameters.parent = self
                     self._children_name_map["parameters"] = "parameters"
-                    self._children_yang_names.add("parameters")
 
                     self.mll_service = Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService()
                     self.mll_service.parent = self
                     self._children_name_map["mll_service"] = "mll-service"
-                    self._children_yang_names.add("mll-service")
 
                     self.intf = YList(self)
                     self.peer = YList(self)
@@ -5128,7 +5066,7 @@ class Pmipv6(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables, ['domain', 'selfid', 'apn_name', 'role', 'count', 'peers', 'customers', 'num_network', 'discover_mn', 'local_routing', 'aaa_accounting', 'default_mn', 'apn', 'learn_mag', 'session_mgr', 'service', 'profile', 'ddp', 'ddt', 'ddr'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables, [u'domain', u'selfid', u'apn_name', u'role', u'count', u'peers', u'customers', u'num_network', u'discover_mn', u'local_routing', u'aaa_accounting', u'default_mn', u'apn', u'learn_mag', u'session_mgr', u'service', u'profile', u'ddp', u'ddt', u'ddr'], name, value)
 
 
                 class Parameters(Entity):
@@ -5268,8 +5206,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("self-id", ("self_id", Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("self-id", ("self_id", Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId))])
                         self._leafs = OrderedDict([
                             ('timestamp', YLeaf(YType.boolean, 'timestamp')),
                             ('window', YLeaf(YType.uint64, 'window')),
@@ -5310,12 +5247,11 @@ class Pmipv6(Entity):
                         self.self_id = Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId()
                         self.self_id.parent = self
                         self._children_name_map["self_id"] = "self-id"
-                        self._children_yang_names.add("self-id")
                         self._segment_path = lambda: "parameters"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters, ['timestamp', 'window', 'auth_option', 'reg_time', 'ref_time', 'retx', 'ret_max', 'bri_init', 'bri_retries', 'bri_max', 'max_bindings', 'hnp', 'encap', 'delete_time', 'create_time', 'up_grekey', 'down_grekey'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters, [u'timestamp', u'window', u'auth_option', u'reg_time', u'ref_time', u'retx', u'ret_max', u'bri_init', u'bri_retries', u'bri_max', u'max_bindings', u'hnp', u'encap', u'delete_time', u'create_time', u'up_grekey', u'down_grekey'], name, value)
 
 
                     class SelfId(Entity):
@@ -5361,8 +5297,7 @@ class Pmipv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('entity_', YLeaf(YType.str, 'entity')),
                                 ('addr_type', YLeaf(YType.enumeration, 'addr-type')),
@@ -5377,7 +5312,7 @@ class Pmipv6(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/parameters/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId, ['entity_', 'addr_type', 'address', 'ipv4_address'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId, [u'entity_', u'addr_type', u'address', u'ipv4_address'], name, value)
 
 
                 class MllService(Entity):
@@ -5460,8 +5395,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ignore_hoa', YLeaf(YType.boolean, 'ignore-hoa')),
                             ('mnp_ipv4_lmn_max', YLeaf(YType.uint16, 'mnp-ipv4-lmn-max')),
@@ -5486,7 +5420,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService, ['ignore_hoa', 'mnp_ipv4_lmn_max', 'mnp_ipv6_lmn_max', 'mnp_lmn_max', 'mnp_ipv4_cust_max', 'mnp_ipv6_cust_max', 'mnp_cust_max', 'mnp_ipv4_cust_cur', 'mnp_ipv6_cust_cur'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService, [u'ignore_hoa', u'mnp_ipv4_lmn_max', u'mnp_ipv6_lmn_max', u'mnp_lmn_max', u'mnp_ipv4_cust_max', u'mnp_ipv6_cust_max', u'mnp_cust_max', u'mnp_ipv4_cust_cur', u'mnp_ipv6_cust_cur'], name, value)
 
 
                 class Intf(Entity):
@@ -5523,8 +5457,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('apn', YLeaf(YType.boolean, 'apn')),
                             ('interface', YLeaf(YType.str, 'interface')),
@@ -5537,7 +5470,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf, ['apn', 'interface', 'apn_name'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf, [u'apn', u'interface', u'apn_name'], name, value)
 
 
                 class Peer(Entity):
@@ -5594,8 +5527,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('peer', YLeaf(YType.str, 'peer')),
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -5616,7 +5548,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer, ['peer', 'vrf_name', 'interface', 'encap', 'auth', 'vrf', 'statictunnel'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer, [u'peer', u'vrf_name', u'interface', u'encap', u'auth', u'vrf', u'statictunnel'], name, value)
 
 
                 class Network(Entity):
@@ -5688,8 +5620,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('v4pool', YLeaf(YType.boolean, 'v4pool')),
                             ('v6pool', YLeaf(YType.boolean, 'v6pool')),
@@ -5712,7 +5643,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Network, ['v4pool', 'v6pool', 'network', 'ipv4', 'ipv6', 'v4pfx_len', 'v6pfx_len', 'mrnet'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Network, [u'v4pool', u'v6pool', u'network', u'ipv4', u'ipv6', u'v4pfx_len', u'v6pfx_len', u'mrnet'], name, value)
 
 
                 class Cust(Entity):
@@ -5781,8 +5712,7 @@ class Pmipv6(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('cust', YLeaf(YType.boolean, 'cust')),
                             ('vrf', YLeaf(YType.boolean, 'vrf')),
@@ -5807,7 +5737,7 @@ class Pmipv6(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust, ['cust', 'vrf', 't_vrf', 'auth_option', 'heart_beat', 'reg_time', 'cust_name', 'vrf_name', 't_vrf_name'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust, [u'cust', u'vrf', u't_vrf', u'auth_option', u'heart_beat', u'reg_time', u'cust_name', u'vrf_name', u't_vrf_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pmipv6()

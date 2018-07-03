@@ -50,8 +50,7 @@ class Ipv6Virtual(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipv6Virtual.Vrfs))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipv6Virtual.Vrfs))])
         self._leafs = OrderedDict([
             ('use_as_source_address', YLeaf(YType.empty, 'use-as-source-address')),
         ])
@@ -60,7 +59,6 @@ class Ipv6Virtual(Entity):
         self.vrfs = Ipv6Virtual.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual"
 
     def __setattr__(self, name, value):
@@ -91,8 +89,7 @@ class Ipv6Virtual(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv6Virtual.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", Ipv6Virtual.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -137,8 +134,7 @@ class Ipv6Virtual(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("address", ("address", Ipv6Virtual.Vrfs.Vrf.Address))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("address", ("address", Ipv6Virtual.Vrfs.Vrf.Address))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -146,7 +142,6 @@ class Ipv6Virtual(Entity):
 
                 self.address = None
                 self._children_name_map["address"] = "address"
-                self._children_yang_names.add("address")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual/vrfs/%s" % self._segment_path()
 
@@ -193,8 +188,7 @@ class Ipv6Virtual(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('address', YLeaf(YType.str, 'address')),

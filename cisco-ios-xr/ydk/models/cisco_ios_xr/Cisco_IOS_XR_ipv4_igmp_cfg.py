@@ -67,12 +67,10 @@ class Igmp(Entity):
     
     
 
-    This class is a :ref:`presence class<presence-class>`
-
     """
 
     _prefix = 'ipv4-igmp-cfg'
-    _revision = '2016-10-10'
+    _revision = '2017-10-15'
 
     def __init__(self):
         super(Igmp, self).__init__()
@@ -83,20 +81,19 @@ class Igmp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Igmp.Vrfs)), ("default-context", ("default_context", Igmp.DefaultContext))])
-        self._child_list_classes = OrderedDict([])
-        self.is_presence_container = True
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", Igmp.Vrfs)), ("default-context", ("default_context", Igmp.DefaultContext))])
         self._leafs = OrderedDict()
 
         self.vrfs = Igmp.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
 
         self.default_context = None
         self._children_name_map["default_context"] = "default-context"
-        self._children_yang_names.add("default-context")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Igmp, [], name, value)
 
 
     class Vrfs(Entity):
@@ -113,7 +110,7 @@ class Igmp(Entity):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2016-10-10'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Igmp.Vrfs, self).__init__()
@@ -123,8 +120,7 @@ class Igmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", Igmp.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", Igmp.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -190,7 +186,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.Vrfs.Vrf, self).__init__()
@@ -200,8 +196,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("traffic", ("traffic", Igmp.Vrfs.Vrf.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Igmp.Vrfs.Vrf.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Igmp.Vrfs.Vrf.SsmAccessGroups)), ("maximum", ("maximum", Igmp.Vrfs.Vrf.Maximum)), ("interfaces", ("interfaces", Igmp.Vrfs.Vrf.Interfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("traffic", ("traffic", Igmp.Vrfs.Vrf.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Igmp.Vrfs.Vrf.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Igmp.Vrfs.Vrf.SsmAccessGroups)), ("maximum", ("maximum", Igmp.Vrfs.Vrf.Maximum)), ("interfaces", ("interfaces", Igmp.Vrfs.Vrf.Interfaces))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
@@ -214,27 +209,22 @@ class Igmp(Entity):
                 self.traffic = Igmp.Vrfs.Vrf.Traffic()
                 self.traffic.parent = self
                 self._children_name_map["traffic"] = "traffic"
-                self._children_yang_names.add("traffic")
 
                 self.inheritable_defaults = Igmp.Vrfs.Vrf.InheritableDefaults()
                 self.inheritable_defaults.parent = self
                 self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                self._children_yang_names.add("inheritable-defaults")
 
                 self.ssm_access_groups = Igmp.Vrfs.Vrf.SsmAccessGroups()
                 self.ssm_access_groups.parent = self
                 self._children_name_map["ssm_access_groups"] = "ssm-access-groups"
-                self._children_yang_names.add("ssm-access-groups")
 
                 self.maximum = Igmp.Vrfs.Vrf.Maximum()
                 self.maximum.parent = self
                 self._children_name_map["maximum"] = "maximum"
-                self._children_yang_names.add("maximum")
 
                 self.interfaces = Igmp.Vrfs.Vrf.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/%s" % self._segment_path()
 
@@ -258,7 +248,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.Vrfs.Vrf.Traffic, self).__init__()
@@ -268,8 +258,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('profile', YLeaf(YType.str, 'profile')),
                     ])
@@ -357,7 +346,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.Vrfs.Vrf.InheritableDefaults, self).__init__()
@@ -367,8 +356,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking))])
                     self._leafs = OrderedDict([
                         ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
                         ('access_group', YLeaf(YType.str, 'access-group')),
@@ -386,11 +374,9 @@ class Igmp(Entity):
 
                     self.maximum_groups_per_interface_oor = None
                     self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
-                    self._children_yang_names.add("maximum-groups-per-interface-oor")
 
                     self.explicit_tracking = None
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                    self._children_yang_names.add("explicit-tracking")
                     self._segment_path = lambda: "inheritable-defaults"
 
                 def __setattr__(self, name, value):
@@ -434,7 +420,7 @@ class Igmp(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor, self).__init__()
@@ -444,8 +430,7 @@ class Igmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
@@ -486,7 +471,7 @@ class Igmp(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking, self).__init__()
@@ -496,8 +481,7 @@ class Igmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.boolean, 'enable')),
@@ -525,7 +509,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.Vrfs.Vrf.SsmAccessGroups, self).__init__()
@@ -535,8 +519,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup))])
+                    self._child_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup))])
                     self._leafs = OrderedDict()
 
                     self.ssm_access_group = YList(self)
@@ -577,7 +560,7 @@ class Igmp(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup, self).__init__()
@@ -587,8 +570,7 @@ class Igmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['source_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('source_address', YLeaf(YType.str, 'source-address')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -619,7 +601,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.Vrfs.Vrf.Maximum, self).__init__()
@@ -629,8 +611,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
                     ])
@@ -655,7 +636,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.Vrfs.Vrf.Interfaces, self).__init__()
@@ -665,8 +646,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Igmp.Vrfs.Vrf.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Igmp.Vrfs.Vrf.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -772,7 +752,7 @@ class Igmp(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Igmp.Vrfs.Vrf.Interfaces.Interface, self).__init__()
@@ -782,8 +762,7 @@ class Igmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("join-groups", ("join_groups", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("join-groups", ("join_groups", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
@@ -803,20 +782,16 @@ class Igmp(Entity):
 
                         self.join_groups = None
                         self._children_name_map["join_groups"] = "join-groups"
-                        self._children_yang_names.add("join-groups")
 
                         self.static_group_group_addresses = Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses()
                         self.static_group_group_addresses.parent = self
                         self._children_name_map["static_group_group_addresses"] = "static-group-group-addresses"
-                        self._children_yang_names.add("static-group-group-addresses")
 
                         self.maximum_groups_per_interface_oor = None
                         self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
-                        self._children_yang_names.add("maximum-groups-per-interface-oor")
 
                         self.explicit_tracking = None
                         self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                        self._children_yang_names.add("explicit-tracking")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -844,7 +819,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups, self).__init__()
@@ -854,8 +829,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("join-group", ("join_group", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
+                            self._child_classes = OrderedDict([("join-group", ("join_group", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
                             self.is_presence_container = True
                             self._leafs = OrderedDict()
 
@@ -897,7 +871,7 @@ class Igmp(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup, self).__init__()
@@ -907,8 +881,7 @@ class Igmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -964,7 +937,7 @@ class Igmp(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, self).__init__()
@@ -974,8 +947,7 @@ class Igmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','source_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('source_address', YLeaf(YType.str, 'source-address')),
@@ -1029,7 +1001,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses, self).__init__()
@@ -1039,8 +1011,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
+                            self._child_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
                             self._leafs = OrderedDict()
 
                             self.static_group_group_address = YList(self)
@@ -1103,7 +1074,7 @@ class Igmp(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, self).__init__()
@@ -1113,8 +1084,7 @@ class Igmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('group_count', YLeaf(YType.uint32, 'group-count')),
@@ -1192,7 +1162,7 @@ class Igmp(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, self).__init__()
@@ -1202,8 +1172,7 @@ class Igmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','source_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('source_address', YLeaf(YType.str, 'source-address')),
@@ -1296,7 +1265,7 @@ class Igmp(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, self).__init__()
@@ -1306,8 +1275,7 @@ class Igmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','source_address','source_address_mask']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('source_address', YLeaf(YType.str, 'source-address')),
@@ -1389,7 +1357,7 @@ class Igmp(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, self).__init__()
@@ -1399,8 +1367,7 @@ class Igmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','group_address_mask']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -1493,7 +1460,7 @@ class Igmp(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, self).__init__()
@@ -1503,8 +1470,7 @@ class Igmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','group_address_mask','source_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -1612,7 +1578,7 @@ class Igmp(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, self).__init__()
@@ -1622,8 +1588,7 @@ class Igmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -1683,7 +1648,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor, self).__init__()
@@ -1693,8 +1658,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
@@ -1735,7 +1699,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking, self).__init__()
@@ -1745,8 +1709,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.boolean, 'enable')),
@@ -1825,7 +1788,7 @@ class Igmp(Entity):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2016-10-10'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Igmp.DefaultContext, self).__init__()
@@ -1835,8 +1798,7 @@ class Igmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("nsf", ("nsf", Igmp.DefaultContext.Nsf)), ("unicast-qos-adjust", ("unicast_qos_adjust", Igmp.DefaultContext.UnicastQosAdjust)), ("accounting", ("accounting", Igmp.DefaultContext.Accounting)), ("traffic", ("traffic", Igmp.DefaultContext.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Igmp.DefaultContext.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Igmp.DefaultContext.SsmAccessGroups)), ("maximum", ("maximum", Igmp.DefaultContext.Maximum)), ("interfaces", ("interfaces", Igmp.DefaultContext.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("nsf", ("nsf", Igmp.DefaultContext.Nsf)), ("unicast-qos-adjust", ("unicast_qos_adjust", Igmp.DefaultContext.UnicastQosAdjust)), ("accounting", ("accounting", Igmp.DefaultContext.Accounting)), ("traffic", ("traffic", Igmp.DefaultContext.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Igmp.DefaultContext.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Igmp.DefaultContext.SsmAccessGroups)), ("maximum", ("maximum", Igmp.DefaultContext.Maximum)), ("interfaces", ("interfaces", Igmp.DefaultContext.Interfaces))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
@@ -1848,42 +1810,34 @@ class Igmp(Entity):
             self.nsf = Igmp.DefaultContext.Nsf()
             self.nsf.parent = self
             self._children_name_map["nsf"] = "nsf"
-            self._children_yang_names.add("nsf")
 
             self.unicast_qos_adjust = Igmp.DefaultContext.UnicastQosAdjust()
             self.unicast_qos_adjust.parent = self
             self._children_name_map["unicast_qos_adjust"] = "unicast-qos-adjust"
-            self._children_yang_names.add("unicast-qos-adjust")
 
             self.accounting = Igmp.DefaultContext.Accounting()
             self.accounting.parent = self
             self._children_name_map["accounting"] = "accounting"
-            self._children_yang_names.add("accounting")
 
             self.traffic = Igmp.DefaultContext.Traffic()
             self.traffic.parent = self
             self._children_name_map["traffic"] = "traffic"
-            self._children_yang_names.add("traffic")
 
             self.inheritable_defaults = Igmp.DefaultContext.InheritableDefaults()
             self.inheritable_defaults.parent = self
             self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-            self._children_yang_names.add("inheritable-defaults")
 
             self.ssm_access_groups = Igmp.DefaultContext.SsmAccessGroups()
             self.ssm_access_groups.parent = self
             self._children_name_map["ssm_access_groups"] = "ssm-access-groups"
-            self._children_yang_names.add("ssm-access-groups")
 
             self.maximum = Igmp.DefaultContext.Maximum()
             self.maximum.parent = self
             self._children_name_map["maximum"] = "maximum"
-            self._children_yang_names.add("maximum")
 
             self.interfaces = Igmp.DefaultContext.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/%s" % self._segment_path()
 
@@ -1911,7 +1865,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.DefaultContext.Nsf, self).__init__()
@@ -1921,8 +1875,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('lifetime', YLeaf(YType.uint32, 'lifetime')),
                 ])
@@ -1977,7 +1930,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.DefaultContext.UnicastQosAdjust, self).__init__()
@@ -1987,8 +1940,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('download_interval', YLeaf(YType.uint32, 'download-interval')),
                     ('adjustment_delay', YLeaf(YType.uint32, 'adjustment-delay')),
@@ -2025,7 +1977,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.DefaultContext.Accounting, self).__init__()
@@ -2035,8 +1987,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('max_history', YLeaf(YType.uint32, 'max-history')),
                 ])
@@ -2064,7 +2015,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.DefaultContext.Traffic, self).__init__()
@@ -2074,8 +2025,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('profile', YLeaf(YType.str, 'profile')),
                 ])
@@ -2164,7 +2114,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.DefaultContext.InheritableDefaults, self).__init__()
@@ -2174,8 +2124,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.DefaultContext.InheritableDefaults.ExplicitTracking))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.DefaultContext.InheritableDefaults.ExplicitTracking))])
                 self._leafs = OrderedDict([
                     ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
                     ('access_group', YLeaf(YType.str, 'access-group')),
@@ -2193,11 +2142,9 @@ class Igmp(Entity):
 
                 self.maximum_groups_per_interface_oor = None
                 self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
-                self._children_yang_names.add("maximum-groups-per-interface-oor")
 
                 self.explicit_tracking = None
                 self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                self._children_yang_names.add("explicit-tracking")
                 self._segment_path = lambda: "inheritable-defaults"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
 
@@ -2242,7 +2189,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor, self).__init__()
@@ -2252,8 +2199,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
@@ -2295,7 +2241,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.DefaultContext.InheritableDefaults.ExplicitTracking, self).__init__()
@@ -2305,8 +2251,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.boolean, 'enable')),
@@ -2335,7 +2280,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.DefaultContext.SsmAccessGroups, self).__init__()
@@ -2345,8 +2290,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup))])
+                self._child_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup))])
                 self._leafs = OrderedDict()
 
                 self.ssm_access_group = YList(self)
@@ -2388,7 +2332,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup, self).__init__()
@@ -2398,8 +2342,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['source_address']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('source_address', YLeaf(YType.str, 'source-address')),
                         ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -2431,7 +2374,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.DefaultContext.Maximum, self).__init__()
@@ -2441,8 +2384,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
                 ])
@@ -2468,7 +2410,7 @@ class Igmp(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Igmp.DefaultContext.Interfaces, self).__init__()
@@ -2478,8 +2420,7 @@ class Igmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Igmp.DefaultContext.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Igmp.DefaultContext.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -2586,7 +2527,7 @@ class Igmp(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Igmp.DefaultContext.Interfaces.Interface, self).__init__()
@@ -2596,8 +2537,7 @@ class Igmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([("join-groups", ("join_groups", Igmp.DefaultContext.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("join-groups", ("join_groups", Igmp.DefaultContext.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
@@ -2617,20 +2557,16 @@ class Igmp(Entity):
 
                     self.join_groups = None
                     self._children_name_map["join_groups"] = "join-groups"
-                    self._children_yang_names.add("join-groups")
 
                     self.static_group_group_addresses = Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses()
                     self.static_group_group_addresses.parent = self
                     self._children_name_map["static_group_group_addresses"] = "static-group-group-addresses"
-                    self._children_yang_names.add("static-group-group-addresses")
 
                     self.maximum_groups_per_interface_oor = None
                     self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
-                    self._children_yang_names.add("maximum-groups-per-interface-oor")
 
                     self.explicit_tracking = None
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                    self._children_yang_names.add("explicit-tracking")
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/%s" % self._segment_path()
 
@@ -2659,7 +2595,7 @@ class Igmp(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Igmp.DefaultContext.Interfaces.Interface.JoinGroups, self).__init__()
@@ -2669,8 +2605,7 @@ class Igmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("join-group", ("join_group", Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
+                        self._child_classes = OrderedDict([("join-group", ("join_group", Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
                         self.is_presence_container = True
                         self._leafs = OrderedDict()
 
@@ -2712,7 +2647,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup, self).__init__()
@@ -2722,8 +2657,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -2779,7 +2713,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, self).__init__()
@@ -2789,8 +2723,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','source_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('source_address', YLeaf(YType.str, 'source-address')),
@@ -2844,7 +2777,7 @@ class Igmp(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses, self).__init__()
@@ -2854,8 +2787,7 @@ class Igmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
+                        self._child_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
                         self._leafs = OrderedDict()
 
                         self.static_group_group_address = YList(self)
@@ -2918,7 +2850,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, self).__init__()
@@ -2928,8 +2860,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('group_count', YLeaf(YType.uint32, 'group-count')),
@@ -3007,7 +2938,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, self).__init__()
@@ -3017,8 +2948,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','source_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('source_address', YLeaf(YType.str, 'source-address')),
@@ -3111,7 +3041,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, self).__init__()
@@ -3121,8 +3051,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','source_address','source_address_mask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('source_address', YLeaf(YType.str, 'source-address')),
@@ -3204,7 +3133,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, self).__init__()
@@ -3214,8 +3143,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','group_address_mask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -3308,7 +3236,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, self).__init__()
@@ -3318,8 +3246,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','group_address_mask','source_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -3427,7 +3354,7 @@ class Igmp(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, self).__init__()
@@ -3437,8 +3364,7 @@ class Igmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -3498,7 +3424,7 @@ class Igmp(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor, self).__init__()
@@ -3508,8 +3434,7 @@ class Igmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
@@ -3550,7 +3475,7 @@ class Igmp(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking, self).__init__()
@@ -3560,8 +3485,7 @@ class Igmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.boolean, 'enable')),
@@ -3671,7 +3595,7 @@ class Amt(Entity):
     """
 
     _prefix = 'ipv4-igmp-cfg'
-    _revision = '2016-10-10'
+    _revision = '2017-10-15'
 
     def __init__(self):
         super(Amt, self).__init__()
@@ -3682,8 +3606,7 @@ class Amt(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("relay-adv-add", ("relay_adv_add", Amt.RelayAdvAdd)), ("relay-anycast-prefix", ("relay_anycast_prefix", Amt.RelayAnycastPrefix))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("relay-adv-add", ("relay_adv_add", Amt.RelayAdvAdd)), ("relay-anycast-prefix", ("relay_anycast_prefix", Amt.RelayAnycastPrefix))])
         self._leafs = OrderedDict([
             ('maximum_v4_route_gateway', YLeaf(YType.uint32, 'maximum-v4-route-gateway')),
             ('gateway_filter', YLeaf(YType.str, 'gateway-filter')),
@@ -3709,11 +3632,9 @@ class Amt(Entity):
 
         self.relay_adv_add = None
         self._children_name_map["relay_adv_add"] = "relay-adv-add"
-        self._children_yang_names.add("relay-adv-add")
 
         self.relay_anycast_prefix = None
         self._children_name_map["relay_anycast_prefix"] = "relay-anycast-prefix"
-        self._children_yang_names.add("relay-anycast-prefix")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:amt"
 
     def __setattr__(self, name, value):
@@ -3747,7 +3668,7 @@ class Amt(Entity):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2016-10-10'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Amt.RelayAdvAdd, self).__init__()
@@ -3757,8 +3678,7 @@ class Amt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('address', YLeaf(YType.str, 'address')),
@@ -3800,7 +3720,7 @@ class Amt(Entity):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2016-10-10'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Amt.RelayAnycastPrefix, self).__init__()
@@ -3810,8 +3730,7 @@ class Amt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('address', YLeaf(YType.str, 'address')),
@@ -3847,12 +3766,10 @@ class Mld(Entity):
     
     
 
-    This class is a :ref:`presence class<presence-class>`
-
     """
 
     _prefix = 'ipv4-igmp-cfg'
-    _revision = '2016-10-10'
+    _revision = '2017-10-15'
 
     def __init__(self):
         super(Mld, self).__init__()
@@ -3863,20 +3780,19 @@ class Mld(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Mld.Vrfs)), ("default-context", ("default_context", Mld.DefaultContext))])
-        self._child_list_classes = OrderedDict([])
-        self.is_presence_container = True
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", Mld.Vrfs)), ("default-context", ("default_context", Mld.DefaultContext))])
         self._leafs = OrderedDict()
 
         self.vrfs = Mld.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
 
         self.default_context = None
         self._children_name_map["default_context"] = "default-context"
-        self._children_yang_names.add("default-context")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Mld, [], name, value)
 
 
     class Vrfs(Entity):
@@ -3893,7 +3809,7 @@ class Mld(Entity):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2016-10-10'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Mld.Vrfs, self).__init__()
@@ -3903,8 +3819,7 @@ class Mld(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", Mld.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", Mld.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -3970,7 +3885,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.Vrfs.Vrf, self).__init__()
@@ -3980,8 +3895,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("traffic", ("traffic", Mld.Vrfs.Vrf.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Mld.Vrfs.Vrf.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Mld.Vrfs.Vrf.SsmAccessGroups)), ("maximum", ("maximum", Mld.Vrfs.Vrf.Maximum)), ("interfaces", ("interfaces", Mld.Vrfs.Vrf.Interfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("traffic", ("traffic", Mld.Vrfs.Vrf.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Mld.Vrfs.Vrf.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Mld.Vrfs.Vrf.SsmAccessGroups)), ("maximum", ("maximum", Mld.Vrfs.Vrf.Maximum)), ("interfaces", ("interfaces", Mld.Vrfs.Vrf.Interfaces))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
@@ -3994,27 +3908,22 @@ class Mld(Entity):
                 self.traffic = Mld.Vrfs.Vrf.Traffic()
                 self.traffic.parent = self
                 self._children_name_map["traffic"] = "traffic"
-                self._children_yang_names.add("traffic")
 
                 self.inheritable_defaults = Mld.Vrfs.Vrf.InheritableDefaults()
                 self.inheritable_defaults.parent = self
                 self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                self._children_yang_names.add("inheritable-defaults")
 
                 self.ssm_access_groups = Mld.Vrfs.Vrf.SsmAccessGroups()
                 self.ssm_access_groups.parent = self
                 self._children_name_map["ssm_access_groups"] = "ssm-access-groups"
-                self._children_yang_names.add("ssm-access-groups")
 
                 self.maximum = Mld.Vrfs.Vrf.Maximum()
                 self.maximum.parent = self
                 self._children_name_map["maximum"] = "maximum"
-                self._children_yang_names.add("maximum")
 
                 self.interfaces = Mld.Vrfs.Vrf.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/%s" % self._segment_path()
 
@@ -4038,7 +3947,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.Vrfs.Vrf.Traffic, self).__init__()
@@ -4048,8 +3957,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('profile', YLeaf(YType.str, 'profile')),
                     ])
@@ -4137,7 +4045,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.Vrfs.Vrf.InheritableDefaults, self).__init__()
@@ -4147,8 +4055,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking))])
                     self._leafs = OrderedDict([
                         ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
                         ('access_group', YLeaf(YType.str, 'access-group')),
@@ -4166,11 +4073,9 @@ class Mld(Entity):
 
                     self.maximum_groups_per_interface_oor = None
                     self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
-                    self._children_yang_names.add("maximum-groups-per-interface-oor")
 
                     self.explicit_tracking = None
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                    self._children_yang_names.add("explicit-tracking")
                     self._segment_path = lambda: "inheritable-defaults"
 
                 def __setattr__(self, name, value):
@@ -4214,7 +4119,7 @@ class Mld(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor, self).__init__()
@@ -4224,8 +4129,7 @@ class Mld(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
@@ -4266,7 +4170,7 @@ class Mld(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking, self).__init__()
@@ -4276,8 +4180,7 @@ class Mld(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.boolean, 'enable')),
@@ -4305,7 +4208,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.Vrfs.Vrf.SsmAccessGroups, self).__init__()
@@ -4315,8 +4218,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup))])
+                    self._child_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup))])
                     self._leafs = OrderedDict()
 
                     self.ssm_access_group = YList(self)
@@ -4357,7 +4259,7 @@ class Mld(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup, self).__init__()
@@ -4367,8 +4269,7 @@ class Mld(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['source_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('source_address', YLeaf(YType.str, 'source-address')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -4399,7 +4300,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.Vrfs.Vrf.Maximum, self).__init__()
@@ -4409,8 +4310,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
                     ])
@@ -4435,7 +4335,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.Vrfs.Vrf.Interfaces, self).__init__()
@@ -4445,8 +4345,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Mld.Vrfs.Vrf.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Mld.Vrfs.Vrf.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -4552,7 +4451,7 @@ class Mld(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mld.Vrfs.Vrf.Interfaces.Interface, self).__init__()
@@ -4562,8 +4461,7 @@ class Mld(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("join-groups", ("join_groups", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("join-groups", ("join_groups", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
@@ -4583,20 +4481,16 @@ class Mld(Entity):
 
                         self.join_groups = None
                         self._children_name_map["join_groups"] = "join-groups"
-                        self._children_yang_names.add("join-groups")
 
                         self.static_group_group_addresses = Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses()
                         self.static_group_group_addresses.parent = self
                         self._children_name_map["static_group_group_addresses"] = "static-group-group-addresses"
-                        self._children_yang_names.add("static-group-group-addresses")
 
                         self.maximum_groups_per_interface_oor = None
                         self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
-                        self._children_yang_names.add("maximum-groups-per-interface-oor")
 
                         self.explicit_tracking = None
                         self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                        self._children_yang_names.add("explicit-tracking")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -4624,7 +4518,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups, self).__init__()
@@ -4634,8 +4528,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("join-group", ("join_group", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
+                            self._child_classes = OrderedDict([("join-group", ("join_group", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
                             self.is_presence_container = True
                             self._leafs = OrderedDict()
 
@@ -4677,7 +4570,7 @@ class Mld(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup, self).__init__()
@@ -4687,8 +4580,7 @@ class Mld(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -4744,7 +4636,7 @@ class Mld(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, self).__init__()
@@ -4754,8 +4646,7 @@ class Mld(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','source_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('source_address', YLeaf(YType.str, 'source-address')),
@@ -4809,7 +4700,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses, self).__init__()
@@ -4819,8 +4710,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
+                            self._child_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
                             self._leafs = OrderedDict()
 
                             self.static_group_group_address = YList(self)
@@ -4883,7 +4773,7 @@ class Mld(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, self).__init__()
@@ -4893,8 +4783,7 @@ class Mld(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('group_count', YLeaf(YType.uint32, 'group-count')),
@@ -4972,7 +4861,7 @@ class Mld(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, self).__init__()
@@ -4982,8 +4871,7 @@ class Mld(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','source_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('source_address', YLeaf(YType.str, 'source-address')),
@@ -5076,7 +4964,7 @@ class Mld(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, self).__init__()
@@ -5086,8 +4974,7 @@ class Mld(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','source_address','source_address_mask']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('source_address', YLeaf(YType.str, 'source-address')),
@@ -5169,7 +5056,7 @@ class Mld(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, self).__init__()
@@ -5179,8 +5066,7 @@ class Mld(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','group_address_mask']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -5273,7 +5159,7 @@ class Mld(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, self).__init__()
@@ -5283,8 +5169,7 @@ class Mld(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','group_address_mask','source_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -5392,7 +5277,7 @@ class Mld(Entity):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2016-10-10'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, self).__init__()
@@ -5402,8 +5287,7 @@ class Mld(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                     ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -5463,7 +5347,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor, self).__init__()
@@ -5473,8 +5357,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
@@ -5515,7 +5398,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking, self).__init__()
@@ -5525,8 +5408,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.boolean, 'enable')),
@@ -5605,7 +5487,7 @@ class Mld(Entity):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2016-10-10'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Mld.DefaultContext, self).__init__()
@@ -5615,8 +5497,7 @@ class Mld(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("nsf", ("nsf", Mld.DefaultContext.Nsf)), ("unicast-qos-adjust", ("unicast_qos_adjust", Mld.DefaultContext.UnicastQosAdjust)), ("accounting", ("accounting", Mld.DefaultContext.Accounting)), ("traffic", ("traffic", Mld.DefaultContext.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Mld.DefaultContext.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Mld.DefaultContext.SsmAccessGroups)), ("maximum", ("maximum", Mld.DefaultContext.Maximum)), ("interfaces", ("interfaces", Mld.DefaultContext.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("nsf", ("nsf", Mld.DefaultContext.Nsf)), ("unicast-qos-adjust", ("unicast_qos_adjust", Mld.DefaultContext.UnicastQosAdjust)), ("accounting", ("accounting", Mld.DefaultContext.Accounting)), ("traffic", ("traffic", Mld.DefaultContext.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Mld.DefaultContext.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Mld.DefaultContext.SsmAccessGroups)), ("maximum", ("maximum", Mld.DefaultContext.Maximum)), ("interfaces", ("interfaces", Mld.DefaultContext.Interfaces))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
@@ -5628,42 +5509,34 @@ class Mld(Entity):
             self.nsf = Mld.DefaultContext.Nsf()
             self.nsf.parent = self
             self._children_name_map["nsf"] = "nsf"
-            self._children_yang_names.add("nsf")
 
             self.unicast_qos_adjust = Mld.DefaultContext.UnicastQosAdjust()
             self.unicast_qos_adjust.parent = self
             self._children_name_map["unicast_qos_adjust"] = "unicast-qos-adjust"
-            self._children_yang_names.add("unicast-qos-adjust")
 
             self.accounting = Mld.DefaultContext.Accounting()
             self.accounting.parent = self
             self._children_name_map["accounting"] = "accounting"
-            self._children_yang_names.add("accounting")
 
             self.traffic = Mld.DefaultContext.Traffic()
             self.traffic.parent = self
             self._children_name_map["traffic"] = "traffic"
-            self._children_yang_names.add("traffic")
 
             self.inheritable_defaults = Mld.DefaultContext.InheritableDefaults()
             self.inheritable_defaults.parent = self
             self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-            self._children_yang_names.add("inheritable-defaults")
 
             self.ssm_access_groups = Mld.DefaultContext.SsmAccessGroups()
             self.ssm_access_groups.parent = self
             self._children_name_map["ssm_access_groups"] = "ssm-access-groups"
-            self._children_yang_names.add("ssm-access-groups")
 
             self.maximum = Mld.DefaultContext.Maximum()
             self.maximum.parent = self
             self._children_name_map["maximum"] = "maximum"
-            self._children_yang_names.add("maximum")
 
             self.interfaces = Mld.DefaultContext.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/%s" % self._segment_path()
 
@@ -5691,7 +5564,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.DefaultContext.Nsf, self).__init__()
@@ -5701,8 +5574,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('lifetime', YLeaf(YType.uint32, 'lifetime')),
                 ])
@@ -5757,7 +5629,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.DefaultContext.UnicastQosAdjust, self).__init__()
@@ -5767,8 +5639,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('download_interval', YLeaf(YType.uint32, 'download-interval')),
                     ('adjustment_delay', YLeaf(YType.uint32, 'adjustment-delay')),
@@ -5805,7 +5676,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.DefaultContext.Accounting, self).__init__()
@@ -5815,8 +5686,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('max_history', YLeaf(YType.uint32, 'max-history')),
                 ])
@@ -5844,7 +5714,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.DefaultContext.Traffic, self).__init__()
@@ -5854,8 +5724,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('profile', YLeaf(YType.str, 'profile')),
                 ])
@@ -5944,7 +5813,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.DefaultContext.InheritableDefaults, self).__init__()
@@ -5954,8 +5823,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.DefaultContext.InheritableDefaults.ExplicitTracking))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.DefaultContext.InheritableDefaults.ExplicitTracking))])
                 self._leafs = OrderedDict([
                     ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
                     ('access_group', YLeaf(YType.str, 'access-group')),
@@ -5973,11 +5841,9 @@ class Mld(Entity):
 
                 self.maximum_groups_per_interface_oor = None
                 self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
-                self._children_yang_names.add("maximum-groups-per-interface-oor")
 
                 self.explicit_tracking = None
                 self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                self._children_yang_names.add("explicit-tracking")
                 self._segment_path = lambda: "inheritable-defaults"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
 
@@ -6022,7 +5888,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor, self).__init__()
@@ -6032,8 +5898,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
@@ -6075,7 +5940,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.DefaultContext.InheritableDefaults.ExplicitTracking, self).__init__()
@@ -6085,8 +5950,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.boolean, 'enable')),
@@ -6115,7 +5979,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.DefaultContext.SsmAccessGroups, self).__init__()
@@ -6125,8 +5989,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup))])
+                self._child_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup))])
                 self._leafs = OrderedDict()
 
                 self.ssm_access_group = YList(self)
@@ -6168,7 +6031,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup, self).__init__()
@@ -6178,8 +6041,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['source_address']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('source_address', YLeaf(YType.str, 'source-address')),
                         ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -6211,7 +6073,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.DefaultContext.Maximum, self).__init__()
@@ -6221,8 +6083,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
                 ])
@@ -6248,7 +6109,7 @@ class Mld(Entity):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2016-10-10'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Mld.DefaultContext.Interfaces, self).__init__()
@@ -6258,8 +6119,7 @@ class Mld(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Mld.DefaultContext.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Mld.DefaultContext.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -6366,7 +6226,7 @@ class Mld(Entity):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2016-10-10'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Mld.DefaultContext.Interfaces.Interface, self).__init__()
@@ -6376,8 +6236,7 @@ class Mld(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([("join-groups", ("join_groups", Mld.DefaultContext.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.DefaultContext.Interfaces.Interface.ExplicitTracking))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("join-groups", ("join_groups", Mld.DefaultContext.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.DefaultContext.Interfaces.Interface.ExplicitTracking))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
@@ -6397,20 +6256,16 @@ class Mld(Entity):
 
                     self.join_groups = None
                     self._children_name_map["join_groups"] = "join-groups"
-                    self._children_yang_names.add("join-groups")
 
                     self.static_group_group_addresses = Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses()
                     self.static_group_group_addresses.parent = self
                     self._children_name_map["static_group_group_addresses"] = "static-group-group-addresses"
-                    self._children_yang_names.add("static-group-group-addresses")
 
                     self.maximum_groups_per_interface_oor = None
                     self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
-                    self._children_yang_names.add("maximum-groups-per-interface-oor")
 
                     self.explicit_tracking = None
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
-                    self._children_yang_names.add("explicit-tracking")
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/%s" % self._segment_path()
 
@@ -6439,7 +6294,7 @@ class Mld(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mld.DefaultContext.Interfaces.Interface.JoinGroups, self).__init__()
@@ -6449,8 +6304,7 @@ class Mld(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("join-group", ("join_group", Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
+                        self._child_classes = OrderedDict([("join-group", ("join_group", Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
                         self.is_presence_container = True
                         self._leafs = OrderedDict()
 
@@ -6492,7 +6346,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup, self).__init__()
@@ -6502,8 +6356,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -6559,7 +6412,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, self).__init__()
@@ -6569,8 +6422,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','source_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('source_address', YLeaf(YType.str, 'source-address')),
@@ -6624,7 +6476,7 @@ class Mld(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses, self).__init__()
@@ -6634,8 +6486,7 @@ class Mld(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
+                        self._child_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
                         self._leafs = OrderedDict()
 
                         self.static_group_group_address = YList(self)
@@ -6698,7 +6549,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, self).__init__()
@@ -6708,8 +6559,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('group_count', YLeaf(YType.uint32, 'group-count')),
@@ -6787,7 +6637,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, self).__init__()
@@ -6797,8 +6647,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','source_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('source_address', YLeaf(YType.str, 'source-address')),
@@ -6891,7 +6740,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, self).__init__()
@@ -6901,8 +6750,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','source_address','source_address_mask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('source_address', YLeaf(YType.str, 'source-address')),
@@ -6984,7 +6832,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, self).__init__()
@@ -6994,8 +6842,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','group_address_mask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -7088,7 +6935,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, self).__init__()
@@ -7098,8 +6945,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','group_address_mask','source_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -7207,7 +7053,7 @@ class Mld(Entity):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2016-10-10'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, self).__init__()
@@ -7217,8 +7063,7 @@ class Mld(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_address', YLeaf(YType.str, 'group-address')),
                                 ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
@@ -7278,7 +7123,7 @@ class Mld(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor, self).__init__()
@@ -7288,8 +7133,7 @@ class Mld(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
@@ -7330,7 +7174,7 @@ class Mld(Entity):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2016-10-10'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Mld.DefaultContext.Interfaces.Interface.ExplicitTracking, self).__init__()
@@ -7340,8 +7184,7 @@ class Mld(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.boolean, 'enable')),

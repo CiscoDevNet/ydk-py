@@ -167,8 +167,7 @@ class TrafficCollector(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("external-interfaces", ("external_interfaces", TrafficCollector.ExternalInterfaces)), ("statistics", ("statistics", TrafficCollector.Statistics))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("external-interfaces", ("external_interfaces", TrafficCollector.ExternalInterfaces)), ("statistics", ("statistics", TrafficCollector.Statistics))])
         self._leafs = OrderedDict([
             ('enable_traffic_collector', YLeaf(YType.empty, 'enable-traffic-collector')),
         ])
@@ -177,12 +176,10 @@ class TrafficCollector(Entity):
         self.external_interfaces = TrafficCollector.ExternalInterfaces()
         self.external_interfaces.parent = self
         self._children_name_map["external_interfaces"] = "external-interfaces"
-        self._children_yang_names.add("external-interfaces")
 
         self.statistics = TrafficCollector.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-tc-cfg:traffic-collector"
 
     def __setattr__(self, name, value):
@@ -213,8 +210,7 @@ class TrafficCollector(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("external-interface", ("external_interface", TrafficCollector.ExternalInterfaces.ExternalInterface))])
+            self._child_classes = OrderedDict([("external-interface", ("external_interface", TrafficCollector.ExternalInterfaces.ExternalInterface))])
             self._leafs = OrderedDict()
 
             self.external_interface = YList(self)
@@ -256,8 +252,7 @@ class TrafficCollector(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -322,8 +317,7 @@ class TrafficCollector(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('history_size', YLeaf(YType.str, 'history-size')),
                 ('collection_interval', YLeaf(YType.enumeration, 'collection-interval')),

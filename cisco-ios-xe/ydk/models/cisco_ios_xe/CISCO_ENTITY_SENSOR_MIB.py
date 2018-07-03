@@ -328,17 +328,17 @@ class CISCOENTITYSENSORMIB(Entity):
     .. attribute:: entsensorglobalobjects
     
     	
-    	**type**\:  :py:class:`Entsensorglobalobjects <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorglobalobjects>`
+    	**type**\:  :py:class:`EntSensorGlobalObjects <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorGlobalObjects>`
     
     .. attribute:: entsensorvaluetable
     
     	This table lists the type, scale, and present value of a sensor listed in the Entity\-MIB entPhysicalTable
-    	**type**\:  :py:class:`Entsensorvaluetable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorvaluetable>`
+    	**type**\:  :py:class:`EntSensorValueTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorValueTable>`
     
     .. attribute:: entsensorthresholdtable
     
     	This table lists the threshold severity, relation, and comparison value, for a sensor listed in the Entity\-MIB  entPhysicalTable
-    	**type**\:  :py:class:`Entsensorthresholdtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorthresholdtable>`
+    	**type**\:  :py:class:`EntSensorThresholdTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorThresholdTable>`
     
     
 
@@ -356,28 +356,27 @@ class CISCOENTITYSENSORMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("entSensorGlobalObjects", ("entsensorglobalobjects", CISCOENTITYSENSORMIB.Entsensorglobalobjects)), ("entSensorValueTable", ("entsensorvaluetable", CISCOENTITYSENSORMIB.Entsensorvaluetable)), ("entSensorThresholdTable", ("entsensorthresholdtable", CISCOENTITYSENSORMIB.Entsensorthresholdtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("entSensorGlobalObjects", ("entsensorglobalobjects", CISCOENTITYSENSORMIB.EntSensorGlobalObjects)), ("entSensorValueTable", ("entsensorvaluetable", CISCOENTITYSENSORMIB.EntSensorValueTable)), ("entSensorThresholdTable", ("entsensorthresholdtable", CISCOENTITYSENSORMIB.EntSensorThresholdTable))])
         self._leafs = OrderedDict()
 
-        self.entsensorglobalobjects = CISCOENTITYSENSORMIB.Entsensorglobalobjects()
+        self.entsensorglobalobjects = CISCOENTITYSENSORMIB.EntSensorGlobalObjects()
         self.entsensorglobalobjects.parent = self
         self._children_name_map["entsensorglobalobjects"] = "entSensorGlobalObjects"
-        self._children_yang_names.add("entSensorGlobalObjects")
 
-        self.entsensorvaluetable = CISCOENTITYSENSORMIB.Entsensorvaluetable()
+        self.entsensorvaluetable = CISCOENTITYSENSORMIB.EntSensorValueTable()
         self.entsensorvaluetable.parent = self
         self._children_name_map["entsensorvaluetable"] = "entSensorValueTable"
-        self._children_yang_names.add("entSensorValueTable")
 
-        self.entsensorthresholdtable = CISCOENTITYSENSORMIB.Entsensorthresholdtable()
+        self.entsensorthresholdtable = CISCOENTITYSENSORMIB.EntSensorThresholdTable()
         self.entsensorthresholdtable.parent = self
         self._children_name_map["entsensorthresholdtable"] = "entSensorThresholdTable"
-        self._children_yang_names.add("entSensorThresholdTable")
         self._segment_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOENTITYSENSORMIB, [], name, value)
 
-    class Entsensorglobalobjects(Entity):
+
+    class EntSensorGlobalObjects(Entity):
         """
         
         
@@ -394,15 +393,14 @@ class CISCOENTITYSENSORMIB(Entity):
         _revision = '2015-01-15'
 
         def __init__(self):
-            super(CISCOENTITYSENSORMIB.Entsensorglobalobjects, self).__init__()
+            super(CISCOENTITYSENSORMIB.EntSensorGlobalObjects, self).__init__()
 
             self.yang_name = "entSensorGlobalObjects"
             self.yang_parent_name = "CISCO-ENTITY-SENSOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('entsensorthreshnotifglobalenable', YLeaf(YType.boolean, 'entSensorThreshNotifGlobalEnable')),
             ])
@@ -411,10 +409,10 @@ class CISCOENTITYSENSORMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYSENSORMIB.Entsensorglobalobjects, ['entsensorthreshnotifglobalenable'], name, value)
+            self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorGlobalObjects, ['entsensorthreshnotifglobalenable'], name, value)
 
 
-    class Entsensorvaluetable(Entity):
+    class EntSensorValueTable(Entity):
         """
         This table lists the type, scale, and present value
         of a sensor listed in the Entity\-MIB entPhysicalTable.
@@ -422,7 +420,7 @@ class CISCOENTITYSENSORMIB(Entity):
         .. attribute:: entsensorvalueentry
         
         	An entSensorValueTable entry describes the present reading of a sensor, the measurement units and scale, and sensor operational status
-        	**type**\: list of  		 :py:class:`Entsensorvalueentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorvaluetable.Entsensorvalueentry>`
+        	**type**\: list of  		 :py:class:`EntSensorValueEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry>`
         
         
 
@@ -432,15 +430,14 @@ class CISCOENTITYSENSORMIB(Entity):
         _revision = '2015-01-15'
 
         def __init__(self):
-            super(CISCOENTITYSENSORMIB.Entsensorvaluetable, self).__init__()
+            super(CISCOENTITYSENSORMIB.EntSensorValueTable, self).__init__()
 
             self.yang_name = "entSensorValueTable"
             self.yang_parent_name = "CISCO-ENTITY-SENSOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entSensorValueEntry", ("entsensorvalueentry", CISCOENTITYSENSORMIB.Entsensorvaluetable.Entsensorvalueentry))])
+            self._child_classes = OrderedDict([("entSensorValueEntry", ("entsensorvalueentry", CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry))])
             self._leafs = OrderedDict()
 
             self.entsensorvalueentry = YList(self)
@@ -448,10 +445,10 @@ class CISCOENTITYSENSORMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYSENSORMIB.Entsensorvaluetable, [], name, value)
+            self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorValueTable, [], name, value)
 
 
-        class Entsensorvalueentry(Entity):
+        class EntSensorValueEntry(Entity):
             """
             An entSensorValueTable entry describes the
             present reading of a sensor, the measurement units
@@ -464,7 +461,7 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: entsensortype
             
@@ -526,15 +523,14 @@ class CISCOENTITYSENSORMIB(Entity):
             _revision = '2015-01-15'
 
             def __init__(self):
-                super(CISCOENTITYSENSORMIB.Entsensorvaluetable.Entsensorvalueentry, self).__init__()
+                super(CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry, self).__init__()
 
                 self.yang_name = "entSensorValueEntry"
                 self.yang_parent_name = "entSensorValueTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('entsensortype', YLeaf(YType.enumeration, 'entSensorType')),
@@ -559,10 +555,10 @@ class CISCOENTITYSENSORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/entSensorValueTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYSENSORMIB.Entsensorvaluetable.Entsensorvalueentry, ['entphysicalindex', 'entsensortype', 'entsensorscale', 'entsensorprecision', 'entsensorvalue', 'entsensorstatus', 'entsensorvaluetimestamp', 'entsensorvalueupdaterate', 'entsensormeasuredentity'], name, value)
+                self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry, ['entphysicalindex', 'entsensortype', 'entsensorscale', 'entsensorprecision', 'entsensorvalue', 'entsensorstatus', 'entsensorvaluetimestamp', 'entsensorvalueupdaterate', 'entsensormeasuredentity'], name, value)
 
 
-    class Entsensorthresholdtable(Entity):
+    class EntSensorThresholdTable(Entity):
         """
         This table lists the threshold severity, relation, and
         comparison value, for a sensor listed in the Entity\-MIB 
@@ -571,7 +567,7 @@ class CISCOENTITYSENSORMIB(Entity):
         .. attribute:: entsensorthresholdentry
         
         	An entSensorThresholdTable entry describes the thresholds for a sensor\: the threshold severity, the threshold value, the relation, and the  evaluation of the threshold.  Only entities of type sensor(8) are listed in this table. Only pre\-configured thresholds are listed in this table.  Users can create sensor\-value monitoring instruments in different ways, such as RMON alarms, Expression\-MIB, etc.  Entries are created by the agent at system startup and FRU insertion.  Entries are deleted by the agent at FRU removal
-        	**type**\: list of  		 :py:class:`Entsensorthresholdentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorthresholdtable.Entsensorthresholdentry>`
+        	**type**\: list of  		 :py:class:`EntSensorThresholdEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry>`
         
         
 
@@ -581,15 +577,14 @@ class CISCOENTITYSENSORMIB(Entity):
         _revision = '2015-01-15'
 
         def __init__(self):
-            super(CISCOENTITYSENSORMIB.Entsensorthresholdtable, self).__init__()
+            super(CISCOENTITYSENSORMIB.EntSensorThresholdTable, self).__init__()
 
             self.yang_name = "entSensorThresholdTable"
             self.yang_parent_name = "CISCO-ENTITY-SENSOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entSensorThresholdEntry", ("entsensorthresholdentry", CISCOENTITYSENSORMIB.Entsensorthresholdtable.Entsensorthresholdentry))])
+            self._child_classes = OrderedDict([("entSensorThresholdEntry", ("entsensorthresholdentry", CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry))])
             self._leafs = OrderedDict()
 
             self.entsensorthresholdentry = YList(self)
@@ -597,10 +592,10 @@ class CISCOENTITYSENSORMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYSENSORMIB.Entsensorthresholdtable, [], name, value)
+            self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorThresholdTable, [], name, value)
 
 
-        class Entsensorthresholdentry(Entity):
+        class EntSensorThresholdEntry(Entity):
             """
             An entSensorThresholdTable entry describes the
             thresholds for a sensor\: the threshold severity,
@@ -624,7 +619,7 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: entsensorthresholdindex  (key)
             
@@ -668,15 +663,14 @@ class CISCOENTITYSENSORMIB(Entity):
             _revision = '2015-01-15'
 
             def __init__(self):
-                super(CISCOENTITYSENSORMIB.Entsensorthresholdtable.Entsensorthresholdentry, self).__init__()
+                super(CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry, self).__init__()
 
                 self.yang_name = "entSensorThresholdEntry"
                 self.yang_parent_name = "entSensorThresholdTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','entsensorthresholdindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('entsensorthresholdindex', YLeaf(YType.int32, 'entSensorThresholdIndex')),
@@ -697,7 +691,7 @@ class CISCOENTITYSENSORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/entSensorThresholdTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYSENSORMIB.Entsensorthresholdtable.Entsensorthresholdentry, ['entphysicalindex', 'entsensorthresholdindex', 'entsensorthresholdseverity', 'entsensorthresholdrelation', 'entsensorthresholdvalue', 'entsensorthresholdevaluation', 'entsensorthresholdnotificationenable'], name, value)
+                self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry, ['entphysicalindex', 'entsensorthresholdindex', 'entsensorthresholdseverity', 'entsensorthresholdrelation', 'entsensorthresholdvalue', 'entsensorthresholdevaluation', 'entsensorthresholdnotificationenable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOENTITYSENSORMIB()

@@ -1,6 +1,12 @@
 """ Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpd 
 
+This module contains definitions
+for the Calvados model objects.
+
 FPD CLI support for both oper and config
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict
@@ -37,15 +43,16 @@ class Fpd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("config", ("config", Fpd.Config))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("config", ("config", Fpd.Config))])
         self._leafs = OrderedDict()
 
         self.config = Fpd.Config()
         self.config.parent = self
         self._children_name_map["config"] = "config"
-        self._children_yang_names.add("config")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd:fpd"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Fpd, [], name, value)
 
 
     class Config(Entity):
@@ -74,8 +81,7 @@ class Fpd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('auto_upgrade', YLeaf(YType.enumeration, 'auto-upgrade')),
             ])

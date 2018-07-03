@@ -18,7 +18,7 @@ The YANG Development Kit (YDK) is a Software Development Kit that provides API's
 
 Backward Compatibility
 ----------------------
-Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.  Note also that in 0.7.1, `#604 <https://github.com/CiscoDevNet/ydk-gen/issues/604>`_ and `#748 <https://github.com/CiscoDevNet/ydk-gen/issues/748>`_ introduced backward incompatibility for python. The bundles generated with 0.7.1 or newer ydk-gen will only work with ydk ``core`` version 0.7.1 or newer. Also error types for python were renamed from ``YPYError`` to ``YError``.
+Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.
 
 Docker
 ------
@@ -38,10 +38,10 @@ Linux
 
    $ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin  
    # Use the below for Ubuntu Xenial
-   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.1/libydk_0.7.1-1_amd64.deb
+   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.2/libydk_0.7.2-1_amd64.deb
    # Use the below for Ubuntu Artful
-   $ wget http://devhub.cisco.com/artifactory/debian-ydk/0.7.1/artful/libydk_0.7.1-1_amd64.deb
-   $ sudo gdebi libydk_0.7.1-1_amd64.deb
+   $ wget http://devhub.cisco.com/artifactory/debian-ydk/0.7.2/artful/libydk_0.7.2-1_amd64.deb
+   $ sudo gdebi libydk_0.7.2-1_amd64.deb
 
 **Centos (Fedora-based)** - The following packages must be present in your system before installing YDK-Py. Currently, only Centos7/RHEL7 are known to work::
 
@@ -49,7 +49,7 @@ Linux
    $ sudo yum install epel-release
 
    $ sudo yum install libssh-devel gcc-c++ python-devel
-   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.1/libydk-0.7.1-1.x86_64.rpm
+   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.2/libydk-0.7.2-1.x86_64.rpm
 
    # Upgrade compiler to gcc 5.*
    $ yum install centos-release-scl -y > /dev/null
@@ -92,8 +92,8 @@ You can download the latest python package from `here <https://www.python.org/do
    $ xcode-select --install
    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    $ brew install pkg-config libssh xml2 libxml2 curl pcre cmake pybind11
-   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.1/libydk-0.7.1-Darwin.pkg
-   $ sudo installer -pkg libydk-0.7.1-Darwin.pkg -target /
+   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.2/libydk-0.7.2-Darwin.pkg
+   $ sudo installer -pkg libydk-0.7.2-Darwin.pkg -target /
 
 Windows
 ~~~~~~~
@@ -166,7 +166,7 @@ Create a new virtual environment::
 
   $ mkvirtualenv -p python2.7 ydk-py
 
-At this point, you can perform the quick install or the installation from source described above.  Take into account that you must not attempt to install YDK as root under a virtual environment.
+At this point, you can perform the quick install or the installation from source described above.  Take into account that must not attempt to install YDK as root under a virtual environment.
 
 Documentation and Support
 --------------------------
@@ -178,4 +178,4 @@ Documentation and Support
 
 Release Notes
 --------------
-The current YDK release version is 0.7.1 (beta). YDK-Py is licensed under the Apache 2.0 License.
+The current YDK release version is 0.7.2 (beta). YDK-Py is licensed under the Apache 2.0 License.

@@ -88,15 +88,6 @@ class Lmp(Entity):
     	Enable the OLM/LMP application
     	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
-    .. attribute:: port
-    
-    	LMP protocol UDP port number
-    	**type**\: int
-    
-    	**range:** 1..65535
-    
-    	**default value**\: 701
-    
     
 
     """
@@ -113,23 +104,19 @@ class Lmp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("gmpls-uni", ("gmpls_uni", Lmp.GmplsUni))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("gmpls-uni", ("gmpls_uni", Lmp.GmplsUni))])
         self._leafs = OrderedDict([
             ('enable', YLeaf(YType.empty, 'enable')),
-            ('port', YLeaf(YType.uint16, 'port')),
         ])
         self.enable = None
-        self.port = None
 
         self.gmpls_uni = Lmp.GmplsUni()
         self.gmpls_uni.parent = self
         self._children_name_map["gmpls_uni"] = "gmpls-uni"
-        self._children_yang_names.add("gmpls-uni")
         self._segment_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Lmp, ['enable', 'port'], name, value)
+        self._perform_setattr(Lmp, ['enable'], name, value)
 
 
     class GmplsUni(Entity):
@@ -168,25 +155,24 @@ class Lmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Lmp.GmplsUni.Neighbors)), ("router-id", ("router_id", Lmp.GmplsUni.RouterId)), ("controllers", ("controllers", Lmp.GmplsUni.Controllers))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("neighbors", ("neighbors", Lmp.GmplsUni.Neighbors)), ("router-id", ("router_id", Lmp.GmplsUni.RouterId)), ("controllers", ("controllers", Lmp.GmplsUni.Controllers))])
             self._leafs = OrderedDict()
 
             self.neighbors = Lmp.GmplsUni.Neighbors()
             self.neighbors.parent = self
             self._children_name_map["neighbors"] = "neighbors"
-            self._children_yang_names.add("neighbors")
 
             self.router_id = None
             self._children_name_map["router_id"] = "router-id"
-            self._children_yang_names.add("router-id")
 
             self.controllers = Lmp.GmplsUni.Controllers()
             self.controllers.parent = self
             self._children_name_map["controllers"] = "controllers"
-            self._children_yang_names.add("controllers")
             self._segment_path = lambda: "gmpls-uni"
             self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Lmp.GmplsUni, [], name, value)
 
 
         class Neighbors(Entity):
@@ -213,8 +199,7 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Lmp.GmplsUni.Neighbors.Neighbor))])
+                self._child_classes = OrderedDict([("neighbor", ("neighbor", Lmp.GmplsUni.Neighbors.Neighbor))])
                 self._leafs = OrderedDict()
 
                 self.neighbor = YList(self)
@@ -268,8 +253,7 @@ class Lmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['neighbor_name']
-                    self._child_container_classes = OrderedDict([("ipcc", ("ipcc", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ipcc", ("ipcc", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc))])
                     self._leafs = OrderedDict([
                         ('neighbor_name', YLeaf(YType.str, 'neighbor-name')),
                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -282,7 +266,6 @@ class Lmp(Entity):
                     self.ipcc = Lmp.GmplsUni.Neighbors.Neighbor.Ipcc()
                     self.ipcc.parent = self
                     self._children_name_map["ipcc"] = "ipcc"
-                    self._children_yang_names.add("ipcc")
                     self._segment_path = lambda: "neighbor" + "[neighbor-name='" + str(self.neighbor_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/neighbors/%s" % self._segment_path()
 
@@ -314,15 +297,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("routed", ("routed", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.Routed))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("routed", ("routed", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.Routed))])
                         self._leafs = OrderedDict()
 
                         self.routed = Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.Routed()
                         self.routed.parent = self
                         self._children_name_map["routed"] = "routed"
-                        self._children_yang_names.add("routed")
                         self._segment_path = lambda: "ipcc"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, [], name, value)
 
 
                     class Routed(Entity):
@@ -349,8 +333,7 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                             ])
@@ -396,8 +379,7 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -436,8 +418,7 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("controller", ("controller", Lmp.GmplsUni.Controllers.Controller))])
+                self._child_classes = OrderedDict([("controller", ("controller", Lmp.GmplsUni.Controllers.Controller))])
                 self._leafs = OrderedDict()
 
                 self.controller = YList(self)
@@ -489,8 +470,7 @@ class Lmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['controller_name']
-                    self._child_container_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.Controllers.Controller.LocalLinkId)), ("adjacency", ("adjacency", Lmp.GmplsUni.Controllers.Controller.Adjacency))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.Controllers.Controller.LocalLinkId)), ("adjacency", ("adjacency", Lmp.GmplsUni.Controllers.Controller.Adjacency))])
                     self._leafs = OrderedDict([
                         ('controller_name', YLeaf(YType.str, 'controller-name')),
                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -501,12 +481,10 @@ class Lmp(Entity):
                     self.local_link_id = Lmp.GmplsUni.Controllers.Controller.LocalLinkId()
                     self.local_link_id.parent = self
                     self._children_name_map["local_link_id"] = "local-link-id"
-                    self._children_yang_names.add("local-link-id")
 
                     self.adjacency = Lmp.GmplsUni.Controllers.Controller.Adjacency()
                     self.adjacency.parent = self
                     self._children_name_map["adjacency"] = "adjacency"
-                    self._children_yang_names.add("adjacency")
                     self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/controllers/%s" % self._segment_path()
 
@@ -528,7 +506,7 @@ class Lmp(Entity):
                     	Local address unnumbered 
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: address
                     
@@ -552,11 +530,10 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                            ('unnumbered', YLeaf(YType.int32, 'unnumbered')),
+                            ('unnumbered', YLeaf(YType.uint32, 'unnumbered')),
                             ('address', YLeaf(YType.str, 'address')),
                         ])
                         self.address_type = None
@@ -592,15 +569,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("remote-neighbor", ("remote_neighbor", Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("remote-neighbor", ("remote_neighbor", Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor))])
                         self._leafs = OrderedDict()
 
                         self.remote_neighbor = Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor()
                         self.remote_neighbor.parent = self
                         self._children_name_map["remote_neighbor"] = "remote-neighbor"
-                        self._children_yang_names.add("remote-neighbor")
                         self._segment_path = lambda: "adjacency"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.Adjacency, [], name, value)
 
 
                     class RemoteNeighbor(Entity):
@@ -636,7 +614,7 @@ class Lmp(Entity):
                         	Remote node flexi grid capability 
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         
 
@@ -653,12 +631,11 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("interface-id", ("interface_id", Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.InterfaceId)), ("link-id", ("link_id", Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.LinkId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("interface-id", ("interface_id", Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.InterfaceId)), ("link-id", ("link_id", Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.LinkId))])
                             self._leafs = OrderedDict([
                                 ('neighbor_association', YLeaf(YType.str, 'neighbor-association')),
                                 ('link_switching_capability', YLeaf(YType.enumeration, 'link-switching-capability')),
-                                ('flexi_grid_capable', YLeaf(YType.int32, 'flexi-grid-capable')),
+                                ('flexi_grid_capable', YLeaf(YType.uint32, 'flexi-grid-capable')),
                             ])
                             self.neighbor_association = None
                             self.link_switching_capability = None
@@ -667,12 +644,10 @@ class Lmp(Entity):
                             self.interface_id = Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.InterfaceId()
                             self.interface_id.parent = self
                             self._children_name_map["interface_id"] = "interface-id"
-                            self._children_yang_names.add("interface-id")
 
                             self.link_id = Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.LinkId()
                             self.link_id.parent = self
                             self._children_name_map["link_id"] = "link-id"
-                            self._children_yang_names.add("link-id")
                             self._segment_path = lambda: "remote-neighbor"
 
                         def __setattr__(self, name, value):
@@ -693,7 +668,7 @@ class Lmp(Entity):
                             	Local address unnumbered 
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: address
                             
@@ -717,11 +692,10 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('unnumbered', YLeaf(YType.int32, 'unnumbered')),
+                                    ('unnumbered', YLeaf(YType.uint32, 'unnumbered')),
                                     ('address', YLeaf(YType.str, 'address')),
                                 ])
                                 self.address_type = None
@@ -747,7 +721,7 @@ class Lmp(Entity):
                             	Neighbor address unnumbered [Not supported]
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: address
                             
@@ -771,11 +745,10 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('unnumbered', YLeaf(YType.int32, 'unnumbered')),
+                                    ('unnumbered', YLeaf(YType.uint32, 'unnumbered')),
                                     ('address', YLeaf(YType.str, 'address')),
                                 ])
                                 self.address_type = None

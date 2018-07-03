@@ -414,193 +414,7 @@ class AtmVorXOperStatus(Enum):
 
 
 
-class Atmnotrafficdescriptor(Identity):
-    """
-    This identifies the no ATM traffic
-    descriptor type.  Parameters 1, 2, 3, 4,
-    and 5 are not used.  This traffic descriptor
-    type can be used for best effort traffic.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        super(Atmnotrafficdescriptor, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoTrafficDescriptor")
-
-
-class Atmnoclpnoscr(Identity):
-    """
-    This traffic descriptor type is for no CLP
-    and no Sustained Cell Rate.  The use of the
-    parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: not used
-    Parameter 3\: not used
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        super(Atmnoclpnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpNoScr")
-
-
-class Atmclpnotaggingnoscr(Identity):
-    """
-    This traffic descriptor is for CLP without
-    tagging and no Sustained Cell Rate.  The use
-    of the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: peak cell rate in cells/second
-                 for CLP=0 traffic
-    Parameter 3\: not used
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        super(Atmclpnotaggingnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingNoScr")
-
-
-class Atmclptaggingnoscr(Identity):
-    """
-    This traffic descriptor is for CLP with
-    tagging and no Sustained Cell Rate.  The use
-    of the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: peak cell rate in cells/second
-                 for CLP=0 traffic, excess
-                 tagged as CLP=1
-    Parameter 3\: not used
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        super(Atmclptaggingnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingNoScr")
-
-
-class Atmnoclpscr(Identity):
-    """
-    This traffic descriptor type is for no CLP
-    with Sustained Cell Rate.  The use of the
-    parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: sustainable cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 3\: maximum burst size in cells
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        super(Atmnoclpscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpScr")
-
-
-class Atmclpnotaggingscr(Identity):
-    """
-    This traffic descriptor type is for CLP with
-    Sustained Cell Rate and no tagging.  The use
-    of the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: sustainable cell rate in cells/second
-                 for CLP=0 traffic
-    Parameter 3\: maximum burst size in cells
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        super(Atmclpnotaggingscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingScr")
-
-
-class Atmclptaggingscr(Identity):
-    """
-    This traffic descriptor type is for CLP with
-    tagging and Sustained Cell Rate.  The use of
-    the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: sustainable cell rate in cells/second
-                 for CLP=0 traffic, excess tagged as
-                 CLP=1
-    Parameter 3\: maximum burst size in cells
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        super(Atmclptaggingscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingScr")
-
-
-class Atmclpnotaggingmcr(Identity):
-    """
-    This traffic descriptor type is for CLP with
-    Minimum Cell Rate and no tagging.  The use of
-    the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: CDVT in tenths of microseconds
-    Parameter 3\: minimum cell rate in cells/second
-    Parameter 4\: unused
-    Parameter 5\: unused.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        super(Atmclpnotaggingmcr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingMcr")
-
-
-class Atmclptransparentnoscr(Identity):
+class AtmClpTransparentNoScr(Identity):
     """
     This traffic descriptor type is for the CLP\-
     transparent model and no Sustained Cell Rate.
@@ -630,10 +444,34 @@ class Atmclptransparentnoscr(Identity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        super(Atmclptransparentnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTransparentNoScr")
+        super(AtmClpTransparentNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTransparentNoScr")
 
 
-class Atmclptransparentscr(Identity):
+class AtmNoClpScr(Identity):
+    """
+    This traffic descriptor type is for no CLP
+    with Sustained Cell Rate.  The use of the
+    parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: sustainable cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 3\: maximum burst size in cells
+    Parameter 4\: not used
+    Parameter 5\: not used.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(AtmNoClpScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpScr")
+
+
+class AtmClpTransparentScr(Identity):
     """
     This traffic descriptor type is for the CLP\-
     transparent model with Sustained Cell Rate.
@@ -664,10 +502,57 @@ class Atmclptransparentscr(Identity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        super(Atmclptransparentscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTransparentScr")
+        super(AtmClpTransparentScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTransparentScr")
 
 
-class Atmnoclptaggingnoscr(Identity):
+class AtmNoClpNoScr(Identity):
+    """
+    This traffic descriptor type is for no CLP
+    and no Sustained Cell Rate.  The use of the
+    parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: not used
+    Parameter 3\: not used
+    Parameter 4\: not used
+    Parameter 5\: not used.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(AtmNoClpNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpNoScr")
+
+
+class AtmClpNoTaggingScr(Identity):
+    """
+    This traffic descriptor type is for CLP with
+    Sustained Cell Rate and no tagging.  The use
+    of the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: sustainable cell rate in cells/second
+                 for CLP=0 traffic
+    Parameter 3\: maximum burst size in cells
+    Parameter 4\: not used
+    Parameter 5\: not used.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(AtmClpNoTaggingScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingScr")
+
+
+class AtmNoClpTaggingNoScr(Identity):
     """
     This traffic descriptor type is for no CLP
     with tagging and no Sustained Cell Rate.  The
@@ -691,10 +576,136 @@ class Atmnoclptaggingnoscr(Identity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        super(Atmnoclptaggingnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpTaggingNoScr")
+        super(AtmNoClpTaggingNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpTaggingNoScr")
 
 
-class Atmnoclpnoscrcdvt(Identity):
+class AtmClpNoTaggingMcr(Identity):
+    """
+    This traffic descriptor type is for CLP with
+    Minimum Cell Rate and no tagging.  The use of
+    the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: CDVT in tenths of microseconds
+    Parameter 3\: minimum cell rate in cells/second
+    Parameter 4\: unused
+    Parameter 5\: unused.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(AtmClpNoTaggingMcr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingMcr")
+
+
+class AtmClpNoTaggingScrCdvt(Identity):
+    """
+    This traffic descriptor type is for CLP with
+    Sustained Cell Rate and no tagging.  The use
+    of the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: sustainable cell rate in cells/second
+                 for CLP=0 traffic
+    Parameter 3\: maximum burst size in cells
+    Parameter 4\: CDVT in tenths of microseconds
+    Parameter 5\: not used.
+    
+    This traffic descriptor type is applicable to
+    connections following the VBR.2 conformance
+    definition.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(AtmClpNoTaggingScrCdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingScrCdvt")
+
+
+class AtmNoTrafficDescriptor(Identity):
+    """
+    This identifies the no ATM traffic
+    descriptor type.  Parameters 1, 2, 3, 4,
+    and 5 are not used.  This traffic descriptor
+    type can be used for best effort traffic.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(AtmNoTrafficDescriptor, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoTrafficDescriptor")
+
+
+class AtmClpTaggingNoScr(Identity):
+    """
+    This traffic descriptor is for CLP with
+    tagging and no Sustained Cell Rate.  The use
+    of the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: peak cell rate in cells/second
+                 for CLP=0 traffic, excess
+                 tagged as CLP=1
+    Parameter 3\: not used
+    Parameter 4\: not used
+    Parameter 5\: not used.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(AtmClpTaggingNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingNoScr")
+
+
+class AtmNoClpScrCdvt(Identity):
+    """
+    This traffic descriptor type is for no CLP
+    with Sustained Cell Rate.  The use of the
+    parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: sustainable cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 3\: maximum burst size in cells
+    Parameter 4\: CDVT in tenths of microseconds
+    Parameter 5\: not used.
+    
+    This traffic descriptor type is applicable
+    to VBR connections following the UNI 3.0/3.1
+    conformance definition for PCR CLP=0+1 and
+    SCR CLP=0+1.  These VBR connections
+    differ from VBR.1 connections in that
+    the CLR objective applies only to the CLP=0
+    cell flow.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(AtmNoClpScrCdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpScrCdvt")
+
+
+class AtmNoClpNoScrCdvt(Identity):
     """
     This traffic descriptor type is for no CLP
     and no Sustained Cell Rate.  The use of the
@@ -725,29 +736,22 @@ class Atmnoclpnoscrcdvt(Identity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        super(Atmnoclpnoscrcdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpNoScrCdvt")
+        super(AtmNoClpNoScrCdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpNoScrCdvt")
 
 
-class Atmnoclpscrcdvt(Identity):
+class AtmClpTaggingScr(Identity):
     """
-    This traffic descriptor type is for no CLP
-    with Sustained Cell Rate.  The use of the
-    parameter vector for this type\:
+    This traffic descriptor type is for CLP with
+    tagging and Sustained Cell Rate.  The use of
+    the parameter vector for this type\:
     Parameter 1\: peak cell rate in cells/second
                  for CLP=0+1 traffic
     Parameter 2\: sustainable cell rate in cells/second
-                 for CLP=0+1 traffic
+                 for CLP=0 traffic, excess tagged as
+                 CLP=1
     Parameter 3\: maximum burst size in cells
-    Parameter 4\: CDVT in tenths of microseconds
+    Parameter 4\: not used
     Parameter 5\: not used.
-    
-    This traffic descriptor type is applicable
-    to VBR connections following the UNI 3.0/3.1
-    conformance definition for PCR CLP=0+1 and
-    SCR CLP=0+1.  These VBR connections
-    differ from VBR.1 connections in that
-    the CLR objective applies only to the CLP=0
-    cell flow.
     
     
 
@@ -757,25 +761,21 @@ class Atmnoclpscrcdvt(Identity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        super(Atmnoclpscrcdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpScrCdvt")
+        super(AtmClpTaggingScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingScr")
 
 
-class Atmclpnotaggingscrcdvt(Identity):
+class AtmClpNoTaggingNoScr(Identity):
     """
-    This traffic descriptor type is for CLP with
-    Sustained Cell Rate and no tagging.  The use
+    This traffic descriptor is for CLP without
+    tagging and no Sustained Cell Rate.  The use
     of the parameter vector for this type\:
     Parameter 1\: peak cell rate in cells/second
                  for CLP=0+1 traffic
-    Parameter 2\: sustainable cell rate in cells/second
+    Parameter 2\: peak cell rate in cells/second
                  for CLP=0 traffic
-    Parameter 3\: maximum burst size in cells
-    Parameter 4\: CDVT in tenths of microseconds
+    Parameter 3\: not used
+    Parameter 4\: not used
     Parameter 5\: not used.
-    
-    This traffic descriptor type is applicable to
-    connections following the VBR.2 conformance
-    definition.
     
     
 
@@ -785,10 +785,10 @@ class Atmclpnotaggingscrcdvt(Identity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        super(Atmclpnotaggingscrcdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingScrCdvt")
+        super(AtmClpNoTaggingNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingNoScr")
 
 
-class Atmclptaggingscrcdvt(Identity):
+class AtmClpTaggingScrCdvt(Identity):
     """
     This traffic descriptor type is for CLP with
     tagging and Sustained Cell Rate.  The use of
@@ -814,6 +814,6 @@ class Atmclptaggingscrcdvt(Identity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        super(Atmclptaggingscrcdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingScrCdvt")
+        super(AtmClpTaggingScrCdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingScrCdvt")
 
 

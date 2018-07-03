@@ -42,22 +42,22 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
     .. attribute:: cipslaautogrouptable
     
     	A table that contains IP SLA auto measure group definitions
-    	**type**\:  :py:class:`Cipslaautogrouptable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable>`
+    	**type**\:  :py:class:`CipslaAutoGroupTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable>`
     
     .. attribute:: cipslaautogroupdesttable
     
     	A table contains the list of destination IP addresses and ports associated to the auto measure group destination name
-    	**type**\:  :py:class:`Cipslaautogroupdesttable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable>`
+    	**type**\:  :py:class:`CipslaAutoGroupDestTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable>`
     
     .. attribute:: cipslareacttable
     
     	A table that contains reaction configurations for templates. Each conceptual row in cipslaReactTable corresponds  to a reaction configured for one template.  Each template can have multiple reactions and hence there can be  multiple rows for a particular template. Different template types can have different reactions. The reaction type is  specified as cipslaReactVar based upon template type as some  reaction types are applicable just for specific template types
-    	**type**\:  :py:class:`Cipslareacttable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable>`
+    	**type**\:  :py:class:`CipslaReactTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable>`
     
     .. attribute:: cipslaautogroupschedtable
     
     	A table of group scheduling definitions
-    	**type**\:  :py:class:`Cipslaautogroupschedtable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable>`
+    	**type**\:  :py:class:`CipslaAutoGroupSchedTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable>`
     
     
 
@@ -75,40 +75,38 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cipslaAutoGroupTable", ("cipslaautogrouptable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable)), ("cipslaAutoGroupDestTable", ("cipslaautogroupdesttable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable)), ("cipslaReactTable", ("cipslareacttable", CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable)), ("cipslaAutoGroupSchedTable", ("cipslaautogroupschedtable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cipslaAutoGroupTable", ("cipslaautogrouptable", CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable)), ("cipslaAutoGroupDestTable", ("cipslaautogroupdesttable", CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable)), ("cipslaReactTable", ("cipslareacttable", CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable)), ("cipslaAutoGroupSchedTable", ("cipslaautogroupschedtable", CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable))])
         self._leafs = OrderedDict()
 
-        self.cipslaautogrouptable = CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable()
+        self.cipslaautogrouptable = CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable()
         self.cipslaautogrouptable.parent = self
         self._children_name_map["cipslaautogrouptable"] = "cipslaAutoGroupTable"
-        self._children_yang_names.add("cipslaAutoGroupTable")
 
-        self.cipslaautogroupdesttable = CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable()
+        self.cipslaautogroupdesttable = CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable()
         self.cipslaautogroupdesttable.parent = self
         self._children_name_map["cipslaautogroupdesttable"] = "cipslaAutoGroupDestTable"
-        self._children_yang_names.add("cipslaAutoGroupDestTable")
 
-        self.cipslareacttable = CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable()
+        self.cipslareacttable = CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable()
         self.cipslareacttable.parent = self
         self._children_name_map["cipslareacttable"] = "cipslaReactTable"
-        self._children_yang_names.add("cipslaReactTable")
 
-        self.cipslaautogroupschedtable = CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable()
+        self.cipslaautogroupschedtable = CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable()
         self.cipslaautogroupschedtable.parent = self
         self._children_name_map["cipslaautogroupschedtable"] = "cipslaAutoGroupSchedTable"
-        self._children_yang_names.add("cipslaAutoGroupSchedTable")
         self._segment_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB, [], name, value)
 
-    class Cipslaautogrouptable(Entity):
+
+    class CipslaAutoGroupTable(Entity):
         """
         A table that contains IP SLA auto measure group definitions.
         
         .. attribute:: cipslaautogroupentry
         
         	An entry containing the configurations for a particular auto measure group
-        	**type**\: list of  		 :py:class:`Cipslaautogroupentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry>`
+        	**type**\: list of  		 :py:class:`CipslaAutoGroupEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable.CipslaAutoGroupEntry>`
         
         
 
@@ -118,15 +116,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         _revision = '2007-06-13'
 
         def __init__(self):
-            super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable, self).__init__()
+            super(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable, self).__init__()
 
             self.yang_name = "cipslaAutoGroupTable"
             self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaAutoGroupEntry", ("cipslaautogroupentry", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry))])
+            self._child_classes = OrderedDict([("cipslaAutoGroupEntry", ("cipslaautogroupentry", CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable.CipslaAutoGroupEntry))])
             self._leafs = OrderedDict()
 
             self.cipslaautogroupentry = YList(self)
@@ -134,10 +131,10 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable, [], name, value)
+            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable, [], name, value)
 
 
-        class Cipslaautogroupentry(Entity):
+        class CipslaAutoGroupEntry(Entity):
             """
             An entry containing the configurations for a particular
             auto measure group.
@@ -233,15 +230,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             _revision = '2007-06-13'
 
             def __init__(self):
-                super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry, self).__init__()
+                super(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable.CipslaAutoGroupEntry, self).__init__()
 
                 self.yang_name = "cipslaAutoGroupEntry"
                 self.yang_parent_name = "cipslaAutoGroupTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslaautogroupname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslaautogroupname', YLeaf(YType.str, 'cipslaAutoGroupName')),
                     ('cipslaautogroupdescription', YLeaf(YType.str, 'cipslaAutoGroupDescription')),
@@ -274,10 +270,10 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry, ['cipslaautogroupname', 'cipslaautogroupdescription', 'cipslaautogroupdestinationname', 'cipslaautogroupaddestport', 'cipslaautogroupopertemplatename', 'cipslaautogroupschedulerid', 'cipslaautogroupqosenable', 'cipslaautogroupopertype', 'cipslaautogroupdestipadenable', 'cipslaautogroupadmeasureretry', 'cipslaautogroupaddestipageout', 'cipslaautogroupstoragetype', 'cipslaautogrouprowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable.CipslaAutoGroupEntry, ['cipslaautogroupname', 'cipslaautogroupdescription', 'cipslaautogroupdestinationname', 'cipslaautogroupaddestport', 'cipslaautogroupopertemplatename', 'cipslaautogroupschedulerid', 'cipslaautogroupqosenable', 'cipslaautogroupopertype', 'cipslaautogroupdestipadenable', 'cipslaautogroupadmeasureretry', 'cipslaautogroupaddestipageout', 'cipslaautogroupstoragetype', 'cipslaautogrouprowstatus'], name, value)
 
 
-    class Cipslaautogroupdesttable(Entity):
+    class CipslaAutoGroupDestTable(Entity):
         """
         A table contains the list of destination IP
         addresses and ports associated to the auto measure
@@ -286,7 +282,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         .. attribute:: cipslaautogroupdestentry
         
         	An entry containing the destination IP addresses and port configurations associated to auto measure group destination name
-        	**type**\: list of  		 :py:class:`Cipslaautogroupdestentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable.Cipslaautogroupdestentry>`
+        	**type**\: list of  		 :py:class:`CipslaAutoGroupDestEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable.CipslaAutoGroupDestEntry>`
         
         
 
@@ -296,15 +292,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         _revision = '2007-06-13'
 
         def __init__(self):
-            super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable, self).__init__()
+            super(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable, self).__init__()
 
             self.yang_name = "cipslaAutoGroupDestTable"
             self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaAutoGroupDestEntry", ("cipslaautogroupdestentry", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable.Cipslaautogroupdestentry))])
+            self._child_classes = OrderedDict([("cipslaAutoGroupDestEntry", ("cipslaautogroupdestentry", CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable.CipslaAutoGroupDestEntry))])
             self._leafs = OrderedDict()
 
             self.cipslaautogroupdestentry = YList(self)
@@ -312,10 +307,10 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable, [], name, value)
+            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable, [], name, value)
 
 
-        class Cipslaautogroupdestentry(Entity):
+        class CipslaAutoGroupDestEntry(Entity):
             """
             An entry containing the destination IP addresses
             and port configurations associated to auto measure
@@ -365,15 +360,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             _revision = '2007-06-13'
 
             def __init__(self):
-                super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable.Cipslaautogroupdestentry, self).__init__()
+                super(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable.CipslaAutoGroupDestEntry, self).__init__()
 
                 self.yang_name = "cipslaAutoGroupDestEntry"
                 self.yang_parent_name = "cipslaAutoGroupDestTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslaautogroupdestname','cipslaautogroupdestipaddrtype','cipslaautogroupdestipaddr','cipslaautogroupdestport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslaautogroupdestname', YLeaf(YType.str, 'cipslaAutoGroupDestName')),
                     ('cipslaautogroupdestipaddrtype', YLeaf(YType.enumeration, 'cipslaAutoGroupDestIpAddrType')),
@@ -392,10 +386,10 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupDestTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable.Cipslaautogroupdestentry, ['cipslaautogroupdestname', 'cipslaautogroupdestipaddrtype', 'cipslaautogroupdestipaddr', 'cipslaautogroupdestport', 'cipslaautogroupdeststoragetype', 'cipslaautogroupdestrowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable.CipslaAutoGroupDestEntry, ['cipslaautogroupdestname', 'cipslaautogroupdestipaddrtype', 'cipslaautogroupdestipaddr', 'cipslaautogroupdestport', 'cipslaautogroupdeststoragetype', 'cipslaautogroupdestrowstatus'], name, value)
 
 
-    class Cipslareacttable(Entity):
+    class CipslaReactTable(Entity):
         """
         A table that contains reaction configurations for templates.
         Each conceptual row in cipslaReactTable corresponds 
@@ -410,7 +404,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         .. attribute:: cipslareactentry
         
         	A base list of objects that define a conceptual reaction configuration control row
-        	**type**\: list of  		 :py:class:`Cipslareactentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry>`
+        	**type**\: list of  		 :py:class:`CipslaReactEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable.CipslaReactEntry>`
         
         
 
@@ -420,15 +414,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         _revision = '2007-06-13'
 
         def __init__(self):
-            super(CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable, self).__init__()
+            super(CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable, self).__init__()
 
             self.yang_name = "cipslaReactTable"
             self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaReactEntry", ("cipslareactentry", CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry))])
+            self._child_classes = OrderedDict([("cipslaReactEntry", ("cipslareactentry", CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable.CipslaReactEntry))])
             self._leafs = OrderedDict()
 
             self.cipslareactentry = YList(self)
@@ -436,10 +429,10 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable, [], name, value)
+            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable, [], name, value)
 
 
-        class Cipslareactentry(Entity):
+        class CipslaReactEntry(Entity):
             """
             A base list of objects that define a conceptual reaction
             configuration control row.
@@ -463,7 +456,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             
             	**length:** 0..64
             
-            	**refers to**\:  :py:class:`cipslaautogroupopertemplatename <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry>`
+            	**refers to**\:  :py:class:`cipslaautogroupopertemplatename <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable.CipslaAutoGroupEntry>`
             
             .. attribute:: cipslareactvar
             
@@ -473,12 +466,12 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             .. attribute:: cipslareactthresholdtype
             
             	This object specifies the conditions under which a notification ( trap ) is sent. The rttMonReactOccurred object defined in rttMonReactTable in CISCO\-RTTMON\-MIB will change accordingly\:  never(1)       \- rttMonReactOccurred is never set  immediate(2)   \- rttMonReactOccurred is set to 'true' when the                  value of parameter for which reaction is                  configured ( e.g rtt, jitterAvg, packetLossSD,                  mos etc ) violates the threshold.                  Conversely, rttMonReactOccurred is set to 'false'                  when the parameter ( e.g rtt, jitterAvg,                  packetLossSD, mos etc ) is below the threshold                  limits.  consecutive(3) \- rttMonReactOccurred is set to true when the value                  of parameter for which reaction is configured                  ( e.g rtt, jitterAvg, packetLossSD, mos etc )                  violates the threshold for configured consecutive                  times.                  Conversely, rttMonReactOccurred is set to false                  when the value of parameter ( e.g rtt, jitterAvg                  packetLossSD, mos etc ) is below the threshold                  limits for the same number of consecutive                  operations.  xOfy(4)        \- rttMonReactOccurred is set to true when x                  ( as specified by cipslaReactThresholdCountX )                  out of the last y ( as specified by                  cipslaReacthresholdCountY ) times the value of                  parameter for which the reaction is configured                  ( e.g rtt, jitterAvg, packetLossSD, mos etc )                  violates the threshold.                  Conversely, it is set to false when x, out of the                  last y times the value of parameter                  ( e.g rtt, jitterAvg, packetLossSD, mos ) is                  below the threshold limits.                  NOTE\: If x > y, this will never                       generate a reaction.  average(5)    \- rttMonReactOccurred is set to true when the                 average ( cipslaReactThresholdCountX times )                 value of parameter for which reaction is                  configured ( e.g rtt, jitterAvg, packetLossSD,                 mos etc ) violates the threshold condition.                 Conversely, it is set to false when the                 average value of parameter ( e.g rtt, jitterAvg,                 packetLossSD, mos etc ) is below the threshold                 limits.  If this value is changed by a management station, rttMonReactOccurred is set to false, but no reaction is generated if the prior value of rttMonReactOccurred was true
-            	**type**\:  :py:class:`Cipslareactthresholdtype <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry.Cipslareactthresholdtype>`
+            	**type**\:  :py:class:`CipslaReactThresholdType <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable.CipslaReactEntry.CipslaReactThresholdType>`
             
             .. attribute:: cipslareactactiontype
             
             	Specifies what type, if any, of reaction to generate if one of the watched (reaction\-configuration ) conditions is satisfied\:  none(1)                \- no reaction is generated notificationOnly(2)    \- a notification is generated
-            	**type**\:  :py:class:`Cipslareactactiontype <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry.Cipslareactactiontype>`
+            	**type**\:  :py:class:`CipslaReactActionType <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable.CipslaReactEntry.CipslaReactActionType>`
             
             .. attribute:: cipslareactthresholdrising
             
@@ -526,15 +519,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             _revision = '2007-06-13'
 
             def __init__(self):
-                super(CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry, self).__init__()
+                super(CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable.CipslaReactEntry, self).__init__()
 
                 self.yang_name = "cipslaReactEntry"
                 self.yang_parent_name = "cipslaReactTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslaautogroupopertype','cipslareactconfigindex','cipslaautogroupopertemplatename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslaautogroupopertype', YLeaf(YType.enumeration, 'cipslaAutoGroupOperType')),
                     ('cipslareactconfigindex', YLeaf(YType.uint32, 'cipslaReactConfigIndex')),
@@ -565,11 +557,11 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaReactTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry, ['cipslaautogroupopertype', 'cipslareactconfigindex', 'cipslaautogroupopertemplatename', 'cipslareactvar', 'cipslareactthresholdtype', 'cipslareactactiontype', 'cipslareactthresholdrising', 'cipslareactthresholdfalling', 'cipslareactthresholdcountx', 'cipslareactthresholdcounty', 'cipslareactstoragetype', 'cipslareactrowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable.CipslaReactEntry, ['cipslaautogroupopertype', 'cipslareactconfigindex', 'cipslaautogroupopertemplatename', 'cipslareactvar', 'cipslareactthresholdtype', 'cipslareactactiontype', 'cipslareactthresholdrising', 'cipslareactthresholdfalling', 'cipslareactthresholdcountx', 'cipslareactthresholdcounty', 'cipslareactstoragetype', 'cipslareactrowstatus'], name, value)
 
-            class Cipslareactactiontype(Enum):
+            class CipslaReactActionType(Enum):
                 """
-                Cipslareactactiontype (Enum Class)
+                CipslaReactActionType (Enum Class)
 
                 Specifies what type, if any, of reaction to
 
@@ -592,9 +584,9 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 notificationOnly = Enum.YLeaf(2, "notificationOnly")
 
 
-            class Cipslareactthresholdtype(Enum):
+            class CipslaReactThresholdType(Enum):
                 """
-                Cipslareactthresholdtype (Enum Class)
+                CipslaReactThresholdType (Enum Class)
 
                 This object specifies the conditions under which
 
@@ -718,14 +710,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
 
 
 
-    class Cipslaautogroupschedtable(Entity):
+    class CipslaAutoGroupSchedTable(Entity):
         """
         A table of group scheduling definitions.
         
         .. attribute:: cipslaautogroupschedentry
         
         	A list of objects that define specific configuration for group scheduling
-        	**type**\: list of  		 :py:class:`Cipslaautogroupschedentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry>`
+        	**type**\: list of  		 :py:class:`CipslaAutoGroupSchedEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable.CipslaAutoGroupSchedEntry>`
         
         
 
@@ -735,15 +727,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         _revision = '2007-06-13'
 
         def __init__(self):
-            super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable, self).__init__()
+            super(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable, self).__init__()
 
             self.yang_name = "cipslaAutoGroupSchedTable"
             self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaAutoGroupSchedEntry", ("cipslaautogroupschedentry", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry))])
+            self._child_classes = OrderedDict([("cipslaAutoGroupSchedEntry", ("cipslaautogroupschedentry", CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable.CipslaAutoGroupSchedEntry))])
             self._leafs = OrderedDict()
 
             self.cipslaautogroupschedentry = YList(self)
@@ -751,10 +742,10 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable, [], name, value)
+            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable, [], name, value)
 
 
-        class Cipslaautogroupschedentry(Entity):
+        class CipslaAutoGroupSchedEntry(Entity):
             """
             A list of objects that define specific configuration for
             group scheduling.
@@ -847,15 +838,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             _revision = '2007-06-13'
 
             def __init__(self):
-                super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry, self).__init__()
+                super(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable.CipslaAutoGroupSchedEntry, self).__init__()
 
                 self.yang_name = "cipslaAutoGroupSchedEntry"
                 self.yang_parent_name = "cipslaAutoGroupSchedTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslaautogroupschedid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslaautogroupschedid', YLeaf(YType.str, 'cipslaAutoGroupSchedId')),
                     ('cipslaautogroupschedperiod', YLeaf(YType.uint32, 'cipslaAutoGroupSchedPeriod')),
@@ -882,7 +872,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupSchedTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry, ['cipslaautogroupschedid', 'cipslaautogroupschedperiod', 'cipslaautogroupschedinterval', 'cipslaautogroupschedlife', 'cipslaautogroupschedageout', 'cipslaautogroupschedmaxinterval', 'cipslaautogroupschedmininterval', 'cipslaautogroupschedstarttime', 'cipslaautogroupschedstoragetype', 'cipslaautogroupschedrowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable.CipslaAutoGroupSchedEntry, ['cipslaautogroupschedid', 'cipslaautogroupschedperiod', 'cipslaautogroupschedinterval', 'cipslaautogroupschedlife', 'cipslaautogroupschedageout', 'cipslaautogroupschedmaxinterval', 'cipslaautogroupschedmininterval', 'cipslaautogroupschedstarttime', 'cipslaautogroupschedstoragetype', 'cipslaautogroupschedrowstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPSLAAUTOMEASUREMIB()

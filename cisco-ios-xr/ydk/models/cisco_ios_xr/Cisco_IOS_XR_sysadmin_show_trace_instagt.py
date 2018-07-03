@@ -47,8 +47,7 @@ class Instagt(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("trace", ("trace", Instagt.Trace))])
+        self._child_classes = OrderedDict([("trace", ("trace", Instagt.Trace))])
         self._leafs = OrderedDict()
 
         self.trace = YList(self)
@@ -87,8 +86,7 @@ class Instagt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['buffer']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Instagt.Trace.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Instagt.Trace.Location))])
             self._leafs = OrderedDict([
                 ('buffer', YLeaf(YType.str, 'buffer')),
             ])
@@ -99,7 +97,7 @@ class Instagt(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-trace-instagt:instagt/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Instagt.Trace, ['buffer'], name, value)
+            self._perform_setattr(Instagt.Trace, [u'buffer'], name, value)
 
 
         class Location(Entity):
@@ -131,8 +129,7 @@ class Instagt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['location_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("all-options", ("all_options", Instagt.Trace.Location.AllOptions))])
+                self._child_classes = OrderedDict([("all-options", ("all_options", Instagt.Trace.Location.AllOptions))])
                 self._leafs = OrderedDict([
                     ('location_name', YLeaf(YType.str, 'location_name')),
                 ])
@@ -142,7 +139,7 @@ class Instagt(Entity):
                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Instagt.Trace.Location, ['location_name'], name, value)
+                self._perform_setattr(Instagt.Trace.Location, [u'location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -174,8 +171,7 @@ class Instagt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['option']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Instagt.Trace.Location.AllOptions.TraceBlocks))])
+                    self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Instagt.Trace.Location.AllOptions.TraceBlocks))])
                     self._leafs = OrderedDict([
                         ('option', YLeaf(YType.str, 'option')),
                     ])
@@ -185,7 +181,7 @@ class Instagt(Entity):
                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Instagt.Trace.Location.AllOptions, ['option'], name, value)
+                    self._perform_setattr(Instagt.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -212,8 +208,7 @@ class Instagt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('data', YLeaf(YType.str, 'data')),
                         ])
@@ -221,7 +216,7 @@ class Instagt(Entity):
                         self._segment_path = lambda: "trace-blocks"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Instagt.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                        self._perform_setattr(Instagt.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Instagt()

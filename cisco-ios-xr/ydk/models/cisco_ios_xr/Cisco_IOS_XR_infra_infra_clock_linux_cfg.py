@@ -47,14 +47,15 @@ class Clock(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("time-zone", ("time_zone", Clock.TimeZone))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("time-zone", ("time_zone", Clock.TimeZone))])
         self._leafs = OrderedDict()
 
         self.time_zone = None
         self._children_name_map["time_zone"] = "time-zone"
-        self._children_yang_names.add("time-zone")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Clock, [], name, value)
 
 
     class TimeZone(Entity):
@@ -92,8 +93,7 @@ class Clock(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('time_zone_name', YLeaf(YType.str, 'time-zone-name')),

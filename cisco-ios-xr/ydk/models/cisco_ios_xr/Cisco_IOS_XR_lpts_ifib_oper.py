@@ -34,7 +34,7 @@ class LptsIfib(Entity):
     """
 
     _prefix = 'lpts-ifib-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(LptsIfib, self).__init__()
@@ -45,15 +45,16 @@ class LptsIfib(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", LptsIfib.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", LptsIfib.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = LptsIfib.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(LptsIfib, [], name, value)
 
 
     class Nodes(Entity):
@@ -70,7 +71,7 @@ class LptsIfib(Entity):
         """
 
         _prefix = 'lpts-ifib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(LptsIfib.Nodes, self).__init__()
@@ -80,8 +81,7 @@ class LptsIfib(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", LptsIfib.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", LptsIfib.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -113,7 +113,7 @@ class LptsIfib(Entity):
             """
 
             _prefix = 'lpts-ifib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(LptsIfib.Nodes.Node, self).__init__()
@@ -123,8 +123,7 @@ class LptsIfib(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("slice-ids", ("slice_ids", LptsIfib.Nodes.Node.SliceIds))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("slice-ids", ("slice_ids", LptsIfib.Nodes.Node.SliceIds))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -133,7 +132,6 @@ class LptsIfib(Entity):
                 self.slice_ids = LptsIfib.Nodes.Node.SliceIds()
                 self.slice_ids.parent = self
                 self._children_name_map["slice_ids"] = "slice-ids"
-                self._children_yang_names.add("slice-ids")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib/nodes/%s" % self._segment_path()
 
@@ -155,7 +153,7 @@ class LptsIfib(Entity):
                 """
 
                 _prefix = 'lpts-ifib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(LptsIfib.Nodes.Node.SliceIds, self).__init__()
@@ -165,8 +163,7 @@ class LptsIfib(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slice-id", ("slice_id", LptsIfib.Nodes.Node.SliceIds.SliceId))])
+                    self._child_classes = OrderedDict([("slice-id", ("slice_id", LptsIfib.Nodes.Node.SliceIds.SliceId))])
                     self._leafs = OrderedDict()
 
                     self.slice_id = YList(self)
@@ -197,7 +194,7 @@ class LptsIfib(Entity):
                     """
 
                     _prefix = 'lpts-ifib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(LptsIfib.Nodes.Node.SliceIds.SliceId, self).__init__()
@@ -207,8 +204,7 @@ class LptsIfib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['slice_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("entry", ("entry", LptsIfib.Nodes.Node.SliceIds.SliceId.Entry))])
+                        self._child_classes = OrderedDict([("entry", ("entry", LptsIfib.Nodes.Node.SliceIds.SliceId.Entry))])
                         self._leafs = OrderedDict([
                             ('slice_name', YLeaf(YType.str, 'slice-name')),
                         ])
@@ -230,7 +226,7 @@ class LptsIfib(Entity):
                         	Single Pre\-ifib entry
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: destination_type
                         
@@ -386,7 +382,7 @@ class LptsIfib(Entity):
                         """
 
                         _prefix = 'lpts-ifib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, self).__init__()
@@ -396,10 +392,9 @@ class LptsIfib(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['entry']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('entry', YLeaf(YType.int32, 'entry')),
+                                ('entry', YLeaf(YType.uint32, 'entry')),
                                 ('destination_type', YLeaf(YType.str, 'destination-type')),
                                 ('destination_value', YLeaf(YType.str, 'destination-value')),
                                 ('source_port', YLeaf(YType.str, 'source-port')),
@@ -455,7 +450,7 @@ class LptsIfib(Entity):
                             self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, ['entry', 'destination_type', 'destination_value', 'source_port', 'destination_addr', 'source_addr', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'is_syn', 'opcode', 'accepts', 'drops', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'pending_ifibq_delay', 'sl_ifibq_delay', 'ifib_program_time'], name, value)
+                            self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, ['entry', u'destination_type', u'destination_value', u'source_port', u'destination_addr', u'source_addr', u'vrf_name', u'vid', u'l3protocol', u'l4protocol', u'intf_name', u'intf_handle', u'is_syn', u'opcode', u'accepts', u'drops', u'flow_type', u'listener_tag', u'local_flag', u'is_fgid', u'deliver_list_short', u'deliver_list_long', u'min_ttl', u'pending_ifibq_delay', u'sl_ifibq_delay', u'ifib_program_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = LptsIfib()

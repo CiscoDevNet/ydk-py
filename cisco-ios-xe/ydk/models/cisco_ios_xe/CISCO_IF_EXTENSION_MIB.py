@@ -74,52 +74,52 @@ class CISCOIFEXTENSIONMIB(Entity):
     .. attribute:: ciscoifextsystemconfig
     
     	
-    	**type**\:  :py:class:`Ciscoifextsystemconfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Ciscoifextsystemconfig>`
+    	**type**\:  :py:class:`CiscoIfExtSystemConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig>`
     
     .. attribute:: cieifpacketstatstable
     
     	This  table contains interface packet statistics which are not available in  IF\-MIB(RFC2863).   As an example, some interfaces to which objects in this table are applicable are as follows \:          o Ethernet         o FastEthernet         o ATM         o BRI         o Sonet         o GigabitEthernet  Some objects defined in this table may be  applicable to physical interfaces only. As a result, this table may be sparse for some logical interfaces
-    	**type**\:  :py:class:`Cieifpacketstatstable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifpacketstatstable>`
+    	**type**\:  :py:class:`CieIfPacketStatsTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfPacketStatsTable>`
     
     .. attribute:: cieifinterfacetable
     
     	This  table contains objects which provide more information about interface   properties not available in IF\-MIB (RFC 2863).  Some objects defined in this table may be applicable to physical interfaces only. As a result, this table may be sparse for logical interfaces
-    	**type**\:  :py:class:`Cieifinterfacetable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifinterfacetable>`
+    	**type**\:  :py:class:`CieIfInterfaceTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable>`
     
     .. attribute:: cieifstatuslisttable
     
     	This table contains objects for providing the 'ifIndex', interface operational mode and  interface operational cause for all the  interfaces in the modules.  This table contains one entry for each  64 interfaces in an module.  This table provides efficient way of encoding  'ifIndex', interface operational mode and interface operational cause, from the point  of retrieval, by combining the values a set  of 64 interfaces in a single MIB object
-    	**type**\:  :py:class:`Cieifstatuslisttable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifstatuslisttable>`
+    	**type**\:  :py:class:`CieIfStatusListTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfStatusListTable>`
     
     .. attribute:: cieifvlstatstable
     
     	This table contains VL (Virtual Link) statistics for a capable interface.  Objects defined in this table may be  applicable to physical interfaces only
-    	**type**\:  :py:class:`Cieifvlstatstable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifvlstatstable>`
+    	**type**\:  :py:class:`CieIfVlStatsTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfVlStatsTable>`
     
     .. attribute:: cieifindexpersistencetable
     
     	This table lists configuration data relating to ifIndex persistence.  This table has a sparse dependent relationship on the ifTable, containing a row for each ifEntry corresponding to an interface for which ifIndex persistence is supported
-    	**type**\:  :py:class:`Cieifindexpersistencetable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifindexpersistencetable>`
+    	**type**\:  :py:class:`CieIfIndexPersistenceTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable>`
     
     .. attribute:: cieifdot1qcustomethertypetable
     
     	A list of the interfaces that support the 802.1q custom Ethertype feature
-    	**type**\:  :py:class:`Cieifdot1Qcustomethertypetable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable>`
+    	**type**\:  :py:class:`CieIfDot1qCustomEtherTypeTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable>`
     
     .. attribute:: cieifutiltable
     
     	This table contains the interface utilization rates for inbound and outbound traffic on an interface
-    	**type**\:  :py:class:`Cieifutiltable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifutiltable>`
+    	**type**\:  :py:class:`CieIfUtilTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfUtilTable>`
     
     .. attribute:: cieifdot1dbasemappingtable
     
     	This table contains the mappings of the ifIndex of an interface to its corresponding dot1dBasePort value
-    	**type**\:  :py:class:`Cieifdot1Dbasemappingtable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable>`
+    	**type**\:  :py:class:`CieIfDot1dBaseMappingTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable>`
     
     .. attribute:: cieifnamemappingtable
     
     	This table contains objects for providing the 'ifName' to 'ifIndex' mapping. This table contains one entry for each valid 'ifName' available in the system. Upon the first request, the implementation of this table will get all the available ifNames, and it will populate the entries in this table, it maintains this ifNames in a cache for ~30 seconds
-    	**type**\:  :py:class:`Cieifnamemappingtable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifnamemappingtable>`
+    	**type**\:  :py:class:`CieIfNameMappingTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfNameMappingTable>`
     
     
 
@@ -137,63 +137,55 @@ class CISCOIFEXTENSIONMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoIfExtSystemConfig", ("ciscoifextsystemconfig", CISCOIFEXTENSIONMIB.Ciscoifextsystemconfig)), ("cieIfPacketStatsTable", ("cieifpacketstatstable", CISCOIFEXTENSIONMIB.Cieifpacketstatstable)), ("cieIfInterfaceTable", ("cieifinterfacetable", CISCOIFEXTENSIONMIB.Cieifinterfacetable)), ("cieIfStatusListTable", ("cieifstatuslisttable", CISCOIFEXTENSIONMIB.Cieifstatuslisttable)), ("cieIfVlStatsTable", ("cieifvlstatstable", CISCOIFEXTENSIONMIB.Cieifvlstatstable)), ("cieIfIndexPersistenceTable", ("cieifindexpersistencetable", CISCOIFEXTENSIONMIB.Cieifindexpersistencetable)), ("cieIfDot1qCustomEtherTypeTable", ("cieifdot1qcustomethertypetable", CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable)), ("cieIfUtilTable", ("cieifutiltable", CISCOIFEXTENSIONMIB.Cieifutiltable)), ("cieIfDot1dBaseMappingTable", ("cieifdot1dbasemappingtable", CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable)), ("cieIfNameMappingTable", ("cieifnamemappingtable", CISCOIFEXTENSIONMIB.Cieifnamemappingtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoIfExtSystemConfig", ("ciscoifextsystemconfig", CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig)), ("cieIfPacketStatsTable", ("cieifpacketstatstable", CISCOIFEXTENSIONMIB.CieIfPacketStatsTable)), ("cieIfInterfaceTable", ("cieifinterfacetable", CISCOIFEXTENSIONMIB.CieIfInterfaceTable)), ("cieIfStatusListTable", ("cieifstatuslisttable", CISCOIFEXTENSIONMIB.CieIfStatusListTable)), ("cieIfVlStatsTable", ("cieifvlstatstable", CISCOIFEXTENSIONMIB.CieIfVlStatsTable)), ("cieIfIndexPersistenceTable", ("cieifindexpersistencetable", CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable)), ("cieIfDot1qCustomEtherTypeTable", ("cieifdot1qcustomethertypetable", CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable)), ("cieIfUtilTable", ("cieifutiltable", CISCOIFEXTENSIONMIB.CieIfUtilTable)), ("cieIfDot1dBaseMappingTable", ("cieifdot1dbasemappingtable", CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable)), ("cieIfNameMappingTable", ("cieifnamemappingtable", CISCOIFEXTENSIONMIB.CieIfNameMappingTable))])
         self._leafs = OrderedDict()
 
-        self.ciscoifextsystemconfig = CISCOIFEXTENSIONMIB.Ciscoifextsystemconfig()
+        self.ciscoifextsystemconfig = CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig()
         self.ciscoifextsystemconfig.parent = self
         self._children_name_map["ciscoifextsystemconfig"] = "ciscoIfExtSystemConfig"
-        self._children_yang_names.add("ciscoIfExtSystemConfig")
 
-        self.cieifpacketstatstable = CISCOIFEXTENSIONMIB.Cieifpacketstatstable()
+        self.cieifpacketstatstable = CISCOIFEXTENSIONMIB.CieIfPacketStatsTable()
         self.cieifpacketstatstable.parent = self
         self._children_name_map["cieifpacketstatstable"] = "cieIfPacketStatsTable"
-        self._children_yang_names.add("cieIfPacketStatsTable")
 
-        self.cieifinterfacetable = CISCOIFEXTENSIONMIB.Cieifinterfacetable()
+        self.cieifinterfacetable = CISCOIFEXTENSIONMIB.CieIfInterfaceTable()
         self.cieifinterfacetable.parent = self
         self._children_name_map["cieifinterfacetable"] = "cieIfInterfaceTable"
-        self._children_yang_names.add("cieIfInterfaceTable")
 
-        self.cieifstatuslisttable = CISCOIFEXTENSIONMIB.Cieifstatuslisttable()
+        self.cieifstatuslisttable = CISCOIFEXTENSIONMIB.CieIfStatusListTable()
         self.cieifstatuslisttable.parent = self
         self._children_name_map["cieifstatuslisttable"] = "cieIfStatusListTable"
-        self._children_yang_names.add("cieIfStatusListTable")
 
-        self.cieifvlstatstable = CISCOIFEXTENSIONMIB.Cieifvlstatstable()
+        self.cieifvlstatstable = CISCOIFEXTENSIONMIB.CieIfVlStatsTable()
         self.cieifvlstatstable.parent = self
         self._children_name_map["cieifvlstatstable"] = "cieIfVlStatsTable"
-        self._children_yang_names.add("cieIfVlStatsTable")
 
-        self.cieifindexpersistencetable = CISCOIFEXTENSIONMIB.Cieifindexpersistencetable()
+        self.cieifindexpersistencetable = CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable()
         self.cieifindexpersistencetable.parent = self
         self._children_name_map["cieifindexpersistencetable"] = "cieIfIndexPersistenceTable"
-        self._children_yang_names.add("cieIfIndexPersistenceTable")
 
-        self.cieifdot1qcustomethertypetable = CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable()
+        self.cieifdot1qcustomethertypetable = CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable()
         self.cieifdot1qcustomethertypetable.parent = self
         self._children_name_map["cieifdot1qcustomethertypetable"] = "cieIfDot1qCustomEtherTypeTable"
-        self._children_yang_names.add("cieIfDot1qCustomEtherTypeTable")
 
-        self.cieifutiltable = CISCOIFEXTENSIONMIB.Cieifutiltable()
+        self.cieifutiltable = CISCOIFEXTENSIONMIB.CieIfUtilTable()
         self.cieifutiltable.parent = self
         self._children_name_map["cieifutiltable"] = "cieIfUtilTable"
-        self._children_yang_names.add("cieIfUtilTable")
 
-        self.cieifdot1dbasemappingtable = CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable()
+        self.cieifdot1dbasemappingtable = CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable()
         self.cieifdot1dbasemappingtable.parent = self
         self._children_name_map["cieifdot1dbasemappingtable"] = "cieIfDot1dBaseMappingTable"
-        self._children_yang_names.add("cieIfDot1dBaseMappingTable")
 
-        self.cieifnamemappingtable = CISCOIFEXTENSIONMIB.Cieifnamemappingtable()
+        self.cieifnamemappingtable = CISCOIFEXTENSIONMIB.CieIfNameMappingTable()
         self.cieifnamemappingtable.parent = self
         self._children_name_map["cieifnamemappingtable"] = "cieIfNameMappingTable"
-        self._children_yang_names.add("cieIfNameMappingTable")
         self._segment_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIFEXTENSIONMIB, [], name, value)
 
-    class Ciscoifextsystemconfig(Entity):
+
+    class CiscoIfExtSystemConfig(Entity):
         """
         
         
@@ -207,14 +199,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cielinkupdownenable
         
         	Indicates whether cieLinkUp/cieLinkDown or standard mib\-II defined linkUp/Down or both, notifications should be generated for the interfaces in the system.  'standard'  \- only generate standard defined               mib\-II linkUp/linkDown notification               if 'ifLinkUpDownTrapEnable' for                the interface is 'enabled'. 'cisco'     \- only generate cieLinkUp/cieLinkDown               notifications for an interface if               the 'ifLinkUpDownTrapEnable' for the               interface is 'enabled'.  If both bits are selected then linkUp/linkDown and cieLinkUp/cieLinkDown are both generated for an  interface if the 'ifLinkUpDownTrapEnable' for the interface is 'enabled'
-        	**type**\:  :py:class:`Cielinkupdownenable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Ciscoifextsystemconfig.Cielinkupdownenable>`
+        	**type**\:  :py:class:`CieLinkUpDownEnable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig.CieLinkUpDownEnable>`
         
         	**status**\: deprecated
         
         .. attribute:: ciestandardlinkupdownvarbinds
         
         	Indicates whether to send the extra varbinds in addition to the varbinds defined  in linkUp/linkDown notifications.  'standard'   \- only send the varbinds defined in                the standard linkUp/linkDown                notification.   'additional' \- send the extra varbinds in addition                 to the defined ones. 'other'      \- any other config not covered by the above.                This value is read\-only
-        	**type**\:  :py:class:`Ciestandardlinkupdownvarbinds <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Ciscoifextsystemconfig.Ciestandardlinkupdownvarbinds>`
+        	**type**\:  :py:class:`CieStandardLinkUpDownVarbinds <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig.CieStandardLinkUpDownVarbinds>`
         
         	**status**\: deprecated
         
@@ -247,7 +239,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cielinkupdownconfig
         
         	This object specifies whether standard mib\-II defined linkUp/ linkDown, extended linkUp/linkDown (with extra varbinds in addition to the varbinds defined in linkUp/linkDown) or cieLinkUp/cieLinkDown notifications should be generated for the interfaces in the system.  'standardLinkUp'     \- generate standard defined mib\-II                         linkUp notification if                         'ifLinkUpDownTrapEnable' for the                         interface is 'enabled'. 'standardLinkDown'   \- generate standard defined mib\-II                         linkDown notification if                         'ifLinkUpDownTrapEnable' for the                         interface is 'enabled'.   'additionalLinkUp'   \- generate linkUp notification with                        additional varbinds if                         'ifLinkUpDownTrapEnable' for the                         interface is 'enabled'.   'additionalLinkDown' \- generate linkDown notification with                        additional varbinds if                         'ifLinkUpDownTrapEnable' for the                         interface is 'enabled'. 'ciscoLinkUp'        \- generate cieLinkUp notification                        if the 'ifLinkUpDownTrapEnable' for the                        interface is 'enabled'. 'ciscoLinkDown'      \- generate cieLinkDown notification                        if the 'ifLinkUpDownTrapEnable' for the                        interface is 'enabled'.  If multiple bits are set then multiple notifications will be generated for an interface if the 'ifLinkUpDownTrapEnable'  for the interface is 'enabled'
-        	**type**\:  :py:class:`Cielinkupdownconfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Ciscoifextsystemconfig.Cielinkupdownconfig>`
+        	**type**\:  :py:class:`CieLinkUpDownConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig.CieLinkUpDownConfig>`
         
         
 
@@ -257,15 +249,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Ciscoifextsystemconfig, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig, self).__init__()
 
             self.yang_name = "ciscoIfExtSystemConfig"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ciesystemmtu', YLeaf(YType.int32, 'cieSystemMtu')),
                 ('cielinkupdownenable', YLeaf(YType.bits, 'cieLinkUpDownEnable')),
@@ -288,11 +279,11 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Ciscoifextsystemconfig, ['ciesystemmtu', 'cielinkupdownenable', 'ciestandardlinkupdownvarbinds', 'cieifindexpersistence', 'ciedelayedlinkupdownnotifenable', 'ciedelayedlinkupdownnotifdelay', 'cieifindexglobalpersistence', 'cielinkupdownconfig'], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig, ['ciesystemmtu', 'cielinkupdownenable', 'ciestandardlinkupdownvarbinds', 'cieifindexpersistence', 'ciedelayedlinkupdownnotifenable', 'ciedelayedlinkupdownnotifdelay', 'cieifindexglobalpersistence', 'cielinkupdownconfig'], name, value)
 
-        class Ciestandardlinkupdownvarbinds(Enum):
+        class CieStandardLinkUpDownVarbinds(Enum):
             """
-            Ciestandardlinkupdownvarbinds (Enum Class)
+            CieStandardLinkUpDownVarbinds (Enum Class)
 
             Indicates whether to send the extra
 
@@ -330,7 +321,7 @@ class CISCOIFEXTENSIONMIB(Entity):
 
 
 
-    class Cieifpacketstatstable(Entity):
+    class CieIfPacketStatsTable(Entity):
         """
         This  table contains interface packet
         statistics which are not available in 
@@ -355,7 +346,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifpacketstatsentry
         
         	An entry into the cieIfPacketStatsTable
-        	**type**\: list of  		 :py:class:`Cieifpacketstatsentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifpacketstatstable.Cieifpacketstatsentry>`
+        	**type**\: list of  		 :py:class:`CieIfPacketStatsEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfPacketStatsTable.CieIfPacketStatsEntry>`
         
         
 
@@ -365,15 +356,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifpacketstatstable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfPacketStatsTable, self).__init__()
 
             self.yang_name = "cieIfPacketStatsTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfPacketStatsEntry", ("cieifpacketstatsentry", CISCOIFEXTENSIONMIB.Cieifpacketstatstable.Cieifpacketstatsentry))])
+            self._child_classes = OrderedDict([("cieIfPacketStatsEntry", ("cieifpacketstatsentry", CISCOIFEXTENSIONMIB.CieIfPacketStatsTable.CieIfPacketStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cieifpacketstatsentry = YList(self)
@@ -381,10 +371,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifpacketstatstable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfPacketStatsTable, [], name, value)
 
 
-        class Cieifpacketstatsentry(Entity):
+        class CieIfPacketStatsEntry(Entity):
             """
             An entry into the cieIfPacketStatsTable.
             
@@ -395,7 +385,7 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cieiflastintime
             
@@ -495,15 +485,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifpacketstatstable.Cieifpacketstatsentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfPacketStatsTable.CieIfPacketStatsEntry, self).__init__()
 
                 self.yang_name = "cieIfPacketStatsEntry"
                 self.yang_parent_name = "cieIfPacketStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cieiflastintime', YLeaf(YType.uint32, 'cieIfLastInTime')),
@@ -536,10 +525,10 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfPacketStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifpacketstatstable.Cieifpacketstatsentry, ['ifindex', 'cieiflastintime', 'cieiflastouttime', 'cieiflastouthangtime', 'cieifinruntserrs', 'cieifingiantserrs', 'cieifinframingerrs', 'cieifinoverrunerrs', 'cieifinignored', 'cieifinaborterrs', 'cieifinputqueuedrops', 'cieifoutputqueuedrops', 'cieifpacketdiscontinuitytime'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfPacketStatsTable.CieIfPacketStatsEntry, ['ifindex', 'cieiflastintime', 'cieiflastouttime', 'cieiflastouthangtime', 'cieifinruntserrs', 'cieifingiantserrs', 'cieifinframingerrs', 'cieifinoverrunerrs', 'cieifinignored', 'cieifinaborterrs', 'cieifinputqueuedrops', 'cieifoutputqueuedrops', 'cieifpacketdiscontinuitytime'], name, value)
 
 
-    class Cieifinterfacetable(Entity):
+    class CieIfInterfaceTable(Entity):
         """
         This  table contains objects which provide
         more information about interface  
@@ -554,7 +543,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifinterfaceentry
         
         	An entry into the cieIfInterfaceTable
-        	**type**\: list of  		 :py:class:`Cieifinterfaceentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifinterfacetable.Cieifinterfaceentry>`
+        	**type**\: list of  		 :py:class:`CieIfInterfaceEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry>`
         
         
 
@@ -564,15 +553,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifinterfacetable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfInterfaceTable, self).__init__()
 
             self.yang_name = "cieIfInterfaceTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfInterfaceEntry", ("cieifinterfaceentry", CISCOIFEXTENSIONMIB.Cieifinterfacetable.Cieifinterfaceentry))])
+            self._child_classes = OrderedDict([("cieIfInterfaceEntry", ("cieifinterfaceentry", CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.cieifinterfaceentry = YList(self)
@@ -580,10 +568,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifinterfacetable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfInterfaceTable, [], name, value)
 
 
-        class Cieifinterfaceentry(Entity):
+        class CieIfInterfaceEntry(Entity):
             """
             An entry into the cieIfInterfaceTable.
             
@@ -594,7 +582,7 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cieifresetcount
             
@@ -680,22 +668,22 @@ class CISCOIFEXTENSIONMIB(Entity):
             .. attribute:: cieifsharedconfig
             
             	This object indicates the current configuration of interface sharing on the given interface.  'notApplicable' \- the interface sharing configuration on              this interface is not applicable.  'ownerDedicated' \- the interface is in the dedicated mode             to the binding physical interface. 'ownerShared' \- the interface is shared amongst virtual switches          and this interface physically belongs to a its           virtual switch.   'sharedOnly' \- the interface is in purely shared mode
-            	**type**\:  :py:class:`Cieifsharedconfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifinterfacetable.Cieifinterfaceentry.Cieifsharedconfig>`
+            	**type**\:  :py:class:`CieIfSharedConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry.CieIfSharedConfig>`
             
             .. attribute:: cieifspeedgroupconfig
             
             	This object specifies the current speed group configuration on the given interface.  'notApplicable' \- the interface speed group configuration on             this interface is not applicable. It is a              read\-only value. '10G' \- the interface speed group configuration on             this interface as 10G. '1G\-2G\-4G\-8G' \- the interface speed group configuration              on this interface as 1G\-2G\-4G\-8G. '2G\-4G\-8G\-16G' \- the interface speed group configuration              on this interface as 2G\-4G\-8G\-16G
-            	**type**\:  :py:class:`Cieifspeedgroupconfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifinterfacetable.Cieifinterfaceentry.Cieifspeedgroupconfig>`
+            	**type**\:  :py:class:`CieIfSpeedGroupConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry.CieIfSpeedGroupConfig>`
             
             .. attribute:: cieiftransceiverfrequencyconfig
             
             	This object specifies the current transceiver frequency configuration on the given interface.  'notApplicable' \- the interface transceiver frequency  				  configuration on this interface  				  is not applicable. It is a read\-only value. 'FibreChannel' \- the interface transceiver frequency 				 configuration on this interface as                   Fibre Channel. 'Ethernet'	  \-  the interface transceiver frequency on 				 this interface as Ethernet
-            	**type**\:  :py:class:`Cieiftransceiverfrequencyconfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifinterfacetable.Cieifinterfaceentry.Cieiftransceiverfrequencyconfig>`
+            	**type**\:  :py:class:`CieIfTransceiverFrequencyConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry.CieIfTransceiverFrequencyConfig>`
             
             .. attribute:: cieiffillpatternconfig
             
             	This object specifies the current switchport fill pattern configuration on the given interface.  'arbff8G' \- the inter frame gap fill pattern is 			ARBFF for 8G speed. 'idle8G' \- the inter frame gap fill pattern is 		   IDLE for 8G speed
-            	**type**\:  :py:class:`Cieiffillpatternconfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifinterfacetable.Cieifinterfaceentry.Cieiffillpatternconfig>`
+            	**type**\:  :py:class:`CieIfFillPatternConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry.CieIfFillPatternConfig>`
             
             .. attribute:: cieifignorebiterrorsconfig
             
@@ -715,15 +703,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifinterfacetable.Cieifinterfaceentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry, self).__init__()
 
                 self.yang_name = "cieIfInterfaceEntry"
                 self.yang_parent_name = "cieIfInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cieifresetcount', YLeaf(YType.uint32, 'cieIfResetCount')),
@@ -770,11 +757,11 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifinterfacetable.Cieifinterfaceentry, ['ifindex', 'cieifresetcount', 'cieifkeepaliveenabled', 'cieifstatechangereason', 'cieifcarriertransitioncount', 'cieifinterfacediscontinuitytime', 'cieifdhcpmode', 'cieifmtu', 'cieifcontextname', 'cieifoperstatuscause', 'cieifoperstatuscausedescr', 'cieifspeedreceive', 'cieifhighspeedreceive', 'cieifowner', 'cieifsharedconfig', 'cieifspeedgroupconfig', 'cieiftransceiverfrequencyconfig', 'cieiffillpatternconfig', 'cieifignorebiterrorsconfig', 'cieifignoreinterruptthresholdconfig'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry, ['ifindex', 'cieifresetcount', 'cieifkeepaliveenabled', 'cieifstatechangereason', 'cieifcarriertransitioncount', 'cieifinterfacediscontinuitytime', 'cieifdhcpmode', 'cieifmtu', 'cieifcontextname', 'cieifoperstatuscause', 'cieifoperstatuscausedescr', 'cieifspeedreceive', 'cieifhighspeedreceive', 'cieifowner', 'cieifsharedconfig', 'cieifspeedgroupconfig', 'cieiftransceiverfrequencyconfig', 'cieiffillpatternconfig', 'cieifignorebiterrorsconfig', 'cieifignoreinterruptthresholdconfig'], name, value)
 
-            class Cieiffillpatternconfig(Enum):
+            class CieIfFillPatternConfig(Enum):
                 """
-                Cieiffillpatternconfig (Enum Class)
+                CieIfFillPatternConfig (Enum Class)
 
                 This object specifies the current switchport fill pattern
 
@@ -799,9 +786,9 @@ class CISCOIFEXTENSIONMIB(Entity):
                 idle8G = Enum.YLeaf(2, "idle8G")
 
 
-            class Cieifsharedconfig(Enum):
+            class CieIfSharedConfig(Enum):
                 """
-                Cieifsharedconfig (Enum Class)
+                CieIfSharedConfig (Enum Class)
 
                 This object indicates the current configuration of
 
@@ -842,9 +829,9 @@ class CISCOIFEXTENSIONMIB(Entity):
                 sharedOnly = Enum.YLeaf(4, "sharedOnly")
 
 
-            class Cieifspeedgroupconfig(Enum):
+            class CieIfSpeedGroupConfig(Enum):
                 """
-                Cieifspeedgroupconfig (Enum Class)
+                CieIfSpeedGroupConfig (Enum Class)
 
                 This object specifies the current speed group
 
@@ -887,9 +874,9 @@ class CISCOIFEXTENSIONMIB(Entity):
                 twoFourEightSixteenG = Enum.YLeaf(4, "twoFourEightSixteenG")
 
 
-            class Cieiftransceiverfrequencyconfig(Enum):
+            class CieIfTransceiverFrequencyConfig(Enum):
                 """
-                Cieiftransceiverfrequencyconfig (Enum Class)
+                CieIfTransceiverFrequencyConfig (Enum Class)
 
                 This object specifies the current transceiver frequency
 
@@ -927,7 +914,7 @@ class CISCOIFEXTENSIONMIB(Entity):
 
 
 
-    class Cieifstatuslisttable(Entity):
+    class CieIfStatusListTable(Entity):
         """
         This table contains objects for providing
         the 'ifIndex', interface operational mode and 
@@ -946,7 +933,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifstatuslistentry
         
         	Each entry represents the 'ifIndex', interface operational mode and interface  operational cause for a set of 64 interfaces  in a module
-        	**type**\: list of  		 :py:class:`Cieifstatuslistentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifstatuslisttable.Cieifstatuslistentry>`
+        	**type**\: list of  		 :py:class:`CieIfStatusListEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfStatusListTable.CieIfStatusListEntry>`
         
         
 
@@ -956,15 +943,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifstatuslisttable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfStatusListTable, self).__init__()
 
             self.yang_name = "cieIfStatusListTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfStatusListEntry", ("cieifstatuslistentry", CISCOIFEXTENSIONMIB.Cieifstatuslisttable.Cieifstatuslistentry))])
+            self._child_classes = OrderedDict([("cieIfStatusListEntry", ("cieifstatuslistentry", CISCOIFEXTENSIONMIB.CieIfStatusListTable.CieIfStatusListEntry))])
             self._leafs = OrderedDict()
 
             self.cieifstatuslistentry = YList(self)
@@ -972,10 +958,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifstatuslisttable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfStatusListTable, [], name, value)
 
 
-        class Cieifstatuslistentry(Entity):
+        class CieIfStatusListEntry(Entity):
             """
             Each entry represents the 'ifIndex',
             interface operational mode and interface 
@@ -989,7 +975,7 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cieifstatuslistindex  (key)
             
@@ -1034,15 +1020,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifstatuslisttable.Cieifstatuslistentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfStatusListTable.CieIfStatusListEntry, self).__init__()
 
                 self.yang_name = "cieIfStatusListEntry"
                 self.yang_parent_name = "cieIfStatusListTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cieifstatuslistindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cieifstatuslistindex', YLeaf(YType.uint32, 'cieIfStatusListIndex')),
@@ -1061,10 +1046,10 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfStatusListTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifstatuslisttable.Cieifstatuslistentry, ['entphysicalindex', 'cieifstatuslistindex', 'cieinterfacesindex', 'cieinterfacesopermode', 'cieinterfacesopercause', 'cieinterfaceownershipbitmap'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfStatusListTable.CieIfStatusListEntry, ['entphysicalindex', 'cieifstatuslistindex', 'cieinterfacesindex', 'cieinterfacesopermode', 'cieinterfacesopercause', 'cieinterfaceownershipbitmap'], name, value)
 
 
-    class Cieifvlstatstable(Entity):
+    class CieIfVlStatsTable(Entity):
         """
         This table contains VL (Virtual Link) statistics
         for a capable interface.
@@ -1075,7 +1060,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifvlstatsentry
         
         	Each row contains managed objects for Virtual Link statistics on interface capable of  providing this information
-        	**type**\: list of  		 :py:class:`Cieifvlstatsentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifvlstatstable.Cieifvlstatsentry>`
+        	**type**\: list of  		 :py:class:`CieIfVlStatsEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfVlStatsTable.CieIfVlStatsEntry>`
         
         
 
@@ -1085,15 +1070,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifvlstatstable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfVlStatsTable, self).__init__()
 
             self.yang_name = "cieIfVlStatsTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfVlStatsEntry", ("cieifvlstatsentry", CISCOIFEXTENSIONMIB.Cieifvlstatstable.Cieifvlstatsentry))])
+            self._child_classes = OrderedDict([("cieIfVlStatsEntry", ("cieifvlstatsentry", CISCOIFEXTENSIONMIB.CieIfVlStatsTable.CieIfVlStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cieifvlstatsentry = YList(self)
@@ -1101,10 +1085,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifvlstatstable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfVlStatsTable, [], name, value)
 
 
-        class Cieifvlstatsentry(Entity):
+        class CieIfVlStatsEntry(Entity):
             """
             Each row contains managed objects for
             Virtual Link statistics on interface capable of 
@@ -1117,7 +1101,7 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cieifnodropvlinpkts
             
@@ -1183,15 +1167,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifvlstatstable.Cieifvlstatsentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfVlStatsTable.CieIfVlStatsEntry, self).__init__()
 
                 self.yang_name = "cieIfVlStatsEntry"
                 self.yang_parent_name = "cieIfVlStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cieifnodropvlinpkts', YLeaf(YType.uint64, 'cieIfNoDropVlInPkts')),
@@ -1216,10 +1199,10 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfVlStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifvlstatstable.Cieifvlstatsentry, ['ifindex', 'cieifnodropvlinpkts', 'cieifnodropvlinoctets', 'cieifnodropvloutpkts', 'cieifnodropvloutoctets', 'cieifdropvlinpkts', 'cieifdropvlinoctets', 'cieifdropvloutpkts', 'cieifdropvloutoctets'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfVlStatsTable.CieIfVlStatsEntry, ['ifindex', 'cieifnodropvlinpkts', 'cieifnodropvlinoctets', 'cieifnodropvloutpkts', 'cieifnodropvloutoctets', 'cieifdropvlinpkts', 'cieifdropvlinoctets', 'cieifdropvloutpkts', 'cieifdropvloutoctets'], name, value)
 
 
-    class Cieifindexpersistencetable(Entity):
+    class CieIfIndexPersistenceTable(Entity):
         """
         This table lists configuration data relating to ifIndex
         persistence.
@@ -1231,7 +1214,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifindexpersistenceentry
         
         	Each entry represents ifindex persistence configuration for an interface specified by ifIndex. Whenever an interface which supports ifindex persistence is created/destroyed in the ifTable, the corresponding ifindex persistence entry is created/destroyed respectively. Some of the interfaces may not support ifindex persistence, for example, a dynamic interface, such as a PPP connection or a IP subscriber interface
-        	**type**\: list of  		 :py:class:`Cieifindexpersistenceentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifindexpersistencetable.Cieifindexpersistenceentry>`
+        	**type**\: list of  		 :py:class:`CieIfIndexPersistenceEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable.CieIfIndexPersistenceEntry>`
         
         
 
@@ -1241,15 +1224,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifindexpersistencetable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable, self).__init__()
 
             self.yang_name = "cieIfIndexPersistenceTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfIndexPersistenceEntry", ("cieifindexpersistenceentry", CISCOIFEXTENSIONMIB.Cieifindexpersistencetable.Cieifindexpersistenceentry))])
+            self._child_classes = OrderedDict([("cieIfIndexPersistenceEntry", ("cieifindexpersistenceentry", CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable.CieIfIndexPersistenceEntry))])
             self._leafs = OrderedDict()
 
             self.cieifindexpersistenceentry = YList(self)
@@ -1257,10 +1239,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifindexpersistencetable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable, [], name, value)
 
 
-        class Cieifindexpersistenceentry(Entity):
+        class CieIfIndexPersistenceEntry(Entity):
             """
             Each entry represents ifindex persistence configuration for an
             interface specified by ifIndex. Whenever an interface which
@@ -1277,7 +1259,7 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cieifindexpersistenceenabled
             
@@ -1299,15 +1281,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifindexpersistencetable.Cieifindexpersistenceentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable.CieIfIndexPersistenceEntry, self).__init__()
 
                 self.yang_name = "cieIfIndexPersistenceEntry"
                 self.yang_parent_name = "cieIfIndexPersistenceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cieifindexpersistenceenabled', YLeaf(YType.boolean, 'cieIfIndexPersistenceEnabled')),
@@ -1320,10 +1301,10 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfIndexPersistenceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifindexpersistencetable.Cieifindexpersistenceentry, ['ifindex', 'cieifindexpersistenceenabled', 'cieifindexpersistencecontrol'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable.CieIfIndexPersistenceEntry, ['ifindex', 'cieifindexpersistenceenabled', 'cieifindexpersistencecontrol'], name, value)
 
 
-    class Cieifdot1Qcustomethertypetable(Entity):
+    class CieIfDot1qCustomEtherTypeTable(Entity):
         """
         A list of the interfaces that support
         the 802.1q custom Ethertype feature.
@@ -1331,7 +1312,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifdot1qcustomethertypeentry
         
         	An entry containing the custom EtherType information for the interface.  Only interfaces with custom 802.1q ethertype control are listed in the  table
-        	**type**\: list of  		 :py:class:`Cieifdot1Qcustomethertypeentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable.Cieifdot1Qcustomethertypeentry>`
+        	**type**\: list of  		 :py:class:`CieIfDot1qCustomEtherTypeEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry>`
         
         
 
@@ -1341,15 +1322,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable, self).__init__()
 
             self.yang_name = "cieIfDot1qCustomEtherTypeTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfDot1qCustomEtherTypeEntry", ("cieifdot1qcustomethertypeentry", CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable.Cieifdot1Qcustomethertypeentry))])
+            self._child_classes = OrderedDict([("cieIfDot1qCustomEtherTypeEntry", ("cieifdot1qcustomethertypeentry", CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry))])
             self._leafs = OrderedDict()
 
             self.cieifdot1qcustomethertypeentry = YList(self)
@@ -1357,10 +1337,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable, [], name, value)
 
 
-        class Cieifdot1Qcustomethertypeentry(Entity):
+        class CieIfDot1qCustomEtherTypeEntry(Entity):
             """
             An entry containing the custom EtherType
             information for the interface.
@@ -1376,7 +1356,7 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cieifdot1qcustomadminethertype
             
@@ -1400,15 +1380,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable.Cieifdot1Qcustomethertypeentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry, self).__init__()
 
                 self.yang_name = "cieIfDot1qCustomEtherTypeEntry"
                 self.yang_parent_name = "cieIfDot1qCustomEtherTypeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cieifdot1qcustomadminethertype', YLeaf(YType.int32, 'cieIfDot1qCustomAdminEtherType')),
@@ -1421,10 +1400,10 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfDot1qCustomEtherTypeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable.Cieifdot1Qcustomethertypeentry, ['ifindex', 'cieifdot1qcustomadminethertype', 'cieifdot1qcustomoperethertype'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry, ['ifindex', 'cieifdot1qcustomadminethertype', 'cieifdot1qcustomoperethertype'], name, value)
 
 
-    class Cieifutiltable(Entity):
+    class CieIfUtilTable(Entity):
         """
         This table contains the interface utilization
         rates for inbound and outbound traffic on an
@@ -1433,7 +1412,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifutilentry
         
         	An entry containing utilization rates for the interface.  Every interface for which the  inbound and  outbound traffic information is available has a corresponding entry in this table
-        	**type**\: list of  		 :py:class:`Cieifutilentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifutiltable.Cieifutilentry>`
+        	**type**\: list of  		 :py:class:`CieIfUtilEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfUtilTable.CieIfUtilEntry>`
         
         
 
@@ -1443,15 +1422,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifutiltable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfUtilTable, self).__init__()
 
             self.yang_name = "cieIfUtilTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfUtilEntry", ("cieifutilentry", CISCOIFEXTENSIONMIB.Cieifutiltable.Cieifutilentry))])
+            self._child_classes = OrderedDict([("cieIfUtilEntry", ("cieifutilentry", CISCOIFEXTENSIONMIB.CieIfUtilTable.CieIfUtilEntry))])
             self._leafs = OrderedDict()
 
             self.cieifutilentry = YList(self)
@@ -1459,10 +1437,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifutiltable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfUtilTable, [], name, value)
 
 
-        class Cieifutilentry(Entity):
+        class CieIfUtilEntry(Entity):
             """
             An entry containing utilization rates for the
             interface.
@@ -1478,7 +1456,7 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cieifinpktrate
             
@@ -1533,15 +1511,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifutiltable.Cieifutilentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfUtilTable.CieIfUtilEntry, self).__init__()
 
                 self.yang_name = "cieIfUtilEntry"
                 self.yang_parent_name = "cieIfUtilTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cieifinpktrate', YLeaf(YType.uint64, 'cieIfInPktRate')),
@@ -1560,10 +1537,10 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfUtilTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifutiltable.Cieifutilentry, ['ifindex', 'cieifinpktrate', 'cieifinoctetrate', 'cieifoutpktrate', 'cieifoutoctetrate', 'cieifinterval'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfUtilTable.CieIfUtilEntry, ['ifindex', 'cieifinpktrate', 'cieifinoctetrate', 'cieifoutpktrate', 'cieifoutoctetrate', 'cieifinterval'], name, value)
 
 
-    class Cieifdot1Dbasemappingtable(Entity):
+    class CieIfDot1dBaseMappingTable(Entity):
         """
         This table contains the mappings of the
         ifIndex of an interface to its
@@ -1572,7 +1549,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifdot1dbasemappingentry
         
         	An entry containing the mapping between the ifIndex value of an interface and its corresponding dot1dBasePort value.  Every interface which has been assigned a dot1dBasePort value by the system has a corresponding entry in this table
-        	**type**\: list of  		 :py:class:`Cieifdot1Dbasemappingentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable.Cieifdot1Dbasemappingentry>`
+        	**type**\: list of  		 :py:class:`CieIfDot1dBaseMappingEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry>`
         
         
 
@@ -1582,15 +1559,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable, self).__init__()
 
             self.yang_name = "cieIfDot1dBaseMappingTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfDot1dBaseMappingEntry", ("cieifdot1dbasemappingentry", CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable.Cieifdot1Dbasemappingentry))])
+            self._child_classes = OrderedDict([("cieIfDot1dBaseMappingEntry", ("cieifdot1dbasemappingentry", CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry))])
             self._leafs = OrderedDict()
 
             self.cieifdot1dbasemappingentry = YList(self)
@@ -1598,10 +1574,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable, [], name, value)
 
 
-        class Cieifdot1Dbasemappingentry(Entity):
+        class CieIfDot1dBaseMappingEntry(Entity):
             """
             An entry containing the mapping between
             the ifIndex value of an interface and its
@@ -1618,7 +1594,7 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cieifdot1dbasemappingport
             
@@ -1635,15 +1611,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable.Cieifdot1Dbasemappingentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry, self).__init__()
 
                 self.yang_name = "cieIfDot1dBaseMappingEntry"
                 self.yang_parent_name = "cieIfDot1dBaseMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cieifdot1dbasemappingport', YLeaf(YType.int32, 'cieIfDot1dBaseMappingPort')),
@@ -1654,10 +1629,10 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfDot1dBaseMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable.Cieifdot1Dbasemappingentry, ['ifindex', 'cieifdot1dbasemappingport'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry, ['ifindex', 'cieifdot1dbasemappingport'], name, value)
 
 
-    class Cieifnamemappingtable(Entity):
+    class CieIfNameMappingTable(Entity):
         """
         This table contains objects for providing
         the 'ifName' to 'ifIndex' mapping.
@@ -1672,7 +1647,7 @@ class CISCOIFEXTENSIONMIB(Entity):
         .. attribute:: cieifnamemappingentry
         
         	An entry into the cieIfNameMappingTable
-        	**type**\: list of  		 :py:class:`Cieifnamemappingentry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.Cieifnamemappingtable.Cieifnamemappingentry>`
+        	**type**\: list of  		 :py:class:`CieIfNameMappingEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfNameMappingTable.CieIfNameMappingEntry>`
         
         
 
@@ -1682,15 +1657,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         _revision = '2013-03-13'
 
         def __init__(self):
-            super(CISCOIFEXTENSIONMIB.Cieifnamemappingtable, self).__init__()
+            super(CISCOIFEXTENSIONMIB.CieIfNameMappingTable, self).__init__()
 
             self.yang_name = "cieIfNameMappingTable"
             self.yang_parent_name = "CISCO-IF-EXTENSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cieIfNameMappingEntry", ("cieifnamemappingentry", CISCOIFEXTENSIONMIB.Cieifnamemappingtable.Cieifnamemappingentry))])
+            self._child_classes = OrderedDict([("cieIfNameMappingEntry", ("cieifnamemappingentry", CISCOIFEXTENSIONMIB.CieIfNameMappingTable.CieIfNameMappingEntry))])
             self._leafs = OrderedDict()
 
             self.cieifnamemappingentry = YList(self)
@@ -1698,10 +1672,10 @@ class CISCOIFEXTENSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifnamemappingtable, [], name, value)
+            self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfNameMappingTable, [], name, value)
 
 
-        class Cieifnamemappingentry(Entity):
+        class CieIfNameMappingEntry(Entity):
             """
             An entry into the cieIfNameMappingTable.
             
@@ -1727,15 +1701,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             _revision = '2013-03-13'
 
             def __init__(self):
-                super(CISCOIFEXTENSIONMIB.Cieifnamemappingtable.Cieifnamemappingentry, self).__init__()
+                super(CISCOIFEXTENSIONMIB.CieIfNameMappingTable.CieIfNameMappingEntry, self).__init__()
 
                 self.yang_name = "cieIfNameMappingEntry"
                 self.yang_parent_name = "cieIfNameMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cieifname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cieifname', YLeaf(YType.str, 'cieIfName')),
                     ('cieifindex', YLeaf(YType.int32, 'cieIfIndex')),
@@ -1746,7 +1719,7 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfNameMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIFEXTENSIONMIB.Cieifnamemappingtable.Cieifnamemappingentry, ['cieifname', 'cieifindex'], name, value)
+                self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfNameMappingTable.CieIfNameMappingEntry, ['cieifname', 'cieifindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIFEXTENSIONMIB()

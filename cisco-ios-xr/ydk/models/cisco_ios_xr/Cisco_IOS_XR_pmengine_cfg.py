@@ -1459,187 +1459,163 @@ class OpticsReport(Enum):
 
     Optics report
 
-    .. data:: report_opt_min = 65554
+    .. data:: report_opt_min = 65552
 
     	PM Optics opt min report
 
-    .. data:: report_opr_min = 65555
+    .. data:: report_opr_min = 65553
 
     	PM Optics opr min report
 
-    .. data:: report_lbc_min = 65556
+    .. data:: report_lbc_min = 65554
 
     	PM Optics lbc min report
 
-    .. data:: report_lbc_pc_min = 65557
+    .. data:: report_lbc_pc_min = 65555
 
     	PM Optics lbcpc min report
 
-    .. data:: report_cd_min = 65561
+    .. data:: report_cd_min = 65559
 
     	PM Optics cd min report
 
-    .. data:: report_dgd_min = 65562
+    .. data:: report_dgd_min = 65560
 
     	PM Optics dgd min report
 
-    .. data:: report_pmd_min = 65563
+    .. data:: report_pmd_min = 65561
 
     	PM Optics sopmd min report
 
-    .. data:: report_osnr_min = 65564
+    .. data:: report_osnr_min = 65562
 
     	PM Optics osnr min report
 
-    .. data:: report_pdl_min = 65565
+    .. data:: report_pdl_min = 65563
 
     	PM Optics pdl min report
 
-    .. data:: report_pcr_min = 65566
+    .. data:: report_pcr_min = 65564
 
     	PM Optics pcr min report
 
-    .. data:: report_pn_min = 65567
+    .. data:: report_pn_min = 65565
 
     	PM Optics pn min report
 
-    .. data:: report_rx_sig_pow_min = 65568
+    .. data:: report_rx_sig_pow_min = 65566
 
     	PM Optics rx sig pow min report
 
-    .. data:: report_low_sig_freq_off_min = 65569
+    .. data:: report_low_sig_freq_off_min = 65567
 
     	PM Optics low sig freq off min report
 
-    .. data:: report_ampli_gain_min = 65570
-
-    	PM Optics ampli gain min report
-
-    .. data:: report_ampli_gain_tilt_min = 65571
-
-    	PM Optics ampli gain tilt min report
-
-    .. data:: report_opt_max = 65572
+    .. data:: report_opt_max = 65568
 
     	PM Optics opt max report
 
-    .. data:: report_opr_max = 65573
+    .. data:: report_opr_max = 65569
 
     	PM Optics opr max report
 
-    .. data:: report_lbc_max = 65574
+    .. data:: report_lbc_max = 65570
 
     	PM Optics lbc max report
 
-    .. data:: report_lbc_pc_max = 65575
+    .. data:: report_lbc_pc_max = 65571
 
     	PM Optics lbcpc max report
 
-    .. data:: report_cd_max = 65579
+    .. data:: report_cd_max = 65575
 
     	PM Optics cd max report
 
-    .. data:: report_dgd_max = 65580
+    .. data:: report_dgd_max = 65576
 
     	PM Optics dgd max report
 
-    .. data:: report_pmd_max = 65581
+    .. data:: report_pmd_max = 65577
 
     	PM Optics sopmd max report
 
-    .. data:: report_osnr_max = 65582
+    .. data:: report_osnr_max = 65578
 
     	PM Optics osnr max report
 
-    .. data:: report_pdl_max = 65583
+    .. data:: report_pdl_max = 65579
 
     	PM Optics pdl max report
 
-    .. data:: report_pcr_max = 65584
+    .. data:: report_pcr_max = 65580
 
     	PM Optics pcr max report
 
-    .. data:: report_pn_max = 65585
+    .. data:: report_pn_max = 65581
 
     	PM Optics pn max report
 
-    .. data:: report_rx_sig_pow_max = 65586
+    .. data:: report_rx_sig_pow_max = 65582
 
     	PM Optics rx sig pow max report
 
-    .. data:: report_low_sig_freq_off_max = 65587
+    .. data:: report_low_sig_freq_off_max = 65583
 
     	PM Optics low sig freq off max report
 
-    .. data:: report_ampli_gain_max = 65588
-
-    	PM Optics ampli gain max report
-
-    .. data:: report_ampli_gain_tilt_max = 65589
-
-    	PM Optics ampli gain tilt max report
-
     """
 
-    report_opt_min = Enum.YLeaf(65554, "report-opt-min")
+    report_opt_min = Enum.YLeaf(65552, "report-opt-min")
 
-    report_opr_min = Enum.YLeaf(65555, "report-opr-min")
+    report_opr_min = Enum.YLeaf(65553, "report-opr-min")
 
-    report_lbc_min = Enum.YLeaf(65556, "report-lbc-min")
+    report_lbc_min = Enum.YLeaf(65554, "report-lbc-min")
 
-    report_lbc_pc_min = Enum.YLeaf(65557, "report-lbc-pc-min")
+    report_lbc_pc_min = Enum.YLeaf(65555, "report-lbc-pc-min")
 
-    report_cd_min = Enum.YLeaf(65561, "report-cd-min")
+    report_cd_min = Enum.YLeaf(65559, "report-cd-min")
 
-    report_dgd_min = Enum.YLeaf(65562, "report-dgd-min")
+    report_dgd_min = Enum.YLeaf(65560, "report-dgd-min")
 
-    report_pmd_min = Enum.YLeaf(65563, "report-pmd-min")
+    report_pmd_min = Enum.YLeaf(65561, "report-pmd-min")
 
-    report_osnr_min = Enum.YLeaf(65564, "report-osnr-min")
+    report_osnr_min = Enum.YLeaf(65562, "report-osnr-min")
 
-    report_pdl_min = Enum.YLeaf(65565, "report-pdl-min")
+    report_pdl_min = Enum.YLeaf(65563, "report-pdl-min")
 
-    report_pcr_min = Enum.YLeaf(65566, "report-pcr-min")
+    report_pcr_min = Enum.YLeaf(65564, "report-pcr-min")
 
-    report_pn_min = Enum.YLeaf(65567, "report-pn-min")
+    report_pn_min = Enum.YLeaf(65565, "report-pn-min")
 
-    report_rx_sig_pow_min = Enum.YLeaf(65568, "report-rx-sig-pow-min")
+    report_rx_sig_pow_min = Enum.YLeaf(65566, "report-rx-sig-pow-min")
 
-    report_low_sig_freq_off_min = Enum.YLeaf(65569, "report-low-sig-freq-off-min")
+    report_low_sig_freq_off_min = Enum.YLeaf(65567, "report-low-sig-freq-off-min")
 
-    report_ampli_gain_min = Enum.YLeaf(65570, "report-ampli-gain-min")
+    report_opt_max = Enum.YLeaf(65568, "report-opt-max")
 
-    report_ampli_gain_tilt_min = Enum.YLeaf(65571, "report-ampli-gain-tilt-min")
+    report_opr_max = Enum.YLeaf(65569, "report-opr-max")
 
-    report_opt_max = Enum.YLeaf(65572, "report-opt-max")
+    report_lbc_max = Enum.YLeaf(65570, "report-lbc-max")
 
-    report_opr_max = Enum.YLeaf(65573, "report-opr-max")
+    report_lbc_pc_max = Enum.YLeaf(65571, "report-lbc-pc-max")
 
-    report_lbc_max = Enum.YLeaf(65574, "report-lbc-max")
+    report_cd_max = Enum.YLeaf(65575, "report-cd-max")
 
-    report_lbc_pc_max = Enum.YLeaf(65575, "report-lbc-pc-max")
+    report_dgd_max = Enum.YLeaf(65576, "report-dgd-max")
 
-    report_cd_max = Enum.YLeaf(65579, "report-cd-max")
+    report_pmd_max = Enum.YLeaf(65577, "report-pmd-max")
 
-    report_dgd_max = Enum.YLeaf(65580, "report-dgd-max")
+    report_osnr_max = Enum.YLeaf(65578, "report-osnr-max")
 
-    report_pmd_max = Enum.YLeaf(65581, "report-pmd-max")
+    report_pdl_max = Enum.YLeaf(65579, "report-pdl-max")
 
-    report_osnr_max = Enum.YLeaf(65582, "report-osnr-max")
+    report_pcr_max = Enum.YLeaf(65580, "report-pcr-max")
 
-    report_pdl_max = Enum.YLeaf(65583, "report-pdl-max")
+    report_pn_max = Enum.YLeaf(65581, "report-pn-max")
 
-    report_pcr_max = Enum.YLeaf(65584, "report-pcr-max")
+    report_rx_sig_pow_max = Enum.YLeaf(65582, "report-rx-sig-pow-max")
 
-    report_pn_max = Enum.YLeaf(65585, "report-pn-max")
-
-    report_rx_sig_pow_max = Enum.YLeaf(65586, "report-rx-sig-pow-max")
-
-    report_low_sig_freq_off_max = Enum.YLeaf(65587, "report-low-sig-freq-off-max")
-
-    report_ampli_gain_max = Enum.YLeaf(65588, "report-ampli-gain-max")
-
-    report_ampli_gain_tilt_max = Enum.YLeaf(65589, "report-ampli-gain-tilt-max")
+    report_low_sig_freq_off_max = Enum.YLeaf(65583, "report-low-sig-freq-off-max")
 
 
 class OpticsThreshold(Enum):
@@ -1648,187 +1624,163 @@ class OpticsThreshold(Enum):
 
     Optics threshold
 
-    .. data:: thresh_opt_min = 65554
+    .. data:: thresh_opt_min = 65552
 
     	PM Optics opt min threshold in dbm or uW
 
-    .. data:: thresh_opr_min = 65555
+    .. data:: thresh_opr_min = 65553
 
     	PM Optics opr min threshold in dbm or uW
 
-    .. data:: thresh_lbc_min = 65556
+    .. data:: thresh_lbc_min = 65554
 
     	PM Optics lbc min threshold
 
-    .. data:: thresh_lbc_pc_min = 65557
+    .. data:: thresh_lbc_pc_min = 65555
 
     	PM Optics lbcpc min threshold
 
-    .. data:: thresh_cd_min = 65561
+    .. data:: thresh_cd_min = 65559
 
     	PM Optics cd min threshold
 
-    .. data:: thresh_dgd_min = 65562
+    .. data:: thresh_dgd_min = 65560
 
     	PM Optics dgd min threshold
 
-    .. data:: thresh_pmd_min = 65563
+    .. data:: thresh_pmd_min = 65561
 
     	PM Optics sopmd min threshold
 
-    .. data:: thresh_osnr_min = 65564
+    .. data:: thresh_osnr_min = 65562
 
     	PM Optics osnr min threshold
 
-    .. data:: thresh_pdl_min = 65565
+    .. data:: thresh_pdl_min = 65563
 
     	PM Optics pdl min threshold
 
-    .. data:: thresh_pcr_min = 65566
+    .. data:: thresh_pcr_min = 65564
 
     	PM Optics pcr min threshold
 
-    .. data:: thresh_pn_min = 65567
+    .. data:: thresh_pn_min = 65565
 
     	PM Optics pn min threshold
 
-    .. data:: thresh_rx_sig_pow_min = 65568
+    .. data:: thresh_rx_sig_pow_min = 65566
 
     	PM Optics rx sig pow min threshold
 
-    .. data:: thresh_low_sig_freq_off_min = 65569
+    .. data:: thresh_low_sig_freq_off_min = 65567
 
     	PM Optics low sig freq off min threshold
 
-    .. data:: thresh_ampli_gain_min = 65570
-
-    	PM Optics ampli gain min threshold
-
-    .. data:: thresh_ampli_gain_tilt_min = 65571
-
-    	PM Optics ampli gain tilt min threshold
-
-    .. data:: thresh_opt_max = 65572
+    .. data:: thresh_opt_max = 65568
 
     	PM Optics opt max threshold in dbm or uW
 
-    .. data:: thresh_opr_max = 65573
+    .. data:: thresh_opr_max = 65569
 
     	PM Optics opr max threshold in dbm or uW
 
-    .. data:: thresh_lbc_max = 65574
+    .. data:: thresh_lbc_max = 65570
 
     	PM Optics lbc max threshold
 
-    .. data:: thresh_lbc_pc_max = 65575
+    .. data:: thresh_lbc_pc_max = 65571
 
     	PM Optics lbcpc max threshold
 
-    .. data:: thresh_cd_max = 65579
+    .. data:: thresh_cd_max = 65575
 
     	PM Optics cd max threshold
 
-    .. data:: thresh_dgd_max = 65580
+    .. data:: thresh_dgd_max = 65576
 
     	PM Optics dgd max threshold
 
-    .. data:: thresh_pmd_max = 65581
+    .. data:: thresh_pmd_max = 65577
 
     	PM Optics sopmd max threshold
 
-    .. data:: thresh_osnr_max = 65582
+    .. data:: thresh_osnr_max = 65578
 
     	PM Optics osnr max threshold
 
-    .. data:: thresh_pdl_max = 65583
+    .. data:: thresh_pdl_max = 65579
 
     	PM Optics pdl max threshold
 
-    .. data:: thresh_pcr_max = 65584
+    .. data:: thresh_pcr_max = 65580
 
     	PM Optics pcr max threshold
 
-    .. data:: thresh_pn_max = 65585
+    .. data:: thresh_pn_max = 65581
 
     	PM Optics pn max threshold
 
-    .. data:: thresh_rx_sig_pow_max = 65586
+    .. data:: thresh_rx_sig_pow_max = 65582
 
     	PM Optics rx sig pow max threshold
 
-    .. data:: thresh_low_sig_freq_off_max = 65587
+    .. data:: thresh_low_sig_freq_off_max = 65583
 
     	PM Optics low sig freq off max threshold
 
-    .. data:: thresh_ampli_gain_max = 65588
-
-    	PM Optics ampli gain max threshold
-
-    .. data:: thresh_ampli_gain_tilt_max = 65589
-
-    	PM Optics ampli gain tilt max threshold
-
     """
 
-    thresh_opt_min = Enum.YLeaf(65554, "thresh-opt-min")
+    thresh_opt_min = Enum.YLeaf(65552, "thresh-opt-min")
 
-    thresh_opr_min = Enum.YLeaf(65555, "thresh-opr-min")
+    thresh_opr_min = Enum.YLeaf(65553, "thresh-opr-min")
 
-    thresh_lbc_min = Enum.YLeaf(65556, "thresh-lbc-min")
+    thresh_lbc_min = Enum.YLeaf(65554, "thresh-lbc-min")
 
-    thresh_lbc_pc_min = Enum.YLeaf(65557, "thresh-lbc-pc-min")
+    thresh_lbc_pc_min = Enum.YLeaf(65555, "thresh-lbc-pc-min")
 
-    thresh_cd_min = Enum.YLeaf(65561, "thresh-cd-min")
+    thresh_cd_min = Enum.YLeaf(65559, "thresh-cd-min")
 
-    thresh_dgd_min = Enum.YLeaf(65562, "thresh-dgd-min")
+    thresh_dgd_min = Enum.YLeaf(65560, "thresh-dgd-min")
 
-    thresh_pmd_min = Enum.YLeaf(65563, "thresh-pmd-min")
+    thresh_pmd_min = Enum.YLeaf(65561, "thresh-pmd-min")
 
-    thresh_osnr_min = Enum.YLeaf(65564, "thresh-osnr-min")
+    thresh_osnr_min = Enum.YLeaf(65562, "thresh-osnr-min")
 
-    thresh_pdl_min = Enum.YLeaf(65565, "thresh-pdl-min")
+    thresh_pdl_min = Enum.YLeaf(65563, "thresh-pdl-min")
 
-    thresh_pcr_min = Enum.YLeaf(65566, "thresh-pcr-min")
+    thresh_pcr_min = Enum.YLeaf(65564, "thresh-pcr-min")
 
-    thresh_pn_min = Enum.YLeaf(65567, "thresh-pn-min")
+    thresh_pn_min = Enum.YLeaf(65565, "thresh-pn-min")
 
-    thresh_rx_sig_pow_min = Enum.YLeaf(65568, "thresh-rx-sig-pow-min")
+    thresh_rx_sig_pow_min = Enum.YLeaf(65566, "thresh-rx-sig-pow-min")
 
-    thresh_low_sig_freq_off_min = Enum.YLeaf(65569, "thresh-low-sig-freq-off-min")
+    thresh_low_sig_freq_off_min = Enum.YLeaf(65567, "thresh-low-sig-freq-off-min")
 
-    thresh_ampli_gain_min = Enum.YLeaf(65570, "thresh-ampli-gain-min")
+    thresh_opt_max = Enum.YLeaf(65568, "thresh-opt-max")
 
-    thresh_ampli_gain_tilt_min = Enum.YLeaf(65571, "thresh-ampli-gain-tilt-min")
+    thresh_opr_max = Enum.YLeaf(65569, "thresh-opr-max")
 
-    thresh_opt_max = Enum.YLeaf(65572, "thresh-opt-max")
+    thresh_lbc_max = Enum.YLeaf(65570, "thresh-lbc-max")
 
-    thresh_opr_max = Enum.YLeaf(65573, "thresh-opr-max")
+    thresh_lbc_pc_max = Enum.YLeaf(65571, "thresh-lbc-pc-max")
 
-    thresh_lbc_max = Enum.YLeaf(65574, "thresh-lbc-max")
+    thresh_cd_max = Enum.YLeaf(65575, "thresh-cd-max")
 
-    thresh_lbc_pc_max = Enum.YLeaf(65575, "thresh-lbc-pc-max")
+    thresh_dgd_max = Enum.YLeaf(65576, "thresh-dgd-max")
 
-    thresh_cd_max = Enum.YLeaf(65579, "thresh-cd-max")
+    thresh_pmd_max = Enum.YLeaf(65577, "thresh-pmd-max")
 
-    thresh_dgd_max = Enum.YLeaf(65580, "thresh-dgd-max")
+    thresh_osnr_max = Enum.YLeaf(65578, "thresh-osnr-max")
 
-    thresh_pmd_max = Enum.YLeaf(65581, "thresh-pmd-max")
+    thresh_pdl_max = Enum.YLeaf(65579, "thresh-pdl-max")
 
-    thresh_osnr_max = Enum.YLeaf(65582, "thresh-osnr-max")
+    thresh_pcr_max = Enum.YLeaf(65580, "thresh-pcr-max")
 
-    thresh_pdl_max = Enum.YLeaf(65583, "thresh-pdl-max")
+    thresh_pn_max = Enum.YLeaf(65581, "thresh-pn-max")
 
-    thresh_pcr_max = Enum.YLeaf(65584, "thresh-pcr-max")
+    thresh_rx_sig_pow_max = Enum.YLeaf(65582, "thresh-rx-sig-pow-max")
 
-    thresh_pn_max = Enum.YLeaf(65585, "thresh-pn-max")
-
-    thresh_rx_sig_pow_max = Enum.YLeaf(65586, "thresh-rx-sig-pow-max")
-
-    thresh_low_sig_freq_off_max = Enum.YLeaf(65587, "thresh-low-sig-freq-off-max")
-
-    thresh_ampli_gain_max = Enum.YLeaf(65588, "thresh-ampli-gain-max")
-
-    thresh_ampli_gain_tilt_max = Enum.YLeaf(65589, "thresh-ampli-gain-tilt-max")
+    thresh_low_sig_freq_off_max = Enum.YLeaf(65583, "thresh-low-sig-freq-off-max")
 
 
 class OtnReport(Enum):

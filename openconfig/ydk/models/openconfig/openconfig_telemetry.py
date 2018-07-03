@@ -72,25 +72,24 @@ class TelemetrySystem(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("sensor-groups", ("sensor_groups", TelemetrySystem.SensorGroups)), ("destination-groups", ("destination_groups", TelemetrySystem.DestinationGroups)), ("subscriptions", ("subscriptions", TelemetrySystem.Subscriptions))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("sensor-groups", ("sensor_groups", TelemetrySystem.SensorGroups)), ("destination-groups", ("destination_groups", TelemetrySystem.DestinationGroups)), ("subscriptions", ("subscriptions", TelemetrySystem.Subscriptions))])
         self._leafs = OrderedDict()
 
         self.sensor_groups = TelemetrySystem.SensorGroups()
         self.sensor_groups.parent = self
         self._children_name_map["sensor_groups"] = "sensor-groups"
-        self._children_yang_names.add("sensor-groups")
 
         self.destination_groups = TelemetrySystem.DestinationGroups()
         self.destination_groups.parent = self
         self._children_name_map["destination_groups"] = "destination-groups"
-        self._children_yang_names.add("destination-groups")
 
         self.subscriptions = TelemetrySystem.Subscriptions()
         self.subscriptions.parent = self
         self._children_name_map["subscriptions"] = "subscriptions"
-        self._children_yang_names.add("subscriptions")
         self._segment_path = lambda: "openconfig-telemetry:telemetry-system"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(TelemetrySystem, [], name, value)
 
 
     class SensorGroups(Entity):
@@ -117,8 +116,7 @@ class TelemetrySystem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sensor-group", ("sensor_group", TelemetrySystem.SensorGroups.SensorGroup))])
+            self._child_classes = OrderedDict([("sensor-group", ("sensor_group", TelemetrySystem.SensorGroups.SensorGroup))])
             self._leafs = OrderedDict()
 
             self.sensor_group = YList(self)
@@ -172,8 +170,7 @@ class TelemetrySystem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['sensor_group_id']
-                self._child_container_classes = OrderedDict([("config", ("config", TelemetrySystem.SensorGroups.SensorGroup.Config)), ("state", ("state", TelemetrySystem.SensorGroups.SensorGroup.State)), ("sensor-paths", ("sensor_paths", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.SensorGroups.SensorGroup.Config)), ("state", ("state", TelemetrySystem.SensorGroups.SensorGroup.State)), ("sensor-paths", ("sensor_paths", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths))])
                 self._leafs = OrderedDict([
                     ('sensor_group_id', YLeaf(YType.str, 'sensor-group-id')),
                 ])
@@ -182,17 +179,14 @@ class TelemetrySystem(Entity):
                 self.config = TelemetrySystem.SensorGroups.SensorGroup.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = TelemetrySystem.SensorGroups.SensorGroup.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
 
                 self.sensor_paths = TelemetrySystem.SensorGroups.SensorGroup.SensorPaths()
                 self.sensor_paths.parent = self
                 self._children_name_map["sensor_paths"] = "sensor-paths"
-                self._children_yang_names.add("sensor-paths")
                 self._segment_path = lambda: "sensor-group" + "[sensor-group-id='" + str(self.sensor_group_id) + "']"
                 self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/sensor-groups/%s" % self._segment_path()
 
@@ -225,8 +219,7 @@ class TelemetrySystem(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('sensor_group_id', YLeaf(YType.str, 'sensor-group-id')),
                     ])
@@ -262,8 +255,7 @@ class TelemetrySystem(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('sensor_group_id', YLeaf(YType.str, 'sensor-group-id')),
                     ])
@@ -299,8 +291,7 @@ class TelemetrySystem(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath))])
+                    self._child_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath))])
                     self._leafs = OrderedDict()
 
                     self.sensor_path = YList(self)
@@ -348,8 +339,7 @@ class TelemetrySystem(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['path']
-                        self._child_container_classes = OrderedDict([("config", ("config", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config)), ("state", ("state", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config)), ("state", ("state", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State))])
                         self._leafs = OrderedDict([
                             ('path', YLeaf(YType.str, 'path')),
                         ])
@@ -358,12 +348,10 @@ class TelemetrySystem(Entity):
                         self.config = TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "sensor-path" + "[path='" + str(self.path) + "']"
 
                     def __setattr__(self, name, value):
@@ -400,8 +388,7 @@ class TelemetrySystem(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('path', YLeaf(YType.str, 'path')),
                                 ('exclude_filter', YLeaf(YType.str, 'exclude-filter')),
@@ -444,8 +431,7 @@ class TelemetrySystem(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('path', YLeaf(YType.str, 'path')),
                                 ('exclude_filter', YLeaf(YType.str, 'exclude-filter')),
@@ -483,8 +469,7 @@ class TelemetrySystem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("destination-group", ("destination_group", TelemetrySystem.DestinationGroups.DestinationGroup))])
+            self._child_classes = OrderedDict([("destination-group", ("destination_group", TelemetrySystem.DestinationGroups.DestinationGroup))])
             self._leafs = OrderedDict()
 
             self.destination_group = YList(self)
@@ -543,8 +528,7 @@ class TelemetrySystem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['group_id']
-                self._child_container_classes = OrderedDict([("config", ("config", TelemetrySystem.DestinationGroups.DestinationGroup.Config)), ("state", ("state", TelemetrySystem.DestinationGroups.DestinationGroup.State)), ("destinations", ("destinations", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.DestinationGroups.DestinationGroup.Config)), ("state", ("state", TelemetrySystem.DestinationGroups.DestinationGroup.State)), ("destinations", ("destinations", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations))])
                 self._leafs = OrderedDict([
                     ('group_id', YLeaf(YType.str, 'group-id')),
                 ])
@@ -553,17 +537,14 @@ class TelemetrySystem(Entity):
                 self.config = TelemetrySystem.DestinationGroups.DestinationGroup.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = TelemetrySystem.DestinationGroups.DestinationGroup.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
 
                 self.destinations = TelemetrySystem.DestinationGroups.DestinationGroup.Destinations()
                 self.destinations.parent = self
                 self._children_name_map["destinations"] = "destinations"
-                self._children_yang_names.add("destinations")
                 self._segment_path = lambda: "destination-group" + "[group-id='" + str(self.group_id) + "']"
                 self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/destination-groups/%s" % self._segment_path()
 
@@ -595,8 +576,7 @@ class TelemetrySystem(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('group_id', YLeaf(YType.str, 'group-id')),
                     ])
@@ -631,8 +611,7 @@ class TelemetrySystem(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('group_id', YLeaf(YType.str, 'group-id')),
                     ])
@@ -669,8 +648,7 @@ class TelemetrySystem(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("destination", ("destination", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination))])
+                    self._child_classes = OrderedDict([("destination", ("destination", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination))])
                     self._leafs = OrderedDict()
 
                     self.destination = YList(self)
@@ -733,8 +711,7 @@ class TelemetrySystem(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['destination_address','destination_port']
-                        self._child_container_classes = OrderedDict([("config", ("config", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config)), ("state", ("state", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config)), ("state", ("state", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State))])
                         self._leafs = OrderedDict([
                             ('destination_address', YLeaf(YType.str, 'destination-address')),
                             ('destination_port', YLeaf(YType.str, 'destination-port')),
@@ -745,12 +722,10 @@ class TelemetrySystem(Entity):
                         self.config = TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "destination" + "[destination-address='" + str(self.destination_address) + "']" + "[destination-port='" + str(self.destination_port) + "']"
 
                     def __setattr__(self, name, value):
@@ -802,8 +777,7 @@ class TelemetrySystem(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('destination_address', YLeaf(YType.str, 'destination-address')),
                                 ('destination_port', YLeaf(YType.uint16, 'destination-port')),
@@ -863,8 +837,7 @@ class TelemetrySystem(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('destination_address', YLeaf(YType.str, 'destination-address')),
                                 ('destination_port', YLeaf(YType.uint16, 'destination-port')),
@@ -909,21 +882,21 @@ class TelemetrySystem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("persistent", ("persistent", TelemetrySystem.Subscriptions.Persistent)), ("dynamic", ("dynamic", TelemetrySystem.Subscriptions.Dynamic))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("persistent", ("persistent", TelemetrySystem.Subscriptions.Persistent)), ("dynamic", ("dynamic", TelemetrySystem.Subscriptions.Dynamic))])
             self._leafs = OrderedDict()
 
             self.persistent = TelemetrySystem.Subscriptions.Persistent()
             self.persistent.parent = self
             self._children_name_map["persistent"] = "persistent"
-            self._children_yang_names.add("persistent")
 
             self.dynamic = TelemetrySystem.Subscriptions.Dynamic()
             self.dynamic.parent = self
             self._children_name_map["dynamic"] = "dynamic"
-            self._children_yang_names.add("dynamic")
             self._segment_path = lambda: "subscriptions"
             self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(TelemetrySystem.Subscriptions, [], name, value)
 
 
         class Persistent(Entity):
@@ -954,8 +927,7 @@ class TelemetrySystem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("subscription", ("subscription", TelemetrySystem.Subscriptions.Persistent.Subscription))])
+                self._child_classes = OrderedDict([("subscription", ("subscription", TelemetrySystem.Subscriptions.Persistent.Subscription))])
                 self._leafs = OrderedDict()
 
                 self.subscription = YList(self)
@@ -1017,8 +989,7 @@ class TelemetrySystem(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['subscription_id']
-                    self._child_container_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.State)), ("sensor-profiles", ("sensor_profiles", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles)), ("destination-groups", ("destination_groups", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.State)), ("sensor-profiles", ("sensor_profiles", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles)), ("destination-groups", ("destination_groups", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups))])
                     self._leafs = OrderedDict([
                         ('subscription_id', YLeaf(YType.str, 'subscription-id')),
                     ])
@@ -1027,22 +998,18 @@ class TelemetrySystem(Entity):
                     self.config = TelemetrySystem.Subscriptions.Persistent.Subscription.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.state = TelemetrySystem.Subscriptions.Persistent.Subscription.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
 
                     self.sensor_profiles = TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles()
                     self.sensor_profiles.parent = self
                     self._children_name_map["sensor_profiles"] = "sensor-profiles"
-                    self._children_yang_names.add("sensor-profiles")
 
                     self.destination_groups = TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups()
                     self.destination_groups.parent = self
                     self._children_name_map["destination_groups"] = "destination-groups"
-                    self._children_yang_names.add("destination-groups")
                     self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
                     self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/subscriptions/persistent/%s" % self._segment_path()
 
@@ -1097,8 +1064,7 @@ class TelemetrySystem(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('subscription_id', YLeaf(YType.uint64, 'subscription-id')),
                             ('local_source_address', YLeaf(YType.str, 'local-source-address')),
@@ -1160,8 +1126,7 @@ class TelemetrySystem(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('subscription_id', YLeaf(YType.uint64, 'subscription-id')),
                             ('local_source_address', YLeaf(YType.str, 'local-source-address')),
@@ -1204,8 +1169,7 @@ class TelemetrySystem(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sensor-profile", ("sensor_profile", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile))])
+                        self._child_classes = OrderedDict([("sensor-profile", ("sensor_profile", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile))])
                         self._leafs = OrderedDict()
 
                         self.sensor_profile = YList(self)
@@ -1252,8 +1216,7 @@ class TelemetrySystem(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['sensor_group']
-                            self._child_container_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State))])
                             self._leafs = OrderedDict([
                                 ('sensor_group', YLeaf(YType.str, 'sensor-group')),
                             ])
@@ -1262,12 +1225,10 @@ class TelemetrySystem(Entity):
                             self.config = TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "sensor-profile" + "[sensor-group='" + str(self.sensor_group) + "']"
 
                         def __setattr__(self, name, value):
@@ -1320,8 +1281,7 @@ class TelemetrySystem(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sensor_group', YLeaf(YType.str, 'sensor-group')),
                                     ('sample_interval', YLeaf(YType.uint64, 'sample-interval')),
@@ -1384,8 +1344,7 @@ class TelemetrySystem(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sensor_group', YLeaf(YType.str, 'sensor-group')),
                                     ('sample_interval', YLeaf(YType.uint64, 'sample-interval')),
@@ -1443,8 +1402,7 @@ class TelemetrySystem(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("destination-group", ("destination_group", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup))])
+                        self._child_classes = OrderedDict([("destination-group", ("destination_group", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup))])
                         self._leafs = OrderedDict()
 
                         self.destination_group = YList(self)
@@ -1491,8 +1449,7 @@ class TelemetrySystem(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_id']
-                            self._child_container_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State))])
                             self._leafs = OrderedDict([
                                 ('group_id', YLeaf(YType.str, 'group-id')),
                             ])
@@ -1501,12 +1458,10 @@ class TelemetrySystem(Entity):
                             self.config = TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "destination-group" + "[group-id='" + str(self.group_id) + "']"
 
                         def __setattr__(self, name, value):
@@ -1540,8 +1495,7 @@ class TelemetrySystem(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_id', YLeaf(YType.str, 'group-id')),
                                 ])
@@ -1579,8 +1533,7 @@ class TelemetrySystem(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_id', YLeaf(YType.str, 'group-id')),
                                 ])
@@ -1619,8 +1572,7 @@ class TelemetrySystem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("subscription", ("subscription", TelemetrySystem.Subscriptions.Dynamic.Subscription))])
+                self._child_classes = OrderedDict([("subscription", ("subscription", TelemetrySystem.Subscriptions.Dynamic.Subscription))])
                 self._leafs = OrderedDict()
 
                 self.subscription = YList(self)
@@ -1671,8 +1623,7 @@ class TelemetrySystem(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['subscription_id']
-                    self._child_container_classes = OrderedDict([("state", ("state", TelemetrySystem.Subscriptions.Dynamic.Subscription.State)), ("sensor-paths", ("sensor_paths", TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("state", ("state", TelemetrySystem.Subscriptions.Dynamic.Subscription.State)), ("sensor-paths", ("sensor_paths", TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths))])
                     self._leafs = OrderedDict([
                         ('subscription_id', YLeaf(YType.str, 'subscription-id')),
                     ])
@@ -1681,12 +1632,10 @@ class TelemetrySystem(Entity):
                     self.state = TelemetrySystem.Subscriptions.Dynamic.Subscription.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
 
                     self.sensor_paths = TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths()
                     self.sensor_paths.parent = self
                     self._children_name_map["sensor_paths"] = "sensor-paths"
-                    self._children_yang_names.add("sensor-paths")
                     self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
                     self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/subscriptions/dynamic/%s" % self._segment_path()
 
@@ -1772,8 +1721,7 @@ class TelemetrySystem(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('subscription_id', YLeaf(YType.uint64, 'subscription-id')),
                             ('destination_address', YLeaf(YType.str, 'destination-address')),
@@ -1823,8 +1771,7 @@ class TelemetrySystem(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath))])
+                        self._child_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath))])
                         self._leafs = OrderedDict()
 
                         self.sensor_path = YList(self)
@@ -1867,8 +1814,7 @@ class TelemetrySystem(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['path']
-                            self._child_container_classes = OrderedDict([("state", ("state", TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state", ("state", TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State))])
                             self._leafs = OrderedDict([
                                 ('path', YLeaf(YType.str, 'path')),
                             ])
@@ -1877,7 +1823,6 @@ class TelemetrySystem(Entity):
                             self.state = TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "sensor-path" + "[path='" + str(self.path) + "']"
 
                         def __setattr__(self, name, value):
@@ -1914,8 +1859,7 @@ class TelemetrySystem(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('path', YLeaf(YType.str, 'path')),
                                     ('exclude_filter', YLeaf(YType.str, 'exclude-filter')),

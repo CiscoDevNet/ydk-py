@@ -150,14 +150,15 @@ class DeviceHardwareData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("device-hardware", ("device_hardware", DeviceHardwareData.DeviceHardware))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("device-hardware", ("device_hardware", DeviceHardwareData.DeviceHardware))])
         self._leafs = OrderedDict()
 
         self.device_hardware = None
         self._children_name_map["device_hardware"] = "device-hardware"
-        self._children_yang_names.add("device-hardware")
         self._segment_path = lambda: "Cisco-IOS-XE-device-hardware-oper:device-hardware-data"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(DeviceHardwareData, [], name, value)
 
 
     class DeviceHardware(Entity):
@@ -198,14 +199,12 @@ class DeviceHardwareData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("device-system-data", ("device_system_data", DeviceHardwareData.DeviceHardware.DeviceSystemData))])
-            self._child_list_classes = OrderedDict([("device-inventory", ("device_inventory", DeviceHardwareData.DeviceHardware.DeviceInventory)), ("device-alarm", ("device_alarm", DeviceHardwareData.DeviceHardware.DeviceAlarm))])
+            self._child_classes = OrderedDict([("device-inventory", ("device_inventory", DeviceHardwareData.DeviceHardware.DeviceInventory)), ("device-alarm", ("device_alarm", DeviceHardwareData.DeviceHardware.DeviceAlarm)), ("device-system-data", ("device_system_data", DeviceHardwareData.DeviceHardware.DeviceSystemData))])
             self.is_presence_container = True
             self._leafs = OrderedDict()
 
             self.device_system_data = None
             self._children_name_map["device_system_data"] = "device-system-data"
-            self._children_yang_names.add("device-system-data")
 
             self.device_inventory = YList(self)
             self.device_alarm = YList(self)
@@ -267,8 +266,7 @@ class DeviceHardwareData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['hw_type','hw_dev_index']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('hw_type', YLeaf(YType.enumeration, 'hw-type')),
                     ('hw_dev_index', YLeaf(YType.uint32, 'hw-dev-index')),
@@ -345,8 +343,7 @@ class DeviceHardwareData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['alarm_id','alarm_instance']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('alarm_id', YLeaf(YType.uint32, 'alarm-id')),
                     ('alarm_instance', YLeaf(YType.uint32, 'alarm-instance')),
@@ -418,8 +415,7 @@ class DeviceHardwareData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('current_time', YLeaf(YType.str, 'current-time')),

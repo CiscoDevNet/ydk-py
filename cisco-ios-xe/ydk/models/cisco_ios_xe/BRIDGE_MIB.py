@@ -24,42 +24,42 @@ class BRIDGEMIB(Entity):
     .. attribute:: dot1dbase
     
     	
-    	**type**\:  :py:class:`Dot1Dbase <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbase>`
+    	**type**\:  :py:class:`Dot1dBase <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBase>`
     
     .. attribute:: dot1dstp
     
     	
-    	**type**\:  :py:class:`Dot1Dstp <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstp>`
+    	**type**\:  :py:class:`Dot1dStp <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStp>`
     
     .. attribute:: dot1dtp
     
     	
-    	**type**\:  :py:class:`Dot1Dtp <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dtp>`
+    	**type**\:  :py:class:`Dot1dTp <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTp>`
     
     .. attribute:: dot1dbaseporttable
     
     	A table that contains generic information about every port that is associated with this bridge.  Transparent, source\-route, and srt ports are included
-    	**type**\:  :py:class:`Dot1Dbaseporttable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable>`
+    	**type**\:  :py:class:`Dot1dBasePortTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable>`
     
     .. attribute:: dot1dstpporttable
     
     	A table that contains port\-specific information for the Spanning Tree Protocol
-    	**type**\:  :py:class:`Dot1Dstpporttable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstpporttable>`
+    	**type**\:  :py:class:`Dot1dStpPortTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStpPortTable>`
     
     .. attribute:: dot1dtpfdbtable
     
     	A table that contains information about unicast entries for which the bridge has forwarding and/or filtering information.  This information is used by the transparent bridging function in determining how to propagate a received frame
-    	**type**\:  :py:class:`Dot1Dtpfdbtable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dtpfdbtable>`
+    	**type**\:  :py:class:`Dot1dTpFdbTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpFdbTable>`
     
     .. attribute:: dot1dtpporttable
     
     	A table that contains information about every port that is associated with this transparent bridge
-    	**type**\:  :py:class:`Dot1Dtpporttable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dtpporttable>`
+    	**type**\:  :py:class:`Dot1dTpPortTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpPortTable>`
     
     .. attribute:: dot1dstatictable
     
     	A table containing filtering information configured into the bridge by (local or network) management specifying the set of ports to which frames received from specific ports and containing specific destination addresses are allowed to be forwarded.  The value of zero in this table, as the port number from which frames with a specific destination address are received, is used to specify all ports for which there is no specific entry in this table for that particular destination address.  Entries are valid for unicast and for group/broadcast addresses
-    	**type**\:  :py:class:`Dot1Dstatictable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstatictable>`
+    	**type**\:  :py:class:`Dot1dStaticTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStaticTable>`
     
     
 
@@ -77,53 +77,47 @@ class BRIDGEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dot1dBase", ("dot1dbase", BRIDGEMIB.Dot1Dbase)), ("dot1dStp", ("dot1dstp", BRIDGEMIB.Dot1Dstp)), ("dot1dTp", ("dot1dtp", BRIDGEMIB.Dot1Dtp)), ("dot1dBasePortTable", ("dot1dbaseporttable", BRIDGEMIB.Dot1Dbaseporttable)), ("dot1dStpPortTable", ("dot1dstpporttable", BRIDGEMIB.Dot1Dstpporttable)), ("dot1dTpFdbTable", ("dot1dtpfdbtable", BRIDGEMIB.Dot1Dtpfdbtable)), ("dot1dTpPortTable", ("dot1dtpporttable", BRIDGEMIB.Dot1Dtpporttable)), ("dot1dStaticTable", ("dot1dstatictable", BRIDGEMIB.Dot1Dstatictable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dot1dBase", ("dot1dbase", BRIDGEMIB.Dot1dBase)), ("dot1dStp", ("dot1dstp", BRIDGEMIB.Dot1dStp)), ("dot1dTp", ("dot1dtp", BRIDGEMIB.Dot1dTp)), ("dot1dBasePortTable", ("dot1dbaseporttable", BRIDGEMIB.Dot1dBasePortTable)), ("dot1dStpPortTable", ("dot1dstpporttable", BRIDGEMIB.Dot1dStpPortTable)), ("dot1dTpFdbTable", ("dot1dtpfdbtable", BRIDGEMIB.Dot1dTpFdbTable)), ("dot1dTpPortTable", ("dot1dtpporttable", BRIDGEMIB.Dot1dTpPortTable)), ("dot1dStaticTable", ("dot1dstatictable", BRIDGEMIB.Dot1dStaticTable))])
         self._leafs = OrderedDict()
 
-        self.dot1dbase = BRIDGEMIB.Dot1Dbase()
+        self.dot1dbase = BRIDGEMIB.Dot1dBase()
         self.dot1dbase.parent = self
         self._children_name_map["dot1dbase"] = "dot1dBase"
-        self._children_yang_names.add("dot1dBase")
 
-        self.dot1dstp = BRIDGEMIB.Dot1Dstp()
+        self.dot1dstp = BRIDGEMIB.Dot1dStp()
         self.dot1dstp.parent = self
         self._children_name_map["dot1dstp"] = "dot1dStp"
-        self._children_yang_names.add("dot1dStp")
 
-        self.dot1dtp = BRIDGEMIB.Dot1Dtp()
+        self.dot1dtp = BRIDGEMIB.Dot1dTp()
         self.dot1dtp.parent = self
         self._children_name_map["dot1dtp"] = "dot1dTp"
-        self._children_yang_names.add("dot1dTp")
 
-        self.dot1dbaseporttable = BRIDGEMIB.Dot1Dbaseporttable()
+        self.dot1dbaseporttable = BRIDGEMIB.Dot1dBasePortTable()
         self.dot1dbaseporttable.parent = self
         self._children_name_map["dot1dbaseporttable"] = "dot1dBasePortTable"
-        self._children_yang_names.add("dot1dBasePortTable")
 
-        self.dot1dstpporttable = BRIDGEMIB.Dot1Dstpporttable()
+        self.dot1dstpporttable = BRIDGEMIB.Dot1dStpPortTable()
         self.dot1dstpporttable.parent = self
         self._children_name_map["dot1dstpporttable"] = "dot1dStpPortTable"
-        self._children_yang_names.add("dot1dStpPortTable")
 
-        self.dot1dtpfdbtable = BRIDGEMIB.Dot1Dtpfdbtable()
+        self.dot1dtpfdbtable = BRIDGEMIB.Dot1dTpFdbTable()
         self.dot1dtpfdbtable.parent = self
         self._children_name_map["dot1dtpfdbtable"] = "dot1dTpFdbTable"
-        self._children_yang_names.add("dot1dTpFdbTable")
 
-        self.dot1dtpporttable = BRIDGEMIB.Dot1Dtpporttable()
+        self.dot1dtpporttable = BRIDGEMIB.Dot1dTpPortTable()
         self.dot1dtpporttable.parent = self
         self._children_name_map["dot1dtpporttable"] = "dot1dTpPortTable"
-        self._children_yang_names.add("dot1dTpPortTable")
 
-        self.dot1dstatictable = BRIDGEMIB.Dot1Dstatictable()
+        self.dot1dstatictable = BRIDGEMIB.Dot1dStaticTable()
         self.dot1dstatictable.parent = self
         self._children_name_map["dot1dstatictable"] = "dot1dStaticTable"
-        self._children_yang_names.add("dot1dStaticTable")
         self._segment_path = lambda: "BRIDGE-MIB:BRIDGE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(BRIDGEMIB, [], name, value)
 
-    class Dot1Dbase(Entity):
+
+    class Dot1dBase(Entity):
         """
         
         
@@ -146,7 +140,7 @@ class BRIDGEMIB(Entity):
         .. attribute:: dot1dbasetype
         
         	Indicates what type of bridging this bridge can perform.  If a bridge is actually performing a certain type of bridging, this will be indicated by entries in the port table for the given type
-        	**type**\:  :py:class:`Dot1Dbasetype <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbase.Dot1Dbasetype>`
+        	**type**\:  :py:class:`Dot1dBaseType <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBase.Dot1dBaseType>`
         
         
 
@@ -156,15 +150,14 @@ class BRIDGEMIB(Entity):
         _revision = '2005-09-19'
 
         def __init__(self):
-            super(BRIDGEMIB.Dot1Dbase, self).__init__()
+            super(BRIDGEMIB.Dot1dBase, self).__init__()
 
             self.yang_name = "dot1dBase"
             self.yang_parent_name = "BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('dot1dbasebridgeaddress', YLeaf(YType.str, 'dot1dBaseBridgeAddress')),
                 ('dot1dbasenumports', YLeaf(YType.int32, 'dot1dBaseNumPorts')),
@@ -177,11 +170,11 @@ class BRIDGEMIB(Entity):
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1Dbase, ['dot1dbasebridgeaddress', 'dot1dbasenumports', 'dot1dbasetype'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dBase, [u'dot1dbasebridgeaddress', u'dot1dbasenumports', u'dot1dbasetype'], name, value)
 
-        class Dot1Dbasetype(Enum):
+        class Dot1dBaseType(Enum):
             """
-            Dot1Dbasetype (Enum Class)
+            Dot1dBaseType (Enum Class)
 
             Indicates what type of bridging this bridge can
 
@@ -211,14 +204,14 @@ class BRIDGEMIB(Entity):
 
 
 
-    class Dot1Dstp(Entity):
+    class Dot1dStp(Entity):
         """
         
         
         .. attribute:: dot1dstpprotocolspecification
         
         	An indication of what version of the Spanning Tree Protocol is being run.  The value 'decLb100(2)' indicates the DEC LANbridge 100 Spanning Tree protocol. IEEE 802.1D implementations will return 'ieee8021d(3)'. If future versions of the IEEE Spanning Tree Protocol that are incompatible with the current version are released a new value will be defined
-        	**type**\:  :py:class:`Dot1Dstpprotocolspecification <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstp.Dot1Dstpprotocolspecification>`
+        	**type**\:  :py:class:`Dot1dStpProtocolSpecification <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStp.Dot1dStpProtocolSpecification>`
         
         .. attribute:: dot1dstppriority
         
@@ -335,15 +328,14 @@ class BRIDGEMIB(Entity):
         _revision = '2005-09-19'
 
         def __init__(self):
-            super(BRIDGEMIB.Dot1Dstp, self).__init__()
+            super(BRIDGEMIB.Dot1dStp, self).__init__()
 
             self.yang_name = "dot1dStp"
             self.yang_parent_name = "BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('dot1dstpprotocolspecification', YLeaf(YType.enumeration, 'dot1dStpProtocolSpecification')),
                 ('dot1dstppriority', YLeaf(YType.int32, 'dot1dStpPriority')),
@@ -378,11 +370,11 @@ class BRIDGEMIB(Entity):
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1Dstp, ['dot1dstpprotocolspecification', 'dot1dstppriority', 'dot1dstptimesincetopologychange', 'dot1dstptopchanges', 'dot1dstpdesignatedroot', 'dot1dstprootcost', 'dot1dstprootport', 'dot1dstpmaxage', 'dot1dstphellotime', 'dot1dstpholdtime', 'dot1dstpforwarddelay', 'dot1dstpbridgemaxage', 'dot1dstpbridgehellotime', 'dot1dstpbridgeforwarddelay'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dStp, [u'dot1dstpprotocolspecification', u'dot1dstppriority', u'dot1dstptimesincetopologychange', u'dot1dstptopchanges', u'dot1dstpdesignatedroot', u'dot1dstprootcost', u'dot1dstprootport', u'dot1dstpmaxage', u'dot1dstphellotime', u'dot1dstpholdtime', u'dot1dstpforwarddelay', u'dot1dstpbridgemaxage', u'dot1dstpbridgehellotime', u'dot1dstpbridgeforwarddelay'], name, value)
 
-        class Dot1Dstpprotocolspecification(Enum):
+        class Dot1dStpProtocolSpecification(Enum):
             """
-            Dot1Dstpprotocolspecification (Enum Class)
+            Dot1dStpProtocolSpecification (Enum Class)
 
             An indication of what version of the Spanning Tree
 
@@ -414,7 +406,7 @@ class BRIDGEMIB(Entity):
 
 
 
-    class Dot1Dtp(Entity):
+    class Dot1dTp(Entity):
         """
         
         
@@ -442,15 +434,14 @@ class BRIDGEMIB(Entity):
         _revision = '2005-09-19'
 
         def __init__(self):
-            super(BRIDGEMIB.Dot1Dtp, self).__init__()
+            super(BRIDGEMIB.Dot1dTp, self).__init__()
 
             self.yang_name = "dot1dTp"
             self.yang_parent_name = "BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('dot1dtplearnedentrydiscards', YLeaf(YType.uint32, 'dot1dTpLearnedEntryDiscards')),
                 ('dot1dtpagingtime', YLeaf(YType.int32, 'dot1dTpAgingTime')),
@@ -461,10 +452,10 @@ class BRIDGEMIB(Entity):
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1Dtp, ['dot1dtplearnedentrydiscards', 'dot1dtpagingtime'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dTp, [u'dot1dtplearnedentrydiscards', u'dot1dtpagingtime'], name, value)
 
 
-    class Dot1Dbaseporttable(Entity):
+    class Dot1dBasePortTable(Entity):
         """
         A table that contains generic information about every
         port that is associated with this bridge.  Transparent,
@@ -473,7 +464,7 @@ class BRIDGEMIB(Entity):
         .. attribute:: dot1dbaseportentry
         
         	A list of information for each port of the bridge
-        	**type**\: list of  		 :py:class:`Dot1Dbaseportentry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
+        	**type**\: list of  		 :py:class:`Dot1dBasePortEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
         
         
 
@@ -483,15 +474,14 @@ class BRIDGEMIB(Entity):
         _revision = '2005-09-19'
 
         def __init__(self):
-            super(BRIDGEMIB.Dot1Dbaseporttable, self).__init__()
+            super(BRIDGEMIB.Dot1dBasePortTable, self).__init__()
 
             self.yang_name = "dot1dBasePortTable"
             self.yang_parent_name = "BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1dBasePortEntry", ("dot1dbaseportentry", BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry))])
+            self._child_classes = OrderedDict([("dot1dBasePortEntry", ("dot1dbaseportentry", BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry))])
             self._leafs = OrderedDict()
 
             self.dot1dbaseportentry = YList(self)
@@ -499,10 +489,10 @@ class BRIDGEMIB(Entity):
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1Dbaseporttable, [], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable, [], name, value)
 
 
-        class Dot1Dbaseportentry(Entity):
+        class Dot1dBasePortEntry(Entity):
             """
             A list of information for each port of the bridge.
             
@@ -544,7 +534,7 @@ class BRIDGEMIB(Entity):
             .. attribute:: dot1dportcapabilities
             
             	Indicates the parts of IEEE 802.1D and 802.1Q that are optional on a per\-port basis, that are implemented by this device, and that are manageable through this MIB.  dot1qDot1qTagging(0), \-\- supports 802.1Q VLAN tagging of                       \-\- frames and GVRP. dot1qConfigurableAcceptableFrameTypes(1),                       \-\- allows modified values of                       \-\- dot1qPortAcceptableFrameTypes. dot1qIngressFiltering(2)                       \-\- supports the discarding of any                       \-\- frame received on a Port whose                       \-\- VLAN classification does not                       \-\- include that Port in its Member                       \-\- set
-            	**type**\:  :py:class:`Dot1Dportcapabilities <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry.Dot1Dportcapabilities>`
+            	**type**\:  :py:class:`Dot1dPortCapabilities <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry.Dot1dPortCapabilities>`
             
             .. attribute:: dot1dportdefaultuserpriority
             
@@ -615,7 +605,7 @@ class BRIDGEMIB(Entity):
             .. attribute:: dot1qportacceptableframetypes
             
             	When this is admitOnlyVlanTagged(2), the device will discard untagged frames or Priority\-Tagged frames received on this port.  When admitAll(1), untagged frames or Priority\-Tagged frames received on this port will be accepted and assigned to a VID based on the PVID and VID Set for this port.  This control does not affect VLAN\-independent Bridge Protocol Data Unit (BPDU) frames, such as GVRP and Spanning Tree Protocol (STP).  It does affect VLAN\- dependent BPDU frames, such as GMRP.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  :py:class:`Dot1Qportacceptableframetypes <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry.Dot1Qportacceptableframetypes>`
+            	**type**\:  :py:class:`Dot1qPortAcceptableFrameTypes <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry.Dot1qPortAcceptableFrameTypes>`
             
             .. attribute:: dot1qportingressfiltering
             
@@ -654,15 +644,14 @@ class BRIDGEMIB(Entity):
             _revision = '2005-09-19'
 
             def __init__(self):
-                super(BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry, self).__init__()
+                super(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, self).__init__()
 
                 self.yang_name = "dot1dBasePortEntry"
                 self.yang_parent_name = "dot1dBasePortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1dbaseport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1dbaseport', YLeaf(YType.int32, 'dot1dBasePort')),
                     ('dot1dbaseportifindex', YLeaf(YType.int32, 'dot1dBasePortIfIndex')),
@@ -713,11 +702,11 @@ class BRIDGEMIB(Entity):
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dBasePortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry, ['dot1dbaseport', 'dot1dbaseportifindex', 'dot1dbaseportcircuit', 'dot1dbaseportdelayexceededdiscards', 'dot1dbaseportmtuexceededdiscards', 'dot1dportcapabilities', 'dot1dportdefaultuserpriority', 'dot1dportnumtrafficclasses', 'dot1dportgarpjointime', 'dot1dportgarpleavetime', 'dot1dportgarpleavealltime', 'dot1dportgmrpstatus', 'dot1dportgmrpfailedregistrations', 'dot1dportgmrplastpduorigin', 'dot1dportrestrictedgroupregistration', 'dot1qpvid', 'dot1qportacceptableframetypes', 'dot1qportingressfiltering', 'dot1qportgvrpstatus', 'dot1qportgvrpfailedregistrations', 'dot1qportgvrplastpduorigin', 'dot1qportrestrictedvlanregistration'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, [u'dot1dbaseport', u'dot1dbaseportifindex', u'dot1dbaseportcircuit', u'dot1dbaseportdelayexceededdiscards', u'dot1dbaseportmtuexceededdiscards', u'dot1dportcapabilities', u'dot1dportdefaultuserpriority', u'dot1dportnumtrafficclasses', u'dot1dportgarpjointime', u'dot1dportgarpleavetime', u'dot1dportgarpleavealltime', u'dot1dportgmrpstatus', u'dot1dportgmrpfailedregistrations', u'dot1dportgmrplastpduorigin', u'dot1dportrestrictedgroupregistration', u'dot1qpvid', u'dot1qportacceptableframetypes', u'dot1qportingressfiltering', u'dot1qportgvrpstatus', u'dot1qportgvrpfailedregistrations', u'dot1qportgvrplastpduorigin', u'dot1qportrestrictedvlanregistration'], name, value)
 
-            class Dot1Qportacceptableframetypes(Enum):
+            class Dot1qPortAcceptableFrameTypes(Enum):
                 """
-                Dot1Qportacceptableframetypes (Enum Class)
+                Dot1qPortAcceptableFrameTypes (Enum Class)
 
                 When this is admitOnlyVlanTagged(2), the device will
 
@@ -755,7 +744,7 @@ class BRIDGEMIB(Entity):
 
 
 
-    class Dot1Dstpporttable(Entity):
+    class Dot1dStpPortTable(Entity):
         """
         A table that contains port\-specific information
         for the Spanning Tree Protocol.
@@ -763,7 +752,7 @@ class BRIDGEMIB(Entity):
         .. attribute:: dot1dstpportentry
         
         	A list of information maintained by every port about the Spanning Tree Protocol state for that port
-        	**type**\: list of  		 :py:class:`Dot1Dstpportentry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstpporttable.Dot1Dstpportentry>`
+        	**type**\: list of  		 :py:class:`Dot1dStpPortEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry>`
         
         
 
@@ -773,15 +762,14 @@ class BRIDGEMIB(Entity):
         _revision = '2005-09-19'
 
         def __init__(self):
-            super(BRIDGEMIB.Dot1Dstpporttable, self).__init__()
+            super(BRIDGEMIB.Dot1dStpPortTable, self).__init__()
 
             self.yang_name = "dot1dStpPortTable"
             self.yang_parent_name = "BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1dStpPortEntry", ("dot1dstpportentry", BRIDGEMIB.Dot1Dstpporttable.Dot1Dstpportentry))])
+            self._child_classes = OrderedDict([("dot1dStpPortEntry", ("dot1dstpportentry", BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry))])
             self._leafs = OrderedDict()
 
             self.dot1dstpportentry = YList(self)
@@ -789,10 +777,10 @@ class BRIDGEMIB(Entity):
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1Dstpporttable, [], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dStpPortTable, [], name, value)
 
 
-        class Dot1Dstpportentry(Entity):
+        class Dot1dStpPortEntry(Entity):
             """
             A list of information maintained by every port about
             the Spanning Tree Protocol state for that port.
@@ -814,12 +802,12 @@ class BRIDGEMIB(Entity):
             .. attribute:: dot1dstpportstate
             
             	The port's current state, as defined by application of the Spanning Tree Protocol.  This state controls what action a port takes on reception of a frame.  If the bridge has detected a port that is malfunctioning, it will place that port into the broken(6) state.  For ports that are disabled (see dot1dStpPortEnable), this object will have a value of disabled(1)
-            	**type**\:  :py:class:`Dot1Dstpportstate <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstpporttable.Dot1Dstpportentry.Dot1Dstpportstate>`
+            	**type**\:  :py:class:`Dot1dStpPortState <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry.Dot1dStpPortState>`
             
             .. attribute:: dot1dstpportenable
             
             	The enabled/disabled status of the port
-            	**type**\:  :py:class:`Dot1Dstpportenable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstpporttable.Dot1Dstpportentry.Dot1Dstpportenable>`
+            	**type**\:  :py:class:`Dot1dStpPortEnable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry.Dot1dStpPortEnable>`
             
             .. attribute:: dot1dstpportpathcost
             
@@ -885,15 +873,14 @@ class BRIDGEMIB(Entity):
             _revision = '2005-09-19'
 
             def __init__(self):
-                super(BRIDGEMIB.Dot1Dstpporttable.Dot1Dstpportentry, self).__init__()
+                super(BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry, self).__init__()
 
                 self.yang_name = "dot1dStpPortEntry"
                 self.yang_parent_name = "dot1dStpPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1dstpport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1dstpport', YLeaf(YType.int32, 'dot1dStpPort')),
                     ('dot1dstpportpriority', YLeaf(YType.int32, 'dot1dStpPortPriority')),
@@ -924,11 +911,11 @@ class BRIDGEMIB(Entity):
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dStpPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1Dstpporttable.Dot1Dstpportentry, ['dot1dstpport', 'dot1dstpportpriority', 'dot1dstpportstate', 'dot1dstpportenable', 'dot1dstpportpathcost', 'dot1dstpportdesignatedroot', 'dot1dstpportdesignatedcost', 'dot1dstpportdesignatedbridge', 'dot1dstpportdesignatedport', 'dot1dstpportforwardtransitions', 'dot1dstpportpathcost32', 'stpxlongstpportpathcost'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry, [u'dot1dstpport', u'dot1dstpportpriority', u'dot1dstpportstate', u'dot1dstpportenable', u'dot1dstpportpathcost', u'dot1dstpportdesignatedroot', u'dot1dstpportdesignatedcost', u'dot1dstpportdesignatedbridge', u'dot1dstpportdesignatedport', u'dot1dstpportforwardtransitions', u'dot1dstpportpathcost32', 'stpxlongstpportpathcost'], name, value)
 
-            class Dot1Dstpportenable(Enum):
+            class Dot1dStpPortEnable(Enum):
                 """
-                Dot1Dstpportenable (Enum Class)
+                Dot1dStpPortEnable (Enum Class)
 
                 The enabled/disabled status of the port.
 
@@ -943,9 +930,9 @@ class BRIDGEMIB(Entity):
                 disabled = Enum.YLeaf(2, "disabled")
 
 
-            class Dot1Dstpportstate(Enum):
+            class Dot1dStpPortState(Enum):
                 """
-                Dot1Dstpportstate (Enum Class)
+                Dot1dStpPortState (Enum Class)
 
                 The port's current state, as defined by application of
 
@@ -989,7 +976,7 @@ class BRIDGEMIB(Entity):
 
 
 
-    class Dot1Dtpfdbtable(Entity):
+    class Dot1dTpFdbTable(Entity):
         """
         A table that contains information about unicast
         entries for which the bridge has forwarding and/or
@@ -1000,7 +987,7 @@ class BRIDGEMIB(Entity):
         .. attribute:: dot1dtpfdbentry
         
         	Information about a specific unicast MAC address for which the bridge has some forwarding and/or filtering information
-        	**type**\: list of  		 :py:class:`Dot1Dtpfdbentry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dtpfdbtable.Dot1Dtpfdbentry>`
+        	**type**\: list of  		 :py:class:`Dot1dTpFdbEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry>`
         
         
 
@@ -1010,15 +997,14 @@ class BRIDGEMIB(Entity):
         _revision = '2005-09-19'
 
         def __init__(self):
-            super(BRIDGEMIB.Dot1Dtpfdbtable, self).__init__()
+            super(BRIDGEMIB.Dot1dTpFdbTable, self).__init__()
 
             self.yang_name = "dot1dTpFdbTable"
             self.yang_parent_name = "BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1dTpFdbEntry", ("dot1dtpfdbentry", BRIDGEMIB.Dot1Dtpfdbtable.Dot1Dtpfdbentry))])
+            self._child_classes = OrderedDict([("dot1dTpFdbEntry", ("dot1dtpfdbentry", BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry))])
             self._leafs = OrderedDict()
 
             self.dot1dtpfdbentry = YList(self)
@@ -1026,10 +1012,10 @@ class BRIDGEMIB(Entity):
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1Dtpfdbtable, [], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dTpFdbTable, [], name, value)
 
 
-        class Dot1Dtpfdbentry(Entity):
+        class Dot1dTpFdbEntry(Entity):
             """
             Information about a specific unicast MAC address
             for which the bridge has some forwarding and/or
@@ -1052,7 +1038,7 @@ class BRIDGEMIB(Entity):
             .. attribute:: dot1dtpfdbstatus
             
             	The status of this entry.  The meanings of the values are\:     other(1) \- none of the following.  This would         include the case where some other MIB object         (not the corresponding instance of         dot1dTpFdbPort, nor an entry in the         dot1dStaticTable) is being used to determine if         and how frames addressed to the value of the         corresponding instance of dot1dTpFdbAddress are         being forwarded.     invalid(2) \- this entry is no longer valid (e.g.,         it was learned but has since aged out), but has         not yet been flushed from the table.     learned(3) \- the value of the corresponding instance         of dot1dTpFdbPort was learned, and is being         used.     self(4) \- the value of the corresponding instance of         dot1dTpFdbAddress represents one of the bridge's         addresses.  The corresponding instance of         dot1dTpFdbPort indicates which of the bridge's         ports has this address.     mgmt(5) \- the value of the corresponding instance of         dot1dTpFdbAddress is also the value of an         existing instance of dot1dStaticAddress
-            	**type**\:  :py:class:`Dot1Dtpfdbstatus <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dtpfdbtable.Dot1Dtpfdbentry.Dot1Dtpfdbstatus>`
+            	**type**\:  :py:class:`Dot1dTpFdbStatus <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry.Dot1dTpFdbStatus>`
             
             
 
@@ -1062,15 +1048,14 @@ class BRIDGEMIB(Entity):
             _revision = '2005-09-19'
 
             def __init__(self):
-                super(BRIDGEMIB.Dot1Dtpfdbtable.Dot1Dtpfdbentry, self).__init__()
+                super(BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry, self).__init__()
 
                 self.yang_name = "dot1dTpFdbEntry"
                 self.yang_parent_name = "dot1dTpFdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1dtpfdbaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1dtpfdbaddress', YLeaf(YType.str, 'dot1dTpFdbAddress')),
                     ('dot1dtpfdbport', YLeaf(YType.int32, 'dot1dTpFdbPort')),
@@ -1083,11 +1068,11 @@ class BRIDGEMIB(Entity):
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dTpFdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1Dtpfdbtable.Dot1Dtpfdbentry, ['dot1dtpfdbaddress', 'dot1dtpfdbport', 'dot1dtpfdbstatus'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry, [u'dot1dtpfdbaddress', u'dot1dtpfdbport', u'dot1dtpfdbstatus'], name, value)
 
-            class Dot1Dtpfdbstatus(Enum):
+            class Dot1dTpFdbStatus(Enum):
                 """
-                Dot1Dtpfdbstatus (Enum Class)
+                Dot1dTpFdbStatus (Enum Class)
 
                 The status of this entry.  The meanings of the
 
@@ -1161,7 +1146,7 @@ class BRIDGEMIB(Entity):
 
 
 
-    class Dot1Dtpporttable(Entity):
+    class Dot1dTpPortTable(Entity):
         """
         A table that contains information about every port that
         is associated with this transparent bridge.
@@ -1169,7 +1154,7 @@ class BRIDGEMIB(Entity):
         .. attribute:: dot1dtpportentry
         
         	A list of information for each port of a transparent bridge
-        	**type**\: list of  		 :py:class:`Dot1Dtpportentry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dtpporttable.Dot1Dtpportentry>`
+        	**type**\: list of  		 :py:class:`Dot1dTpPortEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry>`
         
         
 
@@ -1179,15 +1164,14 @@ class BRIDGEMIB(Entity):
         _revision = '2005-09-19'
 
         def __init__(self):
-            super(BRIDGEMIB.Dot1Dtpporttable, self).__init__()
+            super(BRIDGEMIB.Dot1dTpPortTable, self).__init__()
 
             self.yang_name = "dot1dTpPortTable"
             self.yang_parent_name = "BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1dTpPortEntry", ("dot1dtpportentry", BRIDGEMIB.Dot1Dtpporttable.Dot1Dtpportentry))])
+            self._child_classes = OrderedDict([("dot1dTpPortEntry", ("dot1dtpportentry", BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry))])
             self._leafs = OrderedDict()
 
             self.dot1dtpportentry = YList(self)
@@ -1195,10 +1179,10 @@ class BRIDGEMIB(Entity):
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1Dtpporttable, [], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dTpPortTable, [], name, value)
 
 
-        class Dot1Dtpportentry(Entity):
+        class Dot1dTpPortEntry(Entity):
             """
             A list of information for each port of a transparent
             bridge.
@@ -1254,15 +1238,14 @@ class BRIDGEMIB(Entity):
             _revision = '2005-09-19'
 
             def __init__(self):
-                super(BRIDGEMIB.Dot1Dtpporttable.Dot1Dtpportentry, self).__init__()
+                super(BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry, self).__init__()
 
                 self.yang_name = "dot1dTpPortEntry"
                 self.yang_parent_name = "dot1dTpPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1dtpport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1dtpport', YLeaf(YType.int32, 'dot1dTpPort')),
                     ('dot1dtpportmaxinfo', YLeaf(YType.int32, 'dot1dTpPortMaxInfo')),
@@ -1279,10 +1262,10 @@ class BRIDGEMIB(Entity):
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dTpPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1Dtpporttable.Dot1Dtpportentry, ['dot1dtpport', 'dot1dtpportmaxinfo', 'dot1dtpportinframes', 'dot1dtpportoutframes', 'dot1dtpportindiscards'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry, [u'dot1dtpport', u'dot1dtpportmaxinfo', u'dot1dtpportinframes', u'dot1dtpportoutframes', u'dot1dtpportindiscards'], name, value)
 
 
-    class Dot1Dstatictable(Entity):
+    class Dot1dStaticTable(Entity):
         """
         A table containing filtering information configured
         into the bridge by (local or network) management
@@ -1299,7 +1282,7 @@ class BRIDGEMIB(Entity):
         .. attribute:: dot1dstaticentry
         
         	Filtering information configured into the bridge by (local or network) management specifying the set of ports to which frames received from a specific port and containing a specific destination address are allowed to be forwarded
-        	**type**\: list of  		 :py:class:`Dot1Dstaticentry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstatictable.Dot1Dstaticentry>`
+        	**type**\: list of  		 :py:class:`Dot1dStaticEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry>`
         
         
 
@@ -1309,15 +1292,14 @@ class BRIDGEMIB(Entity):
         _revision = '2005-09-19'
 
         def __init__(self):
-            super(BRIDGEMIB.Dot1Dstatictable, self).__init__()
+            super(BRIDGEMIB.Dot1dStaticTable, self).__init__()
 
             self.yang_name = "dot1dStaticTable"
             self.yang_parent_name = "BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1dStaticEntry", ("dot1dstaticentry", BRIDGEMIB.Dot1Dstatictable.Dot1Dstaticentry))])
+            self._child_classes = OrderedDict([("dot1dStaticEntry", ("dot1dstaticentry", BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry))])
             self._leafs = OrderedDict()
 
             self.dot1dstaticentry = YList(self)
@@ -1325,10 +1307,10 @@ class BRIDGEMIB(Entity):
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1Dstatictable, [], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dStaticTable, [], name, value)
 
 
-        class Dot1Dstaticentry(Entity):
+        class Dot1dStaticEntry(Entity):
             """
             Filtering information configured into the bridge by
             (local or network) management specifying the set of
@@ -1360,7 +1342,7 @@ class BRIDGEMIB(Entity):
             .. attribute:: dot1dstaticstatus
             
             	This object indicates the status of this entry. The default value is permanent(3).     other(1) \- this entry is currently in use but the         conditions under which it will remain so are         different from each of the following values.     invalid(2) \- writing this value to the object         removes the corresponding entry.     permanent(3) \- this entry is currently in use and         will remain so after the next reset of the         bridge.     deleteOnReset(4) \- this entry is currently in use         and will remain so until the next reset of the         bridge.     deleteOnTimeout(5) \- this entry is currently in use         and will remain so until it is aged out
-            	**type**\:  :py:class:`Dot1Dstaticstatus <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dstatictable.Dot1Dstaticentry.Dot1Dstaticstatus>`
+            	**type**\:  :py:class:`Dot1dStaticStatus <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry.Dot1dStaticStatus>`
             
             
 
@@ -1370,15 +1352,14 @@ class BRIDGEMIB(Entity):
             _revision = '2005-09-19'
 
             def __init__(self):
-                super(BRIDGEMIB.Dot1Dstatictable.Dot1Dstaticentry, self).__init__()
+                super(BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry, self).__init__()
 
                 self.yang_name = "dot1dStaticEntry"
                 self.yang_parent_name = "dot1dStaticTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1dstaticaddress','dot1dstaticreceiveport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1dstaticaddress', YLeaf(YType.str, 'dot1dStaticAddress')),
                     ('dot1dstaticreceiveport', YLeaf(YType.int32, 'dot1dStaticReceivePort')),
@@ -1393,11 +1374,11 @@ class BRIDGEMIB(Entity):
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dStaticTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1Dstatictable.Dot1Dstaticentry, ['dot1dstaticaddress', 'dot1dstaticreceiveport', 'dot1dstaticallowedtogoto', 'dot1dstaticstatus'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry, [u'dot1dstaticaddress', u'dot1dstaticreceiveport', u'dot1dstaticallowedtogoto', u'dot1dstaticstatus'], name, value)
 
-            class Dot1Dstaticstatus(Enum):
+            class Dot1dStaticStatus(Enum):
                 """
-                Dot1Dstaticstatus (Enum Class)
+                Dot1dStaticStatus (Enum Class)
 
                 This object indicates the status of this entry.
 

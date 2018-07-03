@@ -42,9 +42,10 @@ class ChangeType(Enum):
 
 
 
-class ErrorDataNotAuthorized(Identity):
+class CustomStream(Identity):
     """
-    No read authorization for a requested data node.
+    A conceptual datastream for datastore
+    updates with custom updates as defined by a user.
     
     
 
@@ -54,7 +55,7 @@ class ErrorDataNotAuthorized(Identity):
     _revision = '2016-10-28'
 
     def __init__(self):
-        super(ErrorDataNotAuthorized, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:error-data-not-authorized")
+        super(CustomStream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:custom-stream")
 
 
 class YangPush(Identity):
@@ -73,10 +74,9 @@ class YangPush(Identity):
         super(YangPush, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:yang-push")
 
 
-class CustomStream(Identity):
+class ErrorDataNotAuthorized(Identity):
     """
-    A conceptual datastream for datastore
-    updates with custom updates as defined by a user.
+    No read authorization for a requested data node.
     
     
 
@@ -86,7 +86,7 @@ class CustomStream(Identity):
     _revision = '2016-10-28'
 
     def __init__(self):
-        super(CustomStream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:custom-stream")
+        super(ErrorDataNotAuthorized, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:error-data-not-authorized")
 
 
 class Http2(Identity):

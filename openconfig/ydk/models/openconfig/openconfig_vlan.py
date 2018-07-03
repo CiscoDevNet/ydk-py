@@ -39,8 +39,7 @@ class Vlans(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("vlan", ("vlan", Vlans.Vlan))])
+        self._child_classes = OrderedDict([("vlan", ("vlan", Vlans.Vlan))])
         self._leafs = OrderedDict()
 
         self.vlan = YList(self)
@@ -93,8 +92,7 @@ class Vlans(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['vlan_id']
-            self._child_container_classes = OrderedDict([("config", ("config", Vlans.Vlan.Config)), ("state", ("state", Vlans.Vlan.State)), ("members", ("members", Vlans.Vlan.Members))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("config", ("config", Vlans.Vlan.Config)), ("state", ("state", Vlans.Vlan.State)), ("members", ("members", Vlans.Vlan.Members))])
             self._leafs = OrderedDict([
                 ('vlan_id', YLeaf(YType.str, 'vlan-id')),
             ])
@@ -103,22 +101,19 @@ class Vlans(Entity):
             self.config = Vlans.Vlan.Config()
             self.config.parent = self
             self._children_name_map["config"] = "config"
-            self._children_yang_names.add("config")
 
             self.state = Vlans.Vlan.State()
             self.state.parent = self
             self._children_name_map["state"] = "state"
-            self._children_yang_names.add("state")
 
             self.members = Vlans.Vlan.Members()
             self.members.parent = self
             self._children_name_map["members"] = "members"
-            self._children_yang_names.add("members")
             self._segment_path = lambda: "vlan" + "[vlan-id='" + str(self.vlan_id) + "']"
             self._absolute_path = lambda: "openconfig-vlan:vlans/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vlans.Vlan, ['vlan_id'], name, value)
+            self._perform_setattr(Vlans.Vlan, [u'vlan_id'], name, value)
 
 
         class Config(Entity):
@@ -166,8 +161,7 @@ class Vlans(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
                     ('name', YLeaf(YType.str, 'name')),
@@ -181,7 +175,7 @@ class Vlans(Entity):
                 self._segment_path = lambda: "config"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vlans.Vlan.Config, ['vlan_id', 'name', 'status', 'tpid'], name, value)
+                self._perform_setattr(Vlans.Vlan.Config, [u'vlan_id', u'name', u'status', u'tpid'], name, value)
 
             class Status(Enum):
                 """
@@ -250,8 +244,7 @@ class Vlans(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
                     ('name', YLeaf(YType.str, 'name')),
@@ -265,7 +258,7 @@ class Vlans(Entity):
                 self._segment_path = lambda: "state"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vlans.Vlan.State, ['vlan_id', 'name', 'status', 'tpid'], name, value)
+                self._perform_setattr(Vlans.Vlan.State, [u'vlan_id', u'name', u'status', u'tpid'], name, value)
 
             class Status(Enum):
                 """
@@ -313,8 +306,7 @@ class Vlans(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("member", ("member", Vlans.Vlan.Members.Member))])
+                self._child_classes = OrderedDict([("member", ("member", Vlans.Vlan.Members.Member))])
                 self._leafs = OrderedDict()
 
                 self.member = YList(self)
@@ -349,15 +341,16 @@ class Vlans(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-ref", ("interface_ref", Vlans.Vlan.Members.Member.InterfaceRef))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-ref", ("interface_ref", Vlans.Vlan.Members.Member.InterfaceRef))])
                     self._leafs = OrderedDict()
 
                     self.interface_ref = Vlans.Vlan.Members.Member.InterfaceRef()
                     self.interface_ref.parent = self
                     self._children_name_map["interface_ref"] = "interface-ref"
-                    self._children_yang_names.add("interface-ref")
                     self._segment_path = lambda: "member"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vlans.Vlan.Members.Member, [], name, value)
 
 
                 class InterfaceRef(Entity):
@@ -384,15 +377,16 @@ class Vlans(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("state", ("state", Vlans.Vlan.Members.Member.InterfaceRef.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("state", ("state", Vlans.Vlan.Members.Member.InterfaceRef.State))])
                         self._leafs = OrderedDict()
 
                         self.state = Vlans.Vlan.Members.Member.InterfaceRef.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "interface-ref"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef, [], name, value)
 
 
                     class State(Entity):
@@ -430,8 +424,7 @@ class Vlans(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface', YLeaf(YType.str, 'interface')),
                                 ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -441,7 +434,7 @@ class Vlans(Entity):
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                            self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vlans()

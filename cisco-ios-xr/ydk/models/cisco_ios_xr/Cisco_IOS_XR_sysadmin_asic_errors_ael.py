@@ -46,8 +46,7 @@ class AsicErrors(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = ['device_name']
-        self._child_container_classes = OrderedDict([("show-all-instances", ("show_all_instances", AsicErrors.ShowAllInstances))])
-        self._child_list_classes = OrderedDict([("instance", ("instance", AsicErrors.Instance))])
+        self._child_classes = OrderedDict([("instance", ("instance", AsicErrors.Instance)), ("show-all-instances", ("show_all_instances", AsicErrors.ShowAllInstances))])
         self._leafs = OrderedDict([
             ('device_name', YLeaf(YType.str, 'device-name')),
         ])
@@ -56,7 +55,6 @@ class AsicErrors(Entity):
         self.show_all_instances = AsicErrors.ShowAllInstances()
         self.show_all_instances.parent = self
         self._children_name_map["show_all_instances"] = "show-all-instances"
-        self._children_yang_names.add("show-all-instances")
 
         self.instance = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-asic-errors-ael:asic-errors" + "[device-name='" + str(self.device_name) + "']"
@@ -181,8 +179,7 @@ class AsicErrors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = True
             self.ylist_key_names = ['instance_num']
-            self._child_container_classes = OrderedDict([("sbe", ("sbe", AsicErrors.Instance.Sbe)), ("mbe", ("mbe", AsicErrors.Instance.Mbe)), ("parity", ("parity", AsicErrors.Instance.Parity)), ("generic", ("generic", AsicErrors.Instance.Generic)), ("crc", ("crc", AsicErrors.Instance.Crc)), ("reset", ("reset", AsicErrors.Instance.Reset)), ("barrier", ("barrier", AsicErrors.Instance.Barrier)), ("unexpected", ("unexpected", AsicErrors.Instance.Unexpected)), ("link", ("link", AsicErrors.Instance.Link)), ("oor-thresh", ("oor_thresh", AsicErrors.Instance.OorThresh)), ("bp", ("bp", AsicErrors.Instance.Bp)), ("io", ("io", AsicErrors.Instance.Io)), ("ucode", ("ucode", AsicErrors.Instance.Ucode)), ("config", ("config", AsicErrors.Instance.Config)), ("indirect", ("indirect", AsicErrors.Instance.Indirect)), ("nonerr", ("nonerr", AsicErrors.Instance.Nonerr)), ("summary", ("summary", AsicErrors.Instance.Summary)), ("all", ("all", AsicErrors.Instance.All))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("sbe", ("sbe", AsicErrors.Instance.Sbe)), ("mbe", ("mbe", AsicErrors.Instance.Mbe)), ("parity", ("parity", AsicErrors.Instance.Parity)), ("generic", ("generic", AsicErrors.Instance.Generic)), ("crc", ("crc", AsicErrors.Instance.Crc)), ("reset", ("reset", AsicErrors.Instance.Reset)), ("barrier", ("barrier", AsicErrors.Instance.Barrier)), ("unexpected", ("unexpected", AsicErrors.Instance.Unexpected)), ("link", ("link", AsicErrors.Instance.Link)), ("oor-thresh", ("oor_thresh", AsicErrors.Instance.OorThresh)), ("bp", ("bp", AsicErrors.Instance.Bp)), ("io", ("io", AsicErrors.Instance.Io)), ("ucode", ("ucode", AsicErrors.Instance.Ucode)), ("config", ("config", AsicErrors.Instance.Config)), ("indirect", ("indirect", AsicErrors.Instance.Indirect)), ("nonerr", ("nonerr", AsicErrors.Instance.Nonerr)), ("summary", ("summary", AsicErrors.Instance.Summary)), ("all", ("all", AsicErrors.Instance.All))])
             self._leafs = OrderedDict([
                 ('instance_num', YLeaf(YType.uint32, 'instance-num')),
             ])
@@ -191,92 +188,74 @@ class AsicErrors(Entity):
             self.sbe = AsicErrors.Instance.Sbe()
             self.sbe.parent = self
             self._children_name_map["sbe"] = "sbe"
-            self._children_yang_names.add("sbe")
 
             self.mbe = AsicErrors.Instance.Mbe()
             self.mbe.parent = self
             self._children_name_map["mbe"] = "mbe"
-            self._children_yang_names.add("mbe")
 
             self.parity = AsicErrors.Instance.Parity()
             self.parity.parent = self
             self._children_name_map["parity"] = "parity"
-            self._children_yang_names.add("parity")
 
             self.generic = AsicErrors.Instance.Generic()
             self.generic.parent = self
             self._children_name_map["generic"] = "generic"
-            self._children_yang_names.add("generic")
 
             self.crc = AsicErrors.Instance.Crc()
             self.crc.parent = self
             self._children_name_map["crc"] = "crc"
-            self._children_yang_names.add("crc")
 
             self.reset = AsicErrors.Instance.Reset()
             self.reset.parent = self
             self._children_name_map["reset"] = "reset"
-            self._children_yang_names.add("reset")
 
             self.barrier = AsicErrors.Instance.Barrier()
             self.barrier.parent = self
             self._children_name_map["barrier"] = "barrier"
-            self._children_yang_names.add("barrier")
 
             self.unexpected = AsicErrors.Instance.Unexpected()
             self.unexpected.parent = self
             self._children_name_map["unexpected"] = "unexpected"
-            self._children_yang_names.add("unexpected")
 
             self.link = AsicErrors.Instance.Link()
             self.link.parent = self
             self._children_name_map["link"] = "link"
-            self._children_yang_names.add("link")
 
             self.oor_thresh = AsicErrors.Instance.OorThresh()
             self.oor_thresh.parent = self
             self._children_name_map["oor_thresh"] = "oor-thresh"
-            self._children_yang_names.add("oor-thresh")
 
             self.bp = AsicErrors.Instance.Bp()
             self.bp.parent = self
             self._children_name_map["bp"] = "bp"
-            self._children_yang_names.add("bp")
 
             self.io = AsicErrors.Instance.Io()
             self.io.parent = self
             self._children_name_map["io"] = "io"
-            self._children_yang_names.add("io")
 
             self.ucode = AsicErrors.Instance.Ucode()
             self.ucode.parent = self
             self._children_name_map["ucode"] = "ucode"
-            self._children_yang_names.add("ucode")
 
             self.config = AsicErrors.Instance.Config()
             self.config.parent = self
             self._children_name_map["config"] = "config"
-            self._children_yang_names.add("config")
 
             self.indirect = AsicErrors.Instance.Indirect()
             self.indirect.parent = self
             self._children_name_map["indirect"] = "indirect"
-            self._children_yang_names.add("indirect")
 
             self.nonerr = AsicErrors.Instance.Nonerr()
             self.nonerr.parent = self
             self._children_name_map["nonerr"] = "nonerr"
-            self._children_yang_names.add("nonerr")
 
             self.summary = AsicErrors.Instance.Summary()
             self.summary.parent = self
             self._children_name_map["summary"] = "summary"
-            self._children_yang_names.add("summary")
 
             self.all = AsicErrors.Instance.All()
             self.all.parent = self
             self._children_name_map["all"] = "all"
-            self._children_yang_names.add("all")
             self._segment_path = lambda: "instance" + "[instance-num='" + str(self.instance_num) + "']"
 
         def __setattr__(self, name, value):
@@ -307,8 +286,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Sbe.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Sbe.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -327,7 +305,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -349,8 +327,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Sbe.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Sbe.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -387,8 +364,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -423,8 +399,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Mbe.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Mbe.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -443,7 +418,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -465,8 +440,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Mbe.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Mbe.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -503,8 +477,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -539,8 +512,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Parity.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Parity.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -559,7 +531,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -581,8 +553,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Parity.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Parity.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -619,8 +590,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -655,8 +625,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Generic.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Generic.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -675,7 +644,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -697,8 +666,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Generic.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Generic.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -735,8 +703,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -771,8 +738,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Crc.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Crc.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -791,7 +757,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -813,8 +779,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Crc.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Crc.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -851,8 +816,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -887,8 +851,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Reset.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Reset.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -907,7 +870,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -929,8 +892,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Reset.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Reset.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -967,8 +929,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1003,8 +964,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Barrier.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Barrier.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1023,7 +983,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1045,8 +1005,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Barrier.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Barrier.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -1083,8 +1042,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1119,8 +1077,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Unexpected.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Unexpected.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1139,7 +1096,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1161,8 +1118,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Unexpected.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Unexpected.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -1199,8 +1155,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1235,8 +1190,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Link.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Link.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1255,7 +1209,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1277,8 +1231,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Link.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Link.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -1315,8 +1268,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1351,8 +1303,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.OorThresh.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.OorThresh.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1371,7 +1322,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1393,8 +1344,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.OorThresh.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.OorThresh.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -1431,8 +1381,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1467,8 +1416,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Bp.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Bp.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1487,7 +1435,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1509,8 +1457,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Bp.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Bp.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -1547,8 +1494,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1583,8 +1529,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Io.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Io.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1603,7 +1548,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1625,8 +1570,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Io.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Io.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -1663,8 +1607,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1699,8 +1642,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Ucode.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Ucode.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1719,7 +1661,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1741,8 +1683,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Ucode.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Ucode.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -1779,8 +1720,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1815,8 +1755,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Config.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Config.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1835,7 +1774,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1857,8 +1796,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Config.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Config.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -1895,8 +1833,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -1931,8 +1868,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Indirect.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Indirect.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1951,7 +1887,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1973,8 +1909,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Indirect.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Indirect.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -2011,8 +1946,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -2047,8 +1981,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Nonerr.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Nonerr.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -2067,7 +2000,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2089,8 +2022,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Nonerr.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Nonerr.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -2127,8 +2059,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -2163,8 +2094,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Summary.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.Summary.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -2183,7 +2113,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2205,8 +2135,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Summary.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Summary.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -2243,8 +2172,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -2284,14 +2212,12 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("history", ("history", AsicErrors.Instance.All.History))])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.All.Location))])
+                self._child_classes = OrderedDict([("history", ("history", AsicErrors.Instance.All.History)), ("location", ("location", AsicErrors.Instance.All.Location))])
                 self._leafs = OrderedDict()
 
                 self.history = AsicErrors.Instance.All.History()
                 self.history.parent = self
                 self._children_name_map["history"] = "history"
-                self._children_yang_names.add("history")
 
                 self.location = YList(self)
                 self._segment_path = lambda: "all"
@@ -2324,8 +2250,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.Instance.All.History.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", AsicErrors.Instance.All.History.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -2344,7 +2269,7 @@ class AsicErrors(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
                     .. attribute:: log_lst
                     
@@ -2366,8 +2291,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['location_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.All.History.Location.LogLst))])
+                        self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.All.History.Location.LogLst))])
                         self._leafs = OrderedDict([
                             ('location_name', YLeaf(YType.str, 'location-name')),
                         ])
@@ -2404,8 +2328,7 @@ class AsicErrors(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('log_line', YLeaf(YType.str, 'log-line')),
                             ])
@@ -2425,7 +2348,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2447,8 +2370,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.All.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.All.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -2485,8 +2407,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -2606,100 +2527,84 @@ class AsicErrors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = True
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("sbe", ("sbe", AsicErrors.ShowAllInstances.Sbe)), ("mbe", ("mbe", AsicErrors.ShowAllInstances.Mbe)), ("parity", ("parity", AsicErrors.ShowAllInstances.Parity)), ("generic", ("generic", AsicErrors.ShowAllInstances.Generic)), ("crc", ("crc", AsicErrors.ShowAllInstances.Crc)), ("reset", ("reset", AsicErrors.ShowAllInstances.Reset)), ("barrier", ("barrier", AsicErrors.ShowAllInstances.Barrier)), ("unexpected", ("unexpected", AsicErrors.ShowAllInstances.Unexpected)), ("link", ("link", AsicErrors.ShowAllInstances.Link)), ("oor-thresh", ("oor_thresh", AsicErrors.ShowAllInstances.OorThresh)), ("bp", ("bp", AsicErrors.ShowAllInstances.Bp)), ("io", ("io", AsicErrors.ShowAllInstances.Io)), ("ucode", ("ucode", AsicErrors.ShowAllInstances.Ucode)), ("config", ("config", AsicErrors.ShowAllInstances.Config)), ("indirect", ("indirect", AsicErrors.ShowAllInstances.Indirect)), ("nonerr", ("nonerr", AsicErrors.ShowAllInstances.Nonerr)), ("summary", ("summary", AsicErrors.ShowAllInstances.Summary)), ("all", ("all", AsicErrors.ShowAllInstances.All))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("sbe", ("sbe", AsicErrors.ShowAllInstances.Sbe)), ("mbe", ("mbe", AsicErrors.ShowAllInstances.Mbe)), ("parity", ("parity", AsicErrors.ShowAllInstances.Parity)), ("generic", ("generic", AsicErrors.ShowAllInstances.Generic)), ("crc", ("crc", AsicErrors.ShowAllInstances.Crc)), ("reset", ("reset", AsicErrors.ShowAllInstances.Reset)), ("barrier", ("barrier", AsicErrors.ShowAllInstances.Barrier)), ("unexpected", ("unexpected", AsicErrors.ShowAllInstances.Unexpected)), ("link", ("link", AsicErrors.ShowAllInstances.Link)), ("oor-thresh", ("oor_thresh", AsicErrors.ShowAllInstances.OorThresh)), ("bp", ("bp", AsicErrors.ShowAllInstances.Bp)), ("io", ("io", AsicErrors.ShowAllInstances.Io)), ("ucode", ("ucode", AsicErrors.ShowAllInstances.Ucode)), ("config", ("config", AsicErrors.ShowAllInstances.Config)), ("indirect", ("indirect", AsicErrors.ShowAllInstances.Indirect)), ("nonerr", ("nonerr", AsicErrors.ShowAllInstances.Nonerr)), ("summary", ("summary", AsicErrors.ShowAllInstances.Summary)), ("all", ("all", AsicErrors.ShowAllInstances.All))])
             self._leafs = OrderedDict()
 
             self.sbe = AsicErrors.ShowAllInstances.Sbe()
             self.sbe.parent = self
             self._children_name_map["sbe"] = "sbe"
-            self._children_yang_names.add("sbe")
 
             self.mbe = AsicErrors.ShowAllInstances.Mbe()
             self.mbe.parent = self
             self._children_name_map["mbe"] = "mbe"
-            self._children_yang_names.add("mbe")
 
             self.parity = AsicErrors.ShowAllInstances.Parity()
             self.parity.parent = self
             self._children_name_map["parity"] = "parity"
-            self._children_yang_names.add("parity")
 
             self.generic = AsicErrors.ShowAllInstances.Generic()
             self.generic.parent = self
             self._children_name_map["generic"] = "generic"
-            self._children_yang_names.add("generic")
 
             self.crc = AsicErrors.ShowAllInstances.Crc()
             self.crc.parent = self
             self._children_name_map["crc"] = "crc"
-            self._children_yang_names.add("crc")
 
             self.reset = AsicErrors.ShowAllInstances.Reset()
             self.reset.parent = self
             self._children_name_map["reset"] = "reset"
-            self._children_yang_names.add("reset")
 
             self.barrier = AsicErrors.ShowAllInstances.Barrier()
             self.barrier.parent = self
             self._children_name_map["barrier"] = "barrier"
-            self._children_yang_names.add("barrier")
 
             self.unexpected = AsicErrors.ShowAllInstances.Unexpected()
             self.unexpected.parent = self
             self._children_name_map["unexpected"] = "unexpected"
-            self._children_yang_names.add("unexpected")
 
             self.link = AsicErrors.ShowAllInstances.Link()
             self.link.parent = self
             self._children_name_map["link"] = "link"
-            self._children_yang_names.add("link")
 
             self.oor_thresh = AsicErrors.ShowAllInstances.OorThresh()
             self.oor_thresh.parent = self
             self._children_name_map["oor_thresh"] = "oor-thresh"
-            self._children_yang_names.add("oor-thresh")
 
             self.bp = AsicErrors.ShowAllInstances.Bp()
             self.bp.parent = self
             self._children_name_map["bp"] = "bp"
-            self._children_yang_names.add("bp")
 
             self.io = AsicErrors.ShowAllInstances.Io()
             self.io.parent = self
             self._children_name_map["io"] = "io"
-            self._children_yang_names.add("io")
 
             self.ucode = AsicErrors.ShowAllInstances.Ucode()
             self.ucode.parent = self
             self._children_name_map["ucode"] = "ucode"
-            self._children_yang_names.add("ucode")
 
             self.config = AsicErrors.ShowAllInstances.Config()
             self.config.parent = self
             self._children_name_map["config"] = "config"
-            self._children_yang_names.add("config")
 
             self.indirect = AsicErrors.ShowAllInstances.Indirect()
             self.indirect.parent = self
             self._children_name_map["indirect"] = "indirect"
-            self._children_yang_names.add("indirect")
 
             self.nonerr = AsicErrors.ShowAllInstances.Nonerr()
             self.nonerr.parent = self
             self._children_name_map["nonerr"] = "nonerr"
-            self._children_yang_names.add("nonerr")
 
             self.summary = AsicErrors.ShowAllInstances.Summary()
             self.summary.parent = self
             self._children_name_map["summary"] = "summary"
-            self._children_yang_names.add("summary")
 
             self.all = AsicErrors.ShowAllInstances.All()
             self.all.parent = self
             self._children_name_map["all"] = "all"
-            self._children_yang_names.add("all")
             self._segment_path = lambda: "show-all-instances"
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(AsicErrors.ShowAllInstances, [], name, value)
 
 
         class Sbe(Entity):
@@ -2726,8 +2631,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Sbe.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Sbe.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -2746,7 +2650,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2768,8 +2672,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Sbe.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Sbe.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -2806,8 +2709,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -2842,8 +2744,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Mbe.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Mbe.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -2862,7 +2763,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2884,8 +2785,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Mbe.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Mbe.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -2922,8 +2822,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -2958,8 +2857,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Parity.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Parity.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -2978,7 +2876,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3000,8 +2898,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Parity.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Parity.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3038,8 +2935,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -3074,8 +2970,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Generic.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Generic.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -3094,7 +2989,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3116,8 +3011,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Generic.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Generic.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3154,8 +3048,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -3190,8 +3083,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Crc.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Crc.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -3210,7 +3102,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3232,8 +3124,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Crc.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Crc.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3270,8 +3161,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -3306,8 +3196,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Reset.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Reset.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -3326,7 +3215,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3348,8 +3237,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Reset.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Reset.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3386,8 +3274,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -3422,8 +3309,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Barrier.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Barrier.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -3442,7 +3328,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3464,8 +3350,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Barrier.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Barrier.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3502,8 +3387,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -3538,8 +3422,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Unexpected.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Unexpected.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -3558,7 +3441,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3580,8 +3463,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Unexpected.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Unexpected.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3618,8 +3500,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -3654,8 +3535,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Link.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Link.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -3674,7 +3554,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3696,8 +3576,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Link.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Link.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3734,8 +3613,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -3770,8 +3648,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.OorThresh.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.OorThresh.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -3790,7 +3667,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3812,8 +3689,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.OorThresh.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.OorThresh.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3850,8 +3726,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -3886,8 +3761,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Bp.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Bp.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -3906,7 +3780,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3928,8 +3802,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Bp.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Bp.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -3966,8 +3839,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -4002,8 +3874,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Io.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Io.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -4022,7 +3893,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4044,8 +3915,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Io.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Io.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -4082,8 +3952,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -4118,8 +3987,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Ucode.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Ucode.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -4138,7 +4006,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4160,8 +4028,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Ucode.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Ucode.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -4198,8 +4065,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -4234,8 +4100,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Config.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Config.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -4254,7 +4119,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4276,8 +4141,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Config.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Config.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -4314,8 +4178,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -4350,8 +4213,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Indirect.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Indirect.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -4370,7 +4232,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4392,8 +4254,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Indirect.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Indirect.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -4430,8 +4291,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -4466,8 +4326,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Nonerr.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Nonerr.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -4486,7 +4345,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4508,8 +4367,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Nonerr.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Nonerr.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -4546,8 +4404,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -4582,8 +4439,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Summary.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.Summary.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -4602,7 +4458,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4624,8 +4480,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Summary.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Summary.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -4662,8 +4517,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])
@@ -4698,8 +4552,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.All.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AsicErrors.ShowAllInstances.All.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -4718,7 +4571,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4740,8 +4593,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.All.Location.LogLst))])
+                    self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.All.Location.LogLst))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location-name')),
                     ])
@@ -4778,8 +4630,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_line', YLeaf(YType.str, 'log-line')),
                         ])

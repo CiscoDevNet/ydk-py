@@ -145,7 +145,7 @@ class SubscriberRedundancy(Entity):
     """
 
     _prefix = 'subscriber-srg-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(SubscriberRedundancy, self).__init__()
@@ -156,8 +156,7 @@ class SubscriberRedundancy(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("groups", ("groups", SubscriberRedundancy.Groups)), ("revertive-timer", ("revertive_timer", SubscriberRedundancy.RevertiveTimer))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("groups", ("groups", SubscriberRedundancy.Groups)), ("revertive-timer", ("revertive_timer", SubscriberRedundancy.RevertiveTimer))])
         self._leafs = OrderedDict([
             ('enable', YLeaf(YType.empty, 'enable')),
             ('virtual_mac_prefix', YLeaf(YType.str, 'virtual-mac-prefix')),
@@ -178,12 +177,10 @@ class SubscriberRedundancy(Entity):
         self.groups = SubscriberRedundancy.Groups()
         self.groups.parent = self
         self._children_name_map["groups"] = "groups"
-        self._children_yang_names.add("groups")
 
         self.revertive_timer = SubscriberRedundancy.RevertiveTimer()
         self.revertive_timer.parent = self
         self._children_name_map["revertive_timer"] = "revertive-timer"
-        self._children_yang_names.add("revertive-timer")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy"
 
     def __setattr__(self, name, value):
@@ -204,7 +201,7 @@ class SubscriberRedundancy(Entity):
         """
 
         _prefix = 'subscriber-srg-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(SubscriberRedundancy.Groups, self).__init__()
@@ -214,8 +211,7 @@ class SubscriberRedundancy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("group", ("group", SubscriberRedundancy.Groups.Group))])
+            self._child_classes = OrderedDict([("group", ("group", SubscriberRedundancy.Groups.Group))])
             self._leafs = OrderedDict()
 
             self.group = YList(self)
@@ -328,7 +324,7 @@ class SubscriberRedundancy(Entity):
             """
 
             _prefix = 'subscriber-srg-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(SubscriberRedundancy.Groups.Group, self).__init__()
@@ -338,8 +334,7 @@ class SubscriberRedundancy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['group_id']
-                self._child_container_classes = OrderedDict([("interface-list", ("interface_list", SubscriberRedundancy.Groups.Group.InterfaceList)), ("peer", ("peer", SubscriberRedundancy.Groups.Group.Peer)), ("revertive-timer", ("revertive_timer", SubscriberRedundancy.Groups.Group.RevertiveTimer)), ("virtual-mac", ("virtual_mac", SubscriberRedundancy.Groups.Group.VirtualMac)), ("state-control-route", ("state_control_route", SubscriberRedundancy.Groups.Group.StateControlRoute))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interface-list", ("interface_list", SubscriberRedundancy.Groups.Group.InterfaceList)), ("peer", ("peer", SubscriberRedundancy.Groups.Group.Peer)), ("revertive-timer", ("revertive_timer", SubscriberRedundancy.Groups.Group.RevertiveTimer)), ("virtual-mac", ("virtual_mac", SubscriberRedundancy.Groups.Group.VirtualMac)), ("state-control-route", ("state_control_route", SubscriberRedundancy.Groups.Group.StateControlRoute))])
                 self._leafs = OrderedDict([
                     ('group_id', YLeaf(YType.uint32, 'group-id')),
                     ('disable_tracking_object', YLeaf(YType.empty, 'disable-tracking-object')),
@@ -370,27 +365,22 @@ class SubscriberRedundancy(Entity):
                 self.interface_list = SubscriberRedundancy.Groups.Group.InterfaceList()
                 self.interface_list.parent = self
                 self._children_name_map["interface_list"] = "interface-list"
-                self._children_yang_names.add("interface-list")
 
                 self.peer = SubscriberRedundancy.Groups.Group.Peer()
                 self.peer.parent = self
                 self._children_name_map["peer"] = "peer"
-                self._children_yang_names.add("peer")
 
                 self.revertive_timer = SubscriberRedundancy.Groups.Group.RevertiveTimer()
                 self.revertive_timer.parent = self
                 self._children_name_map["revertive_timer"] = "revertive-timer"
-                self._children_yang_names.add("revertive-timer")
 
                 self.virtual_mac = SubscriberRedundancy.Groups.Group.VirtualMac()
                 self.virtual_mac.parent = self
                 self._children_name_map["virtual_mac"] = "virtual-mac"
-                self._children_yang_names.add("virtual-mac")
 
                 self.state_control_route = SubscriberRedundancy.Groups.Group.StateControlRoute()
                 self.state_control_route.parent = self
                 self._children_name_map["state_control_route"] = "state-control-route"
-                self._children_yang_names.add("state-control-route")
                 self._segment_path = lambda: "group" + "[group-id='" + str(self.group_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/%s" % self._segment_path()
 
@@ -422,7 +412,7 @@ class SubscriberRedundancy(Entity):
                 """
 
                 _prefix = 'subscriber-srg-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SubscriberRedundancy.Groups.Group.InterfaceList, self).__init__()
@@ -432,8 +422,7 @@ class SubscriberRedundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interfaces", ("interfaces", SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces)), ("interface-ranges", ("interface_ranges", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interfaces", ("interfaces", SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces)), ("interface-ranges", ("interface_ranges", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges))])
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.empty, 'enable')),
                     ])
@@ -442,12 +431,10 @@ class SubscriberRedundancy(Entity):
                     self.interfaces = SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
 
                     self.interface_ranges = SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges()
                     self.interface_ranges.parent = self
                     self._children_name_map["interface_ranges"] = "interface-ranges"
-                    self._children_yang_names.add("interface-ranges")
                     self._segment_path = lambda: "interface-list"
 
                 def __setattr__(self, name, value):
@@ -468,7 +455,7 @@ class SubscriberRedundancy(Entity):
                     """
 
                     _prefix = 'subscriber-srg-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
@@ -478,8 +465,7 @@ class SubscriberRedundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -514,7 +500,7 @@ class SubscriberRedundancy(Entity):
                         """
 
                         _prefix = 'subscriber-srg-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
@@ -524,8 +510,7 @@ class SubscriberRedundancy(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('interface_id', YLeaf(YType.uint32, 'interface-id')),
@@ -552,7 +537,7 @@ class SubscriberRedundancy(Entity):
                     """
 
                     _prefix = 'subscriber-srg-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__init__()
@@ -562,8 +547,7 @@ class SubscriberRedundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface-range", ("interface_range", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange))])
+                        self._child_classes = OrderedDict([("interface-range", ("interface_range", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange))])
                         self._leafs = OrderedDict()
 
                         self.interface_range = YList(self)
@@ -617,7 +601,7 @@ class SubscriberRedundancy(Entity):
                         """
 
                         _prefix = 'subscriber-srg-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__init__()
@@ -627,8 +611,7 @@ class SubscriberRedundancy(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name','sub_interface_range_start','sub_interface_range_end']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('sub_interface_range_start', YLeaf(YType.uint32, 'sub-interface-range-start')),
@@ -666,7 +649,7 @@ class SubscriberRedundancy(Entity):
                 """
 
                 _prefix = 'subscriber-srg-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SubscriberRedundancy.Groups.Group.Peer, self).__init__()
@@ -676,8 +659,7 @@ class SubscriberRedundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ipaddress", ("ipaddress", SubscriberRedundancy.Groups.Group.Peer.Ipaddress))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ipaddress", ("ipaddress", SubscriberRedundancy.Groups.Group.Peer.Ipaddress))])
                     self._leafs = OrderedDict([
                         ('route_add_disable', YLeaf(YType.empty, 'route-add-disable')),
                     ])
@@ -686,7 +668,6 @@ class SubscriberRedundancy(Entity):
                     self.ipaddress = SubscriberRedundancy.Groups.Group.Peer.Ipaddress()
                     self.ipaddress.parent = self
                     self._children_name_map["ipaddress"] = "ipaddress"
-                    self._children_yang_names.add("ipaddress")
                     self._segment_path = lambda: "peer"
 
                 def __setattr__(self, name, value):
@@ -720,7 +701,7 @@ class SubscriberRedundancy(Entity):
                     """
 
                     _prefix = 'subscriber-srg-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SubscriberRedundancy.Groups.Group.Peer.Ipaddress, self).__init__()
@@ -730,8 +711,7 @@ class SubscriberRedundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address_family', YLeaf(YType.enumeration, 'address-family')),
                             ('prefix_string', YLeaf(YType.str, 'prefix-string')),
@@ -769,7 +749,7 @@ class SubscriberRedundancy(Entity):
                 """
 
                 _prefix = 'subscriber-srg-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SubscriberRedundancy.Groups.Group.RevertiveTimer, self).__init__()
@@ -779,8 +759,7 @@ class SubscriberRedundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('max_value', YLeaf(YType.uint32, 'max-value')),
                         ('value', YLeaf(YType.uint32, 'value')),
@@ -814,7 +793,7 @@ class SubscriberRedundancy(Entity):
                 """
 
                 _prefix = 'subscriber-srg-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__init__()
@@ -824,8 +803,7 @@ class SubscriberRedundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address', YLeaf(YType.str, 'address')),
                         ('disable', YLeaf(YType.empty, 'disable')),
@@ -857,7 +835,7 @@ class SubscriberRedundancy(Entity):
                 """
 
                 _prefix = 'subscriber-srg-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SubscriberRedundancy.Groups.Group.StateControlRoute, self).__init__()
@@ -867,20 +845,20 @@ class SubscriberRedundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ipv4-routes", ("ipv4_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes)), ("ipv6-route", ("ipv6_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ipv4-routes", ("ipv4_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes)), ("ipv6-route", ("ipv6_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route))])
                     self._leafs = OrderedDict()
 
                     self.ipv4_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes()
                     self.ipv4_routes.parent = self
                     self._children_name_map["ipv4_routes"] = "ipv4-routes"
-                    self._children_yang_names.add("ipv4-routes")
 
                     self.ipv6_route = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route()
                     self.ipv6_route.parent = self
                     self._children_name_map["ipv6_route"] = "ipv6-route"
-                    self._children_yang_names.add("ipv6-route")
                     self._segment_path = lambda: "state-control-route"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute, [], name, value)
 
 
                 class Ipv4Routes(Entity):
@@ -897,7 +875,7 @@ class SubscriberRedundancy(Entity):
                     """
 
                     _prefix = 'subscriber-srg-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes, self).__init__()
@@ -907,8 +885,7 @@ class SubscriberRedundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ipv4-route", ("ipv4_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route))])
+                        self._child_classes = OrderedDict([("ipv4-route", ("ipv4_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route))])
                         self._leafs = OrderedDict()
 
                         self.ipv4_route = YList(self)
@@ -940,7 +917,7 @@ class SubscriberRedundancy(Entity):
                         	Prefix of the IP Address
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: ipv4_route_data
                         
@@ -957,7 +934,7 @@ class SubscriberRedundancy(Entity):
                         """
 
                         _prefix = 'subscriber-srg-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route, self).__init__()
@@ -967,11 +944,10 @@ class SubscriberRedundancy(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prefix_string','prefix_length']
-                            self._child_container_classes = OrderedDict([("ipv4-route-data", ("ipv4_route_data", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData))])
-                            self._child_list_classes = OrderedDict([("vrfname", ("vrfname", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname))])
+                            self._child_classes = OrderedDict([("ipv4-route-data", ("ipv4_route_data", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData)), ("vrfname", ("vrfname", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname))])
                             self._leafs = OrderedDict([
                                 ('prefix_string', YLeaf(YType.str, 'prefix-string')),
-                                ('prefix_length', YLeaf(YType.int32, 'prefix-length')),
+                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                             ])
                             self.prefix_string = None
                             self.prefix_length = None
@@ -979,7 +955,6 @@ class SubscriberRedundancy(Entity):
                             self.ipv4_route_data = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData()
                             self.ipv4_route_data.parent = self
                             self._children_name_map["ipv4_route_data"] = "ipv4-route-data"
-                            self._children_yang_names.add("ipv4-route-data")
 
                             self.vrfname = YList(self)
                             self._segment_path = lambda: "ipv4-route" + "[prefix-string='" + str(self.prefix_string) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
@@ -1006,7 +981,7 @@ class SubscriberRedundancy(Entity):
                             """
 
                             _prefix = 'subscriber-srg-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData, self).__init__()
@@ -1016,8 +991,7 @@ class SubscriberRedundancy(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('tagvalue', YLeaf(YType.uint32, 'tagvalue')),
                                 ])
@@ -1053,7 +1027,7 @@ class SubscriberRedundancy(Entity):
                             """
 
                             _prefix = 'subscriber-srg-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname, self).__init__()
@@ -1063,8 +1037,7 @@ class SubscriberRedundancy(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['vrfname']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('vrfname', YLeaf(YType.str, 'vrfname')),
                                     ('tagvalue', YLeaf(YType.uint32, 'tagvalue')),
@@ -1084,19 +1057,19 @@ class SubscriberRedundancy(Entity):
                     .. attribute:: ipv6na_routes
                     
                     	Table of IPv6NARoute
-                    	**type**\:  :py:class:`Ipv6NaRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes>`
+                    	**type**\:  :py:class:`Ipv6naRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes>`
                     
                     .. attribute:: ipv6pd_routes
                     
                     	Table of IPv6PDRoute
-                    	**type**\:  :py:class:`Ipv6PdRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes>`
+                    	**type**\:  :py:class:`Ipv6pdRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes>`
                     
                     
 
                     """
 
                     _prefix = 'subscriber-srg-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route, self).__init__()
@@ -1106,58 +1079,57 @@ class SubscriberRedundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("ipv6na-routes", ("ipv6na_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes)), ("ipv6pd-routes", ("ipv6pd_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("ipv6na-routes", ("ipv6na_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes)), ("ipv6pd-routes", ("ipv6pd_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes))])
                         self._leafs = OrderedDict()
 
-                        self.ipv6na_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes()
+                        self.ipv6na_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes()
                         self.ipv6na_routes.parent = self
                         self._children_name_map["ipv6na_routes"] = "ipv6na-routes"
-                        self._children_yang_names.add("ipv6na-routes")
 
-                        self.ipv6pd_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes()
+                        self.ipv6pd_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes()
                         self.ipv6pd_routes.parent = self
                         self._children_name_map["ipv6pd_routes"] = "ipv6pd-routes"
-                        self._children_yang_names.add("ipv6pd-routes")
                         self._segment_path = lambda: "ipv6-route"
 
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route, [], name, value)
 
-                    class Ipv6NaRoutes(Entity):
+
+                    class Ipv6naRoutes(Entity):
                         """
                         Table of IPv6NARoute
                         
                         .. attribute:: ipv6na_route
                         
                         	None
-                        	**type**\: list of  		 :py:class:`Ipv6NaRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute>`
+                        	**type**\: list of  		 :py:class:`Ipv6naRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute>`
                         
                         
 
                         """
 
                         _prefix = 'subscriber-srg-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes, self).__init__()
+                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes, self).__init__()
 
                             self.yang_name = "ipv6na-routes"
                             self.yang_parent_name = "ipv6-route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ipv6na-route", ("ipv6na_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute))])
+                            self._child_classes = OrderedDict([("ipv6na-route", ("ipv6na_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute))])
                             self._leafs = OrderedDict()
 
                             self.ipv6na_route = YList(self)
                             self._segment_path = lambda: "ipv6na-routes"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes, [], name, value)
+                            self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes, [], name, value)
 
 
-                        class Ipv6NaRoute(Entity):
+                        class Ipv6naRoute(Entity):
                             """
                             None
                             
@@ -1173,7 +1145,7 @@ class SubscriberRedundancy(Entity):
                             	Prefix of the IP Address
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: prefix_string  (key)
                             
@@ -1202,21 +1174,20 @@ class SubscriberRedundancy(Entity):
                             """
 
                             _prefix = 'subscriber-srg-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute, self).__init__()
+                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute, self).__init__()
 
                                 self.yang_name = "ipv6na-route"
                                 self.yang_parent_name = "ipv6na-routes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['vrfname','prefix_length','prefix_string']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('vrfname', YLeaf(YType.str, 'vrfname')),
-                                    ('prefix_length', YLeaf(YType.int32, 'prefix-length')),
+                                    ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                                     ('prefix_string', YLeaf(YType.str, 'prefix-string')),
                                     ('tagvalue', YLeaf(YType.uint32, 'tagvalue')),
                                 ])
@@ -1227,45 +1198,44 @@ class SubscriberRedundancy(Entity):
                                 self._segment_path = lambda: "ipv6na-route" + "[vrfname='" + str(self.vrfname) + "']" + "[prefix-length='" + str(self.prefix_length) + "']" + "[prefix-string='" + str(self.prefix_string) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
+                                self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
 
-                    class Ipv6PdRoutes(Entity):
+                    class Ipv6pdRoutes(Entity):
                         """
                         Table of IPv6PDRoute
                         
                         .. attribute:: ipv6pd_route
                         
                         	None
-                        	**type**\: list of  		 :py:class:`Ipv6PdRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute>`
+                        	**type**\: list of  		 :py:class:`Ipv6pdRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute>`
                         
                         
 
                         """
 
                         _prefix = 'subscriber-srg-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes, self).__init__()
+                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes, self).__init__()
 
                             self.yang_name = "ipv6pd-routes"
                             self.yang_parent_name = "ipv6-route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ipv6pd-route", ("ipv6pd_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute))])
+                            self._child_classes = OrderedDict([("ipv6pd-route", ("ipv6pd_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute))])
                             self._leafs = OrderedDict()
 
                             self.ipv6pd_route = YList(self)
                             self._segment_path = lambda: "ipv6pd-routes"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes, [], name, value)
+                            self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes, [], name, value)
 
 
-                        class Ipv6PdRoute(Entity):
+                        class Ipv6pdRoute(Entity):
                             """
                             None
                             
@@ -1281,7 +1251,7 @@ class SubscriberRedundancy(Entity):
                             	Prefix of the IP Address
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: prefix_string  (key)
                             
@@ -1310,21 +1280,20 @@ class SubscriberRedundancy(Entity):
                             """
 
                             _prefix = 'subscriber-srg-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute, self).__init__()
+                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute, self).__init__()
 
                                 self.yang_name = "ipv6pd-route"
                                 self.yang_parent_name = "ipv6pd-routes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['vrfname','prefix_length','prefix_string']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('vrfname', YLeaf(YType.str, 'vrfname')),
-                                    ('prefix_length', YLeaf(YType.int32, 'prefix-length')),
+                                    ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                                     ('prefix_string', YLeaf(YType.str, 'prefix-string')),
                                     ('tagvalue', YLeaf(YType.uint32, 'tagvalue')),
                                 ])
@@ -1335,7 +1304,7 @@ class SubscriberRedundancy(Entity):
                                 self._segment_path = lambda: "ipv6pd-route" + "[vrfname='" + str(self.vrfname) + "']" + "[prefix-length='" + str(self.prefix_length) + "']" + "[prefix-string='" + str(self.prefix_string) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
+                                self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
 
     class RevertiveTimer(Entity):
@@ -1363,7 +1332,7 @@ class SubscriberRedundancy(Entity):
         """
 
         _prefix = 'subscriber-srg-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(SubscriberRedundancy.RevertiveTimer, self).__init__()
@@ -1373,8 +1342,7 @@ class SubscriberRedundancy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('max_value', YLeaf(YType.uint32, 'max-value')),
                 ('value', YLeaf(YType.uint32, 'value')),

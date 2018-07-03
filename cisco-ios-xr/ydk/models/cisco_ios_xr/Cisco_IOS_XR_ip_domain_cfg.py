@@ -34,7 +34,7 @@ class IpDomain(Entity):
     """
 
     _prefix = 'ip-domain-cfg'
-    _revision = '2015-05-13'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(IpDomain, self).__init__()
@@ -45,15 +45,16 @@ class IpDomain(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", IpDomain.Vrfs))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", IpDomain.Vrfs))])
         self._leafs = OrderedDict()
 
         self.vrfs = IpDomain.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-domain-cfg:ip-domain"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(IpDomain, [], name, value)
 
 
     class Vrfs(Entity):
@@ -70,7 +71,7 @@ class IpDomain(Entity):
         """
 
         _prefix = 'ip-domain-cfg'
-        _revision = '2015-05-13'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(IpDomain.Vrfs, self).__init__()
@@ -80,8 +81,7 @@ class IpDomain(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", IpDomain.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", IpDomain.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -150,7 +150,7 @@ class IpDomain(Entity):
             """
 
             _prefix = 'ip-domain-cfg'
-            _revision = '2015-05-13'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(IpDomain.Vrfs.Vrf, self).__init__()
@@ -160,8 +160,7 @@ class IpDomain(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("ipv6-hosts", ("ipv6_hosts", IpDomain.Vrfs.Vrf.Ipv6Hosts)), ("servers", ("servers", IpDomain.Vrfs.Vrf.Servers)), ("lists", ("lists", IpDomain.Vrfs.Vrf.Lists)), ("ipv4-hosts", ("ipv4_hosts", IpDomain.Vrfs.Vrf.Ipv4Hosts))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv6-hosts", ("ipv6_hosts", IpDomain.Vrfs.Vrf.Ipv6Hosts)), ("servers", ("servers", IpDomain.Vrfs.Vrf.Servers)), ("lists", ("lists", IpDomain.Vrfs.Vrf.Lists)), ("ipv4-hosts", ("ipv4_hosts", IpDomain.Vrfs.Vrf.Ipv4Hosts))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ('lookup', YLeaf(YType.empty, 'lookup')),
@@ -178,22 +177,18 @@ class IpDomain(Entity):
                 self.ipv6_hosts = IpDomain.Vrfs.Vrf.Ipv6Hosts()
                 self.ipv6_hosts.parent = self
                 self._children_name_map["ipv6_hosts"] = "ipv6-hosts"
-                self._children_yang_names.add("ipv6-hosts")
 
                 self.servers = IpDomain.Vrfs.Vrf.Servers()
                 self.servers.parent = self
                 self._children_name_map["servers"] = "servers"
-                self._children_yang_names.add("servers")
 
                 self.lists = IpDomain.Vrfs.Vrf.Lists()
                 self.lists.parent = self
                 self._children_name_map["lists"] = "lists"
-                self._children_yang_names.add("lists")
 
                 self.ipv4_hosts = IpDomain.Vrfs.Vrf.Ipv4Hosts()
                 self.ipv4_hosts.parent = self
                 self._children_name_map["ipv4_hosts"] = "ipv4-hosts"
-                self._children_yang_names.add("ipv4-hosts")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/%s" % self._segment_path()
 
@@ -215,7 +210,7 @@ class IpDomain(Entity):
                 """
 
                 _prefix = 'ip-domain-cfg'
-                _revision = '2015-05-13'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(IpDomain.Vrfs.Vrf.Ipv6Hosts, self).__init__()
@@ -225,8 +220,7 @@ class IpDomain(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ipv6-host", ("ipv6_host", IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host))])
+                    self._child_classes = OrderedDict([("ipv6-host", ("ipv6_host", IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host))])
                     self._leafs = OrderedDict()
 
                     self.ipv6_host = YList(self)
@@ -257,7 +251,7 @@ class IpDomain(Entity):
                     """
 
                     _prefix = 'ip-domain-cfg'
-                    _revision = '2015-05-13'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host, self).__init__()
@@ -267,8 +261,7 @@ class IpDomain(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['host_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('host_name', YLeaf(YType.str, 'host-name')),
                             ('address', YLeafList(YType.str, 'address')),
@@ -295,7 +288,7 @@ class IpDomain(Entity):
                 """
 
                 _prefix = 'ip-domain-cfg'
-                _revision = '2015-05-13'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(IpDomain.Vrfs.Vrf.Servers, self).__init__()
@@ -305,8 +298,7 @@ class IpDomain(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("server", ("server", IpDomain.Vrfs.Vrf.Servers.Server))])
+                    self._child_classes = OrderedDict([("server", ("server", IpDomain.Vrfs.Vrf.Servers.Server))])
                     self._leafs = OrderedDict()
 
                     self.server = YList(self)
@@ -325,7 +317,7 @@ class IpDomain(Entity):
                     	This is used to sort the servers in the order of precedence
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: server_address  (key)
                     
@@ -345,7 +337,7 @@ class IpDomain(Entity):
                     """
 
                     _prefix = 'ip-domain-cfg'
-                    _revision = '2015-05-13'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(IpDomain.Vrfs.Vrf.Servers.Server, self).__init__()
@@ -355,10 +347,9 @@ class IpDomain(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['order','server_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('order', YLeaf(YType.int32, 'order')),
+                            ('order', YLeaf(YType.uint32, 'order')),
                             ('server_address', YLeaf(YType.str, 'server-address')),
                         ])
                         self.order = None
@@ -384,7 +375,7 @@ class IpDomain(Entity):
                 """
 
                 _prefix = 'ip-domain-cfg'
-                _revision = '2015-05-13'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(IpDomain.Vrfs.Vrf.Lists, self).__init__()
@@ -394,8 +385,7 @@ class IpDomain(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("list", ("list", IpDomain.Vrfs.Vrf.Lists.List))])
+                    self._child_classes = OrderedDict([("list", ("list", IpDomain.Vrfs.Vrf.Lists.List))])
                     self._leafs = OrderedDict()
 
                     self.list = YList(self)
@@ -415,7 +405,7 @@ class IpDomain(Entity):
                     	This is used to sort the names in the order of precedence
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: list_name  (key)
                     
@@ -429,7 +419,7 @@ class IpDomain(Entity):
                     """
 
                     _prefix = 'ip-domain-cfg'
-                    _revision = '2015-05-13'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(IpDomain.Vrfs.Vrf.Lists.List, self).__init__()
@@ -439,10 +429,9 @@ class IpDomain(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['order','list_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('order', YLeaf(YType.int32, 'order')),
+                            ('order', YLeaf(YType.uint32, 'order')),
                             ('list_name', YLeaf(YType.str, 'list-name')),
                         ])
                         self.order = None
@@ -467,7 +456,7 @@ class IpDomain(Entity):
                 """
 
                 _prefix = 'ip-domain-cfg'
-                _revision = '2015-05-13'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(IpDomain.Vrfs.Vrf.Ipv4Hosts, self).__init__()
@@ -477,8 +466,7 @@ class IpDomain(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ipv4-host", ("ipv4_host", IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host))])
+                    self._child_classes = OrderedDict([("ipv4-host", ("ipv4_host", IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host))])
                     self._leafs = OrderedDict()
 
                     self.ipv4_host = YList(self)
@@ -509,7 +497,7 @@ class IpDomain(Entity):
                     """
 
                     _prefix = 'ip-domain-cfg'
-                    _revision = '2015-05-13'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, self).__init__()
@@ -519,8 +507,7 @@ class IpDomain(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['host_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('host_name', YLeaf(YType.str, 'host-name')),
                             ('address', YLeafList(YType.str, 'address')),

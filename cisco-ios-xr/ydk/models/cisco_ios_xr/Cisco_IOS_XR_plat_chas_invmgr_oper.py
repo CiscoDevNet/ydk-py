@@ -751,15 +751,16 @@ class Platform(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("racks", ("racks", Platform.Racks))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("racks", ("racks", Platform.Racks))])
         self._leafs = OrderedDict()
 
         self.racks = Platform.Racks()
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
-        self._children_yang_names.add("racks")
         self._segment_path = lambda: "Cisco-IOS-XR-plat-chas-invmgr-oper:platform"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Platform, [], name, value)
 
 
     class Racks(Entity):
@@ -786,8 +787,7 @@ class Platform(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rack", ("rack", Platform.Racks.Rack))])
+            self._child_classes = OrderedDict([("rack", ("rack", Platform.Racks.Rack))])
             self._leafs = OrderedDict()
 
             self.rack = YList(self)
@@ -829,8 +829,7 @@ class Platform(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rack_name']
-                self._child_container_classes = OrderedDict([("slots", ("slots", Platform.Racks.Rack.Slots))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("slots", ("slots", Platform.Racks.Rack.Slots))])
                 self._leafs = OrderedDict([
                     ('rack_name', YLeaf(YType.str, 'rack-name')),
                 ])
@@ -839,7 +838,6 @@ class Platform(Entity):
                 self.slots = Platform.Racks.Rack.Slots()
                 self.slots.parent = self
                 self._children_name_map["slots"] = "slots"
-                self._children_yang_names.add("slots")
                 self._segment_path = lambda: "rack" + "[rack-name='" + str(self.rack_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-plat-chas-invmgr-oper:platform/racks/%s" % self._segment_path()
 
@@ -871,8 +869,7 @@ class Platform(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slot", ("slot", Platform.Racks.Rack.Slots.Slot))])
+                    self._child_classes = OrderedDict([("slot", ("slot", Platform.Racks.Rack.Slots.Slot))])
                     self._leafs = OrderedDict()
 
                     self.slot = YList(self)
@@ -923,8 +920,7 @@ class Platform(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['slot_name']
-                        self._child_container_classes = OrderedDict([("instances", ("instances", Platform.Racks.Rack.Slots.Slot.Instances)), ("vm", ("vm", Platform.Racks.Rack.Slots.Slot.Vm)), ("state", ("state", Platform.Racks.Rack.Slots.Slot.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("instances", ("instances", Platform.Racks.Rack.Slots.Slot.Instances)), ("vm", ("vm", Platform.Racks.Rack.Slots.Slot.Vm)), ("state", ("state", Platform.Racks.Rack.Slots.Slot.State))])
                         self._leafs = OrderedDict([
                             ('slot_name', YLeaf(YType.str, 'slot-name')),
                         ])
@@ -933,17 +929,14 @@ class Platform(Entity):
                         self.instances = Platform.Racks.Rack.Slots.Slot.Instances()
                         self.instances.parent = self
                         self._children_name_map["instances"] = "instances"
-                        self._children_yang_names.add("instances")
 
                         self.vm = Platform.Racks.Rack.Slots.Slot.Vm()
                         self.vm.parent = self
                         self._children_name_map["vm"] = "vm"
-                        self._children_yang_names.add("vm")
 
                         self.state = Platform.Racks.Rack.Slots.Slot.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "slot" + "[slot-name='" + str(self.slot_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -974,8 +967,7 @@ class Platform(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("instance", ("instance", Platform.Racks.Rack.Slots.Slot.Instances.Instance))])
+                            self._child_classes = OrderedDict([("instance", ("instance", Platform.Racks.Rack.Slots.Slot.Instances.Instance))])
                             self._leafs = OrderedDict()
 
                             self.instance = YList(self)
@@ -1014,8 +1006,7 @@ class Platform(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['instance_name']
-                                self._child_container_classes = OrderedDict([("state", ("state", Platform.Racks.Rack.Slots.Slot.Instances.Instance.State))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("state", ("state", Platform.Racks.Rack.Slots.Slot.Instances.Instance.State))])
                                 self._leafs = OrderedDict([
                                     ('instance_name', YLeaf(YType.str, 'instance-name')),
                                 ])
@@ -1024,7 +1015,6 @@ class Platform(Entity):
                                 self.state = Platform.Racks.Rack.Slots.Slot.Instances.Instance.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
                                 self._segment_path = lambda: "instance" + "[instance-name='" + str(self.instance_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -1090,8 +1080,7 @@ class Platform(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('card_type', YLeaf(YType.str, 'card-type')),
                                         ('card_redundancy_state', YLeaf(YType.enumeration, 'card-redundancy-state')),
@@ -1113,7 +1102,7 @@ class Platform(Entity):
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Platform.Racks.Rack.Slots.Slot.Instances.Instance.State, ['card_type', 'card_redundancy_state', 'plim', 'state', 'is_monitored', 'is_powered', 'is_shutdown', 'admin_state'], name, value)
+                                    self._perform_setattr(Platform.Racks.Rack.Slots.Slot.Instances.Instance.State, [u'card_type', u'card_redundancy_state', u'plim', u'state', u'is_monitored', u'is_powered', u'is_shutdown', u'admin_state'], name, value)
 
 
                     class Vm(Entity):
@@ -1160,8 +1149,7 @@ class Platform(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_description', YLeaf(YType.str, 'node-description')),
                                 ('red_role', YLeaf(YType.str, 'red-role')),
@@ -1177,7 +1165,7 @@ class Platform(Entity):
                             self._segment_path = lambda: "vm"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Platform.Racks.Rack.Slots.Slot.Vm, ['node_description', 'red_role', 'partner_name', 'software_status', 'node_ip'], name, value)
+                            self._perform_setattr(Platform.Racks.Rack.Slots.Slot.Vm, [u'node_description', u'red_role', u'partner_name', u'software_status', u'node_ip'], name, value)
 
 
                     class State(Entity):
@@ -1239,8 +1227,7 @@ class Platform(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('card_type', YLeaf(YType.str, 'card-type')),
                                 ('card_redundancy_state', YLeaf(YType.enumeration, 'card-redundancy-state')),
@@ -1262,7 +1249,7 @@ class Platform(Entity):
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Platform.Racks.Rack.Slots.Slot.State, ['card_type', 'card_redundancy_state', 'plim', 'state', 'is_monitored', 'is_powered', 'is_shutdown', 'admin_state'], name, value)
+                            self._perform_setattr(Platform.Racks.Rack.Slots.Slot.State, [u'card_type', u'card_redundancy_state', u'plim', u'state', u'is_monitored', u'is_powered', u'is_shutdown', u'admin_state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Platform()
@@ -1293,15 +1280,16 @@ class PlatformInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("racks", ("racks", PlatformInventory.Racks))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("racks", ("racks", PlatformInventory.Racks))])
         self._leafs = OrderedDict()
 
         self.racks = PlatformInventory.Racks()
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
-        self._children_yang_names.add("racks")
         self._segment_path = lambda: "Cisco-IOS-XR-plat-chas-invmgr-oper:platform-inventory"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PlatformInventory, [], name, value)
 
 
     class Racks(Entity):
@@ -1328,8 +1316,7 @@ class PlatformInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rack", ("rack", PlatformInventory.Racks.Rack))])
+            self._child_classes = OrderedDict([("rack", ("rack", PlatformInventory.Racks.Rack))])
             self._leafs = OrderedDict()
 
             self.rack = YList(self)
@@ -1376,8 +1363,7 @@ class PlatformInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("slots", ("slots", PlatformInventory.Racks.Rack.Slots)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Attributes))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("slots", ("slots", PlatformInventory.Racks.Rack.Slots)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Attributes))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -1386,12 +1372,10 @@ class PlatformInventory(Entity):
                 self.slots = PlatformInventory.Racks.Rack.Slots()
                 self.slots.parent = self
                 self._children_name_map["slots"] = "slots"
-                self._children_yang_names.add("slots")
 
                 self.attributes = PlatformInventory.Racks.Rack.Attributes()
                 self.attributes.parent = self
                 self._children_name_map["attributes"] = "attributes"
-                self._children_yang_names.add("attributes")
                 self._segment_path = lambda: "rack" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-plat-chas-invmgr-oper:platform-inventory/racks/%s" % self._segment_path()
 
@@ -1423,8 +1407,7 @@ class PlatformInventory(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slot", ("slot", PlatformInventory.Racks.Rack.Slots.Slot))])
+                    self._child_classes = OrderedDict([("slot", ("slot", PlatformInventory.Racks.Rack.Slots.Slot))])
                     self._leafs = OrderedDict()
 
                     self.slot = YList(self)
@@ -1470,8 +1453,7 @@ class PlatformInventory(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([("cards", ("cards", PlatformInventory.Racks.Rack.Slots.Slot.Cards)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Attributes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("cards", ("cards", PlatformInventory.Racks.Rack.Slots.Slot.Cards)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Attributes))])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -1480,12 +1462,10 @@ class PlatformInventory(Entity):
                         self.cards = PlatformInventory.Racks.Rack.Slots.Slot.Cards()
                         self.cards.parent = self
                         self._children_name_map["cards"] = "cards"
-                        self._children_yang_names.add("cards")
 
                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Attributes()
                         self.attributes.parent = self
                         self._children_name_map["attributes"] = "attributes"
-                        self._children_yang_names.add("attributes")
                         self._segment_path = lambda: "slot" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
@@ -1516,8 +1496,7 @@ class PlatformInventory(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("card", ("card", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card))])
+                            self._child_classes = OrderedDict([("card", ("card", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card))])
                             self._leafs = OrderedDict()
 
                             self.card = YList(self)
@@ -1547,6 +1526,11 @@ class PlatformInventory(Entity):
                             
                             	Table of subslots
                             	**type**\:  :py:class:`SubSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots>`
+                            
+                            .. attribute:: portses
+                            
+                            	Table of port slots
+                            	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses>`
                             
                             .. attribute:: port_slots
                             
@@ -1583,8 +1567,7 @@ class PlatformInventory(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['name']
-                                self._child_container_classes = OrderedDict([("hardware-information", ("hardware_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation)), ("sub-slots", ("sub_slots", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots)), ("port-slots", ("port_slots", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots)), ("hw-components", ("hw_components", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("hardware-information", ("hardware_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation)), ("sub-slots", ("sub_slots", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots)), ("portses", ("portses", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses)), ("port-slots", ("port_slots", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots)), ("hw-components", ("hw_components", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes))])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                 ])
@@ -1593,32 +1576,30 @@ class PlatformInventory(Entity):
                                 self.hardware_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation()
                                 self.hardware_information.parent = self
                                 self._children_name_map["hardware_information"] = "hardware-information"
-                                self._children_yang_names.add("hardware-information")
 
                                 self.sub_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots()
                                 self.sub_slots.parent = self
                                 self._children_name_map["sub_slots"] = "sub-slots"
-                                self._children_yang_names.add("sub-slots")
+
+                                self.portses = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses()
+                                self.portses.parent = self
+                                self._children_name_map["portses"] = "portses"
 
                                 self.port_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots()
                                 self.port_slots.parent = self
                                 self._children_name_map["port_slots"] = "port-slots"
-                                self._children_yang_names.add("port-slots")
 
                                 self.hw_components = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents()
                                 self.hw_components.parent = self
                                 self._children_name_map["hw_components"] = "hw-components"
-                                self._children_yang_names.add("hw-components")
 
                                 self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors()
                                 self.sensors.parent = self
                                 self._children_name_map["sensors"] = "sensors"
-                                self._children_yang_names.add("sensors")
 
                                 self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes()
                                 self.attributes.parent = self
                                 self._children_name_map["attributes"] = "attributes"
-                                self._children_yang_names.add("attributes")
                                 self._segment_path = lambda: "card" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
@@ -1664,30 +1645,28 @@ class PlatformInventory(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("processor-information", ("processor_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation)), ("motherboard-information", ("motherboard_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation)), ("bootflash-information", ("bootflash_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation)), ("disk-information", ("disk_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("processor-information", ("processor_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation)), ("motherboard-information", ("motherboard_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation)), ("bootflash-information", ("bootflash_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation)), ("disk-information", ("disk_information", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation))])
                                     self._leafs = OrderedDict()
 
                                     self.processor_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation()
                                     self.processor_information.parent = self
                                     self._children_name_map["processor_information"] = "processor-information"
-                                    self._children_yang_names.add("processor-information")
 
                                     self.motherboard_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation()
                                     self.motherboard_information.parent = self
                                     self._children_name_map["motherboard_information"] = "motherboard-information"
-                                    self._children_yang_names.add("motherboard-information")
 
                                     self.bootflash_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation()
                                     self.bootflash_information.parent = self
                                     self._children_name_map["bootflash_information"] = "bootflash-information"
-                                    self._children_yang_names.add("bootflash-information")
 
                                     self.disk_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation()
                                     self.disk_information.parent = self
                                     self._children_name_map["disk_information"] = "disk-information"
-                                    self._children_yang_names.add("disk-information")
                                     self._segment_path = lambda: "hardware-information"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation, [], name, value)
 
 
                                 class ProcessorInformation(Entity):
@@ -1730,8 +1709,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('processor_type', YLeaf(YType.str, 'processor-type')),
                                             ('speed', YLeaf(YType.str, 'speed')),
@@ -1743,7 +1721,7 @@ class PlatformInventory(Entity):
                                         self._segment_path = lambda: "processor-information"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation, ['processor_type', 'speed', 'revision'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation, [u'processor_type', u'speed', u'revision'], name, value)
 
 
                                 class MotherboardInformation(Entity):
@@ -1798,8 +1776,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("rom", ("rom", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom)), ("bootflash", ("bootflash", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash)), ("processor", ("processor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("rom", ("rom", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom)), ("bootflash", ("bootflash", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash)), ("processor", ("processor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor))])
                                         self._leafs = OrderedDict([
                                             ('main_memory_size', YLeaf(YType.uint64, 'main-memory-size')),
                                             ('nvram_size', YLeaf(YType.uint64, 'nvram-size')),
@@ -1810,21 +1787,18 @@ class PlatformInventory(Entity):
                                         self.rom = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom()
                                         self.rom.parent = self
                                         self._children_name_map["rom"] = "rom"
-                                        self._children_yang_names.add("rom")
 
                                         self.bootflash = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash()
                                         self.bootflash.parent = self
                                         self._children_name_map["bootflash"] = "bootflash"
-                                        self._children_yang_names.add("bootflash")
 
                                         self.processor = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor()
                                         self.processor.parent = self
                                         self._children_name_map["processor"] = "processor"
-                                        self._children_yang_names.add("processor")
                                         self._segment_path = lambda: "motherboard-information"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation, ['main_memory_size', 'nvram_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation, [u'main_memory_size', u'nvram_size'], name, value)
 
 
                                     class Rom(Entity):
@@ -1888,8 +1862,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('image_name', YLeaf(YType.str, 'image-name')),
                                                 ('major_version', YLeaf(YType.uint32, 'major-version')),
@@ -1907,7 +1880,7 @@ class PlatformInventory(Entity):
                                             self._segment_path = lambda: "rom"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom, ['image_name', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom, [u'image_name', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type'], name, value)
 
 
                                     class Bootflash(Entity):
@@ -2003,8 +1976,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('image_name', YLeaf(YType.str, 'image-name')),
                                                 ('platform_type', YLeaf(YType.str, 'platform-type')),
@@ -2030,7 +2002,7 @@ class PlatformInventory(Entity):
                                             self._segment_path = lambda: "bootflash"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash, ['image_name', 'platform_type', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type', 'bootflash_type', 'bootflash_size', 'sector_size'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash, [u'image_name', u'platform_type', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type', u'bootflash_type', u'bootflash_size', u'sector_size'], name, value)
 
 
                                     class Processor(Entity):
@@ -2073,8 +2045,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('processor_type', YLeaf(YType.str, 'processor-type')),
                                                 ('speed', YLeaf(YType.str, 'speed')),
@@ -2086,7 +2057,7 @@ class PlatformInventory(Entity):
                                             self._segment_path = lambda: "processor"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor, ['processor_type', 'speed', 'revision'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor, [u'processor_type', u'speed', u'revision'], name, value)
 
 
                                 class BootflashInformation(Entity):
@@ -2182,8 +2153,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('image_name', YLeaf(YType.str, 'image-name')),
                                             ('platform_type', YLeaf(YType.str, 'platform-type')),
@@ -2209,7 +2179,7 @@ class PlatformInventory(Entity):
                                         self._segment_path = lambda: "bootflash-information"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation, ['image_name', 'platform_type', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type', 'bootflash_type', 'bootflash_size', 'sector_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation, [u'image_name', u'platform_type', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type', u'bootflash_type', u'bootflash_size', u'sector_size'], name, value)
 
 
                                 class DiskInformation(Entity):
@@ -2261,8 +2231,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("disks", ("disks", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks))])
+                                        self._child_classes = OrderedDict([("disks", ("disks", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks))])
                                         self._leafs = OrderedDict([
                                             ('disk_name', YLeaf(YType.str, 'disk-name')),
                                             ('disk_size', YLeaf(YType.uint32, 'disk-size')),
@@ -2276,7 +2245,7 @@ class PlatformInventory(Entity):
                                         self._segment_path = lambda: "disk-information"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation, ['disk_name', 'disk_size', 'sector_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation, [u'disk_name', u'disk_size', u'sector_size'], name, value)
 
 
                                     class Disks(Entity):
@@ -2323,8 +2292,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('disk_name', YLeaf(YType.str, 'disk-name')),
                                                 ('disk_size', YLeaf(YType.uint32, 'disk-size')),
@@ -2336,7 +2304,7 @@ class PlatformInventory(Entity):
                                             self._segment_path = lambda: "disks"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks, ['disk_name', 'disk_size', 'sector_size'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks, [u'disk_name', u'disk_size', u'sector_size'], name, value)
 
 
                             class SubSlots(Entity):
@@ -2363,8 +2331,7 @@ class PlatformInventory(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("sub-slot", ("sub_slot", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot))])
+                                    self._child_classes = OrderedDict([("sub-slot", ("sub_slot", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot))])
                                     self._leafs = OrderedDict()
 
                                     self.sub_slot = YList(self)
@@ -2410,8 +2377,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['name']
-                                        self._child_container_classes = OrderedDict([("module", ("module", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("module", ("module", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                         ])
@@ -2420,12 +2386,10 @@ class PlatformInventory(Entity):
                                         self.module = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module()
                                         self.module.parent = self
                                         self._children_name_map["module"] = "module"
-                                        self._children_yang_names.add("module")
 
                                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
                                         self._segment_path = lambda: "sub-slot" + "[name='" + str(self.name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -2466,25 +2430,24 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("port-slots", ("port_slots", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("port-slots", ("port_slots", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes))])
                                             self._leafs = OrderedDict()
 
                                             self.port_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots()
                                             self.port_slots.parent = self
                                             self._children_name_map["port_slots"] = "port-slots"
-                                            self._children_yang_names.add("port-slots")
 
                                             self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors()
                                             self.sensors.parent = self
                                             self._children_name_map["sensors"] = "sensors"
-                                            self._children_yang_names.add("sensors")
 
                                             self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes()
                                             self.attributes.parent = self
                                             self._children_name_map["attributes"] = "attributes"
-                                            self._children_yang_names.add("attributes")
                                             self._segment_path = lambda: "module"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module, [], name, value)
 
 
                                         class PortSlots(Entity):
@@ -2511,8 +2474,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("port-slot", ("port_slot", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot))])
+                                                self._child_classes = OrderedDict([("port-slot", ("port_slot", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot))])
                                                 self._leafs = OrderedDict()
 
                                                 self.port_slot = YList(self)
@@ -2535,7 +2497,7 @@ class PlatformInventory(Entity):
                                                 
                                                 .. attribute:: portses
                                                 
-                                                	Table of spirit port slots
+                                                	Table of port slots
                                                 	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses>`
                                                 
                                                 .. attribute:: sensors
@@ -2563,8 +2525,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['name']
-                                                    self._child_container_classes = OrderedDict([("portses", ("portses", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("portses", ("portses", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes))])
                                                     self._leafs = OrderedDict([
                                                         ('name', YLeaf(YType.str, 'name')),
                                                     ])
@@ -2573,17 +2534,14 @@ class PlatformInventory(Entity):
                                                     self.portses = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses()
                                                     self.portses.parent = self
                                                     self._children_name_map["portses"] = "portses"
-                                                    self._children_yang_names.add("portses")
 
                                                     self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors()
                                                     self.sensors.parent = self
                                                     self._children_name_map["sensors"] = "sensors"
-                                                    self._children_yang_names.add("sensors")
 
                                                     self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes()
                                                     self.attributes.parent = self
                                                     self._children_name_map["attributes"] = "attributes"
-                                                    self._children_yang_names.add("attributes")
                                                     self._segment_path = lambda: "port-slot" + "[name='" + str(self.name) + "']"
 
                                                 def __setattr__(self, name, value):
@@ -2592,7 +2550,7 @@ class PlatformInventory(Entity):
 
                                                 class Portses(Entity):
                                                     """
-                                                    Table of spirit port slots
+                                                    Table of port slots
                                                     
                                                     .. attribute:: ports
                                                     
@@ -2614,8 +2572,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([("ports", ("ports", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports))])
+                                                        self._child_classes = OrderedDict([("ports", ("ports", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports))])
                                                         self._leafs = OrderedDict()
 
                                                         self.ports = YList(self)
@@ -2666,8 +2623,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = ['name']
-                                                            self._child_container_classes = OrderedDict([("hw-components", ("hw_components", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes))])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([("hw-components", ("hw_components", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes))])
                                                             self._leafs = OrderedDict([
                                                                 ('name', YLeaf(YType.str, 'name')),
                                                             ])
@@ -2676,17 +2632,14 @@ class PlatformInventory(Entity):
                                                             self.hw_components = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents()
                                                             self.hw_components.parent = self
                                                             self._children_name_map["hw_components"] = "hw-components"
-                                                            self._children_yang_names.add("hw-components")
 
                                                             self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors()
                                                             self.sensors.parent = self
                                                             self._children_name_map["sensors"] = "sensors"
-                                                            self._children_yang_names.add("sensors")
 
                                                             self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes()
                                                             self.attributes.parent = self
                                                             self._children_name_map["attributes"] = "attributes"
-                                                            self._children_yang_names.add("attributes")
                                                             self._segment_path = lambda: "ports" + "[name='" + str(self.name) + "']"
 
                                                         def __setattr__(self, name, value):
@@ -2717,8 +2670,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([("hw-component", ("hw_component", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent))])
+                                                                self._child_classes = OrderedDict([("hw-component", ("hw_component", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent))])
                                                                 self._leafs = OrderedDict()
 
                                                                 self.hw_component = YList(self)
@@ -2764,8 +2716,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = ['name']
-                                                                    self._child_container_classes = OrderedDict([("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes))])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes))])
                                                                     self._leafs = OrderedDict([
                                                                         ('name', YLeaf(YType.str, 'name')),
                                                                     ])
@@ -2774,12 +2725,10 @@ class PlatformInventory(Entity):
                                                                     self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors()
                                                                     self.sensors.parent = self
                                                                     self._children_name_map["sensors"] = "sensors"
-                                                                    self._children_yang_names.add("sensors")
 
                                                                     self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes()
                                                                     self.attributes.parent = self
                                                                     self._children_name_map["attributes"] = "attributes"
-                                                                    self._children_yang_names.add("attributes")
                                                                     self._segment_path = lambda: "hw-component" + "[name='" + str(self.name) + "']"
 
                                                                 def __setattr__(self, name, value):
@@ -2810,8 +2759,7 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([])
-                                                                        self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor))])
+                                                                        self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor))])
                                                                         self._leafs = OrderedDict()
 
                                                                         self.sensor = YList(self)
@@ -2852,8 +2800,7 @@ class PlatformInventory(Entity):
                                                                             self.is_top_level_class = False
                                                                             self.has_list_ancestor = True
                                                                             self.ylist_key_names = ['name']
-                                                                            self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes))])
-                                                                            self._child_list_classes = OrderedDict([])
+                                                                            self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes))])
                                                                             self._leafs = OrderedDict([
                                                                                 ('name', YLeaf(YType.str, 'name')),
                                                                             ])
@@ -2862,7 +2809,6 @@ class PlatformInventory(Entity):
                                                                             self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes()
                                                                             self.attributes.parent = self
                                                                             self._children_name_map["attributes"] = "attributes"
-                                                                            self._children_yang_names.add("attributes")
                                                                             self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                                                         def __setattr__(self, name, value):
@@ -2898,20 +2844,20 @@ class PlatformInventory(Entity):
                                                                                 self.is_top_level_class = False
                                                                                 self.has_list_ancestor = True
                                                                                 self.ylist_key_names = []
-                                                                                self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo))])
-                                                                                self._child_list_classes = OrderedDict([])
+                                                                                self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo))])
                                                                                 self._leafs = OrderedDict()
 
                                                                                 self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo()
                                                                                 self.basic_info.parent = self
                                                                                 self._children_name_map["basic_info"] = "basic-info"
-                                                                                self._children_yang_names.add("basic-info")
 
                                                                                 self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo()
                                                                                 self.fru_info.parent = self
                                                                                 self._children_name_map["fru_info"] = "fru-info"
-                                                                                self._children_yang_names.add("fru-info")
                                                                                 self._segment_path = lambda: "attributes"
+
+                                                                            def __setattr__(self, name, value):
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes, [], name, value)
 
 
                                                                             class BasicInfo(Entity):
@@ -2994,8 +2940,7 @@ class PlatformInventory(Entity):
                                                                                     self.is_top_level_class = False
                                                                                     self.has_list_ancestor = True
                                                                                     self.ylist_key_names = []
-                                                                                    self._child_container_classes = OrderedDict([])
-                                                                                    self._child_list_classes = OrderedDict([])
+                                                                                    self._child_classes = OrderedDict([])
                                                                                     self._leafs = OrderedDict([
                                                                                         ('name', YLeaf(YType.str, 'name')),
                                                                                         ('description', YLeaf(YType.str, 'description')),
@@ -3019,7 +2964,7 @@ class PlatformInventory(Entity):
                                                                                     self._segment_path = lambda: "basic-info"
 
                                                                                 def __setattr__(self, name, value):
-                                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                                             class FruInfo(Entity):
@@ -3076,8 +3021,7 @@ class PlatformInventory(Entity):
                                                                                     self.is_top_level_class = False
                                                                                     self.has_list_ancestor = True
                                                                                     self.ylist_key_names = []
-                                                                                    self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                                                    self._child_list_classes = OrderedDict([])
+                                                                                    self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                                                     self._leafs = OrderedDict([
                                                                                         ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                                         ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -3094,16 +3038,14 @@ class PlatformInventory(Entity):
                                                                                     self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                                                     self.last_operational_state_change.parent = self
                                                                                     self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                                                    self._children_yang_names.add("last-operational-state-change")
 
                                                                                     self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                                                     self.module_up_time.parent = self
                                                                                     self._children_name_map["module_up_time"] = "module-up-time"
-                                                                                    self._children_yang_names.add("module-up-time")
                                                                                     self._segment_path = lambda: "fru-info"
 
                                                                                 def __setattr__(self, name, value):
-                                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                                                 class LastOperationalStateChange(Entity):
@@ -3143,8 +3085,7 @@ class PlatformInventory(Entity):
                                                                                         self.is_top_level_class = False
                                                                                         self.has_list_ancestor = True
                                                                                         self.ylist_key_names = []
-                                                                                        self._child_container_classes = OrderedDict([])
-                                                                                        self._child_list_classes = OrderedDict([])
+                                                                                        self._child_classes = OrderedDict([])
                                                                                         self._leafs = OrderedDict([
                                                                                             ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                                             ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -3154,7 +3095,7 @@ class PlatformInventory(Entity):
                                                                                         self._segment_path = lambda: "last-operational-state-change"
 
                                                                                     def __setattr__(self, name, value):
-                                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                                                 class ModuleUpTime(Entity):
@@ -3194,8 +3135,7 @@ class PlatformInventory(Entity):
                                                                                         self.is_top_level_class = False
                                                                                         self.has_list_ancestor = True
                                                                                         self.ylist_key_names = []
-                                                                                        self._child_container_classes = OrderedDict([])
-                                                                                        self._child_list_classes = OrderedDict([])
+                                                                                        self._child_classes = OrderedDict([])
                                                                                         self._leafs = OrderedDict([
                                                                                             ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                                             ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -3205,7 +3145,7 @@ class PlatformInventory(Entity):
                                                                                         self._segment_path = lambda: "module-up-time"
 
                                                                                     def __setattr__(self, name, value):
-                                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                                 class Attributes(Entity):
@@ -3237,20 +3177,20 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo))])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo))])
                                                                         self._leafs = OrderedDict()
 
                                                                         self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo()
                                                                         self.basic_info.parent = self
                                                                         self._children_name_map["basic_info"] = "basic-info"
-                                                                        self._children_yang_names.add("basic-info")
 
                                                                         self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo()
                                                                         self.fru_info.parent = self
                                                                         self._children_name_map["fru_info"] = "fru-info"
-                                                                        self._children_yang_names.add("fru-info")
                                                                         self._segment_path = lambda: "attributes"
+
+                                                                    def __setattr__(self, name, value):
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes, [], name, value)
 
 
                                                                     class BasicInfo(Entity):
@@ -3333,8 +3273,7 @@ class PlatformInventory(Entity):
                                                                             self.is_top_level_class = False
                                                                             self.has_list_ancestor = True
                                                                             self.ylist_key_names = []
-                                                                            self._child_container_classes = OrderedDict([])
-                                                                            self._child_list_classes = OrderedDict([])
+                                                                            self._child_classes = OrderedDict([])
                                                                             self._leafs = OrderedDict([
                                                                                 ('name', YLeaf(YType.str, 'name')),
                                                                                 ('description', YLeaf(YType.str, 'description')),
@@ -3358,7 +3297,7 @@ class PlatformInventory(Entity):
                                                                             self._segment_path = lambda: "basic-info"
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                                     class FruInfo(Entity):
@@ -3415,8 +3354,7 @@ class PlatformInventory(Entity):
                                                                             self.is_top_level_class = False
                                                                             self.has_list_ancestor = True
                                                                             self.ylist_key_names = []
-                                                                            self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime))])
-                                                                            self._child_list_classes = OrderedDict([])
+                                                                            self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime))])
                                                                             self._leafs = OrderedDict([
                                                                                 ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                                 ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -3433,16 +3371,14 @@ class PlatformInventory(Entity):
                                                                             self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange()
                                                                             self.last_operational_state_change.parent = self
                                                                             self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                                            self._children_yang_names.add("last-operational-state-change")
 
                                                                             self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime()
                                                                             self.module_up_time.parent = self
                                                                             self._children_name_map["module_up_time"] = "module-up-time"
-                                                                            self._children_yang_names.add("module-up-time")
                                                                             self._segment_path = lambda: "fru-info"
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                                         class LastOperationalStateChange(Entity):
@@ -3482,8 +3418,7 @@ class PlatformInventory(Entity):
                                                                                 self.is_top_level_class = False
                                                                                 self.has_list_ancestor = True
                                                                                 self.ylist_key_names = []
-                                                                                self._child_container_classes = OrderedDict([])
-                                                                                self._child_list_classes = OrderedDict([])
+                                                                                self._child_classes = OrderedDict([])
                                                                                 self._leafs = OrderedDict([
                                                                                     ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                                     ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -3493,7 +3428,7 @@ class PlatformInventory(Entity):
                                                                                 self._segment_path = lambda: "last-operational-state-change"
 
                                                                             def __setattr__(self, name, value):
-                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                                         class ModuleUpTime(Entity):
@@ -3533,8 +3468,7 @@ class PlatformInventory(Entity):
                                                                                 self.is_top_level_class = False
                                                                                 self.has_list_ancestor = True
                                                                                 self.ylist_key_names = []
-                                                                                self._child_container_classes = OrderedDict([])
-                                                                                self._child_list_classes = OrderedDict([])
+                                                                                self._child_classes = OrderedDict([])
                                                                                 self._leafs = OrderedDict([
                                                                                     ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                                     ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -3544,7 +3478,7 @@ class PlatformInventory(Entity):
                                                                                 self._segment_path = lambda: "module-up-time"
 
                                                                             def __setattr__(self, name, value):
-                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                         class Sensors(Entity):
@@ -3571,8 +3505,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor))])
+                                                                self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor))])
                                                                 self._leafs = OrderedDict()
 
                                                                 self.sensor = YList(self)
@@ -3613,8 +3546,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = ['name']
-                                                                    self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes))])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes))])
                                                                     self._leafs = OrderedDict([
                                                                         ('name', YLeaf(YType.str, 'name')),
                                                                     ])
@@ -3623,7 +3555,6 @@ class PlatformInventory(Entity):
                                                                     self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes()
                                                                     self.attributes.parent = self
                                                                     self._children_name_map["attributes"] = "attributes"
-                                                                    self._children_yang_names.add("attributes")
                                                                     self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                                                 def __setattr__(self, name, value):
@@ -3659,20 +3590,20 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo))])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo))])
                                                                         self._leafs = OrderedDict()
 
                                                                         self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo()
                                                                         self.basic_info.parent = self
                                                                         self._children_name_map["basic_info"] = "basic-info"
-                                                                        self._children_yang_names.add("basic-info")
 
                                                                         self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo()
                                                                         self.fru_info.parent = self
                                                                         self._children_name_map["fru_info"] = "fru-info"
-                                                                        self._children_yang_names.add("fru-info")
                                                                         self._segment_path = lambda: "attributes"
+
+                                                                    def __setattr__(self, name, value):
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes, [], name, value)
 
 
                                                                     class BasicInfo(Entity):
@@ -3755,8 +3686,7 @@ class PlatformInventory(Entity):
                                                                             self.is_top_level_class = False
                                                                             self.has_list_ancestor = True
                                                                             self.ylist_key_names = []
-                                                                            self._child_container_classes = OrderedDict([])
-                                                                            self._child_list_classes = OrderedDict([])
+                                                                            self._child_classes = OrderedDict([])
                                                                             self._leafs = OrderedDict([
                                                                                 ('name', YLeaf(YType.str, 'name')),
                                                                                 ('description', YLeaf(YType.str, 'description')),
@@ -3780,7 +3710,7 @@ class PlatformInventory(Entity):
                                                                             self._segment_path = lambda: "basic-info"
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                                     class FruInfo(Entity):
@@ -3837,8 +3767,7 @@ class PlatformInventory(Entity):
                                                                             self.is_top_level_class = False
                                                                             self.has_list_ancestor = True
                                                                             self.ylist_key_names = []
-                                                                            self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                                            self._child_list_classes = OrderedDict([])
+                                                                            self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                                             self._leafs = OrderedDict([
                                                                                 ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                                 ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -3855,16 +3784,14 @@ class PlatformInventory(Entity):
                                                                             self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                                             self.last_operational_state_change.parent = self
                                                                             self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                                            self._children_yang_names.add("last-operational-state-change")
 
                                                                             self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                                             self.module_up_time.parent = self
                                                                             self._children_name_map["module_up_time"] = "module-up-time"
-                                                                            self._children_yang_names.add("module-up-time")
                                                                             self._segment_path = lambda: "fru-info"
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                                         class LastOperationalStateChange(Entity):
@@ -3904,8 +3831,7 @@ class PlatformInventory(Entity):
                                                                                 self.is_top_level_class = False
                                                                                 self.has_list_ancestor = True
                                                                                 self.ylist_key_names = []
-                                                                                self._child_container_classes = OrderedDict([])
-                                                                                self._child_list_classes = OrderedDict([])
+                                                                                self._child_classes = OrderedDict([])
                                                                                 self._leafs = OrderedDict([
                                                                                     ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                                     ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -3915,7 +3841,7 @@ class PlatformInventory(Entity):
                                                                                 self._segment_path = lambda: "last-operational-state-change"
 
                                                                             def __setattr__(self, name, value):
-                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                                         class ModuleUpTime(Entity):
@@ -3955,8 +3881,7 @@ class PlatformInventory(Entity):
                                                                                 self.is_top_level_class = False
                                                                                 self.has_list_ancestor = True
                                                                                 self.ylist_key_names = []
-                                                                                self._child_container_classes = OrderedDict([])
-                                                                                self._child_list_classes = OrderedDict([])
+                                                                                self._child_classes = OrderedDict([])
                                                                                 self._leafs = OrderedDict([
                                                                                     ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                                     ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -3966,7 +3891,7 @@ class PlatformInventory(Entity):
                                                                                 self._segment_path = lambda: "module-up-time"
 
                                                                             def __setattr__(self, name, value):
-                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                         class Attributes(Entity):
@@ -3998,20 +3923,20 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo))])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo))])
                                                                 self._leafs = OrderedDict()
 
                                                                 self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo()
                                                                 self.basic_info.parent = self
                                                                 self._children_name_map["basic_info"] = "basic-info"
-                                                                self._children_yang_names.add("basic-info")
 
                                                                 self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo()
                                                                 self.fru_info.parent = self
                                                                 self._children_name_map["fru_info"] = "fru-info"
-                                                                self._children_yang_names.add("fru-info")
                                                                 self._segment_path = lambda: "attributes"
+
+                                                            def __setattr__(self, name, value):
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes, [], name, value)
 
 
                                                             class BasicInfo(Entity):
@@ -4094,8 +4019,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([])
                                                                     self._leafs = OrderedDict([
                                                                         ('name', YLeaf(YType.str, 'name')),
                                                                         ('description', YLeaf(YType.str, 'description')),
@@ -4119,7 +4043,7 @@ class PlatformInventory(Entity):
                                                                     self._segment_path = lambda: "basic-info"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                             class FruInfo(Entity):
@@ -4176,8 +4100,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime))])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime))])
                                                                     self._leafs = OrderedDict([
                                                                         ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                         ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -4194,16 +4117,14 @@ class PlatformInventory(Entity):
                                                                     self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange()
                                                                     self.last_operational_state_change.parent = self
                                                                     self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                                    self._children_yang_names.add("last-operational-state-change")
 
                                                                     self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime()
                                                                     self.module_up_time.parent = self
                                                                     self._children_name_map["module_up_time"] = "module-up-time"
-                                                                    self._children_yang_names.add("module-up-time")
                                                                     self._segment_path = lambda: "fru-info"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                                 class LastOperationalStateChange(Entity):
@@ -4243,8 +4164,7 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
                                                                             ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                             ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -4254,7 +4174,7 @@ class PlatformInventory(Entity):
                                                                         self._segment_path = lambda: "last-operational-state-change"
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                                 class ModuleUpTime(Entity):
@@ -4294,8 +4214,7 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
                                                                             ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                             ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -4305,7 +4224,7 @@ class PlatformInventory(Entity):
                                                                         self._segment_path = lambda: "module-up-time"
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                 class Sensors(Entity):
@@ -4332,8 +4251,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor))])
+                                                        self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor))])
                                                         self._leafs = OrderedDict()
 
                                                         self.sensor = YList(self)
@@ -4374,8 +4292,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = ['name']
-                                                            self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes))])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes))])
                                                             self._leafs = OrderedDict([
                                                                 ('name', YLeaf(YType.str, 'name')),
                                                             ])
@@ -4384,7 +4301,6 @@ class PlatformInventory(Entity):
                                                             self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes()
                                                             self.attributes.parent = self
                                                             self._children_name_map["attributes"] = "attributes"
-                                                            self._children_yang_names.add("attributes")
                                                             self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                                         def __setattr__(self, name, value):
@@ -4420,20 +4336,20 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo))])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo))])
                                                                 self._leafs = OrderedDict()
 
                                                                 self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo()
                                                                 self.basic_info.parent = self
                                                                 self._children_name_map["basic_info"] = "basic-info"
-                                                                self._children_yang_names.add("basic-info")
 
                                                                 self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo()
                                                                 self.fru_info.parent = self
                                                                 self._children_name_map["fru_info"] = "fru-info"
-                                                                self._children_yang_names.add("fru-info")
                                                                 self._segment_path = lambda: "attributes"
+
+                                                            def __setattr__(self, name, value):
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes, [], name, value)
 
 
                                                             class BasicInfo(Entity):
@@ -4516,8 +4432,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([])
                                                                     self._leafs = OrderedDict([
                                                                         ('name', YLeaf(YType.str, 'name')),
                                                                         ('description', YLeaf(YType.str, 'description')),
@@ -4541,7 +4456,7 @@ class PlatformInventory(Entity):
                                                                     self._segment_path = lambda: "basic-info"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                             class FruInfo(Entity):
@@ -4598,8 +4513,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                                     self._leafs = OrderedDict([
                                                                         ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                         ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -4616,16 +4530,14 @@ class PlatformInventory(Entity):
                                                                     self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                                     self.last_operational_state_change.parent = self
                                                                     self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                                    self._children_yang_names.add("last-operational-state-change")
 
                                                                     self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                                     self.module_up_time.parent = self
                                                                     self._children_name_map["module_up_time"] = "module-up-time"
-                                                                    self._children_yang_names.add("module-up-time")
                                                                     self._segment_path = lambda: "fru-info"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                                 class LastOperationalStateChange(Entity):
@@ -4665,8 +4577,7 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
                                                                             ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                             ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -4676,7 +4587,7 @@ class PlatformInventory(Entity):
                                                                         self._segment_path = lambda: "last-operational-state-change"
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                                 class ModuleUpTime(Entity):
@@ -4716,8 +4627,7 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
                                                                             ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                             ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -4727,7 +4637,7 @@ class PlatformInventory(Entity):
                                                                         self._segment_path = lambda: "module-up-time"
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                 class Attributes(Entity):
@@ -4759,20 +4669,20 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo))])
                                                         self._leafs = OrderedDict()
 
                                                         self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo()
                                                         self.basic_info.parent = self
                                                         self._children_name_map["basic_info"] = "basic-info"
-                                                        self._children_yang_names.add("basic-info")
 
                                                         self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo()
                                                         self.fru_info.parent = self
                                                         self._children_name_map["fru_info"] = "fru-info"
-                                                        self._children_yang_names.add("fru-info")
                                                         self._segment_path = lambda: "attributes"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes, [], name, value)
 
 
                                                     class BasicInfo(Entity):
@@ -4855,8 +4765,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('name', YLeaf(YType.str, 'name')),
                                                                 ('description', YLeaf(YType.str, 'description')),
@@ -4880,7 +4789,7 @@ class PlatformInventory(Entity):
                                                             self._segment_path = lambda: "basic-info"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                     class FruInfo(Entity):
@@ -4937,8 +4846,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime))])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime))])
                                                             self._leafs = OrderedDict([
                                                                 ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                 ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -4955,16 +4863,14 @@ class PlatformInventory(Entity):
                                                             self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange()
                                                             self.last_operational_state_change.parent = self
                                                             self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                            self._children_yang_names.add("last-operational-state-change")
 
                                                             self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime()
                                                             self.module_up_time.parent = self
                                                             self._children_name_map["module_up_time"] = "module-up-time"
-                                                            self._children_yang_names.add("module-up-time")
                                                             self._segment_path = lambda: "fru-info"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                         class LastOperationalStateChange(Entity):
@@ -5004,8 +4910,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
                                                                     ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                     ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -5015,7 +4920,7 @@ class PlatformInventory(Entity):
                                                                 self._segment_path = lambda: "last-operational-state-change"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                         class ModuleUpTime(Entity):
@@ -5055,8 +4960,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
                                                                     ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                     ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -5066,7 +4970,7 @@ class PlatformInventory(Entity):
                                                                 self._segment_path = lambda: "module-up-time"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                         class Sensors(Entity):
@@ -5093,8 +4997,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor))])
+                                                self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor))])
                                                 self._leafs = OrderedDict()
 
                                                 self.sensor = YList(self)
@@ -5135,8 +5038,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['name']
-                                                    self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes))])
                                                     self._leafs = OrderedDict([
                                                         ('name', YLeaf(YType.str, 'name')),
                                                     ])
@@ -5145,7 +5047,6 @@ class PlatformInventory(Entity):
                                                     self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes()
                                                     self.attributes.parent = self
                                                     self._children_name_map["attributes"] = "attributes"
-                                                    self._children_yang_names.add("attributes")
                                                     self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                                 def __setattr__(self, name, value):
@@ -5181,20 +5082,20 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo))])
                                                         self._leafs = OrderedDict()
 
                                                         self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo()
                                                         self.basic_info.parent = self
                                                         self._children_name_map["basic_info"] = "basic-info"
-                                                        self._children_yang_names.add("basic-info")
 
                                                         self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo()
                                                         self.fru_info.parent = self
                                                         self._children_name_map["fru_info"] = "fru-info"
-                                                        self._children_yang_names.add("fru-info")
                                                         self._segment_path = lambda: "attributes"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes, [], name, value)
 
 
                                                     class BasicInfo(Entity):
@@ -5277,8 +5178,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('name', YLeaf(YType.str, 'name')),
                                                                 ('description', YLeaf(YType.str, 'description')),
@@ -5302,7 +5202,7 @@ class PlatformInventory(Entity):
                                                             self._segment_path = lambda: "basic-info"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                     class FruInfo(Entity):
@@ -5359,8 +5259,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                             self._leafs = OrderedDict([
                                                                 ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                 ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -5377,16 +5276,14 @@ class PlatformInventory(Entity):
                                                             self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                             self.last_operational_state_change.parent = self
                                                             self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                            self._children_yang_names.add("last-operational-state-change")
 
                                                             self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                             self.module_up_time.parent = self
                                                             self._children_name_map["module_up_time"] = "module-up-time"
-                                                            self._children_yang_names.add("module-up-time")
                                                             self._segment_path = lambda: "fru-info"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                         class LastOperationalStateChange(Entity):
@@ -5426,8 +5323,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
                                                                     ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                     ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -5437,7 +5333,7 @@ class PlatformInventory(Entity):
                                                                 self._segment_path = lambda: "last-operational-state-change"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                         class ModuleUpTime(Entity):
@@ -5477,8 +5373,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
                                                                     ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                     ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -5488,7 +5383,7 @@ class PlatformInventory(Entity):
                                                                 self._segment_path = lambda: "module-up-time"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                         class Attributes(Entity):
@@ -5520,20 +5415,20 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo))])
                                                 self._leafs = OrderedDict()
 
                                                 self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo()
                                                 self.basic_info.parent = self
                                                 self._children_name_map["basic_info"] = "basic-info"
-                                                self._children_yang_names.add("basic-info")
 
                                                 self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo()
                                                 self.fru_info.parent = self
                                                 self._children_name_map["fru_info"] = "fru-info"
-                                                self._children_yang_names.add("fru-info")
                                                 self._segment_path = lambda: "attributes"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes, [], name, value)
 
 
                                             class BasicInfo(Entity):
@@ -5616,8 +5511,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('name', YLeaf(YType.str, 'name')),
                                                         ('description', YLeaf(YType.str, 'description')),
@@ -5641,7 +5535,7 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "basic-info"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                             class FruInfo(Entity):
@@ -5698,8 +5592,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime))])
                                                     self._leafs = OrderedDict([
                                                         ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                         ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -5716,16 +5609,14 @@ class PlatformInventory(Entity):
                                                     self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange()
                                                     self.last_operational_state_change.parent = self
                                                     self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                    self._children_yang_names.add("last-operational-state-change")
 
                                                     self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime()
                                                     self.module_up_time.parent = self
                                                     self._children_name_map["module_up_time"] = "module-up-time"
-                                                    self._children_yang_names.add("module-up-time")
                                                     self._segment_path = lambda: "fru-info"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                 class LastOperationalStateChange(Entity):
@@ -5765,8 +5656,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                             ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -5776,7 +5666,7 @@ class PlatformInventory(Entity):
                                                         self._segment_path = lambda: "last-operational-state-change"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                 class ModuleUpTime(Entity):
@@ -5816,8 +5706,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                             ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -5827,7 +5716,7 @@ class PlatformInventory(Entity):
                                                         self._segment_path = lambda: "module-up-time"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                     class Attributes(Entity):
@@ -5859,20 +5748,20 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo))])
                                             self._leafs = OrderedDict()
 
                                             self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo()
                                             self.basic_info.parent = self
                                             self._children_name_map["basic_info"] = "basic-info"
-                                            self._children_yang_names.add("basic-info")
 
                                             self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo()
                                             self.fru_info.parent = self
                                             self._children_name_map["fru_info"] = "fru-info"
-                                            self._children_yang_names.add("fru-info")
                                             self._segment_path = lambda: "attributes"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes, [], name, value)
 
 
                                         class BasicInfo(Entity):
@@ -5955,8 +5844,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('name', YLeaf(YType.str, 'name')),
                                                     ('description', YLeaf(YType.str, 'description')),
@@ -5980,7 +5868,7 @@ class PlatformInventory(Entity):
                                                 self._segment_path = lambda: "basic-info"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                         class FruInfo(Entity):
@@ -6037,8 +5925,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime))])
                                                 self._leafs = OrderedDict([
                                                     ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                     ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -6055,16 +5942,14 @@ class PlatformInventory(Entity):
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
                                                 self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                self._children_yang_names.add("last-operational-state-change")
 
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
                                                 self._children_name_map["module_up_time"] = "module-up-time"
-                                                self._children_yang_names.add("module-up-time")
                                                 self._segment_path = lambda: "fru-info"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -6104,8 +5989,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -6115,7 +5999,7 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "last-operational-state-change"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                             class ModuleUpTime(Entity):
@@ -6155,8 +6039,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -6166,7 +6049,1686 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "module-up-time"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+
+
+                            class Portses(Entity):
+                                """
+                                Table of port slots
+                                
+                                .. attribute:: ports
+                                
+                                	Port number
+                                	**type**\: list of  		 :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'plat-chas-invmgr-oper'
+                                _revision = '2018-01-22'
+
+                                def __init__(self):
+                                    super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses, self).__init__()
+
+                                    self.yang_name = "portses"
+                                    self.yang_parent_name = "card"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("ports", ("ports", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports))])
+                                    self._leafs = OrderedDict()
+
+                                    self.ports = YList(self)
+                                    self._segment_path = lambda: "portses"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses, [], name, value)
+
+
+                                class Ports(Entity):
+                                    """
+                                    Port number
+                                    
+                                    .. attribute:: name  (key)
+                                    
+                                    	Port name
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                    
+                                    .. attribute:: hw_components
+                                    
+                                    	Table of  HW components 
+                                    	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents>`
+                                    
+                                    .. attribute:: sensors
+                                    
+                                    	Table of sensors
+                                    	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors>`
+                                    
+                                    .. attribute:: attributes
+                                    
+                                    	Attributes
+                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'plat-chas-invmgr-oper'
+                                    _revision = '2018-01-22'
+
+                                    def __init__(self):
+                                        super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports, self).__init__()
+
+                                        self.yang_name = "ports"
+                                        self.yang_parent_name = "portses"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['name']
+                                        self._child_classes = OrderedDict([("hw-components", ("hw_components", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                        ])
+                                        self.name = None
+
+                                        self.hw_components = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents()
+                                        self.hw_components.parent = self
+                                        self._children_name_map["hw_components"] = "hw-components"
+
+                                        self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors()
+                                        self.sensors.parent = self
+                                        self._children_name_map["sensors"] = "sensors"
+
+                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes()
+                                        self.attributes.parent = self
+                                        self._children_name_map["attributes"] = "attributes"
+                                        self._segment_path = lambda: "ports" + "[name='" + str(self.name) + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports, ['name'], name, value)
+
+
+                                    class HwComponents(Entity):
+                                        """
+                                        Table of  HW components 
+                                        
+                                        .. attribute:: hw_component
+                                        
+                                        	HW component number
+                                        	**type**\: list of  		 :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'plat-chas-invmgr-oper'
+                                        _revision = '2018-01-22'
+
+                                        def __init__(self):
+                                            super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents, self).__init__()
+
+                                            self.yang_name = "hw-components"
+                                            self.yang_parent_name = "ports"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("hw-component", ("hw_component", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent))])
+                                            self._leafs = OrderedDict()
+
+                                            self.hw_component = YList(self)
+                                            self._segment_path = lambda: "hw-components"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents, [], name, value)
+
+
+                                        class HwComponent(Entity):
+                                            """
+                                            HW component number
+                                            
+                                            .. attribute:: name  (key)
+                                            
+                                            	HW component name
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                            
+                                            .. attribute:: sensors
+                                            
+                                            	Table of sensors
+                                            	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors>`
+                                            
+                                            .. attribute:: attributes
+                                            
+                                            	Attributes
+                                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'plat-chas-invmgr-oper'
+                                            _revision = '2018-01-22'
+
+                                            def __init__(self):
+                                                super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent, self).__init__()
+
+                                                self.yang_name = "hw-component"
+                                                self.yang_parent_name = "hw-components"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['name']
+                                                self._child_classes = OrderedDict([("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes))])
+                                                self._leafs = OrderedDict([
+                                                    ('name', YLeaf(YType.str, 'name')),
+                                                ])
+                                                self.name = None
+
+                                                self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors()
+                                                self.sensors.parent = self
+                                                self._children_name_map["sensors"] = "sensors"
+
+                                                self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes()
+                                                self.attributes.parent = self
+                                                self._children_name_map["attributes"] = "attributes"
+                                                self._segment_path = lambda: "hw-component" + "[name='" + str(self.name) + "']"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent, ['name'], name, value)
+
+
+                                            class Sensors(Entity):
+                                                """
+                                                Table of sensors
+                                                
+                                                .. attribute:: sensor
+                                                
+                                                	Sensor number
+                                                	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2018-01-22'
+
+                                                def __init__(self):
+                                                    super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors, self).__init__()
+
+                                                    self.yang_name = "sensors"
+                                                    self.yang_parent_name = "hw-component"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor))])
+                                                    self._leafs = OrderedDict()
+
+                                                    self.sensor = YList(self)
+                                                    self._segment_path = lambda: "sensors"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors, [], name, value)
+
+
+                                                class Sensor(Entity):
+                                                    """
+                                                    Sensor number
+                                                    
+                                                    .. attribute:: name  (key)
+                                                    
+                                                    	Sensor name
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                    
+                                                    .. attribute:: attributes
+                                                    
+                                                    	Attributes
+                                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2018-01-22'
+
+                                                    def __init__(self):
+                                                        super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor, self).__init__()
+
+                                                        self.yang_name = "sensor"
+                                                        self.yang_parent_name = "sensors"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = ['name']
+                                                        self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes))])
+                                                        self._leafs = OrderedDict([
+                                                            ('name', YLeaf(YType.str, 'name')),
+                                                        ])
+                                                        self.name = None
+
+                                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes()
+                                                        self.attributes.parent = self
+                                                        self._children_name_map["attributes"] = "attributes"
+                                                        self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor, ['name'], name, value)
+
+
+                                                    class Attributes(Entity):
+                                                        """
+                                                        Attributes
+                                                        
+                                                        .. attribute:: basic_info
+                                                        
+                                                        	Entity attributes
+                                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
+                                                        
+                                                        .. attribute:: fru_info
+                                                        
+                                                        	Field Replaceable Unit (FRU) attributes
+                                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2018-01-22'
+
+                                                        def __init__(self):
+                                                            super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes, self).__init__()
+
+                                                            self.yang_name = "attributes"
+                                                            self.yang_parent_name = "sensor"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo))])
+                                                            self._leafs = OrderedDict()
+
+                                                            self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo()
+                                                            self.basic_info.parent = self
+                                                            self._children_name_map["basic_info"] = "basic-info"
+
+                                                            self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo()
+                                                            self.fru_info.parent = self
+                                                            self._children_name_map["fru_info"] = "fru-info"
+                                                            self._segment_path = lambda: "attributes"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes, [], name, value)
+
+
+                                                        class BasicInfo(Entity):
+                                                            """
+                                                            Entity attributes
+                                                            
+                                                            .. attribute:: name
+                                                            
+                                                            	name string for the entity
+                                                            	**type**\: str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: description
+                                                            
+                                                            	describes in user\-readable terms                 what the entity in question does
+                                                            	**type**\: str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: model_name
+                                                            
+                                                            	model name
+                                                            	**type**\: str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: hardware_revision
+                                                            
+                                                            	hw revision string
+                                                            	**type**\: str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: serial_number
+                                                            
+                                                            	serial number
+                                                            	**type**\: str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: firmware_revision
+                                                            
+                                                            	firmware revision string
+                                                            	**type**\: str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: software_revision
+                                                            
+                                                            	software revision string
+                                                            	**type**\: str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: vendor_type
+                                                            
+                                                            	maps to the vendor OID string
+                                                            	**type**\: str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: is_field_replaceable_unit
+                                                            
+                                                            	1 if Field Replaceable Unit 0, if not
+                                                            	**type**\: bool
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                            _revision = '2018-01-22'
+
+                                                            def __init__(self):
+                                                                super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, self).__init__()
+
+                                                                self.yang_name = "basic-info"
+                                                                self.yang_parent_name = "attributes"
+                                                                self.is_top_level_class = False
+                                                                self.has_list_ancestor = True
+                                                                self.ylist_key_names = []
+                                                                self._child_classes = OrderedDict([])
+                                                                self._leafs = OrderedDict([
+                                                                    ('name', YLeaf(YType.str, 'name')),
+                                                                    ('description', YLeaf(YType.str, 'description')),
+                                                                    ('model_name', YLeaf(YType.str, 'model-name')),
+                                                                    ('hardware_revision', YLeaf(YType.str, 'hardware-revision')),
+                                                                    ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                                                    ('firmware_revision', YLeaf(YType.str, 'firmware-revision')),
+                                                                    ('software_revision', YLeaf(YType.str, 'software-revision')),
+                                                                    ('vendor_type', YLeaf(YType.str, 'vendor-type')),
+                                                                    ('is_field_replaceable_unit', YLeaf(YType.boolean, 'is-field-replaceable-unit')),
+                                                                ])
+                                                                self.name = None
+                                                                self.description = None
+                                                                self.model_name = None
+                                                                self.hardware_revision = None
+                                                                self.serial_number = None
+                                                                self.firmware_revision = None
+                                                                self.software_revision = None
+                                                                self.vendor_type = None
+                                                                self.is_field_replaceable_unit = None
+                                                                self._segment_path = lambda: "basic-info"
+
+                                                            def __setattr__(self, name, value):
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+
+
+                                                        class FruInfo(Entity):
+                                                            """
+                                                            Field Replaceable Unit (FRU) attributes
+                                                            
+                                                            .. attribute:: last_operational_state_change
+                                                            
+                                                            	Time operational state is   last changed
+                                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                            
+                                                            .. attribute:: module_up_time
+                                                            
+                                                            	Module up time
+                                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                            
+                                                            .. attribute:: module_administrative_state
+                                                            
+                                                            	Administrative    state
+                                                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                            
+                                                            .. attribute:: module_power_administrative_state
+                                                            
+                                                            	Power administrative state
+                                                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                            
+                                                            .. attribute:: module_operational_state
+                                                            
+                                                            	Operation state
+                                                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                            
+                                                            .. attribute:: module_monitor_state
+                                                            
+                                                            	Monitor state
+                                                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                            
+                                                            .. attribute:: module_reset_reason
+                                                            
+                                                            	Reset reason
+                                                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                            _revision = '2018-01-22'
+
+                                                            def __init__(self):
+                                                                super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, self).__init__()
+
+                                                                self.yang_name = "fru-info"
+                                                                self.yang_parent_name = "attributes"
+                                                                self.is_top_level_class = False
+                                                                self.has_list_ancestor = True
+                                                                self.ylist_key_names = []
+                                                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
+                                                                self._leafs = OrderedDict([
+                                                                    ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
+                                                                    ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
+                                                                    ('module_operational_state', YLeaf(YType.enumeration, 'module-operational-state')),
+                                                                    ('module_monitor_state', YLeaf(YType.enumeration, 'module-monitor-state')),
+                                                                    ('module_reset_reason', YLeaf(YType.enumeration, 'module-reset-reason')),
+                                                                ])
+                                                                self.module_administrative_state = None
+                                                                self.module_power_administrative_state = None
+                                                                self.module_operational_state = None
+                                                                self.module_monitor_state = None
+                                                                self.module_reset_reason = None
+
+                                                                self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
+                                                                self.last_operational_state_change.parent = self
+                                                                self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
+
+                                                                self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
+                                                                self.module_up_time.parent = self
+                                                                self._children_name_map["module_up_time"] = "module-up-time"
+                                                                self._segment_path = lambda: "fru-info"
+
+                                                            def __setattr__(self, name, value):
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+
+
+                                                            class LastOperationalStateChange(Entity):
+                                                                """
+                                                                Time operational state is   last changed
+                                                                
+                                                                .. attribute:: time_in_seconds
+                                                                
+                                                                	Time Value in Seconds
+                                                                	**type**\: int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: second
+                                                                
+                                                                .. attribute:: time_in_nano_seconds
+                                                                
+                                                                	Time Value in Nano\-seconds
+                                                                	**type**\: int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: nanosecond
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2018-01-22'
+
+                                                                def __init__(self):
+                                                                    super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, self).__init__()
+
+                                                                    self.yang_name = "last-operational-state-change"
+                                                                    self.yang_parent_name = "fru-info"
+                                                                    self.is_top_level_class = False
+                                                                    self.has_list_ancestor = True
+                                                                    self.ylist_key_names = []
+                                                                    self._child_classes = OrderedDict([])
+                                                                    self._leafs = OrderedDict([
+                                                                        ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
+                                                                        ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
+                                                                    ])
+                                                                    self.time_in_seconds = None
+                                                                    self.time_in_nano_seconds = None
+                                                                    self._segment_path = lambda: "last-operational-state-change"
+
+                                                                def __setattr__(self, name, value):
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+
+
+                                                            class ModuleUpTime(Entity):
+                                                                """
+                                                                Module up time
+                                                                
+                                                                .. attribute:: time_in_seconds
+                                                                
+                                                                	Time Value in Seconds
+                                                                	**type**\: int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: second
+                                                                
+                                                                .. attribute:: time_in_nano_seconds
+                                                                
+                                                                	Time Value in Nano\-seconds
+                                                                	**type**\: int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: nanosecond
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2018-01-22'
+
+                                                                def __init__(self):
+                                                                    super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, self).__init__()
+
+                                                                    self.yang_name = "module-up-time"
+                                                                    self.yang_parent_name = "fru-info"
+                                                                    self.is_top_level_class = False
+                                                                    self.has_list_ancestor = True
+                                                                    self.ylist_key_names = []
+                                                                    self._child_classes = OrderedDict([])
+                                                                    self._leafs = OrderedDict([
+                                                                        ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
+                                                                        ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
+                                                                    ])
+                                                                    self.time_in_seconds = None
+                                                                    self.time_in_nano_seconds = None
+                                                                    self._segment_path = lambda: "module-up-time"
+
+                                                                def __setattr__(self, name, value):
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+
+
+                                            class Attributes(Entity):
+                                                """
+                                                Attributes
+                                                
+                                                .. attribute:: basic_info
+                                                
+                                                	Entity attributes
+                                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
+                                                
+                                                .. attribute:: fru_info
+                                                
+                                                	Field Replaceable Unit (FRU) attributes
+                                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2018-01-22'
+
+                                                def __init__(self):
+                                                    super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes, self).__init__()
+
+                                                    self.yang_name = "attributes"
+                                                    self.yang_parent_name = "hw-component"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo))])
+                                                    self._leafs = OrderedDict()
+
+                                                    self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo()
+                                                    self.basic_info.parent = self
+                                                    self._children_name_map["basic_info"] = "basic-info"
+
+                                                    self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo()
+                                                    self.fru_info.parent = self
+                                                    self._children_name_map["fru_info"] = "fru-info"
+                                                    self._segment_path = lambda: "attributes"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes, [], name, value)
+
+
+                                                class BasicInfo(Entity):
+                                                    """
+                                                    Entity attributes
+                                                    
+                                                    .. attribute:: name
+                                                    
+                                                    	name string for the entity
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: description
+                                                    
+                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: model_name
+                                                    
+                                                    	model name
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: hardware_revision
+                                                    
+                                                    	hw revision string
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: serial_number
+                                                    
+                                                    	serial number
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: firmware_revision
+                                                    
+                                                    	firmware revision string
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: software_revision
+                                                    
+                                                    	software revision string
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: vendor_type
+                                                    
+                                                    	maps to the vendor OID string
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: is_field_replaceable_unit
+                                                    
+                                                    	1 if Field Replaceable Unit 0, if not
+                                                    	**type**\: bool
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2018-01-22'
+
+                                                    def __init__(self):
+                                                        super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, self).__init__()
+
+                                                        self.yang_name = "basic-info"
+                                                        self.yang_parent_name = "attributes"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = []
+                                                        self._child_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('name', YLeaf(YType.str, 'name')),
+                                                            ('description', YLeaf(YType.str, 'description')),
+                                                            ('model_name', YLeaf(YType.str, 'model-name')),
+                                                            ('hardware_revision', YLeaf(YType.str, 'hardware-revision')),
+                                                            ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                                            ('firmware_revision', YLeaf(YType.str, 'firmware-revision')),
+                                                            ('software_revision', YLeaf(YType.str, 'software-revision')),
+                                                            ('vendor_type', YLeaf(YType.str, 'vendor-type')),
+                                                            ('is_field_replaceable_unit', YLeaf(YType.boolean, 'is-field-replaceable-unit')),
+                                                        ])
+                                                        self.name = None
+                                                        self.description = None
+                                                        self.model_name = None
+                                                        self.hardware_revision = None
+                                                        self.serial_number = None
+                                                        self.firmware_revision = None
+                                                        self.software_revision = None
+                                                        self.vendor_type = None
+                                                        self.is_field_replaceable_unit = None
+                                                        self._segment_path = lambda: "basic-info"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+
+
+                                                class FruInfo(Entity):
+                                                    """
+                                                    Field Replaceable Unit (FRU) attributes
+                                                    
+                                                    .. attribute:: last_operational_state_change
+                                                    
+                                                    	Time operational state is   last changed
+                                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    
+                                                    .. attribute:: module_up_time
+                                                    
+                                                    	Module up time
+                                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    .. attribute:: module_administrative_state
+                                                    
+                                                    	Administrative    state
+                                                    	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                    
+                                                    .. attribute:: module_power_administrative_state
+                                                    
+                                                    	Power administrative state
+                                                    	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                    
+                                                    .. attribute:: module_operational_state
+                                                    
+                                                    	Operation state
+                                                    	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                    
+                                                    .. attribute:: module_monitor_state
+                                                    
+                                                    	Monitor state
+                                                    	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                    
+                                                    .. attribute:: module_reset_reason
+                                                    
+                                                    	Reset reason
+                                                    	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2018-01-22'
+
+                                                    def __init__(self):
+                                                        super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, self).__init__()
+
+                                                        self.yang_name = "fru-info"
+                                                        self.yang_parent_name = "attributes"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = []
+                                                        self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime))])
+                                                        self._leafs = OrderedDict([
+                                                            ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
+                                                            ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
+                                                            ('module_operational_state', YLeaf(YType.enumeration, 'module-operational-state')),
+                                                            ('module_monitor_state', YLeaf(YType.enumeration, 'module-monitor-state')),
+                                                            ('module_reset_reason', YLeaf(YType.enumeration, 'module-reset-reason')),
+                                                        ])
+                                                        self.module_administrative_state = None
+                                                        self.module_power_administrative_state = None
+                                                        self.module_operational_state = None
+                                                        self.module_monitor_state = None
+                                                        self.module_reset_reason = None
+
+                                                        self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange()
+                                                        self.last_operational_state_change.parent = self
+                                                        self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
+
+                                                        self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime()
+                                                        self.module_up_time.parent = self
+                                                        self._children_name_map["module_up_time"] = "module-up-time"
+                                                        self._segment_path = lambda: "fru-info"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+
+
+                                                    class LastOperationalStateChange(Entity):
+                                                        """
+                                                        Time operational state is   last changed
+                                                        
+                                                        .. attribute:: time_in_seconds
+                                                        
+                                                        	Time Value in Seconds
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
+                                                        
+                                                        .. attribute:: time_in_nano_seconds
+                                                        
+                                                        	Time Value in Nano\-seconds
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: nanosecond
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2018-01-22'
+
+                                                        def __init__(self):
+                                                            super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, self).__init__()
+
+                                                            self.yang_name = "last-operational-state-change"
+                                                            self.yang_parent_name = "fru-info"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
+                                                                ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
+                                                            ])
+                                                            self.time_in_seconds = None
+                                                            self.time_in_nano_seconds = None
+                                                            self._segment_path = lambda: "last-operational-state-change"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+
+
+                                                    class ModuleUpTime(Entity):
+                                                        """
+                                                        Module up time
+                                                        
+                                                        .. attribute:: time_in_seconds
+                                                        
+                                                        	Time Value in Seconds
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
+                                                        
+                                                        .. attribute:: time_in_nano_seconds
+                                                        
+                                                        	Time Value in Nano\-seconds
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: nanosecond
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2018-01-22'
+
+                                                        def __init__(self):
+                                                            super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, self).__init__()
+
+                                                            self.yang_name = "module-up-time"
+                                                            self.yang_parent_name = "fru-info"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
+                                                                ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
+                                                            ])
+                                                            self.time_in_seconds = None
+                                                            self.time_in_nano_seconds = None
+                                                            self._segment_path = lambda: "module-up-time"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+
+
+                                    class Sensors(Entity):
+                                        """
+                                        Table of sensors
+                                        
+                                        .. attribute:: sensor
+                                        
+                                        	Sensor number
+                                        	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'plat-chas-invmgr-oper'
+                                        _revision = '2018-01-22'
+
+                                        def __init__(self):
+                                            super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors, self).__init__()
+
+                                            self.yang_name = "sensors"
+                                            self.yang_parent_name = "ports"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor))])
+                                            self._leafs = OrderedDict()
+
+                                            self.sensor = YList(self)
+                                            self._segment_path = lambda: "sensors"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors, [], name, value)
+
+
+                                        class Sensor(Entity):
+                                            """
+                                            Sensor number
+                                            
+                                            .. attribute:: name  (key)
+                                            
+                                            	Sensor name
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                            
+                                            .. attribute:: attributes
+                                            
+                                            	Attributes
+                                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'plat-chas-invmgr-oper'
+                                            _revision = '2018-01-22'
+
+                                            def __init__(self):
+                                                super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor, self).__init__()
+
+                                                self.yang_name = "sensor"
+                                                self.yang_parent_name = "sensors"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['name']
+                                                self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes))])
+                                                self._leafs = OrderedDict([
+                                                    ('name', YLeaf(YType.str, 'name')),
+                                                ])
+                                                self.name = None
+
+                                                self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes()
+                                                self.attributes.parent = self
+                                                self._children_name_map["attributes"] = "attributes"
+                                                self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor, ['name'], name, value)
+
+
+                                            class Attributes(Entity):
+                                                """
+                                                Attributes
+                                                
+                                                .. attribute:: basic_info
+                                                
+                                                	Entity attributes
+                                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
+                                                
+                                                .. attribute:: fru_info
+                                                
+                                                	Field Replaceable Unit (FRU) attributes
+                                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2018-01-22'
+
+                                                def __init__(self):
+                                                    super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes, self).__init__()
+
+                                                    self.yang_name = "attributes"
+                                                    self.yang_parent_name = "sensor"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo))])
+                                                    self._leafs = OrderedDict()
+
+                                                    self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo()
+                                                    self.basic_info.parent = self
+                                                    self._children_name_map["basic_info"] = "basic-info"
+
+                                                    self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo()
+                                                    self.fru_info.parent = self
+                                                    self._children_name_map["fru_info"] = "fru-info"
+                                                    self._segment_path = lambda: "attributes"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes, [], name, value)
+
+
+                                                class BasicInfo(Entity):
+                                                    """
+                                                    Entity attributes
+                                                    
+                                                    .. attribute:: name
+                                                    
+                                                    	name string for the entity
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: description
+                                                    
+                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: model_name
+                                                    
+                                                    	model name
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: hardware_revision
+                                                    
+                                                    	hw revision string
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: serial_number
+                                                    
+                                                    	serial number
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: firmware_revision
+                                                    
+                                                    	firmware revision string
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: software_revision
+                                                    
+                                                    	software revision string
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: vendor_type
+                                                    
+                                                    	maps to the vendor OID string
+                                                    	**type**\: str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: is_field_replaceable_unit
+                                                    
+                                                    	1 if Field Replaceable Unit 0, if not
+                                                    	**type**\: bool
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2018-01-22'
+
+                                                    def __init__(self):
+                                                        super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, self).__init__()
+
+                                                        self.yang_name = "basic-info"
+                                                        self.yang_parent_name = "attributes"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = []
+                                                        self._child_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('name', YLeaf(YType.str, 'name')),
+                                                            ('description', YLeaf(YType.str, 'description')),
+                                                            ('model_name', YLeaf(YType.str, 'model-name')),
+                                                            ('hardware_revision', YLeaf(YType.str, 'hardware-revision')),
+                                                            ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                                            ('firmware_revision', YLeaf(YType.str, 'firmware-revision')),
+                                                            ('software_revision', YLeaf(YType.str, 'software-revision')),
+                                                            ('vendor_type', YLeaf(YType.str, 'vendor-type')),
+                                                            ('is_field_replaceable_unit', YLeaf(YType.boolean, 'is-field-replaceable-unit')),
+                                                        ])
+                                                        self.name = None
+                                                        self.description = None
+                                                        self.model_name = None
+                                                        self.hardware_revision = None
+                                                        self.serial_number = None
+                                                        self.firmware_revision = None
+                                                        self.software_revision = None
+                                                        self.vendor_type = None
+                                                        self.is_field_replaceable_unit = None
+                                                        self._segment_path = lambda: "basic-info"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+
+
+                                                class FruInfo(Entity):
+                                                    """
+                                                    Field Replaceable Unit (FRU) attributes
+                                                    
+                                                    .. attribute:: last_operational_state_change
+                                                    
+                                                    	Time operational state is   last changed
+                                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    
+                                                    .. attribute:: module_up_time
+                                                    
+                                                    	Module up time
+                                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    .. attribute:: module_administrative_state
+                                                    
+                                                    	Administrative    state
+                                                    	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                    
+                                                    .. attribute:: module_power_administrative_state
+                                                    
+                                                    	Power administrative state
+                                                    	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                    
+                                                    .. attribute:: module_operational_state
+                                                    
+                                                    	Operation state
+                                                    	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                    
+                                                    .. attribute:: module_monitor_state
+                                                    
+                                                    	Monitor state
+                                                    	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                    
+                                                    .. attribute:: module_reset_reason
+                                                    
+                                                    	Reset reason
+                                                    	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2018-01-22'
+
+                                                    def __init__(self):
+                                                        super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, self).__init__()
+
+                                                        self.yang_name = "fru-info"
+                                                        self.yang_parent_name = "attributes"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self.ylist_key_names = []
+                                                        self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
+                                                        self._leafs = OrderedDict([
+                                                            ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
+                                                            ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
+                                                            ('module_operational_state', YLeaf(YType.enumeration, 'module-operational-state')),
+                                                            ('module_monitor_state', YLeaf(YType.enumeration, 'module-monitor-state')),
+                                                            ('module_reset_reason', YLeaf(YType.enumeration, 'module-reset-reason')),
+                                                        ])
+                                                        self.module_administrative_state = None
+                                                        self.module_power_administrative_state = None
+                                                        self.module_operational_state = None
+                                                        self.module_monitor_state = None
+                                                        self.module_reset_reason = None
+
+                                                        self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
+                                                        self.last_operational_state_change.parent = self
+                                                        self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
+
+                                                        self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
+                                                        self.module_up_time.parent = self
+                                                        self._children_name_map["module_up_time"] = "module-up-time"
+                                                        self._segment_path = lambda: "fru-info"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+
+
+                                                    class LastOperationalStateChange(Entity):
+                                                        """
+                                                        Time operational state is   last changed
+                                                        
+                                                        .. attribute:: time_in_seconds
+                                                        
+                                                        	Time Value in Seconds
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
+                                                        
+                                                        .. attribute:: time_in_nano_seconds
+                                                        
+                                                        	Time Value in Nano\-seconds
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: nanosecond
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2018-01-22'
+
+                                                        def __init__(self):
+                                                            super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, self).__init__()
+
+                                                            self.yang_name = "last-operational-state-change"
+                                                            self.yang_parent_name = "fru-info"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
+                                                                ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
+                                                            ])
+                                                            self.time_in_seconds = None
+                                                            self.time_in_nano_seconds = None
+                                                            self._segment_path = lambda: "last-operational-state-change"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+
+
+                                                    class ModuleUpTime(Entity):
+                                                        """
+                                                        Module up time
+                                                        
+                                                        .. attribute:: time_in_seconds
+                                                        
+                                                        	Time Value in Seconds
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
+                                                        
+                                                        .. attribute:: time_in_nano_seconds
+                                                        
+                                                        	Time Value in Nano\-seconds
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: nanosecond
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2018-01-22'
+
+                                                        def __init__(self):
+                                                            super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, self).__init__()
+
+                                                            self.yang_name = "module-up-time"
+                                                            self.yang_parent_name = "fru-info"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
+                                                                ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
+                                                            ])
+                                                            self.time_in_seconds = None
+                                                            self.time_in_nano_seconds = None
+                                                            self._segment_path = lambda: "module-up-time"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+
+
+                                    class Attributes(Entity):
+                                        """
+                                        Attributes
+                                        
+                                        .. attribute:: basic_info
+                                        
+                                        	Entity attributes
+                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo>`
+                                        
+                                        .. attribute:: fru_info
+                                        
+                                        	Field Replaceable Unit (FRU) attributes
+                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'plat-chas-invmgr-oper'
+                                        _revision = '2018-01-22'
+
+                                        def __init__(self):
+                                            super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes, self).__init__()
+
+                                            self.yang_name = "attributes"
+                                            self.yang_parent_name = "ports"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo))])
+                                            self._leafs = OrderedDict()
+
+                                            self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo()
+                                            self.basic_info.parent = self
+                                            self._children_name_map["basic_info"] = "basic-info"
+
+                                            self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo()
+                                            self.fru_info.parent = self
+                                            self._children_name_map["fru_info"] = "fru-info"
+                                            self._segment_path = lambda: "attributes"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes, [], name, value)
+
+
+                                        class BasicInfo(Entity):
+                                            """
+                                            Entity attributes
+                                            
+                                            .. attribute:: name
+                                            
+                                            	name string for the entity
+                                            	**type**\: str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: description
+                                            
+                                            	describes in user\-readable terms                 what the entity in question does
+                                            	**type**\: str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: model_name
+                                            
+                                            	model name
+                                            	**type**\: str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: hardware_revision
+                                            
+                                            	hw revision string
+                                            	**type**\: str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: serial_number
+                                            
+                                            	serial number
+                                            	**type**\: str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: firmware_revision
+                                            
+                                            	firmware revision string
+                                            	**type**\: str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: software_revision
+                                            
+                                            	software revision string
+                                            	**type**\: str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: vendor_type
+                                            
+                                            	maps to the vendor OID string
+                                            	**type**\: str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: is_field_replaceable_unit
+                                            
+                                            	1 if Field Replaceable Unit 0, if not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'plat-chas-invmgr-oper'
+                                            _revision = '2018-01-22'
+
+                                            def __init__(self):
+                                                super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo, self).__init__()
+
+                                                self.yang_name = "basic-info"
+                                                self.yang_parent_name = "attributes"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('name', YLeaf(YType.str, 'name')),
+                                                    ('description', YLeaf(YType.str, 'description')),
+                                                    ('model_name', YLeaf(YType.str, 'model-name')),
+                                                    ('hardware_revision', YLeaf(YType.str, 'hardware-revision')),
+                                                    ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                                    ('firmware_revision', YLeaf(YType.str, 'firmware-revision')),
+                                                    ('software_revision', YLeaf(YType.str, 'software-revision')),
+                                                    ('vendor_type', YLeaf(YType.str, 'vendor-type')),
+                                                    ('is_field_replaceable_unit', YLeaf(YType.boolean, 'is-field-replaceable-unit')),
+                                                ])
+                                                self.name = None
+                                                self.description = None
+                                                self.model_name = None
+                                                self.hardware_revision = None
+                                                self.serial_number = None
+                                                self.firmware_revision = None
+                                                self.software_revision = None
+                                                self.vendor_type = None
+                                                self.is_field_replaceable_unit = None
+                                                self._segment_path = lambda: "basic-info"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+
+
+                                        class FruInfo(Entity):
+                                            """
+                                            Field Replaceable Unit (FRU) attributes
+                                            
+                                            .. attribute:: last_operational_state_change
+                                            
+                                            	Time operational state is   last changed
+                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
+                                            
+                                            .. attribute:: module_up_time
+                                            
+                                            	Module up time
+                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                            
+                                            .. attribute:: module_administrative_state
+                                            
+                                            	Administrative    state
+                                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                            
+                                            .. attribute:: module_power_administrative_state
+                                            
+                                            	Power administrative state
+                                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                            
+                                            .. attribute:: module_operational_state
+                                            
+                                            	Operation state
+                                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                            
+                                            .. attribute:: module_monitor_state
+                                            
+                                            	Monitor state
+                                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                            
+                                            .. attribute:: module_reset_reason
+                                            
+                                            	Reset reason
+                                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'plat-chas-invmgr-oper'
+                                            _revision = '2018-01-22'
+
+                                            def __init__(self):
+                                                super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo, self).__init__()
+
+                                                self.yang_name = "fru-info"
+                                                self.yang_parent_name = "attributes"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime))])
+                                                self._leafs = OrderedDict([
+                                                    ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
+                                                    ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
+                                                    ('module_operational_state', YLeaf(YType.enumeration, 'module-operational-state')),
+                                                    ('module_monitor_state', YLeaf(YType.enumeration, 'module-monitor-state')),
+                                                    ('module_reset_reason', YLeaf(YType.enumeration, 'module-reset-reason')),
+                                                ])
+                                                self.module_administrative_state = None
+                                                self.module_power_administrative_state = None
+                                                self.module_operational_state = None
+                                                self.module_monitor_state = None
+                                                self.module_reset_reason = None
+
+                                                self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange()
+                                                self.last_operational_state_change.parent = self
+                                                self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
+
+                                                self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime()
+                                                self.module_up_time.parent = self
+                                                self._children_name_map["module_up_time"] = "module-up-time"
+                                                self._segment_path = lambda: "fru-info"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+
+
+                                            class LastOperationalStateChange(Entity):
+                                                """
+                                                Time operational state is   last changed
+                                                
+                                                .. attribute:: time_in_seconds
+                                                
+                                                	Time Value in Seconds
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
+                                                
+                                                .. attribute:: time_in_nano_seconds
+                                                
+                                                	Time Value in Nano\-seconds
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: nanosecond
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2018-01-22'
+
+                                                def __init__(self):
+                                                    super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, self).__init__()
+
+                                                    self.yang_name = "last-operational-state-change"
+                                                    self.yang_parent_name = "fru-info"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
+                                                        ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
+                                                    ])
+                                                    self.time_in_seconds = None
+                                                    self.time_in_nano_seconds = None
+                                                    self._segment_path = lambda: "last-operational-state-change"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+
+
+                                            class ModuleUpTime(Entity):
+                                                """
+                                                Module up time
+                                                
+                                                .. attribute:: time_in_seconds
+                                                
+                                                	Time Value in Seconds
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
+                                                
+                                                .. attribute:: time_in_nano_seconds
+                                                
+                                                	Time Value in Nano\-seconds
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: nanosecond
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2018-01-22'
+
+                                                def __init__(self):
+                                                    super(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime, self).__init__()
+
+                                                    self.yang_name = "module-up-time"
+                                                    self.yang_parent_name = "fru-info"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
+                                                        ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
+                                                    ])
+                                                    self.time_in_seconds = None
+                                                    self.time_in_nano_seconds = None
+                                                    self._segment_path = lambda: "module-up-time"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                             class PortSlots(Entity):
@@ -6193,8 +7755,7 @@ class PlatformInventory(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("port-slot", ("port_slot", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot))])
+                                    self._child_classes = OrderedDict([("port-slot", ("port_slot", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot))])
                                     self._leafs = OrderedDict()
 
                                     self.port_slot = YList(self)
@@ -6217,7 +7778,7 @@ class PlatformInventory(Entity):
                                     
                                     .. attribute:: portses
                                     
-                                    	Table of spirit port slots
+                                    	Table of port slots
                                     	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses>`
                                     
                                     .. attribute:: sensors
@@ -6245,8 +7806,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['name']
-                                        self._child_container_classes = OrderedDict([("portses", ("portses", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("portses", ("portses", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                         ])
@@ -6255,17 +7815,14 @@ class PlatformInventory(Entity):
                                         self.portses = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses()
                                         self.portses.parent = self
                                         self._children_name_map["portses"] = "portses"
-                                        self._children_yang_names.add("portses")
 
                                         self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors()
                                         self.sensors.parent = self
                                         self._children_name_map["sensors"] = "sensors"
-                                        self._children_yang_names.add("sensors")
 
                                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
                                         self._segment_path = lambda: "port-slot" + "[name='" + str(self.name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -6274,7 +7831,7 @@ class PlatformInventory(Entity):
 
                                     class Portses(Entity):
                                         """
-                                        Table of spirit port slots
+                                        Table of port slots
                                         
                                         .. attribute:: ports
                                         
@@ -6296,8 +7853,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ports", ("ports", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports))])
+                                            self._child_classes = OrderedDict([("ports", ("ports", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports))])
                                             self._leafs = OrderedDict()
 
                                             self.ports = YList(self)
@@ -6348,8 +7904,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['name']
-                                                self._child_container_classes = OrderedDict([("hw-components", ("hw_components", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("hw-components", ("hw_components", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents)), ("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes))])
                                                 self._leafs = OrderedDict([
                                                     ('name', YLeaf(YType.str, 'name')),
                                                 ])
@@ -6358,17 +7913,14 @@ class PlatformInventory(Entity):
                                                 self.hw_components = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents()
                                                 self.hw_components.parent = self
                                                 self._children_name_map["hw_components"] = "hw-components"
-                                                self._children_yang_names.add("hw-components")
 
                                                 self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors()
                                                 self.sensors.parent = self
                                                 self._children_name_map["sensors"] = "sensors"
-                                                self._children_yang_names.add("sensors")
 
                                                 self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes()
                                                 self.attributes.parent = self
                                                 self._children_name_map["attributes"] = "attributes"
-                                                self._children_yang_names.add("attributes")
                                                 self._segment_path = lambda: "ports" + "[name='" + str(self.name) + "']"
 
                                             def __setattr__(self, name, value):
@@ -6399,8 +7951,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("hw-component", ("hw_component", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent))])
+                                                    self._child_classes = OrderedDict([("hw-component", ("hw_component", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent))])
                                                     self._leafs = OrderedDict()
 
                                                     self.hw_component = YList(self)
@@ -6446,8 +7997,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['name']
-                                                        self._child_container_classes = OrderedDict([("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes))])
                                                         self._leafs = OrderedDict([
                                                             ('name', YLeaf(YType.str, 'name')),
                                                         ])
@@ -6456,12 +8006,10 @@ class PlatformInventory(Entity):
                                                         self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors()
                                                         self.sensors.parent = self
                                                         self._children_name_map["sensors"] = "sensors"
-                                                        self._children_yang_names.add("sensors")
 
                                                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes()
                                                         self.attributes.parent = self
                                                         self._children_name_map["attributes"] = "attributes"
-                                                        self._children_yang_names.add("attributes")
                                                         self._segment_path = lambda: "hw-component" + "[name='" + str(self.name) + "']"
 
                                                     def __setattr__(self, name, value):
@@ -6492,8 +8040,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor))])
+                                                            self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor))])
                                                             self._leafs = OrderedDict()
 
                                                             self.sensor = YList(self)
@@ -6534,8 +8081,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = ['name']
-                                                                self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes))])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes))])
                                                                 self._leafs = OrderedDict([
                                                                     ('name', YLeaf(YType.str, 'name')),
                                                                 ])
@@ -6544,7 +8090,6 @@ class PlatformInventory(Entity):
                                                                 self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes()
                                                                 self.attributes.parent = self
                                                                 self._children_name_map["attributes"] = "attributes"
-                                                                self._children_yang_names.add("attributes")
                                                                 self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                                             def __setattr__(self, name, value):
@@ -6580,20 +8125,20 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo))])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo))])
                                                                     self._leafs = OrderedDict()
 
                                                                     self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo()
                                                                     self.basic_info.parent = self
                                                                     self._children_name_map["basic_info"] = "basic-info"
-                                                                    self._children_yang_names.add("basic-info")
 
                                                                     self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo()
                                                                     self.fru_info.parent = self
                                                                     self._children_name_map["fru_info"] = "fru-info"
-                                                                    self._children_yang_names.add("fru-info")
                                                                     self._segment_path = lambda: "attributes"
+
+                                                                def __setattr__(self, name, value):
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes, [], name, value)
 
 
                                                                 class BasicInfo(Entity):
@@ -6676,8 +8221,7 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
                                                                             ('name', YLeaf(YType.str, 'name')),
                                                                             ('description', YLeaf(YType.str, 'description')),
@@ -6701,7 +8245,7 @@ class PlatformInventory(Entity):
                                                                         self._segment_path = lambda: "basic-info"
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                                 class FruInfo(Entity):
@@ -6758,8 +8302,7 @@ class PlatformInventory(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                                         self._leafs = OrderedDict([
                                                                             ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                             ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -6776,16 +8319,14 @@ class PlatformInventory(Entity):
                                                                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                                         self.last_operational_state_change.parent = self
                                                                         self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                                        self._children_yang_names.add("last-operational-state-change")
 
                                                                         self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                                         self.module_up_time.parent = self
                                                                         self._children_name_map["module_up_time"] = "module-up-time"
-                                                                        self._children_yang_names.add("module-up-time")
                                                                         self._segment_path = lambda: "fru-info"
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                                     class LastOperationalStateChange(Entity):
@@ -6825,8 +8366,7 @@ class PlatformInventory(Entity):
                                                                             self.is_top_level_class = False
                                                                             self.has_list_ancestor = True
                                                                             self.ylist_key_names = []
-                                                                            self._child_container_classes = OrderedDict([])
-                                                                            self._child_list_classes = OrderedDict([])
+                                                                            self._child_classes = OrderedDict([])
                                                                             self._leafs = OrderedDict([
                                                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -6836,7 +8376,7 @@ class PlatformInventory(Entity):
                                                                             self._segment_path = lambda: "last-operational-state-change"
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                                     class ModuleUpTime(Entity):
@@ -6876,8 +8416,7 @@ class PlatformInventory(Entity):
                                                                             self.is_top_level_class = False
                                                                             self.has_list_ancestor = True
                                                                             self.ylist_key_names = []
-                                                                            self._child_container_classes = OrderedDict([])
-                                                                            self._child_list_classes = OrderedDict([])
+                                                                            self._child_classes = OrderedDict([])
                                                                             self._leafs = OrderedDict([
                                                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -6887,7 +8426,7 @@ class PlatformInventory(Entity):
                                                                             self._segment_path = lambda: "module-up-time"
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                     class Attributes(Entity):
@@ -6919,20 +8458,20 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo))])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo))])
                                                             self._leafs = OrderedDict()
 
                                                             self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo()
                                                             self.basic_info.parent = self
                                                             self._children_name_map["basic_info"] = "basic-info"
-                                                            self._children_yang_names.add("basic-info")
 
                                                             self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo()
                                                             self.fru_info.parent = self
                                                             self._children_name_map["fru_info"] = "fru-info"
-                                                            self._children_yang_names.add("fru-info")
                                                             self._segment_path = lambda: "attributes"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes, [], name, value)
 
 
                                                         class BasicInfo(Entity):
@@ -7015,8 +8554,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
                                                                     ('name', YLeaf(YType.str, 'name')),
                                                                     ('description', YLeaf(YType.str, 'description')),
@@ -7040,7 +8578,7 @@ class PlatformInventory(Entity):
                                                                 self._segment_path = lambda: "basic-info"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                         class FruInfo(Entity):
@@ -7097,8 +8635,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime))])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime))])
                                                                 self._leafs = OrderedDict([
                                                                     ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                     ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -7115,16 +8652,14 @@ class PlatformInventory(Entity):
                                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange()
                                                                 self.last_operational_state_change.parent = self
                                                                 self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                                self._children_yang_names.add("last-operational-state-change")
 
                                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime()
                                                                 self.module_up_time.parent = self
                                                                 self._children_name_map["module_up_time"] = "module-up-time"
-                                                                self._children_yang_names.add("module-up-time")
                                                                 self._segment_path = lambda: "fru-info"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                             class LastOperationalStateChange(Entity):
@@ -7164,8 +8699,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([])
                                                                     self._leafs = OrderedDict([
                                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -7175,7 +8709,7 @@ class PlatformInventory(Entity):
                                                                     self._segment_path = lambda: "last-operational-state-change"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                             class ModuleUpTime(Entity):
@@ -7215,8 +8749,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([])
                                                                     self._leafs = OrderedDict([
                                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -7226,7 +8759,7 @@ class PlatformInventory(Entity):
                                                                     self._segment_path = lambda: "module-up-time"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                             class Sensors(Entity):
@@ -7253,8 +8786,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor))])
+                                                    self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor))])
                                                     self._leafs = OrderedDict()
 
                                                     self.sensor = YList(self)
@@ -7295,8 +8827,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['name']
-                                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes))])
                                                         self._leafs = OrderedDict([
                                                             ('name', YLeaf(YType.str, 'name')),
                                                         ])
@@ -7305,7 +8836,6 @@ class PlatformInventory(Entity):
                                                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes()
                                                         self.attributes.parent = self
                                                         self._children_name_map["attributes"] = "attributes"
-                                                        self._children_yang_names.add("attributes")
                                                         self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                                     def __setattr__(self, name, value):
@@ -7341,20 +8871,20 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo))])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo))])
                                                             self._leafs = OrderedDict()
 
                                                             self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo()
                                                             self.basic_info.parent = self
                                                             self._children_name_map["basic_info"] = "basic-info"
-                                                            self._children_yang_names.add("basic-info")
 
                                                             self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo()
                                                             self.fru_info.parent = self
                                                             self._children_name_map["fru_info"] = "fru-info"
-                                                            self._children_yang_names.add("fru-info")
                                                             self._segment_path = lambda: "attributes"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes, [], name, value)
 
 
                                                         class BasicInfo(Entity):
@@ -7437,8 +8967,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
                                                                     ('name', YLeaf(YType.str, 'name')),
                                                                     ('description', YLeaf(YType.str, 'description')),
@@ -7462,7 +8991,7 @@ class PlatformInventory(Entity):
                                                                 self._segment_path = lambda: "basic-info"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                         class FruInfo(Entity):
@@ -7519,8 +9048,7 @@ class PlatformInventory(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                                 self._leafs = OrderedDict([
                                                                     ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                                     ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -7537,16 +9065,14 @@ class PlatformInventory(Entity):
                                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                                 self.last_operational_state_change.parent = self
                                                                 self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                                self._children_yang_names.add("last-operational-state-change")
 
                                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                                 self.module_up_time.parent = self
                                                                 self._children_name_map["module_up_time"] = "module-up-time"
-                                                                self._children_yang_names.add("module-up-time")
                                                                 self._segment_path = lambda: "fru-info"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                             class LastOperationalStateChange(Entity):
@@ -7586,8 +9112,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([])
                                                                     self._leafs = OrderedDict([
                                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -7597,7 +9122,7 @@ class PlatformInventory(Entity):
                                                                     self._segment_path = lambda: "last-operational-state-change"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                             class ModuleUpTime(Entity):
@@ -7637,8 +9162,7 @@ class PlatformInventory(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([])
                                                                     self._leafs = OrderedDict([
                                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -7648,7 +9172,7 @@ class PlatformInventory(Entity):
                                                                     self._segment_path = lambda: "module-up-time"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                             class Attributes(Entity):
@@ -7680,20 +9204,20 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo))])
                                                     self._leafs = OrderedDict()
 
                                                     self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo()
                                                     self.basic_info.parent = self
                                                     self._children_name_map["basic_info"] = "basic-info"
-                                                    self._children_yang_names.add("basic-info")
 
                                                     self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo()
                                                     self.fru_info.parent = self
                                                     self._children_name_map["fru_info"] = "fru-info"
-                                                    self._children_yang_names.add("fru-info")
                                                     self._segment_path = lambda: "attributes"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes, [], name, value)
 
 
                                                 class BasicInfo(Entity):
@@ -7776,8 +9300,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('name', YLeaf(YType.str, 'name')),
                                                             ('description', YLeaf(YType.str, 'description')),
@@ -7801,7 +9324,7 @@ class PlatformInventory(Entity):
                                                         self._segment_path = lambda: "basic-info"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                 class FruInfo(Entity):
@@ -7858,8 +9381,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime))])
                                                         self._leafs = OrderedDict([
                                                             ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                             ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -7876,16 +9398,14 @@ class PlatformInventory(Entity):
                                                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange()
                                                         self.last_operational_state_change.parent = self
                                                         self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                        self._children_yang_names.add("last-operational-state-change")
 
                                                         self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime()
                                                         self.module_up_time.parent = self
                                                         self._children_name_map["module_up_time"] = "module-up-time"
-                                                        self._children_yang_names.add("module-up-time")
                                                         self._segment_path = lambda: "fru-info"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -7925,8 +9445,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -7936,7 +9455,7 @@ class PlatformInventory(Entity):
                                                             self._segment_path = lambda: "last-operational-state-change"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                     class ModuleUpTime(Entity):
@@ -7976,8 +9495,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -7987,7 +9505,7 @@ class PlatformInventory(Entity):
                                                             self._segment_path = lambda: "module-up-time"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                     class Sensors(Entity):
@@ -8014,8 +9532,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor))])
+                                            self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor))])
                                             self._leafs = OrderedDict()
 
                                             self.sensor = YList(self)
@@ -8056,8 +9573,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['name']
-                                                self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes))])
                                                 self._leafs = OrderedDict([
                                                     ('name', YLeaf(YType.str, 'name')),
                                                 ])
@@ -8066,7 +9582,6 @@ class PlatformInventory(Entity):
                                                 self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes()
                                                 self.attributes.parent = self
                                                 self._children_name_map["attributes"] = "attributes"
-                                                self._children_yang_names.add("attributes")
                                                 self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                             def __setattr__(self, name, value):
@@ -8102,20 +9617,20 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo))])
                                                     self._leafs = OrderedDict()
 
                                                     self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo()
                                                     self.basic_info.parent = self
                                                     self._children_name_map["basic_info"] = "basic-info"
-                                                    self._children_yang_names.add("basic-info")
 
                                                     self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo()
                                                     self.fru_info.parent = self
                                                     self._children_name_map["fru_info"] = "fru-info"
-                                                    self._children_yang_names.add("fru-info")
                                                     self._segment_path = lambda: "attributes"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes, [], name, value)
 
 
                                                 class BasicInfo(Entity):
@@ -8198,8 +9713,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('name', YLeaf(YType.str, 'name')),
                                                             ('description', YLeaf(YType.str, 'description')),
@@ -8223,7 +9737,7 @@ class PlatformInventory(Entity):
                                                         self._segment_path = lambda: "basic-info"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                 class FruInfo(Entity):
@@ -8280,8 +9794,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                         self._leafs = OrderedDict([
                                                             ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                             ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -8298,16 +9811,14 @@ class PlatformInventory(Entity):
                                                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                         self.last_operational_state_change.parent = self
                                                         self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                        self._children_yang_names.add("last-operational-state-change")
 
                                                         self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                         self.module_up_time.parent = self
                                                         self._children_name_map["module_up_time"] = "module-up-time"
-                                                        self._children_yang_names.add("module-up-time")
                                                         self._segment_path = lambda: "fru-info"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -8347,8 +9858,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -8358,7 +9868,7 @@ class PlatformInventory(Entity):
                                                             self._segment_path = lambda: "last-operational-state-change"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                     class ModuleUpTime(Entity):
@@ -8398,8 +9908,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -8409,7 +9918,7 @@ class PlatformInventory(Entity):
                                                             self._segment_path = lambda: "module-up-time"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                     class Attributes(Entity):
@@ -8441,20 +9950,20 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo))])
                                             self._leafs = OrderedDict()
 
                                             self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo()
                                             self.basic_info.parent = self
                                             self._children_name_map["basic_info"] = "basic-info"
-                                            self._children_yang_names.add("basic-info")
 
                                             self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo()
                                             self.fru_info.parent = self
                                             self._children_name_map["fru_info"] = "fru-info"
-                                            self._children_yang_names.add("fru-info")
                                             self._segment_path = lambda: "attributes"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes, [], name, value)
 
 
                                         class BasicInfo(Entity):
@@ -8537,8 +10046,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('name', YLeaf(YType.str, 'name')),
                                                     ('description', YLeaf(YType.str, 'description')),
@@ -8562,7 +10070,7 @@ class PlatformInventory(Entity):
                                                 self._segment_path = lambda: "basic-info"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                         class FruInfo(Entity):
@@ -8619,8 +10127,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime))])
                                                 self._leafs = OrderedDict([
                                                     ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                     ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -8637,16 +10144,14 @@ class PlatformInventory(Entity):
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
                                                 self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                self._children_yang_names.add("last-operational-state-change")
 
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
                                                 self._children_name_map["module_up_time"] = "module-up-time"
-                                                self._children_yang_names.add("module-up-time")
                                                 self._segment_path = lambda: "fru-info"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -8686,8 +10191,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -8697,7 +10201,7 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "last-operational-state-change"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                             class ModuleUpTime(Entity):
@@ -8737,8 +10241,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -8748,7 +10251,7 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "module-up-time"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                             class HwComponents(Entity):
@@ -8775,8 +10278,7 @@ class PlatformInventory(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("hw-component", ("hw_component", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent))])
+                                    self._child_classes = OrderedDict([("hw-component", ("hw_component", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent))])
                                     self._leafs = OrderedDict()
 
                                     self.hw_component = YList(self)
@@ -8822,8 +10324,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['name']
-                                        self._child_container_classes = OrderedDict([("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("sensors", ("sensors", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors)), ("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                         ])
@@ -8832,12 +10333,10 @@ class PlatformInventory(Entity):
                                         self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors()
                                         self.sensors.parent = self
                                         self._children_name_map["sensors"] = "sensors"
-                                        self._children_yang_names.add("sensors")
 
                                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
                                         self._segment_path = lambda: "hw-component" + "[name='" + str(self.name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -8868,8 +10367,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor))])
+                                            self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor))])
                                             self._leafs = OrderedDict()
 
                                             self.sensor = YList(self)
@@ -8910,8 +10408,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['name']
-                                                self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes))])
                                                 self._leafs = OrderedDict([
                                                     ('name', YLeaf(YType.str, 'name')),
                                                 ])
@@ -8920,7 +10417,6 @@ class PlatformInventory(Entity):
                                                 self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes()
                                                 self.attributes.parent = self
                                                 self._children_name_map["attributes"] = "attributes"
-                                                self._children_yang_names.add("attributes")
                                                 self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                             def __setattr__(self, name, value):
@@ -8956,20 +10452,20 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo))])
                                                     self._leafs = OrderedDict()
 
                                                     self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo()
                                                     self.basic_info.parent = self
                                                     self._children_name_map["basic_info"] = "basic-info"
-                                                    self._children_yang_names.add("basic-info")
 
                                                     self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo()
                                                     self.fru_info.parent = self
                                                     self._children_name_map["fru_info"] = "fru-info"
-                                                    self._children_yang_names.add("fru-info")
                                                     self._segment_path = lambda: "attributes"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes, [], name, value)
 
 
                                                 class BasicInfo(Entity):
@@ -9052,8 +10548,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('name', YLeaf(YType.str, 'name')),
                                                             ('description', YLeaf(YType.str, 'description')),
@@ -9077,7 +10572,7 @@ class PlatformInventory(Entity):
                                                         self._segment_path = lambda: "basic-info"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                                 class FruInfo(Entity):
@@ -9134,8 +10629,7 @@ class PlatformInventory(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                         self._leafs = OrderedDict([
                                                             ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                             ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -9152,16 +10646,14 @@ class PlatformInventory(Entity):
                                                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                         self.last_operational_state_change.parent = self
                                                         self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                        self._children_yang_names.add("last-operational-state-change")
 
                                                         self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                         self.module_up_time.parent = self
                                                         self._children_name_map["module_up_time"] = "module-up-time"
-                                                        self._children_yang_names.add("module-up-time")
                                                         self._segment_path = lambda: "fru-info"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -9201,8 +10693,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -9212,7 +10703,7 @@ class PlatformInventory(Entity):
                                                             self._segment_path = lambda: "last-operational-state-change"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                                     class ModuleUpTime(Entity):
@@ -9252,8 +10743,7 @@ class PlatformInventory(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -9263,7 +10753,7 @@ class PlatformInventory(Entity):
                                                             self._segment_path = lambda: "module-up-time"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                     class Attributes(Entity):
@@ -9295,20 +10785,20 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo))])
                                             self._leafs = OrderedDict()
 
                                             self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo()
                                             self.basic_info.parent = self
                                             self._children_name_map["basic_info"] = "basic-info"
-                                            self._children_yang_names.add("basic-info")
 
                                             self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo()
                                             self.fru_info.parent = self
                                             self._children_name_map["fru_info"] = "fru-info"
-                                            self._children_yang_names.add("fru-info")
                                             self._segment_path = lambda: "attributes"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes, [], name, value)
 
 
                                         class BasicInfo(Entity):
@@ -9391,8 +10881,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('name', YLeaf(YType.str, 'name')),
                                                     ('description', YLeaf(YType.str, 'description')),
@@ -9416,7 +10905,7 @@ class PlatformInventory(Entity):
                                                 self._segment_path = lambda: "basic-info"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                         class FruInfo(Entity):
@@ -9473,8 +10962,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime))])
                                                 self._leafs = OrderedDict([
                                                     ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                     ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -9491,16 +10979,14 @@ class PlatformInventory(Entity):
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
                                                 self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                self._children_yang_names.add("last-operational-state-change")
 
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
                                                 self._children_name_map["module_up_time"] = "module-up-time"
-                                                self._children_yang_names.add("module-up-time")
                                                 self._segment_path = lambda: "fru-info"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -9540,8 +11026,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -9551,7 +11036,7 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "last-operational-state-change"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                             class ModuleUpTime(Entity):
@@ -9591,8 +11076,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -9602,7 +11086,7 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "module-up-time"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                             class Sensors(Entity):
@@ -9629,8 +11113,7 @@ class PlatformInventory(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor))])
+                                    self._child_classes = OrderedDict([("sensor", ("sensor", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor))])
                                     self._leafs = OrderedDict()
 
                                     self.sensor = YList(self)
@@ -9671,8 +11154,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['name']
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                         ])
@@ -9681,7 +11163,6 @@ class PlatformInventory(Entity):
                                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
                                         self._segment_path = lambda: "sensor" + "[name='" + str(self.name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -9717,20 +11198,20 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo))])
                                             self._leafs = OrderedDict()
 
                                             self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo()
                                             self.basic_info.parent = self
                                             self._children_name_map["basic_info"] = "basic-info"
-                                            self._children_yang_names.add("basic-info")
 
                                             self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo()
                                             self.fru_info.parent = self
                                             self._children_name_map["fru_info"] = "fru-info"
-                                            self._children_yang_names.add("fru-info")
                                             self._segment_path = lambda: "attributes"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes, [], name, value)
 
 
                                         class BasicInfo(Entity):
@@ -9813,8 +11294,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('name', YLeaf(YType.str, 'name')),
                                                     ('description', YLeaf(YType.str, 'description')),
@@ -9838,7 +11318,7 @@ class PlatformInventory(Entity):
                                                 self._segment_path = lambda: "basic-info"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                         class FruInfo(Entity):
@@ -9895,8 +11375,7 @@ class PlatformInventory(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime))])
                                                 self._leafs = OrderedDict([
                                                     ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                                     ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -9913,16 +11392,14 @@ class PlatformInventory(Entity):
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
                                                 self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                                self._children_yang_names.add("last-operational-state-change")
 
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
                                                 self._children_name_map["module_up_time"] = "module-up-time"
-                                                self._children_yang_names.add("module-up-time")
                                                 self._segment_path = lambda: "fru-info"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -9962,8 +11439,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -9973,7 +11449,7 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "last-operational-state-change"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                             class ModuleUpTime(Entity):
@@ -10013,8 +11489,7 @@ class PlatformInventory(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -10024,7 +11499,7 @@ class PlatformInventory(Entity):
                                                     self._segment_path = lambda: "module-up-time"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                             class Attributes(Entity):
@@ -10056,20 +11531,20 @@ class PlatformInventory(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo))])
                                     self._leafs = OrderedDict()
 
                                     self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo()
                                     self.basic_info.parent = self
                                     self._children_name_map["basic_info"] = "basic-info"
-                                    self._children_yang_names.add("basic-info")
 
                                     self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo()
                                     self.fru_info.parent = self
                                     self._children_name_map["fru_info"] = "fru-info"
-                                    self._children_yang_names.add("fru-info")
                                     self._segment_path = lambda: "attributes"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes, [], name, value)
 
 
                                 class BasicInfo(Entity):
@@ -10152,8 +11627,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('description', YLeaf(YType.str, 'description')),
@@ -10177,7 +11651,7 @@ class PlatformInventory(Entity):
                                         self._segment_path = lambda: "basic-info"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                                 class FruInfo(Entity):
@@ -10234,8 +11708,7 @@ class PlatformInventory(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime))])
                                         self._leafs = OrderedDict([
                                             ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                             ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -10252,16 +11725,14 @@ class PlatformInventory(Entity):
                                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange()
                                         self.last_operational_state_change.parent = self
                                         self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                        self._children_yang_names.add("last-operational-state-change")
 
                                         self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime()
                                         self.module_up_time.parent = self
                                         self._children_name_map["module_up_time"] = "module-up-time"
-                                        self._children_yang_names.add("module-up-time")
                                         self._segment_path = lambda: "fru-info"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                                     class LastOperationalStateChange(Entity):
@@ -10301,8 +11772,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -10312,7 +11782,7 @@ class PlatformInventory(Entity):
                                             self._segment_path = lambda: "last-operational-state-change"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                                     class ModuleUpTime(Entity):
@@ -10352,8 +11822,7 @@ class PlatformInventory(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -10363,7 +11832,7 @@ class PlatformInventory(Entity):
                                             self._segment_path = lambda: "module-up-time"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                     class Attributes(Entity):
@@ -10395,20 +11864,20 @@ class PlatformInventory(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo))])
                             self._leafs = OrderedDict()
 
                             self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo()
                             self.basic_info.parent = self
                             self._children_name_map["basic_info"] = "basic-info"
-                            self._children_yang_names.add("basic-info")
 
                             self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo()
                             self.fru_info.parent = self
                             self._children_name_map["fru_info"] = "fru-info"
-                            self._children_yang_names.add("fru-info")
                             self._segment_path = lambda: "attributes"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes, [], name, value)
 
 
                         class BasicInfo(Entity):
@@ -10491,8 +11960,7 @@ class PlatformInventory(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                     ('description', YLeaf(YType.str, 'description')),
@@ -10516,7 +11984,7 @@ class PlatformInventory(Entity):
                                 self._segment_path = lambda: "basic-info"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                         class FruInfo(Entity):
@@ -10573,8 +12041,7 @@ class PlatformInventory(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime))])
                                 self._leafs = OrderedDict([
                                     ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                                     ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -10591,16 +12058,14 @@ class PlatformInventory(Entity):
                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange()
                                 self.last_operational_state_change.parent = self
                                 self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                                self._children_yang_names.add("last-operational-state-change")
 
                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime()
                                 self.module_up_time.parent = self
                                 self._children_name_map["module_up_time"] = "module-up-time"
-                                self._children_yang_names.add("module-up-time")
                                 self._segment_path = lambda: "fru-info"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                             class LastOperationalStateChange(Entity):
@@ -10640,8 +12105,7 @@ class PlatformInventory(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -10651,7 +12115,7 @@ class PlatformInventory(Entity):
                                     self._segment_path = lambda: "last-operational-state-change"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                             class ModuleUpTime(Entity):
@@ -10691,8 +12155,7 @@ class PlatformInventory(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                         ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -10702,7 +12165,7 @@ class PlatformInventory(Entity):
                                     self._segment_path = lambda: "module-up-time"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
             class Attributes(Entity):
@@ -10734,20 +12197,20 @@ class PlatformInventory(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Attributes.FruInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("basic-info", ("basic_info", PlatformInventory.Racks.Rack.Attributes.BasicInfo)), ("fru-info", ("fru_info", PlatformInventory.Racks.Rack.Attributes.FruInfo))])
                     self._leafs = OrderedDict()
 
                     self.basic_info = PlatformInventory.Racks.Rack.Attributes.BasicInfo()
                     self.basic_info.parent = self
                     self._children_name_map["basic_info"] = "basic-info"
-                    self._children_yang_names.add("basic-info")
 
                     self.fru_info = PlatformInventory.Racks.Rack.Attributes.FruInfo()
                     self.fru_info.parent = self
                     self._children_name_map["fru_info"] = "fru-info"
-                    self._children_yang_names.add("fru-info")
                     self._segment_path = lambda: "attributes"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PlatformInventory.Racks.Rack.Attributes, [], name, value)
 
 
                 class BasicInfo(Entity):
@@ -10830,8 +12293,7 @@ class PlatformInventory(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('description', YLeaf(YType.str, 'description')),
@@ -10855,7 +12317,7 @@ class PlatformInventory(Entity):
                         self._segment_path = lambda: "basic-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
 
 
                 class FruInfo(Entity):
@@ -10912,8 +12374,7 @@ class PlatformInventory(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("last-operational-state-change", ("last_operational_state_change", PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange)), ("module-up-time", ("module_up_time", PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime))])
                         self._leafs = OrderedDict([
                             ('module_administrative_state', YLeaf(YType.enumeration, 'module-administrative-state')),
                             ('module_power_administrative_state', YLeaf(YType.enumeration, 'module-power-administrative-state')),
@@ -10930,16 +12391,14 @@ class PlatformInventory(Entity):
                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange()
                         self.last_operational_state_change.parent = self
                         self._children_name_map["last_operational_state_change"] = "last-operational-state-change"
-                        self._children_yang_names.add("last-operational-state-change")
 
                         self.module_up_time = PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime()
                         self.module_up_time.parent = self
                         self._children_name_map["module_up_time"] = "module-up-time"
-                        self._children_yang_names.add("module-up-time")
                         self._segment_path = lambda: "fru-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
+                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
 
 
                     class LastOperationalStateChange(Entity):
@@ -10979,8 +12438,7 @@ class PlatformInventory(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -10990,7 +12448,7 @@ class PlatformInventory(Entity):
                             self._segment_path = lambda: "last-operational-state-change"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
 
                     class ModuleUpTime(Entity):
@@ -11030,8 +12488,7 @@ class PlatformInventory(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('time_in_seconds', YLeaf(YType.int32, 'time-in-seconds')),
                                 ('time_in_nano_seconds', YLeaf(YType.int32, 'time-in-nano-seconds')),
@@ -11041,7 +12498,7 @@ class PlatformInventory(Entity):
                             self._segment_path = lambda: "module-up-time"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PlatformInventory()

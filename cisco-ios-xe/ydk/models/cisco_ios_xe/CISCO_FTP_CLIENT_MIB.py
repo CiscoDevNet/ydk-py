@@ -20,12 +20,12 @@ class CISCOFTPCLIENTMIB(Entity):
     .. attribute:: cfcrequest
     
     	
-    	**type**\:  :py:class:`Cfcrequest <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequest>`
+    	**type**\:  :py:class:`CfcRequest <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.CfcRequest>`
     
     .. attribute:: cfcrequesttable
     
     	A table of FTP client requests
-    	**type**\:  :py:class:`Cfcrequesttable <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable>`
+    	**type**\:  :py:class:`CfcRequestTable <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.CfcRequestTable>`
     
     
 
@@ -43,23 +43,23 @@ class CISCOFTPCLIENTMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cfcRequest", ("cfcrequest", CISCOFTPCLIENTMIB.Cfcrequest)), ("cfcRequestTable", ("cfcrequesttable", CISCOFTPCLIENTMIB.Cfcrequesttable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cfcRequest", ("cfcrequest", CISCOFTPCLIENTMIB.CfcRequest)), ("cfcRequestTable", ("cfcrequesttable", CISCOFTPCLIENTMIB.CfcRequestTable))])
         self._leafs = OrderedDict()
 
-        self.cfcrequest = CISCOFTPCLIENTMIB.Cfcrequest()
+        self.cfcrequest = CISCOFTPCLIENTMIB.CfcRequest()
         self.cfcrequest.parent = self
         self._children_name_map["cfcrequest"] = "cfcRequest"
-        self._children_yang_names.add("cfcRequest")
 
-        self.cfcrequesttable = CISCOFTPCLIENTMIB.Cfcrequesttable()
+        self.cfcrequesttable = CISCOFTPCLIENTMIB.CfcRequestTable()
         self.cfcrequesttable.parent = self
         self._children_name_map["cfcrequesttable"] = "cfcRequestTable"
-        self._children_yang_names.add("cfcRequestTable")
         self._segment_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOFTPCLIENTMIB, [], name, value)
 
-    class Cfcrequest(Entity):
+
+    class CfcRequest(Entity):
         """
         
         
@@ -99,15 +99,14 @@ class CISCOFTPCLIENTMIB(Entity):
         _revision = '2006-03-31'
 
         def __init__(self):
-            super(CISCOFTPCLIENTMIB.Cfcrequest, self).__init__()
+            super(CISCOFTPCLIENTMIB.CfcRequest, self).__init__()
 
             self.yang_name = "cfcRequest"
             self.yang_parent_name = "CISCO-FTP-CLIENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cfcrequestmaximum', YLeaf(YType.uint32, 'cfcRequestMaximum')),
                 ('cfcrequests', YLeaf(YType.uint32, 'cfcRequests')),
@@ -122,17 +121,17 @@ class CISCOFTPCLIENTMIB(Entity):
             self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOFTPCLIENTMIB.Cfcrequest, ['cfcrequestmaximum', 'cfcrequests', 'cfcrequestshigh', 'cfcrequestsbumped'], name, value)
+            self._perform_setattr(CISCOFTPCLIENTMIB.CfcRequest, ['cfcrequestmaximum', 'cfcrequests', 'cfcrequestshigh', 'cfcrequestsbumped'], name, value)
 
 
-    class Cfcrequesttable(Entity):
+    class CfcRequestTable(Entity):
         """
         A table of FTP client requests.
         
         .. attribute:: cfcrequestentry
         
         	Information about an FTP client request.  Management applications use cfcRequestEntryStatus to control entry modification, creation, and deletion.  Setting cfcRequestEntryStatus to 'active' from any state including 'active' causes the operation to be started.  The entry may be modified only when cfcRequestOperationState is 'stopped'.  The value of cfcRequestEntryStatus may be set to 'destroy' at any time.  Doing so will abort a running request.  Entries may not be created without explicitly setting cfcRequestEntryStatus to either 'createAndGo' or 'createAndWait'
-        	**type**\: list of  		 :py:class:`Cfcrequestentry <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry>`
+        	**type**\: list of  		 :py:class:`CfcRequestEntry <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry>`
         
         
 
@@ -142,15 +141,14 @@ class CISCOFTPCLIENTMIB(Entity):
         _revision = '2006-03-31'
 
         def __init__(self):
-            super(CISCOFTPCLIENTMIB.Cfcrequesttable, self).__init__()
+            super(CISCOFTPCLIENTMIB.CfcRequestTable, self).__init__()
 
             self.yang_name = "cfcRequestTable"
             self.yang_parent_name = "CISCO-FTP-CLIENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cfcRequestEntry", ("cfcrequestentry", CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry))])
+            self._child_classes = OrderedDict([("cfcRequestEntry", ("cfcrequestentry", CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry))])
             self._leafs = OrderedDict()
 
             self.cfcrequestentry = YList(self)
@@ -158,10 +156,10 @@ class CISCOFTPCLIENTMIB(Entity):
             self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOFTPCLIENTMIB.Cfcrequesttable, [], name, value)
+            self._perform_setattr(CISCOFTPCLIENTMIB.CfcRequestTable, [], name, value)
 
 
-        class Cfcrequestentry(Entity):
+        class CfcRequestEntry(Entity):
             """
             Information about an FTP client request.  Management applications
             use cfcRequestEntryStatus to control entry modification, creation,
@@ -189,7 +187,7 @@ class CISCOFTPCLIENTMIB(Entity):
             .. attribute:: cfcrequestoperation
             
             	The FTP operation to be performed
-            	**type**\:  :py:class:`Cfcrequestoperation <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperation>`
+            	**type**\:  :py:class:`CfcRequestOperation <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry.CfcRequestOperation>`
             
             .. attribute:: cfcrequestlocalfile
             
@@ -229,7 +227,7 @@ class CISCOFTPCLIENTMIB(Entity):
             .. attribute:: cfcrequestresult
             
             	The result of the FTP operation
-            	**type**\:  :py:class:`Cfcrequestresult <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestresult>`
+            	**type**\:  :py:class:`CfcRequestResult <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry.CfcRequestResult>`
             
             .. attribute:: cfcrequestcompletiontime
             
@@ -241,12 +239,12 @@ class CISCOFTPCLIENTMIB(Entity):
             .. attribute:: cfcrequeststop
             
             	The action control to stop a running request.  Setting this to 'stop' will begin the process of stopping the request.  Setting it to 'ready' or setting it to 'stop' more than once have no effect.  When read this object always returns ready
-            	**type**\:  :py:class:`Cfcrequeststop <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequeststop>`
+            	**type**\:  :py:class:`CfcRequestStop <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry.CfcRequestStop>`
             
             .. attribute:: cfcrequestoperationstate
             
             	The operational state of the file transfer.  To short\-terminate the transfer set cfcRequestStop to 'stop'
-            	**type**\:  :py:class:`Cfcrequestoperationstate <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperationstate>`
+            	**type**\:  :py:class:`CfcRequestOperationState <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry.CfcRequestOperationState>`
             
             .. attribute:: cfcrequestentrystatus
             
@@ -261,15 +259,14 @@ class CISCOFTPCLIENTMIB(Entity):
             _revision = '2006-03-31'
 
             def __init__(self):
-                super(CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry, self).__init__()
+                super(CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry, self).__init__()
 
                 self.yang_name = "cfcRequestEntry"
                 self.yang_parent_name = "cfcRequestTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cfcrequestindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cfcrequestindex', YLeaf(YType.uint32, 'cfcRequestIndex')),
                     ('cfcrequestoperation', YLeaf(YType.enumeration, 'cfcRequestOperation')),
@@ -300,11 +297,11 @@ class CISCOFTPCLIENTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/cfcRequestTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry, ['cfcrequestindex', 'cfcrequestoperation', 'cfcrequestlocalfile', 'cfcrequestremotefile', 'cfcrequestserver', 'cfcrequestuser', 'cfcrequestpassword', 'cfcrequestresult', 'cfcrequestcompletiontime', 'cfcrequeststop', 'cfcrequestoperationstate', 'cfcrequestentrystatus'], name, value)
+                self._perform_setattr(CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry, ['cfcrequestindex', 'cfcrequestoperation', 'cfcrequestlocalfile', 'cfcrequestremotefile', 'cfcrequestserver', 'cfcrequestuser', 'cfcrequestpassword', 'cfcrequestresult', 'cfcrequestcompletiontime', 'cfcrequeststop', 'cfcrequestoperationstate', 'cfcrequestentrystatus'], name, value)
 
-            class Cfcrequestoperation(Enum):
+            class CfcRequestOperation(Enum):
                 """
-                Cfcrequestoperation (Enum Class)
+                CfcRequestOperation (Enum Class)
 
                 The FTP operation to be performed.
 
@@ -319,9 +316,9 @@ class CISCOFTPCLIENTMIB(Entity):
                 putASCII = Enum.YLeaf(2, "putASCII")
 
 
-            class Cfcrequestoperationstate(Enum):
+            class CfcRequestOperationState(Enum):
                 """
-                Cfcrequestoperationstate (Enum Class)
+                CfcRequestOperationState (Enum Class)
 
                 The operational state of the file transfer.  To short\-terminate
 
@@ -342,9 +339,9 @@ class CISCOFTPCLIENTMIB(Entity):
                 stopped = Enum.YLeaf(3, "stopped")
 
 
-            class Cfcrequestresult(Enum):
+            class CfcRequestResult(Enum):
                 """
-                Cfcrequestresult (Enum Class)
+                CfcRequestResult (Enum Class)
 
                 The result of the FTP operation.
 
@@ -391,9 +388,9 @@ class CISCOFTPCLIENTMIB(Entity):
                 fileWriteFailed = Enum.YLeaf(10, "fileWriteFailed")
 
 
-            class Cfcrequeststop(Enum):
+            class CfcRequestStop(Enum):
                 """
-                Cfcrequeststop (Enum Class)
+                CfcRequestStop (Enum Class)
 
                 The action control to stop a running request.  Setting this to
 

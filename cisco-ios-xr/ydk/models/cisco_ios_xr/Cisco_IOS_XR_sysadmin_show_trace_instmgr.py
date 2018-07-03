@@ -1,9 +1,15 @@
 """ Cisco_IOS_XR_sysadmin_show_trace_instmgr 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 Copyright(c) 2013\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -41,8 +47,7 @@ class Instmgr(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("trace", ("trace", Instmgr.Trace))])
+        self._child_classes = OrderedDict([("trace", ("trace", Instmgr.Trace))])
         self._leafs = OrderedDict()
 
         self.trace = YList(self)
@@ -81,8 +86,7 @@ class Instmgr(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['buffer']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Instmgr.Trace.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Instmgr.Trace.Location))])
             self._leafs = OrderedDict([
                 ('buffer', YLeaf(YType.str, 'buffer')),
             ])
@@ -93,7 +97,7 @@ class Instmgr(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-trace-instmgr:instmgr/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Instmgr.Trace, ['buffer'], name, value)
+            self._perform_setattr(Instmgr.Trace, [u'buffer'], name, value)
 
 
         class Location(Entity):
@@ -125,8 +129,7 @@ class Instmgr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['location_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("all-options", ("all_options", Instmgr.Trace.Location.AllOptions))])
+                self._child_classes = OrderedDict([("all-options", ("all_options", Instmgr.Trace.Location.AllOptions))])
                 self._leafs = OrderedDict([
                     ('location_name', YLeaf(YType.str, 'location_name')),
                 ])
@@ -136,7 +139,7 @@ class Instmgr(Entity):
                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Instmgr.Trace.Location, ['location_name'], name, value)
+                self._perform_setattr(Instmgr.Trace.Location, [u'location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -168,8 +171,7 @@ class Instmgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['option']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Instmgr.Trace.Location.AllOptions.TraceBlocks))])
+                    self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Instmgr.Trace.Location.AllOptions.TraceBlocks))])
                     self._leafs = OrderedDict([
                         ('option', YLeaf(YType.str, 'option')),
                     ])
@@ -179,7 +181,7 @@ class Instmgr(Entity):
                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Instmgr.Trace.Location.AllOptions, ['option'], name, value)
+                    self._perform_setattr(Instmgr.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -206,8 +208,7 @@ class Instmgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('data', YLeaf(YType.str, 'data')),
                         ])
@@ -215,7 +216,7 @@ class Instmgr(Entity):
                         self._segment_path = lambda: "trace-blocks"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Instmgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                        self._perform_setattr(Instmgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Instmgr()

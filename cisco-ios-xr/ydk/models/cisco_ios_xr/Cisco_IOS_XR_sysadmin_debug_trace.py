@@ -1,5 +1,8 @@
 """ Cisco_IOS_XR_sysadmin_debug_trace 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 This module contains definitions
@@ -7,6 +10,9 @@ for the following management objects\:
 debug\_trace\: Calvados debug trace.
 
 Copyright (c) 2015\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -44,15 +50,16 @@ class Config(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("debug", ("debug", Config.Debug))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("debug", ("debug", Config.Debug))])
         self._leafs = OrderedDict()
 
         self.debug = Config.Debug()
         self.debug.parent = self
         self._children_name_map["debug"] = "debug"
-        self._children_yang_names.add("debug")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-debug-trace:config"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Config, [], name, value)
 
 
     class Debug(Entity):
@@ -79,8 +86,7 @@ class Config(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("trace", ("trace", Config.Debug.Trace))])
+            self._child_classes = OrderedDict([("trace", ("trace", Config.Debug.Trace))])
             self._leafs = OrderedDict()
 
             self.trace = YList(self)
@@ -125,8 +131,7 @@ class Config(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['connection_type']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('connection_type', YLeaf(YType.str, 'connection_type')),
                     ('enable', YLeaf(YType.empty, 'enable')),

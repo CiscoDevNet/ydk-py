@@ -81,15 +81,16 @@ class IpDomain(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", IpDomain.Vrfs))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", IpDomain.Vrfs))])
         self._leafs = OrderedDict()
 
         self.vrfs = IpDomain.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-domain-oper:ip-domain"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(IpDomain, [], name, value)
 
 
     class Vrfs(Entity):
@@ -116,8 +117,7 @@ class IpDomain(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", IpDomain.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", IpDomain.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -164,8 +164,7 @@ class IpDomain(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("server", ("server", IpDomain.Vrfs.Vrf.Server)), ("hosts", ("hosts", IpDomain.Vrfs.Vrf.Hosts))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("server", ("server", IpDomain.Vrfs.Vrf.Server)), ("hosts", ("hosts", IpDomain.Vrfs.Vrf.Hosts))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -174,12 +173,10 @@ class IpDomain(Entity):
                 self.server = IpDomain.Vrfs.Vrf.Server()
                 self.server.parent = self
                 self._children_name_map["server"] = "server"
-                self._children_yang_names.add("server")
 
                 self.hosts = IpDomain.Vrfs.Vrf.Hosts()
                 self.hosts.parent = self
                 self._children_name_map["hosts"] = "hosts"
-                self._children_yang_names.add("hosts")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-domain-oper:ip-domain/vrfs/%s" % self._segment_path()
 
@@ -230,8 +227,7 @@ class IpDomain(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("server-address", ("server_address", IpDomain.Vrfs.Vrf.Server.ServerAddress))])
+                    self._child_classes = OrderedDict([("server-address", ("server_address", IpDomain.Vrfs.Vrf.Server.ServerAddress))])
                     self._leafs = OrderedDict([
                         ('domain_lookup', YLeaf(YType.enumeration, 'domain-lookup')),
                         ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -245,7 +241,7 @@ class IpDomain(Entity):
                     self._segment_path = lambda: "server"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, ['domain_lookup', 'domain_name', 'domain'], name, value)
+                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, [u'domain_lookup', u'domain_name', u'domain'], name, value)
 
 
                 class ServerAddress(Entity):
@@ -286,8 +282,7 @@ class IpDomain(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('af_name', YLeaf(YType.identityref, 'af-name')),
                             ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -299,7 +294,7 @@ class IpDomain(Entity):
                         self._segment_path = lambda: "server-address"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
             class Hosts(Entity):
@@ -326,8 +321,7 @@ class IpDomain(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("host", ("host", IpDomain.Vrfs.Vrf.Hosts.Host))])
+                    self._child_classes = OrderedDict([("host", ("host", IpDomain.Vrfs.Vrf.Hosts.Host))])
                     self._leafs = OrderedDict()
 
                     self.host = YList(self)
@@ -386,8 +380,7 @@ class IpDomain(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['host_name']
-                        self._child_container_classes = OrderedDict([("host-alias-list", ("host_alias_list", IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList))])
-                        self._child_list_classes = OrderedDict([("host-address", ("host_address", IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress))])
+                        self._child_classes = OrderedDict([("host-alias-list", ("host_alias_list", IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList)), ("host-address", ("host_address", IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress))])
                         self._leafs = OrderedDict([
                             ('host_name', YLeaf(YType.str, 'host-name')),
                             ('af_name', YLeaf(YType.identityref, 'af-name')),
@@ -400,13 +393,12 @@ class IpDomain(Entity):
                         self.host_alias_list = IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList()
                         self.host_alias_list.parent = self
                         self._children_name_map["host_alias_list"] = "host-alias-list"
-                        self._children_yang_names.add("host-alias-list")
 
                         self.host_address = YList(self)
                         self._segment_path = lambda: "host" + "[host-name='" + str(self.host_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', 'af_name', 'age'], name, value)
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', u'af_name', u'age'], name, value)
 
 
                     class HostAliasList(Entity):
@@ -435,8 +427,7 @@ class IpDomain(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('host_alias', YLeafList(YType.str, 'host-alias')),
                             ])
@@ -444,7 +435,7 @@ class IpDomain(Entity):
                             self._segment_path = lambda: "host-alias-list"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, ['host_alias'], name, value)
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, [u'host_alias'], name, value)
 
 
                     class HostAddress(Entity):
@@ -485,8 +476,7 @@ class IpDomain(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.identityref, 'af-name')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -498,7 +488,7 @@ class IpDomain(Entity):
                             self._segment_path = lambda: "host-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IpDomain()

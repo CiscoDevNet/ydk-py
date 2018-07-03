@@ -691,17 +691,11 @@ class MplsTePathSelectionMetric(Enum):
 
     	TE Metric
 
-    .. data:: delay = 4
-
-    	DELAY Metric
-
     """
 
     igp = Enum.YLeaf(1, "igp")
 
     te = Enum.YLeaf(2, "te")
-
-    delay = Enum.YLeaf(4, "delay")
 
 
 class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
@@ -1407,7 +1401,7 @@ class MplsTe(Entity):
     """
 
     _prefix = 'mpls-te-cfg'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(MplsTe, self).__init__()
@@ -1418,8 +1412,7 @@ class MplsTe(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("diff-serv-traffic-engineering", ("diff_serv_traffic_engineering", MplsTe.DiffServTrafficEngineering)), ("named-tunnels", ("named_tunnels", MplsTe.NamedTunnels)), ("gmpls-uni", ("gmpls_uni", MplsTe.GmplsUni)), ("global-attributes", ("global_attributes", MplsTe.GlobalAttributes)), ("transport-profile", ("transport_profile", MplsTe.TransportProfile)), ("interfaces", ("interfaces", MplsTe.Interfaces)), ("gmpls-nni", ("gmpls_nni", MplsTe.GmplsNni)), ("lcac", ("lcac", MplsTe.Lcac))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("diff-serv-traffic-engineering", ("diff_serv_traffic_engineering", MplsTe.DiffServTrafficEngineering)), ("named-tunnels", ("named_tunnels", MplsTe.NamedTunnels)), ("gmpls-uni", ("gmpls_uni", MplsTe.GmplsUni)), ("global-attributes", ("global_attributes", MplsTe.GlobalAttributes)), ("transport-profile", ("transport_profile", MplsTe.TransportProfile)), ("interfaces", ("interfaces", MplsTe.Interfaces)), ("gmpls-nni", ("gmpls_nni", MplsTe.GmplsNni)), ("lcac", ("lcac", MplsTe.Lcac))])
         self._leafs = OrderedDict([
             ('enable_traffic_engineering', YLeaf(YType.empty, 'enable-traffic-engineering')),
         ])
@@ -1428,42 +1421,34 @@ class MplsTe(Entity):
         self.diff_serv_traffic_engineering = MplsTe.DiffServTrafficEngineering()
         self.diff_serv_traffic_engineering.parent = self
         self._children_name_map["diff_serv_traffic_engineering"] = "diff-serv-traffic-engineering"
-        self._children_yang_names.add("diff-serv-traffic-engineering")
 
         self.named_tunnels = MplsTe.NamedTunnels()
         self.named_tunnels.parent = self
         self._children_name_map["named_tunnels"] = "named-tunnels"
-        self._children_yang_names.add("named-tunnels")
 
         self.gmpls_uni = MplsTe.GmplsUni()
         self.gmpls_uni.parent = self
         self._children_name_map["gmpls_uni"] = "gmpls-uni"
-        self._children_yang_names.add("gmpls-uni")
 
         self.global_attributes = MplsTe.GlobalAttributes()
         self.global_attributes.parent = self
         self._children_name_map["global_attributes"] = "global-attributes"
-        self._children_yang_names.add("global-attributes")
 
         self.transport_profile = MplsTe.TransportProfile()
         self.transport_profile.parent = self
         self._children_name_map["transport_profile"] = "transport-profile"
-        self._children_yang_names.add("transport-profile")
 
         self.interfaces = MplsTe.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.gmpls_nni = MplsTe.GmplsNni()
         self.gmpls_nni.parent = self
         self._children_name_map["gmpls_nni"] = "gmpls-nni"
-        self._children_yang_names.add("gmpls-nni")
 
         self.lcac = MplsTe.Lcac()
         self.lcac.parent = self
         self._children_name_map["lcac"] = "lcac"
-        self._children_yang_names.add("lcac")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te"
 
     def __setattr__(self, name, value):
@@ -1494,7 +1479,7 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(MplsTe.DiffServTrafficEngineering, self).__init__()
@@ -1504,8 +1489,7 @@ class MplsTe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("classes", ("classes", MplsTe.DiffServTrafficEngineering.Classes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("classes", ("classes", MplsTe.DiffServTrafficEngineering.Classes))])
             self._leafs = OrderedDict([
                 ('bandwidth_constraint_model', YLeaf(YType.enumeration, 'bandwidth-constraint-model')),
                 ('mode_ietf', YLeaf(YType.enumeration, 'mode-ietf')),
@@ -1516,7 +1500,6 @@ class MplsTe(Entity):
             self.classes = MplsTe.DiffServTrafficEngineering.Classes()
             self.classes.parent = self
             self._children_name_map["classes"] = "classes"
-            self._children_yang_names.add("classes")
             self._segment_path = lambda: "diff-serv-traffic-engineering"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
 
@@ -1538,7 +1521,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.DiffServTrafficEngineering.Classes, self).__init__()
@@ -1548,8 +1531,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("class", ("class_", MplsTe.DiffServTrafficEngineering.Classes.Class))])
+                self._child_classes = OrderedDict([("class", ("class_", MplsTe.DiffServTrafficEngineering.Classes.Class))])
                 self._leafs = OrderedDict()
 
                 self.class_ = YList(self)
@@ -1599,7 +1581,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.DiffServTrafficEngineering.Classes.Class, self).__init__()
@@ -1609,8 +1591,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['class_number']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('class_number', YLeaf(YType.uint32, 'class-number')),
                         ('class_type', YLeaf(YType.uint32, 'class-type')),
@@ -1647,7 +1628,7 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(MplsTe.NamedTunnels, self).__init__()
@@ -1657,8 +1638,7 @@ class MplsTe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("tunnels", ("tunnels", MplsTe.NamedTunnels.Tunnels))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("tunnels", ("tunnels", MplsTe.NamedTunnels.Tunnels))])
             self._leafs = OrderedDict([
                 ('enable', YLeaf(YType.empty, 'enable')),
             ])
@@ -1667,7 +1647,6 @@ class MplsTe(Entity):
             self.tunnels = MplsTe.NamedTunnels.Tunnels()
             self.tunnels.parent = self
             self._children_name_map["tunnels"] = "tunnels"
-            self._children_yang_names.add("tunnels")
             self._segment_path = lambda: "named-tunnels"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
 
@@ -1689,7 +1668,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.NamedTunnels.Tunnels, self).__init__()
@@ -1699,8 +1678,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tunnel", ("tunnel", MplsTe.NamedTunnels.Tunnels.Tunnel))])
+                self._child_classes = OrderedDict([("tunnel", ("tunnel", MplsTe.NamedTunnels.Tunnels.Tunnel))])
                 self._leafs = OrderedDict()
 
                 self.tunnel = YList(self)
@@ -1749,7 +1727,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.NamedTunnels.Tunnels.Tunnel, self).__init__()
@@ -1759,8 +1737,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['tunnel_name','tunnel_type']
-                    self._child_container_classes = OrderedDict([("tunnel-attributes", ("tunnel_attributes", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes)), ("tunnel-id", ("tunnel_id", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("tunnel-attributes", ("tunnel_attributes", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes)), ("tunnel-id", ("tunnel_id", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId))])
                     self._leafs = OrderedDict([
                         ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
                         ('tunnel_type', YLeaf(YType.enumeration, 'tunnel-type')),
@@ -1773,11 +1750,9 @@ class MplsTe(Entity):
                     self.tunnel_attributes = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes()
                     self.tunnel_attributes.parent = self
                     self._children_name_map["tunnel_attributes"] = "tunnel-attributes"
-                    self._children_yang_names.add("tunnel-attributes")
 
                     self.tunnel_id = None
                     self._children_name_map["tunnel_id"] = "tunnel-id"
-                    self._children_yang_names.add("tunnel-id")
                     self._segment_path = lambda: "tunnel" + "[tunnel-name='" + str(self.tunnel_name) + "']" + "[tunnel-type='" + str(self.tunnel_type) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/%s" % self._segment_path()
 
@@ -1804,7 +1779,7 @@ class MplsTe(Entity):
                     	Forward class value
                     	**type**\: int
                     
-                    	**range:** 1..7
+                    	**range:** 0..7
                     
                     .. attribute:: tunnel_path_selection
                     
@@ -1834,6 +1809,13 @@ class MplsTe(Entity):
                     
                     	Record the route used by the tunnel
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: affinity_mask
+                    
+                    	Set the affinity flags and mask
+                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: logging
                     
@@ -1886,7 +1868,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes, self).__init__()
@@ -1896,8 +1878,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("path-setups", ("path_setups", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups)), ("tunnel-path-selection", ("tunnel_path_selection", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection)), ("auto-bandwidth", ("auto_bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth)), ("priority", ("priority", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority)), ("logging", ("logging", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging)), ("bandwidth", ("bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth)), ("autoroute", ("autoroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("path-setups", ("path_setups", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups)), ("tunnel-path-selection", ("tunnel_path_selection", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection)), ("auto-bandwidth", ("auto_bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth)), ("priority", ("priority", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask)), ("logging", ("logging", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging)), ("bandwidth", ("bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth)), ("autoroute", ("autoroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute))])
                         self._leafs = OrderedDict([
                             ('shutdown', YLeaf(YType.empty, 'shutdown')),
                             ('forward_class', YLeaf(YType.uint32, 'forward-class')),
@@ -1918,44 +1899,38 @@ class MplsTe(Entity):
                         self.path_setups = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups()
                         self.path_setups.parent = self
                         self._children_name_map["path_setups"] = "path-setups"
-                        self._children_yang_names.add("path-setups")
 
                         self.tunnel_path_selection = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection()
                         self.tunnel_path_selection.parent = self
                         self._children_name_map["tunnel_path_selection"] = "tunnel-path-selection"
-                        self._children_yang_names.add("tunnel-path-selection")
 
                         self.auto_bandwidth = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth()
                         self.auto_bandwidth.parent = self
                         self._children_name_map["auto_bandwidth"] = "auto-bandwidth"
-                        self._children_yang_names.add("auto-bandwidth")
 
                         self.priority = None
                         self._children_name_map["priority"] = "priority"
-                        self._children_yang_names.add("priority")
+
+                        self.affinity_mask = None
+                        self._children_name_map["affinity_mask"] = "affinity-mask"
 
                         self.logging = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging()
                         self.logging.parent = self
                         self._children_name_map["logging"] = "logging"
-                        self._children_yang_names.add("logging")
 
                         self.bandwidth = None
                         self._children_name_map["bandwidth"] = "bandwidth"
-                        self._children_yang_names.add("bandwidth")
 
                         self.autoroute = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute()
                         self.autoroute.parent = self
                         self._children_name_map["autoroute"] = "autoroute"
-                        self._children_yang_names.add("autoroute")
 
                         self.new_style_affinity_affinity_types = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes()
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
-                        self._children_yang_names.add("new-style-affinity-affinity-types")
 
                         self.fast_reroute = None
                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                        self._children_yang_names.add("fast-reroute")
                         self._segment_path = lambda: "tunnel-attributes"
 
                     def __setattr__(self, name, value):
@@ -1976,7 +1951,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups, self).__init__()
@@ -1986,8 +1961,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("path-setup", ("path_setup", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup))])
+                            self._child_classes = OrderedDict([("path-setup", ("path_setup", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup))])
                             self._leafs = OrderedDict()
 
                             self.path_setup = YList(self)
@@ -2020,7 +1994,7 @@ class MplsTe(Entity):
                             	Path preference level
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: enable
                             
@@ -2032,7 +2006,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup, self).__init__()
@@ -2042,11 +2016,10 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['path_setup_name']
-                                self._child_container_classes = OrderedDict([("path-computation", ("path_computation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("path-computation", ("path_computation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation))])
                                 self._leafs = OrderedDict([
                                     ('path_setup_name', YLeaf(YType.str, 'path-setup-name')),
-                                    ('preference', YLeaf(YType.int32, 'preference')),
+                                    ('preference', YLeaf(YType.uint32, 'preference')),
                                     ('enable', YLeaf(YType.empty, 'enable')),
                                 ])
                                 self.path_setup_name = None
@@ -2055,7 +2028,6 @@ class MplsTe(Entity):
 
                                 self.path_computation = None
                                 self._children_name_map["path_computation"] = "path-computation"
-                                self._children_yang_names.add("path-computation")
                                 self._segment_path = lambda: "path-setup" + "[path-setup-name='" + str(self.path_setup_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -2094,7 +2066,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation, self).__init__()
@@ -2104,8 +2076,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('path_computation_method', YLeaf(YType.enumeration, 'path-computation-method')),
@@ -2156,7 +2127,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection, self).__init__()
@@ -2166,8 +2137,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("invalidation", ("invalidation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("invalidation", ("invalidation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation))])
                             self._leafs = OrderedDict([
                                 ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
                                 ('path_selection_hop_limit', YLeaf(YType.uint32, 'path-selection-hop-limit')),
@@ -2179,7 +2149,6 @@ class MplsTe(Entity):
 
                             self.invalidation = None
                             self._children_name_map["invalidation"] = "invalidation"
-                            self._children_yang_names.add("invalidation")
                             self._segment_path = lambda: "tunnel-path-selection"
 
                         def __setattr__(self, name, value):
@@ -2210,7 +2179,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation, self).__init__()
@@ -2220,8 +2189,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
@@ -2302,7 +2270,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth, self).__init__()
@@ -2312,8 +2280,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("underflow", ("underflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow)), ("overflow", ("overflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow)), ("bandwidth-limits", ("bandwidth_limits", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits)), ("adjustment-threshold", ("adjustment_threshold", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("underflow", ("underflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow)), ("overflow", ("overflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow)), ("bandwidth-limits", ("bandwidth_limits", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits)), ("adjustment-threshold", ("adjustment_threshold", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold))])
                             self._leafs = OrderedDict([
                                 ('underflow_enable', YLeaf(YType.boolean, 'underflow-enable')),
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -2329,19 +2296,15 @@ class MplsTe(Entity):
 
                             self.underflow = None
                             self._children_name_map["underflow"] = "underflow"
-                            self._children_yang_names.add("underflow")
 
                             self.overflow = None
                             self._children_name_map["overflow"] = "overflow"
-                            self._children_yang_names.add("overflow")
 
                             self.bandwidth_limits = None
                             self._children_name_map["bandwidth_limits"] = "bandwidth-limits"
-                            self._children_yang_names.add("bandwidth-limits")
 
                             self.adjustment_threshold = None
                             self._children_name_map["adjustment_threshold"] = "adjustment-threshold"
-                            self._children_yang_names.add("adjustment-threshold")
                             self._segment_path = lambda: "auto-bandwidth"
 
                         def __setattr__(self, name, value):
@@ -2390,7 +2353,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow, self).__init__()
@@ -2400,8 +2363,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('underflow_threshold_percent', YLeaf(YType.uint32, 'underflow-threshold-percent')),
@@ -2459,7 +2421,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow, self).__init__()
@@ -2469,8 +2431,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('overflow_threshold_percent', YLeaf(YType.uint32, 'overflow-threshold-percent')),
@@ -2516,7 +2477,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits, self).__init__()
@@ -2526,8 +2487,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('bandwidth_min_limit', YLeaf(YType.uint32, 'bandwidth-min-limit')),
@@ -2575,7 +2535,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold, self).__init__()
@@ -2585,8 +2545,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('adjustment_threshold_percent', YLeaf(YType.uint32, 'adjustment-threshold-percent')),
@@ -2629,7 +2588,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority, self).__init__()
@@ -2639,8 +2598,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
@@ -2652,6 +2610,59 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority, ['setup_priority', 'hold_priority'], name, value)
+
+
+                    class AffinityMask(Entity):
+                        """
+                        Set the affinity flags and mask
+                        
+                        .. attribute:: affinity
+                        
+                        	Affinity flags
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: mask
+                        
+                        	Affinity mask
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask, self).__init__()
+
+                            self.yang_name = "affinity-mask"
+                            self.yang_parent_name = "tunnel-attributes"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('affinity', YLeaf(YType.str, 'affinity')),
+                                ('mask', YLeaf(YType.str, 'mask')),
+                            ])
+                            self.affinity = None
+                            self.mask = None
+                            self._segment_path = lambda: "affinity-mask"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask, ['affinity', 'mask'], name, value)
 
 
                     class Logging(Entity):
@@ -2718,7 +2729,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging, self).__init__()
@@ -2728,8 +2739,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('lsp_switch_over_change_message', YLeaf(YType.empty, 'lsp-switch-over-change-message')),
                                 ('all', YLeaf(YType.empty, 'all')),
@@ -2798,7 +2808,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth, self).__init__()
@@ -2808,8 +2818,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
@@ -2844,7 +2853,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute, self).__init__()
@@ -2854,20 +2863,20 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("autoroute-announce", ("autoroute_announce", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce)), ("destinations", ("destinations", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("autoroute-announce", ("autoroute_announce", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce)), ("destinations", ("destinations", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations))])
                             self._leafs = OrderedDict()
 
                             self.autoroute_announce = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce()
                             self.autoroute_announce.parent = self
                             self._children_name_map["autoroute_announce"] = "autoroute-announce"
-                            self._children_yang_names.add("autoroute-announce")
 
                             self.destinations = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations()
                             self.destinations.parent = self
                             self._children_name_map["destinations"] = "destinations"
-                            self._children_yang_names.add("destinations")
                             self._segment_path = lambda: "autoroute"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute, [], name, value)
 
 
                         class AutorouteAnnounce(Entity):
@@ -2899,7 +2908,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce, self).__init__()
@@ -2909,8 +2918,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("exclude-traffic", ("exclude_traffic", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic)), ("metric", ("metric", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("exclude-traffic", ("exclude_traffic", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic)), ("metric", ("metric", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric))])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.empty, 'enable')),
                                     ('include_ipv6', YLeaf(YType.empty, 'include-ipv6')),
@@ -2921,12 +2929,10 @@ class MplsTe(Entity):
                                 self.exclude_traffic = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic()
                                 self.exclude_traffic.parent = self
                                 self._children_name_map["exclude_traffic"] = "exclude-traffic"
-                                self._children_yang_names.add("exclude-traffic")
 
                                 self.metric = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric()
                                 self.metric.parent = self
                                 self._children_name_map["metric"] = "metric"
-                                self._children_yang_names.add("metric")
                                 self._segment_path = lambda: "autoroute-announce"
 
                             def __setattr__(self, name, value):
@@ -2947,7 +2953,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic, self).__init__()
@@ -2957,8 +2963,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('segment_routing', YLeaf(YType.empty, 'segment-routing')),
                                     ])
@@ -3004,7 +3009,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric, self).__init__()
@@ -3014,8 +3019,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
                                         ('absolute_metric', YLeaf(YType.uint32, 'absolute-metric')),
@@ -3046,7 +3050,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations, self).__init__()
@@ -3056,8 +3060,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("destination", ("destination", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination))])
+                                self._child_classes = OrderedDict([("destination", ("destination", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination))])
                                 self._leafs = OrderedDict()
 
                                 self.destination = YList(self)
@@ -3083,7 +3086,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination, self).__init__()
@@ -3093,8 +3096,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['destination_address']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('destination_address', YLeaf(YType.str, 'destination-address')),
                                     ])
@@ -3169,7 +3171,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes, self).__init__()
@@ -3179,8 +3181,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._child_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
                             self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
@@ -3214,7 +3215,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
@@ -3224,8 +3225,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                 ])
@@ -3257,7 +3257,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
@@ -3267,8 +3267,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -3309,7 +3308,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
@@ -3319,8 +3318,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -3370,7 +3368,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
@@ -3380,8 +3378,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -3440,7 +3437,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
@@ -3450,8 +3447,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -3519,7 +3515,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
@@ -3529,8 +3525,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -3607,7 +3602,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
@@ -3617,8 +3612,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -3704,7 +3698,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
@@ -3714,8 +3708,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -3810,7 +3803,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
@@ -3820,8 +3813,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -3925,7 +3917,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
@@ -3935,8 +3927,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -4049,7 +4040,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
@@ -4059,8 +4050,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -4120,7 +4110,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute, self).__init__()
@@ -4130,8 +4120,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
@@ -4170,7 +4159,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId, self).__init__()
@@ -4180,8 +4169,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('tunnel_id_type', YLeaf(YType.enumeration, 'tunnel-id-type')),
@@ -4214,7 +4202,7 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(MplsTe.GmplsUni, self).__init__()
@@ -4224,21 +4212,21 @@ class MplsTe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("timers", ("timers", MplsTe.GmplsUni.Timers)), ("controllers", ("controllers", MplsTe.GmplsUni.Controllers))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("timers", ("timers", MplsTe.GmplsUni.Timers)), ("controllers", ("controllers", MplsTe.GmplsUni.Controllers))])
             self._leafs = OrderedDict()
 
             self.timers = MplsTe.GmplsUni.Timers()
             self.timers.parent = self
             self._children_name_map["timers"] = "timers"
-            self._children_yang_names.add("timers")
 
             self.controllers = MplsTe.GmplsUni.Controllers()
             self.controllers.parent = self
             self._children_name_map["controllers"] = "controllers"
-            self._children_yang_names.add("controllers")
             self._segment_path = lambda: "gmpls-uni"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsTe.GmplsUni, [], name, value)
 
 
         class Timers(Entity):
@@ -4255,7 +4243,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GmplsUni.Timers, self).__init__()
@@ -4265,16 +4253,17 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("path-option-timers", ("path_option_timers", MplsTe.GmplsUni.Timers.PathOptionTimers))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("path-option-timers", ("path_option_timers", MplsTe.GmplsUni.Timers.PathOptionTimers))])
                 self._leafs = OrderedDict()
 
                 self.path_option_timers = MplsTe.GmplsUni.Timers.PathOptionTimers()
                 self.path_option_timers.parent = self
                 self._children_name_map["path_option_timers"] = "path-option-timers"
-                self._children_yang_names.add("path-option-timers")
                 self._segment_path = lambda: "timers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsTe.GmplsUni.Timers, [], name, value)
 
 
             class PathOptionTimers(Entity):
@@ -4291,7 +4280,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GmplsUni.Timers.PathOptionTimers, self).__init__()
@@ -4301,16 +4290,17 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("holddown", ("holddown", MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("holddown", ("holddown", MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown))])
                     self._leafs = OrderedDict()
 
                     self.holddown = MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown()
                     self.holddown.parent = self
                     self._children_name_map["holddown"] = "holddown"
-                    self._children_yang_names.add("holddown")
                     self._segment_path = lambda: "path-option-timers"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/timers/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsTe.GmplsUni.Timers.PathOptionTimers, [], name, value)
 
 
                 class Holddown(Entity):
@@ -4341,7 +4331,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown, self).__init__()
@@ -4351,8 +4341,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('minimum', YLeaf(YType.uint32, 'minimum')),
                             ('maximum', YLeaf(YType.uint32, 'maximum')),
@@ -4380,7 +4369,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GmplsUni.Controllers, self).__init__()
@@ -4390,8 +4379,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsUni.Controllers.Controller))])
+                self._child_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsUni.Controllers.Controller))])
                 self._leafs = OrderedDict()
 
                 self.controller = YList(self)
@@ -4438,7 +4426,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GmplsUni.Controllers.Controller, self).__init__()
@@ -4448,8 +4436,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['controller_name']
-                    self._child_container_classes = OrderedDict([("announce", ("announce", MplsTe.GmplsUni.Controllers.Controller.Announce)), ("controller-logging", ("controller_logging", MplsTe.GmplsUni.Controllers.Controller.ControllerLogging)), ("gmpls-unitunnel-head", ("gmpls_unitunnel_head", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("announce", ("announce", MplsTe.GmplsUni.Controllers.Controller.Announce)), ("controller-logging", ("controller_logging", MplsTe.GmplsUni.Controllers.Controller.ControllerLogging)), ("gmpls-unitunnel-head", ("gmpls_unitunnel_head", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead))])
                     self._leafs = OrderedDict([
                         ('controller_name', YLeaf(YType.str, 'controller-name')),
                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -4460,17 +4447,14 @@ class MplsTe(Entity):
                     self.announce = MplsTe.GmplsUni.Controllers.Controller.Announce()
                     self.announce.parent = self
                     self._children_name_map["announce"] = "announce"
-                    self._children_yang_names.add("announce")
 
                     self.controller_logging = MplsTe.GmplsUni.Controllers.Controller.ControllerLogging()
                     self.controller_logging.parent = self
                     self._children_name_map["controller_logging"] = "controller-logging"
-                    self._children_yang_names.add("controller-logging")
 
                     self.gmpls_unitunnel_head = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead()
                     self.gmpls_unitunnel_head.parent = self
                     self._children_name_map["gmpls_unitunnel_head"] = "gmpls-unitunnel-head"
-                    self._children_yang_names.add("gmpls-unitunnel-head")
                     self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/%s" % self._segment_path()
 
@@ -4493,7 +4477,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsUni.Controllers.Controller.Announce, self).__init__()
@@ -4503,8 +4487,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('srl_gs', YLeaf(YType.empty, 'srl-gs')),
                         ])
@@ -4529,7 +4512,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsUni.Controllers.Controller.ControllerLogging, self).__init__()
@@ -4539,8 +4522,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('discovered_srlg_change_logging', YLeaf(YType.empty, 'discovered-srlg-change-logging')),
                         ])
@@ -4613,7 +4595,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead, self).__init__()
@@ -4623,8 +4605,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("path-options", ("path_options", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions)), ("recording", ("recording", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording)), ("logging", ("logging", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging)), ("priority", ("priority", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("path-options", ("path_options", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions)), ("recording", ("recording", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording)), ("logging", ("logging", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging)), ("priority", ("priority", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority))])
                         self._leafs = OrderedDict([
                             ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -4641,21 +4622,17 @@ class MplsTe(Entity):
                         self.path_options = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions()
                         self.path_options.parent = self
                         self._children_name_map["path_options"] = "path-options"
-                        self._children_yang_names.add("path-options")
 
                         self.recording = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording()
                         self.recording.parent = self
                         self._children_name_map["recording"] = "recording"
-                        self._children_yang_names.add("recording")
 
                         self.logging = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging()
                         self.logging.parent = self
                         self._children_name_map["logging"] = "logging"
-                        self._children_yang_names.add("logging")
 
                         self.priority = None
                         self._children_name_map["priority"] = "priority"
-                        self._children_yang_names.add("priority")
                         self._segment_path = lambda: "gmpls-unitunnel-head"
 
                     def __setattr__(self, name, value):
@@ -4676,7 +4653,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions, self).__init__()
@@ -4686,8 +4663,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("path-option", ("path_option", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption))])
+                            self._child_classes = OrderedDict([("path-option", ("path_option", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption))])
                             self._leafs = OrderedDict()
 
                             self.path_option = YList(self)
@@ -4778,7 +4754,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption, self).__init__()
@@ -4788,8 +4764,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['preference_level']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('preference_level', YLeaf(YType.uint32, 'preference-level')),
                                     ('path_type', YLeaf(YType.enumeration, 'path-type')),
@@ -4832,7 +4807,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording, self).__init__()
@@ -4842,8 +4817,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('srlg', YLeaf(YType.empty, 'srlg')),
                             ])
@@ -4868,7 +4842,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging, self).__init__()
@@ -4878,8 +4852,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('state_message', YLeaf(YType.empty, 'state-message')),
                             ])
@@ -4919,7 +4892,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority, self).__init__()
@@ -4929,8 +4902,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
@@ -5206,7 +5178,7 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(MplsTe.GlobalAttributes, self).__init__()
@@ -5216,8 +5188,7 @@ class MplsTe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("auto-tunnel", ("auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel)), ("hardware-out-of-resource", ("hardware_out_of_resource", MplsTe.GlobalAttributes.HardwareOutOfResource)), ("secondary-router-ids", ("secondary_router_ids", MplsTe.GlobalAttributes.SecondaryRouterIds)), ("srlg", ("srlg", MplsTe.GlobalAttributes.Srlg)), ("queues", ("queues", MplsTe.GlobalAttributes.Queues)), ("mib", ("mib", MplsTe.GlobalAttributes.Mib)), ("attribute-set", ("attribute_set", MplsTe.GlobalAttributes.AttributeSet)), ("bfd-over-lsp", ("bfd_over_lsp", MplsTe.GlobalAttributes.BfdOverLsp)), ("bandwidth-accounting", ("bandwidth_accounting", MplsTe.GlobalAttributes.BandwidthAccounting)), ("pce-attributes", ("pce_attributes", MplsTe.GlobalAttributes.PceAttributes)), ("lsp-out-of-resource", ("lsp_out_of_resource", MplsTe.GlobalAttributes.LspOutOfResource)), ("soft-preemption", ("soft_preemption", MplsTe.GlobalAttributes.SoftPreemption)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.FastReroute)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.PathSelection)), ("affinity-mappings", ("affinity_mappings", MplsTe.GlobalAttributes.AffinityMappings))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("auto-tunnel", ("auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel)), ("hardware-out-of-resource", ("hardware_out_of_resource", MplsTe.GlobalAttributes.HardwareOutOfResource)), ("secondary-router-ids", ("secondary_router_ids", MplsTe.GlobalAttributes.SecondaryRouterIds)), ("srlg", ("srlg", MplsTe.GlobalAttributes.Srlg)), ("queues", ("queues", MplsTe.GlobalAttributes.Queues)), ("mib", ("mib", MplsTe.GlobalAttributes.Mib)), ("attribute-set", ("attribute_set", MplsTe.GlobalAttributes.AttributeSet)), ("bfd-over-lsp", ("bfd_over_lsp", MplsTe.GlobalAttributes.BfdOverLsp)), ("bandwidth-accounting", ("bandwidth_accounting", MplsTe.GlobalAttributes.BandwidthAccounting)), ("pce-attributes", ("pce_attributes", MplsTe.GlobalAttributes.PceAttributes)), ("lsp-out-of-resource", ("lsp_out_of_resource", MplsTe.GlobalAttributes.LspOutOfResource)), ("soft-preemption", ("soft_preemption", MplsTe.GlobalAttributes.SoftPreemption)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.FastReroute)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.PathSelection)), ("affinity-mappings", ("affinity_mappings", MplsTe.GlobalAttributes.AffinityMappings))])
             self._leafs = OrderedDict([
                 ('log_nsr_status', YLeaf(YType.empty, 'log-nsr-status')),
                 ('log_issu_status', YLeaf(YType.empty, 'log-issu-status')),
@@ -5276,77 +5247,62 @@ class MplsTe(Entity):
             self.auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel()
             self.auto_tunnel.parent = self
             self._children_name_map["auto_tunnel"] = "auto-tunnel"
-            self._children_yang_names.add("auto-tunnel")
 
             self.hardware_out_of_resource = MplsTe.GlobalAttributes.HardwareOutOfResource()
             self.hardware_out_of_resource.parent = self
             self._children_name_map["hardware_out_of_resource"] = "hardware-out-of-resource"
-            self._children_yang_names.add("hardware-out-of-resource")
 
             self.secondary_router_ids = MplsTe.GlobalAttributes.SecondaryRouterIds()
             self.secondary_router_ids.parent = self
             self._children_name_map["secondary_router_ids"] = "secondary-router-ids"
-            self._children_yang_names.add("secondary-router-ids")
 
             self.srlg = MplsTe.GlobalAttributes.Srlg()
             self.srlg.parent = self
             self._children_name_map["srlg"] = "srlg"
-            self._children_yang_names.add("srlg")
 
             self.queues = MplsTe.GlobalAttributes.Queues()
             self.queues.parent = self
             self._children_name_map["queues"] = "queues"
-            self._children_yang_names.add("queues")
 
             self.mib = MplsTe.GlobalAttributes.Mib()
             self.mib.parent = self
             self._children_name_map["mib"] = "mib"
-            self._children_yang_names.add("mib")
 
             self.attribute_set = MplsTe.GlobalAttributes.AttributeSet()
             self.attribute_set.parent = self
             self._children_name_map["attribute_set"] = "attribute-set"
-            self._children_yang_names.add("attribute-set")
 
             self.bfd_over_lsp = MplsTe.GlobalAttributes.BfdOverLsp()
             self.bfd_over_lsp.parent = self
             self._children_name_map["bfd_over_lsp"] = "bfd-over-lsp"
-            self._children_yang_names.add("bfd-over-lsp")
 
             self.bandwidth_accounting = MplsTe.GlobalAttributes.BandwidthAccounting()
             self.bandwidth_accounting.parent = self
             self._children_name_map["bandwidth_accounting"] = "bandwidth-accounting"
-            self._children_yang_names.add("bandwidth-accounting")
 
             self.pce_attributes = MplsTe.GlobalAttributes.PceAttributes()
             self.pce_attributes.parent = self
             self._children_name_map["pce_attributes"] = "pce-attributes"
-            self._children_yang_names.add("pce-attributes")
 
             self.lsp_out_of_resource = MplsTe.GlobalAttributes.LspOutOfResource()
             self.lsp_out_of_resource.parent = self
             self._children_name_map["lsp_out_of_resource"] = "lsp-out-of-resource"
-            self._children_yang_names.add("lsp-out-of-resource")
 
             self.soft_preemption = MplsTe.GlobalAttributes.SoftPreemption()
             self.soft_preemption.parent = self
             self._children_name_map["soft_preemption"] = "soft-preemption"
-            self._children_yang_names.add("soft-preemption")
 
             self.fast_reroute = MplsTe.GlobalAttributes.FastReroute()
             self.fast_reroute.parent = self
             self._children_name_map["fast_reroute"] = "fast-reroute"
-            self._children_yang_names.add("fast-reroute")
 
             self.path_selection = MplsTe.GlobalAttributes.PathSelection()
             self.path_selection.parent = self
             self._children_name_map["path_selection"] = "path-selection"
-            self._children_yang_names.add("path-selection")
 
             self.affinity_mappings = MplsTe.GlobalAttributes.AffinityMappings()
             self.affinity_mappings.parent = self
             self._children_name_map["affinity_mappings"] = "affinity-mappings"
-            self._children_yang_names.add("affinity-mappings")
             self._segment_path = lambda: "global-attributes"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
 
@@ -5366,7 +5322,7 @@ class MplsTe(Entity):
             .. attribute:: p2p_auto_tunnel
             
             	Configure P2P auto\-tunnel feature
-            	**type**\:  :py:class:`P2PAutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel>`
+            	**type**\:  :py:class:`P2pAutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel>`
             
             .. attribute:: backup
             
@@ -5381,14 +5337,14 @@ class MplsTe(Entity):
             .. attribute:: p2mp_auto_tunnel
             
             	Configure P2MP auto\-tunnel feature
-            	**type**\:  :py:class:`P2MpAutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel>`
+            	**type**\:  :py:class:`P2mpAutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel>`
             
             
 
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.AutoTunnel, self).__init__()
@@ -5398,36 +5354,33 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("pcc", ("pcc", MplsTe.GlobalAttributes.AutoTunnel.Pcc)), ("p2p-auto-tunnel", ("p2p_auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel)), ("backup", ("backup", MplsTe.GlobalAttributes.AutoTunnel.Backup)), ("mesh", ("mesh", MplsTe.GlobalAttributes.AutoTunnel.Mesh)), ("p2mp-auto-tunnel", ("p2mp_auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("pcc", ("pcc", MplsTe.GlobalAttributes.AutoTunnel.Pcc)), ("p2p-auto-tunnel", ("p2p_auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel)), ("backup", ("backup", MplsTe.GlobalAttributes.AutoTunnel.Backup)), ("mesh", ("mesh", MplsTe.GlobalAttributes.AutoTunnel.Mesh)), ("p2mp-auto-tunnel", ("p2mp_auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel))])
                 self._leafs = OrderedDict()
 
                 self.pcc = MplsTe.GlobalAttributes.AutoTunnel.Pcc()
                 self.pcc.parent = self
                 self._children_name_map["pcc"] = "pcc"
-                self._children_yang_names.add("pcc")
 
-                self.p2p_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel()
+                self.p2p_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel()
                 self.p2p_auto_tunnel.parent = self
                 self._children_name_map["p2p_auto_tunnel"] = "p2p-auto-tunnel"
-                self._children_yang_names.add("p2p-auto-tunnel")
 
                 self.backup = MplsTe.GlobalAttributes.AutoTunnel.Backup()
                 self.backup.parent = self
                 self._children_name_map["backup"] = "backup"
-                self._children_yang_names.add("backup")
 
                 self.mesh = MplsTe.GlobalAttributes.AutoTunnel.Mesh()
                 self.mesh.parent = self
                 self._children_name_map["mesh"] = "mesh"
-                self._children_yang_names.add("mesh")
 
-                self.p2mp_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel()
+                self.p2mp_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel()
                 self.p2mp_auto_tunnel.parent = self
                 self._children_name_map["p2mp_auto_tunnel"] = "p2mp-auto-tunnel"
-                self._children_yang_names.add("p2mp-auto-tunnel")
                 self._segment_path = lambda: "auto-tunnel"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel, [], name, value)
 
 
             class Pcc(Entity):
@@ -5447,7 +5400,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AutoTunnel.Pcc, self).__init__()
@@ -5457,15 +5410,16 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange))])
                     self._leafs = OrderedDict()
 
                     self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
-                    self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "pcc"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Pcc, [], name, value)
 
 
                 class TunnelRange(Entity):
@@ -5498,7 +5452,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange, self).__init__()
@@ -5508,8 +5462,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
@@ -5524,14 +5477,14 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
 
-            class P2PAutoTunnel(Entity):
+            class P2pAutoTunnel(Entity):
                 """
                 Configure P2P auto\-tunnel feature
                 
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange>`
+                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange>`
                 
                 	**presence node**\: True
                 
@@ -5540,25 +5493,26 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel, self).__init__()
+                    super(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel, self).__init__()
 
                     self.yang_name = "p2p-auto-tunnel"
                     self.yang_parent_name = "auto-tunnel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange))])
                     self._leafs = OrderedDict()
 
                     self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
-                    self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "p2p-auto-tunnel"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel, [], name, value)
 
 
                 class TunnelRange(Entity):
@@ -5591,18 +5545,17 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange, self).__init__()
+                        super(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange, self).__init__()
 
                         self.yang_name = "tunnel-range"
                         self.yang_parent_name = "p2p-auto-tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
@@ -5614,7 +5567,7 @@ class MplsTe(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/p2p-auto-tunnel/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
 
             class Backup(Entity):
@@ -5643,7 +5596,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AutoTunnel.Backup, self).__init__()
@@ -5653,8 +5606,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("timers", ("timers", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers)), ("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("timers", ("timers", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers)), ("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange))])
                     self._leafs = OrderedDict([
                         ('affinity_ignore', YLeaf(YType.empty, 'affinity-ignore')),
                     ])
@@ -5663,11 +5615,9 @@ class MplsTe(Entity):
                     self.timers = MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers()
                     self.timers.parent = self
                     self._children_name_map["timers"] = "timers"
-                    self._children_yang_names.add("timers")
 
                     self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
-                    self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "backup"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
 
@@ -5689,7 +5639,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers, self).__init__()
@@ -5699,16 +5649,17 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("removal", ("removal", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("removal", ("removal", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal))])
                         self._leafs = OrderedDict()
 
                         self.removal = MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal()
                         self.removal.parent = self
                         self._children_name_map["removal"] = "removal"
-                        self._children_yang_names.add("removal")
                         self._segment_path = lambda: "timers"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers, [], name, value)
 
 
                     class Removal(Entity):
@@ -5732,7 +5683,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal, self).__init__()
@@ -5742,8 +5693,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unused', YLeaf(YType.uint32, 'unused')),
                             ])
@@ -5785,7 +5735,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange, self).__init__()
@@ -5795,8 +5745,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
@@ -5837,7 +5786,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AutoTunnel.Mesh, self).__init__()
@@ -5847,25 +5796,24 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("mesh-groups", ("mesh_groups", MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups)), ("timers", ("timers", MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers)), ("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("mesh-groups", ("mesh_groups", MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups)), ("timers", ("timers", MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers)), ("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange))])
                     self._leafs = OrderedDict()
 
                     self.mesh_groups = MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups()
                     self.mesh_groups.parent = self
                     self._children_name_map["mesh_groups"] = "mesh-groups"
-                    self._children_yang_names.add("mesh-groups")
 
                     self.timers = MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers()
                     self.timers.parent = self
                     self._children_name_map["timers"] = "timers"
-                    self._children_yang_names.add("timers")
 
                     self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
-                    self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "mesh"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh, [], name, value)
 
 
                 class MeshGroups(Entity):
@@ -5882,7 +5830,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups, self).__init__()
@@ -5892,8 +5840,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("mesh-group", ("mesh_group", MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup))])
+                        self._child_classes = OrderedDict([("mesh-group", ("mesh_group", MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup))])
                         self._leafs = OrderedDict()
 
                         self.mesh_group = YList(self)
@@ -5949,7 +5896,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup, self).__init__()
@@ -5959,8 +5906,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['mesh_group_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mesh_group_id', YLeaf(YType.uint32, 'mesh-group-id')),
                                 ('destination_list', YLeaf(YType.str, 'destination-list')),
@@ -5996,7 +5942,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers, self).__init__()
@@ -6006,16 +5952,17 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("removal", ("removal", MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("removal", ("removal", MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal))])
                         self._leafs = OrderedDict()
 
                         self.removal = MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal()
                         self.removal.parent = self
                         self._children_name_map["removal"] = "removal"
-                        self._children_yang_names.add("removal")
                         self._segment_path = lambda: "timers"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers, [], name, value)
 
 
                     class Removal(Entity):
@@ -6039,7 +5986,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal, self).__init__()
@@ -6049,8 +5996,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unused', YLeaf(YType.uint32, 'unused')),
                             ])
@@ -6092,7 +6038,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange, self).__init__()
@@ -6102,8 +6048,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
@@ -6118,14 +6063,14 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
 
-            class P2MpAutoTunnel(Entity):
+            class P2mpAutoTunnel(Entity):
                 """
                 Configure P2MP auto\-tunnel feature
                 
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange>`
+                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange>`
                 
                 	**presence node**\: True
                 
@@ -6134,25 +6079,26 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel, self).__init__()
+                    super(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel, self).__init__()
 
                     self.yang_name = "p2mp-auto-tunnel"
                     self.yang_parent_name = "auto-tunnel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange))])
                     self._leafs = OrderedDict()
 
                     self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
-                    self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "p2mp-auto-tunnel"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel, [], name, value)
 
 
                 class TunnelRange(Entity):
@@ -6185,18 +6131,17 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange, self).__init__()
+                        super(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange, self).__init__()
 
                         self.yang_name = "tunnel-range"
                         self.yang_parent_name = "p2mp-auto-tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
@@ -6208,7 +6153,7 @@ class MplsTe(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/p2mp-auto-tunnel/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
 
         class HardwareOutOfResource(Entity):
@@ -6235,7 +6180,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.HardwareOutOfResource, self).__init__()
@@ -6245,26 +6190,25 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("oor-red-state", ("oor_red_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState)), ("oor-yellow-state", ("oor_yellow_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState)), ("oor-green-state", ("oor_green_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("oor-red-state", ("oor_red_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState)), ("oor-yellow-state", ("oor_yellow_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState)), ("oor-green-state", ("oor_green_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState))])
                 self._leafs = OrderedDict()
 
                 self.oor_red_state = MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState()
                 self.oor_red_state.parent = self
                 self._children_name_map["oor_red_state"] = "oor-red-state"
-                self._children_yang_names.add("oor-red-state")
 
                 self.oor_yellow_state = MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState()
                 self.oor_yellow_state.parent = self
                 self._children_name_map["oor_yellow_state"] = "oor-yellow-state"
-                self._children_yang_names.add("oor-yellow-state")
 
                 self.oor_green_state = MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState()
                 self.oor_green_state.parent = self
                 self._children_name_map["oor_green_state"] = "oor-green-state"
-                self._children_yang_names.add("oor-green-state")
                 self._segment_path = lambda: "hardware-out-of-resource"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource, [], name, value)
 
 
             class OorRedState(Entity):
@@ -6292,7 +6236,7 @@ class MplsTe(Entity):
                 	Only accept LSPs with at least the specified bandwidth (in kbps)
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 	**units**\: kbit/s
                 
@@ -6308,7 +6252,7 @@ class MplsTe(Entity):
                 	Penalty applied to the TE metric of a link in OOR state
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 	**default value**\: 0
                 
@@ -6317,7 +6261,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState, self).__init__()
@@ -6327,14 +6271,13 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
                         ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
-                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.int32, 'oor-accept-lsp-min-bandwidth')),
+                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth')),
                         ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
-                        ('oor_metric_te_penalty', YLeaf(YType.int32, 'oor-metric-te-penalty')),
+                        ('oor_metric_te_penalty', YLeaf(YType.uint32, 'oor-metric-te-penalty')),
                     ])
                     self.oor_node_protection_disable = None
                     self.oor_available_bandwidth_percentage = None
@@ -6373,7 +6316,7 @@ class MplsTe(Entity):
                 	Only accept LSPs with at least the specified bandwidth (in kbps)
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 	**units**\: kbit/s
                 
@@ -6389,7 +6332,7 @@ class MplsTe(Entity):
                 	Penalty applied to the TE metric of a link in OOR state
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 	**default value**\: 0
                 
@@ -6398,7 +6341,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState, self).__init__()
@@ -6408,14 +6351,13 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
                         ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
-                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.int32, 'oor-accept-lsp-min-bandwidth')),
+                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth')),
                         ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
-                        ('oor_metric_te_penalty', YLeaf(YType.int32, 'oor-metric-te-penalty')),
+                        ('oor_metric_te_penalty', YLeaf(YType.uint32, 'oor-metric-te-penalty')),
                     ])
                     self.oor_node_protection_disable = None
                     self.oor_available_bandwidth_percentage = None
@@ -6465,7 +6407,7 @@ class MplsTe(Entity):
                 	Only accept LSPs with at least the specified bandwidth (in kbps)
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 	**units**\: kbit/s
                 
@@ -6481,7 +6423,7 @@ class MplsTe(Entity):
                 	Penalty applied to the TE metric of a link in OOR state
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 	**default value**\: 0
                 
@@ -6490,7 +6432,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState, self).__init__()
@@ -6500,15 +6442,14 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('oor_recovery_duration', YLeaf(YType.uint32, 'oor-recovery-duration')),
                         ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
                         ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
-                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.int32, 'oor-accept-lsp-min-bandwidth')),
+                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth')),
                         ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
-                        ('oor_metric_te_penalty', YLeaf(YType.int32, 'oor-metric-te-penalty')),
+                        ('oor_metric_te_penalty', YLeaf(YType.uint32, 'oor-metric-te-penalty')),
                     ])
                     self.oor_recovery_duration = None
                     self.oor_node_protection_disable = None
@@ -6537,7 +6478,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.SecondaryRouterIds, self).__init__()
@@ -6547,8 +6488,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("secondary-router-id", ("secondary_router_id", MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId))])
+                self._child_classes = OrderedDict([("secondary-router-id", ("secondary_router_id", MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId))])
                 self._leafs = OrderedDict()
 
                 self.secondary_router_id = YList(self)
@@ -6575,7 +6515,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId, self).__init__()
@@ -6585,8 +6525,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['secondary_router_id_value']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('secondary_router_id_value', YLeaf(YType.str, 'secondary-router-id-value')),
                     ])
@@ -6612,7 +6551,7 @@ class MplsTe(Entity):
             	Default Admin weight any SRLG value that does not have one
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             	**default value**\: 1
             
@@ -6626,7 +6565,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.Srlg, self).__init__()
@@ -6636,10 +6575,9 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("names", ("names", MplsTe.GlobalAttributes.Srlg.Names))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("names", ("names", MplsTe.GlobalAttributes.Srlg.Names))])
                 self._leafs = OrderedDict([
-                    ('default_admin_weight', YLeaf(YType.int32, 'default-admin-weight')),
+                    ('default_admin_weight', YLeaf(YType.uint32, 'default-admin-weight')),
                     ('enable', YLeaf(YType.empty, 'enable')),
                 ])
                 self.default_admin_weight = None
@@ -6648,7 +6586,6 @@ class MplsTe(Entity):
                 self.names = MplsTe.GlobalAttributes.Srlg.Names()
                 self.names.parent = self
                 self._children_name_map["names"] = "names"
-                self._children_yang_names.add("names")
                 self._segment_path = lambda: "srlg"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
 
@@ -6670,7 +6607,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.Srlg.Names, self).__init__()
@@ -6680,8 +6617,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("name", ("name", MplsTe.GlobalAttributes.Srlg.Names.Name))])
+                    self._child_classes = OrderedDict([("name", ("name", MplsTe.GlobalAttributes.Srlg.Names.Name))])
                     self._leafs = OrderedDict()
 
                     self.name = YList(self)
@@ -6713,14 +6649,14 @@ class MplsTe(Entity):
                     	Administrative weight for the SRLG value
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     
 
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.Srlg.Names.Name, self).__init__()
@@ -6730,11 +6666,10 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['srlg_name']
-                        self._child_container_classes = OrderedDict([("static-srlg-members", ("static_srlg_members", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("static-srlg-members", ("static_srlg_members", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers))])
                         self._leafs = OrderedDict([
                             ('srlg_name', YLeaf(YType.str, 'srlg-name')),
-                            ('admin_weight', YLeaf(YType.int32, 'admin-weight')),
+                            ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
                         ])
                         self.srlg_name = None
                         self.admin_weight = None
@@ -6742,7 +6677,6 @@ class MplsTe(Entity):
                         self.static_srlg_members = MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers()
                         self.static_srlg_members.parent = self
                         self._children_name_map["static_srlg_members"] = "static-srlg-members"
-                        self._children_yang_names.add("static-srlg-members")
                         self._segment_path = lambda: "name" + "[srlg-name='" + str(self.srlg_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/srlg/names/%s" % self._segment_path()
 
@@ -6764,7 +6698,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers, self).__init__()
@@ -6774,8 +6708,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("static-srlg-member", ("static_srlg_member", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember))])
+                            self._child_classes = OrderedDict([("static-srlg-member", ("static_srlg_member", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember))])
                             self._leafs = OrderedDict()
 
                             self.static_srlg_member = YList(self)
@@ -6810,7 +6743,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember, self).__init__()
@@ -6820,8 +6753,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['from_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('from_address', YLeaf(YType.str, 'from-address')),
                                     ('to_address', YLeaf(YType.str, 'to-address')),
@@ -6848,7 +6780,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.Queues, self).__init__()
@@ -6858,8 +6790,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("queue", ("queue", MplsTe.GlobalAttributes.Queues.Queue))])
+                self._child_classes = OrderedDict([("queue", ("queue", MplsTe.GlobalAttributes.Queues.Queue))])
                 self._leafs = OrderedDict()
 
                 self.queue = YList(self)
@@ -6893,7 +6824,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.Queues.Queue, self).__init__()
@@ -6903,8 +6834,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['role']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('role', YLeaf(YType.enumeration, 'role')),
                         ('value', YLeaf(YType.uint32, 'value')),
@@ -6932,7 +6862,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.Mib, self).__init__()
@@ -6942,8 +6872,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('midpoint_lsp_stats_collection_disable', YLeaf(YType.empty, 'midpoint-lsp-stats-collection-disable')),
                 ])
@@ -6967,12 +6896,12 @@ class MplsTe(Entity):
             .. attribute:: p2mpte_attributes
             
             	P2MP\-TE Tunnel AttributeSets Table
-            	**type**\:  :py:class:`P2MpteAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes>`
+            	**type**\:  :py:class:`P2mpteAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes>`
             
             .. attribute:: p2p_te_attributes
             
             	P2P\-TE Tunnel AttributeSets Table
-            	**type**\:  :py:class:`P2PTeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes>`
+            	**type**\:  :py:class:`P2pTeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes>`
             
             .. attribute:: auto_backup_attributes
             
@@ -6999,7 +6928,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.AttributeSet, self).__init__()
@@ -7009,46 +6938,41 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("path-option-attributes", ("path_option_attributes", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes)), ("p2mpte-attributes", ("p2mpte_attributes", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes)), ("p2p-te-attributes", ("p2p_te_attributes", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes)), ("auto-backup-attributes", ("auto_backup_attributes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes)), ("otn-pp-attributes", ("otn_pp_attributes", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes)), ("auto-mesh-attributes", ("auto_mesh_attributes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes)), ("xro-attributes", ("xro_attributes", MplsTe.GlobalAttributes.AttributeSet.XroAttributes))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("path-option-attributes", ("path_option_attributes", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes)), ("p2mpte-attributes", ("p2mpte_attributes", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes)), ("p2p-te-attributes", ("p2p_te_attributes", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes)), ("auto-backup-attributes", ("auto_backup_attributes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes)), ("otn-pp-attributes", ("otn_pp_attributes", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes)), ("auto-mesh-attributes", ("auto_mesh_attributes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes)), ("xro-attributes", ("xro_attributes", MplsTe.GlobalAttributes.AttributeSet.XroAttributes))])
                 self._leafs = OrderedDict()
 
                 self.path_option_attributes = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes()
                 self.path_option_attributes.parent = self
                 self._children_name_map["path_option_attributes"] = "path-option-attributes"
-                self._children_yang_names.add("path-option-attributes")
 
-                self.p2mpte_attributes = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes()
+                self.p2mpte_attributes = MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes()
                 self.p2mpte_attributes.parent = self
                 self._children_name_map["p2mpte_attributes"] = "p2mpte-attributes"
-                self._children_yang_names.add("p2mpte-attributes")
 
-                self.p2p_te_attributes = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes()
+                self.p2p_te_attributes = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes()
                 self.p2p_te_attributes.parent = self
                 self._children_name_map["p2p_te_attributes"] = "p2p-te-attributes"
-                self._children_yang_names.add("p2p-te-attributes")
 
                 self.auto_backup_attributes = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes()
                 self.auto_backup_attributes.parent = self
                 self._children_name_map["auto_backup_attributes"] = "auto-backup-attributes"
-                self._children_yang_names.add("auto-backup-attributes")
 
                 self.otn_pp_attributes = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes()
                 self.otn_pp_attributes.parent = self
                 self._children_name_map["otn_pp_attributes"] = "otn-pp-attributes"
-                self._children_yang_names.add("otn-pp-attributes")
 
                 self.auto_mesh_attributes = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes()
                 self.auto_mesh_attributes.parent = self
                 self._children_name_map["auto_mesh_attributes"] = "auto-mesh-attributes"
-                self._children_yang_names.add("auto-mesh-attributes")
 
                 self.xro_attributes = MplsTe.GlobalAttributes.AttributeSet.XroAttributes()
                 self.xro_attributes.parent = self
                 self._children_name_map["xro_attributes"] = "xro-attributes"
-                self._children_yang_names.add("xro-attributes")
                 self._segment_path = lambda: "attribute-set"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet, [], name, value)
 
 
             class PathOptionAttributes(Entity):
@@ -7065,7 +6989,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes, self).__init__()
@@ -7075,8 +6999,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("path-option-attribute", ("path_option_attribute", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute))])
+                    self._child_classes = OrderedDict([("path-option-attribute", ("path_option_attribute", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute))])
                     self._leafs = OrderedDict()
 
                     self.path_option_attribute = YList(self)
@@ -7144,7 +7067,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute, self).__init__()
@@ -7154,8 +7077,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['attribute_set_name']
-                        self._child_container_classes = OrderedDict([("bfd-reverse-path", ("bfd_reverse_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath)), ("att-path-option-path-selection", ("att_path_option_path_selection", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("bfd-reverse-path", ("bfd_reverse_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath)), ("att-path-option-path-selection", ("att_path_option_path_selection", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -7165,30 +7087,24 @@ class MplsTe(Entity):
 
                         self.bfd_reverse_path = None
                         self._children_name_map["bfd_reverse_path"] = "bfd-reverse-path"
-                        self._children_yang_names.add("bfd-reverse-path")
 
                         self.att_path_option_path_selection = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection()
                         self.att_path_option_path_selection.parent = self
                         self._children_name_map["att_path_option_path_selection"] = "att-path-option-path-selection"
-                        self._children_yang_names.add("att-path-option-path-selection")
 
                         self.pce = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce()
                         self.pce.parent = self
                         self._children_name_map["pce"] = "pce"
-                        self._children_yang_names.add("pce")
 
                         self.affinity_mask = None
                         self._children_name_map["affinity_mask"] = "affinity-mask"
-                        self._children_yang_names.add("affinity-mask")
 
                         self.bandwidth = None
                         self._children_name_map["bandwidth"] = "bandwidth"
-                        self._children_yang_names.add("bandwidth")
 
                         self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes()
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
-                        self._children_yang_names.add("new-style-affinity-affinity-types")
                         self._segment_path = lambda: "path-option-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/%s" % self._segment_path()
 
@@ -7221,7 +7137,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath, self).__init__()
@@ -7231,8 +7147,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('bfd_reverse_path_type', YLeaf(YType.enumeration, 'bfd-reverse-path-type')),
@@ -7281,7 +7196,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection, self).__init__()
@@ -7291,8 +7206,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("invalidation", ("invalidation", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("invalidation", ("invalidation", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation))])
                             self._leafs = OrderedDict([
                                 ('path_selection_exclude_list', YLeaf(YType.str, 'path-selection-exclude-list')),
                                 ('enable', YLeaf(YType.empty, 'enable')),
@@ -7304,7 +7218,6 @@ class MplsTe(Entity):
 
                             self.invalidation = None
                             self._children_name_map["invalidation"] = "invalidation"
-                            self._children_yang_names.add("invalidation")
                             self._segment_path = lambda: "att-path-option-path-selection"
 
                         def __setattr__(self, name, value):
@@ -7335,7 +7248,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation, self).__init__()
@@ -7345,8 +7258,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
@@ -7388,7 +7300,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce, self).__init__()
@@ -7398,8 +7310,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("bidirectional", ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional)), ("disjoint-path", ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("bidirectional", ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional)), ("disjoint-path", ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath))])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                             ])
@@ -7407,11 +7318,9 @@ class MplsTe(Entity):
 
                             self.bidirectional = None
                             self._children_name_map["bidirectional"] = "bidirectional"
-                            self._children_yang_names.add("bidirectional")
 
                             self.disjoint_path = None
                             self._children_name_map["disjoint_path"] = "disjoint-path"
-                            self._children_yang_names.add("disjoint-path")
                             self._segment_path = lambda: "pce"
 
                         def __setattr__(self, name, value):
@@ -7447,7 +7356,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional, self).__init__()
@@ -7457,8 +7366,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('bd_source_address', YLeaf(YType.str, 'bd-source-address')),
@@ -7510,7 +7418,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath, self).__init__()
@@ -7520,8 +7428,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('dp_source_address', YLeaf(YType.str, 'dp-source-address')),
@@ -7566,7 +7473,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask, self).__init__()
@@ -7576,8 +7483,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('affinity', YLeaf(YType.str, 'affinity')),
@@ -7629,7 +7535,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth, self).__init__()
@@ -7639,8 +7545,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
@@ -7720,7 +7625,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes, self).__init__()
@@ -7730,8 +7635,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._child_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
                             self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
@@ -7765,7 +7669,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
@@ -7775,8 +7679,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                 ])
@@ -7808,7 +7711,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
@@ -7818,8 +7721,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -7860,7 +7762,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
@@ -7870,8 +7772,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -7921,7 +7822,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
@@ -7931,8 +7832,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -7991,7 +7891,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
@@ -8001,8 +7901,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -8070,7 +7969,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
@@ -8080,8 +7979,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -8158,7 +8056,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
@@ -8168,8 +8066,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -8255,7 +8152,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
@@ -8265,8 +8162,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -8361,7 +8257,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
@@ -8371,8 +8267,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -8476,7 +8371,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
@@ -8486,8 +8381,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -8600,7 +8494,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
@@ -8610,8 +8504,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -8642,32 +8535,31 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
 
-            class P2MpteAttributes(Entity):
+            class P2mpteAttributes(Entity):
                 """
                 P2MP\-TE Tunnel AttributeSets Table
                 
                 .. attribute:: p2mpte_attribute
                 
                 	P2MP\-TE Tunnel Attribute
-                	**type**\: list of  		 :py:class:`P2MpteAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute>`
+                	**type**\: list of  		 :py:class:`P2mpteAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute>`
                 
                 
 
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes, self).__init__()
+                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes, self).__init__()
 
                     self.yang_name = "p2mpte-attributes"
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("p2mpte-attribute", ("p2mpte_attribute", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute))])
+                    self._child_classes = OrderedDict([("p2mpte-attribute", ("p2mpte_attribute", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute))])
                     self._leafs = OrderedDict()
 
                     self.p2mpte_attribute = YList(self)
@@ -8675,10 +8567,10 @@ class MplsTe(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes, [], name, value)
+                    self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes, [], name, value)
 
 
-                class P2MpteAttribute(Entity):
+                class P2mpteAttribute(Entity):
                     """
                     P2MP\-TE Tunnel Attribute
                     
@@ -8701,7 +8593,7 @@ class MplsTe(Entity):
                     .. attribute:: priority
                     
                     	Tunnel Setup and Hold Priorities
-                    	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority>`
+                    	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority>`
                     
                     	**presence node**\: True
                     
@@ -8718,56 +8610,55 @@ class MplsTe(Entity):
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask>`
+                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: bandwidth
                     
                     	Tunnel bandwidth requirement
-                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth>`
+                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection>`
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection>`
                     
                     .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes>`
                     
                     .. attribute:: fast_reroute
                     
                     	Specify MPLS tunnel can be fast\-rerouted
-                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute>`
+                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
-                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging>`
+                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging>`
                     
                     
 
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute, self).__init__()
+                        super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute, self).__init__()
 
                         self.yang_name = "p2mpte-attribute"
                         self.yang_parent_name = "p2mpte-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['attribute_set_name']
-                        self._child_container_classes = OrderedDict([("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
                             ('interface_bandwidth', YLeaf(YType.uint32, 'interface-bandwidth')),
@@ -8781,39 +8672,32 @@ class MplsTe(Entity):
 
                         self.priority = None
                         self._children_name_map["priority"] = "priority"
-                        self._children_yang_names.add("priority")
 
                         self.affinity_mask = None
                         self._children_name_map["affinity_mask"] = "affinity-mask"
-                        self._children_yang_names.add("affinity-mask")
 
                         self.bandwidth = None
                         self._children_name_map["bandwidth"] = "bandwidth"
-                        self._children_yang_names.add("bandwidth")
 
-                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection()
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection()
                         self.path_selection.parent = self
                         self._children_name_map["path_selection"] = "path-selection"
-                        self._children_yang_names.add("path-selection")
 
-                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes()
+                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes()
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
-                        self._children_yang_names.add("new-style-affinity-affinity-types")
 
                         self.fast_reroute = None
                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                        self._children_yang_names.add("fast-reroute")
 
-                        self.logging = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging()
+                        self.logging = MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging()
                         self.logging.parent = self
                         self._children_name_map["logging"] = "logging"
-                        self._children_yang_names.add("logging")
                         self._segment_path = lambda: "p2mpte-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute, ['attribute_set_name', 'interface_bandwidth', 'enable', 'record_route'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute, ['attribute_set_name', 'interface_bandwidth', 'enable', 'record_route'], name, value)
 
 
                     class Priority(Entity):
@@ -8845,18 +8729,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority, self).__init__()
 
                             self.yang_name = "priority"
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
@@ -8867,7 +8750,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "priority"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
 
 
                     class AffinityMask(Entity):
@@ -8899,18 +8782,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask, self).__init__()
 
                             self.yang_name = "affinity-mask"
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('affinity', YLeaf(YType.str, 'affinity')),
@@ -8921,7 +8803,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "affinity-mask"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask, ['affinity', 'mask'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask, ['affinity', 'mask'], name, value)
 
 
                     class Bandwidth(Entity):
@@ -8962,18 +8844,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth, self).__init__()
 
                             self.yang_name = "bandwidth"
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
@@ -8986,7 +8867,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "bandwidth"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
 
 
                     class PathSelection(Entity):
@@ -9003,18 +8884,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection, self).__init__()
 
                             self.yang_name = "path-selection"
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                             ])
@@ -9022,7 +8902,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "path-selection"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection, ['enable'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection, ['enable'], name, value)
 
 
                     class NewStyleAffinityAffinityTypes(Entity):
@@ -9032,75 +8912,74 @@ class MplsTe(Entity):
                         .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes, self).__init__()
 
                             self.yang_name = "new-style-affinity-affinity-types"
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._child_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
                             self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
@@ -9117,7 +8996,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "new-style-affinity-affinity-types"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes, [], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes, [], name, value)
 
 
                         class NewStyleAffinityAffinityType(Entity):
@@ -9134,18 +9013,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                 ])
@@ -9153,7 +9031,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1(Entity):
@@ -9177,18 +9055,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9198,7 +9075,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
@@ -9229,18 +9106,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9252,7 +9128,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
@@ -9290,18 +9166,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9315,7 +9190,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
@@ -9360,18 +9235,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9387,7 +9261,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
@@ -9439,18 +9313,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9468,7 +9341,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
@@ -9527,18 +9400,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9558,7 +9430,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
@@ -9624,18 +9496,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9657,7 +9528,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
@@ -9730,18 +9601,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9765,7 +9635,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
@@ -9845,18 +9715,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -9882,7 +9751,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
@@ -9969,18 +9838,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -10008,7 +9876,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
 
                     class FastReroute(Entity):
@@ -10040,18 +9908,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute, self).__init__()
 
                             self.yang_name = "fast-reroute"
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
@@ -10062,7 +9929,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "fast-reroute"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
 
 
                     class Logging(Entity):
@@ -10119,18 +9986,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging, self).__init__()
 
                             self.yang_name = "logging"
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
                                 ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
@@ -10154,35 +10020,34 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "logging"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging, ['insufficient_bw_message', 'reoptimized_message', 'bandwidth_change_message', 'all', 'pcalc_failure_message', 'state_message', 'reoptimize_attempts_message', 'sub_lsp_state_message', 'reroute_messsage'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging, ['insufficient_bw_message', 'reoptimized_message', 'bandwidth_change_message', 'all', 'pcalc_failure_message', 'state_message', 'reoptimize_attempts_message', 'sub_lsp_state_message', 'reroute_messsage'], name, value)
 
 
-            class P2PTeAttributes(Entity):
+            class P2pTeAttributes(Entity):
                 """
                 P2P\-TE Tunnel AttributeSets Table
                 
                 .. attribute:: p2p_te_attribute
                 
                 	P2P\-TE Tunnel Attribute
-                	**type**\: list of  		 :py:class:`P2PTeAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute>`
+                	**type**\: list of  		 :py:class:`P2pTeAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute>`
                 
                 
 
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes, self).__init__()
+                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes, self).__init__()
 
                     self.yang_name = "p2p-te-attributes"
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("p2p-te-attribute", ("p2p_te_attribute", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute))])
+                    self._child_classes = OrderedDict([("p2p-te-attribute", ("p2p_te_attribute", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute))])
                     self._leafs = OrderedDict()
 
                     self.p2p_te_attribute = YList(self)
@@ -10190,10 +10055,10 @@ class MplsTe(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes, [], name, value)
+                    self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes, [], name, value)
 
 
-                class P2PTeAttribute(Entity):
+                class P2pTeAttribute(Entity):
                     """
                     P2P\-TE Tunnel Attribute
                     
@@ -10207,12 +10072,12 @@ class MplsTe(Entity):
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection>`
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection>`
                     
                     .. attribute:: pce
                     
                     	Configure pce properties
-                    	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce>`
+                    	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce>`
                     
                     .. attribute:: enable
                     
@@ -10222,37 +10087,36 @@ class MplsTe(Entity):
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask>`
+                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
-                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging>`
+                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging>`
                     
                     .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes>`
                     
                     
 
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute, self).__init__()
+                        super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute, self).__init__()
 
                         self.yang_name = "p2p-te-attribute"
                         self.yang_parent_name = "p2p-te-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['attribute_set_name']
-                        self._child_container_classes = OrderedDict([("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -10260,34 +10124,29 @@ class MplsTe(Entity):
                         self.attribute_set_name = None
                         self.enable = None
 
-                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection()
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection()
                         self.path_selection.parent = self
                         self._children_name_map["path_selection"] = "path-selection"
-                        self._children_yang_names.add("path-selection")
 
-                        self.pce = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce()
+                        self.pce = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce()
                         self.pce.parent = self
                         self._children_name_map["pce"] = "pce"
-                        self._children_yang_names.add("pce")
 
                         self.affinity_mask = None
                         self._children_name_map["affinity_mask"] = "affinity-mask"
-                        self._children_yang_names.add("affinity-mask")
 
-                        self.logging = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging()
+                        self.logging = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging()
                         self.logging.parent = self
                         self._children_name_map["logging"] = "logging"
-                        self._children_yang_names.add("logging")
 
-                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes()
+                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes()
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
-                        self._children_yang_names.add("new-style-affinity-affinity-types")
                         self._segment_path = lambda: "p2p-te-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute, ['attribute_set_name', 'enable'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute, ['attribute_set_name', 'enable'], name, value)
 
 
                     class PathSelection(Entity):
@@ -10297,12 +10156,12 @@ class MplsTe(Entity):
                         .. attribute:: segment_routing_prepend
                         
                         	Path selection segment routing prepend configuration
-                        	**type**\:  :py:class:`SegmentRoutingPrepend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend>`
+                        	**type**\:  :py:class:`SegmentRoutingPrepend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend>`
                         
                         .. attribute:: invalidation
                         
                         	Path selection invalidation configuration
-                        	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation>`
+                        	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation>`
                         
                         .. attribute:: path_selection_metric
                         
@@ -10324,18 +10183,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection, self).__init__()
 
                             self.yang_name = "path-selection"
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("segment-routing-prepend", ("segment_routing_prepend", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend)), ("invalidation", ("invalidation", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("segment-routing-prepend", ("segment_routing_prepend", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend)), ("invalidation", ("invalidation", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation))])
                             self._leafs = OrderedDict([
                                 ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
                                 ('path_selection_segment_routing_adjacency_protection', YLeaf(YType.enumeration, 'path-selection-segment-routing-adjacency-protection')),
@@ -10345,19 +10203,17 @@ class MplsTe(Entity):
                             self.path_selection_segment_routing_adjacency_protection = None
                             self.enable = None
 
-                            self.segment_routing_prepend = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend()
+                            self.segment_routing_prepend = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend()
                             self.segment_routing_prepend.parent = self
                             self._children_name_map["segment_routing_prepend"] = "segment-routing-prepend"
-                            self._children_yang_names.add("segment-routing-prepend")
 
-                            self.invalidation = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation()
+                            self.invalidation = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation()
                             self.invalidation.parent = self
                             self._children_name_map["invalidation"] = "invalidation"
-                            self._children_yang_names.add("invalidation")
                             self._segment_path = lambda: "path-selection"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection, ['path_selection_metric', 'path_selection_segment_routing_adjacency_protection', 'enable'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection, ['path_selection_metric', 'path_selection_segment_routing_adjacency_protection', 'enable'], name, value)
 
 
                         class SegmentRoutingPrepend(Entity):
@@ -10368,7 +10224,7 @@ class MplsTe(Entity):
                             .. attribute:: indexes
                             
                             	Segment routing prepend index table
-                            	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes>`
+                            	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes>`
                             
                             .. attribute:: enable
                             
@@ -10380,31 +10236,29 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend, self).__init__()
 
                                 self.yang_name = "segment-routing-prepend"
                                 self.yang_parent_name = "path-selection"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("indexes", ("indexes", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("indexes", ("indexes", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes))])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.empty, 'enable')),
                                 ])
                                 self.enable = None
 
-                                self.indexes = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes()
+                                self.indexes = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes()
                                 self.indexes.parent = self
                                 self._children_name_map["indexes"] = "indexes"
-                                self._children_yang_names.add("indexes")
                                 self._segment_path = lambda: "segment-routing-prepend"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend, ['enable'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend, ['enable'], name, value)
 
 
                             class Indexes(Entity):
@@ -10414,32 +10268,31 @@ class MplsTe(Entity):
                                 .. attribute:: index
                                 
                                 	Prepend index information
-                                	**type**\: list of  		 :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index>`
+                                	**type**\: list of  		 :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index>`
                                 
                                 
 
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes, self).__init__()
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes, self).__init__()
 
                                     self.yang_name = "indexes"
                                     self.yang_parent_name = "segment-routing-prepend"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("index", ("index", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index))])
+                                    self._child_classes = OrderedDict([("index", ("index", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index))])
                                     self._leafs = OrderedDict()
 
                                     self.index = YList(self)
                                     self._segment_path = lambda: "indexes"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes, [], name, value)
+                                    self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes, [], name, value)
 
 
                                 class Index(Entity):
@@ -10465,7 +10318,7 @@ class MplsTe(Entity):
                                     	MPLS Label
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     	**default value**\: 1048577
                                     
@@ -10474,22 +10327,21 @@ class MplsTe(Entity):
                                     """
 
                                     _prefix = 'mpls-te-cfg'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, self).__init__()
+                                        super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, self).__init__()
 
                                         self.yang_name = "index"
                                         self.yang_parent_name = "indexes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['index_number']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('index_number', YLeaf(YType.uint32, 'index-number')),
                                             ('prepend_type', YLeaf(YType.enumeration, 'prepend-type')),
-                                            ('mpls_label', YLeaf(YType.int32, 'mpls-label')),
+                                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
                                         ])
                                         self.index_number = None
                                         self.prepend_type = None
@@ -10497,7 +10349,7 @@ class MplsTe(Entity):
                                         self._segment_path = lambda: "index" + "[index-number='" + str(self.index_number) + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, ['index_number', 'prepend_type', 'mpls_label'], name, value)
+                                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, ['index_number', 'prepend_type', 'mpls_label'], name, value)
 
 
                         class Invalidation(Entity):
@@ -10525,18 +10377,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation, self).__init__()
 
                                 self.yang_name = "invalidation"
                                 self.yang_parent_name = "path-selection"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('invalidation_timer', YLeaf(YType.uint32, 'invalidation-timer')),
                                     ('invalidation_timer_expire_type', YLeaf(YType.enumeration, 'invalidation-timer-expire-type')),
@@ -10546,7 +10397,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "invalidation"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation, ['invalidation_timer', 'invalidation_timer_expire_type'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation, ['invalidation_timer', 'invalidation_timer_expire_type'], name, value)
 
 
                     class Pce(Entity):
@@ -10556,14 +10407,14 @@ class MplsTe(Entity):
                         .. attribute:: bidirectional
                         
                         	Bidirectional parameters
-                        	**type**\:  :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional>`
+                        	**type**\:  :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: disjoint_path
                         
                         	Disjoint path parameters
-                        	**type**\:  :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath>`
+                        	**type**\:  :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath>`
                         
                         	**presence node**\: True
                         
@@ -10577,18 +10428,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce, self).__init__()
 
                             self.yang_name = "pce"
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("bidirectional", ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional)), ("disjoint-path", ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("bidirectional", ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional)), ("disjoint-path", ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath))])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                             ])
@@ -10596,15 +10446,13 @@ class MplsTe(Entity):
 
                             self.bidirectional = None
                             self._children_name_map["bidirectional"] = "bidirectional"
-                            self._children_yang_names.add("bidirectional")
 
                             self.disjoint_path = None
                             self._children_name_map["disjoint_path"] = "disjoint-path"
-                            self._children_yang_names.add("disjoint-path")
                             self._segment_path = lambda: "pce"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce, ['enable'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce, ['enable'], name, value)
 
 
                         class Bidirectional(Entity):
@@ -10636,18 +10484,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional, self).__init__()
 
                                 self.yang_name = "bidirectional"
                                 self.yang_parent_name = "pce"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('bd_source_address', YLeaf(YType.str, 'bd-source-address')),
@@ -10658,7 +10505,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "bidirectional"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional, ['bd_source_address', 'bd_group_id'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional, ['bd_source_address', 'bd_group_id'], name, value)
 
 
                         class DisjointPath(Entity):
@@ -10699,18 +10546,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath, self).__init__()
 
                                 self.yang_name = "disjoint-path"
                                 self.yang_parent_name = "pce"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('dp_source_address', YLeaf(YType.str, 'dp-source-address')),
@@ -10723,7 +10569,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "disjoint-path"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath, ['dp_source_address', 'dp_type', 'dp_group_id'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath, ['dp_source_address', 'dp_type', 'dp_group_id'], name, value)
 
 
                     class AffinityMask(Entity):
@@ -10755,18 +10601,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask, self).__init__()
 
                             self.yang_name = "affinity-mask"
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('affinity', YLeaf(YType.str, 'affinity')),
@@ -10777,7 +10622,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "affinity-mask"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask, ['affinity', 'mask'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask, ['affinity', 'mask'], name, value)
 
 
                     class Logging(Entity):
@@ -10844,18 +10689,17 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging, self).__init__()
 
                             self.yang_name = "logging"
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('lsp_switch_over_change_message', YLeaf(YType.empty, 'lsp-switch-over-change-message')),
                                 ('all', YLeaf(YType.empty, 'all')),
@@ -10883,7 +10727,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "logging"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging, ['lsp_switch_over_change_message', 'all', 'record_route_messsage', 'bfd_state_message', 'bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging, ['lsp_switch_over_change_message', 'all', 'record_route_messsage', 'bfd_state_message', 'bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
 
 
                     class NewStyleAffinityAffinityTypes(Entity):
@@ -10893,75 +10737,74 @@ class MplsTe(Entity):
                         .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes, self).__init__()
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes, self).__init__()
 
                             self.yang_name = "new-style-affinity-affinity-types"
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._child_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
                             self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
@@ -10978,7 +10821,7 @@ class MplsTe(Entity):
                             self._segment_path = lambda: "new-style-affinity-affinity-types"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes, [], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes, [], name, value)
 
 
                         class NewStyleAffinityAffinityType(Entity):
@@ -10995,18 +10838,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                 ])
@@ -11014,7 +10856,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1(Entity):
@@ -11038,18 +10880,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11059,7 +10900,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
@@ -11090,18 +10931,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11113,7 +10953,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
@@ -11151,18 +10991,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11176,7 +11015,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
@@ -11221,18 +11060,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11248,7 +11086,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
@@ -11300,18 +11138,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11329,7 +11166,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
@@ -11388,18 +11225,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11419,7 +11255,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
@@ -11485,18 +11321,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11518,7 +11353,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
@@ -11591,18 +11426,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11626,7 +11460,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
@@ -11706,18 +11540,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11743,7 +11576,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
@@ -11830,18 +11663,17 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -11869,7 +11701,7 @@ class MplsTe(Entity):
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
 
             class AutoBackupAttributes(Entity):
@@ -11886,7 +11718,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes, self).__init__()
@@ -11896,8 +11728,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("auto-backup-attribute", ("auto_backup_attribute", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute))])
+                    self._child_classes = OrderedDict([("auto-backup-attribute", ("auto_backup_attribute", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute))])
                     self._leafs = OrderedDict()
 
                     self.auto_backup_attribute = YList(self)
@@ -11973,7 +11804,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute, self).__init__()
@@ -11983,8 +11814,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['attribute_set_name']
-                        self._child_container_classes = OrderedDict([("signalled-name", ("signalled_name", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName)), ("auto-backup-logging", ("auto_backup_logging", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("signalled-name", ("signalled_name", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName)), ("auto-backup-logging", ("auto_backup_logging", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -11997,35 +11827,28 @@ class MplsTe(Entity):
                         self.signalled_name = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName()
                         self.signalled_name.parent = self
                         self._children_name_map["signalled_name"] = "signalled-name"
-                        self._children_yang_names.add("signalled-name")
 
                         self.auto_backup_logging = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging()
                         self.auto_backup_logging.parent = self
                         self._children_name_map["auto_backup_logging"] = "auto-backup-logging"
-                        self._children_yang_names.add("auto-backup-logging")
 
                         self.priority = None
                         self._children_name_map["priority"] = "priority"
-                        self._children_yang_names.add("priority")
 
                         self.affinity_mask = None
                         self._children_name_map["affinity_mask"] = "affinity-mask"
-                        self._children_yang_names.add("affinity-mask")
 
                         self.path_selection = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection()
                         self.path_selection.parent = self
                         self._children_name_map["path_selection"] = "path-selection"
-                        self._children_yang_names.add("path-selection")
 
                         self.policy_classes = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses()
                         self.policy_classes.parent = self
                         self._children_name_map["policy_classes"] = "policy-classes"
-                        self._children_yang_names.add("policy-classes")
 
                         self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes()
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
-                        self._children_yang_names.add("new-style-affinity-affinity-types")
                         self._segment_path = lambda: "auto-backup-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/%s" % self._segment_path()
 
@@ -12062,7 +11885,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName, self).__init__()
@@ -12072,8 +11895,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                                 ('source_type', YLeaf(YType.enumeration, 'source-type')),
@@ -12119,7 +11941,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging, self).__init__()
@@ -12129,8 +11951,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
                                 ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
@@ -12176,7 +11997,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority, self).__init__()
@@ -12186,8 +12007,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
@@ -12230,7 +12050,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask, self).__init__()
@@ -12240,8 +12060,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('affinity', YLeaf(YType.str, 'affinity')),
@@ -12269,7 +12088,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection, self).__init__()
@@ -12279,8 +12098,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                             ])
@@ -12307,7 +12125,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses, self).__init__()
@@ -12317,8 +12135,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('policy_class', YLeafList(YType.uint32, 'policy-class')),
                             ])
@@ -12393,7 +12210,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes, self).__init__()
@@ -12403,8 +12220,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._child_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
                             self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
@@ -12438,7 +12254,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
@@ -12448,8 +12264,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                 ])
@@ -12481,7 +12296,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
@@ -12491,8 +12306,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -12533,7 +12347,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
@@ -12543,8 +12357,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -12594,7 +12407,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
@@ -12604,8 +12417,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -12664,7 +12476,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
@@ -12674,8 +12486,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -12743,7 +12554,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
@@ -12753,8 +12564,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -12831,7 +12641,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
@@ -12841,8 +12651,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -12928,7 +12737,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
@@ -12938,8 +12747,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -13034,7 +12842,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
@@ -13044,8 +12852,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -13149,7 +12956,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
@@ -13159,8 +12966,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -13273,7 +13079,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
@@ -13283,8 +13089,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -13329,7 +13134,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes, self).__init__()
@@ -13339,8 +13144,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("otn-pp-attribute", ("otn_pp_attribute", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute))])
+                    self._child_classes = OrderedDict([("otn-pp-attribute", ("otn_pp_attribute", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute))])
                     self._leafs = OrderedDict()
 
                     self.otn_pp_attribute = YList(self)
@@ -13407,7 +13211,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute, self).__init__()
@@ -13417,8 +13221,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['attribute_set_name']
-                        self._child_container_classes = OrderedDict([("revert-schedule-names", ("revert_schedule_names", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames)), ("sub-network-connection-mode", ("sub_network_connection_mode", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode)), ("timers", ("timers", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("revert-schedule-names", ("revert_schedule_names", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames)), ("sub-network-connection-mode", ("sub_network_connection_mode", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode)), ("timers", ("timers", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
                             ('aps_protection_mode', YLeaf(YType.enumeration, 'aps-protection-mode')),
@@ -13435,22 +13238,18 @@ class MplsTe(Entity):
                         self.revert_schedule_names = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames()
                         self.revert_schedule_names.parent = self
                         self._children_name_map["revert_schedule_names"] = "revert-schedule-names"
-                        self._children_yang_names.add("revert-schedule-names")
 
                         self.sub_network_connection_mode = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode()
                         self.sub_network_connection_mode.parent = self
                         self._children_name_map["sub_network_connection_mode"] = "sub-network-connection-mode"
-                        self._children_yang_names.add("sub-network-connection-mode")
 
                         self.timers = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers()
                         self.timers.parent = self
                         self._children_name_map["timers"] = "timers"
-                        self._children_yang_names.add("timers")
 
                         self.path_selection = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection()
                         self.path_selection.parent = self
                         self._children_name_map["path_selection"] = "path-selection"
-                        self._children_yang_names.add("path-selection")
                         self._segment_path = lambda: "otn-pp-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/%s" % self._segment_path()
 
@@ -13472,7 +13271,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames, self).__init__()
@@ -13482,8 +13281,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("revert-schedule-name", ("revert_schedule_name", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName))])
+                            self._child_classes = OrderedDict([("revert-schedule-name", ("revert_schedule_name", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName))])
                             self._leafs = OrderedDict()
 
                             self.revert_schedule_name = YList(self)
@@ -13542,7 +13340,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName, self).__init__()
@@ -13552,8 +13350,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['schedule_name']
-                                self._child_container_classes = OrderedDict([("schedule-duration", ("schedule_duration", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration)), ("schedule-date", ("schedule_date", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("schedule-duration", ("schedule_duration", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration)), ("schedule-date", ("schedule_date", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate))])
                                 self._leafs = OrderedDict([
                                     ('schedule_name', YLeaf(YType.str, 'schedule-name')),
                                     ('revert_schedule_max_tries', YLeaf(YType.uint32, 'revert-schedule-max-tries')),
@@ -13567,11 +13364,9 @@ class MplsTe(Entity):
 
                                 self.schedule_duration = None
                                 self._children_name_map["schedule_duration"] = "schedule-duration"
-                                self._children_yang_names.add("schedule-duration")
 
                                 self.schedule_date = None
                                 self._children_name_map["schedule_date"] = "schedule-date"
-                                self._children_yang_names.add("schedule-date")
                                 self._segment_path = lambda: "revert-schedule-name" + "[schedule-name='" + str(self.schedule_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -13607,7 +13402,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration, self).__init__()
@@ -13617,8 +13412,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('hour', YLeaf(YType.uint32, 'hour')),
@@ -13688,7 +13482,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate, self).__init__()
@@ -13698,8 +13492,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('hour', YLeaf(YType.uint32, 'hour')),
@@ -13740,7 +13533,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode, self).__init__()
@@ -13750,8 +13543,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('connection_mode', YLeaf(YType.enumeration, 'connection-mode')),
                                 ('connection_monitoring_mode', YLeaf(YType.uint32, 'connection-monitoring-mode')),
@@ -13791,7 +13583,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers, self).__init__()
@@ -13801,8 +13593,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('aps_wait_to_restore', YLeaf(YType.uint32, 'aps-wait-to-restore')),
                                 ('aps_hold_off', YLeaf(YType.uint32, 'aps-hold-off')),
@@ -13829,7 +13620,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection, self).__init__()
@@ -13839,8 +13630,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                             ])
@@ -13865,7 +13655,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes, self).__init__()
@@ -13875,8 +13665,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("auto-mesh-attribute", ("auto_mesh_attribute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute))])
+                    self._child_classes = OrderedDict([("auto-mesh-attribute", ("auto_mesh_attribute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute))])
                     self._leafs = OrderedDict()
 
                     self.auto_mesh_attribute = YList(self)
@@ -13922,7 +13711,7 @@ class MplsTe(Entity):
                     	Forward class value
                     	**type**\: int
                     
-                    	**range:** 1..7
+                    	**range:** 0..7
                     
                     .. attribute:: priority
                     
@@ -13999,7 +13788,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute, self).__init__()
@@ -14009,8 +13798,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['attribute_set_name']
-                        self._child_container_classes = OrderedDict([("auto-mesh-logging", ("auto_mesh_logging", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("auto-mesh-logging", ("auto_mesh_logging", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
                             ('autoroute_announce', YLeaf(YType.empty, 'autoroute-announce')),
@@ -14035,38 +13823,30 @@ class MplsTe(Entity):
                         self.auto_mesh_logging = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging()
                         self.auto_mesh_logging.parent = self
                         self._children_name_map["auto_mesh_logging"] = "auto-mesh-logging"
-                        self._children_yang_names.add("auto-mesh-logging")
 
                         self.priority = None
                         self._children_name_map["priority"] = "priority"
-                        self._children_yang_names.add("priority")
 
                         self.affinity_mask = None
                         self._children_name_map["affinity_mask"] = "affinity-mask"
-                        self._children_yang_names.add("affinity-mask")
 
                         self.bandwidth = None
                         self._children_name_map["bandwidth"] = "bandwidth"
-                        self._children_yang_names.add("bandwidth")
 
                         self.path_selection = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection()
                         self.path_selection.parent = self
                         self._children_name_map["path_selection"] = "path-selection"
-                        self._children_yang_names.add("path-selection")
 
                         self.policy_classes = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses()
                         self.policy_classes.parent = self
                         self._children_name_map["policy_classes"] = "policy-classes"
-                        self._children_yang_names.add("policy-classes")
 
                         self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes()
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
-                        self._children_yang_names.add("new-style-affinity-affinity-types")
 
                         self.fast_reroute = None
                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                        self._children_yang_names.add("fast-reroute")
                         self._segment_path = lambda: "auto-mesh-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/%s" % self._segment_path()
 
@@ -14118,7 +13898,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging, self).__init__()
@@ -14128,8 +13908,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
                                 ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
@@ -14181,7 +13960,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority, self).__init__()
@@ -14191,8 +13970,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
@@ -14235,7 +14013,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask, self).__init__()
@@ -14245,8 +14023,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('affinity', YLeaf(YType.str, 'affinity')),
@@ -14298,7 +14075,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth, self).__init__()
@@ -14308,8 +14085,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
@@ -14339,7 +14115,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection, self).__init__()
@@ -14349,8 +14125,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                             ])
@@ -14377,7 +14152,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses, self).__init__()
@@ -14387,8 +14162,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('policy_class', YLeafList(YType.uint32, 'policy-class')),
                             ])
@@ -14463,7 +14237,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes, self).__init__()
@@ -14473,8 +14247,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._child_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
                             self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
@@ -14508,7 +14281,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
@@ -14518,8 +14291,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                 ])
@@ -14551,7 +14323,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
@@ -14561,8 +14333,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -14603,7 +14374,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
@@ -14613,8 +14384,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -14664,7 +14434,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
@@ -14674,8 +14444,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -14734,7 +14503,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
@@ -14744,8 +14513,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -14813,7 +14581,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
@@ -14823,8 +14591,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -14901,7 +14668,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
@@ -14911,8 +14678,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -14998,7 +14764,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
@@ -15008,8 +14774,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -15104,7 +14869,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
@@ -15114,8 +14879,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -15219,7 +14983,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
@@ -15229,8 +14993,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -15343,7 +15106,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
@@ -15353,8 +15116,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
                                     ('affinity1', YLeaf(YType.str, 'affinity1')),
@@ -15414,7 +15176,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute, self).__init__()
@@ -15424,8 +15186,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
@@ -15453,7 +15214,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes, self).__init__()
@@ -15463,8 +15224,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("xro-attribute", ("xro_attribute", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute))])
+                    self._child_classes = OrderedDict([("xro-attribute", ("xro_attribute", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute))])
                     self._leafs = OrderedDict()
 
                     self.xro_attribute = YList(self)
@@ -15506,7 +15266,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute, self).__init__()
@@ -15516,8 +15276,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['attribute_set_name']
-                        self._child_container_classes = OrderedDict([("path-diversity", ("path_diversity", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("path-diversity", ("path_diversity", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -15528,12 +15287,10 @@ class MplsTe(Entity):
                         self.path_diversity = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity()
                         self.path_diversity.parent = self
                         self._children_name_map["path_diversity"] = "path-diversity"
-                        self._children_yang_names.add("path-diversity")
 
                         self.path_selection = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection()
                         self.path_selection.parent = self
                         self._children_name_map["path_selection"] = "path-selection"
-                        self._children_yang_names.add("path-selection")
                         self._segment_path = lambda: "xro-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/%s" % self._segment_path()
 
@@ -15560,7 +15317,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity, self).__init__()
@@ -15570,20 +15327,20 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("srlgs", ("srlgs", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs)), ("lsp", ("lsp", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("srlgs", ("srlgs", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs)), ("lsp", ("lsp", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp))])
                             self._leafs = OrderedDict()
 
                             self.srlgs = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs()
                             self.srlgs.parent = self
                             self._children_name_map["srlgs"] = "srlgs"
-                            self._children_yang_names.add("srlgs")
 
                             self.lsp = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp()
                             self.lsp.parent = self
                             self._children_name_map["lsp"] = "lsp"
-                            self._children_yang_names.add("lsp")
                             self._segment_path = lambda: "path-diversity"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity, [], name, value)
 
 
                         class Srlgs(Entity):
@@ -15600,7 +15357,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs, self).__init__()
@@ -15610,8 +15367,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("srlg", ("srlg", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg))])
+                                self._child_classes = OrderedDict([("srlg", ("srlg", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg))])
                                 self._leafs = OrderedDict()
 
                                 self.srlg = YList(self)
@@ -15644,7 +15400,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg, self).__init__()
@@ -15654,8 +15410,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['srlg']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('srlg', YLeaf(YType.uint32, 'srlg')),
                                         ('conformance', YLeaf(YType.enumeration, 'conformance')),
@@ -15682,7 +15437,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp, self).__init__()
@@ -15692,15 +15447,16 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("fecs", ("fecs", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("fecs", ("fecs", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs))])
                                 self._leafs = OrderedDict()
 
                                 self.fecs = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs()
                                 self.fecs.parent = self
                                 self._children_name_map["fecs"] = "fecs"
-                                self._children_yang_names.add("fecs")
                                 self._segment_path = lambda: "lsp"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp, [], name, value)
 
 
                             class Fecs(Entity):
@@ -15717,7 +15473,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs, self).__init__()
@@ -15727,8 +15483,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("fec", ("fec", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec))])
+                                    self._child_classes = OrderedDict([("fec", ("fec", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec))])
                                     self._leafs = OrderedDict()
 
                                     self.fec = YList(self)
@@ -15790,7 +15545,7 @@ class MplsTe(Entity):
                                     """
 
                                     _prefix = 'mpls-te-cfg'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec, self).__init__()
@@ -15800,8 +15555,7 @@ class MplsTe(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['source','destination','tunnel_id','extended_tunnel_id','lsp_id']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('source', YLeaf(YType.str, 'source')),
                                             ('destination', YLeaf(YType.str, 'destination')),
@@ -15836,7 +15590,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection, self).__init__()
@@ -15846,8 +15600,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                             ])
@@ -15877,7 +15630,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.BfdOverLsp, self).__init__()
@@ -15887,21 +15640,21 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("tail", ("tail", MplsTe.GlobalAttributes.BfdOverLsp.Tail)), ("head", ("head", MplsTe.GlobalAttributes.BfdOverLsp.Head))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("tail", ("tail", MplsTe.GlobalAttributes.BfdOverLsp.Tail)), ("head", ("head", MplsTe.GlobalAttributes.BfdOverLsp.Head))])
                 self._leafs = OrderedDict()
 
                 self.tail = MplsTe.GlobalAttributes.BfdOverLsp.Tail()
                 self.tail.parent = self
                 self._children_name_map["tail"] = "tail"
-                self._children_yang_names.add("tail")
 
                 self.head = MplsTe.GlobalAttributes.BfdOverLsp.Head()
                 self.head.parent = self
                 self._children_name_map["head"] = "head"
-                self._children_yang_names.add("head")
                 self._segment_path = lambda: "bfd-over-lsp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp, [], name, value)
 
 
             class Tail(Entity):
@@ -15927,7 +15680,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.BfdOverLsp.Tail, self).__init__()
@@ -15937,8 +15690,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('multiplier', YLeaf(YType.uint32, 'multiplier')),
                         ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
@@ -15973,7 +15725,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.BfdOverLsp.Head, self).__init__()
@@ -15983,8 +15735,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('reopt_timeout', YLeaf(YType.uint32, 'reopt-timeout')),
                         ('down_action', YLeaf(YType.enumeration, 'down-action')),
@@ -16017,7 +15768,7 @@ class MplsTe(Entity):
             	This object sets the sampling interval in seconds for bandwidth accounting. Default to 60 seconds
             	**type**\: int
             
-            	**range:** 30..600
+            	**range:** 10..600
             
             	**units**\: second
             
@@ -16051,7 +15802,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.BandwidthAccounting, self).__init__()
@@ -16061,8 +15812,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("application", ("application", MplsTe.GlobalAttributes.BandwidthAccounting.Application)), ("account-flooding-threshold", ("account_flooding_threshold", MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("application", ("application", MplsTe.GlobalAttributes.BandwidthAccounting.Application)), ("account-flooding-threshold", ("account_flooding_threshold", MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold))])
                 self._leafs = OrderedDict([
                     ('sampling_interval', YLeaf(YType.uint32, 'sampling-interval')),
                     ('adjustment_factor', YLeaf(YType.uint32, 'adjustment-factor')),
@@ -16077,12 +15827,10 @@ class MplsTe(Entity):
                 self.application = MplsTe.GlobalAttributes.BandwidthAccounting.Application()
                 self.application.parent = self
                 self._children_name_map["application"] = "application"
-                self._children_yang_names.add("application")
 
                 self.account_flooding_threshold = MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold()
                 self.account_flooding_threshold.parent = self
                 self._children_name_map["account_flooding_threshold"] = "account-flooding-threshold"
-                self._children_yang_names.add("account-flooding-threshold")
                 self._segment_path = lambda: "bandwidth-accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
 
@@ -16107,7 +15855,7 @@ class MplsTe(Entity):
                 	This object sets the application interval in seconds for bandwidth accounting. Default to 180 seconds
                 	**type**\: int
                 
-                	**range:** 90..1800
+                	**range:** 30..1800
                 
                 	**units**\: second
                 
@@ -16118,7 +15866,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.BandwidthAccounting.Application, self).__init__()
@@ -16128,8 +15876,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('application_enforced', YLeaf(YType.boolean, 'application-enforced')),
                         ('application_interval', YLeaf(YType.uint32, 'application-interval')),
@@ -16176,7 +15923,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold, self).__init__()
@@ -16186,8 +15933,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('up_threshold', YLeaf(YType.uint32, 'up-threshold')),
                         ('down_threshold', YLeaf(YType.uint32, 'down-threshold')),
@@ -16332,7 +16078,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.PceAttributes, self).__init__()
@@ -16342,8 +16088,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("pce-stateful", ("pce_stateful", MplsTe.GlobalAttributes.PceAttributes.PceStateful)), ("timer", ("timer", MplsTe.GlobalAttributes.PceAttributes.Timer)), ("peers", ("peers", MplsTe.GlobalAttributes.PceAttributes.Peers)), ("logging", ("logging", MplsTe.GlobalAttributes.PceAttributes.Logging))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("pce-stateful", ("pce_stateful", MplsTe.GlobalAttributes.PceAttributes.PceStateful)), ("timer", ("timer", MplsTe.GlobalAttributes.PceAttributes.Timer)), ("peers", ("peers", MplsTe.GlobalAttributes.PceAttributes.Peers)), ("logging", ("logging", MplsTe.GlobalAttributes.PceAttributes.Logging))])
                 self._leafs = OrderedDict([
                     ('request_timeout', YLeaf(YType.uint32, 'request-timeout')),
                     ('reoptimize_period', YLeaf(YType.uint32, 'reoptimize-period')),
@@ -16374,22 +16119,18 @@ class MplsTe(Entity):
                 self.pce_stateful = MplsTe.GlobalAttributes.PceAttributes.PceStateful()
                 self.pce_stateful.parent = self
                 self._children_name_map["pce_stateful"] = "pce-stateful"
-                self._children_yang_names.add("pce-stateful")
 
                 self.timer = MplsTe.GlobalAttributes.PceAttributes.Timer()
                 self.timer.parent = self
                 self._children_name_map["timer"] = "timer"
-                self._children_yang_names.add("timer")
 
                 self.peers = MplsTe.GlobalAttributes.PceAttributes.Peers()
                 self.peers.parent = self
                 self._children_name_map["peers"] = "peers"
-                self._children_yang_names.add("peers")
 
                 self.logging = MplsTe.GlobalAttributes.PceAttributes.Logging()
                 self.logging.parent = self
                 self._children_name_map["logging"] = "logging"
-                self._children_yang_names.add("logging")
                 self._segment_path = lambda: "pce-attributes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
 
@@ -16441,7 +16182,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.PceAttributes.PceStateful, self).__init__()
@@ -16451,8 +16192,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("stateful-timers", ("stateful_timers", MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("stateful-timers", ("stateful_timers", MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers))])
                     self._leafs = OrderedDict([
                         ('fast_repair', YLeaf(YType.empty, 'fast-repair')),
                         ('instantiation', YLeaf(YType.empty, 'instantiation')),
@@ -16471,7 +16211,6 @@ class MplsTe(Entity):
                     self.stateful_timers = MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers()
                     self.stateful_timers.parent = self
                     self._children_name_map["stateful_timers"] = "stateful-timers"
-                    self._children_yang_names.add("stateful-timers")
                     self._segment_path = lambda: "pce-stateful"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
 
@@ -16511,7 +16250,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers, self).__init__()
@@ -16521,8 +16260,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('redelegation_timeout', YLeaf(YType.uint32, 'redelegation-timeout')),
                             ('state_timeout', YLeaf(YType.uint32, 'state-timeout')),
@@ -16546,7 +16284,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.PceAttributes.Timer, self).__init__()
@@ -16556,8 +16294,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict()
                     self._segment_path = lambda: "timer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
@@ -16577,7 +16314,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.PceAttributes.Peers, self).__init__()
@@ -16587,8 +16324,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("peer", ("peer", MplsTe.GlobalAttributes.PceAttributes.Peers.Peer))])
+                    self._child_classes = OrderedDict([("peer", ("peer", MplsTe.GlobalAttributes.PceAttributes.Peers.Peer))])
                     self._leafs = OrderedDict()
 
                     self.peer = YList(self)
@@ -16641,7 +16377,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.PceAttributes.Peers.Peer, self).__init__()
@@ -16651,8 +16387,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['pce_peer_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('pce_peer_address', YLeaf(YType.str, 'pce-peer-address')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -16687,7 +16422,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.PceAttributes.Logging, self).__init__()
@@ -16697,16 +16432,17 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("events", ("events", MplsTe.GlobalAttributes.PceAttributes.Logging.Events))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("events", ("events", MplsTe.GlobalAttributes.PceAttributes.Logging.Events))])
                     self._leafs = OrderedDict()
 
                     self.events = MplsTe.GlobalAttributes.PceAttributes.Logging.Events()
                     self.events.parent = self
                     self._children_name_map["events"] = "events"
-                    self._children_yang_names.add("events")
                     self._segment_path = lambda: "logging"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Logging, [], name, value)
 
 
                 class Events(Entity):
@@ -16723,7 +16459,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.PceAttributes.Logging.Events, self).__init__()
@@ -16733,8 +16469,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('peer_status', YLeaf(YType.empty, 'peer-status')),
                         ])
@@ -16765,7 +16500,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.LspOutOfResource, self).__init__()
@@ -16775,21 +16510,21 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("lsp-oor-red-state", ("lsp_oor_red_state", MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState)), ("lsp-oor-yellow-state", ("lsp_oor_yellow_state", MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("lsp-oor-red-state", ("lsp_oor_red_state", MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState)), ("lsp-oor-yellow-state", ("lsp_oor_yellow_state", MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState))])
                 self._leafs = OrderedDict()
 
                 self.lsp_oor_red_state = MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState()
                 self.lsp_oor_red_state.parent = self
                 self._children_name_map["lsp_oor_red_state"] = "lsp-oor-red-state"
-                self._children_yang_names.add("lsp-oor-red-state")
 
                 self.lsp_oor_yellow_state = MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState()
                 self.lsp_oor_yellow_state.parent = self
                 self._children_name_map["lsp_oor_yellow_state"] = "lsp-oor-yellow-state"
-                self._children_yang_names.add("lsp-oor-yellow-state")
                 self._segment_path = lambda: "lsp-out-of-resource"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource, [], name, value)
 
 
             class LspOorRedState(Entity):
@@ -16801,21 +16536,21 @@ class MplsTe(Entity):
                 	Threshold for all transit LSPs
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: unprotected_transit_lsp_threshold
                 
                 	Threshold for unprotected transit LSPs
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 
 
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState, self).__init__()
@@ -16825,11 +16560,10 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('all_transit_lsp_threshold', YLeaf(YType.int32, 'all-transit-lsp-threshold')),
-                        ('unprotected_transit_lsp_threshold', YLeaf(YType.int32, 'unprotected-transit-lsp-threshold')),
+                        ('all_transit_lsp_threshold', YLeaf(YType.uint32, 'all-transit-lsp-threshold')),
+                        ('unprotected_transit_lsp_threshold', YLeaf(YType.uint32, 'unprotected-transit-lsp-threshold')),
                     ])
                     self.all_transit_lsp_threshold = None
                     self.unprotected_transit_lsp_threshold = None
@@ -16849,21 +16583,21 @@ class MplsTe(Entity):
                 	Threshold for all transit LSPs
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: unprotected_transit_lsp_threshold
                 
                 	Threshold for unprotected transit LSPs
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 
 
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState, self).__init__()
@@ -16873,11 +16607,10 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('all_transit_lsp_threshold', YLeaf(YType.int32, 'all-transit-lsp-threshold')),
-                        ('unprotected_transit_lsp_threshold', YLeaf(YType.int32, 'unprotected-transit-lsp-threshold')),
+                        ('all_transit_lsp_threshold', YLeaf(YType.uint32, 'all-transit-lsp-threshold')),
+                        ('unprotected_transit_lsp_threshold', YLeaf(YType.uint32, 'unprotected-transit-lsp-threshold')),
                     ])
                     self.all_transit_lsp_threshold = None
                     self.unprotected_transit_lsp_threshold = None
@@ -16918,7 +16651,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.SoftPreemption, self).__init__()
@@ -16928,8 +16661,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('timeout', YLeaf(YType.uint32, 'timeout')),
                     ('frr_rewrite', YLeaf(YType.empty, 'frr-rewrite')),
@@ -16959,7 +16691,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.FastReroute, self).__init__()
@@ -16969,16 +16701,17 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("timers", ("timers", MplsTe.GlobalAttributes.FastReroute.Timers))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("timers", ("timers", MplsTe.GlobalAttributes.FastReroute.Timers))])
                 self._leafs = OrderedDict()
 
                 self.timers = MplsTe.GlobalAttributes.FastReroute.Timers()
                 self.timers.parent = self
                 self._children_name_map["timers"] = "timers"
-                self._children_yang_names.add("timers")
                 self._segment_path = lambda: "fast-reroute"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsTe.GlobalAttributes.FastReroute, [], name, value)
 
 
             class Timers(Entity):
@@ -17008,7 +16741,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.FastReroute.Timers, self).__init__()
@@ -17018,8 +16751,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('hold_backup', YLeaf(YType.uint32, 'hold-backup')),
                         ('promotion', YLeaf(YType.uint32, 'promotion')),
@@ -17084,7 +16816,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.PathSelection, self).__init__()
@@ -17094,8 +16826,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("loose-metrics", ("loose_metrics", MplsTe.GlobalAttributes.PathSelection.LooseMetrics)), ("invalidation", ("invalidation", MplsTe.GlobalAttributes.PathSelection.Invalidation)), ("ignore-overload-role", ("ignore_overload_role", MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole)), ("loose-affinities", ("loose_affinities", MplsTe.GlobalAttributes.PathSelection.LooseAffinities))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("loose-metrics", ("loose_metrics", MplsTe.GlobalAttributes.PathSelection.LooseMetrics)), ("invalidation", ("invalidation", MplsTe.GlobalAttributes.PathSelection.Invalidation)), ("ignore-overload-role", ("ignore_overload_role", MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole)), ("loose-affinities", ("loose_affinities", MplsTe.GlobalAttributes.PathSelection.LooseAffinities))])
                 self._leafs = OrderedDict([
                     ('cost_limit', YLeaf(YType.uint32, 'cost-limit')),
                     ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
@@ -17110,22 +16841,18 @@ class MplsTe(Entity):
                 self.loose_metrics = MplsTe.GlobalAttributes.PathSelection.LooseMetrics()
                 self.loose_metrics.parent = self
                 self._children_name_map["loose_metrics"] = "loose-metrics"
-                self._children_yang_names.add("loose-metrics")
 
                 self.invalidation = MplsTe.GlobalAttributes.PathSelection.Invalidation()
                 self.invalidation.parent = self
                 self._children_name_map["invalidation"] = "invalidation"
-                self._children_yang_names.add("invalidation")
 
                 self.ignore_overload_role = MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole()
                 self.ignore_overload_role.parent = self
                 self._children_name_map["ignore_overload_role"] = "ignore-overload-role"
-                self._children_yang_names.add("ignore-overload-role")
 
                 self.loose_affinities = MplsTe.GlobalAttributes.PathSelection.LooseAffinities()
                 self.loose_affinities.parent = self
                 self._children_name_map["loose_affinities"] = "loose-affinities"
-                self._children_yang_names.add("loose-affinities")
                 self._segment_path = lambda: "path-selection"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
 
@@ -17148,7 +16875,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.PathSelection.LooseMetrics, self).__init__()
@@ -17158,8 +16885,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("loose-metric", ("loose_metric", MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric))])
+                    self._child_classes = OrderedDict([("loose-metric", ("loose_metric", MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric))])
                     self._leafs = OrderedDict()
 
                     self.loose_metric = YList(self)
@@ -17193,7 +16919,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric, self).__init__()
@@ -17203,8 +16929,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['class_type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('class_type', YLeaf(YType.uint32, 'class-type')),
                             ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
@@ -17240,7 +16965,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.PathSelection.Invalidation, self).__init__()
@@ -17250,8 +16975,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
                         ('path_invalidation_action', YLeaf(YType.enumeration, 'path-invalidation-action')),
@@ -17290,7 +17014,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole, self).__init__()
@@ -17300,8 +17024,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('head', YLeaf(YType.boolean, 'head')),
                         ('mid', YLeaf(YType.boolean, 'mid')),
@@ -17332,7 +17055,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.PathSelection.LooseAffinities, self).__init__()
@@ -17342,8 +17065,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("loose-affinity", ("loose_affinity", MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity))])
+                    self._child_classes = OrderedDict([("loose-affinity", ("loose_affinity", MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity))])
                     self._leafs = OrderedDict()
 
                     self.loose_affinity = YList(self)
@@ -17385,7 +17107,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity, self).__init__()
@@ -17395,8 +17117,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['class_type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('class_type', YLeaf(YType.uint32, 'class-type')),
                             ('affinity', YLeaf(YType.str, 'affinity')),
@@ -17426,7 +17147,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GlobalAttributes.AffinityMappings, self).__init__()
@@ -17436,8 +17157,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("affinity-mapping", ("affinity_mapping", MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping))])
+                self._child_classes = OrderedDict([("affinity-mapping", ("affinity_mapping", MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping))])
                 self._leafs = OrderedDict()
 
                 self.affinity_mapping = YList(self)
@@ -17476,7 +17196,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping, self).__init__()
@@ -17486,8 +17206,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['affinity_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('affinity_name', YLeaf(YType.str, 'affinity-name')),
                         ('value_type', YLeaf(YType.enumeration, 'value-type')),
@@ -17546,7 +17265,7 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(MplsTe.TransportProfile, self).__init__()
@@ -17556,8 +17275,7 @@ class MplsTe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("fault", ("fault", MplsTe.TransportProfile.Fault)), ("alarm", ("alarm", MplsTe.TransportProfile.Alarm)), ("bfd", ("bfd", MplsTe.TransportProfile.Bfd)), ("midpoints", ("midpoints", MplsTe.TransportProfile.Midpoints))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("fault", ("fault", MplsTe.TransportProfile.Fault)), ("alarm", ("alarm", MplsTe.TransportProfile.Alarm)), ("bfd", ("bfd", MplsTe.TransportProfile.Bfd)), ("midpoints", ("midpoints", MplsTe.TransportProfile.Midpoints))])
             self._leafs = OrderedDict([
                 ('global_id', YLeaf(YType.uint32, 'global-id')),
                 ('node_id', YLeaf(YType.str, 'node-id')),
@@ -17568,22 +17286,18 @@ class MplsTe(Entity):
             self.fault = MplsTe.TransportProfile.Fault()
             self.fault.parent = self
             self._children_name_map["fault"] = "fault"
-            self._children_yang_names.add("fault")
 
             self.alarm = MplsTe.TransportProfile.Alarm()
             self.alarm.parent = self
             self._children_name_map["alarm"] = "alarm"
-            self._children_yang_names.add("alarm")
 
             self.bfd = MplsTe.TransportProfile.Bfd()
             self.bfd.parent = self
             self._children_name_map["bfd"] = "bfd"
-            self._children_yang_names.add("bfd")
 
             self.midpoints = MplsTe.TransportProfile.Midpoints()
             self.midpoints.parent = self
             self._children_name_map["midpoints"] = "midpoints"
-            self._children_yang_names.add("midpoints")
             self._segment_path = lambda: "transport-profile"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
 
@@ -17627,7 +17341,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.TransportProfile.Fault, self).__init__()
@@ -17637,8 +17351,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("protection-trigger", ("protection_trigger", MplsTe.TransportProfile.Fault.ProtectionTrigger))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("protection-trigger", ("protection_trigger", MplsTe.TransportProfile.Fault.ProtectionTrigger))])
                 self._leafs = OrderedDict([
                     ('wait_to_restore_interval', YLeaf(YType.uint32, 'wait-to-restore-interval')),
                     ('refresh_interval', YLeaf(YType.uint32, 'refresh-interval')),
@@ -17649,7 +17362,6 @@ class MplsTe(Entity):
                 self.protection_trigger = MplsTe.TransportProfile.Fault.ProtectionTrigger()
                 self.protection_trigger.parent = self
                 self._children_name_map["protection_trigger"] = "protection-trigger"
-                self._children_yang_names.add("protection-trigger")
                 self._segment_path = lambda: "fault"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/%s" % self._segment_path()
 
@@ -17681,7 +17393,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.TransportProfile.Fault.ProtectionTrigger, self).__init__()
@@ -17691,8 +17403,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ldi", ("ldi", MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi)), ("lkr", ("lkr", MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ldi", ("ldi", MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi)), ("lkr", ("lkr", MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr))])
                     self._leafs = OrderedDict([
                         ('ais', YLeaf(YType.empty, 'ais')),
                     ])
@@ -17701,12 +17412,10 @@ class MplsTe(Entity):
                     self.ldi = MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi()
                     self.ldi.parent = self
                     self._children_name_map["ldi"] = "ldi"
-                    self._children_yang_names.add("ldi")
 
                     self.lkr = MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr()
                     self.lkr.parent = self
                     self._children_name_map["lkr"] = "lkr"
-                    self._children_yang_names.add("lkr")
                     self._segment_path = lambda: "protection-trigger"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/%s" % self._segment_path()
 
@@ -17728,7 +17437,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi, self).__init__()
@@ -17738,8 +17447,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('disable', YLeaf(YType.empty, 'disable')),
                         ])
@@ -17765,7 +17473,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr, self).__init__()
@@ -17775,8 +17483,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('disable', YLeaf(YType.empty, 'disable')),
                         ])
@@ -17818,7 +17525,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.TransportProfile.Alarm, self).__init__()
@@ -17828,8 +17535,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("suppress-event", ("suppress_event", MplsTe.TransportProfile.Alarm.SuppressEvent))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("suppress-event", ("suppress_event", MplsTe.TransportProfile.Alarm.SuppressEvent))])
                 self._leafs = OrderedDict([
                     ('soak_time', YLeaf(YType.uint32, 'soak-time')),
                     ('enable_alarm', YLeaf(YType.empty, 'enable-alarm')),
@@ -17840,7 +17546,6 @@ class MplsTe(Entity):
                 self.suppress_event = MplsTe.TransportProfile.Alarm.SuppressEvent()
                 self.suppress_event.parent = self
                 self._children_name_map["suppress_event"] = "suppress-event"
-                self._children_yang_names.add("suppress-event")
                 self._segment_path = lambda: "alarm"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/%s" % self._segment_path()
 
@@ -17862,7 +17567,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.TransportProfile.Alarm.SuppressEvent, self).__init__()
@@ -17872,8 +17577,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('disable', YLeaf(YType.empty, 'disable')),
                     ])
@@ -17918,7 +17622,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.TransportProfile.Bfd, self).__init__()
@@ -17928,8 +17632,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("min-interval-standby", ("min_interval_standby", MplsTe.TransportProfile.Bfd.MinIntervalStandby)), ("min-interval", ("min_interval", MplsTe.TransportProfile.Bfd.MinInterval))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("min-interval-standby", ("min_interval_standby", MplsTe.TransportProfile.Bfd.MinIntervalStandby)), ("min-interval", ("min_interval", MplsTe.TransportProfile.Bfd.MinInterval))])
                 self._leafs = OrderedDict([
                     ('detection_multiplier_standby', YLeaf(YType.uint32, 'detection-multiplier-standby')),
                     ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -17940,12 +17643,10 @@ class MplsTe(Entity):
                 self.min_interval_standby = MplsTe.TransportProfile.Bfd.MinIntervalStandby()
                 self.min_interval_standby.parent = self
                 self._children_name_map["min_interval_standby"] = "min-interval-standby"
-                self._children_yang_names.add("min-interval-standby")
 
                 self.min_interval = MplsTe.TransportProfile.Bfd.MinInterval()
                 self.min_interval.parent = self
                 self._children_name_map["min_interval"] = "min-interval"
-                self._children_yang_names.add("min-interval")
                 self._segment_path = lambda: "bfd"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/%s" % self._segment_path()
 
@@ -17982,7 +17683,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.TransportProfile.Bfd.MinIntervalStandby, self).__init__()
@@ -17992,8 +17693,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interval_standby_ms', YLeaf(YType.uint32, 'interval-standby-ms')),
                         ('interval_standby_us', YLeaf(YType.uint32, 'interval-standby-us')),
@@ -18035,7 +17735,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.TransportProfile.Bfd.MinInterval, self).__init__()
@@ -18045,8 +17745,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interval_ms', YLeaf(YType.uint32, 'interval-ms')),
                         ('interval_us', YLeaf(YType.uint32, 'interval-us')),
@@ -18074,7 +17773,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.TransportProfile.Midpoints, self).__init__()
@@ -18084,8 +17783,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("midpoint", ("midpoint", MplsTe.TransportProfile.Midpoints.Midpoint))])
+                self._child_classes = OrderedDict([("midpoint", ("midpoint", MplsTe.TransportProfile.Midpoints.Midpoint))])
                 self._leafs = OrderedDict()
 
                 self.midpoint = YList(self)
@@ -18153,7 +17851,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.TransportProfile.Midpoints.Midpoint, self).__init__()
@@ -18163,8 +17861,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['midpoint_name']
-                    self._child_container_classes = OrderedDict([("source", ("source", MplsTe.TransportProfile.Midpoints.Midpoint.Source)), ("destination", ("destination", MplsTe.TransportProfile.Midpoints.Midpoint.Destination)), ("forward-lsp", ("forward_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp)), ("reverse-lsp", ("reverse_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("source", ("source", MplsTe.TransportProfile.Midpoints.Midpoint.Source)), ("destination", ("destination", MplsTe.TransportProfile.Midpoints.Midpoint.Destination)), ("forward-lsp", ("forward_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp)), ("reverse-lsp", ("reverse_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp))])
                     self._leafs = OrderedDict([
                         ('midpoint_name', YLeaf(YType.str, 'midpoint-name')),
                         ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
@@ -18178,21 +17875,17 @@ class MplsTe(Entity):
 
                     self.source = None
                     self._children_name_map["source"] = "source"
-                    self._children_yang_names.add("source")
 
                     self.destination = None
                     self._children_name_map["destination"] = "destination"
-                    self._children_yang_names.add("destination")
 
                     self.forward_lsp = MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp()
                     self.forward_lsp.parent = self
                     self._children_name_map["forward_lsp"] = "forward-lsp"
-                    self._children_yang_names.add("forward-lsp")
 
                     self.reverse_lsp = MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp()
                     self.reverse_lsp.parent = self
                     self._children_name_map["reverse_lsp"] = "reverse-lsp"
-                    self._children_yang_names.add("reverse-lsp")
                     self._segment_path = lambda: "midpoint" + "[midpoint-name='" + str(self.midpoint_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/%s" % self._segment_path()
 
@@ -18236,7 +17929,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.TransportProfile.Midpoints.Midpoint.Source, self).__init__()
@@ -18246,8 +17939,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('node_id', YLeaf(YType.str, 'node-id')),
@@ -18299,7 +17991,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.TransportProfile.Midpoints.Midpoint.Destination, self).__init__()
@@ -18309,8 +18001,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('node_id', YLeaf(YType.str, 'node-id')),
@@ -18351,7 +18042,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp, self).__init__()
@@ -18361,8 +18052,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("forward-io-map", ("forward_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("forward-io-map", ("forward_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap))])
                         self._leafs = OrderedDict([
                             ('forward_bandwidth', YLeaf(YType.uint32, 'forward-bandwidth')),
                         ])
@@ -18370,7 +18060,6 @@ class MplsTe(Entity):
 
                         self.forward_io_map = None
                         self._children_name_map["forward_io_map"] = "forward-io-map"
-                        self._children_yang_names.add("forward-io-map")
                         self._segment_path = lambda: "forward-lsp"
 
                     def __setattr__(self, name, value):
@@ -18414,7 +18103,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap, self).__init__()
@@ -18424,8 +18113,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('in_label', YLeaf(YType.uint32, 'in-label')),
@@ -18466,7 +18154,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp, self).__init__()
@@ -18476,8 +18164,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("reverse-io-map", ("reverse_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("reverse-io-map", ("reverse_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap))])
                         self._leafs = OrderedDict([
                             ('reverse_bandwidth', YLeaf(YType.uint32, 'reverse-bandwidth')),
                         ])
@@ -18485,7 +18172,6 @@ class MplsTe(Entity):
 
                         self.reverse_io_map = None
                         self._children_name_map["reverse_io_map"] = "reverse-io-map"
-                        self._children_yang_names.add("reverse-io-map")
                         self._segment_path = lambda: "reverse-lsp"
 
                     def __setattr__(self, name, value):
@@ -18529,7 +18215,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap, self).__init__()
@@ -18539,8 +18225,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('in_label', YLeaf(YType.uint32, 'in-label')),
@@ -18570,7 +18255,7 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(MplsTe.Interfaces, self).__init__()
@@ -18580,8 +18265,7 @@ class MplsTe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", MplsTe.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", MplsTe.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -18623,7 +18307,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.Interfaces.Interface, self).__init__()
@@ -18633,8 +18317,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("transport-profile-link", ("transport_profile_link", MplsTe.Interfaces.Interface.TransportProfileLink)), ("lcac", ("lcac", MplsTe.Interfaces.Interface.Lcac)), ("global-attributes", ("global_attributes", MplsTe.Interfaces.Interface.GlobalAttributes))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("transport-profile-link", ("transport_profile_link", MplsTe.Interfaces.Interface.TransportProfileLink)), ("lcac", ("lcac", MplsTe.Interfaces.Interface.Lcac)), ("global-attributes", ("global_attributes", MplsTe.Interfaces.Interface.GlobalAttributes))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
@@ -18643,17 +18326,14 @@ class MplsTe(Entity):
                 self.transport_profile_link = MplsTe.Interfaces.Interface.TransportProfileLink()
                 self.transport_profile_link.parent = self
                 self._children_name_map["transport_profile_link"] = "transport-profile-link"
-                self._children_yang_names.add("transport-profile-link")
 
                 self.lcac = MplsTe.Interfaces.Interface.Lcac()
                 self.lcac.parent = self
                 self._children_name_map["lcac"] = "lcac"
-                self._children_yang_names.add("lcac")
 
                 self.global_attributes = MplsTe.Interfaces.Interface.GlobalAttributes()
                 self.global_attributes.parent = self
                 self._children_name_map["global_attributes"] = "global-attributes"
-                self._children_yang_names.add("global-attributes")
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/%s" % self._segment_path()
 
@@ -18675,7 +18355,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.Interfaces.Interface.TransportProfileLink, self).__init__()
@@ -18685,15 +18365,16 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("links", ("links", MplsTe.Interfaces.Interface.TransportProfileLink.Links))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("links", ("links", MplsTe.Interfaces.Interface.TransportProfileLink.Links))])
                     self._leafs = OrderedDict()
 
                     self.links = MplsTe.Interfaces.Interface.TransportProfileLink.Links()
                     self.links.parent = self
                     self._children_name_map["links"] = "links"
-                    self._children_yang_names.add("links")
                     self._segment_path = lambda: "transport-profile-link"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink, [], name, value)
 
 
                 class Links(Entity):
@@ -18710,7 +18391,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.TransportProfileLink.Links, self).__init__()
@@ -18720,8 +18401,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("link", ("link", MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link))])
+                        self._child_classes = OrderedDict([("link", ("link", MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link))])
                         self._leafs = OrderedDict()
 
                         self.link = YList(self)
@@ -18761,7 +18441,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link, self).__init__()
@@ -18771,8 +18451,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['link_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('link_id', YLeaf(YType.uint32, 'link-id')),
                                 ('next_hop_type', YLeaf(YType.enumeration, 'next-hop-type')),
@@ -18853,14 +18532,14 @@ class MplsTe(Entity):
                 	Set administrative weight for the interface
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 
 
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.Interfaces.Interface.Lcac, self).__init__()
@@ -18870,14 +18549,13 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("switchings", ("switchings", MplsTe.Interfaces.Interface.Lcac.Switchings)), ("flood-area", ("flood_area", MplsTe.Interfaces.Interface.Lcac.FloodArea)), ("attribute-name-xr", ("attribute_name_xr", MplsTe.Interfaces.Interface.Lcac.AttributeNameXr)), ("attribute-names", ("attribute_names", MplsTe.Interfaces.Interface.Lcac.AttributeNames)), ("srlgs", ("srlgs", MplsTe.Interfaces.Interface.Lcac.Srlgs)), ("up-thresholds", ("up_thresholds", MplsTe.Interfaces.Interface.Lcac.UpThresholds)), ("down-thresholds", ("down_thresholds", MplsTe.Interfaces.Interface.Lcac.DownThresholds))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("switchings", ("switchings", MplsTe.Interfaces.Interface.Lcac.Switchings)), ("flood-area", ("flood_area", MplsTe.Interfaces.Interface.Lcac.FloodArea)), ("attribute-name-xr", ("attribute_name_xr", MplsTe.Interfaces.Interface.Lcac.AttributeNameXr)), ("attribute-names", ("attribute_names", MplsTe.Interfaces.Interface.Lcac.AttributeNames)), ("srlgs", ("srlgs", MplsTe.Interfaces.Interface.Lcac.Srlgs)), ("up-thresholds", ("up_thresholds", MplsTe.Interfaces.Interface.Lcac.UpThresholds)), ("down-thresholds", ("down_thresholds", MplsTe.Interfaces.Interface.Lcac.DownThresholds))])
                     self._leafs = OrderedDict([
                         ('bfd', YLeaf(YType.empty, 'bfd')),
                         ('fault_oam_lockout', YLeaf(YType.empty, 'fault-oam-lockout')),
                         ('attribute_flags', YLeaf(YType.str, 'attribute-flags')),
                         ('enable', YLeaf(YType.empty, 'enable')),
-                        ('admin_weight', YLeaf(YType.int32, 'admin-weight')),
+                        ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
                     ])
                     self.bfd = None
                     self.fault_oam_lockout = None
@@ -18888,37 +18566,30 @@ class MplsTe(Entity):
                     self.switchings = MplsTe.Interfaces.Interface.Lcac.Switchings()
                     self.switchings.parent = self
                     self._children_name_map["switchings"] = "switchings"
-                    self._children_yang_names.add("switchings")
 
                     self.flood_area = MplsTe.Interfaces.Interface.Lcac.FloodArea()
                     self.flood_area.parent = self
                     self._children_name_map["flood_area"] = "flood-area"
-                    self._children_yang_names.add("flood-area")
 
                     self.attribute_name_xr = MplsTe.Interfaces.Interface.Lcac.AttributeNameXr()
                     self.attribute_name_xr.parent = self
                     self._children_name_map["attribute_name_xr"] = "attribute-name-xr"
-                    self._children_yang_names.add("attribute-name-xr")
 
                     self.attribute_names = MplsTe.Interfaces.Interface.Lcac.AttributeNames()
                     self.attribute_names.parent = self
                     self._children_name_map["attribute_names"] = "attribute-names"
-                    self._children_yang_names.add("attribute-names")
 
                     self.srlgs = MplsTe.Interfaces.Interface.Lcac.Srlgs()
                     self.srlgs.parent = self
                     self._children_name_map["srlgs"] = "srlgs"
-                    self._children_yang_names.add("srlgs")
 
                     self.up_thresholds = MplsTe.Interfaces.Interface.Lcac.UpThresholds()
                     self.up_thresholds.parent = self
                     self._children_name_map["up_thresholds"] = "up-thresholds"
-                    self._children_yang_names.add("up-thresholds")
 
                     self.down_thresholds = MplsTe.Interfaces.Interface.Lcac.DownThresholds()
                     self.down_thresholds.parent = self
                     self._children_name_map["down_thresholds"] = "down-thresholds"
-                    self._children_yang_names.add("down-thresholds")
                     self._segment_path = lambda: "lcac"
 
                 def __setattr__(self, name, value):
@@ -18939,7 +18610,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.Lcac.Switchings, self).__init__()
@@ -18949,8 +18620,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("switching", ("switching", MplsTe.Interfaces.Interface.Lcac.Switchings.Switching))])
+                        self._child_classes = OrderedDict([("switching", ("switching", MplsTe.Interfaces.Interface.Lcac.Switchings.Switching))])
                         self._leafs = OrderedDict()
 
                         self.switching = YList(self)
@@ -18990,7 +18660,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.Interfaces.Interface.Lcac.Switchings.Switching, self).__init__()
@@ -19000,8 +18670,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['switching_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('switching_id', YLeaf(YType.str, 'switching-id')),
                                 ('encoding', YLeaf(YType.enumeration, 'encoding')),
@@ -19038,14 +18707,14 @@ class MplsTe(Entity):
                     	Area ID
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     
 
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.Lcac.FloodArea, self).__init__()
@@ -19055,12 +18724,11 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('igp_type', YLeaf(YType.enumeration, 'igp-type')),
                             ('process_name', YLeaf(YType.str, 'process-name')),
-                            ('area_id', YLeaf(YType.int32, 'area-id')),
+                            ('area_id', YLeaf(YType.uint32, 'area-id')),
                         ])
                         self.igp_type = None
                         self.process_name = None
@@ -19085,7 +18753,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.Lcac.AttributeNameXr, self).__init__()
@@ -19095,8 +18763,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('attribute_name', YLeafList(YType.str, 'attribute-name')),
                         ])
@@ -19121,7 +18788,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.Lcac.AttributeNames, self).__init__()
@@ -19131,8 +18798,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("attribute-name", ("attribute_name", MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName))])
+                        self._child_classes = OrderedDict([("attribute-name", ("attribute_name", MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName))])
                         self._leafs = OrderedDict()
 
                         self.attribute_name = YList(self)
@@ -19163,7 +18829,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName, self).__init__()
@@ -19173,8 +18839,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['affinity_index']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('affinity_index', YLeaf(YType.uint32, 'affinity-index')),
                                 ('value', YLeafList(YType.str, 'value')),
@@ -19201,7 +18866,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.Lcac.Srlgs, self).__init__()
@@ -19211,8 +18876,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("srlg", ("srlg", MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg))])
+                        self._child_classes = OrderedDict([("srlg", ("srlg", MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg))])
                         self._leafs = OrderedDict()
 
                         self.srlg = YList(self)
@@ -19238,7 +18902,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg, self).__init__()
@@ -19248,8 +18912,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['srlg_number']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('srlg_number', YLeaf(YType.uint32, 'srlg-number')),
                             ])
@@ -19279,7 +18942,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.Lcac.UpThresholds, self).__init__()
@@ -19289,8 +18952,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('up_threshold', YLeafList(YType.uint32, 'up-threshold')),
                         ])
@@ -19320,7 +18982,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.Lcac.DownThresholds, self).__init__()
@@ -19330,8 +18992,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('down_threshold', YLeafList(YType.uint32, 'down-threshold')),
                         ])
@@ -19366,7 +19027,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.Interfaces.Interface.GlobalAttributes, self).__init__()
@@ -19376,25 +19037,24 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("backup-tunnels", ("backup_tunnels", MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels)), ("auto-tunnel", ("auto_tunnel", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel)), ("backup-paths", ("backup_paths", MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("backup-tunnels", ("backup_tunnels", MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels)), ("auto-tunnel", ("auto_tunnel", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel)), ("backup-paths", ("backup_paths", MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths))])
                     self._leafs = OrderedDict()
 
                     self.backup_tunnels = MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels()
                     self.backup_tunnels.parent = self
                     self._children_name_map["backup_tunnels"] = "backup-tunnels"
-                    self._children_yang_names.add("backup-tunnels")
 
                     self.auto_tunnel = MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel()
                     self.auto_tunnel.parent = self
                     self._children_name_map["auto_tunnel"] = "auto-tunnel"
-                    self._children_yang_names.add("auto-tunnel")
 
                     self.backup_paths = MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths()
                     self.backup_paths.parent = self
                     self._children_name_map["backup_paths"] = "backup-paths"
-                    self._children_yang_names.add("backup-paths")
                     self._segment_path = lambda: "global-attributes"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes, [], name, value)
 
 
                 class BackupTunnels(Entity):
@@ -19412,7 +19072,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels, self).__init__()
@@ -19422,8 +19082,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("backup-tunnel", ("backup_tunnel", MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel))])
+                        self._child_classes = OrderedDict([("backup-tunnel", ("backup_tunnel", MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel))])
                         self._leafs = OrderedDict()
 
                         self.backup_tunnel = YList(self)
@@ -19449,7 +19108,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel, self).__init__()
@@ -19459,8 +19118,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['tunnel_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
                             ])
@@ -19485,7 +19143,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel, self).__init__()
@@ -19495,15 +19153,16 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("backup", ("backup", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("backup", ("backup", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup))])
                         self._leafs = OrderedDict()
 
                         self.backup = MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup()
                         self.backup.parent = self
                         self._children_name_map["backup"] = "backup"
-                        self._children_yang_names.add("backup")
                         self._segment_path = lambda: "auto-tunnel"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel, [], name, value)
 
 
                     class Backup(Entity):
@@ -19537,7 +19196,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup, self).__init__()
@@ -19547,8 +19206,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("exclude", ("exclude", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("exclude", ("exclude", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude))])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.empty, 'enable')),
                                 ('attribute_set', YLeaf(YType.str, 'attribute-set')),
@@ -19561,7 +19219,6 @@ class MplsTe(Entity):
                             self.exclude = MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude()
                             self.exclude.parent = self
                             self._children_name_map["exclude"] = "exclude"
-                            self._children_yang_names.add("exclude")
                             self._segment_path = lambda: "backup"
 
                         def __setattr__(self, name, value):
@@ -19582,7 +19239,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude, self).__init__()
@@ -19592,8 +19249,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('srlg_mode', YLeaf(YType.enumeration, 'srlg-mode')),
                                 ])
@@ -19619,7 +19275,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths, self).__init__()
@@ -19629,8 +19285,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("backup-path", ("backup_path", MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath))])
+                        self._child_classes = OrderedDict([("backup-path", ("backup_path", MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath))])
                         self._leafs = OrderedDict()
 
                         self.backup_path = YList(self)
@@ -19656,7 +19311,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath, self).__init__()
@@ -19666,8 +19321,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['tunnel_number']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('tunnel_number', YLeaf(YType.uint32, 'tunnel-number')),
                             ])
@@ -19707,7 +19361,7 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(MplsTe.GmplsNni, self).__init__()
@@ -19717,8 +19371,7 @@ class MplsTe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("topology-instances", ("topology_instances", MplsTe.GmplsNni.TopologyInstances)), ("tunnel-heads", ("tunnel_heads", MplsTe.GmplsNni.TunnelHeads))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("topology-instances", ("topology_instances", MplsTe.GmplsNni.TopologyInstances)), ("tunnel-heads", ("tunnel_heads", MplsTe.GmplsNni.TunnelHeads))])
             self._leafs = OrderedDict([
                 ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
                 ('enable_gmpls_nni', YLeaf(YType.empty, 'enable-gmpls-nni')),
@@ -19729,12 +19382,10 @@ class MplsTe(Entity):
             self.topology_instances = MplsTe.GmplsNni.TopologyInstances()
             self.topology_instances.parent = self
             self._children_name_map["topology_instances"] = "topology-instances"
-            self._children_yang_names.add("topology-instances")
 
             self.tunnel_heads = MplsTe.GmplsNni.TunnelHeads()
             self.tunnel_heads.parent = self
             self._children_name_map["tunnel_heads"] = "tunnel-heads"
-            self._children_yang_names.add("tunnel-heads")
             self._segment_path = lambda: "gmpls-nni"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
 
@@ -19756,7 +19407,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GmplsNni.TopologyInstances, self).__init__()
@@ -19766,8 +19417,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("topology-instance", ("topology_instance", MplsTe.GmplsNni.TopologyInstances.TopologyInstance))])
+                self._child_classes = OrderedDict([("topology-instance", ("topology_instance", MplsTe.GmplsNni.TopologyInstances.TopologyInstance))])
                 self._leafs = OrderedDict()
 
                 self.topology_instance = YList(self)
@@ -19814,7 +19464,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance, self).__init__()
@@ -19824,8 +19474,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['ospf_area_type','igp_instance_name','igp_type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ospf-int", ("ospf_int", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt)), ("ospfip-addr", ("ospfip_addr", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr))])
+                    self._child_classes = OrderedDict([("ospf-int", ("ospf_int", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt)), ("ospfip-addr", ("ospfip_addr", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr))])
                     self._leafs = OrderedDict([
                         ('ospf_area_type', YLeaf(YType.enumeration, 'ospf-area-type')),
                         ('igp_instance_name', YLeaf(YType.str, 'igp-instance-name')),
@@ -19853,7 +19502,7 @@ class MplsTe(Entity):
                     	IGP area
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: controllers
                     
@@ -19865,7 +19514,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt, self).__init__()
@@ -19875,17 +19524,15 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['igp_area']
-                        self._child_container_classes = OrderedDict([("controllers", ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("controllers", ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers))])
                         self._leafs = OrderedDict([
-                            ('igp_area', YLeaf(YType.int32, 'igp-area')),
+                            ('igp_area', YLeaf(YType.uint32, 'igp-area')),
                         ])
                         self.igp_area = None
 
                         self.controllers = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers()
                         self.controllers.parent = self
                         self._children_name_map["controllers"] = "controllers"
-                        self._children_yang_names.add("controllers")
                         self._segment_path = lambda: "ospf-int" + "[igp-area='" + str(self.igp_area) + "']"
 
                     def __setattr__(self, name, value):
@@ -19906,7 +19553,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers, self).__init__()
@@ -19916,8 +19563,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller))])
+                            self._child_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller))])
                             self._leafs = OrderedDict()
 
                             self.controller = YList(self)
@@ -19943,6 +19589,11 @@ class MplsTe(Entity):
                             	Set tandem connection monitoring for the interface
                             	**type**\:  :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode>`
                             
+                            .. attribute:: affinity_names
+                            
+                            	Set the interface affinity names
+                            	**type**\:  :py:class:`AffinityNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames>`
+                            
                             .. attribute:: admin_weight
                             
                             	Set administrative weight for the interface
@@ -19967,7 +19618,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller, self).__init__()
@@ -19977,8 +19628,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['controller_name']
-                                self._child_container_classes = OrderedDict([("tti-mode", ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("tti-mode", ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode)), ("affinity-names", ("affinity_names", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames))])
                                 self._leafs = OrderedDict([
                                     ('controller_name', YLeaf(YType.str, 'controller-name')),
                                     ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
@@ -19993,7 +19643,10 @@ class MplsTe(Entity):
                                 self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode()
                                 self.tti_mode.parent = self
                                 self._children_name_map["tti_mode"] = "tti-mode"
-                                self._children_yang_names.add("tti-mode")
+
+                                self.affinity_names = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames()
+                                self.affinity_names.parent = self
+                                self._children_name_map["affinity_names"] = "affinity-names"
                                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -20022,7 +19675,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode, self).__init__()
@@ -20032,8 +19685,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('tti_mode_type', YLeaf(YType.enumeration, 'tti-mode-type')),
                                         ('tcmid', YLeaf(YType.uint32, 'tcmid')),
@@ -20044,6 +19696,41 @@ class MplsTe(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode, ['tti_mode_type', 'tcmid'], name, value)
+
+
+                            class AffinityNames(Entity):
+                                """
+                                Set the interface affinity names
+                                
+                                .. attribute:: affinity_name
+                                
+                                	Array of Attribute Names
+                                	**type**\: list of str
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-te-cfg'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames, self).__init__()
+
+                                    self.yang_name = "affinity-names"
+                                    self.yang_parent_name = "controller"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('affinity_name', YLeafList(YType.str, 'affinity-name')),
+                                    ])
+                                    self.affinity_name = []
+                                    self._segment_path = lambda: "affinity-names"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames, ['affinity_name'], name, value)
 
 
                 class OspfipAddr(Entity):
@@ -20067,7 +19754,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr, self).__init__()
@@ -20077,8 +19764,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['address']
-                        self._child_container_classes = OrderedDict([("controllers", ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("controllers", ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers))])
                         self._leafs = OrderedDict([
                             ('address', YLeaf(YType.str, 'address')),
                         ])
@@ -20087,7 +19773,6 @@ class MplsTe(Entity):
                         self.controllers = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers()
                         self.controllers.parent = self
                         self._children_name_map["controllers"] = "controllers"
-                        self._children_yang_names.add("controllers")
                         self._segment_path = lambda: "ospfip-addr" + "[address='" + str(self.address) + "']"
 
                     def __setattr__(self, name, value):
@@ -20108,7 +19793,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers, self).__init__()
@@ -20118,8 +19803,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller))])
+                            self._child_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller))])
                             self._leafs = OrderedDict()
 
                             self.controller = YList(self)
@@ -20145,6 +19829,11 @@ class MplsTe(Entity):
                             	Set tandem connection monitoring for the interface
                             	**type**\:  :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode>`
                             
+                            .. attribute:: affinity_names
+                            
+                            	Set the interface affinity names
+                            	**type**\:  :py:class:`AffinityNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames>`
+                            
                             .. attribute:: admin_weight
                             
                             	Set administrative weight for the interface
@@ -20169,7 +19858,7 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller, self).__init__()
@@ -20179,8 +19868,7 @@ class MplsTe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['controller_name']
-                                self._child_container_classes = OrderedDict([("tti-mode", ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("tti-mode", ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode)), ("affinity-names", ("affinity_names", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames))])
                                 self._leafs = OrderedDict([
                                     ('controller_name', YLeaf(YType.str, 'controller-name')),
                                     ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
@@ -20195,7 +19883,10 @@ class MplsTe(Entity):
                                 self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode()
                                 self.tti_mode.parent = self
                                 self._children_name_map["tti_mode"] = "tti-mode"
-                                self._children_yang_names.add("tti-mode")
+
+                                self.affinity_names = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames()
+                                self.affinity_names.parent = self
+                                self._children_name_map["affinity_names"] = "affinity-names"
                                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -20224,7 +19915,7 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode, self).__init__()
@@ -20234,8 +19925,7 @@ class MplsTe(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('tti_mode_type', YLeaf(YType.enumeration, 'tti-mode-type')),
                                         ('tcmid', YLeaf(YType.uint32, 'tcmid')),
@@ -20246,6 +19936,41 @@ class MplsTe(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode, ['tti_mode_type', 'tcmid'], name, value)
+
+
+                            class AffinityNames(Entity):
+                                """
+                                Set the interface affinity names
+                                
+                                .. attribute:: affinity_name
+                                
+                                	Array of Attribute Names
+                                	**type**\: list of str
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-te-cfg'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames, self).__init__()
+
+                                    self.yang_name = "affinity-names"
+                                    self.yang_parent_name = "controller"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('affinity_name', YLeafList(YType.str, 'affinity-name')),
+                                    ])
+                                    self.affinity_name = []
+                                    self._segment_path = lambda: "affinity-names"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames, ['affinity_name'], name, value)
 
 
         class TunnelHeads(Entity):
@@ -20262,7 +19987,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.GmplsNni.TunnelHeads, self).__init__()
@@ -20272,8 +19997,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tunnel-head", ("tunnel_head", MplsTe.GmplsNni.TunnelHeads.TunnelHead))])
+                self._child_classes = OrderedDict([("tunnel-head", ("tunnel_head", MplsTe.GmplsNni.TunnelHeads.TunnelHead))])
                 self._leafs = OrderedDict()
 
                 self.tunnel_head = YList(self)
@@ -20385,7 +20109,7 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(MplsTe.GmplsNni.TunnelHeads.TunnelHead, self).__init__()
@@ -20395,8 +20119,7 @@ class MplsTe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['tunnel_id']
-                    self._child_container_classes = OrderedDict([("signalled-bandwidth", ("signalled_bandwidth", MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth)), ("destination", ("destination", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination)), ("protection-switching", ("protection_switching", MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching)), ("logging", ("logging", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging)), ("path-options", ("path_options", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions)), ("static-uni", ("static_uni", MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("signalled-bandwidth", ("signalled_bandwidth", MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth)), ("destination", ("destination", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination)), ("protection-switching", ("protection_switching", MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching)), ("logging", ("logging", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging)), ("path-options", ("path_options", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions)), ("static-uni", ("static_uni", MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni))])
                     self._leafs = OrderedDict([
                         ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -20425,32 +20148,26 @@ class MplsTe(Entity):
                     self.signalled_bandwidth = MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth()
                     self.signalled_bandwidth.parent = self
                     self._children_name_map["signalled_bandwidth"] = "signalled-bandwidth"
-                    self._children_yang_names.add("signalled-bandwidth")
 
                     self.destination = MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination()
                     self.destination.parent = self
                     self._children_name_map["destination"] = "destination"
-                    self._children_yang_names.add("destination")
 
                     self.protection_switching = MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching()
                     self.protection_switching.parent = self
                     self._children_name_map["protection_switching"] = "protection-switching"
-                    self._children_yang_names.add("protection-switching")
 
                     self.logging = MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging()
                     self.logging.parent = self
                     self._children_name_map["logging"] = "logging"
-                    self._children_yang_names.add("logging")
 
                     self.path_options = MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions()
                     self.path_options.parent = self
                     self._children_name_map["path_options"] = "path-options"
-                    self._children_yang_names.add("path-options")
 
                     self.static_uni = MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni()
                     self.static_uni.parent = self
                     self._children_name_map["static_uni"] = "static-uni"
-                    self._children_yang_names.add("static-uni")
                     self._segment_path = lambda: "tunnel-head" + "[tunnel-id='" + str(self.tunnel_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/%s" % self._segment_path()
 
@@ -20474,7 +20191,7 @@ class MplsTe(Entity):
                     	Bitrate value in Kbps for ODUflex framing type
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     	**units**\: kbit/s
                     
@@ -20488,7 +20205,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth, self).__init__()
@@ -20498,11 +20215,10 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('signalled_bandwidth_type', YLeaf(YType.enumeration, 'signalled-bandwidth-type')),
-                            ('bitrate', YLeaf(YType.int32, 'bitrate')),
+                            ('bitrate', YLeaf(YType.uint32, 'bitrate')),
                             ('od_uflex_framing_type', YLeaf(YType.enumeration, 'od-uflex-framing-type')),
                         ])
                         self.signalled_bandwidth_type = None
@@ -20536,14 +20252,14 @@ class MplsTe(Entity):
                     	Interface index of port
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     
 
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination, self).__init__()
@@ -20553,12 +20269,11 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('destination', YLeaf(YType.str, 'destination')),
                             ('destination_type', YLeaf(YType.enumeration, 'destination-type')),
-                            ('interface_if_index', YLeaf(YType.int32, 'interface-if-index')),
+                            ('interface_if_index', YLeaf(YType.uint32, 'interface-if-index')),
                         ])
                         self.destination = None
                         self.destination_type = None
@@ -20584,7 +20299,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching, self).__init__()
@@ -20594,8 +20309,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('lockout', YLeaf(YType.enumeration, 'lockout')),
                         ])
@@ -20650,7 +20364,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging, self).__init__()
@@ -20660,8 +20374,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('active_lsp_message', YLeaf(YType.empty, 'active-lsp-message')),
                             ('homepath_state_message', YLeaf(YType.empty, 'homepath-state-message')),
@@ -20698,7 +20411,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions, self).__init__()
@@ -20708,8 +20421,7 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("path-option", ("path_option", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption))])
+                        self._child_classes = OrderedDict([("path-option", ("path_option", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption))])
                         self._leafs = OrderedDict()
 
                         self.path_option = YList(self)
@@ -20777,6 +20489,13 @@ class MplsTe(Entity):
                         
                         	**length:** 1..64
                         
+                        .. attribute:: affinity_attribute_set_name
+                        
+                        	The name of the affinity attribute set to be used for this path\-option
+                        	**type**\: str
+                        
+                        	**length:** 1..64
+                        
                         .. attribute:: lockdown
                         
                         	Lockdown properties
@@ -20787,7 +20506,7 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, self).__init__()
@@ -20797,8 +20516,7 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['preference_level']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('preference_level', YLeaf(YType.uint32, 'preference-level')),
                                 ('path_type', YLeaf(YType.enumeration, 'path-type')),
@@ -20808,6 +20526,7 @@ class MplsTe(Entity):
                                 ('restore_by_preference_level', YLeaf(YType.uint32, 'restore-by-preference-level')),
                                 ('xro_type', YLeaf(YType.empty, 'xro-type')),
                                 ('xro_attribute_set_name', YLeaf(YType.str, 'xro-attribute-set-name')),
+                                ('affinity_attribute_set_name', YLeaf(YType.str, 'affinity-attribute-set-name')),
                                 ('lockdown', YLeaf(YType.enumeration, 'lockdown')),
                             ])
                             self.preference_level = None
@@ -20818,11 +20537,12 @@ class MplsTe(Entity):
                             self.restore_by_preference_level = None
                             self.xro_type = None
                             self.xro_attribute_set_name = None
+                            self.affinity_attribute_set_name = None
                             self.lockdown = None
                             self._segment_path = lambda: "path-option" + "[preference-level='" + str(self.preference_level) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'protected_by_preference_level', 'restore_by_preference_level', 'xro_type', 'xro_attribute_set_name', 'lockdown'], name, value)
+                            self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'protected_by_preference_level', 'restore_by_preference_level', 'xro_type', 'xro_attribute_set_name', 'affinity_attribute_set_name', 'lockdown'], name, value)
 
 
                 class StaticUni(Entity):
@@ -20843,7 +20563,7 @@ class MplsTe(Entity):
                     	Interface index of Egress controller
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: ingress_type
                     
@@ -20860,7 +20580,7 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni, self).__init__()
@@ -20870,11 +20590,10 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ingress_controller_name', YLeaf(YType.str, 'ingress-controller-name')),
-                            ('egress_controller_if_index', YLeaf(YType.int32, 'egress-controller-if-index')),
+                            ('egress_controller_if_index', YLeaf(YType.uint32, 'egress-controller-if-index')),
                             ('ingress_type', YLeaf(YType.enumeration, 'ingress-type')),
                             ('egress_type', YLeaf(YType.enumeration, 'egress-type')),
                         ])
@@ -20934,7 +20653,7 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(MplsTe.Lcac, self).__init__()
@@ -20944,8 +20663,7 @@ class MplsTe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("bfd", ("bfd", MplsTe.Lcac.Bfd)), ("flooding-threshold", ("flooding_threshold", MplsTe.Lcac.FloodingThreshold))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("bfd", ("bfd", MplsTe.Lcac.Bfd)), ("flooding-threshold", ("flooding_threshold", MplsTe.Lcac.FloodingThreshold))])
             self._leafs = OrderedDict([
                 ('bandwidth_hold_timer', YLeaf(YType.uint32, 'bandwidth-hold-timer')),
                 ('delay_preempt_bundle_capacity_timer', YLeaf(YType.uint32, 'delay-preempt-bundle-capacity-timer')),
@@ -20958,12 +20676,10 @@ class MplsTe(Entity):
             self.bfd = MplsTe.Lcac.Bfd()
             self.bfd.parent = self
             self._children_name_map["bfd"] = "bfd"
-            self._children_yang_names.add("bfd")
 
             self.flooding_threshold = MplsTe.Lcac.FloodingThreshold()
             self.flooding_threshold.parent = self
             self._children_name_map["flooding_threshold"] = "flooding-threshold"
-            self._children_yang_names.add("flooding-threshold")
             self._segment_path = lambda: "lcac"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
 
@@ -20996,7 +20712,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.Lcac.Bfd, self).__init__()
@@ -21006,8 +20722,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interval', YLeaf(YType.uint32, 'interval')),
                     ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -21049,7 +20764,7 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(MplsTe.Lcac.FloodingThreshold, self).__init__()
@@ -21059,8 +20774,7 @@ class MplsTe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('up_stream', YLeaf(YType.uint32, 'up-stream')),
                     ('down_stream', YLeaf(YType.uint32, 'down-stream')),

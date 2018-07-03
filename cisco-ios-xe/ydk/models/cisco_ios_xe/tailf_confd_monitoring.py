@@ -116,8 +116,7 @@ class ConfdState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("smp", ("smp", ConfdState.Smp)), ("ha", ("ha", ConfdState.Ha)), ("loaded-data-models", ("loaded_data_models", ConfdState.LoadedDataModels)), ("netconf", ("netconf", ConfdState.Netconf)), ("cli", ("cli", ConfdState.Cli)), ("webui", ("webui", ConfdState.Webui)), ("rest", ("rest", ConfdState.Rest)), ("snmp", ("snmp", ConfdState.Snmp)), ("internal", ("internal", ConfdState.Internal))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("smp", ("smp", ConfdState.Smp)), ("ha", ("ha", ConfdState.Ha)), ("loaded-data-models", ("loaded_data_models", ConfdState.LoadedDataModels)), ("netconf", ("netconf", ConfdState.Netconf)), ("cli", ("cli", ConfdState.Cli)), ("webui", ("webui", ConfdState.Webui)), ("rest", ("rest", ConfdState.Rest)), ("snmp", ("snmp", ConfdState.Snmp)), ("internal", ("internal", ConfdState.Internal))])
         self._leafs = OrderedDict([
             ('version', YLeaf(YType.str, 'version')),
             ('epoll', YLeaf(YType.boolean, 'epoll')),
@@ -133,41 +132,32 @@ class ConfdState(Entity):
 
         self.smp = None
         self._children_name_map["smp"] = "smp"
-        self._children_yang_names.add("smp")
 
         self.ha = None
         self._children_name_map["ha"] = "ha"
-        self._children_yang_names.add("ha")
 
         self.loaded_data_models = ConfdState.LoadedDataModels()
         self.loaded_data_models.parent = self
         self._children_name_map["loaded_data_models"] = "loaded-data-models"
-        self._children_yang_names.add("loaded-data-models")
 
         self.netconf = None
         self._children_name_map["netconf"] = "netconf"
-        self._children_yang_names.add("netconf")
 
         self.cli = None
         self._children_name_map["cli"] = "cli"
-        self._children_yang_names.add("cli")
 
         self.webui = None
         self._children_name_map["webui"] = "webui"
-        self._children_yang_names.add("webui")
 
         self.rest = None
         self._children_name_map["rest"] = "rest"
-        self._children_yang_names.add("rest")
 
         self.snmp = None
         self._children_name_map["snmp"] = "snmp"
-        self._children_yang_names.add("snmp")
 
         self.internal = ConfdState.Internal()
         self.internal.parent = self
         self._children_name_map["internal"] = "internal"
-        self._children_yang_names.add("internal")
         self._segment_path = lambda: "tailf-confd-monitoring:confd-state"
 
     def __setattr__(self, name, value):
@@ -239,8 +229,7 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('number_of_threads', YLeaf(YType.uint16, 'number-of-threads')),
@@ -299,8 +288,7 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -370,8 +358,7 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("data-model", ("data_model", ConfdState.LoadedDataModels.DataModel))])
+            self._child_classes = OrderedDict([("data-model", ("data_model", ConfdState.LoadedDataModels.DataModel))])
             self._leafs = OrderedDict()
 
             self.data_model = YList(self)
@@ -439,8 +426,7 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('revision', YLeaf(YType.str, 'revision')),
@@ -519,17 +505,18 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Netconf.Listen))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("listen", ("listen", ConfdState.Netconf.Listen))])
             self.is_presence_container = True
             self._leafs = OrderedDict()
 
             self.listen = ConfdState.Netconf.Listen()
             self.listen.parent = self
             self._children_name_map["listen"] = "listen"
-            self._children_yang_names.add("listen")
             self._segment_path = lambda: "netconf"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ConfdState.Netconf, [], name, value)
 
 
         class Listen(Entity):
@@ -565,8 +552,7 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tcp", ("tcp", ConfdState.Netconf.Listen.Tcp)), ("ssh", ("ssh", ConfdState.Netconf.Listen.Ssh))])
+                self._child_classes = OrderedDict([("tcp", ("tcp", ConfdState.Netconf.Listen.Tcp)), ("ssh", ("ssh", ConfdState.Netconf.Listen.Ssh))])
                 self._leafs = OrderedDict()
 
                 self.tcp = YList(self)
@@ -617,8 +603,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -671,8 +656,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -712,17 +696,18 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Cli.Listen))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("listen", ("listen", ConfdState.Cli.Listen))])
             self.is_presence_container = True
             self._leafs = OrderedDict()
 
             self.listen = ConfdState.Cli.Listen()
             self.listen.parent = self
             self._children_name_map["listen"] = "listen"
-            self._children_yang_names.add("listen")
             self._segment_path = lambda: "cli"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ConfdState.Cli, [], name, value)
 
 
         class Listen(Entity):
@@ -756,8 +741,7 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("ssh", ("ssh", ConfdState.Cli.Listen.Ssh))])
+                self._child_classes = OrderedDict([("ssh", ("ssh", ConfdState.Cli.Listen.Ssh))])
                 self._leafs = OrderedDict()
 
                 self.ssh = YList(self)
@@ -807,8 +791,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -848,17 +831,18 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Webui.Listen))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("listen", ("listen", ConfdState.Webui.Listen))])
             self.is_presence_container = True
             self._leafs = OrderedDict()
 
             self.listen = ConfdState.Webui.Listen()
             self.listen.parent = self
             self._children_name_map["listen"] = "listen"
-            self._children_yang_names.add("listen")
             self._segment_path = lambda: "webui"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ConfdState.Webui, [], name, value)
 
 
         class Listen(Entity):
@@ -890,8 +874,7 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tcp", ("tcp", ConfdState.Webui.Listen.Tcp)), ("ssl", ("ssl", ConfdState.Webui.Listen.Ssl))])
+                self._child_classes = OrderedDict([("tcp", ("tcp", ConfdState.Webui.Listen.Tcp)), ("ssl", ("ssl", ConfdState.Webui.Listen.Ssl))])
                 self._leafs = OrderedDict()
 
                 self.tcp = YList(self)
@@ -942,8 +925,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -996,8 +978,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -1037,17 +1018,18 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Rest.Listen))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("listen", ("listen", ConfdState.Rest.Listen))])
             self.is_presence_container = True
             self._leafs = OrderedDict()
 
             self.listen = ConfdState.Rest.Listen()
             self.listen.parent = self
             self._children_name_map["listen"] = "listen"
-            self._children_yang_names.add("listen")
             self._segment_path = lambda: "rest"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ConfdState.Rest, [], name, value)
 
 
         class Listen(Entity):
@@ -1079,8 +1061,7 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tcp", ("tcp", ConfdState.Rest.Listen.Tcp)), ("ssl", ("ssl", ConfdState.Rest.Listen.Ssl))])
+                self._child_classes = OrderedDict([("tcp", ("tcp", ConfdState.Rest.Listen.Tcp)), ("ssl", ("ssl", ConfdState.Rest.Listen.Ssl))])
                 self._leafs = OrderedDict()
 
                 self.tcp = YList(self)
@@ -1131,8 +1112,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -1185,8 +1165,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -1243,8 +1222,7 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Snmp.Listen)), ("version", ("version", ConfdState.Snmp.Version))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("listen", ("listen", ConfdState.Snmp.Listen)), ("version", ("version", ConfdState.Snmp.Version))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('mib', YLeafList(YType.str, 'mib')),
@@ -1256,12 +1234,10 @@ class ConfdState(Entity):
             self.listen = ConfdState.Snmp.Listen()
             self.listen.parent = self
             self._children_name_map["listen"] = "listen"
-            self._children_yang_names.add("listen")
 
             self.version = ConfdState.Snmp.Version()
             self.version.parent = self
             self._children_name_map["version"] = "version"
-            self._children_yang_names.add("version")
             self._segment_path = lambda: "snmp"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
 
@@ -1293,8 +1269,7 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("udp", ("udp", ConfdState.Snmp.Listen.Udp))])
+                self._child_classes = OrderedDict([("udp", ("udp", ConfdState.Snmp.Listen.Udp))])
                 self._leafs = OrderedDict()
 
                 self.udp = YList(self)
@@ -1344,8 +1319,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -1393,8 +1367,7 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('v1', YLeaf(YType.empty, 'v1')),
                     ('v2c', YLeaf(YType.empty, 'v2c')),
@@ -1439,21 +1412,21 @@ class ConfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("callpoints", ("callpoints", ConfdState.Internal.Callpoints)), ("cdb", ("cdb", ConfdState.Internal.Cdb))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("callpoints", ("callpoints", ConfdState.Internal.Callpoints)), ("cdb", ("cdb", ConfdState.Internal.Cdb))])
             self._leafs = OrderedDict()
 
             self.callpoints = ConfdState.Internal.Callpoints()
             self.callpoints.parent = self
             self._children_name_map["callpoints"] = "callpoints"
-            self._children_yang_names.add("callpoints")
 
             self.cdb = ConfdState.Internal.Cdb()
             self.cdb.parent = self
             self._children_name_map["cdb"] = "cdb"
-            self._children_yang_names.add("cdb")
             self._segment_path = lambda: "internal"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ConfdState.Internal, [], name, value)
 
         class DatastoreName(Enum):
             """
@@ -1550,17 +1523,14 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("authentication-callback", ("authentication_callback", ConfdState.Internal.Callpoints.AuthenticationCallback)), ("authorization-callbacks", ("authorization_callbacks", ConfdState.Internal.Callpoints.AuthorizationCallbacks))])
-                self._child_list_classes = OrderedDict([("callpoint", ("callpoint", ConfdState.Internal.Callpoints.Callpoint)), ("validationpoint", ("validationpoint", ConfdState.Internal.Callpoints.Validationpoint)), ("actionpoint", ("actionpoint", ConfdState.Internal.Callpoints.Actionpoint)), ("snmp-inform-callback", ("snmp_inform_callback", ConfdState.Internal.Callpoints.SnmpInformCallback)), ("snmp-notification-subscription", ("snmp_notification_subscription", ConfdState.Internal.Callpoints.SnmpNotificationSubscription)), ("error-formatting-callback", ("error_formatting_callback", ConfdState.Internal.Callpoints.ErrorFormattingCallback)), ("typepoint", ("typepoint", ConfdState.Internal.Callpoints.Typepoint)), ("notification-stream-replay", ("notification_stream_replay", ConfdState.Internal.Callpoints.NotificationStreamReplay))])
+                self._child_classes = OrderedDict([("callpoint", ("callpoint", ConfdState.Internal.Callpoints.Callpoint)), ("validationpoint", ("validationpoint", ConfdState.Internal.Callpoints.Validationpoint)), ("actionpoint", ("actionpoint", ConfdState.Internal.Callpoints.Actionpoint)), ("snmp-inform-callback", ("snmp_inform_callback", ConfdState.Internal.Callpoints.SnmpInformCallback)), ("snmp-notification-subscription", ("snmp_notification_subscription", ConfdState.Internal.Callpoints.SnmpNotificationSubscription)), ("error-formatting-callback", ("error_formatting_callback", ConfdState.Internal.Callpoints.ErrorFormattingCallback)), ("typepoint", ("typepoint", ConfdState.Internal.Callpoints.Typepoint)), ("notification-stream-replay", ("notification_stream_replay", ConfdState.Internal.Callpoints.NotificationStreamReplay)), ("authentication-callback", ("authentication_callback", ConfdState.Internal.Callpoints.AuthenticationCallback)), ("authorization-callbacks", ("authorization_callbacks", ConfdState.Internal.Callpoints.AuthorizationCallbacks))])
                 self._leafs = OrderedDict()
 
                 self.authentication_callback = None
                 self._children_name_map["authentication_callback"] = "authentication-callback"
-                self._children_yang_names.add("authentication-callback")
 
                 self.authorization_callbacks = None
                 self._children_name_map["authorization_callbacks"] = "authorization-callbacks"
-                self._children_yang_names.add("authorization-callbacks")
 
                 self.callpoint = YList(self)
                 self.validationpoint = YList(self)
@@ -1626,8 +1596,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Callpoint.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.Callpoint.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Callpoint.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.Callpoint.Range))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('path', YLeaf(YType.str, 'path')),
@@ -1642,7 +1611,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.Callpoint.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "callpoint" + "[id='" + str(self.id) + "']"
@@ -1715,8 +1683,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -1789,8 +1756,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Callpoint.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Callpoint.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -1803,7 +1769,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.Callpoint.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
 
                     def __setattr__(self, name, value):
@@ -1846,8 +1811,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -1930,8 +1894,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.Validationpoint.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.Validationpoint.Range))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('path', YLeaf(YType.str, 'path')),
@@ -1946,7 +1909,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.Validationpoint.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "validationpoint" + "[id='" + str(self.id) + "']"
@@ -2019,8 +1981,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -2093,8 +2054,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -2107,7 +2067,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
 
                     def __setattr__(self, name, value):
@@ -2150,8 +2109,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -2234,8 +2192,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.Actionpoint.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.Actionpoint.Range))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('path', YLeaf(YType.str, 'path')),
@@ -2250,7 +2207,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.Actionpoint.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "actionpoint" + "[id='" + str(self.id) + "']"
@@ -2323,8 +2279,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -2397,8 +2352,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -2411,7 +2365,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
 
                     def __setattr__(self, name, value):
@@ -2454,8 +2407,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -2538,8 +2490,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.SnmpInformCallback.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.SnmpInformCallback.Range))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('path', YLeaf(YType.str, 'path')),
@@ -2554,7 +2505,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "snmp-inform-callback" + "[id='" + str(self.id) + "']"
@@ -2627,8 +2577,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -2701,8 +2650,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -2715,7 +2663,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
 
                     def __setattr__(self, name, value):
@@ -2758,8 +2705,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -2842,8 +2788,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('path', YLeaf(YType.str, 'path')),
@@ -2858,7 +2803,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "snmp-notification-subscription" + "[id='" + str(self.id) + "']"
@@ -2931,8 +2875,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -3005,8 +2948,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -3019,7 +2961,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
 
                     def __setattr__(self, name, value):
@@ -3062,8 +3003,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -3146,8 +3086,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('path', YLeaf(YType.str, 'path')),
@@ -3162,7 +3101,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "error-formatting-callback" + "[id='" + str(self.id) + "']"
@@ -3235,8 +3173,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -3309,8 +3246,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -3323,7 +3259,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
 
                     def __setattr__(self, name, value):
@@ -3366,8 +3301,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -3450,8 +3384,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Typepoint.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.Typepoint.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Typepoint.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.Typepoint.Range))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('path', YLeaf(YType.str, 'path')),
@@ -3466,7 +3399,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.Typepoint.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "typepoint" + "[id='" + str(self.id) + "']"
@@ -3539,8 +3471,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -3613,8 +3544,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Typepoint.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Typepoint.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -3627,7 +3557,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.Typepoint.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
 
                     def __setattr__(self, name, value):
@@ -3670,8 +3599,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -3759,8 +3687,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('replay_support', YLeaf(YType.enumeration, 'replay-support')),
@@ -3777,7 +3704,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "notification-stream-replay" + "[name='" + str(self.name) + "']"
@@ -3869,8 +3795,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -3943,8 +3868,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -3957,7 +3881,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
 
                     def __setattr__(self, name, value):
@@ -4000,8 +3923,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -4086,8 +4008,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.AuthenticationCallback.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.AuthenticationCallback.Range))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -4103,7 +4024,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "authentication-callback"
@@ -4176,8 +4096,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -4251,8 +4170,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -4265,7 +4183,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/%s" % self._segment_path()
 
@@ -4309,8 +4226,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -4396,8 +4312,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon))])
-                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range))])
+                    self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -4413,7 +4328,6 @@ class ConfdState(Entity):
                     self.daemon = ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon()
                     self.daemon.parent = self
                     self._children_name_map["daemon"] = "daemon"
-                    self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
                     self._segment_path = lambda: "authorization-callbacks"
@@ -4486,8 +4400,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint32, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -4561,8 +4474,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon))])
                         self._leafs = OrderedDict([
                             ('lower', YLeaf(YType.str, 'lower')),
                             ('upper', YLeaf(YType.str, 'upper')),
@@ -4575,7 +4487,6 @@ class ConfdState(Entity):
                         self.daemon = ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon()
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
-                        self._children_yang_names.add("daemon")
                         self._segment_path = lambda: "range"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/%s" % self._segment_path()
 
@@ -4619,8 +4530,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.uint32, 'id')),
                                 ('name', YLeaf(YType.str, 'name')),
@@ -4684,8 +4594,7 @@ class ConfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("datastore", ("datastore", ConfdState.Internal.Cdb.Datastore)), ("client", ("client", ConfdState.Internal.Cdb.Client))])
+                self._child_classes = OrderedDict([("datastore", ("datastore", ConfdState.Internal.Cdb.Datastore)), ("client", ("client", ConfdState.Internal.Cdb.Client))])
                 self._leafs = OrderedDict()
 
                 self.datastore = YList(self)
@@ -4786,8 +4695,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("pending-subscription-sync", ("pending_subscription_sync", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync))])
-                    self._child_list_classes = OrderedDict([("pending-notification-queue", ("pending_notification_queue", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue))])
+                    self._child_classes = OrderedDict([("pending-subscription-sync", ("pending_subscription_sync", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync)), ("pending-notification-queue", ("pending_notification_queue", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.enumeration, 'name')),
                         ('transaction_id', YLeaf(YType.str, 'transaction-id')),
@@ -4813,7 +4721,6 @@ class ConfdState(Entity):
 
                     self.pending_subscription_sync = None
                     self._children_name_map["pending_subscription_sync"] = "pending-subscription-sync"
-                    self._children_yang_names.add("pending-subscription-sync")
 
                     self.pending_notification_queue = YList(self)
                     self._segment_path = lambda: "datastore" + "[name='" + str(self.name) + "']"
@@ -4869,8 +4776,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("notification", ("notification", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification))])
+                        self._child_classes = OrderedDict([("notification", ("notification", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification))])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('priority', YLeaf(YType.int32, 'priority')),
@@ -4940,8 +4846,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('client_name', YLeaf(YType.str, 'client-name')),
                                 ('subscription_ids', YLeafList(YType.uint32, 'subscription-ids')),
@@ -4980,8 +4885,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("notification", ("notification", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification))])
+                        self._child_classes = OrderedDict([("notification", ("notification", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification))])
                         self._leafs = OrderedDict()
 
                         self.notification = YList(self)
@@ -5029,8 +4933,7 @@ class ConfdState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('priority', YLeaf(YType.int32, 'priority')),
                                 ('client_name', YLeaf(YType.str, 'client-name')),
@@ -5098,8 +5001,7 @@ class ConfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("subscription", ("subscription", ConfdState.Internal.Cdb.Client.Subscription))])
+                    self._child_classes = OrderedDict([("subscription", ("subscription", ConfdState.Internal.Cdb.Client.Subscription))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('info', YLeaf(YType.str, 'info')),
@@ -5261,8 +5163,7 @@ class ConfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('datastore', YLeaf(YType.enumeration, 'datastore')),
                             ('twophase', YLeaf(YType.empty, 'twophase')),

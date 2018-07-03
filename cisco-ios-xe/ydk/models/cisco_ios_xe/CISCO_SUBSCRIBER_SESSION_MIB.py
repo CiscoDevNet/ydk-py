@@ -215,62 +215,62 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
     .. attribute:: csubjob
     
     	
-    	**type**\:  :py:class:`Csubjob <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjob>`
+    	**type**\:  :py:class:`CsubJob <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJob>`
     
     .. attribute:: csubaggthresh
     
     	
-    	**type**\:  :py:class:`Csubaggthresh <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggthresh>`
+    	**type**\:  :py:class:`CsubAggThresh <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggThresh>`
     
     .. attribute:: csubsessiontable
     
     	This table describes a list of subscriber sessions currently maintained by the system.  This table has a sparse dependent relationship on the ifTable, containing a row for each interface having an interface type describing a subscriber session
-    	**type**\:  :py:class:`Csubsessiontable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable>`
+    	**type**\:  :py:class:`CsubSessionTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable>`
     
     .. attribute:: csubsessionbytypetable
     
     	This table describes a list of subscriber sessions currently maintained by the system.  The tables sorts the subscriber sessions first by the subscriber session's type and second by the ifIndex assigned to the subscriber session
-    	**type**\:  :py:class:`Csubsessionbytypetable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable>`
+    	**type**\:  :py:class:`CsubSessionByTypeTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable>`
     
     .. attribute:: csubaggstatstable
     
     	This table contains sets of aggregated statistics relating to subscriber sessions, where each set has a unique scope of aggregation
-    	**type**\:  :py:class:`Csubaggstatstable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable>`
+    	**type**\:  :py:class:`CsubAggStatsTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable>`
     
     .. attribute:: csubaggstatsinttable
     
     	This table contains aggregated subscriber session performance data collected for as much as a day's worth of 15\-minute measurement intervals.  This table has an expansion dependent relationship on the csubAggStatsTable, containing zero or more rows for each row contained by the csubAggStatsTable.  Observe that the collection and maintenance of aggregated subscriber performance data is OPTIONAL for all scopes of aggregation.  However, an implementation should maintain at least one interval for the 'scope of aggregation' that contains all subscriber sessions maintained by the system
-    	**type**\:  :py:class:`Csubaggstatsinttable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable>`
+    	**type**\:  :py:class:`CsubAggStatsIntTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable>`
     
     .. attribute:: csubaggstatsthreshtable
     
     	Please enter the Table Description here
-    	**type**\:  :py:class:`Csubaggstatsthreshtable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable>`
+    	**type**\:  :py:class:`CsubAggStatsThreshTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable>`
     
     .. attribute:: csubjobtable
     
     	This table contains the subscriber session jobs submitted by the EMS/NMS
-    	**type**\:  :py:class:`Csubjobtable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable>`
+    	**type**\:  :py:class:`CsubJobTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable>`
     
     .. attribute:: csubjobmatchparamstable
     
     	This table contains subscriber session job parameters describing match criteria.  This table has a sparse\-dependent relationship on the csubJobTable, containing a row for each job having a csubJobType of 'query' or 'clear'
-    	**type**\:  :py:class:`Csubjobmatchparamstable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable>`
+    	**type**\:  :py:class:`CsubJobMatchParamsTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable>`
     
     .. attribute:: csubjobqueryparamstable
     
     	This table contains subscriber session job parameters describing query parameters.  This table has a sparse\-dependent relationship on the csubJobTable, containing a row for each job having a csubJobType of 'query'
-    	**type**\:  :py:class:`Csubjobqueryparamstable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable>`
+    	**type**\:  :py:class:`CsubJobQueryParamsTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable>`
     
     .. attribute:: csubjobqueuetable
     
     	This table lists the subscriber session jobs currently pending in the subscriber session job queue
-    	**type**\:  :py:class:`Csubjobqueuetable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable>`
+    	**type**\:  :py:class:`CsubJobQueueTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable>`
     
     .. attribute:: csubjobreporttable
     
     	This table contains the reports corresponding to subscriber session jobs that have a csubJobType of 'query' and csubJobState of 'finished'.  This table has an expansion dependent relationship on the csubJobTable, containing zero or more rows for each job
-    	**type**\:  :py:class:`Csubjobreporttable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable>`
+    	**type**\:  :py:class:`CsubJobReportTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable>`
     
     
 
@@ -288,73 +288,63 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("csubJob", ("csubjob", CISCOSUBSCRIBERSESSIONMIB.Csubjob)), ("csubAggThresh", ("csubaggthresh", CISCOSUBSCRIBERSESSIONMIB.Csubaggthresh)), ("csubSessionTable", ("csubsessiontable", CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable)), ("csubSessionByTypeTable", ("csubsessionbytypetable", CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable)), ("csubAggStatsTable", ("csubaggstatstable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable)), ("csubAggStatsIntTable", ("csubaggstatsinttable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable)), ("csubAggStatsThreshTable", ("csubaggstatsthreshtable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable)), ("csubJobTable", ("csubjobtable", CISCOSUBSCRIBERSESSIONMIB.Csubjobtable)), ("csubJobMatchParamsTable", ("csubjobmatchparamstable", CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable)), ("csubJobQueryParamsTable", ("csubjobqueryparamstable", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable)), ("csubJobQueueTable", ("csubjobqueuetable", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable)), ("csubJobReportTable", ("csubjobreporttable", CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("csubJob", ("csubjob", CISCOSUBSCRIBERSESSIONMIB.CsubJob)), ("csubAggThresh", ("csubaggthresh", CISCOSUBSCRIBERSESSIONMIB.CsubAggThresh)), ("csubSessionTable", ("csubsessiontable", CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable)), ("csubSessionByTypeTable", ("csubsessionbytypetable", CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable)), ("csubAggStatsTable", ("csubaggstatstable", CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable)), ("csubAggStatsIntTable", ("csubaggstatsinttable", CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable)), ("csubAggStatsThreshTable", ("csubaggstatsthreshtable", CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable)), ("csubJobTable", ("csubjobtable", CISCOSUBSCRIBERSESSIONMIB.CsubJobTable)), ("csubJobMatchParamsTable", ("csubjobmatchparamstable", CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable)), ("csubJobQueryParamsTable", ("csubjobqueryparamstable", CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable)), ("csubJobQueueTable", ("csubjobqueuetable", CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable)), ("csubJobReportTable", ("csubjobreporttable", CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable))])
         self._leafs = OrderedDict()
 
-        self.csubjob = CISCOSUBSCRIBERSESSIONMIB.Csubjob()
+        self.csubjob = CISCOSUBSCRIBERSESSIONMIB.CsubJob()
         self.csubjob.parent = self
         self._children_name_map["csubjob"] = "csubJob"
-        self._children_yang_names.add("csubJob")
 
-        self.csubaggthresh = CISCOSUBSCRIBERSESSIONMIB.Csubaggthresh()
+        self.csubaggthresh = CISCOSUBSCRIBERSESSIONMIB.CsubAggThresh()
         self.csubaggthresh.parent = self
         self._children_name_map["csubaggthresh"] = "csubAggThresh"
-        self._children_yang_names.add("csubAggThresh")
 
-        self.csubsessiontable = CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable()
+        self.csubsessiontable = CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable()
         self.csubsessiontable.parent = self
         self._children_name_map["csubsessiontable"] = "csubSessionTable"
-        self._children_yang_names.add("csubSessionTable")
 
-        self.csubsessionbytypetable = CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable()
+        self.csubsessionbytypetable = CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable()
         self.csubsessionbytypetable.parent = self
         self._children_name_map["csubsessionbytypetable"] = "csubSessionByTypeTable"
-        self._children_yang_names.add("csubSessionByTypeTable")
 
-        self.csubaggstatstable = CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable()
+        self.csubaggstatstable = CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable()
         self.csubaggstatstable.parent = self
         self._children_name_map["csubaggstatstable"] = "csubAggStatsTable"
-        self._children_yang_names.add("csubAggStatsTable")
 
-        self.csubaggstatsinttable = CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable()
+        self.csubaggstatsinttable = CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable()
         self.csubaggstatsinttable.parent = self
         self._children_name_map["csubaggstatsinttable"] = "csubAggStatsIntTable"
-        self._children_yang_names.add("csubAggStatsIntTable")
 
-        self.csubaggstatsthreshtable = CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable()
+        self.csubaggstatsthreshtable = CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable()
         self.csubaggstatsthreshtable.parent = self
         self._children_name_map["csubaggstatsthreshtable"] = "csubAggStatsThreshTable"
-        self._children_yang_names.add("csubAggStatsThreshTable")
 
-        self.csubjobtable = CISCOSUBSCRIBERSESSIONMIB.Csubjobtable()
+        self.csubjobtable = CISCOSUBSCRIBERSESSIONMIB.CsubJobTable()
         self.csubjobtable.parent = self
         self._children_name_map["csubjobtable"] = "csubJobTable"
-        self._children_yang_names.add("csubJobTable")
 
-        self.csubjobmatchparamstable = CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable()
+        self.csubjobmatchparamstable = CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable()
         self.csubjobmatchparamstable.parent = self
         self._children_name_map["csubjobmatchparamstable"] = "csubJobMatchParamsTable"
-        self._children_yang_names.add("csubJobMatchParamsTable")
 
-        self.csubjobqueryparamstable = CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable()
+        self.csubjobqueryparamstable = CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable()
         self.csubjobqueryparamstable.parent = self
         self._children_name_map["csubjobqueryparamstable"] = "csubJobQueryParamsTable"
-        self._children_yang_names.add("csubJobQueryParamsTable")
 
-        self.csubjobqueuetable = CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable()
+        self.csubjobqueuetable = CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable()
         self.csubjobqueuetable.parent = self
         self._children_name_map["csubjobqueuetable"] = "csubJobQueueTable"
-        self._children_yang_names.add("csubJobQueueTable")
 
-        self.csubjobreporttable = CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable()
+        self.csubjobreporttable = CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable()
         self.csubjobreporttable.parent = self
         self._children_name_map["csubjobreporttable"] = "csubJobReportTable"
-        self._children_yang_names.add("csubJobReportTable")
         self._segment_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB, [], name, value)
 
-    class Csubjob(Entity):
+
+    class CsubJob(Entity):
         """
         
         
@@ -410,15 +400,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubjob, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubJob, self).__init__()
 
             self.yang_name = "csubJob"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csubjobfinishednotifyenable', YLeaf(YType.boolean, 'csubJobFinishedNotifyEnable')),
                 ('csubjobindexedattributes', YLeaf(YType.bits, 'csubJobIndexedAttributes')),
@@ -437,10 +426,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjob, ['csubjobfinishednotifyenable', 'csubjobindexedattributes', 'csubjobidnext', 'csubjobmaxnumber', 'csubjobmaxlife', 'csubjobcount'], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJob, ['csubjobfinishednotifyenable', 'csubjobindexedattributes', 'csubjobidnext', 'csubjobmaxnumber', 'csubjobmaxlife', 'csubjobcount'], name, value)
 
 
-    class Csubaggthresh(Entity):
+    class CsubAggThresh(Entity):
         """
         
         
@@ -457,15 +446,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubaggthresh, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubAggThresh, self).__init__()
 
             self.yang_name = "csubAggThresh"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csubaggstatsthreshnotifenable', YLeaf(YType.boolean, 'csubAggStatsThreshNotifEnable')),
             ])
@@ -474,10 +462,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubaggthresh, ['csubaggstatsthreshnotifenable'], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggThresh, ['csubaggstatsthreshnotifenable'], name, value)
 
 
-    class Csubsessiontable(Entity):
+    class CsubSessionTable(Entity):
         """
         This table describes a list of subscriber sessions currently
         maintained by the system.
@@ -489,7 +477,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubsessionentry
         
         	This entry contains data describing a subscriber sessions, including its state, configuration, and collected identities.  An entry exists for a corresponding entry in the ifTable describing a subscriber session.  Currently, subscriber sessions must have one of the following ifType values\:      'ppp'     'ipSubscriberSession'     'l2SubscriberSession'  The system creates an entry when it establishes a subscriber session.  Likewise, the system destroys an entry when it terminates the corresponding subscriber session
-        	**type**\: list of  		 :py:class:`Csubsessionentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable.Csubsessionentry>`
+        	**type**\: list of  		 :py:class:`CsubSessionEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable.CsubSessionEntry>`
         
         
 
@@ -499,15 +487,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable, self).__init__()
 
             self.yang_name = "csubSessionTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubSessionEntry", ("csubsessionentry", CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable.Csubsessionentry))])
+            self._child_classes = OrderedDict([("csubSessionEntry", ("csubsessionentry", CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable.CsubSessionEntry))])
             self._leafs = OrderedDict()
 
             self.csubsessionentry = YList(self)
@@ -515,10 +502,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable, [], name, value)
 
 
-        class Csubsessionentry(Entity):
+        class CsubSessionEntry(Entity):
             """
             This entry contains data describing a subscriber sessions,
             including its state, configuration, and collected identities.
@@ -542,7 +529,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: csubsessiontype
             
@@ -552,7 +539,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             .. attribute:: csubsessionipaddrassignment
             
             	This object indicates how the system assigns IP addresses to the subscriber\:      'none'         The system does not an involvement in (or is it aware         of) the assignment an subscriber IP addresses.  For         example, a system does not have an involvement in the         assignment of subscriber IP addresses for IP interface         subscriber sessions.      'other'         The system assigns subscriber IP addresses using a         method not recognized by this MIB module.      'static'         Subscriber IP addresses have been configured correctly         for the service domain.  The system does not have an         involvement in the assignment of the IP address.      'localPool'         The system assigns subscriber IP addresses from a         locally configured pool of IP addresses.      'dhcpv4'         The system assigns subscriber IP addresses are using the         DHCPv4.      'dhcpv6'         The system assigns subscriber IP addresses using the         DHCPv6.      'userProfileIpAddr'         The system assigns subscriber IP addresses from a user         profile.      'userProfileIpSubnet'         The system assigns the subscriber an IP subnet from a         user profile.      'userProfileNamedPool'         The system assigns subscriber IP addresses from a         locally configured named pool specified by a user         profile
-            	**type**\:  :py:class:`Csubsessionipaddrassignment <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable.Csubsessionentry.Csubsessionipaddrassignment>`
+            	**type**\:  :py:class:`CsubSessionIpAddrAssignment <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable.CsubSessionEntry.CsubSessionIpAddrAssignment>`
             
             .. attribute:: csubsessionstate
             
@@ -757,15 +744,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable.Csubsessionentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable.CsubSessionEntry, self).__init__()
 
                 self.yang_name = "csubSessionEntry"
                 self.yang_parent_name = "csubSessionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('csubsessiontype', YLeaf(YType.enumeration, 'csubSessionType')),
@@ -848,11 +834,11 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubSessionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable.Csubsessionentry, ['ifindex', 'csubsessiontype', 'csubsessionipaddrassignment', 'csubsessionstate', 'csubsessionauthenticated', 'csubsessionredundancymode', 'csubsessioncreationtime', 'csubsessionderivedcfg', 'csubsessionavailableidentities', 'csubsessionsubscriberlabel', 'csubsessionmacaddress', 'csubsessionnativevrf', 'csubsessionnativeipaddrtype', 'csubsessionnativeipaddr', 'csubsessionnativeipmask', 'csubsessiondomainvrf', 'csubsessiondomainipaddrtype', 'csubsessiondomainipaddr', 'csubsessiondomainipmask', 'csubsessionpbhk', 'csubsessionremoteid', 'csubsessioncircuitid', 'csubsessionnasport', 'csubsessiondomain', 'csubsessionusername', 'csubsessionacctsessionid', 'csubsessiondnis', 'csubsessionmedia', 'csubsessionmlpnegotiated', 'csubsessionprotocol', 'csubsessiondhcpclass', 'csubsessiontunnelname', 'csubsessionlocationidentifier', 'csubsessionserviceidentifier', 'csubsessionlastchanged', 'csubsessionnativeipaddrtype2', 'csubsessionnativeipaddr2', 'csubsessionnativeipmask2'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable.CsubSessionEntry, ['ifindex', 'csubsessiontype', 'csubsessionipaddrassignment', 'csubsessionstate', 'csubsessionauthenticated', 'csubsessionredundancymode', 'csubsessioncreationtime', 'csubsessionderivedcfg', 'csubsessionavailableidentities', 'csubsessionsubscriberlabel', 'csubsessionmacaddress', 'csubsessionnativevrf', 'csubsessionnativeipaddrtype', 'csubsessionnativeipaddr', 'csubsessionnativeipmask', 'csubsessiondomainvrf', 'csubsessiondomainipaddrtype', 'csubsessiondomainipaddr', 'csubsessiondomainipmask', 'csubsessionpbhk', 'csubsessionremoteid', 'csubsessioncircuitid', 'csubsessionnasport', 'csubsessiondomain', 'csubsessionusername', 'csubsessionacctsessionid', 'csubsessiondnis', 'csubsessionmedia', 'csubsessionmlpnegotiated', 'csubsessionprotocol', 'csubsessiondhcpclass', 'csubsessiontunnelname', 'csubsessionlocationidentifier', 'csubsessionserviceidentifier', 'csubsessionlastchanged', 'csubsessionnativeipaddrtype2', 'csubsessionnativeipaddr2', 'csubsessionnativeipmask2'], name, value)
 
-            class Csubsessionipaddrassignment(Enum):
+            class CsubSessionIpAddrAssignment(Enum):
                 """
-                Csubsessionipaddrassignment (Enum Class)
+                CsubSessionIpAddrAssignment (Enum Class)
 
                 This object indicates how the system assigns IP addresses to
 
@@ -962,7 +948,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
 
 
-    class Csubsessionbytypetable(Entity):
+    class CsubSessionByTypeTable(Entity):
         """
         This table describes a list of subscriber sessions currently
         maintained by the system.  The tables sorts the subscriber
@@ -972,7 +958,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubsessionbytypeentry
         
         	This entry identifies a subscriber session.  An entry exists for a corresponding entry in the ifTable describing a subscriber session.  Currently, subscriber sessions must have one of the following ifType values\:      'ppp'     'ipSubscriberSession'     'l2SubscriberSession'  The system creates an entry when it establishes a subscriber session.  Likewise, the system destroys an entry when it terminates the corresponding subscriber session
-        	**type**\: list of  		 :py:class:`Csubsessionbytypeentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable.Csubsessionbytypeentry>`
+        	**type**\: list of  		 :py:class:`CsubSessionByTypeEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable.CsubSessionByTypeEntry>`
         
         
 
@@ -982,15 +968,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable, self).__init__()
 
             self.yang_name = "csubSessionByTypeTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubSessionByTypeEntry", ("csubsessionbytypeentry", CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable.Csubsessionbytypeentry))])
+            self._child_classes = OrderedDict([("csubSessionByTypeEntry", ("csubsessionbytypeentry", CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable.CsubSessionByTypeEntry))])
             self._leafs = OrderedDict()
 
             self.csubsessionbytypeentry = YList(self)
@@ -998,10 +983,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable, [], name, value)
 
 
-        class Csubsessionbytypeentry(Entity):
+        class CsubSessionByTypeEntry(Entity):
             """
             This entry identifies a subscriber session.
             
@@ -1037,15 +1022,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable.Csubsessionbytypeentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable.CsubSessionByTypeEntry, self).__init__()
 
                 self.yang_name = "csubSessionByTypeEntry"
                 self.yang_parent_name = "csubSessionByTypeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubsessionbytype','csubsessionifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubsessionbytype', YLeaf(YType.enumeration, 'csubSessionByType')),
                     ('csubsessionifindex', YLeaf(YType.int32, 'csubSessionIfIndex')),
@@ -1056,10 +1040,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubSessionByTypeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable.Csubsessionbytypeentry, ['csubsessionbytype', 'csubsessionifindex'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable.CsubSessionByTypeEntry, ['csubsessionbytype', 'csubsessionifindex'], name, value)
 
 
-    class Csubaggstatstable(Entity):
+    class CsubAggStatsTable(Entity):
         """
         This table contains sets of aggregated statistics relating to
         subscriber sessions, where each set has a unique scope of
@@ -1068,7 +1052,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubaggstatsentry
         
         	An entry contains a set of aggregated statistics relating to those subscriber sessions that fall into a 'scope of  aggregation'.   A 'scope of aggregation' is the set of subscriber sessions  that meet specified criteria.  For example, a 'scope of  aggregation' may be the set of all PPPoE subscriber sessions  maintained by the system.  The following criteria define the  'scope of aggregation'\:   1)  Aggregation Point type          Aggregation point type identifies the format of the          csubAggStatsPoint for this entry.   2)  Aggregation Point          'Physical' Aggregation Point type case\:          In a distributed system, a 'node' represents a physical          entity capable of maintaining the context representing          a subscriber session.           If the 'scope of aggregation' specifies a physical          entity having an entPhysicalClass of 'chassis', then          the set of subscriber sessions in the 'scope of          aggregation' may contain the subscriber sessions maintained by all          the nodes contained in the system.           If the 'scope of aggregation' specifies a physical          entity having an entPhysicalClass of 'module' (e.g., a          line card), then the set of subscriber sessions in the          'scope of aggregation' may contain the subscriber          sessions maintained by the nodes contained by the          module.           If the 'scope of aggregation' specifies a physical          entity having an entPhysicalClass of 'cpu', then the          set of subscriber sessions in the 'scope of aggregation'          may contain the subscriber sessions maintained by the node          running on that processor.           Observe that a centralized system (i.e., a system          that essentially contains a single node) can only          support a 'scope of aggregation' that specifies a          physical entity classified as a 'chassis'.           If the scope of aggregation specifies 'interface',          then the scope is the set of subscriber sessions carried          by the interface identified the ifIndex value          represented in the csubAggStatsPoint value.   2)  Subscriber Session Type          If the 'scope of aggregation' specifies the value 'all'          for the subscriber session type, then the set of          subscriber sessions in the 'scope of aggregation' may          contain all subscriber sessions, regardless of type.           If the 'scope of aggregation' specifies a value other          than 'all' for the subscriber session type, then the          set of subscriber sessions in the 'scope of aggregation may          contain only those subscriber sessions of the specified          type.   Implementation Guidance  =======================  A system MUST maintain a set of statistics with a 'scope of  aggregation' that contains all subscriber sessions maintained  by the system.  The system creates this entry during the  initialization of the SNMP entity.   A system SHOULD maintain a set of statistics for each 'scope of  aggregation' containing subscriber sessions of each subscriber  session type the system is capable of providing access.  If the  system supports these sets of statistics, then it creates these  entries during the initialization of the SNMP entity.   A system MAY maintain sets of node\-specific statistics.  if the  system supports sets of node\-specific statistics, then it  creates the appropriate entries upon detection of a physical  entity (resulting from system restart or insertion) containing  those nodes.  Likewise, the system destroys these entries  upon removal of the physical entity
-        	**type**\: list of  		 :py:class:`Csubaggstatsentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry>`
+        	**type**\: list of  		 :py:class:`CsubAggStatsEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry>`
         
         
 
@@ -1078,15 +1062,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable, self).__init__()
 
             self.yang_name = "csubAggStatsTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubAggStatsEntry", ("csubaggstatsentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry))])
+            self._child_classes = OrderedDict([("csubAggStatsEntry", ("csubaggstatsentry", CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry))])
             self._leafs = OrderedDict()
 
             self.csubaggstatsentry = YList(self)
@@ -1094,10 +1077,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable, [], name, value)
 
 
-        class Csubaggstatsentry(Entity):
+        class CsubAggStatsEntry(Entity):
             """
             An entry contains a set of aggregated statistics relating to
             those subscriber sessions that fall into a 'scope of 
@@ -1183,7 +1166,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             .. attribute:: csubaggstatspointtype  (key)
             
             	This object indicates format of the csubAggStatsPoint for this entry.   The format for the csubAggStatsPoint is as follows\:   csubAggStatsPointType      csubAggStatsPoint  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-     \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-      'physical'                 PhysicalIndex      'interface'                InterfaceIndex
-            	**type**\:  :py:class:`Csubaggstatspointtype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry.Csubaggstatspointtype>`
+            	**type**\:  :py:class:`CsubAggStatsPointType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry.CsubAggStatsPointType>`
             
             .. attribute:: csubaggstatspoint  (key)
             
@@ -1498,15 +1481,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry, self).__init__()
 
                 self.yang_name = "csubAggStatsEntry"
                 self.yang_parent_name = "csubAggStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubaggstatspointtype','csubaggstatspoint','csubaggstatssessiontype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubaggstatspointtype', YLeaf(YType.enumeration, 'csubAggStatsPointType')),
                     ('csubaggstatspoint', YLeaf(YType.uint32, 'csubAggStatsPoint')),
@@ -1585,11 +1567,11 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry, ['csubaggstatspointtype', 'csubaggstatspoint', 'csubaggstatssessiontype', 'csubaggstatspendingsessions', 'csubaggstatsupsessions', 'csubaggstatsauthsessions', 'csubaggstatsunauthsessions', 'csubaggstatslightweightsessions', 'csubaggstatsredsessions', 'csubaggstatshighupsessions', 'csubaggstatsavgsessionuptime', 'csubaggstatsavgsessionrpm', 'csubaggstatsavgsessionrph', 'csubaggstatsthrottleengagements', 'csubaggstatstotalcreatedsessions', 'csubaggstatstotalfailedsessions', 'csubaggstatstotalupsessions', 'csubaggstatstotalauthsessions', 'csubaggstatstotaldiscsessions', 'csubaggstatstotallightweightsessions', 'csubaggstatstotalflowsup', 'csubaggstatsdaycreatedsessions', 'csubaggstatsdayfailedsessions', 'csubaggstatsdayupsessions', 'csubaggstatsdayauthsessions', 'csubaggstatsdaydiscsessions', 'csubaggstatscurrtimeelapsed', 'csubaggstatscurrvalidintervals', 'csubaggstatscurrinvalidintervals', 'csubaggstatscurrflowsup', 'csubaggstatscurrcreatedsessions', 'csubaggstatscurrfailedsessions', 'csubaggstatscurrupsessions', 'csubaggstatscurrauthsessions', 'csubaggstatscurrdiscsessions', 'csubaggstatsdiscontinuitytime'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry, ['csubaggstatspointtype', 'csubaggstatspoint', 'csubaggstatssessiontype', 'csubaggstatspendingsessions', 'csubaggstatsupsessions', 'csubaggstatsauthsessions', 'csubaggstatsunauthsessions', 'csubaggstatslightweightsessions', 'csubaggstatsredsessions', 'csubaggstatshighupsessions', 'csubaggstatsavgsessionuptime', 'csubaggstatsavgsessionrpm', 'csubaggstatsavgsessionrph', 'csubaggstatsthrottleengagements', 'csubaggstatstotalcreatedsessions', 'csubaggstatstotalfailedsessions', 'csubaggstatstotalupsessions', 'csubaggstatstotalauthsessions', 'csubaggstatstotaldiscsessions', 'csubaggstatstotallightweightsessions', 'csubaggstatstotalflowsup', 'csubaggstatsdaycreatedsessions', 'csubaggstatsdayfailedsessions', 'csubaggstatsdayupsessions', 'csubaggstatsdayauthsessions', 'csubaggstatsdaydiscsessions', 'csubaggstatscurrtimeelapsed', 'csubaggstatscurrvalidintervals', 'csubaggstatscurrinvalidintervals', 'csubaggstatscurrflowsup', 'csubaggstatscurrcreatedsessions', 'csubaggstatscurrfailedsessions', 'csubaggstatscurrupsessions', 'csubaggstatscurrauthsessions', 'csubaggstatscurrdiscsessions', 'csubaggstatsdiscontinuitytime'], name, value)
 
-            class Csubaggstatspointtype(Enum):
+            class CsubAggStatsPointType(Enum):
                 """
-                Csubaggstatspointtype (Enum Class)
+                CsubAggStatsPointType (Enum Class)
 
                 This object indicates format of the csubAggStatsPoint
 
@@ -1617,7 +1599,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
 
 
-    class Csubaggstatsinttable(Entity):
+    class CsubAggStatsIntTable(Entity):
         """
         This table contains aggregated subscriber session performance
         data collected for as much as a day's worth of 15\-minute
@@ -1636,7 +1618,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubaggstatsintentry
         
         	An entry contains the aggregated subscriber session performance data collected over a single 15\-minute measurement interval within a 'scope of aggregation'.  For further details regarding 'scope of aggregation', see the descriptive text associated with the csubAggStatsEntry
-        	**type**\: list of  		 :py:class:`Csubaggstatsintentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable.Csubaggstatsintentry>`
+        	**type**\: list of  		 :py:class:`CsubAggStatsIntEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable.CsubAggStatsIntEntry>`
         
         
 
@@ -1646,15 +1628,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable, self).__init__()
 
             self.yang_name = "csubAggStatsIntTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubAggStatsIntEntry", ("csubaggstatsintentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable.Csubaggstatsintentry))])
+            self._child_classes = OrderedDict([("csubAggStatsIntEntry", ("csubaggstatsintentry", CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable.CsubAggStatsIntEntry))])
             self._leafs = OrderedDict()
 
             self.csubaggstatsintentry = YList(self)
@@ -1662,10 +1643,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable, [], name, value)
 
 
-        class Csubaggstatsintentry(Entity):
+        class CsubAggStatsIntEntry(Entity):
             """
             An entry contains the aggregated subscriber session performance
             data collected over a single 15\-minute measurement interval
@@ -1676,7 +1657,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             .. attribute:: csubaggstatspointtype  (key)
             
             	
-            	**type**\:  :py:class:`Csubaggstatspointtype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry.Csubaggstatspointtype>`
+            	**type**\:  :py:class:`CsubAggStatsPointType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry.CsubAggStatsPointType>`
             
             .. attribute:: csubaggstatspoint  (key)
             
@@ -1685,7 +1666,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`csubaggstatspoint <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry>`
+            	**refers to**\:  :py:class:`csubaggstatspoint <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry>`
             
             .. attribute:: csubaggstatssessiontype  (key)
             
@@ -1757,15 +1738,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable.Csubaggstatsintentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable.CsubAggStatsIntEntry, self).__init__()
 
                 self.yang_name = "csubAggStatsIntEntry"
                 self.yang_parent_name = "csubAggStatsIntTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubaggstatspointtype','csubaggstatspoint','csubaggstatssessiontype','csubaggstatsintnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubaggstatspointtype', YLeaf(YType.enumeration, 'csubAggStatsPointType')),
                     ('csubaggstatspoint', YLeaf(YType.str, 'csubAggStatsPoint')),
@@ -1792,17 +1772,17 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsIntTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable.Csubaggstatsintentry, ['csubaggstatspointtype', 'csubaggstatspoint', 'csubaggstatssessiontype', 'csubaggstatsintnumber', 'csubaggstatsintvalid', 'csubaggstatsintcreatedsessions', 'csubaggstatsintfailedsessions', 'csubaggstatsintupsessions', 'csubaggstatsintauthsessions', 'csubaggstatsintdiscsessions'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable.CsubAggStatsIntEntry, ['csubaggstatspointtype', 'csubaggstatspoint', 'csubaggstatssessiontype', 'csubaggstatsintnumber', 'csubaggstatsintvalid', 'csubaggstatsintcreatedsessions', 'csubaggstatsintfailedsessions', 'csubaggstatsintupsessions', 'csubaggstatsintauthsessions', 'csubaggstatsintdiscsessions'], name, value)
 
 
-    class Csubaggstatsthreshtable(Entity):
+    class CsubAggStatsThreshTable(Entity):
         """
         Please enter the Table Description here.
         
         .. attribute:: csubaggstatsthreshentry
         
         	A row in this table exists for each row in the csubAggStatsTable. Each row defines the set of thresholds and evaluation attributes for an aggregation point
-        	**type**\: list of  		 :py:class:`Csubaggstatsthreshentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable.Csubaggstatsthreshentry>`
+        	**type**\: list of  		 :py:class:`CsubAggStatsThreshEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable.CsubAggStatsThreshEntry>`
         
         
 
@@ -1812,15 +1792,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable, self).__init__()
 
             self.yang_name = "csubAggStatsThreshTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubAggStatsThreshEntry", ("csubaggstatsthreshentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable.Csubaggstatsthreshentry))])
+            self._child_classes = OrderedDict([("csubAggStatsThreshEntry", ("csubaggstatsthreshentry", CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable.CsubAggStatsThreshEntry))])
             self._leafs = OrderedDict()
 
             self.csubaggstatsthreshentry = YList(self)
@@ -1828,10 +1807,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable, [], name, value)
 
 
-        class Csubaggstatsthreshentry(Entity):
+        class CsubAggStatsThreshEntry(Entity):
             """
             A row in this table exists for each row in the
             csubAggStatsTable.
@@ -1874,15 +1853,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable.Csubaggstatsthreshentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable.CsubAggStatsThreshEntry, self).__init__()
 
                 self.yang_name = "csubAggStatsThreshEntry"
                 self.yang_parent_name = "csubAggStatsThreshTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubsessionrisingthresh']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubsessionrisingthresh', YLeaf(YType.uint32, 'csubSessionRisingThresh')),
                     ('csubsessionfallingthresh', YLeaf(YType.uint32, 'csubSessionFallingThresh')),
@@ -1897,10 +1875,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsThreshTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable.Csubaggstatsthreshentry, ['csubsessionrisingthresh', 'csubsessionfallingthresh', 'csubsessiondeltapercentfallingthresh', 'csubsessionthreshevalinterval'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable.CsubAggStatsThreshEntry, ['csubsessionrisingthresh', 'csubsessionfallingthresh', 'csubsessiondeltapercentfallingthresh', 'csubsessionthreshevalinterval'], name, value)
 
 
-    class Csubjobtable(Entity):
+    class CsubJobTable(Entity):
         """
         This table contains the subscriber session jobs submitted by
         the EMS/NMS.
@@ -1908,7 +1886,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubjobentry
         
         	An entry describing a subscriber session job.  At this time, subscriber session jobs can perform one of two tasks\:  \- Subscriber Session Query     This type of job invokes the report generator, which builds     a list of subscriber sessions matching criteria specified by     the corresponding row in the csubJobMatchParamsTable.  The     list built by the report generator must conform to     parameters specified by the corresponding row in     csubJobQueryParamsTable, which at this time only affects     sorting order.  \- Subscriber Session Clear     This type of job causes the system to terminate those     subscriber sessions matching criteria specified by the     corresponding row in the csubJobMatchParamsTable.  The following procedure summarizes how the EMS/NMS can start and monitor a subscriber session job\:  1)  The EMS/NMS must start by reading csubJobIdNext.  If it is     zero, continue polling csubJobIdNext until it is non\-zero.  2)  The EMS/NMS creates a row in the csubJobTable using the     instance identifier retrieved in the last step.  Since every     object contained by the entry with a MAX\-ACCESS of      'read\-create' specifies a default value, it makes little     difference whether the EMS/NMS employs create\-and\-wait or     create\-and\-go semantics.  3)  The EMS/NMS sets the type of subscriber session job by     setting the corresponding instance of csubJobType.  4a) If the job is a 'query', then the EMS/NMS must configure     the query before starting it by setting columns contained     by the corresponding rows in the csubJobMatchParamsTable and     csubJobQueryParamsTable.  4b) If job is a 'clear', then the EMS/NMS must configure     the job before starting it by setting columns contained by     the corresponding row in the csubJobMatchParamsTable.  5)  The EMS/NMS can now start the job by setting the      corresponding instance of csubJobControl to 'start'.  6)  The EMS/NMS can monitor the progress of the job by polling     the corresponding instance of csubJobState.  It can also     wait for a csubJobFinishedNotify notification.  When the     state of the job transitions to 'finished', then the system     has finished executing the job.  7)  The EMS/NMS can determine the final status of the job by     reading the corresponding instance of csubJobFinishedReason.     If job is a 'query' and the corresponding instance of     csubJobFinishedReason is 'normal', then the EMS/NMS can     safely read the report by retrieving the corresponding     rows from the csubJobReportTable.  8a) After a job has finished, the EMS/NMS has the option of     destroying it.  It can do this by simply setting the     corresponding instance of  csubJobStatus to 'destroy'.     Alternatively, the EMS/NMS may retain the job and execute it     again in the future (by returning to step 5).  Additionally,     nothing would prevent the EMS/NMS from changing the job's     type, which causes the automatic destruction of the     corresponding report.  8b) If the job is a 'query' and the EMS/NMS opts to retain the     job, then it may consider releasing the corresponding report     after reading it.  It can do this by setting the     corresponding instance of csubJobControl to 'release'
-        	**type**\: list of  		 :py:class:`Csubjobentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry>`
+        	**type**\: list of  		 :py:class:`CsubJobEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry>`
         
         
 
@@ -1918,15 +1896,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubjobtable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubJobTable, self).__init__()
 
             self.yang_name = "csubJobTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubJobEntry", ("csubjobentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry))])
+            self._child_classes = OrderedDict([("csubJobEntry", ("csubjobentry", CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry))])
             self._leafs = OrderedDict()
 
             self.csubjobentry = YList(self)
@@ -1934,10 +1911,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobtable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobTable, [], name, value)
 
 
-        class Csubjobentry(Entity):
+        class CsubJobEntry(Entity):
             """
             An entry describing a subscriber session job.  At this time,
             subscriber session jobs can perform one of two tasks\:
@@ -2031,17 +2008,17 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             .. attribute:: csubjobtype
             
             	This object specifies the type of subscriber session job\:  'noop'     This type of job does nothing and simply serves as a     convenient default value for newly created jobs, thereby     allowing create\-and\-go row creation without having to     specify the type of job.  'query'     This type of job starts a subscriber session query.  The     system searches for any subscriber sessions matching the     configured criteria and sorts them into a resulting     report.      Upon activation of a subscriber session with this value,     the system automatically creates corresponding rows in     the csubJobMatchParamsTable and csubQueryParamsTable.  'clear'     This type of job causes the system to terminated all     subscriber sessions matching configured criteria.      Upon activation of a subscriber session with this value,     the system automatically creates a corresponding row in     the csubJobMatchParamsTable
-            	**type**\:  :py:class:`Csubjobtype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry.Csubjobtype>`
+            	**type**\:  :py:class:`CsubJobType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry.CsubJobType>`
             
             .. attribute:: csubjobcontrol
             
             	This object specifies an action relating to the subscriber session job\:      'noop'         This action does nothing.      'start'         If the corresponding instance of csubJobType is 'noop',         then this action simply causes the system to set the         corresponding instances of csubJobState and         csubJobFinishedReason to 'finished' and 'normal',         respectively.          If the corresponding instance of csubJobType is not         'noop' and the system is not executing a subscriber         session job, then this action causes the system         immediately execute the subscriber session job.          If the corresponding instance of csubJobType is not         'noop' and the system is already executing a subscriber         session job, then this action causes the system to put         the job on the subscriber session job queue.      'abort'         If the subscriber session job is in the subscriber         session job queue, then this action causes the system to         remove the job from the queue.          If the system is executing the subscriber session job,         then this action causes the system to stop the job.      'release'         This action causes the system to destroy any         corresponding rows in the csubJobReportTable.          The system only accepts this action for a previously         executed subscriber session job having a corresponding         instance of csubJobType set to 'query'.  Any attempt to         issue this action under other circumstances will result         in a response indicating an  error\-status of         'inconsistentValue'.  When read, this column is always 'noop'
-            	**type**\:  :py:class:`Csubjobcontrol <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry.Csubjobcontrol>`
+            	**type**\:  :py:class:`CsubJobControl <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry.CsubJobControl>`
             
             .. attribute:: csubjobstate
             
             	This object indicates the current state of the subscriber session job\:      'idle'         This state indicates that the system has not executed         the subscriber session job since it was created.      'pending'         This state indicates that the subscriber session job is         waiting in the subscriber session job queue.      'inProgress'         This state indicates that the system is executing the         subscriber session job.  Observe that the system may         execute more than one subscriber session job at a time.      'finished'         This state indicates that the system has executed the         subscriber session job and it has finished.  The         corresponding instance of csubJobFinishedReason         indicates further details regarding the reason why the         job finished
-            	**type**\:  :py:class:`Csubjobstate <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry.Csubjobstate>`
+            	**type**\:  :py:class:`CsubJobState <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry.CsubJobState>`
             
             .. attribute:: csubjobstartedtime
             
@@ -2060,7 +2037,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             .. attribute:: csubjobfinishedreason
             
             	This object indicates the reason why the system finished executing the subscriber session job\:      'invalid'         Indicates that the corresponding instance of         csubJobState is either 'idle', 'pending', or         'inProgress'.      'other'         Indicates that the system finished executing the         subscriber session job abnormally for a reason not         recognized by this MIB module.      'normal'         Indicates that the system finished executing the         subscriber session job with no problems.      'aborted'         Indicates that the system finished executing the         subscriber session job as the result of the EMS/NMS         writing 'abort' to the corresponding instance of         csubJobControl.      'insufficientResources'         Indicates that the system finished executing the         subscriber session job abnormally due to insufficient         resources to continue.      'error'         Indicates that the system encountered an error that         prevented it from completing the job
-            	**type**\:  :py:class:`Csubjobfinishedreason <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry.Csubjobfinishedreason>`
+            	**type**\:  :py:class:`CsubJobFinishedReason <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry.CsubJobFinishedReason>`
             
             
 
@@ -2070,15 +2047,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry, self).__init__()
 
                 self.yang_name = "csubJobEntry"
                 self.yang_parent_name = "csubJobTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubjobid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubjobid', YLeaf(YType.uint32, 'csubJobId')),
                     ('csubjobstatus', YLeaf(YType.enumeration, 'csubJobStatus')),
@@ -2103,11 +2079,11 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry, ['csubjobid', 'csubjobstatus', 'csubjobstorage', 'csubjobtype', 'csubjobcontrol', 'csubjobstate', 'csubjobstartedtime', 'csubjobfinishedtime', 'csubjobfinishedreason'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry, ['csubjobid', 'csubjobstatus', 'csubjobstorage', 'csubjobtype', 'csubjobcontrol', 'csubjobstate', 'csubjobstartedtime', 'csubjobfinishedtime', 'csubjobfinishedreason'], name, value)
 
-            class Csubjobcontrol(Enum):
+            class CsubJobControl(Enum):
                 """
-                Csubjobcontrol (Enum Class)
+                CsubJobControl (Enum Class)
 
                 This object specifies an action relating to the subscriber
 
@@ -2196,9 +2172,9 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 release = Enum.YLeaf(4, "release")
 
 
-            class Csubjobfinishedreason(Enum):
+            class CsubJobFinishedReason(Enum):
                 """
-                Csubjobfinishedreason (Enum Class)
+                CsubJobFinishedReason (Enum Class)
 
                 This object indicates the reason why the system finished
 
@@ -2277,9 +2253,9 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 error = Enum.YLeaf(6, "error")
 
 
-            class Csubjobstate(Enum):
+            class CsubJobState(Enum):
                 """
-                Csubjobstate (Enum Class)
+                CsubJobState (Enum Class)
 
                 This object indicates the current state of the subscriber
 
@@ -2336,9 +2312,9 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 finished = Enum.YLeaf(4, "finished")
 
 
-            class Csubjobtype(Enum):
+            class CsubJobType(Enum):
                 """
-                Csubjobtype (Enum Class)
+                CsubJobType (Enum Class)
 
                 This object specifies the type of subscriber session job\:
 
@@ -2396,7 +2372,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
 
 
-    class Csubjobmatchparamstable(Entity):
+    class CsubJobMatchParamsTable(Entity):
         """
         This table contains subscriber session job parameters
         describing match criteria.
@@ -2408,7 +2384,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubjobmatchparamsentry
         
         	An entry describes a set of subscriber session match criteria. The set contains those subscriber session identities specified by csubJobMatchIdentities.  If the corresponding row in the csubJobTable has a csubJobType of 'query', then the system builds a report containing those subscriber sessions matching these criteria.  If the corresponding row in the csubJobTable has a csubJobType of 'clear', then the system terminates those subscriber sessions matching these criteria.  The system automatically creates an entry when the EMS/NMS sets the corresponding instance of csubJobType to 'query' or 'clear'. Likewise, the system automatically destroys an entry under the following circumstances\:  1)  The EMS/NMS destroys the corresponding row in the     csubJobTable.  2)  The EMS/NMS sets the corresponding instance of csubJobType     to 'noop'
-        	**type**\: list of  		 :py:class:`Csubjobmatchparamsentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable.Csubjobmatchparamsentry>`
+        	**type**\: list of  		 :py:class:`CsubJobMatchParamsEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable.CsubJobMatchParamsEntry>`
         
         
 
@@ -2418,15 +2394,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable, self).__init__()
 
             self.yang_name = "csubJobMatchParamsTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubJobMatchParamsEntry", ("csubjobmatchparamsentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable.Csubjobmatchparamsentry))])
+            self._child_classes = OrderedDict([("csubJobMatchParamsEntry", ("csubjobmatchparamsentry", CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable.CsubJobMatchParamsEntry))])
             self._leafs = OrderedDict()
 
             self.csubjobmatchparamsentry = YList(self)
@@ -2434,10 +2409,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable, [], name, value)
 
 
-        class Csubjobmatchparamsentry(Entity):
+        class CsubJobMatchParamsEntry(Entity):
             """
             An entry describes a set of subscriber session match criteria.
             The set contains those subscriber session identities specified
@@ -2469,7 +2444,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry>`
+            	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry>`
             
             .. attribute:: csubjobmatchidentities
             
@@ -2479,7 +2454,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             .. attribute:: csubjobmatchotherparams
             
             	This object specifies other parameters relating to subscriber sessions a subscriber session job may match against.  Each bit in this bit string corresponds to a column in this table.  If the bit is '0', then the value of the corresponding column is invalid.  If the bit is '1', then the value of the corresponding column represents the value of the parameter identity the system should match against for the corresponding subscriber session job.  The following list specifies the mappings between bits and the columns\:      'danglingDuration' => csubJobMatchDanglingDuration     'state'            => csubJobMatchState     'authenticated'    => csubJobMatchAuthenticated     'redundancyMode'   => csubJobMatchRedundancyMode
-            	**type**\:  :py:class:`Csubjobmatchotherparams <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable.Csubjobmatchparamsentry.Csubjobmatchotherparams>`
+            	**type**\:  :py:class:`CsubJobMatchOtherParams <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable.CsubJobMatchParamsEntry.CsubJobMatchOtherParams>`
             
             .. attribute:: csubjobmatchsubscriberlabel
             
@@ -2645,15 +2620,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable.Csubjobmatchparamsentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable.CsubJobMatchParamsEntry, self).__init__()
 
                 self.yang_name = "csubJobMatchParamsEntry"
                 self.yang_parent_name = "csubJobMatchParamsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubjobid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubjobid', YLeaf(YType.str, 'csubJobId')),
                     ('csubjobmatchidentities', YLeaf(YType.bits, 'csubJobMatchIdentities')),
@@ -2722,10 +2696,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobMatchParamsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable.Csubjobmatchparamsentry, ['csubjobid', 'csubjobmatchidentities', 'csubjobmatchotherparams', 'csubjobmatchsubscriberlabel', 'csubjobmatchmacaddress', 'csubjobmatchnativevrf', 'csubjobmatchnativeipaddrtype', 'csubjobmatchnativeipaddr', 'csubjobmatchnativeipmask', 'csubjobmatchdomainvrf', 'csubjobmatchdomainipaddrtype', 'csubjobmatchdomainipaddr', 'csubjobmatchdomainipmask', 'csubjobmatchpbhk', 'csubjobmatchremoteid', 'csubjobmatchcircuitid', 'csubjobmatchnasport', 'csubjobmatchdomain', 'csubjobmatchusername', 'csubjobmatchacctsessionid', 'csubjobmatchdnis', 'csubjobmatchmedia', 'csubjobmatchmlpnegotiated', 'csubjobmatchprotocol', 'csubjobmatchservicename', 'csubjobmatchdhcpclass', 'csubjobmatchtunnelname', 'csubjobmatchdanglingduration', 'csubjobmatchstate', 'csubjobmatchauthenticated', 'csubjobmatchredundancymode'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable.CsubJobMatchParamsEntry, ['csubjobid', 'csubjobmatchidentities', 'csubjobmatchotherparams', 'csubjobmatchsubscriberlabel', 'csubjobmatchmacaddress', 'csubjobmatchnativevrf', 'csubjobmatchnativeipaddrtype', 'csubjobmatchnativeipaddr', 'csubjobmatchnativeipmask', 'csubjobmatchdomainvrf', 'csubjobmatchdomainipaddrtype', 'csubjobmatchdomainipaddr', 'csubjobmatchdomainipmask', 'csubjobmatchpbhk', 'csubjobmatchremoteid', 'csubjobmatchcircuitid', 'csubjobmatchnasport', 'csubjobmatchdomain', 'csubjobmatchusername', 'csubjobmatchacctsessionid', 'csubjobmatchdnis', 'csubjobmatchmedia', 'csubjobmatchmlpnegotiated', 'csubjobmatchprotocol', 'csubjobmatchservicename', 'csubjobmatchdhcpclass', 'csubjobmatchtunnelname', 'csubjobmatchdanglingduration', 'csubjobmatchstate', 'csubjobmatchauthenticated', 'csubjobmatchredundancymode'], name, value)
 
 
-    class Csubjobqueryparamstable(Entity):
+    class CsubJobQueryParamsTable(Entity):
         """
         This table contains subscriber session job parameters
         describing query parameters.
@@ -2737,7 +2711,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubjobqueryparamsentry
         
         	An entry describes a set of subscriber session query parameters.  The system automatically creates an entry when the EMS/NMS sets the corresponding instance of csubJobType to 'query'.  Likewise, the system automatically destroys an entry under the following circumstances\:  1)  The EMS/NMS destroys the corresponding row in the csubJobTable.  2)  The EMS/NMS sets the corresponding instance of csubJobType to     'noop' or 'clear'
-        	**type**\: list of  		 :py:class:`Csubjobqueryparamsentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable.Csubjobqueryparamsentry>`
+        	**type**\: list of  		 :py:class:`CsubJobQueryParamsEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable.CsubJobQueryParamsEntry>`
         
         
 
@@ -2747,15 +2721,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable, self).__init__()
 
             self.yang_name = "csubJobQueryParamsTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubJobQueryParamsEntry", ("csubjobqueryparamsentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable.Csubjobqueryparamsentry))])
+            self._child_classes = OrderedDict([("csubJobQueryParamsEntry", ("csubjobqueryparamsentry", CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable.CsubJobQueryParamsEntry))])
             self._leafs = OrderedDict()
 
             self.csubjobqueryparamsentry = YList(self)
@@ -2763,10 +2736,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable, [], name, value)
 
 
-        class Csubjobqueryparamsentry(Entity):
+        class CsubJobQueryParamsEntry(Entity):
             """
             An entry describes a set of subscriber session query
             parameters.
@@ -2788,7 +2761,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry>`
+            	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry>`
             
             .. attribute:: csubjobquerysortkey1
             
@@ -2820,15 +2793,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable.Csubjobqueryparamsentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable.CsubJobQueryParamsEntry, self).__init__()
 
                 self.yang_name = "csubJobQueryParamsEntry"
                 self.yang_parent_name = "csubJobQueryParamsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubjobid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubjobid', YLeaf(YType.str, 'csubJobId')),
                     ('csubjobquerysortkey1', YLeaf(YType.enumeration, 'csubJobQuerySortKey1')),
@@ -2845,10 +2817,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobQueryParamsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable.Csubjobqueryparamsentry, ['csubjobid', 'csubjobquerysortkey1', 'csubjobquerysortkey2', 'csubjobquerysortkey3', 'csubjobqueryresultingreportsize'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable.CsubJobQueryParamsEntry, ['csubjobid', 'csubjobquerysortkey1', 'csubjobquerysortkey2', 'csubjobquerysortkey3', 'csubjobqueryresultingreportsize'], name, value)
 
 
-    class Csubjobqueuetable(Entity):
+    class CsubJobQueueTable(Entity):
         """
         This table lists the subscriber session jobs currently pending
         in the subscriber session job queue.
@@ -2856,7 +2828,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubjobqueueentry
         
         	An entry describing an subscriber session job in the subscriber session job queue.  The system creates an entry in this table when it places a subscriber session job on the subscriber session job queue.  It does this when the EMS/NMS sets an instance of csubJobControl to 'start' and the system is already executing a subscriber session job.  Likewise, the system destroys an entry when it removes it from the queue.  This occurs under the following circumstances\:  1)  The system has finished executing a job, for whatever     reason, and is ready to start executing the job at the head     of the queue.  2)  The EMS/NMS has set an instance of csubJobControl to 'abort'     for a job that was on the queue
-        	**type**\: list of  		 :py:class:`Csubjobqueueentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable.Csubjobqueueentry>`
+        	**type**\: list of  		 :py:class:`CsubJobQueueEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable.CsubJobQueueEntry>`
         
         
 
@@ -2866,15 +2838,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable, self).__init__()
 
             self.yang_name = "csubJobQueueTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubJobQueueEntry", ("csubjobqueueentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable.Csubjobqueueentry))])
+            self._child_classes = OrderedDict([("csubJobQueueEntry", ("csubjobqueueentry", CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable.CsubJobQueueEntry))])
             self._leafs = OrderedDict()
 
             self.csubjobqueueentry = YList(self)
@@ -2882,10 +2853,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable, [], name, value)
 
 
-        class Csubjobqueueentry(Entity):
+        class CsubJobQueueEntry(Entity):
             """
             An entry describing an subscriber session job in the
             subscriber session job queue.
@@ -2926,15 +2897,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable.Csubjobqueueentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable.CsubJobQueueEntry, self).__init__()
 
                 self.yang_name = "csubJobQueueEntry"
                 self.yang_parent_name = "csubJobQueueTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubjobqueuenumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubjobqueuenumber', YLeaf(YType.uint32, 'csubJobQueueNumber')),
                     ('csubjobqueuejobid', YLeaf(YType.uint32, 'csubJobQueueJobId')),
@@ -2945,10 +2915,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobQueueTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable.Csubjobqueueentry, ['csubjobqueuenumber', 'csubjobqueuejobid'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable.CsubJobQueueEntry, ['csubjobqueuenumber', 'csubjobqueuejobid'], name, value)
 
 
-    class Csubjobreporttable(Entity):
+    class CsubJobReportTable(Entity):
         """
         This table contains the reports corresponding to subscriber
         session jobs that have a csubJobType of 'query' and
@@ -2960,7 +2930,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         .. attribute:: csubjobreportentry
         
         	An entry describes a subscriber session that satisfied the match criteria specified by the corresponding job.  The system creates an entry for each subscriber session that satisfied the specified match criteria of a subscriber session job having a csubJobType of 'query'.  However, it does not create these entries until after the system has successfully executed the subscriber session job.  The system destroys an entry under the following circumstances\:  1)  The corresponding subscriber session job has been destroyed     by the EMS/NMS.  2)  The value of csubJobMaxLife is non\-zero and the age of the     report has reached the specified maximum life.  3)  The EMS/NMS has set the corresponding instance of     csubJobControl to 'release'.  4)  The EMS/NMS has restarted the corresponding subscriber     session job (i.e., has set the corresponding instance of     csubJobControl to 'start')
-        	**type**\: list of  		 :py:class:`Csubjobreportentry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable.Csubjobreportentry>`
+        	**type**\: list of  		 :py:class:`CsubJobReportEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable.CsubJobReportEntry>`
         
         
 
@@ -2970,15 +2940,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         _revision = '2012-08-08'
 
         def __init__(self):
-            super(CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable, self).__init__()
+            super(CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable, self).__init__()
 
             self.yang_name = "csubJobReportTable"
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csubJobReportEntry", ("csubjobreportentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable.Csubjobreportentry))])
+            self._child_classes = OrderedDict([("csubJobReportEntry", ("csubjobreportentry", CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable.CsubJobReportEntry))])
             self._leafs = OrderedDict()
 
             self.csubjobreportentry = YList(self)
@@ -2986,10 +2955,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable, [], name, value)
+            self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable, [], name, value)
 
 
-        class Csubjobreportentry(Entity):
+        class CsubJobReportEntry(Entity):
             """
             An entry describes a subscriber session that satisfied the
             match criteria specified by the corresponding job.
@@ -3022,7 +2991,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry>`
+            	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry>`
             
             .. attribute:: csubjobreportid  (key)
             
@@ -3046,15 +3015,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             _revision = '2012-08-08'
 
             def __init__(self):
-                super(CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable.Csubjobreportentry, self).__init__()
+                super(CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable.CsubJobReportEntry, self).__init__()
 
                 self.yang_name = "csubJobReportEntry"
                 self.yang_parent_name = "csubJobReportTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csubjobid','csubjobreportid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csubjobid', YLeaf(YType.str, 'csubJobId')),
                     ('csubjobreportid', YLeaf(YType.uint32, 'csubJobReportId')),
@@ -3067,7 +3035,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobReportTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable.Csubjobreportentry, ['csubjobid', 'csubjobreportid', 'csubjobreportsession'], name, value)
+                self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable.CsubJobReportEntry, ['csubjobid', 'csubjobreportid', 'csubjobreportsession'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOSUBSCRIBERSESSIONMIB()

@@ -54,17 +54,17 @@ class CISCOENTITYEXTMIB(Entity):
     .. attribute:: ceextphysicalprocessortable
     
     	The ceExtPhysicalProcessorTable extends the ENTITY\-MIB entPhysicalTable for modules (Non FRUs(Field Replacable Units) or FRUs)
-    	**type**\:  :py:class:`Ceextphysicalprocessortable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextphysicalprocessortable>`
+    	**type**\:  :py:class:`CeExtPhysicalProcessorTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable>`
     
     .. attribute:: ceextconfigregtable
     
     	The ceExtConfigRegTable extends the ENTITY\-MIB entPhysicalTable
-    	**type**\:  :py:class:`Ceextconfigregtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextconfigregtable>`
+    	**type**\:  :py:class:`CeExtConfigRegTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtConfigRegTable>`
     
     .. attribute:: ceextentityledtable
     
     	A table containing information of LED on an entity
-    	**type**\:  :py:class:`Ceextentityledtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextentityledtable>`
+    	**type**\:  :py:class:`CeExtEntityLEDTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtEntityLEDTable>`
     
     
 
@@ -82,28 +82,27 @@ class CISCOENTITYEXTMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ceExtPhysicalProcessorTable", ("ceextphysicalprocessortable", CISCOENTITYEXTMIB.Ceextphysicalprocessortable)), ("ceExtConfigRegTable", ("ceextconfigregtable", CISCOENTITYEXTMIB.Ceextconfigregtable)), ("ceExtEntityLEDTable", ("ceextentityledtable", CISCOENTITYEXTMIB.Ceextentityledtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ceExtPhysicalProcessorTable", ("ceextphysicalprocessortable", CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable)), ("ceExtConfigRegTable", ("ceextconfigregtable", CISCOENTITYEXTMIB.CeExtConfigRegTable)), ("ceExtEntityLEDTable", ("ceextentityledtable", CISCOENTITYEXTMIB.CeExtEntityLEDTable))])
         self._leafs = OrderedDict()
 
-        self.ceextphysicalprocessortable = CISCOENTITYEXTMIB.Ceextphysicalprocessortable()
+        self.ceextphysicalprocessortable = CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable()
         self.ceextphysicalprocessortable.parent = self
         self._children_name_map["ceextphysicalprocessortable"] = "ceExtPhysicalProcessorTable"
-        self._children_yang_names.add("ceExtPhysicalProcessorTable")
 
-        self.ceextconfigregtable = CISCOENTITYEXTMIB.Ceextconfigregtable()
+        self.ceextconfigregtable = CISCOENTITYEXTMIB.CeExtConfigRegTable()
         self.ceextconfigregtable.parent = self
         self._children_name_map["ceextconfigregtable"] = "ceExtConfigRegTable"
-        self._children_yang_names.add("ceExtConfigRegTable")
 
-        self.ceextentityledtable = CISCOENTITYEXTMIB.Ceextentityledtable()
+        self.ceextentityledtable = CISCOENTITYEXTMIB.CeExtEntityLEDTable()
         self.ceextentityledtable.parent = self
         self._children_name_map["ceextentityledtable"] = "ceExtEntityLEDTable"
-        self._children_yang_names.add("ceExtEntityLEDTable")
         self._segment_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOENTITYEXTMIB, [], name, value)
 
-    class Ceextphysicalprocessortable(Entity):
+
+    class CeExtPhysicalProcessorTable(Entity):
         """
         The ceExtPhysicalProcessorTable extends
         the ENTITY\-MIB entPhysicalTable for modules
@@ -112,7 +111,7 @@ class CISCOENTITYEXTMIB(Entity):
         .. attribute:: ceextphysicalprocessorentry
         
         	A ceExtPhysicalProcessorTable entry extends a corresponding entPhysicalTable entry of class module(entPhysicalClass = 'module').  A processor module or line card which  has a processor will have an entry in this table.  A processor module or line card having multiple processors and is a SMP(Symmetric multi processor) system will have only  one entry corresponding to all the processors  since the resources defined below are shared.  A processor module or line card having multiple processors and is not an SMP system would register the processors as separate entities.  Entries are created by the agent at the system power\-up or module insertion.  Entries are removed when the module is reset or removed
-        	**type**\: list of  		 :py:class:`Ceextphysicalprocessorentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry>`
+        	**type**\: list of  		 :py:class:`CeExtPhysicalProcessorEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable.CeExtPhysicalProcessorEntry>`
         
         
 
@@ -122,15 +121,14 @@ class CISCOENTITYEXTMIB(Entity):
         _revision = '2008-11-24'
 
         def __init__(self):
-            super(CISCOENTITYEXTMIB.Ceextphysicalprocessortable, self).__init__()
+            super(CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable, self).__init__()
 
             self.yang_name = "ceExtPhysicalProcessorTable"
             self.yang_parent_name = "CISCO-ENTITY-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ceExtPhysicalProcessorEntry", ("ceextphysicalprocessorentry", CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry))])
+            self._child_classes = OrderedDict([("ceExtPhysicalProcessorEntry", ("ceextphysicalprocessorentry", CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable.CeExtPhysicalProcessorEntry))])
             self._leafs = OrderedDict()
 
             self.ceextphysicalprocessorentry = YList(self)
@@ -138,10 +136,10 @@ class CISCOENTITYEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYEXTMIB.Ceextphysicalprocessortable, [], name, value)
+            self._perform_setattr(CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable, [], name, value)
 
 
-        class Ceextphysicalprocessorentry(Entity):
+        class CeExtPhysicalProcessorEntry(Entity):
             """
             A ceExtPhysicalProcessorTable entry extends
             a corresponding entPhysicalTable entry of class
@@ -173,7 +171,7 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceextprocessorram
             
@@ -228,15 +226,14 @@ class CISCOENTITYEXTMIB(Entity):
             _revision = '2008-11-24'
 
             def __init__(self):
-                super(CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry, self).__init__()
+                super(CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable.CeExtPhysicalProcessorEntry, self).__init__()
 
                 self.yang_name = "ceExtPhysicalProcessorEntry"
                 self.yang_parent_name = "ceExtPhysicalProcessorTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceextprocessorram', YLeaf(YType.uint32, 'ceExtProcessorRam')),
@@ -255,10 +252,10 @@ class CISCOENTITYEXTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtPhysicalProcessorTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYEXTMIB.Ceextphysicalprocessortable.Ceextphysicalprocessorentry, ['entphysicalindex', 'ceextprocessorram', 'ceextnvramsize', 'ceextnvramused', 'ceextprocessorramoverflow', 'ceexthcprocessorram'], name, value)
+                self._perform_setattr(CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable.CeExtPhysicalProcessorEntry, ['entphysicalindex', 'ceextprocessorram', 'ceextnvramsize', 'ceextnvramused', 'ceextprocessorramoverflow', 'ceexthcprocessorram'], name, value)
 
 
-    class Ceextconfigregtable(Entity):
+    class CeExtConfigRegTable(Entity):
         """
         The ceExtConfigRegTable extends
         the ENTITY\-MIB entPhysicalTable.
@@ -266,7 +263,7 @@ class CISCOENTITYEXTMIB(Entity):
         .. attribute:: ceextconfigregentry
         
         	A ceExtConfigRegTable entry extends a corresponding entPhysicalTable entry of class module which has a configuration register.  Entries are created by the agent at the system power\-up or module insertion.  Entries are removed when the module is reset or  removed
-        	**type**\: list of  		 :py:class:`Ceextconfigregentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextconfigregtable.Ceextconfigregentry>`
+        	**type**\: list of  		 :py:class:`CeExtConfigRegEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtConfigRegTable.CeExtConfigRegEntry>`
         
         
 
@@ -276,15 +273,14 @@ class CISCOENTITYEXTMIB(Entity):
         _revision = '2008-11-24'
 
         def __init__(self):
-            super(CISCOENTITYEXTMIB.Ceextconfigregtable, self).__init__()
+            super(CISCOENTITYEXTMIB.CeExtConfigRegTable, self).__init__()
 
             self.yang_name = "ceExtConfigRegTable"
             self.yang_parent_name = "CISCO-ENTITY-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ceExtConfigRegEntry", ("ceextconfigregentry", CISCOENTITYEXTMIB.Ceextconfigregtable.Ceextconfigregentry))])
+            self._child_classes = OrderedDict([("ceExtConfigRegEntry", ("ceextconfigregentry", CISCOENTITYEXTMIB.CeExtConfigRegTable.CeExtConfigRegEntry))])
             self._leafs = OrderedDict()
 
             self.ceextconfigregentry = YList(self)
@@ -292,10 +288,10 @@ class CISCOENTITYEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYEXTMIB.Ceextconfigregtable, [], name, value)
+            self._perform_setattr(CISCOENTITYEXTMIB.CeExtConfigRegTable, [], name, value)
 
 
-        class Ceextconfigregentry(Entity):
+        class CeExtConfigRegEntry(Entity):
             """
             A ceExtConfigRegTable entry extends
             a corresponding entPhysicalTable entry of class
@@ -314,7 +310,7 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceextconfigregister
             
@@ -348,15 +344,14 @@ class CISCOENTITYEXTMIB(Entity):
             _revision = '2008-11-24'
 
             def __init__(self):
-                super(CISCOENTITYEXTMIB.Ceextconfigregtable.Ceextconfigregentry, self).__init__()
+                super(CISCOENTITYEXTMIB.CeExtConfigRegTable.CeExtConfigRegEntry, self).__init__()
 
                 self.yang_name = "ceExtConfigRegEntry"
                 self.yang_parent_name = "ceExtConfigRegTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceextconfigregister', YLeaf(YType.str, 'ceExtConfigRegister')),
@@ -373,17 +368,17 @@ class CISCOENTITYEXTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtConfigRegTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYEXTMIB.Ceextconfigregtable.Ceextconfigregentry, ['entphysicalindex', 'ceextconfigregister', 'ceextconfigregnext', 'ceextsysbootimagelist', 'ceextkickstartimagelist'], name, value)
+                self._perform_setattr(CISCOENTITYEXTMIB.CeExtConfigRegTable.CeExtConfigRegEntry, ['entphysicalindex', 'ceextconfigregister', 'ceextconfigregnext', 'ceextsysbootimagelist', 'ceextkickstartimagelist'], name, value)
 
 
-    class Ceextentityledtable(Entity):
+    class CeExtEntityLEDTable(Entity):
         """
         A table containing information of LED on an entity.
         
         .. attribute:: ceextentityledentry
         
         	An entry (conceptual row) in the ceExtEntityLEDTable, containing information about an LED on an entity, identified by  entPhysicalIndex
-        	**type**\: list of  		 :py:class:`Ceextentityledentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextentityledtable.Ceextentityledentry>`
+        	**type**\: list of  		 :py:class:`CeExtEntityLEDEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry>`
         
         
 
@@ -393,15 +388,14 @@ class CISCOENTITYEXTMIB(Entity):
         _revision = '2008-11-24'
 
         def __init__(self):
-            super(CISCOENTITYEXTMIB.Ceextentityledtable, self).__init__()
+            super(CISCOENTITYEXTMIB.CeExtEntityLEDTable, self).__init__()
 
             self.yang_name = "ceExtEntityLEDTable"
             self.yang_parent_name = "CISCO-ENTITY-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ceExtEntityLEDEntry", ("ceextentityledentry", CISCOENTITYEXTMIB.Ceextentityledtable.Ceextentityledentry))])
+            self._child_classes = OrderedDict([("ceExtEntityLEDEntry", ("ceextentityledentry", CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry))])
             self._leafs = OrderedDict()
 
             self.ceextentityledentry = YList(self)
@@ -409,10 +403,10 @@ class CISCOENTITYEXTMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYEXTMIB.Ceextentityledtable, [], name, value)
+            self._perform_setattr(CISCOENTITYEXTMIB.CeExtEntityLEDTable, [], name, value)
 
 
-        class Ceextentityledentry(Entity):
+        class CeExtEntityLEDEntry(Entity):
             """
             An entry (conceptual row) in the ceExtEntityLEDTable,
             containing information about an LED on an entity, identified by 
@@ -425,17 +419,17 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceextentityledtype  (key)
             
             	The type of LED on this entity. 'status' \- indicates the entity status. 'system' \- indicates the overall system status.  'active' \- the redundancy status of a module, for e.g.            supervisor module.  'power'  \- indicates sufficient power availability for all             modules. 'battery'\- indicates the battery status
-            	**type**\:  :py:class:`Ceextentityledtype <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextentityledtable.Ceextentityledentry.Ceextentityledtype>`
+            	**type**\:  :py:class:`CeExtEntityLEDType <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry.CeExtEntityLEDType>`
             
             .. attribute:: ceextentityledcolor
             
             	The color of the LED
-            	**type**\:  :py:class:`Ceextentityledcolor <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.Ceextentityledtable.Ceextentityledentry.Ceextentityledcolor>`
+            	**type**\:  :py:class:`CeExtEntityLEDColor <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry.CeExtEntityLEDColor>`
             
             
 
@@ -445,15 +439,14 @@ class CISCOENTITYEXTMIB(Entity):
             _revision = '2008-11-24'
 
             def __init__(self):
-                super(CISCOENTITYEXTMIB.Ceextentityledtable.Ceextentityledentry, self).__init__()
+                super(CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry, self).__init__()
 
                 self.yang_name = "ceExtEntityLEDEntry"
                 self.yang_parent_name = "ceExtEntityLEDTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceextentityledtype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceextentityledtype', YLeaf(YType.enumeration, 'ceExtEntityLEDType')),
@@ -466,11 +459,11 @@ class CISCOENTITYEXTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtEntityLEDTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYEXTMIB.Ceextentityledtable.Ceextentityledentry, ['entphysicalindex', 'ceextentityledtype', 'ceextentityledcolor'], name, value)
+                self._perform_setattr(CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry, ['entphysicalindex', 'ceextentityledtype', 'ceextentityledcolor'], name, value)
 
-            class Ceextentityledcolor(Enum):
+            class CeExtEntityLEDColor(Enum):
                 """
-                Ceextentityledcolor (Enum Class)
+                CeExtEntityLEDColor (Enum Class)
 
                 The color of the LED.
 
@@ -493,9 +486,9 @@ class CISCOENTITYEXTMIB(Entity):
                 red = Enum.YLeaf(4, "red")
 
 
-            class Ceextentityledtype(Enum):
+            class CeExtEntityLEDType(Enum):
                 """
-                Ceextentityledtype (Enum Class)
+                CeExtEntityLEDType (Enum Class)
 
                 The type of LED on this entity.
 

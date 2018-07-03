@@ -74,32 +74,32 @@ class ENTITYMIB(Entity):
     .. attribute:: entitygeneral
     
     	
-    	**type**\:  :py:class:`Entitygeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entitygeneral>`
+    	**type**\:  :py:class:`EntityGeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntityGeneral>`
     
     .. attribute:: entphysicaltable
     
     	
-    	**type**\:  :py:class:`Entphysicaltable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entphysicaltable>`
+    	**type**\:  :py:class:`EntPhysicalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntPhysicalTable>`
     
     .. attribute:: entlogicaltable
     
     	
-    	**type**\:  :py:class:`Entlogicaltable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entlogicaltable>`
+    	**type**\:  :py:class:`EntLogicalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntLogicalTable>`
     
     .. attribute:: entlpmappingtable
     
     	
-    	**type**\:  :py:class:`Entlpmappingtable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entlpmappingtable>`
+    	**type**\:  :py:class:`EntLPMappingTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntLPMappingTable>`
     
     .. attribute:: entaliasmappingtable
     
     	
-    	**type**\:  :py:class:`Entaliasmappingtable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entaliasmappingtable>`
+    	**type**\:  :py:class:`EntAliasMappingTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntAliasMappingTable>`
     
     .. attribute:: entphysicalcontainstable
     
     	
-    	**type**\:  :py:class:`Entphysicalcontainstable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entphysicalcontainstable>`
+    	**type**\:  :py:class:`EntPhysicalContainsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntPhysicalContainsTable>`
     
     
 
@@ -117,43 +117,39 @@ class ENTITYMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("entityGeneral", ("entitygeneral", ENTITYMIB.Entitygeneral)), ("entPhysicalTable", ("entphysicaltable", ENTITYMIB.Entphysicaltable)), ("entLogicalTable", ("entlogicaltable", ENTITYMIB.Entlogicaltable)), ("entLPMappingTable", ("entlpmappingtable", ENTITYMIB.Entlpmappingtable)), ("entAliasMappingTable", ("entaliasmappingtable", ENTITYMIB.Entaliasmappingtable)), ("entPhysicalContainsTable", ("entphysicalcontainstable", ENTITYMIB.Entphysicalcontainstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("entityGeneral", ("entitygeneral", ENTITYMIB.EntityGeneral)), ("entPhysicalTable", ("entphysicaltable", ENTITYMIB.EntPhysicalTable)), ("entLogicalTable", ("entlogicaltable", ENTITYMIB.EntLogicalTable)), ("entLPMappingTable", ("entlpmappingtable", ENTITYMIB.EntLPMappingTable)), ("entAliasMappingTable", ("entaliasmappingtable", ENTITYMIB.EntAliasMappingTable)), ("entPhysicalContainsTable", ("entphysicalcontainstable", ENTITYMIB.EntPhysicalContainsTable))])
         self._leafs = OrderedDict()
 
-        self.entitygeneral = ENTITYMIB.Entitygeneral()
+        self.entitygeneral = ENTITYMIB.EntityGeneral()
         self.entitygeneral.parent = self
         self._children_name_map["entitygeneral"] = "entityGeneral"
-        self._children_yang_names.add("entityGeneral")
 
-        self.entphysicaltable = ENTITYMIB.Entphysicaltable()
+        self.entphysicaltable = ENTITYMIB.EntPhysicalTable()
         self.entphysicaltable.parent = self
         self._children_name_map["entphysicaltable"] = "entPhysicalTable"
-        self._children_yang_names.add("entPhysicalTable")
 
-        self.entlogicaltable = ENTITYMIB.Entlogicaltable()
+        self.entlogicaltable = ENTITYMIB.EntLogicalTable()
         self.entlogicaltable.parent = self
         self._children_name_map["entlogicaltable"] = "entLogicalTable"
-        self._children_yang_names.add("entLogicalTable")
 
-        self.entlpmappingtable = ENTITYMIB.Entlpmappingtable()
+        self.entlpmappingtable = ENTITYMIB.EntLPMappingTable()
         self.entlpmappingtable.parent = self
         self._children_name_map["entlpmappingtable"] = "entLPMappingTable"
-        self._children_yang_names.add("entLPMappingTable")
 
-        self.entaliasmappingtable = ENTITYMIB.Entaliasmappingtable()
+        self.entaliasmappingtable = ENTITYMIB.EntAliasMappingTable()
         self.entaliasmappingtable.parent = self
         self._children_name_map["entaliasmappingtable"] = "entAliasMappingTable"
-        self._children_yang_names.add("entAliasMappingTable")
 
-        self.entphysicalcontainstable = ENTITYMIB.Entphysicalcontainstable()
+        self.entphysicalcontainstable = ENTITYMIB.EntPhysicalContainsTable()
         self.entphysicalcontainstable.parent = self
         self._children_name_map["entphysicalcontainstable"] = "entPhysicalContainsTable"
-        self._children_yang_names.add("entPhysicalContainsTable")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(ENTITYMIB, [], name, value)
 
-    class Entitygeneral(Entity):
+
+    class EntityGeneral(Entity):
         """
         
         
@@ -172,15 +168,14 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.Entitygeneral, self).__init__()
+            super(ENTITYMIB.EntityGeneral, self).__init__()
 
             self.yang_name = "entityGeneral"
             self.yang_parent_name = "ENTITY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('entlastchangetime', YLeaf(YType.uint32, 'entLastChangeTime')),
             ])
@@ -189,17 +184,17 @@ class ENTITYMIB(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYMIB.Entitygeneral, ['entlastchangetime'], name, value)
+            self._perform_setattr(ENTITYMIB.EntityGeneral, [u'entlastchangetime'], name, value)
 
 
-    class Entphysicaltable(Entity):
+    class EntPhysicalTable(Entity):
         """
         
         
         .. attribute:: entphysicalentry
         
         	
-        	**type**\: list of  		 :py:class:`Entphysicalentry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+        	**type**\: list of  		 :py:class:`EntPhysicalEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
         
         
 
@@ -209,15 +204,14 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.Entphysicaltable, self).__init__()
+            super(ENTITYMIB.EntPhysicalTable, self).__init__()
 
             self.yang_name = "entPhysicalTable"
             self.yang_parent_name = "ENTITY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entPhysicalEntry", ("entphysicalentry", ENTITYMIB.Entphysicaltable.Entphysicalentry))])
+            self._child_classes = OrderedDict([("entPhysicalEntry", ("entphysicalentry", ENTITYMIB.EntPhysicalTable.EntPhysicalEntry))])
             self._leafs = OrderedDict()
 
             self.entphysicalentry = YList(self)
@@ -225,10 +219,10 @@ class ENTITYMIB(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYMIB.Entphysicaltable, [], name, value)
+            self._perform_setattr(ENTITYMIB.EntPhysicalTable, [], name, value)
 
 
-        class Entphysicalentry(Entity):
+        class EntPhysicalEntry(Entity):
             """
             
             
@@ -348,15 +342,14 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.Entphysicaltable.Entphysicalentry, self).__init__()
+                super(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, self).__init__()
 
                 self.yang_name = "entPhysicalEntry"
                 self.yang_parent_name = "entPhysicalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.int32, 'entPhysicalIndex')),
                     ('entphysicaldescr', YLeaf(YType.str, 'entPhysicalDescr')),
@@ -395,17 +388,17 @@ class ENTITYMIB(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entPhysicalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.Entphysicaltable.Entphysicalentry, ['entphysicalindex', 'entphysicaldescr', 'entphysicalvendortype', 'entphysicalcontainedin', 'entphysicalclass', 'entphysicalparentrelpos', 'entphysicalname', 'entphysicalhardwarerev', 'entphysicalfirmwarerev', 'entphysicalsoftwarerev', 'entphysicalserialnum', 'entphysicalmfgname', 'entphysicalmodelname', 'entphysicalalias', 'entphysicalassetid', 'entphysicalisfru'], name, value)
+                self._perform_setattr(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, [u'entphysicalindex', u'entphysicaldescr', u'entphysicalvendortype', u'entphysicalcontainedin', u'entphysicalclass', u'entphysicalparentrelpos', u'entphysicalname', u'entphysicalhardwarerev', u'entphysicalfirmwarerev', u'entphysicalsoftwarerev', u'entphysicalserialnum', u'entphysicalmfgname', u'entphysicalmodelname', u'entphysicalalias', u'entphysicalassetid', u'entphysicalisfru'], name, value)
 
 
-    class Entlogicaltable(Entity):
+    class EntLogicalTable(Entity):
         """
         
         
         .. attribute:: entlogicalentry
         
         	
-        	**type**\: list of  		 :py:class:`Entlogicalentry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entlogicaltable.Entlogicalentry>`
+        	**type**\: list of  		 :py:class:`EntLogicalEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntLogicalTable.EntLogicalEntry>`
         
         
 
@@ -415,15 +408,14 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.Entlogicaltable, self).__init__()
+            super(ENTITYMIB.EntLogicalTable, self).__init__()
 
             self.yang_name = "entLogicalTable"
             self.yang_parent_name = "ENTITY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entLogicalEntry", ("entlogicalentry", ENTITYMIB.Entlogicaltable.Entlogicalentry))])
+            self._child_classes = OrderedDict([("entLogicalEntry", ("entlogicalentry", ENTITYMIB.EntLogicalTable.EntLogicalEntry))])
             self._leafs = OrderedDict()
 
             self.entlogicalentry = YList(self)
@@ -431,10 +423,10 @@ class ENTITYMIB(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYMIB.Entlogicaltable, [], name, value)
+            self._perform_setattr(ENTITYMIB.EntLogicalTable, [], name, value)
 
 
-        class Entlogicalentry(Entity):
+        class EntLogicalEntry(Entity):
             """
             
             
@@ -502,15 +494,14 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.Entlogicaltable.Entlogicalentry, self).__init__()
+                super(ENTITYMIB.EntLogicalTable.EntLogicalEntry, self).__init__()
 
                 self.yang_name = "entLogicalEntry"
                 self.yang_parent_name = "entLogicalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entlogicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entlogicalindex', YLeaf(YType.int32, 'entLogicalIndex')),
                     ('entlogicaldescr', YLeaf(YType.str, 'entLogicalDescr')),
@@ -533,17 +524,17 @@ class ENTITYMIB(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entLogicalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.Entlogicaltable.Entlogicalentry, ['entlogicalindex', 'entlogicaldescr', 'entlogicaltype', 'entlogicalcommunity', 'entlogicaltaddress', 'entlogicaltdomain', 'entlogicalcontextengineid', 'entlogicalcontextname'], name, value)
+                self._perform_setattr(ENTITYMIB.EntLogicalTable.EntLogicalEntry, [u'entlogicalindex', u'entlogicaldescr', u'entlogicaltype', u'entlogicalcommunity', u'entlogicaltaddress', u'entlogicaltdomain', u'entlogicalcontextengineid', u'entlogicalcontextname'], name, value)
 
 
-    class Entlpmappingtable(Entity):
+    class EntLPMappingTable(Entity):
         """
         
         
         .. attribute:: entlpmappingentry
         
         	
-        	**type**\: list of  		 :py:class:`Entlpmappingentry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entlpmappingtable.Entlpmappingentry>`
+        	**type**\: list of  		 :py:class:`EntLPMappingEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntLPMappingTable.EntLPMappingEntry>`
         
         
 
@@ -553,15 +544,14 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.Entlpmappingtable, self).__init__()
+            super(ENTITYMIB.EntLPMappingTable, self).__init__()
 
             self.yang_name = "entLPMappingTable"
             self.yang_parent_name = "ENTITY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entLPMappingEntry", ("entlpmappingentry", ENTITYMIB.Entlpmappingtable.Entlpmappingentry))])
+            self._child_classes = OrderedDict([("entLPMappingEntry", ("entlpmappingentry", ENTITYMIB.EntLPMappingTable.EntLPMappingEntry))])
             self._leafs = OrderedDict()
 
             self.entlpmappingentry = YList(self)
@@ -569,10 +559,10 @@ class ENTITYMIB(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYMIB.Entlpmappingtable, [], name, value)
+            self._perform_setattr(ENTITYMIB.EntLPMappingTable, [], name, value)
 
 
-        class Entlpmappingentry(Entity):
+        class EntLPMappingEntry(Entity):
             """
             
             
@@ -598,15 +588,14 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.Entlpmappingtable.Entlpmappingentry, self).__init__()
+                super(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, self).__init__()
 
                 self.yang_name = "entLPMappingEntry"
                 self.yang_parent_name = "entLPMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entlogicalindex','entlpphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entlogicalindex', YLeaf(YType.int32, 'entLogicalIndex')),
                     ('entlpphysicalindex', YLeaf(YType.int32, 'entLPPhysicalIndex')),
@@ -617,17 +606,17 @@ class ENTITYMIB(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entLPMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.Entlpmappingtable.Entlpmappingentry, ['entlogicalindex', 'entlpphysicalindex'], name, value)
+                self._perform_setattr(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, [u'entlogicalindex', u'entlpphysicalindex'], name, value)
 
 
-    class Entaliasmappingtable(Entity):
+    class EntAliasMappingTable(Entity):
         """
         
         
         .. attribute:: entaliasmappingentry
         
         	
-        	**type**\: list of  		 :py:class:`Entaliasmappingentry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entaliasmappingtable.Entaliasmappingentry>`
+        	**type**\: list of  		 :py:class:`EntAliasMappingEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry>`
         
         
 
@@ -637,15 +626,14 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.Entaliasmappingtable, self).__init__()
+            super(ENTITYMIB.EntAliasMappingTable, self).__init__()
 
             self.yang_name = "entAliasMappingTable"
             self.yang_parent_name = "ENTITY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entAliasMappingEntry", ("entaliasmappingentry", ENTITYMIB.Entaliasmappingtable.Entaliasmappingentry))])
+            self._child_classes = OrderedDict([("entAliasMappingEntry", ("entaliasmappingentry", ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry))])
             self._leafs = OrderedDict()
 
             self.entaliasmappingentry = YList(self)
@@ -653,10 +641,10 @@ class ENTITYMIB(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYMIB.Entaliasmappingtable, [], name, value)
+            self._perform_setattr(ENTITYMIB.EntAliasMappingTable, [], name, value)
 
 
-        class Entaliasmappingentry(Entity):
+        class EntAliasMappingEntry(Entity):
             """
             
             
@@ -689,15 +677,14 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.Entaliasmappingtable.Entaliasmappingentry, self).__init__()
+                super(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, self).__init__()
 
                 self.yang_name = "entAliasMappingEntry"
                 self.yang_parent_name = "entAliasMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','entaliaslogicalindexorzero']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.int32, 'entPhysicalIndex')),
                     ('entaliaslogicalindexorzero', YLeaf(YType.int32, 'entAliasLogicalIndexOrZero')),
@@ -710,17 +697,17 @@ class ENTITYMIB(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entAliasMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.Entaliasmappingtable.Entaliasmappingentry, ['entphysicalindex', 'entaliaslogicalindexorzero', 'entaliasmappingidentifier'], name, value)
+                self._perform_setattr(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, [u'entphysicalindex', u'entaliaslogicalindexorzero', u'entaliasmappingidentifier'], name, value)
 
 
-    class Entphysicalcontainstable(Entity):
+    class EntPhysicalContainsTable(Entity):
         """
         
         
         .. attribute:: entphysicalcontainsentry
         
         	
-        	**type**\: list of  		 :py:class:`Entphysicalcontainsentry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.Entphysicalcontainstable.Entphysicalcontainsentry>`
+        	**type**\: list of  		 :py:class:`EntPhysicalContainsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry>`
         
         
 
@@ -730,15 +717,14 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.Entphysicalcontainstable, self).__init__()
+            super(ENTITYMIB.EntPhysicalContainsTable, self).__init__()
 
             self.yang_name = "entPhysicalContainsTable"
             self.yang_parent_name = "ENTITY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entPhysicalContainsEntry", ("entphysicalcontainsentry", ENTITYMIB.Entphysicalcontainstable.Entphysicalcontainsentry))])
+            self._child_classes = OrderedDict([("entPhysicalContainsEntry", ("entphysicalcontainsentry", ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry))])
             self._leafs = OrderedDict()
 
             self.entphysicalcontainsentry = YList(self)
@@ -746,10 +732,10 @@ class ENTITYMIB(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYMIB.Entphysicalcontainstable, [], name, value)
+            self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable, [], name, value)
 
 
-        class Entphysicalcontainsentry(Entity):
+        class EntPhysicalContainsEntry(Entity):
             """
             
             
@@ -775,15 +761,14 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.Entphysicalcontainstable.Entphysicalcontainsentry, self).__init__()
+                super(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, self).__init__()
 
                 self.yang_name = "entPhysicalContainsEntry"
                 self.yang_parent_name = "entPhysicalContainsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','entphysicalchildindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.int32, 'entPhysicalIndex')),
                     ('entphysicalchildindex', YLeaf(YType.int32, 'entPhysicalChildIndex')),
@@ -794,7 +779,7 @@ class ENTITYMIB(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entPhysicalContainsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYMIB.Entphysicalcontainstable.Entphysicalcontainsentry, ['entphysicalindex', 'entphysicalchildindex'], name, value)
+                self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, [u'entphysicalindex', u'entphysicalchildindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ENTITYMIB()

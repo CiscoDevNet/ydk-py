@@ -165,128 +165,128 @@ class CISCORTTMONMIB(Entity):
     .. attribute:: rttmonappl
     
     	
-    	**type**\:  :py:class:`Rttmonappl <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonappl>`
+    	**type**\:  :py:class:`RttMonAppl <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonAppl>`
     
     .. attribute:: rttmonapplsupportedrtttypestable
     
     	A table of which contains the supported Rtt Monitor Types.  See the RttMonRttType textual convention for the definition of each type
-    	**type**\:  :py:class:`Rttmonapplsupportedrtttypestable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplsupportedrtttypestable>`
+    	**type**\:  :py:class:`RttMonApplSupportedRttTypesTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplSupportedRttTypesTable>`
     
     .. attribute:: rttmonapplsupportedprotocolstable
     
     	A table of which contains the supported Rtt Monitor Protocols.  See the RttMonProtocol textual convention  for the definition of each protocol
-    	**type**\:  :py:class:`Rttmonapplsupportedprotocolstable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplsupportedprotocolstable>`
+    	**type**\:  :py:class:`RttMonApplSupportedProtocolsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplSupportedProtocolsTable>`
     
     .. attribute:: rttmonapplpreconfigedtable
     
     	A table of which contains the previously configured Script Names and File IO targets.  These Script Names and File IO targets are installed via a different mechanism than this application, and are specific to each platform
-    	**type**\:  :py:class:`Rttmonapplpreconfigedtable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplpreconfigedtable>`
+    	**type**\:  :py:class:`RttMonApplPreConfigedTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplPreConfigedTable>`
     
     	**status**\: obsolete
     
     .. attribute:: rttmonapplauthtable
     
     	A table which contains the definitions for key\-strings that will be used in authenticating RTR Control Protocol
-    	**type**\:  :py:class:`Rttmonapplauthtable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplauthtable>`
+    	**type**\:  :py:class:`RttMonApplAuthTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplAuthTable>`
     
     .. attribute:: rttmonctrladmintable
     
     	A table of Round Trip Time (RTT) monitoring definitions.  The RTT administration control is in multiple tables.   This first table, is used to create a conceptual RTT  control row.  The following tables contain objects which  configure scheduling, information gathering, and  notification/trigger generation.  All of these tables  will create the same conceptual RTT control row as this  table using this tables' index as their own index.   This table is limited in size by the agent  implementation.  The object rttMonApplNumCtrlAdminEntry will reflect this tables maximum number of entries
-    	**type**\:  :py:class:`Rttmonctrladmintable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable>`
+    	**type**\:  :py:class:`RttMonCtrlAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable>`
     
     .. attribute:: rttmonechoadmintable
     
     	A table that contains Round Trip Time (RTT) specific definitions.  This table is controlled via the  rttMonCtrlAdminTable.  Entries in this table are created via the rttMonCtrlAdminStatus object
-    	**type**\:  :py:class:`Rttmonechoadmintable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechoadmintable>`
+    	**type**\:  :py:class:`RttMonEchoAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable>`
     
     .. attribute:: rttmonfileioadmintable
     
     	A table of Round Trip Time (RTT) monitoring 'fileIO' specific definitions.  When the RttMonRttType is not 'fileIO' this table is not valid.  This table is controlled via the  rttMonCtrlAdminTable.  Entries in this table are created via the rttMonCtrlAdminStatus object
-    	**type**\:  :py:class:`Rttmonfileioadmintable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonfileioadmintable>`
+    	**type**\:  :py:class:`RttMonFileIOAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonFileIOAdminTable>`
     
     	**status**\: obsolete
     
     .. attribute:: rttmonscriptadmintable
     
     	A table of Round Trip Time (RTT) monitoring 'script' specific definitions.  When the RttMonRttType is not 'script' this table is not valid.  This table is controlled via the rttMonCtrlAdminTable.  Entries in this table are created via the rttMonCtrlAdminStatus object
-    	**type**\:  :py:class:`Rttmonscriptadmintable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonscriptadmintable>`
+    	**type**\:  :py:class:`RttMonScriptAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonScriptAdminTable>`
     
     	**status**\: obsolete
     
     .. attribute:: rttmonreacttriggeradmintable
     
     	A table of which contains the list of conceptual RTT control rows that will start to collect data when a  reaction condition is violated and when  rttMonReactAdminActionType is set to one of the  following\:   \-  triggerOnly   \-  trapAndTrigger   \-  nmvtAndTrigger   \-  trapNmvtAndTrigger or when a reaction condition is violated and when any of the row in rttMonReactTable has rttMonReactActionType as one of the following\:   \- triggerOnly   \- trapAndTrigger  The goal of this table is to define one or more  additional conceptual RTT control rows that will become active and start to collect additional history and statistics (depending on the rows configuration values), when a problem has been detected.  If the conceptual RTT control row is undefined, and a  trigger occurs, no action will take place.    If the conceptual RTT control row is scheduled to start  at a later time, triggering that row will have no effect.  If the conceptual RTT control row is currently active,  triggering that row will have no effect on that row, but  the rttMonReactTriggerOperState object will transition to  'active'.  An entry in this table can only be triggered when it is not currently in a triggered state.  The object rttMonReactTriggerOperState will  reflect the state of each entry in this table
-    	**type**\:  :py:class:`Rttmonreacttriggeradmintable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonreacttriggeradmintable>`
+    	**type**\:  :py:class:`RttMonReactTriggerAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTriggerAdminTable>`
     
     .. attribute:: rttmonechopathadmintable
     
     	A table to store the hop addresses in a Loose Source Routing path. Response times are computed along the specified path using ping.  This maximum table size is limited by the size of the  maximum number of hop addresses that can fit in an IP header, which is 8. The object rttMonEchoPathAdminEntry will reflect  this tables maximum number of entries.  This table is coupled with rttMonCtrlAdminStatus
-    	**type**\:  :py:class:`Rttmonechopathadmintable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechopathadmintable>`
+    	**type**\:  :py:class:`RttMonEchoPathAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoPathAdminTable>`
     
     .. attribute:: rttmongrpscheduleadmintable
     
     	A table of Round Trip Time (RTT) monitoring group scheduling specific definitions. This table is used to create a conceptual group scheduling control row. The entries in this control row contain objects used to define group schedule configuration parameters.  The objects of this table will be used to schedule a group of probes identified by the conceptual rows of the rttMonCtrlAdminTable
-    	**type**\:  :py:class:`Rttmongrpscheduleadmintable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmongrpscheduleadmintable>`
+    	**type**\:  :py:class:`RttMonGrpScheduleAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonGrpScheduleAdminTable>`
     
     .. attribute:: rttmplsvpnmonctrltable
     
     	A table of Auto SAA L3 MPLS VPN definitions.  The Auto SAA L3 MPLS VPN administration control is in multiple tables.  This first table, is used to create a conceptual Auto SAA L3 MPLS VPN control row.  The following tables contain objects which used in type specific configurations, scheduling and reaction configurations. All of these tables will create the same conceptual control row as this table using this table's index as their own index.  In order to a row in this table to become active the following objects must be defined.   rttMplsVpnMonCtrlRttType,   rttMplsVpnMonCtrlVrfName and   rttMplsVpnMonSchedulePeriod
-    	**type**\:  :py:class:`Rttmplsvpnmonctrltable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmplsvpnmonctrltable>`
+    	**type**\:  :py:class:`RttMplsVpnMonCtrlTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable>`
     
     .. attribute:: rttmonreacttable
     
     	A table that contains the reaction configurations. Each conceptual row in rttMonReactTable corresponds to a reaction configured for the probe defined in rttMonCtrlAdminTable.  For each reaction configured for a probe there is an entry in the table.  Each Probe can have multiple reactions and hence there can be multiple rows for a particular probe.  This table is coupled with rttMonCtrlAdminTable
-    	**type**\:  :py:class:`Rttmonreacttable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonreacttable>`
+    	**type**\:  :py:class:`RttMonReactTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTable>`
     
     .. attribute:: rttmongeneratedopertable
     
     	This table contains information about the generated operation id as part of a parent IP SLA operation. The parent operation id is pseudo\-random number, selected by the management  station based on an operation started by the management  station,when creating a row via the rttMonCtrlAdminStatus object in the rttMonCtrlAdminTable table
-    	**type**\:  :py:class:`Rttmongeneratedopertable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmongeneratedopertable>`
+    	**type**\:  :py:class:`RttMonGeneratedOperTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonGeneratedOperTable>`
     
     .. attribute:: rttmonstatscapturetable
     
     	The statistics capture database.  The statistics capture table contains summarized  information of the results for a conceptual RTT control  row.  A rolling accumulated history of this information  is maintained in a series of hourly 'group(s)'.  Each  'group' contains a series of 'path(s)', each 'path'  contains a series of 'hop(s)', each 'hop' contains a  series of 'statistics distribution bucket(s)'.  Each conceptual statistics row has a current hourly  group, into which RTT results are accumulated.  At the  end of each hour a new hourly group is created which  then becomes current.  The counters and accumulators in  the new group are initialized to zero.  The previous  group(s) is kept in the table until the table contains  rttMonStatisticsAdminNumHourGroups groups for the  conceptual statistics row;  at this point, the oldest  group is discarded and is replaced by the newly created  one.  The hourly group is uniquely identified by the  rttMonStatsCaptureStartTimeIndex object.  If the activity for a conceptual RTT control row ceases  because the rttMonCtrlOperState object transitions to  'inactive', the corresponding current hourly group in  this table is 'frozen', and a new hourly group is  created when activity is resumed.  If the activity for a conceptual RTT control row ceases  because the rttMonCtrlOperState object transitions to  'pending' this whole table will be cleared and reset to  its initial state.  When the RttMonRttType is 'pathEcho', the path  exploration RTT requests' statistics will not be  accumulated in this table.  NOTE\: When the RttMonRttType is 'pathEcho', a source to        target rttMonStatsCapturePathIndex path will be        created for each rttMonStatsCaptureStartTimeIndex        to hold all errors that occur when a specific path       had not been found or connection has not be setup.  Using this rttMonStatsCaptureTable, a managing  application can retrieve summarized data from accurately  measured periods, which is synchronized across multiple  conceptual RTT control rows.  With the new hourly group creation being performed on a 60 minute period, the  managing station has plenty of time to collect the data,  and need not be concerned with the vagaries of network  delays and lost PDU's when trying to get matching data.   Also, the managing station can spread the data gathering  over a longer period, which removes the need for a flood  of get requests in a short period which otherwise would  occur
-    	**type**\:  :py:class:`Rttmonstatscapturetable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscapturetable>`
+    	**type**\:  :py:class:`RttMonStatsCaptureTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable>`
     
     .. attribute:: rttmonstatscollecttable
     
     	The statistics collection database.  This table has the exact same behavior as the rttMonStatsCaptureTable, except it does not keep statistical distribution information.  For a complete table description see the rttMonStatsCaptureTable object
-    	**type**\:  :py:class:`Rttmonstatscollecttable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscollecttable>`
+    	**type**\:  :py:class:`RttMonStatsCollectTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCollectTable>`
     
     .. attribute:: rttmonstatstotalstable
     
     	The statistics totals database.  This table has the exact same behavior as the rttMonStatsCaptureTable, except it only keeps 60 minute group values.  For a complete table description see the rttMonStatsCaptureTable object
-    	**type**\:  :py:class:`Rttmonstatstotalstable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatstotalstable>`
+    	**type**\:  :py:class:`RttMonStatsTotalsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsTotalsTable>`
     
     .. attribute:: rttmonhttpstatstable
     
     	The HTTP statistics collection database.  The HTTP statistics table contains summarized information of the results for a conceptual RTT control row. A rolling accumulated history of this information is maintained in a  series of hourly 'group(s)'.  The operation of this table is same as that of  rttMonStatsCaptureTable, except that this table can only  store a maximum of 2 hours of data
-    	**type**\:  :py:class:`Rttmonhttpstatstable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonhttpstatstable>`
+    	**type**\:  :py:class:`RttMonHTTPStatsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonHTTPStatsTable>`
     
     .. attribute:: rttmonjitterstatstable
     
     	The Jitter statistics collection database.  The Jitter statistics table contains summarized information of the results for a conceptual RTT control row. A rolling accumulated history of this information is maintained in a  series of hourly 'group(s)'.  The operation of this table is same as that of  rttMonStatsCaptureTable, except that this table will store  2 hours of data
-    	**type**\:  :py:class:`Rttmonjitterstatstable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonjitterstatstable>`
+    	**type**\:  :py:class:`RttMonJitterStatsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonJitterStatsTable>`
     
     .. attribute:: rttmonlpdgrpstatstable
     
     	The Auto SAA L3 MPLS VPN LPD Group Database.  The LPD Group statistics table contains summarized performance statistics for the LPD group.  LPD Group \- The set of 'single probes' which are subset of the 'lspGroup' probe traversing set of paths between two PE end points are grouped together and called as the LPD group. The LPD group will be uniquely referenced by the LPD Group ID.  A rolling accumulated history of this information is maintained in a series of hourly 'group(s)'.  Each conceptual statistics row has a current hourly group, into which RTT results are accumulated. At the end of each hour a new hourly group is created which then becomes current. The counters and accumulators in the new group are initialized to zero. The previous group(s) is kept in the table until the table contains rttMplsVpnMonTypeLpdStatHours groups for the conceptual statistics row;  at this point, the oldest group is discarded and is replaced by the newly created one. The hourly group is uniquely identified by the rttMonLpdGrpStatsStartTimeIndex object
-    	**type**\:  :py:class:`Rttmonlpdgrpstatstable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonlpdgrpstatstable>`
+    	**type**\:  :py:class:`RttMonLpdGrpStatsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLpdGrpStatsTable>`
     
     .. attribute:: rttmonhistorycollectiontable
     
     	The history collection database.  The history table contains a point by point rolling  history of the most recent RTT operations for each  conceptual RTT control row.  The rolling history of this  information is maintained in a series of 'live(s)', each containing a series of 'bucket(s)', each 'bucket'  contains a series of 'sample(s)'.  Each conceptual history row can have lives.  A life is  defined by the rttMonCtrlOperRttLife object.  A new life  will be created when rttMonCtrlOperState transitions 'active'.  When the number of lives become greater  than rttMonHistoryAdminNumLives the oldest life will be  discarded and a new life will be created by incrementing the index.  The path exploration RTT operation will be kept as an entry in this table
-    	**type**\:  :py:class:`Rttmonhistorycollectiontable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonhistorycollectiontable>`
+    	**type**\:  :py:class:`RttMonHistoryCollectionTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonHistoryCollectionTable>`
     
     .. attribute:: rttmonlatesthttpopertable
     
     	A table which contains the status of latest HTTP RTT operation
-    	**type**\:  :py:class:`Rttmonlatesthttpopertable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonlatesthttpopertable>`
+    	**type**\:  :py:class:`RttMonLatestHTTPOperTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestHTTPOperTable>`
     
     .. attribute:: rttmonlatestjitteropertable
     
     	A table which contains the status of latest Jitter operation
-    	**type**\:  :py:class:`Rttmonlatestjitteropertable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonlatestjitteropertable>`
+    	**type**\:  :py:class:`RttMonLatestJitterOperTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestJitterOperTable>`
     
     
 
@@ -304,133 +304,111 @@ class CISCORTTMONMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("rttMonAppl", ("rttmonappl", CISCORTTMONMIB.Rttmonappl)), ("rttMonApplSupportedRttTypesTable", ("rttmonapplsupportedrtttypestable", CISCORTTMONMIB.Rttmonapplsupportedrtttypestable)), ("rttMonApplSupportedProtocolsTable", ("rttmonapplsupportedprotocolstable", CISCORTTMONMIB.Rttmonapplsupportedprotocolstable)), ("rttMonApplPreConfigedTable", ("rttmonapplpreconfigedtable", CISCORTTMONMIB.Rttmonapplpreconfigedtable)), ("rttMonApplAuthTable", ("rttmonapplauthtable", CISCORTTMONMIB.Rttmonapplauthtable)), ("rttMonCtrlAdminTable", ("rttmonctrladmintable", CISCORTTMONMIB.Rttmonctrladmintable)), ("rttMonEchoAdminTable", ("rttmonechoadmintable", CISCORTTMONMIB.Rttmonechoadmintable)), ("rttMonFileIOAdminTable", ("rttmonfileioadmintable", CISCORTTMONMIB.Rttmonfileioadmintable)), ("rttMonScriptAdminTable", ("rttmonscriptadmintable", CISCORTTMONMIB.Rttmonscriptadmintable)), ("rttMonReactTriggerAdminTable", ("rttmonreacttriggeradmintable", CISCORTTMONMIB.Rttmonreacttriggeradmintable)), ("rttMonEchoPathAdminTable", ("rttmonechopathadmintable", CISCORTTMONMIB.Rttmonechopathadmintable)), ("rttMonGrpScheduleAdminTable", ("rttmongrpscheduleadmintable", CISCORTTMONMIB.Rttmongrpscheduleadmintable)), ("rttMplsVpnMonCtrlTable", ("rttmplsvpnmonctrltable", CISCORTTMONMIB.Rttmplsvpnmonctrltable)), ("rttMonReactTable", ("rttmonreacttable", CISCORTTMONMIB.Rttmonreacttable)), ("rttMonGeneratedOperTable", ("rttmongeneratedopertable", CISCORTTMONMIB.Rttmongeneratedopertable)), ("rttMonStatsCaptureTable", ("rttmonstatscapturetable", CISCORTTMONMIB.Rttmonstatscapturetable)), ("rttMonStatsCollectTable", ("rttmonstatscollecttable", CISCORTTMONMIB.Rttmonstatscollecttable)), ("rttMonStatsTotalsTable", ("rttmonstatstotalstable", CISCORTTMONMIB.Rttmonstatstotalstable)), ("rttMonHTTPStatsTable", ("rttmonhttpstatstable", CISCORTTMONMIB.Rttmonhttpstatstable)), ("rttMonJitterStatsTable", ("rttmonjitterstatstable", CISCORTTMONMIB.Rttmonjitterstatstable)), ("rttMonLpdGrpStatsTable", ("rttmonlpdgrpstatstable", CISCORTTMONMIB.Rttmonlpdgrpstatstable)), ("rttMonHistoryCollectionTable", ("rttmonhistorycollectiontable", CISCORTTMONMIB.Rttmonhistorycollectiontable)), ("rttMonLatestHTTPOperTable", ("rttmonlatesthttpopertable", CISCORTTMONMIB.Rttmonlatesthttpopertable)), ("rttMonLatestJitterOperTable", ("rttmonlatestjitteropertable", CISCORTTMONMIB.Rttmonlatestjitteropertable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("rttMonAppl", ("rttmonappl", CISCORTTMONMIB.RttMonAppl)), ("rttMonApplSupportedRttTypesTable", ("rttmonapplsupportedrtttypestable", CISCORTTMONMIB.RttMonApplSupportedRttTypesTable)), ("rttMonApplSupportedProtocolsTable", ("rttmonapplsupportedprotocolstable", CISCORTTMONMIB.RttMonApplSupportedProtocolsTable)), ("rttMonApplPreConfigedTable", ("rttmonapplpreconfigedtable", CISCORTTMONMIB.RttMonApplPreConfigedTable)), ("rttMonApplAuthTable", ("rttmonapplauthtable", CISCORTTMONMIB.RttMonApplAuthTable)), ("rttMonCtrlAdminTable", ("rttmonctrladmintable", CISCORTTMONMIB.RttMonCtrlAdminTable)), ("rttMonEchoAdminTable", ("rttmonechoadmintable", CISCORTTMONMIB.RttMonEchoAdminTable)), ("rttMonFileIOAdminTable", ("rttmonfileioadmintable", CISCORTTMONMIB.RttMonFileIOAdminTable)), ("rttMonScriptAdminTable", ("rttmonscriptadmintable", CISCORTTMONMIB.RttMonScriptAdminTable)), ("rttMonReactTriggerAdminTable", ("rttmonreacttriggeradmintable", CISCORTTMONMIB.RttMonReactTriggerAdminTable)), ("rttMonEchoPathAdminTable", ("rttmonechopathadmintable", CISCORTTMONMIB.RttMonEchoPathAdminTable)), ("rttMonGrpScheduleAdminTable", ("rttmongrpscheduleadmintable", CISCORTTMONMIB.RttMonGrpScheduleAdminTable)), ("rttMplsVpnMonCtrlTable", ("rttmplsvpnmonctrltable", CISCORTTMONMIB.RttMplsVpnMonCtrlTable)), ("rttMonReactTable", ("rttmonreacttable", CISCORTTMONMIB.RttMonReactTable)), ("rttMonGeneratedOperTable", ("rttmongeneratedopertable", CISCORTTMONMIB.RttMonGeneratedOperTable)), ("rttMonStatsCaptureTable", ("rttmonstatscapturetable", CISCORTTMONMIB.RttMonStatsCaptureTable)), ("rttMonStatsCollectTable", ("rttmonstatscollecttable", CISCORTTMONMIB.RttMonStatsCollectTable)), ("rttMonStatsTotalsTable", ("rttmonstatstotalstable", CISCORTTMONMIB.RttMonStatsTotalsTable)), ("rttMonHTTPStatsTable", ("rttmonhttpstatstable", CISCORTTMONMIB.RttMonHTTPStatsTable)), ("rttMonJitterStatsTable", ("rttmonjitterstatstable", CISCORTTMONMIB.RttMonJitterStatsTable)), ("rttMonLpdGrpStatsTable", ("rttmonlpdgrpstatstable", CISCORTTMONMIB.RttMonLpdGrpStatsTable)), ("rttMonHistoryCollectionTable", ("rttmonhistorycollectiontable", CISCORTTMONMIB.RttMonHistoryCollectionTable)), ("rttMonLatestHTTPOperTable", ("rttmonlatesthttpopertable", CISCORTTMONMIB.RttMonLatestHTTPOperTable)), ("rttMonLatestJitterOperTable", ("rttmonlatestjitteropertable", CISCORTTMONMIB.RttMonLatestJitterOperTable))])
         self._leafs = OrderedDict()
 
-        self.rttmonappl = CISCORTTMONMIB.Rttmonappl()
+        self.rttmonappl = CISCORTTMONMIB.RttMonAppl()
         self.rttmonappl.parent = self
         self._children_name_map["rttmonappl"] = "rttMonAppl"
-        self._children_yang_names.add("rttMonAppl")
 
-        self.rttmonapplsupportedrtttypestable = CISCORTTMONMIB.Rttmonapplsupportedrtttypestable()
+        self.rttmonapplsupportedrtttypestable = CISCORTTMONMIB.RttMonApplSupportedRttTypesTable()
         self.rttmonapplsupportedrtttypestable.parent = self
         self._children_name_map["rttmonapplsupportedrtttypestable"] = "rttMonApplSupportedRttTypesTable"
-        self._children_yang_names.add("rttMonApplSupportedRttTypesTable")
 
-        self.rttmonapplsupportedprotocolstable = CISCORTTMONMIB.Rttmonapplsupportedprotocolstable()
+        self.rttmonapplsupportedprotocolstable = CISCORTTMONMIB.RttMonApplSupportedProtocolsTable()
         self.rttmonapplsupportedprotocolstable.parent = self
         self._children_name_map["rttmonapplsupportedprotocolstable"] = "rttMonApplSupportedProtocolsTable"
-        self._children_yang_names.add("rttMonApplSupportedProtocolsTable")
 
-        self.rttmonapplpreconfigedtable = CISCORTTMONMIB.Rttmonapplpreconfigedtable()
+        self.rttmonapplpreconfigedtable = CISCORTTMONMIB.RttMonApplPreConfigedTable()
         self.rttmonapplpreconfigedtable.parent = self
         self._children_name_map["rttmonapplpreconfigedtable"] = "rttMonApplPreConfigedTable"
-        self._children_yang_names.add("rttMonApplPreConfigedTable")
 
-        self.rttmonapplauthtable = CISCORTTMONMIB.Rttmonapplauthtable()
+        self.rttmonapplauthtable = CISCORTTMONMIB.RttMonApplAuthTable()
         self.rttmonapplauthtable.parent = self
         self._children_name_map["rttmonapplauthtable"] = "rttMonApplAuthTable"
-        self._children_yang_names.add("rttMonApplAuthTable")
 
-        self.rttmonctrladmintable = CISCORTTMONMIB.Rttmonctrladmintable()
+        self.rttmonctrladmintable = CISCORTTMONMIB.RttMonCtrlAdminTable()
         self.rttmonctrladmintable.parent = self
         self._children_name_map["rttmonctrladmintable"] = "rttMonCtrlAdminTable"
-        self._children_yang_names.add("rttMonCtrlAdminTable")
 
-        self.rttmonechoadmintable = CISCORTTMONMIB.Rttmonechoadmintable()
+        self.rttmonechoadmintable = CISCORTTMONMIB.RttMonEchoAdminTable()
         self.rttmonechoadmintable.parent = self
         self._children_name_map["rttmonechoadmintable"] = "rttMonEchoAdminTable"
-        self._children_yang_names.add("rttMonEchoAdminTable")
 
-        self.rttmonfileioadmintable = CISCORTTMONMIB.Rttmonfileioadmintable()
+        self.rttmonfileioadmintable = CISCORTTMONMIB.RttMonFileIOAdminTable()
         self.rttmonfileioadmintable.parent = self
         self._children_name_map["rttmonfileioadmintable"] = "rttMonFileIOAdminTable"
-        self._children_yang_names.add("rttMonFileIOAdminTable")
 
-        self.rttmonscriptadmintable = CISCORTTMONMIB.Rttmonscriptadmintable()
+        self.rttmonscriptadmintable = CISCORTTMONMIB.RttMonScriptAdminTable()
         self.rttmonscriptadmintable.parent = self
         self._children_name_map["rttmonscriptadmintable"] = "rttMonScriptAdminTable"
-        self._children_yang_names.add("rttMonScriptAdminTable")
 
-        self.rttmonreacttriggeradmintable = CISCORTTMONMIB.Rttmonreacttriggeradmintable()
+        self.rttmonreacttriggeradmintable = CISCORTTMONMIB.RttMonReactTriggerAdminTable()
         self.rttmonreacttriggeradmintable.parent = self
         self._children_name_map["rttmonreacttriggeradmintable"] = "rttMonReactTriggerAdminTable"
-        self._children_yang_names.add("rttMonReactTriggerAdminTable")
 
-        self.rttmonechopathadmintable = CISCORTTMONMIB.Rttmonechopathadmintable()
+        self.rttmonechopathadmintable = CISCORTTMONMIB.RttMonEchoPathAdminTable()
         self.rttmonechopathadmintable.parent = self
         self._children_name_map["rttmonechopathadmintable"] = "rttMonEchoPathAdminTable"
-        self._children_yang_names.add("rttMonEchoPathAdminTable")
 
-        self.rttmongrpscheduleadmintable = CISCORTTMONMIB.Rttmongrpscheduleadmintable()
+        self.rttmongrpscheduleadmintable = CISCORTTMONMIB.RttMonGrpScheduleAdminTable()
         self.rttmongrpscheduleadmintable.parent = self
         self._children_name_map["rttmongrpscheduleadmintable"] = "rttMonGrpScheduleAdminTable"
-        self._children_yang_names.add("rttMonGrpScheduleAdminTable")
 
-        self.rttmplsvpnmonctrltable = CISCORTTMONMIB.Rttmplsvpnmonctrltable()
+        self.rttmplsvpnmonctrltable = CISCORTTMONMIB.RttMplsVpnMonCtrlTable()
         self.rttmplsvpnmonctrltable.parent = self
         self._children_name_map["rttmplsvpnmonctrltable"] = "rttMplsVpnMonCtrlTable"
-        self._children_yang_names.add("rttMplsVpnMonCtrlTable")
 
-        self.rttmonreacttable = CISCORTTMONMIB.Rttmonreacttable()
+        self.rttmonreacttable = CISCORTTMONMIB.RttMonReactTable()
         self.rttmonreacttable.parent = self
         self._children_name_map["rttmonreacttable"] = "rttMonReactTable"
-        self._children_yang_names.add("rttMonReactTable")
 
-        self.rttmongeneratedopertable = CISCORTTMONMIB.Rttmongeneratedopertable()
+        self.rttmongeneratedopertable = CISCORTTMONMIB.RttMonGeneratedOperTable()
         self.rttmongeneratedopertable.parent = self
         self._children_name_map["rttmongeneratedopertable"] = "rttMonGeneratedOperTable"
-        self._children_yang_names.add("rttMonGeneratedOperTable")
 
-        self.rttmonstatscapturetable = CISCORTTMONMIB.Rttmonstatscapturetable()
+        self.rttmonstatscapturetable = CISCORTTMONMIB.RttMonStatsCaptureTable()
         self.rttmonstatscapturetable.parent = self
         self._children_name_map["rttmonstatscapturetable"] = "rttMonStatsCaptureTable"
-        self._children_yang_names.add("rttMonStatsCaptureTable")
 
-        self.rttmonstatscollecttable = CISCORTTMONMIB.Rttmonstatscollecttable()
+        self.rttmonstatscollecttable = CISCORTTMONMIB.RttMonStatsCollectTable()
         self.rttmonstatscollecttable.parent = self
         self._children_name_map["rttmonstatscollecttable"] = "rttMonStatsCollectTable"
-        self._children_yang_names.add("rttMonStatsCollectTable")
 
-        self.rttmonstatstotalstable = CISCORTTMONMIB.Rttmonstatstotalstable()
+        self.rttmonstatstotalstable = CISCORTTMONMIB.RttMonStatsTotalsTable()
         self.rttmonstatstotalstable.parent = self
         self._children_name_map["rttmonstatstotalstable"] = "rttMonStatsTotalsTable"
-        self._children_yang_names.add("rttMonStatsTotalsTable")
 
-        self.rttmonhttpstatstable = CISCORTTMONMIB.Rttmonhttpstatstable()
+        self.rttmonhttpstatstable = CISCORTTMONMIB.RttMonHTTPStatsTable()
         self.rttmonhttpstatstable.parent = self
         self._children_name_map["rttmonhttpstatstable"] = "rttMonHTTPStatsTable"
-        self._children_yang_names.add("rttMonHTTPStatsTable")
 
-        self.rttmonjitterstatstable = CISCORTTMONMIB.Rttmonjitterstatstable()
+        self.rttmonjitterstatstable = CISCORTTMONMIB.RttMonJitterStatsTable()
         self.rttmonjitterstatstable.parent = self
         self._children_name_map["rttmonjitterstatstable"] = "rttMonJitterStatsTable"
-        self._children_yang_names.add("rttMonJitterStatsTable")
 
-        self.rttmonlpdgrpstatstable = CISCORTTMONMIB.Rttmonlpdgrpstatstable()
+        self.rttmonlpdgrpstatstable = CISCORTTMONMIB.RttMonLpdGrpStatsTable()
         self.rttmonlpdgrpstatstable.parent = self
         self._children_name_map["rttmonlpdgrpstatstable"] = "rttMonLpdGrpStatsTable"
-        self._children_yang_names.add("rttMonLpdGrpStatsTable")
 
-        self.rttmonhistorycollectiontable = CISCORTTMONMIB.Rttmonhistorycollectiontable()
+        self.rttmonhistorycollectiontable = CISCORTTMONMIB.RttMonHistoryCollectionTable()
         self.rttmonhistorycollectiontable.parent = self
         self._children_name_map["rttmonhistorycollectiontable"] = "rttMonHistoryCollectionTable"
-        self._children_yang_names.add("rttMonHistoryCollectionTable")
 
-        self.rttmonlatesthttpopertable = CISCORTTMONMIB.Rttmonlatesthttpopertable()
+        self.rttmonlatesthttpopertable = CISCORTTMONMIB.RttMonLatestHTTPOperTable()
         self.rttmonlatesthttpopertable.parent = self
         self._children_name_map["rttmonlatesthttpopertable"] = "rttMonLatestHTTPOperTable"
-        self._children_yang_names.add("rttMonLatestHTTPOperTable")
 
-        self.rttmonlatestjitteropertable = CISCORTTMONMIB.Rttmonlatestjitteropertable()
+        self.rttmonlatestjitteropertable = CISCORTTMONMIB.RttMonLatestJitterOperTable()
         self.rttmonlatestjitteropertable.parent = self
         self._children_name_map["rttmonlatestjitteropertable"] = "rttMonLatestJitterOperTable"
-        self._children_yang_names.add("rttMonLatestJitterOperTable")
         self._segment_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCORTTMONMIB, [], name, value)
 
-    class Rttmonappl(Entity):
+
+    class RttMonAppl(Entity):
         """
         
         
@@ -513,15 +491,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonappl, self).__init__()
+            super(CISCORTTMONMIB.RttMonAppl, self).__init__()
 
             self.yang_name = "rttMonAppl"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('rttmonapplversion', YLeaf(YType.str, 'rttMonApplVersion')),
                 ('rttmonapplmaxpacketdatasize', YLeaf(YType.int32, 'rttMonApplMaxPacketDataSize')),
@@ -550,10 +527,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonappl, ['rttmonapplversion', 'rttmonapplmaxpacketdatasize', 'rttmonappltimeoflastset', 'rttmonapplnumctrladminentry', 'rttmonapplreset', 'rttmonapplpreconfigedreset', 'rttmonapplprobecapacity', 'rttmonapplfreememlowwatermark', 'rttmonappllatestseterror', 'rttmonapplresponder', 'rttmonappllpdgrpstatsreset'], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonAppl, ['rttmonapplversion', 'rttmonapplmaxpacketdatasize', 'rttmonappltimeoflastset', 'rttmonapplnumctrladminentry', 'rttmonapplreset', 'rttmonapplpreconfigedreset', 'rttmonapplprobecapacity', 'rttmonapplfreememlowwatermark', 'rttmonappllatestseterror', 'rttmonapplresponder', 'rttmonappllpdgrpstatsreset'], name, value)
 
 
-    class Rttmonapplsupportedrtttypestable(Entity):
+    class RttMonApplSupportedRttTypesTable(Entity):
         """
         A table of which contains the supported Rtt
         Monitor Types.
@@ -564,7 +541,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonapplsupportedrtttypesentry
         
         	A list that presents the valid Rtt Monitor Types
-        	**type**\: list of  		 :py:class:`Rttmonapplsupportedrtttypesentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry>`
+        	**type**\: list of  		 :py:class:`RttMonApplSupportedRttTypesEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry>`
         
         
 
@@ -574,15 +551,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonapplsupportedrtttypestable, self).__init__()
+            super(CISCORTTMONMIB.RttMonApplSupportedRttTypesTable, self).__init__()
 
             self.yang_name = "rttMonApplSupportedRttTypesTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonApplSupportedRttTypesEntry", ("rttmonapplsupportedrtttypesentry", CISCORTTMONMIB.Rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry))])
+            self._child_classes = OrderedDict([("rttMonApplSupportedRttTypesEntry", ("rttmonapplsupportedrtttypesentry", CISCORTTMONMIB.RttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonapplsupportedrtttypesentry = YList(self)
@@ -590,10 +566,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonapplsupportedrtttypestable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonApplSupportedRttTypesTable, [], name, value)
 
 
-        class Rttmonapplsupportedrtttypesentry(Entity):
+        class RttMonApplSupportedRttTypesEntry(Entity):
             """
             A list that presents the valid Rtt Monitor
             Types.
@@ -616,15 +592,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry, self).__init__()
 
                 self.yang_name = "rttMonApplSupportedRttTypesEntry"
                 self.yang_parent_name = "rttMonApplSupportedRttTypesTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonapplsupportedrtttypes']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonapplsupportedrtttypes', YLeaf(YType.enumeration, 'rttMonApplSupportedRttTypes')),
                     ('rttmonapplsupportedrtttypesvalid', YLeaf(YType.boolean, 'rttMonApplSupportedRttTypesValid')),
@@ -635,10 +610,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplSupportedRttTypesTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry, ['rttmonapplsupportedrtttypes', 'rttmonapplsupportedrtttypesvalid'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry, ['rttmonapplsupportedrtttypes', 'rttmonapplsupportedrtttypesvalid'], name, value)
 
 
-    class Rttmonapplsupportedprotocolstable(Entity):
+    class RttMonApplSupportedProtocolsTable(Entity):
         """
         A table of which contains the supported Rtt
         Monitor Protocols.
@@ -649,7 +624,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonapplsupportedprotocolsentry
         
         	A list that presents the valid Rtt Monitor Protocols
-        	**type**\: list of  		 :py:class:`Rttmonapplsupportedprotocolsentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry>`
+        	**type**\: list of  		 :py:class:`RttMonApplSupportedProtocolsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry>`
         
         
 
@@ -659,15 +634,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonapplsupportedprotocolstable, self).__init__()
+            super(CISCORTTMONMIB.RttMonApplSupportedProtocolsTable, self).__init__()
 
             self.yang_name = "rttMonApplSupportedProtocolsTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonApplSupportedProtocolsEntry", ("rttmonapplsupportedprotocolsentry", CISCORTTMONMIB.Rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry))])
+            self._child_classes = OrderedDict([("rttMonApplSupportedProtocolsEntry", ("rttmonapplsupportedprotocolsentry", CISCORTTMONMIB.RttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonapplsupportedprotocolsentry = YList(self)
@@ -675,10 +649,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonapplsupportedprotocolstable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonApplSupportedProtocolsTable, [], name, value)
 
 
-        class Rttmonapplsupportedprotocolsentry(Entity):
+        class RttMonApplSupportedProtocolsEntry(Entity):
             """
             A list that presents the valid Rtt Monitor
             Protocols.
@@ -701,15 +675,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry, self).__init__()
 
                 self.yang_name = "rttMonApplSupportedProtocolsEntry"
                 self.yang_parent_name = "rttMonApplSupportedProtocolsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonapplsupportedprotocols']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonapplsupportedprotocols', YLeaf(YType.enumeration, 'rttMonApplSupportedProtocols')),
                     ('rttmonapplsupportedprotocolsvalid', YLeaf(YType.boolean, 'rttMonApplSupportedProtocolsValid')),
@@ -720,10 +693,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplSupportedProtocolsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry, ['rttmonapplsupportedprotocols', 'rttmonapplsupportedprotocolsvalid'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry, ['rttmonapplsupportedprotocols', 'rttmonapplsupportedprotocolsvalid'], name, value)
 
 
-    class Rttmonapplpreconfigedtable(Entity):
+    class RttMonApplPreConfigedTable(Entity):
         """
         A table of which contains the previously
         configured Script Names and File IO targets.
@@ -735,7 +708,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonapplpreconfigedentry
         
         	A list of objects that describe the previously configured Script Names and File IO targets
-        	**type**\: list of  		 :py:class:`Rttmonapplpreconfigedentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry>`
+        	**type**\: list of  		 :py:class:`RttMonApplPreConfigedEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplPreConfigedTable.RttMonApplPreConfigedEntry>`
         
         	**status**\: obsolete
         
@@ -747,15 +720,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonapplpreconfigedtable, self).__init__()
+            super(CISCORTTMONMIB.RttMonApplPreConfigedTable, self).__init__()
 
             self.yang_name = "rttMonApplPreConfigedTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonApplPreConfigedEntry", ("rttmonapplpreconfigedentry", CISCORTTMONMIB.Rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry))])
+            self._child_classes = OrderedDict([("rttMonApplPreConfigedEntry", ("rttmonapplpreconfigedentry", CISCORTTMONMIB.RttMonApplPreConfigedTable.RttMonApplPreConfigedEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonapplpreconfigedentry = YList(self)
@@ -763,10 +735,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonapplpreconfigedtable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonApplPreConfigedTable, [], name, value)
 
 
-        class Rttmonapplpreconfigedentry(Entity):
+        class RttMonApplPreConfigedEntry(Entity):
             """
             A list of objects that describe the previously
             configured Script Names and File IO targets.
@@ -774,7 +746,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonapplpreconfigedtype  (key)
             
             	This is the type of value being stored in the rttMonApplPreConfigedName object
-            	**type**\:  :py:class:`Rttmonapplpreconfigedtype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry.Rttmonapplpreconfigedtype>`
+            	**type**\:  :py:class:`RttMonApplPreConfigedType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplPreConfigedTable.RttMonApplPreConfigedEntry.RttMonApplPreConfigedType>`
             
             	**status**\: obsolete
             
@@ -800,15 +772,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonApplPreConfigedTable.RttMonApplPreConfigedEntry, self).__init__()
 
                 self.yang_name = "rttMonApplPreConfigedEntry"
                 self.yang_parent_name = "rttMonApplPreConfigedTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonapplpreconfigedtype','rttmonapplpreconfigedname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonapplpreconfigedtype', YLeaf(YType.enumeration, 'rttMonApplPreConfigedType')),
                     ('rttmonapplpreconfigedname', YLeaf(YType.str, 'rttMonApplPreConfigedName')),
@@ -821,11 +792,11 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplPreConfigedTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry, ['rttmonapplpreconfigedtype', 'rttmonapplpreconfigedname', 'rttmonapplpreconfigedvalid'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonApplPreConfigedTable.RttMonApplPreConfigedEntry, ['rttmonapplpreconfigedtype', 'rttmonapplpreconfigedname', 'rttmonapplpreconfigedvalid'], name, value)
 
-            class Rttmonapplpreconfigedtype(Enum):
+            class RttMonApplPreConfigedType(Enum):
                 """
-                Rttmonapplpreconfigedtype (Enum Class)
+                RttMonApplPreConfigedType (Enum Class)
 
                 This is the type of value being stored in the
 
@@ -843,7 +814,7 @@ class CISCORTTMONMIB(Entity):
 
 
 
-    class Rttmonapplauthtable(Entity):
+    class RttMonApplAuthTable(Entity):
         """
         A table which contains the definitions for key\-strings
         that will be used in authenticating RTR Control Protocol.
@@ -851,7 +822,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonapplauthentry
         
         	A list that presents the valid parameters for Authenticating RTR Control Protocol
-        	**type**\: list of  		 :py:class:`Rttmonapplauthentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplauthtable.Rttmonapplauthentry>`
+        	**type**\: list of  		 :py:class:`RttMonApplAuthEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplAuthTable.RttMonApplAuthEntry>`
         
         
 
@@ -861,15 +832,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonapplauthtable, self).__init__()
+            super(CISCORTTMONMIB.RttMonApplAuthTable, self).__init__()
 
             self.yang_name = "rttMonApplAuthTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonApplAuthEntry", ("rttmonapplauthentry", CISCORTTMONMIB.Rttmonapplauthtable.Rttmonapplauthentry))])
+            self._child_classes = OrderedDict([("rttMonApplAuthEntry", ("rttmonapplauthentry", CISCORTTMONMIB.RttMonApplAuthTable.RttMonApplAuthEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonapplauthentry = YList(self)
@@ -877,10 +847,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonapplauthtable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonApplAuthTable, [], name, value)
 
 
-        class Rttmonapplauthentry(Entity):
+        class RttMonApplAuthEntry(Entity):
             """
             A list that presents the valid parameters for Authenticating
             RTR Control Protocol.
@@ -947,15 +917,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonapplauthtable.Rttmonapplauthentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonApplAuthTable.RttMonApplAuthEntry, self).__init__()
 
                 self.yang_name = "rttMonApplAuthEntry"
                 self.yang_parent_name = "rttMonApplAuthTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonapplauthindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonapplauthindex', YLeaf(YType.int32, 'rttMonApplAuthIndex')),
                     ('rttmonapplauthkeychain', YLeaf(YType.str, 'rttMonApplAuthKeyChain')),
@@ -978,10 +947,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplAuthTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonapplauthtable.Rttmonapplauthentry, ['rttmonapplauthindex', 'rttmonapplauthkeychain', 'rttmonapplauthkeystring1', 'rttmonapplauthkeystring2', 'rttmonapplauthkeystring3', 'rttmonapplauthkeystring4', 'rttmonapplauthkeystring5', 'rttmonapplauthstatus'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonApplAuthTable.RttMonApplAuthEntry, ['rttmonapplauthindex', 'rttmonapplauthkeychain', 'rttmonapplauthkeystring1', 'rttmonapplauthkeystring2', 'rttmonapplauthkeystring3', 'rttmonapplauthkeystring4', 'rttmonapplauthkeystring5', 'rttmonapplauthstatus'], name, value)
 
 
-    class Rttmonctrladmintable(Entity):
+    class RttMonCtrlAdminTable(Entity):
         """
         A table of Round Trip Time (RTT) monitoring definitions.
         
@@ -1000,7 +969,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonctrladminentry
         
         	A base list of objects that define a conceptual RTT control row
-        	**type**\: list of  		 :py:class:`Rttmonctrladminentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+        	**type**\: list of  		 :py:class:`RttMonCtrlAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
         
         
 
@@ -1010,15 +979,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonctrladmintable, self).__init__()
+            super(CISCORTTMONMIB.RttMonCtrlAdminTable, self).__init__()
 
             self.yang_name = "rttMonCtrlAdminTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonCtrlAdminEntry", ("rttmonctrladminentry", CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry))])
+            self._child_classes = OrderedDict([("rttMonCtrlAdminEntry", ("rttmonctrladminentry", CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonctrladminentry = YList(self)
@@ -1026,10 +994,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonctrladmintable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonCtrlAdminTable, [], name, value)
 
 
-        class Rttmonctrladminentry(Entity):
+        class RttMonCtrlAdminEntry(Entity):
             """
             A base list of objects that define a conceptual RTT
             control row.
@@ -1167,7 +1135,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonreactadminthresholdtype
             
             	This object specifies the conditions under which rttMonCtrlOperOverThresholdOccurred is changed\:  NOTE\:  When the RttMonRttType is 'pathEcho' this         objects' value and all associated         object values are only valid when RTT         'echo' operations are to the        rttMonEchoAdminTargetAddress object address.  Thus        'pathEcho' operations to intermediate        hops will not cause this object to change.  never       \- rttMonCtrlOperOverThresholdOccurred is                 never set immediate   \- rttMonCtrlOperOverThresholdOccurred is set                 to true when an operation completion time                 exceeds rttMonCtrlAdminThreshold;                 conversely                 rttMonCtrlOperOverThresholdOccurred is set                 to false when an operation completion time                 falls below                 rttMonReactAdminThresholdFalling  consecutive \- rttMonCtrlOperOverThresholdOccurred is set                 to true when an operation completion time                 exceeds rttMonCtrlAdminThreshold on                 rttMonReactAdminThresholdCount consecutive                 RTT operations; conversely,                 rttMonCtrlOperOverThresholdOccurred is set                 to false when an operation completion time                falls under the                 rttMonReactAdminThresholdFalling                 for the same number of consecutive                 operations  xOfy        \- rttMonCtrlOperOverThresholdOccurred is set                 to true when x (as specified by                 rttMonReactAdminThresholdCount) out of the                 last y (as specified by                 rttMonReactAdminThresholdCount2)                 operation completion time exceeds                 rttMonCtrlAdminThreshold;                 conversely, it is set to false when x,                 out of the last y operation completion                time fall below                rttMonReactAdminThresholdFalling                NOTE\: When x > y, the probe will never                      generate a reaction. average     \- rttMonCtrlOperOverThresholdOccurred is set                 to true when the running average of the                 previous rttMonReactAdminThresholdCount                 operation completion times exceed                 rttMonCtrlAdminThreshold; conversely, it                 is set to false when the running average                 falls below the                 rttMonReactAdminThresholdFalling  If this value is changed by a management station,  rttMonCtrlOperOverThresholdOccurred is set to false, but  no reaction is generated if the prior value of  rttMonCtrlOperOverThresholdOccurred was true. rttMonReactAdminThresholdType object is superseded by rttMonReactThresholdType
-            	**type**\:  :py:class:`Rttmonreactadminthresholdtype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry.Rttmonreactadminthresholdtype>`
+            	**type**\:  :py:class:`RttMonReactAdminThresholdType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry.RttMonReactAdminThresholdType>`
             
             	**status**\: deprecated
             
@@ -1203,7 +1171,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonreactadminactiontype
             
             	Specifies what type(s), if any, of reaction(s) to generate if an operation violates one of the watched  conditions\:  none               \- no reaction is generated trapOnly           \- a trap is generated nmvtOnly           \- an SNA NMVT is generated triggerOnly        \- all trigger actions defined for this                        entry are initiated trapAndNmvt        \- both a trap and an SNA NMVT are                        generated trapAndTrigger     \- both a trap and all trigger actions                        are initiated  nmvtAndTrigger     \- both a NMVT and all trigger actions                        are initiated trapNmvtAndTrigger \- a NMVT, trap, and all trigger actions                       are initiated  A trigger action is defined via the  rttMonReactTriggerAdminTable. rttMonReactAdminActionType object is superseded by rttMonReactActionType
-            	**type**\:  :py:class:`Rttmonreactadminactiontype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry.Rttmonreactadminactiontype>`
+            	**type**\:  :py:class:`RttMonReactAdminActionType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry.RttMonReactAdminActionType>`
             
             	**status**\: deprecated
             
@@ -1275,7 +1243,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonhistoryadminfilter
             
             	Defines a filter for adding RTT results to the history buffer\:  none          \- no history is recorded all           \- the results of all completion times                   and failed completions are recorded overThreshold \- the results of completion times                  over rttMonCtrlAdminThreshold are                   recorded. failures      \- the results of failed operations (only)                   are recorded
-            	**type**\:  :py:class:`Rttmonhistoryadminfilter <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry.Rttmonhistoryadminfilter>`
+            	**type**\:  :py:class:`RttMonHistoryAdminFilter <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry.RttMonHistoryAdminFilter>`
             
             .. attribute:: rttmonctrlopermodificationtime
             
@@ -1339,7 +1307,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonctrloperstate
             
             	The RttMonOperStatus object is used to manage the 'state' of the probe that is implementing  conceptual RTT control row.  This status object has six defined values\:  reset(1)          \- reset this entry, transition                     to 'pending' orderlyStop(2)    \- shutdown this entry at the end                      of the next RTT operation attempt,                       transition to 'inactive' immediateStop(3)  \- shutdown this entry immediately                      (if possible), transition to                       'inactive' pending(4)        \- this value is not settable and                      this conceptual RTT control row is                       waiting for further control either                       via the rttMonScheduleAdminTable                       or the rttMonReactAdminTable/                      rttMonReactTriggerAdminTable;                      This object can transition to this                      value via two mechanisms, first by                      reseting this object, and second                      by creating a conceptual Rtt control                      row with the                       rttMonScheduleAdminRttStartTime                      object with the its special value inactive(5)       \- this value is not settable and                      this conceptual RTT control row is                       waiting for further control via                      the rttMonScheduleAdminTable;                      This object can transition to this                      value via two mechanisms, first by                      setting this object to 'orderlyStop'                      or 'immediateStop', second by                       the rttMonCtrlOperRttLife object                      reaching zero active(6)         \- this value is not settable and                      this conceptual RTT control row is                      currently active restart(7)        \- this value is only settable when the                      state is active. It clears the data                      of this entry and remain on active state.  The probes action when this object is set to 'reset'\:   \-  all rows in rttMonStatsCaptureTable that relate to        this conceptual RTT control row are destroyed and        the indices are set to 1   \-  if rttMonStatisticsAdminNumHourGroups is not zero, a        single new rttMonStatsCaptureTable row is created   \-  all rows in rttMonHistoryCaptureTable that relate        to this RTT definition are destroyed and the indices       are set to 1   \-  implied history used for timeout or threshold       notification (see rttMonReactAdminThresholdType or       rttMonReactThresholdType)       is purged   \-  rttMonCtrlOperRttLife is set to        rttMonScheduleAdminRttLife   \-  rttMonCtrlOperNumRtts is set to zero   \-  rttMonCtrlOperTimeoutOccurred,        rttMonCtrlOperOverThresholdOccurred, and        rttMonCtrlOperConnectionLostOccurred are set to        false; if this causes a change in the value of        either of these objects, resolution notifications        will not occur   \-  the next RTT operation is controlled by the objects       in the rttMonScheduleAdminTable or the        rttMonReactAdminTable/rttMonReactTriggerAdminTable   \-  if the rttMonReactTriggerOperState is 'active', it        will transition to 'pending'   \-  all rttMonReactTriggerAdminEntries pointing to       this conceptual entry with their        rttMonReactTriggerOperState object 'active',        will transition their OperState to 'pending'   \-  all open connections must be maintained  This can be used to synchronize various RTT  definitions, so that the RTT requests occur  simultaneously, or as simultaneously as possible.  The probes action when this object transitions to    'inactive' (via setting this object to 'orderlyStop'    or 'immediateStop' or by rttMonCtrlOperRttLife    reaching zero)\:   \-  all statistics and history collection information       table entries will be closed and kept   \-  implied history used for timeout or threshold       notification (see rttMonReactAdminThresholdType or       rttMonReactThresholdType)       is purged   \-  rttMonCtrlOperTimeoutOccurred,        rttMonCtrlOperOverThresholdOccurred, and        rttMonCtrlOperConnectionLostOccurred are set to        false; if this causes a change in the value of        either of these objects, resolution notifications        will not occur.   \-  the next RTT request is controlled by the objects       in the rttMonScheduleAdminTable   \-  if the rttMonReactTriggerOperState is 'active', it        will transition to 'pending' (this denotes that       the Trigger will be ready the next time this       object goes active)   \-  all rttMonReactTriggerAdminEntries pointing to       this conceptual entry with their        rttMonReactTriggerOperState object 'active',        will transition their OperState to 'pending'   \-  all open connections are to be closed and cleanup.               rttMonCtrlOperState                     STATE           +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+           \|      A       \|       B      \|      C      \| ACTION       \|  'pending'   \|  'inactive'  \|   'active'  \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| OperState set  \|    noError   \|inconsistent\- \|   noError   \| \|  to 'reset'    \|              \| Value        \|             \| \|                \|    \-> A      \|              \|   \-> A      \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| OperState set  \|    noError   \|    noError   \|   noError   \| \|to 'orderlyStop'\|    \-> B      \|    \-> B      \|   \-> B      \| \|     or to      \|              \|              \|             \| \|'immediateStop' \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \|  Event causes  \|    \-> C      \|    \-> B      \|   \-> C      \| \| Trigger State  \|              \|              \|   see (3)   \| \| to transition  \|              \|              \|             \| \| to 'active'    \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus    \|    \-> C      \|    \-> C      \|   see (1)   \| \| transitions to \|              \|              \|             \| \| 'active' &     \|              \|              \|             \| \| RttStartTime is\|              \|              \|             \| \| special value  \|              \|              \|             \| \| of one.        \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus    \|    \-> A      \|    \-> A      \|   see (1)   \| \| transitions to \|              \|              \|             \| \| 'active' &     \|              \|              \|             \| \| RttStartTime is\|              \|              \|             \| \| special value  \|              \|              \|             \| \| of less than   \|              \|              \|             \| \| current time,  \|              \|              \|             \| \| excluding one. \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus    \|    \-> A      \|    \-> B      \|   see (2)   \| \| transitions to \|              \|              \|             \| \| 'notInService' \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus    \|    \-> B      \|    \-> B      \|   \-> B      \| \| transitions to \|              \|              \|             \| \| 'delete'       \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus is \|    \-> C      \|    \-> C      \|   \-> C      \| \| 'active' & the \|              \|              \|   see (3)   \| \| RttStartTime   \|              \|              \|             \| \| arrives        \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \|   RowAgeout    \|    \-> B      \|    \-> B      \|   \-> B      \| \|    expires     \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \|  OperRttLife   \|    N/A       \|    N/A       \|   \-> B      \| \| counts down to \|              \|              \|             \| \| zero           \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+  (1) \- rttMonCtrlOperState must have transitioned to 'inactive' or 'pending' before the rttMonCtrlAdminStatus can transition to 'active'.  See (2). (2) \- rttMonCtrlAdminStatus cannot transition to 'notInService' unless rttMonCtrlOperState has been previously forced to 'inactive' or 'pending'. (3) \- when this happens the rttMonCtrlOperRttLife will not be updated with the rttMonCtrlAdminRttLife.  NOTE\:  In order for all objects in a PDU to be set        at the same time, this object can not be        part of a multi\-bound PDU
-            	**type**\:  :py:class:`Rttmonctrloperstate <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry.Rttmonctrloperstate>`
+            	**type**\:  :py:class:`RttMonCtrlOperState <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry.RttMonCtrlOperState>`
             
             .. attribute:: rttmonctrloperverifyerroroccurred
             
@@ -1392,15 +1360,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry, self).__init__()
 
                 self.yang_name = "rttMonCtrlAdminEntry"
                 self.yang_parent_name = "rttMonCtrlAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.int32, 'rttMonCtrlAdminIndex')),
                     ('rttmonctrladminowner', YLeaf(YType.str, 'rttMonCtrlAdminOwner')),
@@ -1507,11 +1474,11 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonCtrlAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry, ['rttmonctrladminindex', 'rttmonctrladminowner', 'rttmonctrladmintag', 'rttmonctrladminrtttype', 'rttmonctrladminthreshold', 'rttmonctrladminfrequency', 'rttmonctrladmintimeout', 'rttmonctrladminverifydata', 'rttmonctrladminstatus', 'rttmonctrladminnvgen', 'rttmonctrladmingroupname', 'rttmonscheduleadminrttlife', 'rttmonscheduleadminrttstarttime', 'rttmonscheduleadminconceptrowageout', 'rttmonscheduleadminrttrecurring', 'rttmonscheduleadminconceptrowageoutv2', 'rttmonreactadminconnectionenable', 'rttmonreactadmintimeoutenable', 'rttmonreactadminthresholdtype', 'rttmonreactadminthresholdfalling', 'rttmonreactadminthresholdcount', 'rttmonreactadminthresholdcount2', 'rttmonreactadminactiontype', 'rttmonreactadminverifyerrorenable', 'rttmonstatisticsadminnumhourgroups', 'rttmonstatisticsadminnumpaths', 'rttmonstatisticsadminnumhops', 'rttmonstatisticsadminnumdistbuckets', 'rttmonstatisticsadmindistinterval', 'rttmonhistoryadminnumlives', 'rttmonhistoryadminnumbuckets', 'rttmonhistoryadminnumsamples', 'rttmonhistoryadminfilter', 'rttmonctrlopermodificationtime', 'rttmonctrloperdiagtext', 'rttmonctrloperresettime', 'rttmonctrloperoctetsinuse', 'rttmonctrloperconnectionlostoccurred', 'rttmonctrlopertimeoutoccurred', 'rttmonctrloperoverthresholdoccurred', 'rttmonctrlopernumrtts', 'rttmonctrloperrttlife', 'rttmonctrloperstate', 'rttmonctrloperverifyerroroccurred', 'rttmonlatestrttopercompletiontime', 'rttmonlatestrttopersense', 'rttmonlatestrttoperapplspecificsense', 'rttmonlatestrttopersensedescription', 'rttmonlatestrttopertime', 'rttmonlatestrttoperaddress'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry, ['rttmonctrladminindex', 'rttmonctrladminowner', 'rttmonctrladmintag', 'rttmonctrladminrtttype', 'rttmonctrladminthreshold', 'rttmonctrladminfrequency', 'rttmonctrladmintimeout', 'rttmonctrladminverifydata', 'rttmonctrladminstatus', 'rttmonctrladminnvgen', 'rttmonctrladmingroupname', 'rttmonscheduleadminrttlife', 'rttmonscheduleadminrttstarttime', 'rttmonscheduleadminconceptrowageout', 'rttmonscheduleadminrttrecurring', 'rttmonscheduleadminconceptrowageoutv2', 'rttmonreactadminconnectionenable', 'rttmonreactadmintimeoutenable', 'rttmonreactadminthresholdtype', 'rttmonreactadminthresholdfalling', 'rttmonreactadminthresholdcount', 'rttmonreactadminthresholdcount2', 'rttmonreactadminactiontype', 'rttmonreactadminverifyerrorenable', 'rttmonstatisticsadminnumhourgroups', 'rttmonstatisticsadminnumpaths', 'rttmonstatisticsadminnumhops', 'rttmonstatisticsadminnumdistbuckets', 'rttmonstatisticsadmindistinterval', 'rttmonhistoryadminnumlives', 'rttmonhistoryadminnumbuckets', 'rttmonhistoryadminnumsamples', 'rttmonhistoryadminfilter', 'rttmonctrlopermodificationtime', 'rttmonctrloperdiagtext', 'rttmonctrloperresettime', 'rttmonctrloperoctetsinuse', 'rttmonctrloperconnectionlostoccurred', 'rttmonctrlopertimeoutoccurred', 'rttmonctrloperoverthresholdoccurred', 'rttmonctrlopernumrtts', 'rttmonctrloperrttlife', 'rttmonctrloperstate', 'rttmonctrloperverifyerroroccurred', 'rttmonlatestrttopercompletiontime', 'rttmonlatestrttopersense', 'rttmonlatestrttoperapplspecificsense', 'rttmonlatestrttopersensedescription', 'rttmonlatestrttopertime', 'rttmonlatestrttoperaddress'], name, value)
 
-            class Rttmonctrloperstate(Enum):
+            class RttMonCtrlOperState(Enum):
                 """
-                Rttmonctrloperstate (Enum Class)
+                RttMonCtrlOperState (Enum Class)
 
                 The RttMonOperStatus object is used to
 
@@ -1884,9 +1851,9 @@ class CISCORTTMONMIB(Entity):
                 restart = Enum.YLeaf(7, "restart")
 
 
-            class Rttmonhistoryadminfilter(Enum):
+            class RttMonHistoryAdminFilter(Enum):
                 """
-                Rttmonhistoryadminfilter (Enum Class)
+                RttMonHistoryAdminFilter (Enum Class)
 
                 Defines a filter for adding RTT results to the history
 
@@ -1927,9 +1894,9 @@ class CISCORTTMONMIB(Entity):
                 failures = Enum.YLeaf(4, "failures")
 
 
-            class Rttmonreactadminactiontype(Enum):
+            class RttMonReactAdminActionType(Enum):
                 """
-                Rttmonreactadminactiontype (Enum Class)
+                RttMonReactAdminActionType (Enum Class)
 
                 Specifies what type(s), if any, of reaction(s) to
 
@@ -2006,9 +1973,9 @@ class CISCORTTMONMIB(Entity):
                 trapNmvtAndTrigger = Enum.YLeaf(8, "trapNmvtAndTrigger")
 
 
-            class Rttmonreactadminthresholdtype(Enum):
+            class RttMonReactAdminThresholdType(Enum):
                 """
-                Rttmonreactadminthresholdtype (Enum Class)
+                RttMonReactAdminThresholdType (Enum Class)
 
                 This object specifies the conditions under which
 
@@ -2148,7 +2115,7 @@ class CISCORTTMONMIB(Entity):
 
 
 
-    class Rttmonechoadmintable(Entity):
+    class RttMonEchoAdminTable(Entity):
         """
         A table that contains Round Trip Time (RTT) specific
         definitions.
@@ -2160,7 +2127,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonechoadminentry
         
         	A list of objects that define specific configuration for RttMonRttType conceptual Rtt control rows
-        	**type**\: list of  		 :py:class:`Rttmonechoadminentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry>`
+        	**type**\: list of  		 :py:class:`RttMonEchoAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry>`
         
         
 
@@ -2170,15 +2137,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonechoadmintable, self).__init__()
+            super(CISCORTTMONMIB.RttMonEchoAdminTable, self).__init__()
 
             self.yang_name = "rttMonEchoAdminTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonEchoAdminEntry", ("rttmonechoadminentry", CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry))])
+            self._child_classes = OrderedDict([("rttMonEchoAdminEntry", ("rttmonechoadminentry", CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonechoadminentry = YList(self)
@@ -2186,10 +2152,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonechoadmintable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonEchoAdminTable, [], name, value)
 
 
-        class Rttmonechoadminentry(Entity):
+        class RttMonEchoAdminEntry(Entity):
             """
             A list of objects that define specific configuration for
             RttMonRttType conceptual Rtt control rows.
@@ -2201,7 +2167,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonechoadminprotocol
             
@@ -2395,7 +2361,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonechoadminlspfectype
             
             	The type of the target FEC for the RTT 'echo' and 'pathEcho' operations based on 'mplsLspPingAppl' RttMonProtocol.  ldpIpv4Prefix   \- LDP IPv4 prefix
-            	**type**\:  :py:class:`Rttmonechoadminlspfectype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry.Rttmonechoadminlspfectype>`
+            	**type**\:  :py:class:`RttMonEchoAdminLSPFECType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminLSPFECType>`
             
             .. attribute:: rttmonechoadminlspselector
             
@@ -2424,12 +2390,12 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonechoadminprecision
             
             	This object specifies the accuracy of statistics that needs to be calculated milliseconds \- The accuracy of stats will be of milliseconds microseconds \- The accuracy of stats will be in microseconds. This value can be set only for jitter operation
-            	**type**\:  :py:class:`Rttmonechoadminprecision <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry.Rttmonechoadminprecision>`
+            	**type**\:  :py:class:`RttMonEchoAdminPrecision <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminPrecision>`
             
             .. attribute:: rttmonechoadminprobepakpriority
             
             	This object specifies the priority that will be assigned to probe packet.  This value can be set only for jitter  operation
-            	**type**\:  :py:class:`Rttmonechoadminprobepakpriority <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry.Rttmonechoadminprobepakpriority>`
+            	**type**\:  :py:class:`RttMonEchoAdminProbePakPriority <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminProbePakPriority>`
             
             .. attribute:: rttmonechoadminowntpsynctolabs
             
@@ -2450,7 +2416,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonechoadminowntpsynctoltype
             
             	This object specifies whether the value in specified for oneway NTP sync tolerance is absolute value or percent value
-            	**type**\:  :py:class:`Rttmonechoadminowntpsynctoltype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry.Rttmonechoadminowntpsynctoltype>`
+            	**type**\:  :py:class:`RttMonEchoAdminOWNTPSyncTolType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminOWNTPSyncTolType>`
             
             .. attribute:: rttmonechoadmincallednumber
             
@@ -2555,7 +2521,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonechoadminreservedsp
             
             	This object represents the video traffic generation source.  be \: best effort using DSP but without reservation gs \: guaranteed service using DSP with reservation na \: not applicable for not using DSP
-            	**type**\:  :py:class:`Rttmonechoadminreservedsp <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry.Rttmonechoadminreservedsp>`
+            	**type**\:  :py:class:`RttMonEchoAdminReserveDsp <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminReserveDsp>`
             
             .. attribute:: rttmonechoadmininputinterface
             
@@ -2683,15 +2649,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry, self).__init__()
 
                 self.yang_name = "rttMonEchoAdminEntry"
                 self.yang_parent_name = "rttMonEchoAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonechoadminprotocol', YLeaf(YType.enumeration, 'rttMonEchoAdminProtocol')),
@@ -2852,11 +2817,11 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonEchoAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry, ['rttmonctrladminindex', 'rttmonechoadminprotocol', 'rttmonechoadmintargetaddress', 'rttmonechoadminpktdatarequestsize', 'rttmonechoadminpktdataresponsesize', 'rttmonechoadmintargetport', 'rttmonechoadminsourceaddress', 'rttmonechoadminsourceport', 'rttmonechoadmincontrolenable', 'rttmonechoadmintos', 'rttmonechoadminlsrenable', 'rttmonechoadmintargetaddressstring', 'rttmonechoadminnameserver', 'rttmonechoadminoperation', 'rttmonechoadminhttpversion', 'rttmonechoadminurl', 'rttmonechoadmincache', 'rttmonechoadmininterval', 'rttmonechoadminnumpackets', 'rttmonechoadminproxy', 'rttmonechoadminstring1', 'rttmonechoadminstring2', 'rttmonechoadminstring3', 'rttmonechoadminstring4', 'rttmonechoadminstring5', 'rttmonechoadminmode', 'rttmonechoadminvrfname', 'rttmonechoadmincodectype', 'rttmonechoadmincodecinterval', 'rttmonechoadmincodecpayload', 'rttmonechoadmincodecnumpackets', 'rttmonechoadminicpifadvfactor', 'rttmonechoadminlspfectype', 'rttmonechoadminlspselector', 'rttmonechoadminlspreplymode', 'rttmonechoadminlspttl', 'rttmonechoadminlspexp', 'rttmonechoadminprecision', 'rttmonechoadminprobepakpriority', 'rttmonechoadminowntpsynctolabs', 'rttmonechoadminowntpsynctolpct', 'rttmonechoadminowntpsynctoltype', 'rttmonechoadmincallednumber', 'rttmonechoadmindetectpoint', 'rttmonechoadmingkregistration', 'rttmonechoadminsourcevoiceport', 'rttmonechoadmincallduration', 'rttmonechoadminlspreplydscp', 'rttmonechoadminlspnullshim', 'rttmonechoadmintargetmpid', 'rttmonechoadmintargetdomainname', 'rttmonechoadmintargetvlan', 'rttmonechoadminethernetcos', 'rttmonechoadminlspvccvid', 'rttmonechoadmintargetevc', 'rttmonechoadmintargetmepport', 'rttmonechoadminvideotrafficprofile', 'rttmonechoadmindscp', 'rttmonechoadminreservedsp', 'rttmonechoadmininputinterface', 'rttmonechoadminemulatesourceaddress', 'rttmonechoadminemulatesourceport', 'rttmonechoadminemulatetargetaddress', 'rttmonechoadminemulatetargetport', 'rttmonechoadmintargetmacaddress', 'rttmonechoadminsourcemacaddress', 'rttmonechoadminsourcempid', 'rttmonechoadminendpointlistname', 'rttmonechoadminssm', 'rttmonechoadmincontrolretry', 'rttmonechoadmincontroltimeout', 'rttmonechoadminigmptreeinit', 'rttmonechoadminenableburst', 'rttmonechoadminaggburstcycles', 'rttmonechoadminlossrationumframes', 'rttmonechoadminavailnumframes', 'rttmonechoadmintstampoptimization'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry, ['rttmonctrladminindex', 'rttmonechoadminprotocol', 'rttmonechoadmintargetaddress', 'rttmonechoadminpktdatarequestsize', 'rttmonechoadminpktdataresponsesize', 'rttmonechoadmintargetport', 'rttmonechoadminsourceaddress', 'rttmonechoadminsourceport', 'rttmonechoadmincontrolenable', 'rttmonechoadmintos', 'rttmonechoadminlsrenable', 'rttmonechoadmintargetaddressstring', 'rttmonechoadminnameserver', 'rttmonechoadminoperation', 'rttmonechoadminhttpversion', 'rttmonechoadminurl', 'rttmonechoadmincache', 'rttmonechoadmininterval', 'rttmonechoadminnumpackets', 'rttmonechoadminproxy', 'rttmonechoadminstring1', 'rttmonechoadminstring2', 'rttmonechoadminstring3', 'rttmonechoadminstring4', 'rttmonechoadminstring5', 'rttmonechoadminmode', 'rttmonechoadminvrfname', 'rttmonechoadmincodectype', 'rttmonechoadmincodecinterval', 'rttmonechoadmincodecpayload', 'rttmonechoadmincodecnumpackets', 'rttmonechoadminicpifadvfactor', 'rttmonechoadminlspfectype', 'rttmonechoadminlspselector', 'rttmonechoadminlspreplymode', 'rttmonechoadminlspttl', 'rttmonechoadminlspexp', 'rttmonechoadminprecision', 'rttmonechoadminprobepakpriority', 'rttmonechoadminowntpsynctolabs', 'rttmonechoadminowntpsynctolpct', 'rttmonechoadminowntpsynctoltype', 'rttmonechoadmincallednumber', 'rttmonechoadmindetectpoint', 'rttmonechoadmingkregistration', 'rttmonechoadminsourcevoiceport', 'rttmonechoadmincallduration', 'rttmonechoadminlspreplydscp', 'rttmonechoadminlspnullshim', 'rttmonechoadmintargetmpid', 'rttmonechoadmintargetdomainname', 'rttmonechoadmintargetvlan', 'rttmonechoadminethernetcos', 'rttmonechoadminlspvccvid', 'rttmonechoadmintargetevc', 'rttmonechoadmintargetmepport', 'rttmonechoadminvideotrafficprofile', 'rttmonechoadmindscp', 'rttmonechoadminreservedsp', 'rttmonechoadmininputinterface', 'rttmonechoadminemulatesourceaddress', 'rttmonechoadminemulatesourceport', 'rttmonechoadminemulatetargetaddress', 'rttmonechoadminemulatetargetport', 'rttmonechoadmintargetmacaddress', 'rttmonechoadminsourcemacaddress', 'rttmonechoadminsourcempid', 'rttmonechoadminendpointlistname', 'rttmonechoadminssm', 'rttmonechoadmincontrolretry', 'rttmonechoadmincontroltimeout', 'rttmonechoadminigmptreeinit', 'rttmonechoadminenableburst', 'rttmonechoadminaggburstcycles', 'rttmonechoadminlossrationumframes', 'rttmonechoadminavailnumframes', 'rttmonechoadmintstampoptimization'], name, value)
 
-            class Rttmonechoadminlspfectype(Enum):
+            class RttMonEchoAdminLSPFECType(Enum):
                 """
-                Rttmonechoadminlspfectype (Enum Class)
+                RttMonEchoAdminLSPFECType (Enum Class)
 
                 The type of the target FEC for the RTT 'echo' and 'pathEcho'
 
@@ -2871,9 +2836,9 @@ class CISCORTTMONMIB(Entity):
                 ldpIpv4Prefix = Enum.YLeaf(1, "ldpIpv4Prefix")
 
 
-            class Rttmonechoadminowntpsynctoltype(Enum):
+            class RttMonEchoAdminOWNTPSyncTolType(Enum):
                 """
-                Rttmonechoadminowntpsynctoltype (Enum Class)
+                RttMonEchoAdminOWNTPSyncTolType (Enum Class)
 
                 This object specifies whether the value in specified for oneway
 
@@ -2890,9 +2855,9 @@ class CISCORTTMONMIB(Entity):
                 absolute = Enum.YLeaf(2, "absolute")
 
 
-            class Rttmonechoadminprecision(Enum):
+            class RttMonEchoAdminPrecision(Enum):
                 """
-                Rttmonechoadminprecision (Enum Class)
+                RttMonEchoAdminPrecision (Enum Class)
 
                 This object specifies the accuracy of statistics that
 
@@ -2915,9 +2880,9 @@ class CISCORTTMONMIB(Entity):
                 microseconds = Enum.YLeaf(2, "microseconds")
 
 
-            class Rttmonechoadminprobepakpriority(Enum):
+            class RttMonEchoAdminProbePakPriority(Enum):
                 """
-                Rttmonechoadminprobepakpriority (Enum Class)
+                RttMonEchoAdminProbePakPriority (Enum Class)
 
                 This object specifies the priority that will be assigned
 
@@ -2936,9 +2901,9 @@ class CISCORTTMONMIB(Entity):
                 high = Enum.YLeaf(2, "high")
 
 
-            class Rttmonechoadminreservedsp(Enum):
+            class RttMonEchoAdminReserveDsp(Enum):
                 """
-                Rttmonechoadminreservedsp (Enum Class)
+                RttMonEchoAdminReserveDsp (Enum Class)
 
                 This object represents the video traffic generation source.
 
@@ -2964,7 +2929,7 @@ class CISCORTTMONMIB(Entity):
 
 
 
-    class Rttmonfileioadmintable(Entity):
+    class RttMonFileIOAdminTable(Entity):
         """
         A table of Round Trip Time (RTT) monitoring 'fileIO'
         specific definitions.
@@ -2979,7 +2944,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonfileioadminentry
         
         	A list of objects that define specific configuration for 'fileIO' RttMonRttType conceptual Rtt control rows
-        	**type**\: list of  		 :py:class:`Rttmonfileioadminentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonfileioadmintable.Rttmonfileioadminentry>`
+        	**type**\: list of  		 :py:class:`RttMonFileIOAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry>`
         
         	**status**\: obsolete
         
@@ -2991,15 +2956,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonfileioadmintable, self).__init__()
+            super(CISCORTTMONMIB.RttMonFileIOAdminTable, self).__init__()
 
             self.yang_name = "rttMonFileIOAdminTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonFileIOAdminEntry", ("rttmonfileioadminentry", CISCORTTMONMIB.Rttmonfileioadmintable.Rttmonfileioadminentry))])
+            self._child_classes = OrderedDict([("rttMonFileIOAdminEntry", ("rttmonfileioadminentry", CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonfileioadminentry = YList(self)
@@ -3007,10 +2971,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonfileioadmintable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonFileIOAdminTable, [], name, value)
 
 
-        class Rttmonfileioadminentry(Entity):
+        class RttMonFileIOAdminEntry(Entity):
             """
             A list of objects that define specific configuration for
             'fileIO' RttMonRttType conceptual Rtt control rows.
@@ -3022,7 +2986,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonfileioadminfilepath
             
@@ -3034,7 +2998,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonfileioadminsize
             
             	The size of the file to write/read from the File Server
-            	**type**\:  :py:class:`Rttmonfileioadminsize <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonfileioadmintable.Rttmonfileioadminentry.Rttmonfileioadminsize>`
+            	**type**\:  :py:class:`RttMonFileIOAdminSize <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry.RttMonFileIOAdminSize>`
             
             	**units**\: bytes
             
@@ -3043,7 +3007,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonfileioadminaction
             
             	The File I/O action to be performed
-            	**type**\:  :py:class:`Rttmonfileioadminaction <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonfileioadmintable.Rttmonfileioadminentry.Rttmonfileioadminaction>`
+            	**type**\:  :py:class:`RttMonFileIOAdminAction <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry.RttMonFileIOAdminAction>`
             
             	**status**\: obsolete
             
@@ -3055,15 +3019,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonfileioadmintable.Rttmonfileioadminentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry, self).__init__()
 
                 self.yang_name = "rttMonFileIOAdminEntry"
                 self.yang_parent_name = "rttMonFileIOAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonfileioadminfilepath', YLeaf(YType.str, 'rttMonFileIOAdminFilePath')),
@@ -3078,11 +3041,11 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonFileIOAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonfileioadmintable.Rttmonfileioadminentry, ['rttmonctrladminindex', 'rttmonfileioadminfilepath', 'rttmonfileioadminsize', 'rttmonfileioadminaction'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry, ['rttmonctrladminindex', 'rttmonfileioadminfilepath', 'rttmonfileioadminsize', 'rttmonfileioadminaction'], name, value)
 
-            class Rttmonfileioadminaction(Enum):
+            class RttMonFileIOAdminAction(Enum):
                 """
-                Rttmonfileioadminaction (Enum Class)
+                RttMonFileIOAdminAction (Enum Class)
 
                 The File I/O action to be performed.
 
@@ -3101,9 +3064,9 @@ class CISCORTTMONMIB(Entity):
                 writeRead = Enum.YLeaf(3, "writeRead")
 
 
-            class Rttmonfileioadminsize(Enum):
+            class RttMonFileIOAdminSize(Enum):
                 """
-                Rttmonfileioadminsize (Enum Class)
+                RttMonFileIOAdminSize (Enum Class)
 
                 The size of the file to write/read from the File
 
@@ -3133,7 +3096,7 @@ class CISCORTTMONMIB(Entity):
 
 
 
-    class Rttmonscriptadmintable(Entity):
+    class RttMonScriptAdminTable(Entity):
         """
         A table of Round Trip Time (RTT) monitoring 'script'
         specific definitions.
@@ -3148,7 +3111,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonscriptadminentry
         
         	A list of objects that define specific configuration for 'script' RttMonRttType conceptual Rtt control rows
-        	**type**\: list of  		 :py:class:`Rttmonscriptadminentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonscriptadmintable.Rttmonscriptadminentry>`
+        	**type**\: list of  		 :py:class:`RttMonScriptAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonScriptAdminTable.RttMonScriptAdminEntry>`
         
         	**status**\: obsolete
         
@@ -3160,15 +3123,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonscriptadmintable, self).__init__()
+            super(CISCORTTMONMIB.RttMonScriptAdminTable, self).__init__()
 
             self.yang_name = "rttMonScriptAdminTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonScriptAdminEntry", ("rttmonscriptadminentry", CISCORTTMONMIB.Rttmonscriptadmintable.Rttmonscriptadminentry))])
+            self._child_classes = OrderedDict([("rttMonScriptAdminEntry", ("rttmonscriptadminentry", CISCORTTMONMIB.RttMonScriptAdminTable.RttMonScriptAdminEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonscriptadminentry = YList(self)
@@ -3176,10 +3138,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonscriptadmintable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonScriptAdminTable, [], name, value)
 
 
-        class Rttmonscriptadminentry(Entity):
+        class RttMonScriptAdminEntry(Entity):
             """
             A list of objects that define specific configuration for
             'script' RttMonRttType conceptual Rtt control rows.
@@ -3191,7 +3153,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonscriptadminname
             
@@ -3215,15 +3177,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonscriptadmintable.Rttmonscriptadminentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonScriptAdminTable.RttMonScriptAdminEntry, self).__init__()
 
                 self.yang_name = "rttMonScriptAdminEntry"
                 self.yang_parent_name = "rttMonScriptAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonscriptadminname', YLeaf(YType.str, 'rttMonScriptAdminName')),
@@ -3236,10 +3197,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonScriptAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonscriptadmintable.Rttmonscriptadminentry, ['rttmonctrladminindex', 'rttmonscriptadminname', 'rttmonscriptadmincmdlineparams'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonScriptAdminTable.RttMonScriptAdminEntry, ['rttmonctrladminindex', 'rttmonscriptadminname', 'rttmonscriptadmincmdlineparams'], name, value)
 
 
-    class Rttmonreacttriggeradmintable(Entity):
+    class RttMonReactTriggerAdminTable(Entity):
         """
         A table of which contains the list of conceptual RTT
         control rows that will start to collect data when a 
@@ -3281,7 +3242,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonreacttriggeradminentry
         
         	A list of objects that will be triggered when a reaction condition is violated
-        	**type**\: list of  		 :py:class:`Rttmonreacttriggeradminentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry>`
+        	**type**\: list of  		 :py:class:`RttMonReactTriggerAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry>`
         
         
 
@@ -3291,15 +3252,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonreacttriggeradmintable, self).__init__()
+            super(CISCORTTMONMIB.RttMonReactTriggerAdminTable, self).__init__()
 
             self.yang_name = "rttMonReactTriggerAdminTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonReactTriggerAdminEntry", ("rttmonreacttriggeradminentry", CISCORTTMONMIB.Rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry))])
+            self._child_classes = OrderedDict([("rttMonReactTriggerAdminEntry", ("rttmonreacttriggeradminentry", CISCORTTMONMIB.RttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonreacttriggeradminentry = YList(self)
@@ -3307,10 +3267,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonreacttriggeradmintable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonReactTriggerAdminTable, [], name, value)
 
 
-        class Rttmonreacttriggeradminentry(Entity):
+        class RttMonReactTriggerAdminEntry(Entity):
             """
             A list of objects that will be triggered when
             a reaction condition is violated.
@@ -3322,7 +3282,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonreacttriggeradminrttmonctrladminindex  (key)
             
@@ -3339,7 +3299,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonreacttriggeroperstate
             
             	This object takes on the value active when its associated entry in the  rttMonReactTriggerAdminTable has been triggered.  When the associated entry in the rttMonReactTriggerAdminTable is not under a trigger state, this object will be pending.  When this object is in the active state this entry can not be retriggered
-            	**type**\:  :py:class:`Rttmonreacttriggeroperstate <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry.Rttmonreacttriggeroperstate>`
+            	**type**\:  :py:class:`RttMonReactTriggerOperState <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry.RttMonReactTriggerOperState>`
             
             
 
@@ -3349,15 +3309,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry, self).__init__()
 
                 self.yang_name = "rttMonReactTriggerAdminEntry"
                 self.yang_parent_name = "rttMonReactTriggerAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonreacttriggeradminrttmonctrladminindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonreacttriggeradminrttmonctrladminindex', YLeaf(YType.int32, 'rttMonReactTriggerAdminRttMonCtrlAdminIndex')),
@@ -3372,11 +3331,11 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonReactTriggerAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry, ['rttmonctrladminindex', 'rttmonreacttriggeradminrttmonctrladminindex', 'rttmonreacttriggeradminstatus', 'rttmonreacttriggeroperstate'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry, ['rttmonctrladminindex', 'rttmonreacttriggeradminrttmonctrladminindex', 'rttmonreacttriggeradminstatus', 'rttmonreacttriggeroperstate'], name, value)
 
-            class Rttmonreacttriggeroperstate(Enum):
+            class RttMonReactTriggerOperState(Enum):
                 """
-                Rttmonreacttriggeroperstate (Enum Class)
+                RttMonReactTriggerOperState (Enum Class)
 
                 This object takes on the value active
 
@@ -3410,7 +3369,7 @@ class CISCORTTMONMIB(Entity):
 
 
 
-    class Rttmonechopathadmintable(Entity):
+    class RttMonEchoPathAdminTable(Entity):
         """
         A table to store the hop addresses in a Loose Source Routing
         path. Response times are computed along the specified path
@@ -3426,7 +3385,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonechopathadminentry
         
         	A list of objects that define intermediate hop's IP Address.  This entry can be added only if the rttMonCtrlAdminRttType is 'echo'. The entry gets deleted when the corresponding RTR entry, which has an index of rttMonCtrlAdminIndex, is deleted
-        	**type**\: list of  		 :py:class:`Rttmonechopathadminentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonechopathadmintable.Rttmonechopathadminentry>`
+        	**type**\: list of  		 :py:class:`RttMonEchoPathAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoPathAdminTable.RttMonEchoPathAdminEntry>`
         
         
 
@@ -3436,15 +3395,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonechopathadmintable, self).__init__()
+            super(CISCORTTMONMIB.RttMonEchoPathAdminTable, self).__init__()
 
             self.yang_name = "rttMonEchoPathAdminTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonEchoPathAdminEntry", ("rttmonechopathadminentry", CISCORTTMONMIB.Rttmonechopathadmintable.Rttmonechopathadminentry))])
+            self._child_classes = OrderedDict([("rttMonEchoPathAdminEntry", ("rttmonechopathadminentry", CISCORTTMONMIB.RttMonEchoPathAdminTable.RttMonEchoPathAdminEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonechopathadminentry = YList(self)
@@ -3452,10 +3410,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonechopathadmintable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonEchoPathAdminTable, [], name, value)
 
 
-        class Rttmonechopathadminentry(Entity):
+        class RttMonEchoPathAdminEntry(Entity):
             """
             A list of objects that define intermediate hop's IP Address.
             
@@ -3470,7 +3428,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonechopathadminhopindex  (key)
             
@@ -3492,15 +3450,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonechopathadmintable.Rttmonechopathadminentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonEchoPathAdminTable.RttMonEchoPathAdminEntry, self).__init__()
 
                 self.yang_name = "rttMonEchoPathAdminEntry"
                 self.yang_parent_name = "rttMonEchoPathAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonechopathadminhopindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonechopathadminhopindex', YLeaf(YType.int32, 'rttMonEchoPathAdminHopIndex')),
@@ -3513,10 +3470,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonEchoPathAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonechopathadmintable.Rttmonechopathadminentry, ['rttmonctrladminindex', 'rttmonechopathadminhopindex', 'rttmonechopathadminhopaddress'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonEchoPathAdminTable.RttMonEchoPathAdminEntry, ['rttmonctrladminindex', 'rttmonechopathadminhopindex', 'rttmonechopathadminhopaddress'], name, value)
 
 
-    class Rttmongrpscheduleadmintable(Entity):
+    class RttMonGrpScheduleAdminTable(Entity):
         """
         A table of Round Trip Time (RTT) monitoring group scheduling
         specific definitions.
@@ -3531,7 +3488,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmongrpscheduleadminentry
         
         	A list of objects that define a conceptual group scheduling control row
-        	**type**\: list of  		 :py:class:`Rttmongrpscheduleadminentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry>`
+        	**type**\: list of  		 :py:class:`RttMonGrpScheduleAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry>`
         
         
 
@@ -3541,15 +3498,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmongrpscheduleadmintable, self).__init__()
+            super(CISCORTTMONMIB.RttMonGrpScheduleAdminTable, self).__init__()
 
             self.yang_name = "rttMonGrpScheduleAdminTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonGrpScheduleAdminEntry", ("rttmongrpscheduleadminentry", CISCORTTMONMIB.Rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry))])
+            self._child_classes = OrderedDict([("rttMonGrpScheduleAdminEntry", ("rttmongrpscheduleadminentry", CISCORTTMONMIB.RttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry))])
             self._leafs = OrderedDict()
 
             self.rttmongrpscheduleadminentry = YList(self)
@@ -3557,10 +3513,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmongrpscheduleadmintable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonGrpScheduleAdminTable, [], name, value)
 
 
-        class Rttmongrpscheduleadminentry(Entity):
+        class RttMonGrpScheduleAdminEntry(Entity):
             """
             A list of objects that define a conceptual group scheduling
             control row.
@@ -3670,15 +3626,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry, self).__init__()
 
                 self.yang_name = "rttMonGrpScheduleAdminEntry"
                 self.yang_parent_name = "rttMonGrpScheduleAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmongrpscheduleadminindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmongrpscheduleadminindex', YLeaf(YType.int32, 'rttMonGrpScheduleAdminIndex')),
                     ('rttmongrpscheduleadminprobes', YLeaf(YType.str, 'rttMonGrpScheduleAdminProbes')),
@@ -3711,10 +3666,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonGrpScheduleAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry, ['rttmongrpscheduleadminindex', 'rttmongrpscheduleadminprobes', 'rttmongrpscheduleadminperiod', 'rttmongrpscheduleadminfrequency', 'rttmongrpscheduleadminlife', 'rttmongrpscheduleadminageout', 'rttmongrpscheduleadminstatus', 'rttmongrpscheduleadminfreqmax', 'rttmongrpscheduleadminfreqmin', 'rttmongrpscheduleadminstarttime', 'rttmongrpscheduleadminadd', 'rttmongrpscheduleadmindelete', 'rttmongrpscheduleadminreset'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry, ['rttmongrpscheduleadminindex', 'rttmongrpscheduleadminprobes', 'rttmongrpscheduleadminperiod', 'rttmongrpscheduleadminfrequency', 'rttmongrpscheduleadminlife', 'rttmongrpscheduleadminageout', 'rttmongrpscheduleadminstatus', 'rttmongrpscheduleadminfreqmax', 'rttmongrpscheduleadminfreqmin', 'rttmongrpscheduleadminstarttime', 'rttmongrpscheduleadminadd', 'rttmongrpscheduleadmindelete', 'rttmongrpscheduleadminreset'], name, value)
 
 
-    class Rttmplsvpnmonctrltable(Entity):
+    class RttMplsVpnMonCtrlTable(Entity):
         """
         A table of Auto SAA L3 MPLS VPN definitions.
         
@@ -3737,7 +3692,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmplsvpnmonctrlentry
         
         	A base list of objects that define a conceptual Auto SAA L3 MPLS VPN control row
-        	**type**\: list of  		 :py:class:`Rttmplsvpnmonctrlentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry>`
+        	**type**\: list of  		 :py:class:`RttMplsVpnMonCtrlEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry>`
         
         
 
@@ -3747,15 +3702,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmplsvpnmonctrltable, self).__init__()
+            super(CISCORTTMONMIB.RttMplsVpnMonCtrlTable, self).__init__()
 
             self.yang_name = "rttMplsVpnMonCtrlTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMplsVpnMonCtrlEntry", ("rttmplsvpnmonctrlentry", CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry))])
+            self._child_classes = OrderedDict([("rttMplsVpnMonCtrlEntry", ("rttmplsvpnmonctrlentry", CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry))])
             self._leafs = OrderedDict()
 
             self.rttmplsvpnmonctrlentry = YList(self)
@@ -3763,10 +3717,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmplsvpnmonctrltable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMplsVpnMonCtrlTable, [], name, value)
 
 
-        class Rttmplsvpnmonctrlentry(Entity):
+        class RttMplsVpnMonCtrlEntry(Entity):
             """
             A base list of objects that define a conceptual Auto SAA L3
             MPLS VPN control row.
@@ -3912,7 +3866,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmplsvpnmontypesecfreqtype
             
             	This object specifies the reaction type for which the rttMplsVpnMonTypeSecFreqValue should be applied.  The Value 'timeout' will cause secondary frequency to be set for frequency on timeout condition.  The Value 'connectionLoss' will cause secondary frequency to be set for frequency on connectionloss condition.  The Value 'both' will cause secondary frequency to be set for frequency on either of timeout/connectionloss condition.  Notifications must be configured on corresponding reaction type in order to rttMplsVpnMonTypeSecFreqValue get effect.  When LSP Path Discovery is enabled for this row the following rttMplsVpnMonReactLpdNotifyType notifications must be configured in order to rttMplsVpnMonTypeSecFreqValue get effect.   \- 'lpdGroupStatus' or 'lpdAll'.  Since the Frequency of the operation changes the stats will be collected in new bucket.  If any of the reaction type (timeout/connectionLoss) occurred for an operation configured by this Auto SAA L3 MPLS VPN and the following conditions are satisfied, the frequency of the operation will be changed to rttMplsVpnMonTypeSecFreqValue.    1) rttMplsVpnMonTypeSecFreqType is set for a reaction type   (timeout/connectionLoss).   2) A notification is configured for the same reaction type   (timeout/connectionLoss).  When LSP Path Discovery is enabled for this row, if any of the reaction type (timeout/connectionLoss) occurred for 'single probes' configured by this Auto SAA L3 MPLS VPN and the following conditions are satisfied, the secondary frequency rttMplsVpnMonTypeSecFreqValue will be applied to the 'lspGroup' probe.    1) rttMplsVpnMonTypeSecFreqType is set for a reaction type   (timeout/connectionLoss/both).   2) rttMplsVpnMonReactLpdNotifyType object must be set to   value of 'lpdGroupStatus' or 'lpdAll'.  The frequency of the individual operations will be restored to original frequency once the trap is sent
-            	**type**\:  :py:class:`Rttmplsvpnmontypesecfreqtype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry.Rttmplsvpnmontypesecfreqtype>`
+            	**type**\:  :py:class:`RttMplsVpnMonTypeSecFreqType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeSecFreqType>`
             
             .. attribute:: rttmplsvpnmontypesecfreqvalue
             
@@ -4038,7 +3992,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmplsvpnmonreactthresholdtype
             
             	The value corresponding to this object will be applied as rttMonReactAdminThresholdType for individual probes created by the Auto SAA L3 MPLS VPN.  The value corresponding to this object will be applied as rttMonReactThresholdType for individual probes created by the Auto SAA L3 MPLS VPN
-            	**type**\:  :py:class:`Rttmplsvpnmonreactthresholdtype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry.Rttmplsvpnmonreactthresholdtype>`
+            	**type**\:  :py:class:`RttMplsVpnMonReactThresholdType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry.RttMplsVpnMonReactThresholdType>`
             
             .. attribute:: rttmplsvpnmonreactthresholdcount
             
@@ -4050,12 +4004,12 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmplsvpnmonreactactiontype
             
             	The value corresponding to this object will be applied as rttMonReactAdminActionType of individual probes created by this Auto SAA L3 MPLS VPN.  The value corresponding to this object will be applied as rttMonReactActionType of individual probes created by this Auto SAA L3 MPLS VPN
-            	**type**\:  :py:class:`Rttmplsvpnmonreactactiontype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry.Rttmplsvpnmonreactactiontype>`
+            	**type**\:  :py:class:`RttMplsVpnMonReactActionType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry.RttMplsVpnMonReactActionType>`
             
             .. attribute:: rttmplsvpnmonreactlpdnotifytype
             
             	This object specifies the type of LPD notifications to be generated for the current Auto SAA L3 MPLS VPN control row.  This object will be applicable only when LSP Path Discovery is enabled for this row.  There are two types of notifications supported for the LPD \- (a) rttMonLpdDiscoveryNotification \- This notification will     be sent on the failure of LSP Path Discovery to the     particular PE. Reversal of the failure will also result in     sending the notification. (b) rttMonLpdGrpStatusNotification \- Individual probes in an LPD     group will not generate notifications independently but will     be generating dependent on the state of the group. Any     individual probe can initiate the generation of a     notification, dependent on the state of the group.     Notifications are only generated if the failure/restoration     of an individual probe causes the state of the group to     change.  The Value 'none' will not cause any notifications to be sent.  The Value 'lpdPathDiscovery' will cause (a) to be sent.  The Value 'lpdGroupStatus' will cause (b) to be sent.  The Value 'lpdAll' will cause both (a) and (b) to sent depending on the failure conditions
-            	**type**\:  :py:class:`Rttmplsvpnmonreactlpdnotifytype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry.Rttmplsvpnmonreactlpdnotifytype>`
+            	**type**\:  :py:class:`RttMplsVpnMonReactLpdNotifyType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry.RttMplsVpnMonReactLpdNotifyType>`
             
             .. attribute:: rttmplsvpnmonreactlpdretrycount
             
@@ -4074,15 +4028,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry, self).__init__()
+                super(CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry, self).__init__()
 
                 self.yang_name = "rttMplsVpnMonCtrlEntry"
                 self.yang_parent_name = "rttMplsVpnMonCtrlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmplsvpnmonctrlindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmplsvpnmonctrlindex', YLeaf(YType.int32, 'rttMplsVpnMonCtrlIndex')),
                     ('rttmplsvpnmonctrlrtttype', YLeaf(YType.enumeration, 'rttMplsVpnMonCtrlRttType')),
@@ -4175,11 +4128,11 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMplsVpnMonCtrlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry, ['rttmplsvpnmonctrlindex', 'rttmplsvpnmonctrlrtttype', 'rttmplsvpnmonctrlvrfname', 'rttmplsvpnmonctrltag', 'rttmplsvpnmonctrlthreshold', 'rttmplsvpnmonctrltimeout', 'rttmplsvpnmonctrlscaninterval', 'rttmplsvpnmonctrldelscanfactor', 'rttmplsvpnmonctrlexp', 'rttmplsvpnmonctrlrequestsize', 'rttmplsvpnmonctrlverifydata', 'rttmplsvpnmonctrlstoragetype', 'rttmplsvpnmonctrlprobelist', 'rttmplsvpnmonctrlstatus', 'rttmplsvpnmonctrllpd', 'rttmplsvpnmonctrllpdgrplist', 'rttmplsvpnmonctrllpdcomptime', 'rttmplsvpnmontypeinterval', 'rttmplsvpnmontypenumpackets', 'rttmplsvpnmontypedestport', 'rttmplsvpnmontypesecfreqtype', 'rttmplsvpnmontypesecfreqvalue', 'rttmplsvpnmontypelspselector', 'rttmplsvpnmontypelspreplymode', 'rttmplsvpnmontypelspttl', 'rttmplsvpnmontypelspreplydscp', 'rttmplsvpnmontypelpdmaxsessions', 'rttmplsvpnmontypelpdsesstimeout', 'rttmplsvpnmontypelpdechotimeout', 'rttmplsvpnmontypelpdechointerval', 'rttmplsvpnmontypelpdechonullshim', 'rttmplsvpnmontypelpdscanperiod', 'rttmplsvpnmontypelpdstathours', 'rttmplsvpnmonschedulerttstarttime', 'rttmplsvpnmonscheduleperiod', 'rttmplsvpnmonschedulefrequency', 'rttmplsvpnmonreactconnectionenable', 'rttmplsvpnmonreacttimeoutenable', 'rttmplsvpnmonreactthresholdtype', 'rttmplsvpnmonreactthresholdcount', 'rttmplsvpnmonreactactiontype', 'rttmplsvpnmonreactlpdnotifytype', 'rttmplsvpnmonreactlpdretrycount'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry, ['rttmplsvpnmonctrlindex', 'rttmplsvpnmonctrlrtttype', 'rttmplsvpnmonctrlvrfname', 'rttmplsvpnmonctrltag', 'rttmplsvpnmonctrlthreshold', 'rttmplsvpnmonctrltimeout', 'rttmplsvpnmonctrlscaninterval', 'rttmplsvpnmonctrldelscanfactor', 'rttmplsvpnmonctrlexp', 'rttmplsvpnmonctrlrequestsize', 'rttmplsvpnmonctrlverifydata', 'rttmplsvpnmonctrlstoragetype', 'rttmplsvpnmonctrlprobelist', 'rttmplsvpnmonctrlstatus', 'rttmplsvpnmonctrllpd', 'rttmplsvpnmonctrllpdgrplist', 'rttmplsvpnmonctrllpdcomptime', 'rttmplsvpnmontypeinterval', 'rttmplsvpnmontypenumpackets', 'rttmplsvpnmontypedestport', 'rttmplsvpnmontypesecfreqtype', 'rttmplsvpnmontypesecfreqvalue', 'rttmplsvpnmontypelspselector', 'rttmplsvpnmontypelspreplymode', 'rttmplsvpnmontypelspttl', 'rttmplsvpnmontypelspreplydscp', 'rttmplsvpnmontypelpdmaxsessions', 'rttmplsvpnmontypelpdsesstimeout', 'rttmplsvpnmontypelpdechotimeout', 'rttmplsvpnmontypelpdechointerval', 'rttmplsvpnmontypelpdechonullshim', 'rttmplsvpnmontypelpdscanperiod', 'rttmplsvpnmontypelpdstathours', 'rttmplsvpnmonschedulerttstarttime', 'rttmplsvpnmonscheduleperiod', 'rttmplsvpnmonschedulefrequency', 'rttmplsvpnmonreactconnectionenable', 'rttmplsvpnmonreacttimeoutenable', 'rttmplsvpnmonreactthresholdtype', 'rttmplsvpnmonreactthresholdcount', 'rttmplsvpnmonreactactiontype', 'rttmplsvpnmonreactlpdnotifytype', 'rttmplsvpnmonreactlpdretrycount'], name, value)
 
-            class Rttmplsvpnmonreactactiontype(Enum):
+            class RttMplsVpnMonReactActionType(Enum):
                 """
-                Rttmplsvpnmonreactactiontype (Enum Class)
+                RttMplsVpnMonReactActionType (Enum Class)
 
                 The value corresponding to this object will be applied as
 
@@ -4204,9 +4157,9 @@ class CISCORTTMONMIB(Entity):
                 trapOnly = Enum.YLeaf(2, "trapOnly")
 
 
-            class Rttmplsvpnmonreactlpdnotifytype(Enum):
+            class RttMplsVpnMonReactLpdNotifyType(Enum):
                 """
-                Rttmplsvpnmonreactlpdnotifytype (Enum Class)
+                RttMplsVpnMonReactLpdNotifyType (Enum Class)
 
                 This object specifies the type of LPD notifications to be
 
@@ -4271,9 +4224,9 @@ class CISCORTTMONMIB(Entity):
                 lpdAll = Enum.YLeaf(4, "lpdAll")
 
 
-            class Rttmplsvpnmonreactthresholdtype(Enum):
+            class RttMplsVpnMonReactThresholdType(Enum):
                 """
-                Rttmplsvpnmonreactthresholdtype (Enum Class)
+                RttMplsVpnMonReactThresholdType (Enum Class)
 
                 The value corresponding to this object will be applied as
 
@@ -4302,9 +4255,9 @@ class CISCORTTMONMIB(Entity):
                 consecutive = Enum.YLeaf(3, "consecutive")
 
 
-            class Rttmplsvpnmontypesecfreqtype(Enum):
+            class RttMplsVpnMonTypeSecFreqType(Enum):
                 """
-                Rttmplsvpnmontypesecfreqtype (Enum Class)
+                RttMplsVpnMonTypeSecFreqType (Enum Class)
 
                 This object specifies the reaction type for which the
 
@@ -4398,7 +4351,7 @@ class CISCORTTMONMIB(Entity):
 
 
 
-    class Rttmonreacttable(Entity):
+    class RttMonReactTable(Entity):
         """
         A table that contains the reaction configurations. Each
         conceptual row in rttMonReactTable corresponds to a reaction
@@ -4415,7 +4368,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonreactentry
         
         	A base list of objects that define a conceptual reaction configuration control row
-        	**type**\: list of  		 :py:class:`Rttmonreactentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonreacttable.Rttmonreactentry>`
+        	**type**\: list of  		 :py:class:`RttMonReactEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry>`
         
         
 
@@ -4425,15 +4378,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonreacttable, self).__init__()
+            super(CISCORTTMONMIB.RttMonReactTable, self).__init__()
 
             self.yang_name = "rttMonReactTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonReactEntry", ("rttmonreactentry", CISCORTTMONMIB.Rttmonreacttable.Rttmonreactentry))])
+            self._child_classes = OrderedDict([("rttMonReactEntry", ("rttmonreactentry", CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonreactentry = YList(self)
@@ -4441,10 +4393,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonreacttable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonReactTable, [], name, value)
 
 
-        class Rttmonreactentry(Entity):
+        class RttMonReactEntry(Entity):
             """
             A base list of objects that define a conceptual reaction
             configuration control row.
@@ -4456,7 +4408,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonreactconfigindex  (key)
             
@@ -4473,12 +4425,12 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonreactthresholdtype
             
             	This object specifies the conditions under which the notification ( trap ) is sent.  never       \- rttMonReactOccurred is never set  immediate   \- rttMonReactOccurred is set to 'true' when the               value of parameter for which reaction is               configured ( e.g rtt, jitterAvg, packetLossSD,               mos etc ) violates the threshold.               Conversely, rttMonReactOccurred is set to 'false'               when the parameter ( e.g rtt, jitterAvg,               packetLossSD, mos etc ) is below the threshold               limits.  consecutive \- rttMonReactOccurred is set to true when the value               of parameter for which reaction is configured               ( e.g rtt, jitterAvg, packetLossSD, mos etc )               violates the threshold for configured consecutive               times.               Conversely, rttMonReactOccurred is set to false               when the value of parameter ( e.g rtt, jitterAvg               packetLossSD, mos etc ) is below the threshold               limits for the same number of consecutive               operations.  xOfy        \- rttMonReactOccurred is set to true when x               ( as specified by rttMonReactThresholdCountX )               out of the last y ( as specified by               rttMonReacthresholdCountY ) times the value of               parameter for which the reaction is configured               ( e.g rtt, jitterAvg, packetLossSD, mos etc )               violates the threshold.               Conversely, it is set to false when x, out of the               last y times the value of parameter               ( e.g rtt, jitterAvg, packetLossSD, mos ) is               below the threshold limits.               NOTE\: When x > y, the probe will never                     generate a reaction.  average    \- rttMonReactOccurred is set to true when the              average ( rttMonReactThresholdCountX times )              value of parameter for which reaction is               configured ( e.g rtt, jitterAvg, packetLossSD,              mos etc ) violates the threshold condition.              Conversely, it is set to false when the              average value of parameter ( e.g rtt, jitterAvg,              packetLossSD, mos etc ) is below the threshold              limits.  If this value is changed by a management station, rttMonReactOccurred is set to false, but no reaction is generated if the prior value of rttMonReactOccurred was true
-            	**type**\:  :py:class:`Rttmonreactthresholdtype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonreacttable.Rttmonreactentry.Rttmonreactthresholdtype>`
+            	**type**\:  :py:class:`RttMonReactThresholdType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry.RttMonReactThresholdType>`
             
             .. attribute:: rttmonreactactiontype
             
             	Specifies what type(s), if any, of reaction(s) to generate if an operation violates one of the watched ( reaction\-configuration ) conditions\:  none               \- no reaction is generated trapOnly           \- a trap is generated triggerOnly        \- all trigger actions defined for this                      entry are initiated trapAndTrigger     \- both a trap and all trigger actions                      are initiated A trigger action is defined via the rttMonReactTriggerAdminTable
-            	**type**\:  :py:class:`Rttmonreactactiontype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonreacttable.Rttmonreactentry.Rttmonreactactiontype>`
+            	**type**\:  :py:class:`RttMonReactActionType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry.RttMonReactActionType>`
             
             .. attribute:: rttmonreactthresholdrising
             
@@ -4533,15 +4485,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonreacttable.Rttmonreactentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry, self).__init__()
 
                 self.yang_name = "rttMonReactEntry"
                 self.yang_parent_name = "rttMonReactTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonreactconfigindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonreactconfigindex', YLeaf(YType.int32, 'rttMonReactConfigIndex')),
@@ -4572,11 +4523,11 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonReactTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonreacttable.Rttmonreactentry, ['rttmonctrladminindex', 'rttmonreactconfigindex', 'rttmonreactvar', 'rttmonreactthresholdtype', 'rttmonreactactiontype', 'rttmonreactthresholdrising', 'rttmonreactthresholdfalling', 'rttmonreactthresholdcountx', 'rttmonreactthresholdcounty', 'rttmonreactvalue', 'rttmonreactoccurred', 'rttmonreactstatus'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry, ['rttmonctrladminindex', 'rttmonreactconfigindex', 'rttmonreactvar', 'rttmonreactthresholdtype', 'rttmonreactactiontype', 'rttmonreactthresholdrising', 'rttmonreactthresholdfalling', 'rttmonreactthresholdcountx', 'rttmonreactthresholdcounty', 'rttmonreactvalue', 'rttmonreactoccurred', 'rttmonreactstatus'], name, value)
 
-            class Rttmonreactactiontype(Enum):
+            class RttMonReactActionType(Enum):
                 """
-                Rttmonreactactiontype (Enum Class)
+                RttMonReactActionType (Enum Class)
 
                 Specifies what type(s), if any, of reaction(s) to
 
@@ -4619,9 +4570,9 @@ class CISCORTTMONMIB(Entity):
                 trapAndTrigger = Enum.YLeaf(4, "trapAndTrigger")
 
 
-            class Rttmonreactthresholdtype(Enum):
+            class RttMonReactThresholdType(Enum):
                 """
-                Rttmonreactthresholdtype (Enum Class)
+                RttMonReactThresholdType (Enum Class)
 
                 This object specifies the conditions under which
 
@@ -4741,7 +4692,7 @@ class CISCORTTMONMIB(Entity):
 
 
 
-    class Rttmongeneratedopertable(Entity):
+    class RttMonGeneratedOperTable(Entity):
         """
         This table contains information about the generated
         operation id as part of a parent IP SLA operation. The parent
@@ -4753,7 +4704,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmongeneratedoperentry
         
         	An entry in the Generated Oper table corresponding to a child or generated operation as part of a parent IP SLA operation
-        	**type**\: list of  		 :py:class:`Rttmongeneratedoperentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmongeneratedopertable.Rttmongeneratedoperentry>`
+        	**type**\: list of  		 :py:class:`RttMonGeneratedOperEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonGeneratedOperTable.RttMonGeneratedOperEntry>`
         
         
 
@@ -4763,15 +4714,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmongeneratedopertable, self).__init__()
+            super(CISCORTTMONMIB.RttMonGeneratedOperTable, self).__init__()
 
             self.yang_name = "rttMonGeneratedOperTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonGeneratedOperEntry", ("rttmongeneratedoperentry", CISCORTTMONMIB.Rttmongeneratedopertable.Rttmongeneratedoperentry))])
+            self._child_classes = OrderedDict([("rttMonGeneratedOperEntry", ("rttmongeneratedoperentry", CISCORTTMONMIB.RttMonGeneratedOperTable.RttMonGeneratedOperEntry))])
             self._leafs = OrderedDict()
 
             self.rttmongeneratedoperentry = YList(self)
@@ -4779,10 +4729,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmongeneratedopertable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonGeneratedOperTable, [], name, value)
 
 
-        class Rttmongeneratedoperentry(Entity):
+        class RttMonGeneratedOperEntry(Entity):
             """
             An entry in the Generated Oper table corresponding to
             a child or generated operation as part of a parent
@@ -4795,7 +4745,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmongeneratedoperrespipaddrtype  (key)
             
@@ -4824,15 +4774,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmongeneratedopertable.Rttmongeneratedoperentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonGeneratedOperTable.RttMonGeneratedOperEntry, self).__init__()
 
                 self.yang_name = "rttMonGeneratedOperEntry"
                 self.yang_parent_name = "rttMonGeneratedOperTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmongeneratedoperrespipaddrtype','rttmongeneratedoperrespipaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmongeneratedoperrespipaddrtype', YLeaf(YType.enumeration, 'rttMonGeneratedOperRespIpAddrType')),
@@ -4847,10 +4796,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonGeneratedOperTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmongeneratedopertable.Rttmongeneratedoperentry, ['rttmonctrladminindex', 'rttmongeneratedoperrespipaddrtype', 'rttmongeneratedoperrespipaddr', 'rttmongeneratedoperctrladminindex'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonGeneratedOperTable.RttMonGeneratedOperEntry, ['rttmonctrladminindex', 'rttmongeneratedoperrespipaddrtype', 'rttmongeneratedoperrespipaddr', 'rttmongeneratedoperctrladminindex'], name, value)
 
 
-    class Rttmonstatscapturetable(Entity):
+    class RttMonStatsCaptureTable(Entity):
         """
         The statistics capture database.
         
@@ -4911,7 +4860,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonstatscaptureentry
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  The statistics capture table is a rollover table.  When rttMonStatsCaptureStartTimeIndex groups exceeds the  rttMonStatisticsAdminNumHourGroups value, the oldest  corresponding hourly group will be deleted and will be  replaced with the new rttMonStatsCaptureStartTimeIndex hourly group.    All other indices will fill to there maximum size.   The statistics capture table has five indices.  Each described as follows\:    \-  The first index correlates its entries to a       conceptual RTT control row via the        rttMonCtrlAdminIndex object.   \-  The second index is a rollover group and it        uniquely identifies a 60 minute group. (The        rttMonStatsCaptureStartTimeIndex object       is used to make this value unique.)   \-  When the RttMonRttType is 'pathEcho', the third        index uniquely identifies the paths in a        statistics period.  (The period is 60       minutes.)  A path will be created for each       unique path through the network.  Note\:  A       path that does not contain the target is       considered a different path than one which       uses the exact same path, but does contain the       target.  For all other values of RttMonRttType       this index will be one.   \-  When the RttMonRttType is 'pathEcho', the fourth        index uniquely identifies the hops in each path,        as grouped by the third index.  This index does        imply the order of the hops along the path to a        target.  For all other values of RttMonRttType       this index will be one.   \-  The fifth index uniquely creates a statistical       distribution bucket
-        	**type**\: list of  		 :py:class:`Rttmonstatscaptureentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry>`
+        	**type**\: list of  		 :py:class:`RttMonStatsCaptureEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
         
         
 
@@ -4921,15 +4870,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonstatscapturetable, self).__init__()
+            super(CISCORTTMONMIB.RttMonStatsCaptureTable, self).__init__()
 
             self.yang_name = "rttMonStatsCaptureTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonStatsCaptureEntry", ("rttmonstatscaptureentry", CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry))])
+            self._child_classes = OrderedDict([("rttMonStatsCaptureEntry", ("rttmonstatscaptureentry", CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonstatscaptureentry = YList(self)
@@ -4937,10 +4885,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonstatscapturetable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonStatsCaptureTable, [], name, value)
 
 
-        class Rttmonstatscaptureentry(Entity):
+        class RttMonStatsCaptureEntry(Entity):
             """
             A list of objects which accumulate the results of a
             series of RTT operations over a 60 minute time period.
@@ -4990,7 +4938,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
@@ -5083,15 +5031,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry, self).__init__()
 
                 self.yang_name = "rttMonStatsCaptureEntry"
                 self.yang_parent_name = "rttMonStatsCaptureTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonstatscapturestarttimeindex','rttmonstatscapturepathindex','rttmonstatscapturehopindex','rttmonstatscapturedistindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonstatscapturestarttimeindex', YLeaf(YType.uint32, 'rttMonStatsCaptureStartTimeIndex')),
@@ -5122,10 +5069,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsCaptureTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatscapturepathindex', 'rttmonstatscapturehopindex', 'rttmonstatscapturedistindex', 'rttmonstatscapturecompletions', 'rttmonstatscaptureoverthresholds', 'rttmonstatscapturesumcompletiontime', 'rttmonstatscapturesumcompletiontime2low', 'rttmonstatscapturesumcompletiontime2high', 'rttmonstatscapturecompletiontimemax', 'rttmonstatscapturecompletiontimemin'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatscapturepathindex', 'rttmonstatscapturehopindex', 'rttmonstatscapturedistindex', 'rttmonstatscapturecompletions', 'rttmonstatscaptureoverthresholds', 'rttmonstatscapturesumcompletiontime', 'rttmonstatscapturesumcompletiontime2low', 'rttmonstatscapturesumcompletiontime2high', 'rttmonstatscapturecompletiontimemax', 'rttmonstatscapturecompletiontimemin'], name, value)
 
 
-    class Rttmonstatscollecttable(Entity):
+    class RttMonStatsCollectTable(Entity):
         """
         The statistics collection database.
         
@@ -5139,7 +5086,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonstatscollectentry
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  This entry has the exact same behavior as the  rttMonStatsCaptureEntry, except it does not keep statistical distribution information.  For a complete entry description see the rttMonStatsCaptureEntry object
-        	**type**\: list of  		 :py:class:`Rttmonstatscollectentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscollecttable.Rttmonstatscollectentry>`
+        	**type**\: list of  		 :py:class:`RttMonStatsCollectEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCollectTable.RttMonStatsCollectEntry>`
         
         
 
@@ -5149,15 +5096,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonstatscollecttable, self).__init__()
+            super(CISCORTTMONMIB.RttMonStatsCollectTable, self).__init__()
 
             self.yang_name = "rttMonStatsCollectTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonStatsCollectEntry", ("rttmonstatscollectentry", CISCORTTMONMIB.Rttmonstatscollecttable.Rttmonstatscollectentry))])
+            self._child_classes = OrderedDict([("rttMonStatsCollectEntry", ("rttmonstatscollectentry", CISCORTTMONMIB.RttMonStatsCollectTable.RttMonStatsCollectEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonstatscollectentry = YList(self)
@@ -5165,10 +5111,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonstatscollecttable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonStatsCollectTable, [], name, value)
 
 
-        class Rttmonstatscollectentry(Entity):
+        class RttMonStatsCollectEntry(Entity):
             """
             A list of objects which accumulate the results of a
             series of RTT operations over a 60 minute time period.
@@ -5187,7 +5133,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
@@ -5196,7 +5142,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`rttmonstatscapturestarttimeindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry>`
+            	**refers to**\:  :py:class:`rttmonstatscapturestarttimeindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
             
             .. attribute:: rttmonstatscapturepathindex  (key)
             
@@ -5205,7 +5151,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..128
             
-            	**refers to**\:  :py:class:`rttmonstatscapturepathindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry>`
+            	**refers to**\:  :py:class:`rttmonstatscapturepathindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
             
             .. attribute:: rttmonstatscapturehopindex  (key)
             
@@ -5214,7 +5160,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..30
             
-            	**refers to**\:  :py:class:`rttmonstatscapturehopindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry>`
+            	**refers to**\:  :py:class:`rttmonstatscapturehopindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
             
             .. attribute:: rttmonstatscollectnumdisconnects
             
@@ -5310,15 +5256,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonstatscollecttable.Rttmonstatscollectentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonStatsCollectTable.RttMonStatsCollectEntry, self).__init__()
 
                 self.yang_name = "rttMonStatsCollectEntry"
                 self.yang_parent_name = "rttMonStatsCollectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonstatscapturestarttimeindex','rttmonstatscapturepathindex','rttmonstatscapturehopindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonstatscapturestarttimeindex', YLeaf(YType.str, 'rttMonStatsCaptureStartTimeIndex')),
@@ -5357,10 +5302,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsCollectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonstatscollecttable.Rttmonstatscollectentry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatscapturepathindex', 'rttmonstatscapturehopindex', 'rttmonstatscollectnumdisconnects', 'rttmonstatscollecttimeouts', 'rttmonstatscollectbusies', 'rttmonstatscollectnoconnections', 'rttmonstatscollectdrops', 'rttmonstatscollectsequenceerrors', 'rttmonstatscollectverifyerrors', 'rttmonstatscollectaddress', 'rttmoncontrolenableerrors', 'rttmonstatsretrieveerrors', 'rttmonstatscollectctrlenerrors', 'rttmonstatscollectretrieveerrors'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonStatsCollectTable.RttMonStatsCollectEntry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatscapturepathindex', 'rttmonstatscapturehopindex', 'rttmonstatscollectnumdisconnects', 'rttmonstatscollecttimeouts', 'rttmonstatscollectbusies', 'rttmonstatscollectnoconnections', 'rttmonstatscollectdrops', 'rttmonstatscollectsequenceerrors', 'rttmonstatscollectverifyerrors', 'rttmonstatscollectaddress', 'rttmoncontrolenableerrors', 'rttmonstatsretrieveerrors', 'rttmonstatscollectctrlenerrors', 'rttmonstatscollectretrieveerrors'], name, value)
 
 
-    class Rttmonstatstotalstable(Entity):
+    class RttMonStatsTotalsTable(Entity):
         """
         The statistics totals database.
         
@@ -5374,7 +5319,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonstatstotalsentry
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  This entry has the exact same behavior as the  rttMonStatsCaptureEntry, except it only keeps 60 minute group values.  For a complete entry description see the rttMonStatsCaptureEntry object
-        	**type**\: list of  		 :py:class:`Rttmonstatstotalsentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatstotalstable.Rttmonstatstotalsentry>`
+        	**type**\: list of  		 :py:class:`RttMonStatsTotalsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsTotalsTable.RttMonStatsTotalsEntry>`
         
         
 
@@ -5384,15 +5329,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonstatstotalstable, self).__init__()
+            super(CISCORTTMONMIB.RttMonStatsTotalsTable, self).__init__()
 
             self.yang_name = "rttMonStatsTotalsTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonStatsTotalsEntry", ("rttmonstatstotalsentry", CISCORTTMONMIB.Rttmonstatstotalstable.Rttmonstatstotalsentry))])
+            self._child_classes = OrderedDict([("rttMonStatsTotalsEntry", ("rttmonstatstotalsentry", CISCORTTMONMIB.RttMonStatsTotalsTable.RttMonStatsTotalsEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonstatstotalsentry = YList(self)
@@ -5400,10 +5344,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonstatstotalstable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonStatsTotalsTable, [], name, value)
 
 
-        class Rttmonstatstotalsentry(Entity):
+        class RttMonStatsTotalsEntry(Entity):
             """
             A list of objects which accumulate the results of a
             series of RTT operations over a 60 minute time period.
@@ -5422,7 +5366,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
@@ -5431,7 +5375,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`rttmonstatscapturestarttimeindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry>`
+            	**refers to**\:  :py:class:`rttmonstatscapturestarttimeindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
             
             .. attribute:: rttmonstatstotalselapsedtime
             
@@ -5455,15 +5399,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonstatstotalstable.Rttmonstatstotalsentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonStatsTotalsTable.RttMonStatsTotalsEntry, self).__init__()
 
                 self.yang_name = "rttMonStatsTotalsEntry"
                 self.yang_parent_name = "rttMonStatsTotalsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonstatscapturestarttimeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonstatscapturestarttimeindex', YLeaf(YType.str, 'rttMonStatsCaptureStartTimeIndex')),
@@ -5478,10 +5421,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsTotalsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonstatstotalstable.Rttmonstatstotalsentry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatstotalselapsedtime', 'rttmonstatstotalsinitiations'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonStatsTotalsTable.RttMonStatsTotalsEntry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatstotalselapsedtime', 'rttmonstatstotalsinitiations'], name, value)
 
 
-    class Rttmonhttpstatstable(Entity):
+    class RttMonHTTPStatsTable(Entity):
         """
         The HTTP statistics collection database.
         
@@ -5497,7 +5440,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonhttpstatsentry
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  This entry is created only if the rttMonCtrlAdminRttType  is http. The operation of this table is same as that of rttMonStatsCaptureTable
-        	**type**\: list of  		 :py:class:`Rttmonhttpstatsentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonhttpstatstable.Rttmonhttpstatsentry>`
+        	**type**\: list of  		 :py:class:`RttMonHTTPStatsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonHTTPStatsTable.RttMonHTTPStatsEntry>`
         
         
 
@@ -5507,15 +5450,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonhttpstatstable, self).__init__()
+            super(CISCORTTMONMIB.RttMonHTTPStatsTable, self).__init__()
 
             self.yang_name = "rttMonHTTPStatsTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonHTTPStatsEntry", ("rttmonhttpstatsentry", CISCORTTMONMIB.Rttmonhttpstatstable.Rttmonhttpstatsentry))])
+            self._child_classes = OrderedDict([("rttMonHTTPStatsEntry", ("rttmonhttpstatsentry", CISCORTTMONMIB.RttMonHTTPStatsTable.RttMonHTTPStatsEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonhttpstatsentry = YList(self)
@@ -5523,10 +5465,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonhttpstatstable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonHTTPStatsTable, [], name, value)
 
 
-        class Rttmonhttpstatsentry(Entity):
+        class RttMonHTTPStatsEntry(Entity):
             """
             A list of objects which accumulate the results of a
             series of RTT operations over a 60 minute time period.
@@ -5542,7 +5484,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonhttpstatsstarttimeindex  (key)
             
@@ -5687,15 +5629,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonhttpstatstable.Rttmonhttpstatsentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonHTTPStatsTable.RttMonHTTPStatsEntry, self).__init__()
 
                 self.yang_name = "rttMonHTTPStatsEntry"
                 self.yang_parent_name = "rttMonHTTPStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonhttpstatsstarttimeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonhttpstatsstarttimeindex', YLeaf(YType.uint32, 'rttMonHTTPStatsStartTimeIndex')),
@@ -5742,10 +5683,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonHTTPStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonhttpstatstable.Rttmonhttpstatsentry, ['rttmonctrladminindex', 'rttmonhttpstatsstarttimeindex', 'rttmonhttpstatscompletions', 'rttmonhttpstatsoverthresholds', 'rttmonhttpstatsrttsum', 'rttmonhttpstatsrttsum2low', 'rttmonhttpstatsrttsum2high', 'rttmonhttpstatsrttmin', 'rttmonhttpstatsrttmax', 'rttmonhttpstatsdnsrttsum', 'rttmonhttpstatstcpconnectrttsum', 'rttmonhttpstatstransactionrttsum', 'rttmonhttpstatsmessagebodyoctetssum', 'rttmonhttpstatsdnsservertimeout', 'rttmonhttpstatstcpconnecttimeout', 'rttmonhttpstatstransactiontimeout', 'rttmonhttpstatsdnsqueryerror', 'rttmonhttpstatshttperror', 'rttmonhttpstatserror', 'rttmonhttpstatsbusies'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonHTTPStatsTable.RttMonHTTPStatsEntry, ['rttmonctrladminindex', 'rttmonhttpstatsstarttimeindex', 'rttmonhttpstatscompletions', 'rttmonhttpstatsoverthresholds', 'rttmonhttpstatsrttsum', 'rttmonhttpstatsrttsum2low', 'rttmonhttpstatsrttsum2high', 'rttmonhttpstatsrttmin', 'rttmonhttpstatsrttmax', 'rttmonhttpstatsdnsrttsum', 'rttmonhttpstatstcpconnectrttsum', 'rttmonhttpstatstransactionrttsum', 'rttmonhttpstatsmessagebodyoctetssum', 'rttmonhttpstatsdnsservertimeout', 'rttmonhttpstatstcpconnecttimeout', 'rttmonhttpstatstransactiontimeout', 'rttmonhttpstatsdnsqueryerror', 'rttmonhttpstatshttperror', 'rttmonhttpstatserror', 'rttmonhttpstatsbusies'], name, value)
 
 
-    class Rttmonjitterstatstable(Entity):
+    class RttMonJitterStatsTable(Entity):
         """
         The Jitter statistics collection database.
         
@@ -5761,7 +5702,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonjitterstatsentry
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  This entry is created only if the rttMonCtrlAdminRttType  is jitter. The operation of this table is same as that of rttMonStatsCaptureTable
-        	**type**\: list of  		 :py:class:`Rttmonjitterstatsentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonjitterstatstable.Rttmonjitterstatsentry>`
+        	**type**\: list of  		 :py:class:`RttMonJitterStatsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonJitterStatsTable.RttMonJitterStatsEntry>`
         
         
 
@@ -5771,15 +5712,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonjitterstatstable, self).__init__()
+            super(CISCORTTMONMIB.RttMonJitterStatsTable, self).__init__()
 
             self.yang_name = "rttMonJitterStatsTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonJitterStatsEntry", ("rttmonjitterstatsentry", CISCORTTMONMIB.Rttmonjitterstatstable.Rttmonjitterstatsentry))])
+            self._child_classes = OrderedDict([("rttMonJitterStatsEntry", ("rttmonjitterstatsentry", CISCORTTMONMIB.RttMonJitterStatsTable.RttMonJitterStatsEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonjitterstatsentry = YList(self)
@@ -5787,10 +5727,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonjitterstatstable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonJitterStatsTable, [], name, value)
 
 
-        class Rttmonjitterstatsentry(Entity):
+        class RttMonJitterStatsEntry(Entity):
             """
             A list of objects which accumulate the results of a
             series of RTT operations over a 60 minute time period.
@@ -5806,7 +5746,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonjitterstatsstarttimeindex  (key)
             
@@ -6300,15 +6240,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonjitterstatstable.Rttmonjitterstatsentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonJitterStatsTable.RttMonJitterStatsEntry, self).__init__()
 
                 self.yang_name = "rttMonJitterStatsEntry"
                 self.yang_parent_name = "rttMonJitterStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonjitterstatsstarttimeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonjitterstatsstarttimeindex', YLeaf(YType.uint32, 'rttMonJitterStatsStartTimeIndex')),
@@ -6453,10 +6392,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonJitterStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonjitterstatstable.Rttmonjitterstatsentry, ['rttmonctrladminindex', 'rttmonjitterstatsstarttimeindex', 'rttmonjitterstatscompletions', 'rttmonjitterstatsoverthresholds', 'rttmonjitterstatsnumofrtt', 'rttmonjitterstatsrttsum', 'rttmonjitterstatsrttsum2low', 'rttmonjitterstatsrttsum2high', 'rttmonjitterstatsrttmin', 'rttmonjitterstatsrttmax', 'rttmonjitterstatsminofpositivessd', 'rttmonjitterstatsmaxofpositivessd', 'rttmonjitterstatsnumofpositivessd', 'rttmonjitterstatssumofpositivessd', 'rttmonjitterstatssum2positivessdlow', 'rttmonjitterstatssum2positivessdhigh', 'rttmonjitterstatsminofnegativessd', 'rttmonjitterstatsmaxofnegativessd', 'rttmonjitterstatsnumofnegativessd', 'rttmonjitterstatssumofnegativessd', 'rttmonjitterstatssum2negativessdlow', 'rttmonjitterstatssum2negativessdhigh', 'rttmonjitterstatsminofpositivesds', 'rttmonjitterstatsmaxofpositivesds', 'rttmonjitterstatsnumofpositivesds', 'rttmonjitterstatssumofpositivesds', 'rttmonjitterstatssum2positivesdslow', 'rttmonjitterstatssum2positivesdshigh', 'rttmonjitterstatsminofnegativesds', 'rttmonjitterstatsmaxofnegativesds', 'rttmonjitterstatsnumofnegativesds', 'rttmonjitterstatssumofnegativesds', 'rttmonjitterstatssum2negativesdslow', 'rttmonjitterstatssum2negativesdshigh', 'rttmonjitterstatspacketlosssd', 'rttmonjitterstatspacketlossds', 'rttmonjitterstatspacketoutofsequence', 'rttmonjitterstatspacketmia', 'rttmonjitterstatspacketlatearrival', 'rttmonjitterstatserror', 'rttmonjitterstatsbusies', 'rttmonjitterstatsowsumsd', 'rttmonjitterstatsowsum2sdlow', 'rttmonjitterstatsowsum2sdhigh', 'rttmonjitterstatsowminsd', 'rttmonjitterstatsowmaxsd', 'rttmonjitterstatsowsumds', 'rttmonjitterstatsowsum2dslow', 'rttmonjitterstatsowsum2dshigh', 'rttmonjitterstatsowminds', 'rttmonjitterstatsowmaxds', 'rttmonjitterstatsnumofow', 'rttmonjitterstatsowminsdnew', 'rttmonjitterstatsowmaxsdnew', 'rttmonjitterstatsowmindsnew', 'rttmonjitterstatsowmaxdsnew', 'rttmonjitterstatsminofmos', 'rttmonjitterstatsmaxofmos', 'rttmonjitterstatsminoficpif', 'rttmonjitterstatsmaxoficpif', 'rttmonjitterstatsiajout', 'rttmonjitterstatsiajin', 'rttmonjitterstatsavgjitter', 'rttmonjitterstatsavgjittersd', 'rttmonjitterstatsavgjitterds', 'rttmonjitterstatsunsyncrts', 'rttmonjitterstatsrttsumhigh', 'rttmonjitterstatsowsumsdhigh', 'rttmonjitterstatsowsumdshigh'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonJitterStatsTable.RttMonJitterStatsEntry, ['rttmonctrladminindex', 'rttmonjitterstatsstarttimeindex', 'rttmonjitterstatscompletions', 'rttmonjitterstatsoverthresholds', 'rttmonjitterstatsnumofrtt', 'rttmonjitterstatsrttsum', 'rttmonjitterstatsrttsum2low', 'rttmonjitterstatsrttsum2high', 'rttmonjitterstatsrttmin', 'rttmonjitterstatsrttmax', 'rttmonjitterstatsminofpositivessd', 'rttmonjitterstatsmaxofpositivessd', 'rttmonjitterstatsnumofpositivessd', 'rttmonjitterstatssumofpositivessd', 'rttmonjitterstatssum2positivessdlow', 'rttmonjitterstatssum2positivessdhigh', 'rttmonjitterstatsminofnegativessd', 'rttmonjitterstatsmaxofnegativessd', 'rttmonjitterstatsnumofnegativessd', 'rttmonjitterstatssumofnegativessd', 'rttmonjitterstatssum2negativessdlow', 'rttmonjitterstatssum2negativessdhigh', 'rttmonjitterstatsminofpositivesds', 'rttmonjitterstatsmaxofpositivesds', 'rttmonjitterstatsnumofpositivesds', 'rttmonjitterstatssumofpositivesds', 'rttmonjitterstatssum2positivesdslow', 'rttmonjitterstatssum2positivesdshigh', 'rttmonjitterstatsminofnegativesds', 'rttmonjitterstatsmaxofnegativesds', 'rttmonjitterstatsnumofnegativesds', 'rttmonjitterstatssumofnegativesds', 'rttmonjitterstatssum2negativesdslow', 'rttmonjitterstatssum2negativesdshigh', 'rttmonjitterstatspacketlosssd', 'rttmonjitterstatspacketlossds', 'rttmonjitterstatspacketoutofsequence', 'rttmonjitterstatspacketmia', 'rttmonjitterstatspacketlatearrival', 'rttmonjitterstatserror', 'rttmonjitterstatsbusies', 'rttmonjitterstatsowsumsd', 'rttmonjitterstatsowsum2sdlow', 'rttmonjitterstatsowsum2sdhigh', 'rttmonjitterstatsowminsd', 'rttmonjitterstatsowmaxsd', 'rttmonjitterstatsowsumds', 'rttmonjitterstatsowsum2dslow', 'rttmonjitterstatsowsum2dshigh', 'rttmonjitterstatsowminds', 'rttmonjitterstatsowmaxds', 'rttmonjitterstatsnumofow', 'rttmonjitterstatsowminsdnew', 'rttmonjitterstatsowmaxsdnew', 'rttmonjitterstatsowmindsnew', 'rttmonjitterstatsowmaxdsnew', 'rttmonjitterstatsminofmos', 'rttmonjitterstatsmaxofmos', 'rttmonjitterstatsminoficpif', 'rttmonjitterstatsmaxoficpif', 'rttmonjitterstatsiajout', 'rttmonjitterstatsiajin', 'rttmonjitterstatsavgjitter', 'rttmonjitterstatsavgjittersd', 'rttmonjitterstatsavgjitterds', 'rttmonjitterstatsunsyncrts', 'rttmonjitterstatsrttsumhigh', 'rttmonjitterstatsowsumsdhigh', 'rttmonjitterstatsowsumdshigh'], name, value)
 
 
-    class Rttmonlpdgrpstatstable(Entity):
+    class RttMonLpdGrpStatsTable(Entity):
         """
         The Auto SAA L3 MPLS VPN LPD Group Database.
         
@@ -6485,7 +6424,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonlpdgrpstatsentry
         
         	A list of objects which accumulate the results of a set of RTT operations over a 60 minute time period.  The LPD group statistics table is a rollover table. When rttMonLpdGrpStatsStartTimeIndex groups exceeds the rttMplsVpnMonTypeLpdStatHours value, the oldest corresponding hourly group will be deleted and will be replaced with the new rttMonLpdGrpStatsStartTimeIndex hourly group.  The LPD group statistics table has two indices. Each described as follows\:  \- The first index correlates its entries to a LPD group via the    rttMonLpdGrpStatsGroupIndex object. \- The second index is a rollover group and it uniquely     identifies a 60 minute group. (The     rttMonLpdGrpStatsStartTimeIndex is used to make this value     unique.)
-        	**type**\: list of  		 :py:class:`Rttmonlpdgrpstatsentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry>`
+        	**type**\: list of  		 :py:class:`RttMonLpdGrpStatsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry>`
         
         
 
@@ -6495,15 +6434,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonlpdgrpstatstable, self).__init__()
+            super(CISCORTTMONMIB.RttMonLpdGrpStatsTable, self).__init__()
 
             self.yang_name = "rttMonLpdGrpStatsTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonLpdGrpStatsEntry", ("rttmonlpdgrpstatsentry", CISCORTTMONMIB.Rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry))])
+            self._child_classes = OrderedDict([("rttMonLpdGrpStatsEntry", ("rttmonlpdgrpstatsentry", CISCORTTMONMIB.RttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonlpdgrpstatsentry = YList(self)
@@ -6511,10 +6449,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonlpdgrpstatstable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonLpdGrpStatsTable, [], name, value)
 
 
-        class Rttmonlpdgrpstatsentry(Entity):
+        class RttMonLpdGrpStatsEntry(Entity):
             """
             A list of objects which accumulate the results of a set of RTT
             operations over a 60 minute time period.
@@ -6693,15 +6631,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry, self).__init__()
 
                 self.yang_name = "rttMonLpdGrpStatsEntry"
                 self.yang_parent_name = "rttMonLpdGrpStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonlpdgrpstatsgroupindex','rttmonlpdgrpstatsstarttimeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonlpdgrpstatsgroupindex', YLeaf(YType.int32, 'rttMonLpdGrpStatsGroupIndex')),
                     ('rttmonlpdgrpstatsstarttimeindex', YLeaf(YType.uint32, 'rttMonLpdGrpStatsStartTimeIndex')),
@@ -6748,10 +6685,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLpdGrpStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry, ['rttmonlpdgrpstatsgroupindex', 'rttmonlpdgrpstatsstarttimeindex', 'rttmonlpdgrpstatstargetpe', 'rttmonlpdgrpstatsnumofpass', 'rttmonlpdgrpstatsnumoffail', 'rttmonlpdgrpstatsnumoftimeout', 'rttmonlpdgrpstatsavgrtt', 'rttmonlpdgrpstatsminrtt', 'rttmonlpdgrpstatsmaxrtt', 'rttmonlpdgrpstatsminnumpaths', 'rttmonlpdgrpstatsmaxnumpaths', 'rttmonlpdgrpstatslpdstarttime', 'rttmonlpdgrpstatslpdfailoccurred', 'rttmonlpdgrpstatslpdfailcause', 'rttmonlpdgrpstatslpdcomptime', 'rttmonlpdgrpstatsgroupstatus', 'rttmonlpdgrpstatsgroupprobeindex', 'rttmonlpdgrpstatspathids', 'rttmonlpdgrpstatsprobestatus', 'rttmonlpdgrpstatsresettime'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry, ['rttmonlpdgrpstatsgroupindex', 'rttmonlpdgrpstatsstarttimeindex', 'rttmonlpdgrpstatstargetpe', 'rttmonlpdgrpstatsnumofpass', 'rttmonlpdgrpstatsnumoffail', 'rttmonlpdgrpstatsnumoftimeout', 'rttmonlpdgrpstatsavgrtt', 'rttmonlpdgrpstatsminrtt', 'rttmonlpdgrpstatsmaxrtt', 'rttmonlpdgrpstatsminnumpaths', 'rttmonlpdgrpstatsmaxnumpaths', 'rttmonlpdgrpstatslpdstarttime', 'rttmonlpdgrpstatslpdfailoccurred', 'rttmonlpdgrpstatslpdfailcause', 'rttmonlpdgrpstatslpdcomptime', 'rttmonlpdgrpstatsgroupstatus', 'rttmonlpdgrpstatsgroupprobeindex', 'rttmonlpdgrpstatspathids', 'rttmonlpdgrpstatsprobestatus', 'rttmonlpdgrpstatsresettime'], name, value)
 
 
-    class Rttmonhistorycollectiontable(Entity):
+    class RttMonHistoryCollectionTable(Entity):
         """
         The history collection database.
         
@@ -6776,7 +6713,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonhistorycollectionentry
         
         	A list of history objects that are recorded for each RTT operation.  The history collection table has four indices.  Each  described as follows\:   \-  The first index correlates its entries to a        conceptual RTT control row via the        rttMonCtrlAdminIndex object.     \-  The second index uniquely identifies the results        of each 'life' as defined by the        rttMonCtrlOperRttLife object.     \-  The third index uniquely identifies the number of        buckets in a life.  A bucket will contain one        sample per bucket if the rttMonCtrlAdminRttType        object is set to any value       other than 'pathEcho'.  If the        rttMonCtrlAdminRttType object is set to        'pathEcho', a bucket will contain one sample per        hop along a path to the target (including the        target).     \-  The fourth index uniquely identifies the number of        samples in a bucket.   Again, if the        rttMonCtrlAdminRttType object is set to        'pathEcho', this value is associated with each        hop in an ascending order, thus for the        first hop on a path, this index will be 1, the        second will be 2 and so on.   For all other values       of rttMonCtrlAdminRttType this will be 1
-        	**type**\: list of  		 :py:class:`Rttmonhistorycollectionentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonhistorycollectiontable.Rttmonhistorycollectionentry>`
+        	**type**\: list of  		 :py:class:`RttMonHistoryCollectionEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonHistoryCollectionTable.RttMonHistoryCollectionEntry>`
         
         
 
@@ -6786,15 +6723,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonhistorycollectiontable, self).__init__()
+            super(CISCORTTMONMIB.RttMonHistoryCollectionTable, self).__init__()
 
             self.yang_name = "rttMonHistoryCollectionTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonHistoryCollectionEntry", ("rttmonhistorycollectionentry", CISCORTTMONMIB.Rttmonhistorycollectiontable.Rttmonhistorycollectionentry))])
+            self._child_classes = OrderedDict([("rttMonHistoryCollectionEntry", ("rttmonhistorycollectionentry", CISCORTTMONMIB.RttMonHistoryCollectionTable.RttMonHistoryCollectionEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonhistorycollectionentry = YList(self)
@@ -6802,10 +6738,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonhistorycollectiontable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonHistoryCollectionTable, [], name, value)
 
 
-        class Rttmonhistorycollectionentry(Entity):
+        class RttMonHistoryCollectionEntry(Entity):
             """
             A list of history objects that are recorded for each
             RTT operation.
@@ -6843,7 +6779,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonhistorycollectionlifeindex  (key)
             
@@ -6912,15 +6848,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonhistorycollectiontable.Rttmonhistorycollectionentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonHistoryCollectionTable.RttMonHistoryCollectionEntry, self).__init__()
 
                 self.yang_name = "rttMonHistoryCollectionEntry"
                 self.yang_parent_name = "rttMonHistoryCollectionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex','rttmonhistorycollectionlifeindex','rttmonhistorycollectionbucketindex','rttmonhistorycollectionsampleindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonhistorycollectionlifeindex', YLeaf(YType.int32, 'rttMonHistoryCollectionLifeIndex')),
@@ -6947,10 +6882,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonHistoryCollectionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonhistorycollectiontable.Rttmonhistorycollectionentry, ['rttmonctrladminindex', 'rttmonhistorycollectionlifeindex', 'rttmonhistorycollectionbucketindex', 'rttmonhistorycollectionsampleindex', 'rttmonhistorycollectionsampletime', 'rttmonhistorycollectionaddress', 'rttmonhistorycollectioncompletiontime', 'rttmonhistorycollectionsense', 'rttmonhistorycollectionapplspecificsense', 'rttmonhistorycollectionsensedescription'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonHistoryCollectionTable.RttMonHistoryCollectionEntry, ['rttmonctrladminindex', 'rttmonhistorycollectionlifeindex', 'rttmonhistorycollectionbucketindex', 'rttmonhistorycollectionsampleindex', 'rttmonhistorycollectionsampletime', 'rttmonhistorycollectionaddress', 'rttmonhistorycollectioncompletiontime', 'rttmonhistorycollectionsense', 'rttmonhistorycollectionapplspecificsense', 'rttmonhistorycollectionsensedescription'], name, value)
 
 
-    class Rttmonlatesthttpopertable(Entity):
+    class RttMonLatestHTTPOperTable(Entity):
         """
         A table which contains the status of latest HTTP RTT
         operation.
@@ -6958,7 +6893,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonlatesthttpoperentry
         
         	A list of objects that record the latest HTTP RTT operation. This entry is created automatically after the  rttMonCtrlAdminEntry is created. Also the entry is  automatically deleted when rttMonCtrlAdminEntry is deleted
-        	**type**\: list of  		 :py:class:`Rttmonlatesthttpoperentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonlatesthttpopertable.Rttmonlatesthttpoperentry>`
+        	**type**\: list of  		 :py:class:`RttMonLatestHTTPOperEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry>`
         
         
 
@@ -6968,15 +6903,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonlatesthttpopertable, self).__init__()
+            super(CISCORTTMONMIB.RttMonLatestHTTPOperTable, self).__init__()
 
             self.yang_name = "rttMonLatestHTTPOperTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonLatestHTTPOperEntry", ("rttmonlatesthttpoperentry", CISCORTTMONMIB.Rttmonlatesthttpopertable.Rttmonlatesthttpoperentry))])
+            self._child_classes = OrderedDict([("rttMonLatestHTTPOperEntry", ("rttmonlatesthttpoperentry", CISCORTTMONMIB.RttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonlatesthttpoperentry = YList(self)
@@ -6984,10 +6918,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonlatesthttpopertable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonLatestHTTPOperTable, [], name, value)
 
 
-        class Rttmonlatesthttpoperentry(Entity):
+        class RttMonLatestHTTPOperEntry(Entity):
             """
             A list of objects that record the latest HTTP RTT
             operation. This entry is created automatically after the 
@@ -7001,7 +6935,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonlatesthttpoperrtt
             
@@ -7056,15 +6990,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonlatesthttpopertable.Rttmonlatesthttpoperentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry, self).__init__()
 
                 self.yang_name = "rttMonLatestHTTPOperEntry"
                 self.yang_parent_name = "rttMonLatestHTTPOperTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonlatesthttpoperrtt', YLeaf(YType.uint32, 'rttMonLatestHTTPOperRTT')),
@@ -7087,10 +7020,10 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLatestHTTPOperTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonlatesthttpopertable.Rttmonlatesthttpoperentry, ['rttmonctrladminindex', 'rttmonlatesthttpoperrtt', 'rttmonlatesthttpoperdnsrtt', 'rttmonlatesthttpopertcpconnectrtt', 'rttmonlatesthttpopertransactionrtt', 'rttmonlatesthttpopermessagebodyoctets', 'rttmonlatesthttpopersense', 'rttmonlatesthttperrorsensedescription'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry, ['rttmonctrladminindex', 'rttmonlatesthttpoperrtt', 'rttmonlatesthttpoperdnsrtt', 'rttmonlatesthttpopertcpconnectrtt', 'rttmonlatesthttpopertransactionrtt', 'rttmonlatesthttpopermessagebodyoctets', 'rttmonlatesthttpopersense', 'rttmonlatesthttperrorsensedescription'], name, value)
 
 
-    class Rttmonlatestjitteropertable(Entity):
+    class RttMonLatestJitterOperTable(Entity):
         """
         A table which contains the status of latest Jitter
         operation.
@@ -7098,7 +7031,7 @@ class CISCORTTMONMIB(Entity):
         .. attribute:: rttmonlatestjitteroperentry
         
         	A list of objects that record the latest Jitter operation
-        	**type**\: list of  		 :py:class:`Rttmonlatestjitteroperentry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonlatestjitteropertable.Rttmonlatestjitteroperentry>`
+        	**type**\: list of  		 :py:class:`RttMonLatestJitterOperEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestJitterOperTable.RttMonLatestJitterOperEntry>`
         
         
 
@@ -7108,15 +7041,14 @@ class CISCORTTMONMIB(Entity):
         _revision = '2012-08-16'
 
         def __init__(self):
-            super(CISCORTTMONMIB.Rttmonlatestjitteropertable, self).__init__()
+            super(CISCORTTMONMIB.RttMonLatestJitterOperTable, self).__init__()
 
             self.yang_name = "rttMonLatestJitterOperTable"
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rttMonLatestJitterOperEntry", ("rttmonlatestjitteroperentry", CISCORTTMONMIB.Rttmonlatestjitteropertable.Rttmonlatestjitteroperentry))])
+            self._child_classes = OrderedDict([("rttMonLatestJitterOperEntry", ("rttmonlatestjitteroperentry", CISCORTTMONMIB.RttMonLatestJitterOperTable.RttMonLatestJitterOperEntry))])
             self._leafs = OrderedDict()
 
             self.rttmonlatestjitteroperentry = YList(self)
@@ -7124,10 +7056,10 @@ class CISCORTTMONMIB(Entity):
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCORTTMONMIB.Rttmonlatestjitteropertable, [], name, value)
+            self._perform_setattr(CISCORTTMONMIB.RttMonLatestJitterOperTable, [], name, value)
 
 
-        class Rttmonlatestjitteroperentry(Entity):
+        class RttMonLatestJitterOperEntry(Entity):
             """
             A list of objects that record the latest Jitter
             operation.
@@ -7139,7 +7071,7 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
+            	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
             .. attribute:: rttmonlatestjitteropernumofrtt
             
@@ -7490,7 +7422,7 @@ class CISCORTTMONMIB(Entity):
             .. attribute:: rttmonlatestjitteroperntpstate
             
             	A value of sync(1) means sender and responder was in sync with NTP. The NTP sync means the total of NTP offset  on sender and responder is within configured tolerance level
-            	**type**\:  :py:class:`Rttmonlatestjitteroperntpstate <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonlatestjitteropertable.Rttmonlatestjitteroperentry.Rttmonlatestjitteroperntpstate>`
+            	**type**\:  :py:class:`RttMonLatestJitterOperNTPState <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestJitterOperTable.RttMonLatestJitterOperEntry.RttMonLatestJitterOperNTPState>`
             
             .. attribute:: rttmonlatestjitteroperunsyncrts
             
@@ -7549,15 +7481,14 @@ class CISCORTTMONMIB(Entity):
             _revision = '2012-08-16'
 
             def __init__(self):
-                super(CISCORTTMONMIB.Rttmonlatestjitteropertable.Rttmonlatestjitteroperentry, self).__init__()
+                super(CISCORTTMONMIB.RttMonLatestJitterOperTable.RttMonLatestJitterOperEntry, self).__init__()
 
                 self.yang_name = "rttMonLatestJitterOperEntry"
                 self.yang_parent_name = "rttMonLatestJitterOperTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rttmonctrladminindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
                     ('rttmonlatestjitteropernumofrtt', YLeaf(YType.uint32, 'rttMonLatestJitterOperNumOfRTT')),
@@ -7682,11 +7613,11 @@ class CISCORTTMONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLatestJitterOperTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCORTTMONMIB.Rttmonlatestjitteropertable.Rttmonlatestjitteroperentry, ['rttmonctrladminindex', 'rttmonlatestjitteropernumofrtt', 'rttmonlatestjitteroperrttsum', 'rttmonlatestjitteroperrttsum2', 'rttmonlatestjitteroperrttmin', 'rttmonlatestjitteroperrttmax', 'rttmonlatestjitteroperminofpositivessd', 'rttmonlatestjitteropermaxofpositivessd', 'rttmonlatestjitteropernumofpositivessd', 'rttmonlatestjitteropersumofpositivessd', 'rttmonlatestjitteropersum2positivessd', 'rttmonlatestjitteroperminofnegativessd', 'rttmonlatestjitteropermaxofnegativessd', 'rttmonlatestjitteropernumofnegativessd', 'rttmonlatestjitteropersumofnegativessd', 'rttmonlatestjitteropersum2negativessd', 'rttmonlatestjitteroperminofpositivesds', 'rttmonlatestjitteropermaxofpositivesds', 'rttmonlatestjitteropernumofpositivesds', 'rttmonlatestjitteropersumofpositivesds', 'rttmonlatestjitteropersum2positivesds', 'rttmonlatestjitteroperminofnegativesds', 'rttmonlatestjitteropermaxofnegativesds', 'rttmonlatestjitteropernumofnegativesds', 'rttmonlatestjitteropersumofnegativesds', 'rttmonlatestjitteropersum2negativesds', 'rttmonlatestjitteroperpacketlosssd', 'rttmonlatestjitteroperpacketlossds', 'rttmonlatestjitteroperpacketoutofsequence', 'rttmonlatestjitteroperpacketmia', 'rttmonlatestjitteroperpacketlatearrival', 'rttmonlatestjitteropersense', 'rttmonlatestjittererrorsensedescription', 'rttmonlatestjitteroperowsumsd', 'rttmonlatestjitteroperowsum2sd', 'rttmonlatestjitteroperowminsd', 'rttmonlatestjitteroperowmaxsd', 'rttmonlatestjitteroperowsumds', 'rttmonlatestjitteroperowsum2ds', 'rttmonlatestjitteroperowminds', 'rttmonlatestjitteroperowmaxds', 'rttmonlatestjitteropernumofow', 'rttmonlatestjitteropermos', 'rttmonlatestjitteropericpif', 'rttmonlatestjitteroperiajout', 'rttmonlatestjitteroperiajin', 'rttmonlatestjitteroperavgjitter', 'rttmonlatestjitteroperavgsdj', 'rttmonlatestjitteroperavgdsj', 'rttmonlatestjitteroperowavgsd', 'rttmonlatestjitteroperowavgds', 'rttmonlatestjitteroperntpstate', 'rttmonlatestjitteroperunsyncrts', 'rttmonlatestjitteroperrttsumhigh', 'rttmonlatestjitteroperrttsum2high', 'rttmonlatestjitteroperowsumsdhigh', 'rttmonlatestjitteroperowsum2sdhigh', 'rttmonlatestjitteroperowsumdshigh', 'rttmonlatestjitteroperowsum2dshigh'], name, value)
+                self._perform_setattr(CISCORTTMONMIB.RttMonLatestJitterOperTable.RttMonLatestJitterOperEntry, ['rttmonctrladminindex', 'rttmonlatestjitteropernumofrtt', 'rttmonlatestjitteroperrttsum', 'rttmonlatestjitteroperrttsum2', 'rttmonlatestjitteroperrttmin', 'rttmonlatestjitteroperrttmax', 'rttmonlatestjitteroperminofpositivessd', 'rttmonlatestjitteropermaxofpositivessd', 'rttmonlatestjitteropernumofpositivessd', 'rttmonlatestjitteropersumofpositivessd', 'rttmonlatestjitteropersum2positivessd', 'rttmonlatestjitteroperminofnegativessd', 'rttmonlatestjitteropermaxofnegativessd', 'rttmonlatestjitteropernumofnegativessd', 'rttmonlatestjitteropersumofnegativessd', 'rttmonlatestjitteropersum2negativessd', 'rttmonlatestjitteroperminofpositivesds', 'rttmonlatestjitteropermaxofpositivesds', 'rttmonlatestjitteropernumofpositivesds', 'rttmonlatestjitteropersumofpositivesds', 'rttmonlatestjitteropersum2positivesds', 'rttmonlatestjitteroperminofnegativesds', 'rttmonlatestjitteropermaxofnegativesds', 'rttmonlatestjitteropernumofnegativesds', 'rttmonlatestjitteropersumofnegativesds', 'rttmonlatestjitteropersum2negativesds', 'rttmonlatestjitteroperpacketlosssd', 'rttmonlatestjitteroperpacketlossds', 'rttmonlatestjitteroperpacketoutofsequence', 'rttmonlatestjitteroperpacketmia', 'rttmonlatestjitteroperpacketlatearrival', 'rttmonlatestjitteropersense', 'rttmonlatestjittererrorsensedescription', 'rttmonlatestjitteroperowsumsd', 'rttmonlatestjitteroperowsum2sd', 'rttmonlatestjitteroperowminsd', 'rttmonlatestjitteroperowmaxsd', 'rttmonlatestjitteroperowsumds', 'rttmonlatestjitteroperowsum2ds', 'rttmonlatestjitteroperowminds', 'rttmonlatestjitteroperowmaxds', 'rttmonlatestjitteropernumofow', 'rttmonlatestjitteropermos', 'rttmonlatestjitteropericpif', 'rttmonlatestjitteroperiajout', 'rttmonlatestjitteroperiajin', 'rttmonlatestjitteroperavgjitter', 'rttmonlatestjitteroperavgsdj', 'rttmonlatestjitteroperavgdsj', 'rttmonlatestjitteroperowavgsd', 'rttmonlatestjitteroperowavgds', 'rttmonlatestjitteroperntpstate', 'rttmonlatestjitteroperunsyncrts', 'rttmonlatestjitteroperrttsumhigh', 'rttmonlatestjitteroperrttsum2high', 'rttmonlatestjitteroperowsumsdhigh', 'rttmonlatestjitteroperowsum2sdhigh', 'rttmonlatestjitteroperowsumdshigh', 'rttmonlatestjitteroperowsum2dshigh'], name, value)
 
-            class Rttmonlatestjitteroperntpstate(Enum):
+            class RttMonLatestJitterOperNTPState(Enum):
                 """
-                Rttmonlatestjitteroperntpstate (Enum Class)
+                RttMonLatestJitterOperNTPState (Enum Class)
 
                 A value of sync(1) means sender and responder was in sync
 

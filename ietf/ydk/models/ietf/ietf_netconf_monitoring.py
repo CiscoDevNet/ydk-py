@@ -47,21 +47,6 @@ class NetconfDatastoreType(Enum):
 
 
 
-class Transport(Identity):
-    """
-    Base identity for NETCONF transport types.
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:transport")
-
-
 class SchemaFormat(Identity):
     """
     Base identity for data model schema languages.
@@ -75,6 +60,21 @@ class SchemaFormat(Identity):
 
     def __init__(self):
         super(SchemaFormat, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:schema-format")
+
+
+class Transport(Identity):
+    """
+    Base identity for NETCONF transport types.
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:transport")
 
 
 class GetSchema(Entity):
@@ -119,19 +119,16 @@ class GetSchema(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = GetSchema.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = GetSchema.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "ietf-netconf-monitoring:get-schema"
 
 
@@ -171,8 +168,7 @@ class GetSchema(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('identifier', YLeaf(YType.str, 'identifier')),
                 ('version', YLeaf(YType.str, 'version')),
@@ -212,8 +208,7 @@ class GetSchema(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('data', YLeaf(YType.str, 'data')),
             ])
@@ -274,35 +269,32 @@ class NetconfState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("capabilities", ("capabilities", NetconfState.Capabilities)), ("datastores", ("datastores", NetconfState.Datastores)), ("schemas", ("schemas", NetconfState.Schemas)), ("sessions", ("sessions", NetconfState.Sessions)), ("statistics", ("statistics", NetconfState.Statistics))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("capabilities", ("capabilities", NetconfState.Capabilities)), ("datastores", ("datastores", NetconfState.Datastores)), ("schemas", ("schemas", NetconfState.Schemas)), ("sessions", ("sessions", NetconfState.Sessions)), ("statistics", ("statistics", NetconfState.Statistics))])
         self._leafs = OrderedDict()
 
         self.capabilities = NetconfState.Capabilities()
         self.capabilities.parent = self
         self._children_name_map["capabilities"] = "capabilities"
-        self._children_yang_names.add("capabilities")
 
         self.datastores = NetconfState.Datastores()
         self.datastores.parent = self
         self._children_name_map["datastores"] = "datastores"
-        self._children_yang_names.add("datastores")
 
         self.schemas = NetconfState.Schemas()
         self.schemas.parent = self
         self._children_name_map["schemas"] = "schemas"
-        self._children_yang_names.add("schemas")
 
         self.sessions = NetconfState.Sessions()
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
-        self._children_yang_names.add("sessions")
 
         self.statistics = NetconfState.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
         self._segment_path = lambda: "ietf-netconf-monitoring:netconf-state"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NetconfState, [], name, value)
 
 
     class Capabilities(Entity):
@@ -330,8 +322,7 @@ class NetconfState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('capability', YLeafList(YType.str, 'capability')),
             ])
@@ -367,8 +358,7 @@ class NetconfState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("datastore", ("datastore", NetconfState.Datastores.Datastore))])
+            self._child_classes = OrderedDict([("datastore", ("datastore", NetconfState.Datastores.Datastore))])
             self._leafs = OrderedDict()
 
             self.datastore = YList(self)
@@ -411,8 +401,7 @@ class NetconfState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("locks", ("locks", NetconfState.Datastores.Datastore.Locks))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("locks", ("locks", NetconfState.Datastores.Datastore.Locks))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.enumeration, 'name')),
                 ])
@@ -420,7 +409,6 @@ class NetconfState(Entity):
 
                 self.locks = None
                 self._children_name_map["locks"] = "locks"
-                self._children_yang_names.add("locks")
                 self._segment_path = lambda: "datastore" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/datastores/%s" % self._segment_path()
 
@@ -469,15 +457,13 @@ class NetconfState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("global-lock", ("global_lock", NetconfState.Datastores.Datastore.Locks.GlobalLock))])
-                    self._child_list_classes = OrderedDict([("partial-lock", ("partial_lock", NetconfState.Datastores.Datastore.Locks.PartialLock))])
+                    self._child_classes = OrderedDict([("global-lock", ("global_lock", NetconfState.Datastores.Datastore.Locks.GlobalLock)), ("partial-lock", ("partial_lock", NetconfState.Datastores.Datastore.Locks.PartialLock))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict()
 
                     self.global_lock = NetconfState.Datastores.Datastore.Locks.GlobalLock()
                     self.global_lock.parent = self
                     self._children_name_map["global_lock"] = "global-lock"
-                    self._children_yang_names.add("global-lock")
 
                     self.partial_lock = YList(self)
                     self._segment_path = lambda: "locks"
@@ -523,8 +509,7 @@ class NetconfState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('locked_by_session', YLeaf(YType.uint32, 'locked-by-session')),
                             ('locked_time', YLeaf(YType.str, 'locked-time')),
@@ -591,8 +576,7 @@ class NetconfState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lock_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('lock_id', YLeaf(YType.uint32, 'lock-id')),
                             ('locked_by_session', YLeaf(YType.uint32, 'locked-by-session')),
@@ -636,8 +620,7 @@ class NetconfState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("schema", ("schema", NetconfState.Schemas.Schema))])
+            self._child_classes = OrderedDict([("schema", ("schema", NetconfState.Schemas.Schema))])
             self._leafs = OrderedDict()
 
             self.schema = YList(self)
@@ -698,8 +681,7 @@ class NetconfState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['identifier','version','format']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('identifier', YLeaf(YType.str, 'identifier')),
                     ('version', YLeaf(YType.str, 'version')),
@@ -770,8 +752,7 @@ class NetconfState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("session", ("session", NetconfState.Sessions.Session))])
+            self._child_classes = OrderedDict([("session", ("session", NetconfState.Sessions.Session))])
             self._leafs = OrderedDict()
 
             self.session = YList(self)
@@ -877,8 +858,7 @@ class NetconfState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['session_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('session_id', YLeaf(YType.uint32, 'session-id')),
                     ('transport', YLeaf(YType.identityref, 'transport')),
@@ -981,8 +961,7 @@ class NetconfState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('netconf_start_time', YLeaf(YType.str, 'netconf-start-time')),
                 ('in_bad_hellos', YLeaf(YType.uint32, 'in-bad-hellos')),
@@ -1011,53 +990,6 @@ class NetconfState(Entity):
         self._top_entity = NetconfState()
         return self._top_entity
 
-class NetconfSsh(Identity):
-    """
-    NETCONF over Secure Shell (SSH).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(NetconfSsh, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-ssh")
-
-
-class NetconfSoapOverBeep(Identity):
-    """
-    NETCONF over Simple Object Access Protocol (SOAP) over
-    Blocks Extensible Exchange Protocol (BEEP).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(NetconfSoapOverBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-beep")
-
-
-class NetconfSoapOverHttps(Identity):
-    """
-    NETCONF over Simple Object Access Protocol (SOAP)
-    over Hypertext Transfer Protocol Secure (HTTPS).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(NetconfSoapOverHttps, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-https")
-
-
 class NetconfBeep(Identity):
     """
     NETCONF over Blocks Extensible Exchange Protocol (BEEP).
@@ -1073,9 +1005,9 @@ class NetconfBeep(Identity):
         super(NetconfBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-beep")
 
 
-class NetconfTls(Identity):
+class NetconfSsh(Identity):
     """
-    NETCONF over Transport Layer Security (TLS).
+    NETCONF over Secure Shell (SSH).
     
     
 
@@ -1085,12 +1017,12 @@ class NetconfTls(Identity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        super(NetconfTls, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-tls")
+        super(NetconfSsh, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-ssh")
 
 
-class Xsd(Identity):
+class Rnc(Identity):
     """
-    W3C XML Schema Definition.
+    Relax NG Compact Syntax
     
     
 
@@ -1100,22 +1032,7 @@ class Xsd(Identity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        super(Xsd, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:xsd")
-
-
-class Yang(Identity):
-    """
-    The YANG data modeling language for NETCONF.
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(Yang, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:yang")
+        super(Rnc, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rnc")
 
 
 class Yin(Identity):
@@ -1148,9 +1065,9 @@ class Rng(Identity):
         super(Rng, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rng")
 
 
-class Rnc(Identity):
+class Xsd(Identity):
     """
-    Relax NG Compact Syntax
+    W3C XML Schema Definition.
     
     
 
@@ -1160,6 +1077,68 @@ class Rnc(Identity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        super(Rnc, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rnc")
+        super(Xsd, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:xsd")
+
+
+class NetconfSoapOverBeep(Identity):
+    """
+    NETCONF over Simple Object Access Protocol (SOAP) over
+    Blocks Extensible Exchange Protocol (BEEP).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(NetconfSoapOverBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-beep")
+
+
+class NetconfTls(Identity):
+    """
+    NETCONF over Transport Layer Security (TLS).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(NetconfTls, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-tls")
+
+
+class Yang(Identity):
+    """
+    The YANG data modeling language for NETCONF.
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(Yang, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:yang")
+
+
+class NetconfSoapOverHttps(Identity):
+    """
+    NETCONF over Simple Object Access Protocol (SOAP)
+    over Hypertext Transfer Protocol Secure (HTTPS).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(NetconfSoapOverHttps, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-https")
 
 

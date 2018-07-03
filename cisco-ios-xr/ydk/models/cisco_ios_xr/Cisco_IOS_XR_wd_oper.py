@@ -105,15 +105,16 @@ class Watchdog(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Watchdog.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Watchdog.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Watchdog.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-wd-oper:watchdog"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Watchdog, [], name, value)
 
 
     class Nodes(Entity):
@@ -140,8 +141,7 @@ class Watchdog(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Watchdog.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Watchdog.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -193,8 +193,7 @@ class Watchdog(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("threshold-memory", ("threshold_memory", Watchdog.Nodes.Node.ThresholdMemory)), ("memory-state", ("memory_state", Watchdog.Nodes.Node.MemoryState)), ("overload-state", ("overload_state", Watchdog.Nodes.Node.OverloadState))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("threshold-memory", ("threshold_memory", Watchdog.Nodes.Node.ThresholdMemory)), ("memory-state", ("memory_state", Watchdog.Nodes.Node.MemoryState)), ("overload-state", ("overload_state", Watchdog.Nodes.Node.OverloadState))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -203,17 +202,14 @@ class Watchdog(Entity):
                 self.threshold_memory = Watchdog.Nodes.Node.ThresholdMemory()
                 self.threshold_memory.parent = self
                 self._children_name_map["threshold_memory"] = "threshold-memory"
-                self._children_yang_names.add("threshold-memory")
 
                 self.memory_state = Watchdog.Nodes.Node.MemoryState()
                 self.memory_state.parent = self
                 self._children_name_map["memory_state"] = "memory-state"
-                self._children_yang_names.add("memory-state")
 
                 self.overload_state = Watchdog.Nodes.Node.OverloadState()
                 self.overload_state.parent = self
                 self._children_name_map["overload_state"] = "overload-state"
-                self._children_yang_names.add("overload-state")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-wd-oper:watchdog/nodes/%s" % self._segment_path()
 
@@ -250,20 +246,20 @@ class Watchdog(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("default", ("default", Watchdog.Nodes.Node.ThresholdMemory.Default)), ("configured", ("configured", Watchdog.Nodes.Node.ThresholdMemory.Configured))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("default", ("default", Watchdog.Nodes.Node.ThresholdMemory.Default)), ("configured", ("configured", Watchdog.Nodes.Node.ThresholdMemory.Configured))])
                     self._leafs = OrderedDict()
 
                     self.default = Watchdog.Nodes.Node.ThresholdMemory.Default()
                     self.default.parent = self
                     self._children_name_map["default"] = "default"
-                    self._children_yang_names.add("default")
 
                     self.configured = Watchdog.Nodes.Node.ThresholdMemory.Configured()
                     self.configured.parent = self
                     self._children_name_map["configured"] = "configured"
-                    self._children_yang_names.add("configured")
                     self._segment_path = lambda: "threshold-memory"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory, [], name, value)
 
 
                 class Default(Entity):
@@ -295,20 +291,20 @@ class Watchdog(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("configured-memory", ("configured_memory", Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory)), ("memory", ("memory", Watchdog.Nodes.Node.ThresholdMemory.Default.Memory))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("configured-memory", ("configured_memory", Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory)), ("memory", ("memory", Watchdog.Nodes.Node.ThresholdMemory.Default.Memory))])
                         self._leafs = OrderedDict()
 
                         self.configured_memory = Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory()
                         self.configured_memory.parent = self
                         self._children_name_map["configured_memory"] = "configured-memory"
-                        self._children_yang_names.add("configured-memory")
 
                         self.memory = Watchdog.Nodes.Node.ThresholdMemory.Default.Memory()
                         self.memory.parent = self
                         self._children_name_map["memory"] = "memory"
-                        self._children_yang_names.add("memory")
                         self._segment_path = lambda: "default"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default, [], name, value)
 
 
                     class ConfiguredMemory(Entity):
@@ -357,8 +353,7 @@ class Watchdog(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('minor', YLeaf(YType.uint32, 'minor')),
                                 ('severe', YLeaf(YType.uint32, 'severe')),
@@ -370,7 +365,7 @@ class Watchdog(Entity):
                             self._segment_path = lambda: "configured-memory"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, ['minor', 'severe', 'critical'], name, value)
+                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, [u'minor', u'severe', u'critical'], name, value)
 
 
                     class Memory(Entity):
@@ -415,8 +410,7 @@ class Watchdog(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('physical_memory', YLeaf(YType.uint32, 'physical-memory')),
                                 ('free_memory', YLeaf(YType.uint64, 'free-memory')),
@@ -428,7 +422,7 @@ class Watchdog(Entity):
                             self._segment_path = lambda: "memory"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, ['physical_memory', 'free_memory', 'memory_state'], name, value)
+                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, [u'physical_memory', u'free_memory', u'memory_state'], name, value)
 
 
                 class Configured(Entity):
@@ -477,8 +471,7 @@ class Watchdog(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('minor', YLeaf(YType.uint32, 'minor')),
                             ('severe', YLeaf(YType.uint32, 'severe')),
@@ -490,7 +483,7 @@ class Watchdog(Entity):
                         self._segment_path = lambda: "configured"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Configured, ['minor', 'severe', 'critical'], name, value)
+                        self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Configured, [u'minor', u'severe', u'critical'], name, value)
 
 
             class MemoryState(Entity):
@@ -535,8 +528,7 @@ class Watchdog(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('physical_memory', YLeaf(YType.uint32, 'physical-memory')),
                         ('free_memory', YLeaf(YType.uint64, 'free-memory')),
@@ -548,7 +540,7 @@ class Watchdog(Entity):
                     self._segment_path = lambda: "memory-state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Watchdog.Nodes.Node.MemoryState, ['physical_memory', 'free_memory', 'memory_state'], name, value)
+                    self._perform_setattr(Watchdog.Nodes.Node.MemoryState, [u'physical_memory', u'free_memory', u'memory_state'], name, value)
 
 
             class OverloadState(Entity):
@@ -599,8 +591,7 @@ class Watchdog(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("current-throttle", ("current_throttle", Watchdog.Nodes.Node.OverloadState.CurrentThrottle))])
-                    self._child_list_classes = OrderedDict([("last-throttle", ("last_throttle", Watchdog.Nodes.Node.OverloadState.LastThrottle))])
+                    self._child_classes = OrderedDict([("current-throttle", ("current_throttle", Watchdog.Nodes.Node.OverloadState.CurrentThrottle)), ("last-throttle", ("last_throttle", Watchdog.Nodes.Node.OverloadState.LastThrottle))])
                     self._leafs = OrderedDict([
                         ('overload_control_notification', YLeaf(YType.enumeration, 'overload-control-notification')),
                         ('default_wdsysmon_throttle', YLeaf(YType.uint32, 'default-wdsysmon-throttle')),
@@ -613,13 +604,12 @@ class Watchdog(Entity):
                     self.current_throttle = Watchdog.Nodes.Node.OverloadState.CurrentThrottle()
                     self.current_throttle.parent = self
                     self._children_name_map["current_throttle"] = "current-throttle"
-                    self._children_yang_names.add("current-throttle")
 
                     self.last_throttle = YList(self)
                     self._segment_path = lambda: "overload-state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Watchdog.Nodes.Node.OverloadState, ['overload_control_notification', 'default_wdsysmon_throttle', 'configured_wdsysmon_throttle'], name, value)
+                    self._perform_setattr(Watchdog.Nodes.Node.OverloadState, [u'overload_control_notification', u'default_wdsysmon_throttle', u'configured_wdsysmon_throttle'], name, value)
 
 
                 class CurrentThrottle(Entity):
@@ -657,8 +647,7 @@ class Watchdog(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('throttle_duration', YLeaf(YType.uint32, 'throttle-duration')),
                             ('start_time', YLeaf(YType.str, 'start-time')),
@@ -668,7 +657,7 @@ class Watchdog(Entity):
                         self._segment_path = lambda: "current-throttle"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, ['throttle_duration', 'start_time'], name, value)
+                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, [u'throttle_duration', u'start_time'], name, value)
 
 
                 class LastThrottle(Entity):
@@ -713,8 +702,7 @@ class Watchdog(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('throttle_duration', YLeaf(YType.uint32, 'throttle-duration')),
                             ('start_time', YLeaf(YType.str, 'start-time')),
@@ -726,7 +714,7 @@ class Watchdog(Entity):
                         self._segment_path = lambda: "last-throttle"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.LastThrottle, ['throttle_duration', 'start_time', 'stop_time'], name, value)
+                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.LastThrottle, [u'throttle_duration', u'start_time', u'stop_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Watchdog()

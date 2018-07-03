@@ -45,15 +45,16 @@ class FabricStats(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", FabricStats.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", FabricStats.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = FabricStats.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(FabricStats, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class FabricStats(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", FabricStats.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", FabricStats.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -123,8 +123,7 @@ class FabricStats(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("statses", ("statses", FabricStats.Nodes.Node.Statses))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("statses", ("statses", FabricStats.Nodes.Node.Statses))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -133,7 +132,6 @@ class FabricStats(Entity):
                 self.statses = FabricStats.Nodes.Node.Statses()
                 self.statses.parent = self
                 self._children_name_map["statses"] = "statses"
-                self._children_yang_names.add("statses")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats/nodes/%s" % self._segment_path()
 
@@ -165,8 +163,7 @@ class FabricStats(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("stats", ("stats", FabricStats.Nodes.Node.Statses.Stats))])
+                    self._child_classes = OrderedDict([("stats", ("stats", FabricStats.Nodes.Node.Statses.Stats))])
                     self._leafs = OrderedDict()
 
                     self.stats = YList(self)
@@ -219,8 +216,7 @@ class FabricStats(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("stats-table", ("stats_table", FabricStats.Nodes.Node.Statses.Stats.StatsTable))])
+                        self._child_classes = OrderedDict([("stats-table", ("stats_table", FabricStats.Nodes.Node.Statses.Stats.StatsTable))])
                         self._leafs = OrderedDict([
                             ('type', YLeaf(YType.str, 'type')),
                             ('last_clear_time', YLeaf(YType.uint64, 'last-clear-time')),
@@ -261,8 +257,7 @@ class FabricStats(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("fsi-stat", ("fsi_stat", FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat))])
+                            self._child_classes = OrderedDict([("fsi-stat", ("fsi_stat", FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat))])
                             self._leafs = OrderedDict()
 
                             self.fsi_stat = YList(self)
@@ -303,8 +298,7 @@ class FabricStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('count', YLeaf(YType.uint64, 'count')),
                                     ('counter_name', YLeaf(YType.str, 'counter-name')),

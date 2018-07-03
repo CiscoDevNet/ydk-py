@@ -430,25 +430,24 @@ class TelemetryModelDriven(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("destinations", ("destinations", TelemetryModelDriven.Destinations)), ("subscriptions", ("subscriptions", TelemetryModelDriven.Subscriptions)), ("sensor-groups", ("sensor_groups", TelemetryModelDriven.SensorGroups))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("destinations", ("destinations", TelemetryModelDriven.Destinations)), ("subscriptions", ("subscriptions", TelemetryModelDriven.Subscriptions)), ("sensor-groups", ("sensor_groups", TelemetryModelDriven.SensorGroups))])
         self._leafs = OrderedDict()
 
         self.destinations = TelemetryModelDriven.Destinations()
         self.destinations.parent = self
         self._children_name_map["destinations"] = "destinations"
-        self._children_yang_names.add("destinations")
 
         self.subscriptions = TelemetryModelDriven.Subscriptions()
         self.subscriptions.parent = self
         self._children_name_map["subscriptions"] = "subscriptions"
-        self._children_yang_names.add("subscriptions")
 
         self.sensor_groups = TelemetryModelDriven.SensorGroups()
         self.sensor_groups.parent = self
         self._children_name_map["sensor_groups"] = "sensor-groups"
-        self._children_yang_names.add("sensor-groups")
         self._segment_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(TelemetryModelDriven, [], name, value)
 
 
     class Destinations(Entity):
@@ -475,8 +474,7 @@ class TelemetryModelDriven(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Destinations.Destination))])
+            self._child_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Destinations.Destination))])
             self._leafs = OrderedDict()
 
             self.destination = YList(self)
@@ -530,8 +528,7 @@ class TelemetryModelDriven(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['destination_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Destinations.Destination.Destination_))])
+                self._child_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Destinations.Destination.Destination_))])
                 self._leafs = OrderedDict([
                     ('destination_id', YLeaf(YType.str, 'destination-id')),
                     ('id', YLeaf(YType.str, 'id')),
@@ -546,7 +543,7 @@ class TelemetryModelDriven(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TelemetryModelDriven.Destinations.Destination, ['destination_id', 'id', 'configured'], name, value)
+                self._perform_setattr(TelemetryModelDriven.Destinations.Destination, ['destination_id', u'id', u'configured'], name, value)
 
 
             class Destination_(Entity):
@@ -578,14 +575,12 @@ class TelemetryModelDriven(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Destinations.Destination.Destination_.Destination_))])
-                    self._child_list_classes = OrderedDict([("collection-group", ("collection_group", TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup))])
+                    self._child_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Destinations.Destination.Destination_.Destination_)), ("collection-group", ("collection_group", TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup))])
                     self._leafs = OrderedDict()
 
                     self.destination = TelemetryModelDriven.Destinations.Destination.Destination_.Destination_()
                     self.destination.parent = self
                     self._children_name_map["destination"] = "destination"
-                    self._children_yang_names.add("destination")
 
                     self.collection_group = YList(self)
                     self._segment_path = lambda: "destination"
@@ -718,8 +713,7 @@ class TelemetryModelDriven(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("dest-ip-address", ("dest_ip_address", TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("dest-ip-address", ("dest_ip_address", TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress))])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.str, 'id')),
                             ('sub_id_str', YLeaf(YType.str, 'sub-id-str')),
@@ -758,11 +752,10 @@ class TelemetryModelDriven(Entity):
                         self.dest_ip_address = TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress()
                         self.dest_ip_address.parent = self
                         self._children_name_map["dest_ip_address"] = "dest-ip-address"
-                        self._children_yang_names.add("dest-ip-address")
                         self._segment_path = lambda: "destination"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, ['id', 'sub_id_str', 'dest_port', 'encoding', 'transport', 'vrf', 'vrf_id', 'state', 'udp_mtu', 'tls', 'tls_host', 'total_num_of_packets_sent', 'total_num_of_bytes_sent', 'last_collection_time', 'dscp', 'sub_id'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, [u'id', u'sub_id_str', u'dest_port', u'encoding', u'transport', u'vrf', u'vrf_id', u'state', u'udp_mtu', u'tls', u'tls_host', u'total_num_of_packets_sent', u'total_num_of_bytes_sent', u'last_collection_time', u'dscp', u'sub_id'], name, value)
 
 
                     class DestIpAddress(Entity):
@@ -803,8 +796,7 @@ class TelemetryModelDriven(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_type', YLeaf(YType.enumeration, 'ip-type')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -816,7 +808,7 @@ class TelemetryModelDriven(Entity):
                             self._segment_path = lambda: "dest-ip-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, ['ip_type', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, [u'ip_type', u'ipv4_address', u'ipv6_address'], name, value)
 
 
                 class CollectionGroup(Entity):
@@ -959,8 +951,7 @@ class TelemetryModelDriven(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("collection-path", ("collection_path", TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath)), ("internal-collection-group", ("internal_collection_group", TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup))])
+                        self._child_classes = OrderedDict([("collection-path", ("collection_path", TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath)), ("internal-collection-group", ("internal_collection_group", TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup))])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.uint64, 'id')),
                             ('cadence', YLeaf(YType.uint32, 'cadence')),
@@ -1001,7 +992,7 @@ class TelemetryModelDriven(Entity):
                         self._segment_path = lambda: "collection-group"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, ['id', 'cadence', 'total_collections', 'encoding', 'last_collection_start_time', 'last_collection_end_time', 'max_collection_time', 'min_collection_time', 'min_total_time', 'max_total_time', 'avg_total_time', 'total_other_errors', 'total_on_data_instances', 'total_not_ready', 'total_send_errors', 'total_send_drops'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, [u'id', u'cadence', u'total_collections', u'encoding', u'last_collection_start_time', u'last_collection_end_time', u'max_collection_time', u'min_collection_time', u'min_total_time', u'max_total_time', u'avg_total_time', u'total_other_errors', u'total_on_data_instances', u'total_not_ready', u'total_send_errors', u'total_send_drops'], name, value)
 
 
                     class CollectionPath(Entity):
@@ -1039,8 +1030,7 @@ class TelemetryModelDriven(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('path', YLeaf(YType.str, 'path')),
                                 ('state', YLeaf(YType.boolean, 'state')),
@@ -1052,7 +1042,7 @@ class TelemetryModelDriven(Entity):
                             self._segment_path = lambda: "collection-path"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, ['path', 'state', 'status_str'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, [u'path', u'state', u'status_str'], name, value)
 
 
                     class InternalCollectionGroup(Entity):
@@ -1264,8 +1254,7 @@ class TelemetryModelDriven(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('path', YLeaf(YType.str, 'path')),
                                 ('cadence', YLeaf(YType.uint64, 'cadence')),
@@ -1325,7 +1314,7 @@ class TelemetryModelDriven(Entity):
                             self._segment_path = lambda: "internal-collection-group"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, ['path', 'cadence', 'total_get_count', 'total_list_count', 'total_datalist_count', 'total_finddata_count', 'total_get_bulk_count', 'total_item_count', 'total_get_errors', 'total_list_errors', 'total_datalist_errors', 'total_finddata_errors', 'total_get_bulk_errors', 'total_encode_errors', 'total_encode_notready', 'total_send_errors', 'total_send_drops', 'total_sent_bytes', 'total_send_packets', 'total_send_bytes_dropped', 'total_collections', 'total_collections_missed', 'max_collection_time', 'min_collection_time', 'avg_collection_time', 'collection_method', 'status'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, [u'path', u'cadence', u'total_get_count', u'total_list_count', u'total_datalist_count', u'total_finddata_count', u'total_get_bulk_count', u'total_item_count', u'total_get_errors', u'total_list_errors', u'total_datalist_errors', u'total_finddata_errors', u'total_get_bulk_errors', u'total_encode_errors', u'total_encode_notready', u'total_send_errors', u'total_send_drops', u'total_sent_bytes', u'total_send_packets', u'total_send_bytes_dropped', u'total_collections', u'total_collections_missed', u'max_collection_time', u'min_collection_time', u'avg_collection_time', u'collection_method', u'status'], name, value)
 
 
     class Subscriptions(Entity):
@@ -1352,8 +1341,7 @@ class TelemetryModelDriven(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("subscription", ("subscription", TelemetryModelDriven.Subscriptions.Subscription))])
+            self._child_classes = OrderedDict([("subscription", ("subscription", TelemetryModelDriven.Subscriptions.Subscription))])
             self._leafs = OrderedDict()
 
             self.subscription = YList(self)
@@ -1400,8 +1388,7 @@ class TelemetryModelDriven(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['subscription_id']
-                self._child_container_classes = OrderedDict([("subscription", ("subscription", TelemetryModelDriven.Subscriptions.Subscription.Subscription_))])
-                self._child_list_classes = OrderedDict([("collection-group", ("collection_group", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup))])
+                self._child_classes = OrderedDict([("subscription", ("subscription", TelemetryModelDriven.Subscriptions.Subscription.Subscription_)), ("collection-group", ("collection_group", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup))])
                 self._leafs = OrderedDict([
                     ('subscription_id', YLeaf(YType.str, 'subscription-id')),
                 ])
@@ -1410,7 +1397,6 @@ class TelemetryModelDriven(Entity):
                 self.subscription = TelemetryModelDriven.Subscriptions.Subscription.Subscription_()
                 self.subscription.parent = self
                 self._children_name_map["subscription"] = "subscription"
-                self._children_yang_names.add("subscription")
 
                 self.collection_group = YList(self)
                 self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
@@ -1469,8 +1455,7 @@ class TelemetryModelDriven(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("source-interface", ("source_interface", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface))])
-                    self._child_list_classes = OrderedDict([("sensor-profile", ("sensor_profile", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile)), ("destination-grp", ("destination_grp", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp))])
+                    self._child_classes = OrderedDict([("source-interface", ("source_interface", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface)), ("sensor-profile", ("sensor_profile", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile)), ("destination-grp", ("destination_grp", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('state', YLeaf(YType.enumeration, 'state')),
@@ -1483,14 +1468,13 @@ class TelemetryModelDriven(Entity):
                     self.source_interface = TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface()
                     self.source_interface.parent = self
                     self._children_name_map["source_interface"] = "source-interface"
-                    self._children_yang_names.add("source-interface")
 
                     self.sensor_profile = YList(self)
                     self.destination_grp = YList(self)
                     self._segment_path = lambda: "subscription"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, ['id', 'state', 'source_qos_marking'], name, value)
+                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, [u'id', u'state', u'source_qos_marking'], name, value)
 
 
                 class SourceInterface(Entity):
@@ -1543,8 +1527,7 @@ class TelemetryModelDriven(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('state', YLeaf(YType.boolean, 'state')),
@@ -1560,7 +1543,7 @@ class TelemetryModelDriven(Entity):
                         self._segment_path = lambda: "source-interface"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, ['interface_name', 'state', 'ipv4_address', 'ipv6_address', 'vrf_id'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, [u'interface_name', u'state', u'ipv4_address', u'ipv6_address', u'vrf_id'], name, value)
 
 
                 class SensorProfile(Entity):
@@ -1606,8 +1589,7 @@ class TelemetryModelDriven(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sensor-group", ("sensor_group", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sensor-group", ("sensor_group", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup))])
                         self._leafs = OrderedDict([
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
                             ('heartbeat_interval', YLeaf(YType.uint32, 'heartbeat-interval')),
@@ -1620,11 +1602,10 @@ class TelemetryModelDriven(Entity):
                         self.sensor_group = TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup()
                         self.sensor_group.parent = self
                         self._children_name_map["sensor_group"] = "sensor-group"
-                        self._children_yang_names.add("sensor-group")
                         self._segment_path = lambda: "sensor-profile"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, ['sample_interval', 'heartbeat_interval', 'suppress_redundant'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, [u'sample_interval', u'heartbeat_interval', u'suppress_redundant'], name, value)
 
 
                     class SensorGroup(Entity):
@@ -1663,8 +1644,7 @@ class TelemetryModelDriven(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath))])
+                            self._child_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath))])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('configured', YLeaf(YType.uint32, 'configured')),
@@ -1676,7 +1656,7 @@ class TelemetryModelDriven(Entity):
                             self._segment_path = lambda: "sensor-group"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, ['id', 'configured'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, [u'id', u'configured'], name, value)
 
 
                         class SensorPath(Entity):
@@ -1714,8 +1694,7 @@ class TelemetryModelDriven(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('path', YLeaf(YType.str, 'path')),
                                     ('state', YLeaf(YType.boolean, 'state')),
@@ -1727,7 +1706,7 @@ class TelemetryModelDriven(Entity):
                                 self._segment_path = lambda: "sensor-path"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, ['path', 'state', 'status_str'], name, value)
+                                self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, [u'path', u'state', u'status_str'], name, value)
 
 
                 class DestinationGrp(Entity):
@@ -1766,8 +1745,7 @@ class TelemetryModelDriven(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination))])
+                        self._child_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination))])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.str, 'id')),
                             ('configured', YLeaf(YType.uint32, 'configured')),
@@ -1779,7 +1757,7 @@ class TelemetryModelDriven(Entity):
                         self._segment_path = lambda: "destination-grp"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, ['id', 'configured'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, [u'id', u'configured'], name, value)
 
 
                     class Destination(Entity):
@@ -1906,8 +1884,7 @@ class TelemetryModelDriven(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("dest-ip-address", ("dest_ip_address", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("dest-ip-address", ("dest_ip_address", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress))])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('sub_id_str', YLeaf(YType.str, 'sub-id-str')),
@@ -1946,11 +1923,10 @@ class TelemetryModelDriven(Entity):
                             self.dest_ip_address = TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress()
                             self.dest_ip_address.parent = self
                             self._children_name_map["dest_ip_address"] = "dest-ip-address"
-                            self._children_yang_names.add("dest-ip-address")
                             self._segment_path = lambda: "destination"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, ['id', 'sub_id_str', 'dest_port', 'encoding', 'transport', 'vrf', 'vrf_id', 'state', 'udp_mtu', 'tls', 'tls_host', 'total_num_of_packets_sent', 'total_num_of_bytes_sent', 'last_collection_time', 'dscp', 'sub_id'], name, value)
+                            self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, [u'id', u'sub_id_str', u'dest_port', u'encoding', u'transport', u'vrf', u'vrf_id', u'state', u'udp_mtu', u'tls', u'tls_host', u'total_num_of_packets_sent', u'total_num_of_bytes_sent', u'last_collection_time', u'dscp', u'sub_id'], name, value)
 
 
                         class DestIpAddress(Entity):
@@ -1991,8 +1967,7 @@ class TelemetryModelDriven(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip_type', YLeaf(YType.enumeration, 'ip-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2004,7 +1979,7 @@ class TelemetryModelDriven(Entity):
                                 self._segment_path = lambda: "dest-ip-address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, ['ip_type', 'ipv4_address', 'ipv6_address'], name, value)
+                                self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, [u'ip_type', u'ipv4_address', u'ipv6_address'], name, value)
 
 
             class CollectionGroup(Entity):
@@ -2147,8 +2122,7 @@ class TelemetryModelDriven(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("collection-path", ("collection_path", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath)), ("internal-collection-group", ("internal_collection_group", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup))])
+                    self._child_classes = OrderedDict([("collection-path", ("collection_path", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath)), ("internal-collection-group", ("internal_collection_group", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.uint64, 'id')),
                         ('cadence', YLeaf(YType.uint32, 'cadence')),
@@ -2189,7 +2163,7 @@ class TelemetryModelDriven(Entity):
                     self._segment_path = lambda: "collection-group"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, ['id', 'cadence', 'total_collections', 'encoding', 'last_collection_start_time', 'last_collection_end_time', 'max_collection_time', 'min_collection_time', 'min_total_time', 'max_total_time', 'avg_total_time', 'total_other_errors', 'total_on_data_instances', 'total_not_ready', 'total_send_errors', 'total_send_drops'], name, value)
+                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, [u'id', u'cadence', u'total_collections', u'encoding', u'last_collection_start_time', u'last_collection_end_time', u'max_collection_time', u'min_collection_time', u'min_total_time', u'max_total_time', u'avg_total_time', u'total_other_errors', u'total_on_data_instances', u'total_not_ready', u'total_send_errors', u'total_send_drops'], name, value)
 
 
                 class CollectionPath(Entity):
@@ -2227,8 +2201,7 @@ class TelemetryModelDriven(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('path', YLeaf(YType.str, 'path')),
                             ('state', YLeaf(YType.boolean, 'state')),
@@ -2240,7 +2213,7 @@ class TelemetryModelDriven(Entity):
                         self._segment_path = lambda: "collection-path"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, ['path', 'state', 'status_str'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, [u'path', u'state', u'status_str'], name, value)
 
 
                 class InternalCollectionGroup(Entity):
@@ -2452,8 +2425,7 @@ class TelemetryModelDriven(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('path', YLeaf(YType.str, 'path')),
                             ('cadence', YLeaf(YType.uint64, 'cadence')),
@@ -2513,7 +2485,7 @@ class TelemetryModelDriven(Entity):
                         self._segment_path = lambda: "internal-collection-group"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, ['path', 'cadence', 'total_get_count', 'total_list_count', 'total_datalist_count', 'total_finddata_count', 'total_get_bulk_count', 'total_item_count', 'total_get_errors', 'total_list_errors', 'total_datalist_errors', 'total_finddata_errors', 'total_get_bulk_errors', 'total_encode_errors', 'total_encode_notready', 'total_send_errors', 'total_send_drops', 'total_sent_bytes', 'total_send_packets', 'total_send_bytes_dropped', 'total_collections', 'total_collections_missed', 'max_collection_time', 'min_collection_time', 'avg_collection_time', 'collection_method', 'status'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, [u'path', u'cadence', u'total_get_count', u'total_list_count', u'total_datalist_count', u'total_finddata_count', u'total_get_bulk_count', u'total_item_count', u'total_get_errors', u'total_list_errors', u'total_datalist_errors', u'total_finddata_errors', u'total_get_bulk_errors', u'total_encode_errors', u'total_encode_notready', u'total_send_errors', u'total_send_drops', u'total_sent_bytes', u'total_send_packets', u'total_send_bytes_dropped', u'total_collections', u'total_collections_missed', u'max_collection_time', u'min_collection_time', u'avg_collection_time', u'collection_method', u'status'], name, value)
 
 
     class SensorGroups(Entity):
@@ -2540,8 +2512,7 @@ class TelemetryModelDriven(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sensor-group", ("sensor_group", TelemetryModelDriven.SensorGroups.SensorGroup))])
+            self._child_classes = OrderedDict([("sensor-group", ("sensor_group", TelemetryModelDriven.SensorGroups.SensorGroup))])
             self._leafs = OrderedDict()
 
             self.sensor_group = YList(self)
@@ -2595,8 +2566,7 @@ class TelemetryModelDriven(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['sensor_group_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath))])
+                self._child_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath))])
                 self._leafs = OrderedDict([
                     ('sensor_group_id', YLeaf(YType.str, 'sensor-group-id')),
                     ('id', YLeaf(YType.str, 'id')),
@@ -2611,7 +2581,7 @@ class TelemetryModelDriven(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/sensor-groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup, ['sensor_group_id', 'id', 'configured'], name, value)
+                self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup, ['sensor_group_id', u'id', u'configured'], name, value)
 
 
             class SensorPath(Entity):
@@ -2649,8 +2619,7 @@ class TelemetryModelDriven(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('path', YLeaf(YType.str, 'path')),
                         ('state', YLeaf(YType.boolean, 'state')),
@@ -2662,7 +2631,7 @@ class TelemetryModelDriven(Entity):
                     self._segment_path = lambda: "sensor-path"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, ['path', 'state', 'status_str'], name, value)
+                    self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, [u'path', u'state', u'status_str'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TelemetryModelDriven()

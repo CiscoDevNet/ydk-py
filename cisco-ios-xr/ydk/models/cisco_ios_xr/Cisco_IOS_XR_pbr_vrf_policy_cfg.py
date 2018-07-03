@@ -45,8 +45,7 @@ class VrfPolicy(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("vrf", ("vrf", VrfPolicy.Vrf))])
+        self._child_classes = OrderedDict([("vrf", ("vrf", VrfPolicy.Vrf))])
         self._leafs = OrderedDict()
 
         self.vrf = YList(self)
@@ -87,8 +86,7 @@ class VrfPolicy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['vrf_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("afi", ("afi", VrfPolicy.Vrf.Afi))])
+            self._child_classes = OrderedDict([("afi", ("afi", VrfPolicy.Vrf.Afi))])
             self._leafs = OrderedDict([
                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
             ])
@@ -111,7 +109,7 @@ class VrfPolicy(Entity):
             	AFI name
             	**type**\: str
             
-            	**pattern:** (ipv4)\|(ipv6)
+            	**pattern:** (ipv4)
             
             .. attribute:: service_policy_in
             
@@ -133,8 +131,7 @@ class VrfPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['afi_type']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('afi_type', YLeaf(YType.str, 'afi-type')),
                     ('service_policy_in', YLeaf(YType.str, 'service-policy-in')),

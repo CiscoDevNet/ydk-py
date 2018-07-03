@@ -45,15 +45,16 @@ class ShowUsers(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("sessions", ("sessions", ShowUsers.Sessions))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("sessions", ("sessions", ShowUsers.Sessions))])
         self._leafs = OrderedDict()
 
         self.sessions = ShowUsers.Sessions()
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
-        self._children_yang_names.add("sessions")
         self._segment_path = lambda: "Cisco-IOS-XR-tty-management-cmd-oper:show-users"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ShowUsers, [], name, value)
 
 
     class Sessions(Entity):
@@ -80,8 +81,7 @@ class ShowUsers(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("session", ("session", ShowUsers.Sessions.Session))])
+            self._child_classes = OrderedDict([("session", ("session", ShowUsers.Sessions.Session))])
             self._leafs = OrderedDict()
 
             self.session = YList(self)
@@ -148,8 +148,7 @@ class ShowUsers(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['session_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('session_id', YLeaf(YType.int32, 'session-id')),
                     ('line', YLeaf(YType.str, 'line')),
@@ -170,7 +169,7 @@ class ShowUsers(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-management-cmd-oper:show-users/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowUsers.Sessions.Session, ['session_id', 'line', 'user', 'service', 'conns', 'idle_string', 'location'], name, value)
+                self._perform_setattr(ShowUsers.Sessions.Session, ['session_id', u'line', u'user', u'service', u'conns', u'idle_string', u'location'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ShowUsers()

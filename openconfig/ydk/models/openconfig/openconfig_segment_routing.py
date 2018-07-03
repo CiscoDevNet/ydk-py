@@ -65,6 +65,16 @@ class MplsLabel(Enum):
 
     	labels RFC 6790
 
+    .. data:: NO_LABEL = 8
+
+    	This value is utilised to indicate that the packet that
+
+    	is forwarded by the local system does not have an MPLS
+
+    	header applied to it. Typically, this is used at the
+
+    	egress of an LSP
+
     """
 
     IPV4_EXPLICIT_NULL = Enum.YLeaf(0, "IPV4_EXPLICIT_NULL")
@@ -76,6 +86,8 @@ class MplsLabel(Enum):
     IMPLICIT_NULL = Enum.YLeaf(3, "IMPLICIT_NULL")
 
     ENTROPY_LABEL_INDICATOR = Enum.YLeaf(7, "ENTROPY_LABEL_INDICATOR")
+
+    NO_LABEL = Enum.YLeaf(8, "NO_LABEL")
 
 
 class SrDataplaneType(Enum):

@@ -357,25 +357,24 @@ class SubscriberRedundancyManager(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("groups", ("groups", SubscriberRedundancyManager.Groups)), ("summary", ("summary", SubscriberRedundancyManager.Summary)), ("interfaces", ("interfaces", SubscriberRedundancyManager.Interfaces))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("groups", ("groups", SubscriberRedundancyManager.Groups)), ("summary", ("summary", SubscriberRedundancyManager.Summary)), ("interfaces", ("interfaces", SubscriberRedundancyManager.Interfaces))])
         self._leafs = OrderedDict()
 
         self.groups = SubscriberRedundancyManager.Groups()
         self.groups.parent = self
         self._children_name_map["groups"] = "groups"
-        self._children_yang_names.add("groups")
 
         self.summary = SubscriberRedundancyManager.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
 
         self.interfaces = SubscriberRedundancyManager.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SubscriberRedundancyManager, [], name, value)
 
 
     class Groups(Entity):
@@ -402,8 +401,7 @@ class SubscriberRedundancyManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("group", ("group", SubscriberRedundancyManager.Groups.Group))])
+            self._child_classes = OrderedDict([("group", ("group", SubscriberRedundancyManager.Groups.Group))])
             self._leafs = OrderedDict()
 
             self.group = YList(self)
@@ -513,8 +511,7 @@ class SubscriberRedundancyManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['group']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('group', YLeaf(YType.str, 'group')),
                     ('group_id', YLeaf(YType.uint32, 'group-id')),
@@ -549,7 +546,7 @@ class SubscriberRedundancyManager(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SubscriberRedundancyManager.Groups.Group, ['group', 'group_id', 'description', 'disabled', 'role', 'peer_ipv4_address', 'peer_ipv6_address', 'interface_count', 'preferred_role', 'slave_mode', 'object_tracking_status', 'virtual_mac_address', 'virtual_mac_address_disable', 'node_name'], name, value)
+                self._perform_setattr(SubscriberRedundancyManager.Groups.Group, ['group', u'group_id', u'description', u'disabled', u'role', u'peer_ipv4_address', u'peer_ipv6_address', u'interface_count', u'preferred_role', u'slave_mode', u'object_tracking_status', u'virtual_mac_address', u'virtual_mac_address_disable', u'node_name'], name, value)
 
 
     class Summary(Entity):
@@ -671,8 +668,7 @@ class SubscriberRedundancyManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('disabled', YLeaf(YType.boolean, 'disabled')),
                 ('active_state', YLeaf(YType.boolean, 'active-state')),
@@ -711,7 +707,7 @@ class SubscriberRedundancyManager(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriberRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count'], name, value)
+            self._perform_setattr(SubscriberRedundancyManager.Summary, [u'disabled', u'active_state', u'preferred_role', u'slave_mode', u'hold_timer', u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'group_count', u'disabled_group_count', u'master_group_count', u'slave_group_count', u'interface_count', u'master_interface_count', u'slave_interface_count'], name, value)
 
 
     class Interfaces(Entity):
@@ -738,8 +734,7 @@ class SubscriberRedundancyManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", SubscriberRedundancyManager.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", SubscriberRedundancyManager.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -805,8 +800,7 @@ class SubscriberRedundancyManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface', YLeaf(YType.str, 'interface')),
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -825,7 +819,7 @@ class SubscriberRedundancyManager(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SubscriberRedundancyManager.Interfaces.Interface, ['interface', 'interface_name', 'interface_mapping_id', 'forward_referenced', 'group_id', 'role'], name, value)
+                self._perform_setattr(SubscriberRedundancyManager.Interfaces.Interface, ['interface', u'interface_name', u'interface_mapping_id', u'forward_referenced', u'group_id', u'role'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancyManager()
@@ -856,15 +850,16 @@ class SubscriberRedundancyAgent(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", SubscriberRedundancyAgent.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", SubscriberRedundancyAgent.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = SubscriberRedundancyAgent.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SubscriberRedundancyAgent, [], name, value)
 
 
     class Nodes(Entity):
@@ -892,8 +887,7 @@ class SubscriberRedundancyAgent(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", SubscriberRedundancyAgent.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", SubscriberRedundancyAgent.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -950,8 +944,7 @@ class SubscriberRedundancyAgent(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("group-id-xr", ("group_id_xr", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr)), ("interfaces", ("interfaces", SubscriberRedundancyAgent.Nodes.Node.Interfaces)), ("group-summaries", ("group_summaries", SubscriberRedundancyAgent.Nodes.Node.GroupSummaries)), ("group-ids", ("group_ids", SubscriberRedundancyAgent.Nodes.Node.GroupIds))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("group-id-xr", ("group_id_xr", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr)), ("interfaces", ("interfaces", SubscriberRedundancyAgent.Nodes.Node.Interfaces)), ("group-summaries", ("group_summaries", SubscriberRedundancyAgent.Nodes.Node.GroupSummaries)), ("group-ids", ("group_ids", SubscriberRedundancyAgent.Nodes.Node.GroupIds))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -960,22 +953,18 @@ class SubscriberRedundancyAgent(Entity):
                 self.group_id_xr = SubscriberRedundancyAgent.Nodes.Node.GroupIdXr()
                 self.group_id_xr.parent = self
                 self._children_name_map["group_id_xr"] = "group-id-xr"
-                self._children_yang_names.add("group-id-xr")
 
                 self.interfaces = SubscriberRedundancyAgent.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.group_summaries = SubscriberRedundancyAgent.Nodes.Node.GroupSummaries()
                 self.group_summaries.parent = self
                 self._children_name_map["group_summaries"] = "group-summaries"
-                self._children_yang_names.add("group-summaries")
 
                 self.group_ids = SubscriberRedundancyAgent.Nodes.Node.GroupIds()
                 self.group_ids.parent = self
                 self._children_name_map["group_ids"] = "group-ids"
-                self._children_yang_names.add("group-ids")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/%s" % self._segment_path()
 
@@ -1007,8 +996,7 @@ class SubscriberRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("group-id", ("group_id", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId))])
+                    self._child_classes = OrderedDict([("group-id", ("group_id", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId))])
                     self._leafs = OrderedDict()
 
                     self.group_id = YList(self)
@@ -1114,8 +1102,7 @@ class SubscriberRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("session-detailed-information", ("session_detailed_information", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation)), ("session-sync-error-information", ("session_sync_error_information", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation))])
+                        self._child_classes = OrderedDict([("session-detailed-information", ("session_detailed_information", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation)), ("session-sync-error-information", ("session_sync_error_information", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation))])
                         self._leafs = OrderedDict([
                             ('group_id', YLeaf(YType.str, 'group-id')),
                             ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
@@ -1146,7 +1133,7 @@ class SubscriberRedundancyAgent(Entity):
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', 'group_id_xr', 'interface_name', 'outer_vlan', 'inner_vlan', 'session_mac_address', 'pppoe_session_id', 'l2tp_tunnel_id', 'role_master', 'valid_mac_address', 'negative_acknowledgement_update_all'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', u'group_id_xr', u'interface_name', u'outer_vlan', u'inner_vlan', u'session_mac_address', u'pppoe_session_id', u'l2tp_tunnel_id', u'role_master', u'valid_mac_address', u'negative_acknowledgement_update_all'], name, value)
 
 
                     class SessionDetailedInformation(Entity):
@@ -1193,8 +1180,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('component', YLeaf(YType.enumeration, 'component')),
                                 ('operation_', YLeaf(YType.enumeration, 'operation')),
@@ -1210,7 +1196,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._segment_path = lambda: "session-detailed-information"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, ['component', 'operation_', 'tx_list_queue_fail', 'marked_for_sweeping', 'marked_for_cleanup'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, [u'component', u'operation_', u'tx_list_queue_fail', u'marked_for_sweeping', u'marked_for_cleanup'], name, value)
 
 
                     class SessionSyncErrorInformation(Entity):
@@ -1251,8 +1237,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sync_error_count', YLeaf(YType.uint16, 'sync-error-count')),
                                 ('last_error_code', YLeaf(YType.uint32, 'last-error-code')),
@@ -1264,7 +1249,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._segment_path = lambda: "session-sync-error-information"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, ['sync_error_count', 'last_error_code', 'last_error_type'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, [u'sync_error_count', u'last_error_code', u'last_error_type'], name, value)
 
 
             class Interfaces(Entity):
@@ -1291,8 +1276,7 @@ class SubscriberRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -1414,8 +1398,7 @@ class SubscriberRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface']
-                        self._child_container_classes = OrderedDict([("interface-oper", ("interface_oper", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper)), ("interface-status", ("interface_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus))])
-                        self._child_list_classes = OrderedDict([("client-status", ("client_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus))])
+                        self._child_classes = OrderedDict([("interface-oper", ("interface_oper", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper)), ("interface-status", ("interface_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus)), ("client-status", ("client_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus))])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -1446,18 +1429,16 @@ class SubscriberRedundancyAgent(Entity):
                         self.interface_oper = SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper()
                         self.interface_oper.parent = self
                         self._children_name_map["interface_oper"] = "interface-oper"
-                        self._children_yang_names.add("interface-oper")
 
                         self.interface_status = SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus()
                         self.interface_status.parent = self
                         self._children_name_map["interface_status"] = "interface-status"
-                        self._children_yang_names.add("interface-status")
 
                         self.client_status = YList(self)
                         self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', 'interface_name', 'interface_synchronization_id', 'group_id', 'role', 'forward_referenced', 'session_count', 'interface_enable_error_count', 'interface_disable_error_count', 'interface_caps_add_error_count', 'interface_caps_remove_error_count', 'interface_attribute_update_error_count'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', u'interface_name', u'interface_synchronization_id', u'group_id', u'role', u'forward_referenced', u'session_count', u'interface_enable_error_count', u'interface_disable_error_count', u'interface_caps_add_error_count', u'interface_caps_remove_error_count', u'interface_attribute_update_error_count'], name, value)
 
 
                     class InterfaceOper(Entity):
@@ -1504,8 +1485,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('idb_oper_reg_enable', YLeaf(YType.boolean, 'idb-oper-reg-enable')),
                                 ('idb_oper_reg_disable', YLeaf(YType.boolean, 'idb-oper-reg-disable')),
@@ -1521,7 +1501,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._segment_path = lambda: "interface-oper"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, ['idb_oper_reg_enable', 'idb_oper_reg_disable', 'idb_oper_caps_add', 'idb_oper_caps_remove', 'idb_oper_attr_update'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, [u'idb_oper_reg_enable', u'idb_oper_reg_disable', u'idb_oper_caps_add', u'idb_oper_caps_remove', u'idb_oper_attr_update'], name, value)
 
 
                     class InterfaceStatus(Entity):
@@ -1583,8 +1563,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('idb_state_fwd_ref', YLeaf(YType.boolean, 'idb-state-fwd-ref')),
                                 ('idb_state_stale', YLeaf(YType.boolean, 'idb-state-stale')),
@@ -1606,7 +1585,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._segment_path = lambda: "interface-status"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, ['idb_state_fwd_ref', 'idb_state_stale', 'idb_state_registered', 'idb_state_caps_added', 'idb_state_owned_re_source', 'idb_client_eoms_pending', 'idb_state_p_end_caps_rem', 'idb_state_p_end_reg_disable'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, [u'idb_state_fwd_ref', u'idb_state_stale', u'idb_state_registered', u'idb_state_caps_added', u'idb_state_owned_re_source', u'idb_client_eoms_pending', u'idb_state_p_end_caps_rem', u'idb_state_p_end_reg_disable'], name, value)
 
 
                     class ClientStatus(Entity):
@@ -1650,8 +1629,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('component', YLeaf(YType.enumeration, 'component')),
                                 ('srg_show_idb_client_eoms_pending', YLeaf(YType.boolean, 'srg-show-idb-client-eoms-pending')),
@@ -1665,7 +1643,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._segment_path = lambda: "client-status"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, ['component', 'srg_show_idb_client_eoms_pending', 'srg_show_idb_client_sync_eod_pending', 'session_count'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, [u'component', u'srg_show_idb_client_eoms_pending', u'srg_show_idb_client_sync_eod_pending', u'session_count'], name, value)
 
 
             class GroupSummaries(Entity):
@@ -1692,8 +1670,7 @@ class SubscriberRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("group-summary", ("group_summary", SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary))])
+                    self._child_classes = OrderedDict([("group-summary", ("group_summary", SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary))])
                     self._leafs = OrderedDict()
 
                     self.group_summary = YList(self)
@@ -1801,8 +1778,7 @@ class SubscriberRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('group_id', YLeaf(YType.str, 'group-id')),
                             ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
@@ -1834,7 +1810,7 @@ class SubscriberRedundancyAgent(Entity):
                         self._segment_path = lambda: "group-summary" + "[group-id='" + str(self.group_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', 'group_id_xr', 'role', 'disabled', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'preferred_role', 'slave_mode', 'object_tracking_status', 'interface_count', 'session_count', 'pending_add_session_count'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', u'group_id_xr', u'role', u'disabled', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'preferred_role', u'slave_mode', u'object_tracking_status', u'interface_count', u'session_count', u'pending_add_session_count'], name, value)
 
 
             class GroupIds(Entity):
@@ -1861,8 +1837,7 @@ class SubscriberRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("group-id", ("group_id", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId))])
+                    self._child_classes = OrderedDict([("group-id", ("group_id", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId))])
                     self._leafs = OrderedDict()
 
                     self.group_id = YList(self)
@@ -2127,8 +2102,7 @@ class SubscriberRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface))])
                         self._leafs = OrderedDict([
                             ('group_id', YLeaf(YType.str, 'group-id')),
                             ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
@@ -2214,7 +2188,7 @@ class SubscriberRedundancyAgent(Entity):
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'virtual_mac_address', 'virtual_mac_address_disable', 'l2tp_source_ip', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time', 'peer_last_up_time', 'peer_last_down_time', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'tunnel_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', u'group_id_xr', u'description', u'disabled', u'init_role', u'negotiating_role', u'current_role', u'slave_mode', u'hold_timer', u'virtual_mac_address', u'virtual_mac_address_disable', u'l2tp_source_ip', u'core_tracking_object_name', u'core_tracking_object_status', u'access_tracking_object_name', u'access_tracking_object_status', u'object_tracking_status', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'peer_last_negotiation_time', u'peer_last_up_time', u'peer_last_down_time', u'peer_init_role', u'peer_negotiating_role', u'peer_current_role', u'peer_object_tracking_status', u'last_switchover_time', u'switchover_count', u'last_switchover_reason', u'switchover_hold_time', u'session_count', u'slave_update_failure_count', u'tunnel_count', u'pending_session_update_count', u'pending_session_delete_count', u'interface_count', u'revertive_timer', u'switchover_revert_time'], name, value)
 
 
                     class Interface(Entity):
@@ -2260,8 +2234,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('interface_synchronization_id', YLeaf(YType.uint32, 'interface-synchronization-id')),
@@ -2275,7 +2248,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._segment_path = lambda: "interface"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, ['interface_name', 'interface_synchronization_id', 'forward_referenced', 'session_count'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, [u'interface_name', u'interface_synchronization_id', u'forward_referenced', u'session_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancyAgent()

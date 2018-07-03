@@ -239,19 +239,16 @@ class SyncFrom(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = SyncFrom.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = SyncFrom.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-ia:sync-from"
 
 
@@ -284,8 +281,7 @@ class SyncFrom(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('sync_defaults', YLeaf(YType.empty, 'sync-defaults')),
                 ('ignore_presrv_paths', YLeaf(YType.empty, 'ignore-presrv-paths')),
@@ -323,8 +319,7 @@ class SyncFrom(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -366,14 +361,12 @@ class SaveConfig(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.output = SaveConfig.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-ia:save-config"
 
 
@@ -401,8 +394,7 @@ class SaveConfig(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -444,14 +436,12 @@ class IsSyncing(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.output = IsSyncing.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-ia:is-syncing"
 
 
@@ -479,8 +469,7 @@ class IsSyncing(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -521,14 +510,12 @@ class Checkpoint(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.output = Checkpoint.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-ia:checkpoint"
 
 
@@ -556,8 +543,7 @@ class Checkpoint(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -604,19 +590,16 @@ class Revert(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Revert.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Revert.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-ia:revert"
 
 
@@ -658,8 +641,7 @@ class Revert(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('now', YLeaf(YType.empty, 'now')),
                 ('timer', YLeaf(YType.int16, 'timer')),
@@ -699,8 +681,7 @@ class Revert(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -746,19 +727,16 @@ class Rollback(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Rollback.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Rollback.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-ia:rollback"
 
 
@@ -814,8 +792,7 @@ class Rollback(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('target_url', YLeaf(YType.str, 'target-url')),
                 ('verbose', YLeaf(YType.boolean, 'verbose')),
@@ -859,8 +836,7 @@ class Rollback(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])

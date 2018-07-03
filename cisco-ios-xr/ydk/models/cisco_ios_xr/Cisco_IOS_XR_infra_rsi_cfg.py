@@ -141,8 +141,7 @@ class Vrfs(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("vrf", ("vrf", Vrfs.Vrf))])
+        self._child_classes = OrderedDict([("vrf", ("vrf", Vrfs.Vrf))])
         self._leafs = OrderedDict()
 
         self.vrf = YList(self)
@@ -204,6 +203,11 @@ class Vrfs(Entity):
         	VRF address family configuration
         	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs>`
         
+        .. attribute:: bgp_global
+        
+        	BGP related VRF GBL config
+        	**type**\:  :py:class:`BgpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal>`
+        
         .. attribute:: multicast_host
         
         	Multicast host stack configuration
@@ -224,8 +228,7 @@ class Vrfs(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['vrf_name']
-            self._child_container_classes = OrderedDict([("vpn-id", ("vpn_id", Vrfs.Vrf.VpnId)), ("afs", ("afs", Vrfs.Vrf.Afs)), ("Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host", ("multicast_host", Vrfs.Vrf.MulticastHost))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("vpn-id", ("vpn_id", Vrfs.Vrf.VpnId)), ("afs", ("afs", Vrfs.Vrf.Afs)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global", ("bgp_global", Vrfs.Vrf.BgpGlobal)), ("Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host", ("multicast_host", Vrfs.Vrf.MulticastHost))])
             self._leafs = OrderedDict([
                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ('fallback_vrf', YLeaf(YType.str, 'fallback-vrf')),
@@ -243,22 +246,23 @@ class Vrfs(Entity):
 
             self.vpn_id = None
             self._children_name_map["vpn_id"] = "vpn-id"
-            self._children_yang_names.add("vpn-id")
 
             self.afs = Vrfs.Vrf.Afs()
             self.afs.parent = self
             self._children_name_map["afs"] = "afs"
-            self._children_yang_names.add("afs")
+
+            self.bgp_global = Vrfs.Vrf.BgpGlobal()
+            self.bgp_global.parent = self
+            self._children_name_map["bgp_global"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
 
             self.multicast_host = Vrfs.Vrf.MulticastHost()
             self.multicast_host.parent = self
             self._children_name_map["multicast_host"] = "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host"
-            self._children_yang_names.add("Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host")
             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:vrfs/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vrfs.Vrf, ['vrf_name', 'fallback_vrf', 'remote_route_filter_disable', 'create', 'mode_big', 'description'], name, value)
+            self._perform_setattr(Vrfs.Vrf, [u'vrf_name', u'fallback_vrf', u'remote_route_filter_disable', u'create', u'mode_big', u'description'], name, value)
 
 
         class VpnId(Entity):
@@ -300,8 +304,7 @@ class Vrfs(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('vpn_oui', YLeaf(YType.uint32, 'vpn-oui')),
@@ -312,7 +315,7 @@ class Vrfs(Entity):
                 self._segment_path = lambda: "vpn-id"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vrfs.Vrf.VpnId, ['vpn_oui', 'vpn_index'], name, value)
+                self._perform_setattr(Vrfs.Vrf.VpnId, [u'vpn_oui', u'vpn_index'], name, value)
 
 
         class Afs(Entity):
@@ -339,8 +342,7 @@ class Vrfs(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("af", ("af", Vrfs.Vrf.Afs.Af))])
+                self._child_classes = OrderedDict([("af", ("af", Vrfs.Vrf.Afs.Af))])
                 self._leafs = OrderedDict()
 
                 self.af = YList(self)
@@ -376,17 +378,17 @@ class Vrfs(Entity):
                 	VRF configuration for a particular address family
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
+                .. attribute:: bgp
+                
+                	BGP AF VRF config
+                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
+                
                 .. attribute:: maximum_prefix
                 
                 	Set maximum prefix limits
                 	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.MaximumPrefix>`
                 
                 	**presence node**\: True
-                
-                .. attribute:: bgp
-                
-                	BGP AF VRF config
-                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
                 
                 
 
@@ -403,8 +405,7 @@ class Vrfs(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['af_name','saf_name','topology_name']
-                    self._child_container_classes = OrderedDict([("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Vrfs.Vrf.Afs.Af.Bgp))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Vrfs.Vrf.Afs.Af.Bgp)), ("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix))])
                     self._leafs = OrderedDict([
                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                         ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
@@ -416,70 +417,16 @@ class Vrfs(Entity):
                     self.topology_name = None
                     self.create = None
 
-                    self.maximum_prefix = None
-                    self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-                    self._children_yang_names.add("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix")
-
                     self.bgp = Vrfs.Vrf.Afs.Af.Bgp()
                     self.bgp.parent = self
                     self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-                    self._children_yang_names.add("Cisco-IOS-XR-ipv4-bgp-cfg:bgp")
+
+                    self.maximum_prefix = None
+                    self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
                     self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']" + "[topology-name='" + str(self.topology_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrfs.Vrf.Afs.Af, ['af_name', 'saf_name', 'topology_name', 'create'], name, value)
-
-
-                class MaximumPrefix(Entity):
-                    """
-                    Set maximum prefix limits
-                    
-                    .. attribute:: prefix_limit
-                    
-                    	Set table's maximum prefix limit
-                    	**type**\: int
-                    
-                    	**range:** 32..10000000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: mid_threshold
-                    
-                    	Mid\-threshold (% of maximum)
-                    	**type**\: int
-                    
-                    	**range:** 1..100
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-rib-cfg'
-                    _revision = '2017-07-31'
-
-                    def __init__(self):
-                        super(Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
-
-                        self.yang_name = "maximum-prefix"
-                        self.yang_parent_name = "af"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self.is_presence_container = True
-                        self._leafs = OrderedDict([
-                            ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
-                            ('mid_threshold', YLeaf(YType.uint32, 'mid-threshold')),
-                        ])
-                        self.prefix_limit = None
-                        self.mid_threshold = None
-                        self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+                    self._perform_setattr(Vrfs.Vrf.Afs.Af, [u'af_name', u'saf_name', u'topology_name', u'create'], name, value)
 
 
                 class Bgp(Entity):
@@ -535,7 +482,7 @@ class Vrfs(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-07-31'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(Vrfs.Vrf.Afs.Af.Bgp, self).__init__()
@@ -545,8 +492,7 @@ class Vrfs(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("import-route-targets", ("import_route_targets", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets)), ("export-route-targets", ("export_route_targets", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets)), ("vrf-to-global-export-route-policy", ("vrf_to_global_export_route_policy", Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy)), ("export-vrf-options", ("export_vrf_options", Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions)), ("global-to-vrf-import-route-policy", ("global_to_vrf_import_route_policy", Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("import-route-targets", ("import_route_targets", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets)), ("export-route-targets", ("export_route_targets", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets)), ("vrf-to-global-export-route-policy", ("vrf_to_global_export_route_policy", Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy)), ("export-vrf-options", ("export_vrf_options", Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions)), ("global-to-vrf-import-route-policy", ("global_to_vrf_import_route_policy", Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy))])
                         self._leafs = OrderedDict([
                             ('export_route_policy', YLeaf(YType.str, 'export-route-policy')),
                             ('import_route_policy', YLeaf(YType.str, 'import-route-policy')),
@@ -559,25 +505,20 @@ class Vrfs(Entity):
                         self.import_route_targets = Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets()
                         self.import_route_targets.parent = self
                         self._children_name_map["import_route_targets"] = "import-route-targets"
-                        self._children_yang_names.add("import-route-targets")
 
                         self.export_route_targets = Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets()
                         self.export_route_targets.parent = self
                         self._children_name_map["export_route_targets"] = "export-route-targets"
-                        self._children_yang_names.add("export-route-targets")
 
                         self.vrf_to_global_export_route_policy = None
                         self._children_name_map["vrf_to_global_export_route_policy"] = "vrf-to-global-export-route-policy"
-                        self._children_yang_names.add("vrf-to-global-export-route-policy")
 
                         self.export_vrf_options = Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions()
                         self.export_vrf_options.parent = self
                         self._children_name_map["export_vrf_options"] = "export-vrf-options"
-                        self._children_yang_names.add("export-vrf-options")
 
                         self.global_to_vrf_import_route_policy = None
                         self._children_name_map["global_to_vrf_import_route_policy"] = "global-to-vrf-import-route-policy"
-                        self._children_yang_names.add("global-to-vrf-import-route-policy")
                         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
 
                     def __setattr__(self, name, value):
@@ -598,7 +539,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
@@ -608,15 +549,16 @@ class Vrfs(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("route-targets", ("route_targets", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("route-targets", ("route_targets", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets))])
                             self._leafs = OrderedDict()
 
                             self.route_targets = Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets()
                             self.route_targets.parent = self
                             self._children_name_map["route_targets"] = "route-targets"
-                            self._children_yang_names.add("route-targets")
                             self._segment_path = lambda: "import-route-targets"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets, [], name, value)
 
 
                         class RouteTargets(Entity):
@@ -633,7 +575,7 @@ class Vrfs(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
@@ -643,8 +585,7 @@ class Vrfs(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("route-target", ("route_target", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget))])
+                                self._child_classes = OrderedDict([("route-target", ("route_target", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget))])
                                 self._leafs = OrderedDict()
 
                                 self.route_target = YList(self)
@@ -678,7 +619,7 @@ class Vrfs(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -688,8 +629,7 @@ class Vrfs(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['type']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
+                                    self._child_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.enumeration, 'type')),
                                     ])
@@ -740,7 +680,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -750,8 +690,7 @@ class Vrfs(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['as_xx','as_','as_index','stitching_rt']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_', YLeaf(YType.uint32, 'as')),
@@ -798,7 +737,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -808,8 +747,7 @@ class Vrfs(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address','address_index','stitching_rt']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('address_index', YLeaf(YType.uint32, 'address-index')),
@@ -838,7 +776,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
@@ -848,15 +786,16 @@ class Vrfs(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("route-targets", ("route_targets", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("route-targets", ("route_targets", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets))])
                             self._leafs = OrderedDict()
 
                             self.route_targets = Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets()
                             self.route_targets.parent = self
                             self._children_name_map["route_targets"] = "route-targets"
-                            self._children_yang_names.add("route-targets")
                             self._segment_path = lambda: "export-route-targets"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets, [], name, value)
 
 
                         class RouteTargets(Entity):
@@ -873,7 +812,7 @@ class Vrfs(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
@@ -883,8 +822,7 @@ class Vrfs(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("route-target", ("route_target", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget))])
+                                self._child_classes = OrderedDict([("route-target", ("route_target", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget))])
                                 self._leafs = OrderedDict()
 
                                 self.route_target = YList(self)
@@ -918,7 +856,7 @@ class Vrfs(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -928,8 +866,7 @@ class Vrfs(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['type']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
+                                    self._child_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.enumeration, 'type')),
                                     ])
@@ -980,7 +917,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -990,8 +927,7 @@ class Vrfs(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['as_xx','as_','as_index','stitching_rt']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_', YLeaf(YType.uint32, 'as')),
@@ -1038,7 +974,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -1048,8 +984,7 @@ class Vrfs(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address','address_index','stitching_rt']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('address_index', YLeaf(YType.uint32, 'address-index')),
@@ -1087,7 +1022,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
@@ -1097,8 +1032,7 @@ class Vrfs(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -1131,7 +1065,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
@@ -1141,8 +1075,7 @@ class Vrfs(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('allow_imported_vpn', YLeaf(YType.boolean, 'allow-imported-vpn')),
                                 ('import_stitching_rt', YLeaf(YType.boolean, 'import-stitching-rt')),
@@ -1178,7 +1111,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
@@ -1188,8 +1121,7 @@ class Vrfs(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -1201,6 +1133,173 @@ class Vrfs(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
+
+
+                class MaximumPrefix(Entity):
+                    """
+                    Set maximum prefix limits
+                    
+                    .. attribute:: prefix_limit
+                    
+                    	Set table's maximum prefix limit
+                    	**type**\: int
+                    
+                    	**range:** 32..10000000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: mid_threshold
+                    
+                    	Mid\-threshold (% of maximum)
+                    	**type**\: int
+                    
+                    	**range:** 1..100
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-rib-cfg'
+                    _revision = '2017-07-31'
+
+                    def __init__(self):
+                        super(Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
+
+                        self.yang_name = "maximum-prefix"
+                        self.yang_parent_name = "af"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
+                            ('mid_threshold', YLeaf(YType.uint32, 'mid-threshold')),
+                        ])
+                        self.prefix_limit = None
+                        self.mid_threshold = None
+                        self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+
+
+        class BgpGlobal(Entity):
+            """
+            BGP related VRF GBL config
+            
+            .. attribute:: route_distinguisher
+            
+            	Global Route distinguisher
+            	**type**\:  :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal.RouteDistinguisher>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-bgp-cfg'
+            _revision = '2017-11-05'
+
+            def __init__(self):
+                super(Vrfs.Vrf.BgpGlobal, self).__init__()
+
+                self.yang_name = "bgp-global"
+                self.yang_parent_name = "vrf"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("route-distinguisher", ("route_distinguisher", Vrfs.Vrf.BgpGlobal.RouteDistinguisher))])
+                self._leafs = OrderedDict()
+
+                self.route_distinguisher = Vrfs.Vrf.BgpGlobal.RouteDistinguisher()
+                self.route_distinguisher.parent = self
+                self._children_name_map["route_distinguisher"] = "route-distinguisher"
+                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vrfs.Vrf.BgpGlobal, [], name, value)
+
+
+            class RouteDistinguisher(Entity):
+                """
+                Global Route distinguisher
+                
+                .. attribute:: type
+                
+                	Type of RD
+                	**type**\:  :py:class:`BgpGlobalRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpGlobalRouteDistinguisher>`
+                
+                .. attribute:: as_xx
+                
+                	AS number
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: as_
+                
+                	AS number
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: as_index
+                
+                	ASN Index
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: address
+                
+                	IP address
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: address_index
+                
+                	IP address index
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                
+
+                """
+
+                _prefix = 'ipv4-bgp-cfg'
+                _revision = '2017-11-05'
+
+                def __init__(self):
+                    super(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, self).__init__()
+
+                    self.yang_name = "route-distinguisher"
+                    self.yang_parent_name = "bgp-global"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                        ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                        ('as_', YLeaf(YType.uint32, 'as')),
+                        ('as_index', YLeaf(YType.uint32, 'as-index')),
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('address_index', YLeaf(YType.uint32, 'address-index')),
+                    ])
+                    self.type = None
+                    self.as_xx = None
+                    self.as_ = None
+                    self.as_index = None
+                    self.address = None
+                    self.address_index = None
+                    self._segment_path = lambda: "route-distinguisher"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
         class MulticastHost(Entity):
@@ -1232,20 +1331,20 @@ class Vrfs(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Vrfs.Vrf.MulticastHost.Ipv4)), ("ipv6", ("ipv6", Vrfs.Vrf.MulticastHost.Ipv6))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv4", ("ipv4", Vrfs.Vrf.MulticastHost.Ipv4)), ("ipv6", ("ipv6", Vrfs.Vrf.MulticastHost.Ipv6))])
                 self._leafs = OrderedDict()
 
                 self.ipv4 = Vrfs.Vrf.MulticastHost.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
 
                 self.ipv6 = Vrfs.Vrf.MulticastHost.Ipv6()
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
                 self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vrfs.Vrf.MulticastHost, [], name, value)
 
 
             class Ipv4(Entity):
@@ -1274,8 +1373,7 @@ class Vrfs(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface', YLeaf(YType.str, 'interface')),
                     ])
@@ -1312,8 +1410,7 @@ class Vrfs(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface', YLeaf(YType.str, 'interface')),
                     ])
@@ -1352,15 +1449,16 @@ class GlobalAf(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("afs", ("afs", GlobalAf.Afs))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("afs", ("afs", GlobalAf.Afs))])
         self._leafs = OrderedDict()
 
         self.afs = GlobalAf.Afs()
         self.afs.parent = self
         self._children_name_map["afs"] = "afs"
-        self._children_yang_names.add("afs")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:global-af"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(GlobalAf, [], name, value)
 
 
     class Afs(Entity):
@@ -1387,8 +1485,7 @@ class GlobalAf(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("af", ("af", GlobalAf.Afs.Af))])
+            self._child_classes = OrderedDict([("af", ("af", GlobalAf.Afs.Af))])
             self._leafs = OrderedDict()
 
             self.af = YList(self)
@@ -1425,17 +1522,17 @@ class GlobalAf(Entity):
             	VRF configuration for a particular address family
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            .. attribute:: bgp
+            
+            	BGP AF VRF config
+            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.Bgp>`
+            
             .. attribute:: maximum_prefix
             
             	Set maximum prefix limits
             	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.MaximumPrefix>`
             
             	**presence node**\: True
-            
-            .. attribute:: bgp
-            
-            	BGP AF VRF config
-            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.Bgp>`
             
             
 
@@ -1452,8 +1549,7 @@ class GlobalAf(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['af_name','saf_name','topology_name']
-                self._child_container_classes = OrderedDict([("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", GlobalAf.Afs.Af.MaximumPrefix)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", GlobalAf.Afs.Af.Bgp))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", GlobalAf.Afs.Af.Bgp)), ("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", GlobalAf.Afs.Af.MaximumPrefix))])
                 self._leafs = OrderedDict([
                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                     ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
@@ -1465,71 +1561,17 @@ class GlobalAf(Entity):
                 self.topology_name = None
                 self.create = None
 
-                self.maximum_prefix = None
-                self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-                self._children_yang_names.add("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix")
-
                 self.bgp = GlobalAf.Afs.Af.Bgp()
                 self.bgp.parent = self
                 self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-                self._children_yang_names.add("Cisco-IOS-XR-ipv4-bgp-cfg:bgp")
+
+                self.maximum_prefix = None
+                self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
                 self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']" + "[topology-name='" + str(self.topology_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:global-af/afs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(GlobalAf.Afs.Af, ['af_name', 'saf_name', 'topology_name', 'create'], name, value)
-
-
-            class MaximumPrefix(Entity):
-                """
-                Set maximum prefix limits
-                
-                .. attribute:: prefix_limit
-                
-                	Set table's maximum prefix limit
-                	**type**\: int
-                
-                	**range:** 32..10000000
-                
-                	**mandatory**\: True
-                
-                .. attribute:: mid_threshold
-                
-                	Mid\-threshold (% of maximum)
-                	**type**\: int
-                
-                	**range:** 1..100
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ip-rib-cfg'
-                _revision = '2017-07-31'
-
-                def __init__(self):
-                    super(GlobalAf.Afs.Af.MaximumPrefix, self).__init__()
-
-                    self.yang_name = "maximum-prefix"
-                    self.yang_parent_name = "af"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self.is_presence_container = True
-                    self._leafs = OrderedDict([
-                        ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
-                        ('mid_threshold', YLeaf(YType.uint32, 'mid-threshold')),
-                    ])
-                    self.prefix_limit = None
-                    self.mid_threshold = None
-                    self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+                self._perform_setattr(GlobalAf.Afs.Af, [u'af_name', u'saf_name', u'topology_name', u'create'], name, value)
 
 
             class Bgp(Entity):
@@ -1585,7 +1627,7 @@ class GlobalAf(Entity):
                 """
 
                 _prefix = 'ipv4-bgp-cfg'
-                _revision = '2017-07-31'
+                _revision = '2017-11-05'
 
                 def __init__(self):
                     super(GlobalAf.Afs.Af.Bgp, self).__init__()
@@ -1595,8 +1637,7 @@ class GlobalAf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("import-route-targets", ("import_route_targets", GlobalAf.Afs.Af.Bgp.ImportRouteTargets)), ("export-route-targets", ("export_route_targets", GlobalAf.Afs.Af.Bgp.ExportRouteTargets)), ("vrf-to-global-export-route-policy", ("vrf_to_global_export_route_policy", GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy)), ("export-vrf-options", ("export_vrf_options", GlobalAf.Afs.Af.Bgp.ExportVrfOptions)), ("global-to-vrf-import-route-policy", ("global_to_vrf_import_route_policy", GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("import-route-targets", ("import_route_targets", GlobalAf.Afs.Af.Bgp.ImportRouteTargets)), ("export-route-targets", ("export_route_targets", GlobalAf.Afs.Af.Bgp.ExportRouteTargets)), ("vrf-to-global-export-route-policy", ("vrf_to_global_export_route_policy", GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy)), ("export-vrf-options", ("export_vrf_options", GlobalAf.Afs.Af.Bgp.ExportVrfOptions)), ("global-to-vrf-import-route-policy", ("global_to_vrf_import_route_policy", GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy))])
                     self._leafs = OrderedDict([
                         ('export_route_policy', YLeaf(YType.str, 'export-route-policy')),
                         ('import_route_policy', YLeaf(YType.str, 'import-route-policy')),
@@ -1609,25 +1650,20 @@ class GlobalAf(Entity):
                     self.import_route_targets = GlobalAf.Afs.Af.Bgp.ImportRouteTargets()
                     self.import_route_targets.parent = self
                     self._children_name_map["import_route_targets"] = "import-route-targets"
-                    self._children_yang_names.add("import-route-targets")
 
                     self.export_route_targets = GlobalAf.Afs.Af.Bgp.ExportRouteTargets()
                     self.export_route_targets.parent = self
                     self._children_name_map["export_route_targets"] = "export-route-targets"
-                    self._children_yang_names.add("export-route-targets")
 
                     self.vrf_to_global_export_route_policy = None
                     self._children_name_map["vrf_to_global_export_route_policy"] = "vrf-to-global-export-route-policy"
-                    self._children_yang_names.add("vrf-to-global-export-route-policy")
 
                     self.export_vrf_options = GlobalAf.Afs.Af.Bgp.ExportVrfOptions()
                     self.export_vrf_options.parent = self
                     self._children_name_map["export_vrf_options"] = "export-vrf-options"
-                    self._children_yang_names.add("export-vrf-options")
 
                     self.global_to_vrf_import_route_policy = None
                     self._children_name_map["global_to_vrf_import_route_policy"] = "global-to-vrf-import-route-policy"
-                    self._children_yang_names.add("global-to-vrf-import-route-policy")
                     self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
 
                 def __setattr__(self, name, value):
@@ -1648,7 +1684,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-07-31'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
@@ -1658,15 +1694,16 @@ class GlobalAf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("route-targets", ("route_targets", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("route-targets", ("route_targets", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets))])
                         self._leafs = OrderedDict()
 
                         self.route_targets = GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets()
                         self.route_targets.parent = self
                         self._children_name_map["route_targets"] = "route-targets"
-                        self._children_yang_names.add("route-targets")
                         self._segment_path = lambda: "import-route-targets"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets, [], name, value)
 
 
                     class RouteTargets(Entity):
@@ -1683,7 +1720,7 @@ class GlobalAf(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
@@ -1693,8 +1730,7 @@ class GlobalAf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("route-target", ("route_target", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget))])
+                            self._child_classes = OrderedDict([("route-target", ("route_target", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget))])
                             self._leafs = OrderedDict()
 
                             self.route_target = YList(self)
@@ -1728,7 +1764,7 @@ class GlobalAf(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -1738,8 +1774,7 @@ class GlobalAf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
+                                self._child_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.enumeration, 'type')),
                                 ])
@@ -1790,7 +1825,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -1800,8 +1835,7 @@ class GlobalAf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['as_xx','as_','as_index','stitching_rt']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                         ('as_', YLeaf(YType.uint32, 'as')),
@@ -1848,7 +1882,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -1858,8 +1892,7 @@ class GlobalAf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address','address_index','stitching_rt']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('address_index', YLeaf(YType.uint32, 'address-index')),
@@ -1888,7 +1921,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-07-31'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
@@ -1898,15 +1931,16 @@ class GlobalAf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("route-targets", ("route_targets", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("route-targets", ("route_targets", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets))])
                         self._leafs = OrderedDict()
 
                         self.route_targets = GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets()
                         self.route_targets.parent = self
                         self._children_name_map["route_targets"] = "route-targets"
-                        self._children_yang_names.add("route-targets")
                         self._segment_path = lambda: "export-route-targets"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets, [], name, value)
 
 
                     class RouteTargets(Entity):
@@ -1923,7 +1957,7 @@ class GlobalAf(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
@@ -1933,8 +1967,7 @@ class GlobalAf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("route-target", ("route_target", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget))])
+                            self._child_classes = OrderedDict([("route-target", ("route_target", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget))])
                             self._leafs = OrderedDict()
 
                             self.route_target = YList(self)
@@ -1968,7 +2001,7 @@ class GlobalAf(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -1978,8 +2011,7 @@ class GlobalAf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
+                                self._child_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.enumeration, 'type')),
                                 ])
@@ -2030,7 +2062,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -2040,8 +2072,7 @@ class GlobalAf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['as_xx','as_','as_index','stitching_rt']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                         ('as_', YLeaf(YType.uint32, 'as')),
@@ -2088,7 +2119,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -2098,8 +2129,7 @@ class GlobalAf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address','address_index','stitching_rt']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('address_index', YLeaf(YType.uint32, 'address-index')),
@@ -2137,7 +2167,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-07-31'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
@@ -2147,8 +2177,7 @@ class GlobalAf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -2181,7 +2210,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-07-31'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
@@ -2191,8 +2220,7 @@ class GlobalAf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('allow_imported_vpn', YLeaf(YType.boolean, 'allow-imported-vpn')),
                             ('import_stitching_rt', YLeaf(YType.boolean, 'import-stitching-rt')),
@@ -2228,7 +2256,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-07-31'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
@@ -2238,8 +2266,7 @@ class GlobalAf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -2251,6 +2278,57 @@ class GlobalAf(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
+
+
+            class MaximumPrefix(Entity):
+                """
+                Set maximum prefix limits
+                
+                .. attribute:: prefix_limit
+                
+                	Set table's maximum prefix limit
+                	**type**\: int
+                
+                	**range:** 32..10000000
+                
+                	**mandatory**\: True
+                
+                .. attribute:: mid_threshold
+                
+                	Mid\-threshold (% of maximum)
+                	**type**\: int
+                
+                	**range:** 1..100
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ip-rib-cfg'
+                _revision = '2017-07-31'
+
+                def __init__(self):
+                    super(GlobalAf.Afs.Af.MaximumPrefix, self).__init__()
+
+                    self.yang_name = "maximum-prefix"
+                    self.yang_parent_name = "af"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self.is_presence_container = True
+                    self._leafs = OrderedDict([
+                        ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
+                        ('mid_threshold', YLeaf(YType.uint32, 'mid-threshold')),
+                    ])
+                    self.prefix_limit = None
+                    self.mid_threshold = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
 
     def clone_ptr(self):
         self._top_entity = GlobalAf()
@@ -2301,8 +2379,7 @@ class Srlg(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Srlg.Interfaces)), ("srlg-names", ("srlg_names", Srlg.SrlgNames)), ("groups", ("groups", Srlg.Groups)), ("inherit-nodes", ("inherit_nodes", Srlg.InheritNodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("interfaces", ("interfaces", Srlg.Interfaces)), ("srlg-names", ("srlg_names", Srlg.SrlgNames)), ("groups", ("groups", Srlg.Groups)), ("inherit-nodes", ("inherit_nodes", Srlg.InheritNodes))])
         self._leafs = OrderedDict([
             ('enable', YLeaf(YType.empty, 'enable')),
         ])
@@ -2311,26 +2388,22 @@ class Srlg(Entity):
         self.interfaces = Srlg.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.srlg_names = Srlg.SrlgNames()
         self.srlg_names.parent = self
         self._children_name_map["srlg_names"] = "srlg-names"
-        self._children_yang_names.add("srlg-names")
 
         self.groups = Srlg.Groups()
         self.groups.parent = self
         self._children_name_map["groups"] = "groups"
-        self._children_yang_names.add("groups")
 
         self.inherit_nodes = Srlg.InheritNodes()
         self.inherit_nodes.parent = self
         self._children_name_map["inherit_nodes"] = "inherit-nodes"
-        self._children_yang_names.add("inherit-nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Srlg, ['enable'], name, value)
+        self._perform_setattr(Srlg, [u'enable'], name, value)
 
 
     class Interfaces(Entity):
@@ -2357,8 +2430,7 @@ class Srlg(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Srlg.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Srlg.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -2420,8 +2492,7 @@ class Srlg(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("include-optical", ("include_optical", Srlg.Interfaces.Interface.IncludeOptical)), ("interface-group", ("interface_group", Srlg.Interfaces.Interface.InterfaceGroup)), ("values", ("values", Srlg.Interfaces.Interface.Values)), ("interface-srlg-names", ("interface_srlg_names", Srlg.Interfaces.Interface.InterfaceSrlgNames))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("include-optical", ("include_optical", Srlg.Interfaces.Interface.IncludeOptical)), ("interface-group", ("interface_group", Srlg.Interfaces.Interface.InterfaceGroup)), ("values", ("values", Srlg.Interfaces.Interface.Values)), ("interface-srlg-names", ("interface_srlg_names", Srlg.Interfaces.Interface.InterfaceSrlgNames))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -2432,27 +2503,23 @@ class Srlg(Entity):
                 self.include_optical = Srlg.Interfaces.Interface.IncludeOptical()
                 self.include_optical.parent = self
                 self._children_name_map["include_optical"] = "include-optical"
-                self._children_yang_names.add("include-optical")
 
                 self.interface_group = Srlg.Interfaces.Interface.InterfaceGroup()
                 self.interface_group.parent = self
                 self._children_name_map["interface_group"] = "interface-group"
-                self._children_yang_names.add("interface-group")
 
                 self.values = Srlg.Interfaces.Interface.Values()
                 self.values.parent = self
                 self._children_name_map["values"] = "values"
-                self._children_yang_names.add("values")
 
                 self.interface_srlg_names = Srlg.Interfaces.Interface.InterfaceSrlgNames()
                 self.interface_srlg_names.parent = self
                 self._children_name_map["interface_srlg_names"] = "interface-srlg-names"
-                self._children_yang_names.add("interface-srlg-names")
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Interfaces.Interface, ['interface_name', 'enable'], name, value)
+                self._perform_setattr(Srlg.Interfaces.Interface, [u'interface_name', u'enable'], name, value)
 
 
             class IncludeOptical(Entity):
@@ -2486,8 +2553,7 @@ class Srlg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.empty, 'enable')),
                         ('priority', YLeaf(YType.enumeration, 'priority')),
@@ -2497,7 +2563,7 @@ class Srlg(Entity):
                     self._segment_path = lambda: "include-optical"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.Interfaces.Interface.IncludeOptical, ['enable', 'priority'], name, value)
+                    self._perform_setattr(Srlg.Interfaces.Interface.IncludeOptical, [u'enable', u'priority'], name, value)
 
 
             class InterfaceGroup(Entity):
@@ -2529,8 +2595,7 @@ class Srlg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("group-names", ("group_names", Srlg.Interfaces.Interface.InterfaceGroup.GroupNames))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("group-names", ("group_names", Srlg.Interfaces.Interface.InterfaceGroup.GroupNames))])
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.empty, 'enable')),
                     ])
@@ -2539,11 +2604,10 @@ class Srlg(Entity):
                     self.group_names = Srlg.Interfaces.Interface.InterfaceGroup.GroupNames()
                     self.group_names.parent = self
                     self._children_name_map["group_names"] = "group-names"
-                    self._children_yang_names.add("group-names")
                     self._segment_path = lambda: "interface-group"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup, ['enable'], name, value)
+                    self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup, [u'enable'], name, value)
 
 
                 class GroupNames(Entity):
@@ -2570,8 +2634,7 @@ class Srlg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("group-name", ("group_name", Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName))])
+                        self._child_classes = OrderedDict([("group-name", ("group_name", Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName))])
                         self._leafs = OrderedDict()
 
                         self.group_name = YList(self)
@@ -2621,8 +2684,7 @@ class Srlg(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['group_name_index']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('group_name_index', YLeaf(YType.uint32, 'group-name-index')),
                                 ('group_name', YLeaf(YType.str, 'group-name')),
@@ -2634,7 +2696,7 @@ class Srlg(Entity):
                             self._segment_path = lambda: "group-name" + "[group-name-index='" + str(self.group_name_index) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, ['group_name_index', 'group_name', 'srlg_priority'], name, value)
+                            self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, [u'group_name_index', u'group_name', u'srlg_priority'], name, value)
 
 
             class Values(Entity):
@@ -2661,8 +2723,7 @@ class Srlg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("value", ("value", Srlg.Interfaces.Interface.Values.Value))])
+                    self._child_classes = OrderedDict([("value", ("value", Srlg.Interfaces.Interface.Values.Value))])
                     self._leafs = OrderedDict()
 
                     self.value = YList(self)
@@ -2714,8 +2775,7 @@ class Srlg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['srlg_index']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('srlg_index', YLeaf(YType.uint32, 'srlg-index')),
                             ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
@@ -2727,7 +2787,7 @@ class Srlg(Entity):
                         self._segment_path = lambda: "value" + "[srlg-index='" + str(self.srlg_index) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Interfaces.Interface.Values.Value, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
+                        self._perform_setattr(Srlg.Interfaces.Interface.Values.Value, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
 
 
             class InterfaceSrlgNames(Entity):
@@ -2754,8 +2814,7 @@ class Srlg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface-srlg-name", ("interface_srlg_name", Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName))])
+                    self._child_classes = OrderedDict([("interface-srlg-name", ("interface_srlg_name", Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName))])
                     self._leafs = OrderedDict()
 
                     self.interface_srlg_name = YList(self)
@@ -2791,8 +2850,7 @@ class Srlg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['srlg_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('srlg_name', YLeaf(YType.str, 'srlg-name')),
                         ])
@@ -2800,7 +2858,7 @@ class Srlg(Entity):
                         self._segment_path = lambda: "interface-srlg-name" + "[srlg-name='" + str(self.srlg_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name'], name, value)
+                        self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, [u'srlg_name'], name, value)
 
 
     class SrlgNames(Entity):
@@ -2827,8 +2885,7 @@ class Srlg(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("srlg-name", ("srlg_name", Srlg.SrlgNames.SrlgName))])
+            self._child_classes = OrderedDict([("srlg-name", ("srlg_name", Srlg.SrlgNames.SrlgName))])
             self._leafs = OrderedDict()
 
             self.srlg_name = YList(self)
@@ -2874,8 +2931,7 @@ class Srlg(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['srlg_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('srlg_name', YLeaf(YType.str, 'srlg-name')),
                     ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
@@ -2886,7 +2942,7 @@ class Srlg(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/srlg-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.SrlgNames.SrlgName, ['srlg_name', 'srlg_value'], name, value)
+                self._perform_setattr(Srlg.SrlgNames.SrlgName, [u'srlg_name', u'srlg_value'], name, value)
 
 
     class Groups(Entity):
@@ -2913,8 +2969,7 @@ class Srlg(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("group", ("group", Srlg.Groups.Group))])
+            self._child_classes = OrderedDict([("group", ("group", Srlg.Groups.Group))])
             self._leafs = OrderedDict()
 
             self.group = YList(self)
@@ -2961,8 +3016,7 @@ class Srlg(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['group_name']
-                self._child_container_classes = OrderedDict([("group-values", ("group_values", Srlg.Groups.Group.GroupValues))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("group-values", ("group_values", Srlg.Groups.Group.GroupValues))])
                 self._leafs = OrderedDict([
                     ('group_name', YLeaf(YType.str, 'group-name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -2973,12 +3027,11 @@ class Srlg(Entity):
                 self.group_values = Srlg.Groups.Group.GroupValues()
                 self.group_values.parent = self
                 self._children_name_map["group_values"] = "group-values"
-                self._children_yang_names.add("group-values")
                 self._segment_path = lambda: "group" + "[group-name='" + str(self.group_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Groups.Group, ['group_name', 'enable'], name, value)
+                self._perform_setattr(Srlg.Groups.Group, [u'group_name', u'enable'], name, value)
 
 
             class GroupValues(Entity):
@@ -3005,8 +3058,7 @@ class Srlg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("group-value", ("group_value", Srlg.Groups.Group.GroupValues.GroupValue))])
+                    self._child_classes = OrderedDict([("group-value", ("group_value", Srlg.Groups.Group.GroupValues.GroupValue))])
                     self._leafs = OrderedDict()
 
                     self.group_value = YList(self)
@@ -3058,8 +3110,7 @@ class Srlg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['srlg_index']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('srlg_index', YLeaf(YType.uint32, 'srlg-index')),
                             ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
@@ -3071,7 +3122,7 @@ class Srlg(Entity):
                         self._segment_path = lambda: "group-value" + "[srlg-index='" + str(self.srlg_index) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Groups.Group.GroupValues.GroupValue, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
+                        self._perform_setattr(Srlg.Groups.Group.GroupValues.GroupValue, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
 
 
     class InheritNodes(Entity):
@@ -3098,8 +3149,7 @@ class Srlg(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("inherit-node", ("inherit_node", Srlg.InheritNodes.InheritNode))])
+            self._child_classes = OrderedDict([("inherit-node", ("inherit_node", Srlg.InheritNodes.InheritNode))])
             self._leafs = OrderedDict()
 
             self.inherit_node = YList(self)
@@ -3146,8 +3196,7 @@ class Srlg(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['inherit_node_name']
-                self._child_container_classes = OrderedDict([("inherit-node-values", ("inherit_node_values", Srlg.InheritNodes.InheritNode.InheritNodeValues))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("inherit-node-values", ("inherit_node_values", Srlg.InheritNodes.InheritNode.InheritNodeValues))])
                 self._leafs = OrderedDict([
                     ('inherit_node_name', YLeaf(YType.str, 'inherit-node-name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -3158,12 +3207,11 @@ class Srlg(Entity):
                 self.inherit_node_values = Srlg.InheritNodes.InheritNode.InheritNodeValues()
                 self.inherit_node_values.parent = self
                 self._children_name_map["inherit_node_values"] = "inherit-node-values"
-                self._children_yang_names.add("inherit-node-values")
                 self._segment_path = lambda: "inherit-node" + "[inherit-node-name='" + str(self.inherit_node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/inherit-nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.InheritNodes.InheritNode, ['inherit_node_name', 'enable'], name, value)
+                self._perform_setattr(Srlg.InheritNodes.InheritNode, [u'inherit_node_name', u'enable'], name, value)
 
 
             class InheritNodeValues(Entity):
@@ -3191,8 +3239,7 @@ class Srlg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("inherit-node-value", ("inherit_node_value", Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue))])
+                    self._child_classes = OrderedDict([("inherit-node-value", ("inherit_node_value", Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue))])
                     self._leafs = OrderedDict()
 
                     self.inherit_node_value = YList(self)
@@ -3244,8 +3291,7 @@ class Srlg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['srlg_index']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('srlg_index', YLeaf(YType.uint32, 'srlg-index')),
                             ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
@@ -3257,7 +3303,7 @@ class Srlg(Entity):
                         self._segment_path = lambda: "inherit-node-value" + "[srlg-index='" + str(self.srlg_index) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
+                        self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Srlg()
@@ -3288,8 +3334,7 @@ class VrfGroups(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("vrf-group", ("vrf_group", VrfGroups.VrfGroup))])
+        self._child_classes = OrderedDict([("vrf-group", ("vrf_group", VrfGroups.VrfGroup))])
         self._leafs = OrderedDict()
 
         self.vrf_group = YList(self)
@@ -3335,8 +3380,7 @@ class VrfGroups(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['vrf_group_name']
-            self._child_container_classes = OrderedDict([("vrfs", ("vrfs", VrfGroups.VrfGroup.Vrfs))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("vrfs", ("vrfs", VrfGroups.VrfGroup.Vrfs))])
             self._leafs = OrderedDict([
                 ('vrf_group_name', YLeaf(YType.str, 'vrf-group-name')),
                 ('enable', YLeaf(YType.empty, 'enable')),
@@ -3347,12 +3391,11 @@ class VrfGroups(Entity):
             self.vrfs = VrfGroups.VrfGroup.Vrfs()
             self.vrfs.parent = self
             self._children_name_map["vrfs"] = "vrfs"
-            self._children_yang_names.add("vrfs")
             self._segment_path = lambda: "vrf-group" + "[vrf-group-name='" + str(self.vrf_group_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:vrf-groups/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(VrfGroups.VrfGroup, ['vrf_group_name', 'enable'], name, value)
+            self._perform_setattr(VrfGroups.VrfGroup, [u'vrf_group_name', u'enable'], name, value)
 
 
         class Vrfs(Entity):
@@ -3379,8 +3422,7 @@ class VrfGroups(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("vrf", ("vrf", VrfGroups.VrfGroup.Vrfs.Vrf))])
+                self._child_classes = OrderedDict([("vrf", ("vrf", VrfGroups.VrfGroup.Vrfs.Vrf))])
                 self._leafs = OrderedDict()
 
                 self.vrf = YList(self)
@@ -3416,8 +3458,7 @@ class VrfGroups(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ])
@@ -3425,7 +3466,7 @@ class VrfGroups(Entity):
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(VrfGroups.VrfGroup.Vrfs.Vrf, ['vrf_name'], name, value)
+                    self._perform_setattr(VrfGroups.VrfGroup.Vrfs.Vrf, [u'vrf_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = VrfGroups()
@@ -3456,8 +3497,7 @@ class SelectiveVrfDownload(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
             ('disable', YLeaf(YType.empty, 'disable')),
         ])
@@ -3465,7 +3505,7 @@ class SelectiveVrfDownload(Entity):
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(SelectiveVrfDownload, ['disable'], name, value)
+        self._perform_setattr(SelectiveVrfDownload, [u'disable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SelectiveVrfDownload()

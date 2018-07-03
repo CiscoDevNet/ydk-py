@@ -363,7 +363,7 @@ class Hsrp(Entity):
     """
 
     _prefix = 'ipv4-hsrp-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Hsrp, self).__init__()
@@ -374,35 +374,32 @@ class Hsrp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Hsrp.Ipv4)), ("mgo-sessions", ("mgo_sessions", Hsrp.MgoSessions)), ("ipv6", ("ipv6", Hsrp.Ipv6)), ("bfd-sessions", ("bfd_sessions", Hsrp.BfdSessions)), ("summary", ("summary", Hsrp.Summary))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ipv4", ("ipv4", Hsrp.Ipv4)), ("mgo-sessions", ("mgo_sessions", Hsrp.MgoSessions)), ("ipv6", ("ipv6", Hsrp.Ipv6)), ("bfd-sessions", ("bfd_sessions", Hsrp.BfdSessions)), ("summary", ("summary", Hsrp.Summary))])
         self._leafs = OrderedDict()
 
         self.ipv4 = Hsrp.Ipv4()
         self.ipv4.parent = self
         self._children_name_map["ipv4"] = "ipv4"
-        self._children_yang_names.add("ipv4")
 
         self.mgo_sessions = Hsrp.MgoSessions()
         self.mgo_sessions.parent = self
         self._children_name_map["mgo_sessions"] = "mgo-sessions"
-        self._children_yang_names.add("mgo-sessions")
 
         self.ipv6 = Hsrp.Ipv6()
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
-        self._children_yang_names.add("ipv6")
 
         self.bfd_sessions = Hsrp.BfdSessions()
         self.bfd_sessions.parent = self
         self._children_name_map["bfd_sessions"] = "bfd-sessions"
-        self._children_yang_names.add("bfd-sessions")
 
         self.summary = Hsrp.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Hsrp, [], name, value)
 
 
     class Ipv4(Entity):
@@ -429,7 +426,7 @@ class Hsrp(Entity):
         """
 
         _prefix = 'ipv4-hsrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Hsrp.Ipv4, self).__init__()
@@ -439,26 +436,25 @@ class Hsrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("groups", ("groups", Hsrp.Ipv4.Groups)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Ipv4.TrackedInterfaces)), ("interfaces", ("interfaces", Hsrp.Ipv4.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("groups", ("groups", Hsrp.Ipv4.Groups)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Ipv4.TrackedInterfaces)), ("interfaces", ("interfaces", Hsrp.Ipv4.Interfaces))])
             self._leafs = OrderedDict()
 
             self.groups = Hsrp.Ipv4.Groups()
             self.groups.parent = self
             self._children_name_map["groups"] = "groups"
-            self._children_yang_names.add("groups")
 
             self.tracked_interfaces = Hsrp.Ipv4.TrackedInterfaces()
             self.tracked_interfaces.parent = self
             self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
-            self._children_yang_names.add("tracked-interfaces")
 
             self.interfaces = Hsrp.Ipv4.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Hsrp.Ipv4, [], name, value)
 
 
         class Groups(Entity):
@@ -475,7 +471,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Hsrp.Ipv4.Groups, self).__init__()
@@ -485,8 +481,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("group", ("group", Hsrp.Ipv4.Groups.Group))])
+                self._child_classes = OrderedDict([("group", ("group", Hsrp.Ipv4.Groups.Group))])
                 self._leafs = OrderedDict()
 
                 self.group = YList(self)
@@ -513,7 +508,7 @@ class Hsrp(Entity):
                 	The HSRP group number
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: resign_sent_time
                 
@@ -996,7 +991,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Hsrp.Ipv4.Groups.Group, self).__init__()
@@ -1006,11 +1001,10 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name','group_number']
-                    self._child_container_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Hsrp.Ipv4.Groups.Group.ResignSentTime)), ("resign-received-time", ("resign_received_time", Hsrp.Ipv4.Groups.Group.ResignReceivedTime)), ("coup-sent-time", ("coup_sent_time", Hsrp.Ipv4.Groups.Group.CoupSentTime)), ("coup-received-time", ("coup_received_time", Hsrp.Ipv4.Groups.Group.CoupReceivedTime)), ("statistics", ("statistics", Hsrp.Ipv4.Groups.Group.Statistics))])
-                    self._child_list_classes = OrderedDict([("global-address", ("global_address", Hsrp.Ipv4.Groups.Group.GlobalAddress)), ("state-change-history", ("state_change_history", Hsrp.Ipv4.Groups.Group.StateChangeHistory))])
+                    self._child_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Hsrp.Ipv4.Groups.Group.ResignSentTime)), ("resign-received-time", ("resign_received_time", Hsrp.Ipv4.Groups.Group.ResignReceivedTime)), ("coup-sent-time", ("coup_sent_time", Hsrp.Ipv4.Groups.Group.CoupSentTime)), ("coup-received-time", ("coup_received_time", Hsrp.Ipv4.Groups.Group.CoupReceivedTime)), ("statistics", ("statistics", Hsrp.Ipv4.Groups.Group.Statistics)), ("global-address", ("global_address", Hsrp.Ipv4.Groups.Group.GlobalAddress)), ("state-change-history", ("state_change_history", Hsrp.Ipv4.Groups.Group.StateChangeHistory))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('group_number', YLeaf(YType.int32, 'group-number')),
+                        ('group_number', YLeaf(YType.uint32, 'group-number')),
                         ('authentication_string', YLeaf(YType.str, 'authentication-string')),
                         ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
                         ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
@@ -1144,27 +1138,22 @@ class Hsrp(Entity):
                     self.resign_sent_time = Hsrp.Ipv4.Groups.Group.ResignSentTime()
                     self.resign_sent_time.parent = self
                     self._children_name_map["resign_sent_time"] = "resign-sent-time"
-                    self._children_yang_names.add("resign-sent-time")
 
                     self.resign_received_time = Hsrp.Ipv4.Groups.Group.ResignReceivedTime()
                     self.resign_received_time.parent = self
                     self._children_name_map["resign_received_time"] = "resign-received-time"
-                    self._children_yang_names.add("resign-received-time")
 
                     self.coup_sent_time = Hsrp.Ipv4.Groups.Group.CoupSentTime()
                     self.coup_sent_time.parent = self
                     self._children_name_map["coup_sent_time"] = "coup-sent-time"
-                    self._children_yang_names.add("coup-sent-time")
 
                     self.coup_received_time = Hsrp.Ipv4.Groups.Group.CoupReceivedTime()
                     self.coup_received_time.parent = self
                     self._children_name_map["coup_received_time"] = "coup-received-time"
-                    self._children_yang_names.add("coup-received-time")
 
                     self.statistics = Hsrp.Ipv4.Groups.Group.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
 
                     self.global_address = YList(self)
                     self.state_change_history = YList(self)
@@ -1172,7 +1161,7 @@ class Hsrp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.Groups.Group, ['interface_name', 'group_number', 'authentication_string', 'virtual_mac_address', 'hsrp_group_number', 'address_family', 'version', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'configured_priority', 'preempt_delay', 'preempt_timer_secs', 'hello_time', 'hold_time', 'learned_hello_time', 'learned_hold_time', 'min_delay_time', 'reload_delay_time', 'virtual_ip_address', 'virtual_linklocal_ipv6_address', 'active_ip_address', 'active_ipv6_address', 'active_mac_address', 'standby_ip_address', 'standby_ipv6_address', 'standby_mac_address', 'hsrp_router_state', 'interface_name_xr', 'interface', 'router_priority', 'active_priority', 'active_timer_flag', 'active_timer_secs', 'active_timer_msecs', 'standby_timer_flag', 'standby_timer_secs', 'standby_timer_msecs', 'hello_timer_flag', 'hello_timer_secs', 'hello_timer_msecs', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'current_state_timer_secs', 'state_change_count', 'tracked_interface_count', 'tracked_interface_up_count', 'preempt_enabled', 'use_configured_timers', 'use_configured_virtual_ip', 'use_bia_configured', 'configured_timers', 'configured_mac_address', 'redirects_disabled', 'bfd_enabled', 'bfd_interface', 'bfd_peer_ip_address', 'bfd_peer_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'virtual_mac_address_state', 'secondary_address'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.Groups.Group, ['interface_name', 'group_number', u'authentication_string', u'virtual_mac_address', u'hsrp_group_number', u'address_family', u'version', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'configured_priority', u'preempt_delay', u'preempt_timer_secs', u'hello_time', u'hold_time', u'learned_hello_time', u'learned_hold_time', u'min_delay_time', u'reload_delay_time', u'virtual_ip_address', u'virtual_linklocal_ipv6_address', u'active_ip_address', u'active_ipv6_address', u'active_mac_address', u'standby_ip_address', u'standby_ipv6_address', u'standby_mac_address', u'hsrp_router_state', u'interface_name_xr', u'interface', u'router_priority', u'active_priority', u'active_timer_flag', u'active_timer_secs', u'active_timer_msecs', u'standby_timer_flag', u'standby_timer_secs', u'standby_timer_msecs', u'hello_timer_flag', u'hello_timer_secs', u'hello_timer_msecs', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'current_state_timer_secs', u'state_change_count', u'tracked_interface_count', u'tracked_interface_up_count', u'preempt_enabled', u'use_configured_timers', u'use_configured_virtual_ip', u'use_bia_configured', u'configured_timers', u'configured_mac_address', u'redirects_disabled', u'bfd_enabled', u'bfd_interface', u'bfd_peer_ip_address', u'bfd_peer_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'virtual_mac_address_state', u'secondary_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -1202,7 +1191,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv4.Groups.Group.ResignSentTime, self).__init__()
@@ -1212,8 +1201,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1223,7 +1211,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "resign-sent-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class ResignReceivedTime(Entity):
@@ -1253,7 +1241,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, self).__init__()
@@ -1263,8 +1251,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1274,7 +1261,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "resign-received-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class CoupSentTime(Entity):
@@ -1304,7 +1291,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv4.Groups.Group.CoupSentTime, self).__init__()
@@ -1314,8 +1301,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1325,7 +1311,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "coup-sent-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class CoupReceivedTime(Entity):
@@ -1355,7 +1341,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, self).__init__()
@@ -1365,8 +1351,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1376,7 +1361,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "coup-received-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class Statistics(Entity):
@@ -1493,7 +1478,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv4.Groups.Group.Statistics, self).__init__()
@@ -1503,8 +1488,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('active_transitions', YLeaf(YType.uint32, 'active-transitions')),
                             ('standby_transitions', YLeaf(YType.uint32, 'standby-transitions')),
@@ -1540,7 +1524,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.Statistics, ['active_transitions', 'standby_transitions', 'speak_transitions', 'listen_transitions', 'learn_transitions', 'init_transitions', 'hello_packets_sent', 'resign_packets_sent', 'coup_packets_sent', 'hello_packets_received', 'resign_packets_received', 'coup_packets_received', 'auth_fail_received', 'invalid_timer_received', 'mismatch_virtual_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.Statistics, [u'active_transitions', u'standby_transitions', u'speak_transitions', u'listen_transitions', u'learn_transitions', u'init_transitions', u'hello_packets_sent', u'resign_packets_sent', u'coup_packets_sent', u'hello_packets_received', u'resign_packets_received', u'coup_packets_received', u'auth_fail_received', u'invalid_timer_received', u'mismatch_virtual_ip_address_received'], name, value)
 
 
                 class GlobalAddress(Entity):
@@ -1559,7 +1543,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv4.Groups.Group.GlobalAddress, self).__init__()
@@ -1569,8 +1553,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                         ])
@@ -1578,7 +1561,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "global-address"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.GlobalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.GlobalAddress, [u'ipv6_address'], name, value)
 
 
                 class StateChangeHistory(Entity):
@@ -1610,7 +1593,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv4.Groups.Group.StateChangeHistory, self).__init__()
@@ -1620,8 +1603,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("time", ("time", Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("time", ("time", Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time))])
                         self._leafs = OrderedDict([
                             ('old_state', YLeaf(YType.enumeration, 'old-state')),
                             ('new_state', YLeaf(YType.enumeration, 'new-state')),
@@ -1634,11 +1616,10 @@ class Hsrp(Entity):
                         self.time = Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time()
                         self.time.parent = self
                         self._children_name_map["time"] = "time"
-                        self._children_yang_names.add("time")
                         self._segment_path = lambda: "state-change-history"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -1668,7 +1649,7 @@ class Hsrp(Entity):
                         """
 
                         _prefix = 'ipv4-hsrp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, self).__init__()
@@ -1678,8 +1659,7 @@ class Hsrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('seconds', YLeaf(YType.uint32, 'seconds')),
                                 ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1689,7 +1669,7 @@ class Hsrp(Entity):
                             self._segment_path = lambda: "time"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
         class TrackedInterfaces(Entity):
@@ -1706,7 +1686,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Hsrp.Ipv4.TrackedInterfaces, self).__init__()
@@ -1716,8 +1696,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Ipv4.TrackedInterfaces.TrackedInterface))])
+                self._child_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Ipv4.TrackedInterfaces.TrackedInterface))])
                 self._leafs = OrderedDict()
 
                 self.tracked_interface = YList(self)
@@ -1744,7 +1723,7 @@ class Hsrp(Entity):
                 	The HSRP group number
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: tracked_interface_name  (key)
                 
@@ -1796,7 +1775,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, self).__init__()
@@ -1806,11 +1785,10 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name','group_number','tracked_interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('group_number', YLeaf(YType.int32, 'group-number')),
+                        ('group_number', YLeaf(YType.uint32, 'group-number')),
                         ('tracked_interface_name', YLeaf(YType.str, 'tracked-interface-name')),
                         ('interface', YLeaf(YType.str, 'interface')),
                         ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
@@ -1832,7 +1810,7 @@ class Hsrp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/tracked-interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', 'interface', 'hsrp_group_number', 'priority_decrement', 'interface_up_flag', 'tracked_interface_name_xr', 'is_object'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', u'interface', u'hsrp_group_number', u'priority_decrement', u'interface_up_flag', u'tracked_interface_name_xr', u'is_object'], name, value)
 
 
         class Interfaces(Entity):
@@ -1849,7 +1827,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Hsrp.Ipv4.Interfaces, self).__init__()
@@ -1859,8 +1837,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Hsrp.Ipv4.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Hsrp.Ipv4.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -1904,7 +1881,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Hsrp.Ipv4.Interfaces.Interface, self).__init__()
@@ -1914,8 +1891,7 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Hsrp.Ipv4.Interfaces.Interface.Statistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("statistics", ("statistics", Hsrp.Ipv4.Interfaces.Interface.Statistics))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('interface', YLeaf(YType.str, 'interface')),
@@ -1928,12 +1904,11 @@ class Hsrp(Entity):
                     self.statistics = Hsrp.Ipv4.Interfaces.Interface.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'use_bia_flag'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface, ['interface_name', u'interface', u'use_bia_flag'], name, value)
 
 
                 class Statistics(Entity):
@@ -2008,7 +1983,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv4.Interfaces.Interface.Statistics, self).__init__()
@@ -2018,8 +1993,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('advert_packets_sent', YLeaf(YType.uint32, 'advert-packets-sent')),
                             ('advert_packets_received', YLeaf(YType.uint32, 'advert-packets-received')),
@@ -2043,7 +2017,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface.Statistics, ['advert_packets_sent', 'advert_packets_received', 'long_packets_received', 'short_packets_received', 'invalid_version_received', 'invalid_operation_code_received', 'unknown_group_received', 'inoperational_group_received', 'conflict_source_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface.Statistics, [u'advert_packets_sent', u'advert_packets_received', u'long_packets_received', u'short_packets_received', u'invalid_version_received', u'invalid_operation_code_received', u'unknown_group_received', u'inoperational_group_received', u'conflict_source_ip_address_received'], name, value)
 
 
     class MgoSessions(Entity):
@@ -2060,7 +2034,7 @@ class Hsrp(Entity):
         """
 
         _prefix = 'ipv4-hsrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Hsrp.MgoSessions, self).__init__()
@@ -2070,8 +2044,7 @@ class Hsrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mgo-session", ("mgo_session", Hsrp.MgoSessions.MgoSession))])
+            self._child_classes = OrderedDict([("mgo-session", ("mgo_session", Hsrp.MgoSessions.MgoSession))])
             self._leafs = OrderedDict()
 
             self.mgo_session = YList(self)
@@ -2134,7 +2107,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Hsrp.MgoSessions.MgoSession, self).__init__()
@@ -2144,8 +2117,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['session_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("slave", ("slave", Hsrp.MgoSessions.MgoSession.Slave))])
+                self._child_classes = OrderedDict([("slave", ("slave", Hsrp.MgoSessions.MgoSession.Slave))])
                 self._leafs = OrderedDict([
                     ('session_name', YLeaf(YType.str, 'session-name')),
                     ('primary_session_name', YLeaf(YType.str, 'primary-session-name')),
@@ -2166,7 +2138,7 @@ class Hsrp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/mgo-sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Hsrp.MgoSessions.MgoSession, ['session_name', 'primary_session_name', 'primary_session_interface', 'primary_af_name', 'primary_session_number', 'primary_session_state'], name, value)
+                self._perform_setattr(Hsrp.MgoSessions.MgoSession, ['session_name', u'primary_session_name', u'primary_session_interface', u'primary_af_name', u'primary_session_number', u'primary_session_state'], name, value)
 
 
             class Slave(Entity):
@@ -2192,7 +2164,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Hsrp.MgoSessions.MgoSession.Slave, self).__init__()
@@ -2202,8 +2174,7 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('slave_group_interface', YLeaf(YType.str, 'slave-group-interface')),
                         ('slave_group_number', YLeaf(YType.uint32, 'slave-group-number')),
@@ -2213,7 +2184,7 @@ class Hsrp(Entity):
                     self._segment_path = lambda: "slave"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.MgoSessions.MgoSession.Slave, ['slave_group_interface', 'slave_group_number'], name, value)
+                    self._perform_setattr(Hsrp.MgoSessions.MgoSession.Slave, [u'slave_group_interface', u'slave_group_number'], name, value)
 
 
     class Ipv6(Entity):
@@ -2240,7 +2211,7 @@ class Hsrp(Entity):
         """
 
         _prefix = 'ipv4-hsrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Hsrp.Ipv6, self).__init__()
@@ -2250,26 +2221,25 @@ class Hsrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("tracked-interfaces", ("tracked_interfaces", Hsrp.Ipv6.TrackedInterfaces)), ("groups", ("groups", Hsrp.Ipv6.Groups)), ("interfaces", ("interfaces", Hsrp.Ipv6.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("tracked-interfaces", ("tracked_interfaces", Hsrp.Ipv6.TrackedInterfaces)), ("groups", ("groups", Hsrp.Ipv6.Groups)), ("interfaces", ("interfaces", Hsrp.Ipv6.Interfaces))])
             self._leafs = OrderedDict()
 
             self.tracked_interfaces = Hsrp.Ipv6.TrackedInterfaces()
             self.tracked_interfaces.parent = self
             self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
-            self._children_yang_names.add("tracked-interfaces")
 
             self.groups = Hsrp.Ipv6.Groups()
             self.groups.parent = self
             self._children_name_map["groups"] = "groups"
-            self._children_yang_names.add("groups")
 
             self.interfaces = Hsrp.Ipv6.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Hsrp.Ipv6, [], name, value)
 
 
         class TrackedInterfaces(Entity):
@@ -2286,7 +2256,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Hsrp.Ipv6.TrackedInterfaces, self).__init__()
@@ -2296,8 +2266,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Ipv6.TrackedInterfaces.TrackedInterface))])
+                self._child_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Ipv6.TrackedInterfaces.TrackedInterface))])
                 self._leafs = OrderedDict()
 
                 self.tracked_interface = YList(self)
@@ -2324,7 +2293,7 @@ class Hsrp(Entity):
                 	The HSRP group number
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: tracked_interface_name  (key)
                 
@@ -2376,7 +2345,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, self).__init__()
@@ -2386,11 +2355,10 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name','group_number','tracked_interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('group_number', YLeaf(YType.int32, 'group-number')),
+                        ('group_number', YLeaf(YType.uint32, 'group-number')),
                         ('tracked_interface_name', YLeaf(YType.str, 'tracked-interface-name')),
                         ('interface', YLeaf(YType.str, 'interface')),
                         ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
@@ -2412,7 +2380,7 @@ class Hsrp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/tracked-interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', 'interface', 'hsrp_group_number', 'priority_decrement', 'interface_up_flag', 'tracked_interface_name_xr', 'is_object'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', u'interface', u'hsrp_group_number', u'priority_decrement', u'interface_up_flag', u'tracked_interface_name_xr', u'is_object'], name, value)
 
 
         class Groups(Entity):
@@ -2429,7 +2397,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Hsrp.Ipv6.Groups, self).__init__()
@@ -2439,8 +2407,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("group", ("group", Hsrp.Ipv6.Groups.Group))])
+                self._child_classes = OrderedDict([("group", ("group", Hsrp.Ipv6.Groups.Group))])
                 self._leafs = OrderedDict()
 
                 self.group = YList(self)
@@ -2467,7 +2434,7 @@ class Hsrp(Entity):
                 	The HSRP group number
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: resign_sent_time
                 
@@ -2950,7 +2917,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Hsrp.Ipv6.Groups.Group, self).__init__()
@@ -2960,11 +2927,10 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name','group_number']
-                    self._child_container_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Hsrp.Ipv6.Groups.Group.ResignSentTime)), ("resign-received-time", ("resign_received_time", Hsrp.Ipv6.Groups.Group.ResignReceivedTime)), ("coup-sent-time", ("coup_sent_time", Hsrp.Ipv6.Groups.Group.CoupSentTime)), ("coup-received-time", ("coup_received_time", Hsrp.Ipv6.Groups.Group.CoupReceivedTime)), ("statistics", ("statistics", Hsrp.Ipv6.Groups.Group.Statistics))])
-                    self._child_list_classes = OrderedDict([("global-address", ("global_address", Hsrp.Ipv6.Groups.Group.GlobalAddress)), ("state-change-history", ("state_change_history", Hsrp.Ipv6.Groups.Group.StateChangeHistory))])
+                    self._child_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Hsrp.Ipv6.Groups.Group.ResignSentTime)), ("resign-received-time", ("resign_received_time", Hsrp.Ipv6.Groups.Group.ResignReceivedTime)), ("coup-sent-time", ("coup_sent_time", Hsrp.Ipv6.Groups.Group.CoupSentTime)), ("coup-received-time", ("coup_received_time", Hsrp.Ipv6.Groups.Group.CoupReceivedTime)), ("statistics", ("statistics", Hsrp.Ipv6.Groups.Group.Statistics)), ("global-address", ("global_address", Hsrp.Ipv6.Groups.Group.GlobalAddress)), ("state-change-history", ("state_change_history", Hsrp.Ipv6.Groups.Group.StateChangeHistory))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('group_number', YLeaf(YType.int32, 'group-number')),
+                        ('group_number', YLeaf(YType.uint32, 'group-number')),
                         ('authentication_string', YLeaf(YType.str, 'authentication-string')),
                         ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
                         ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
@@ -3098,27 +3064,22 @@ class Hsrp(Entity):
                     self.resign_sent_time = Hsrp.Ipv6.Groups.Group.ResignSentTime()
                     self.resign_sent_time.parent = self
                     self._children_name_map["resign_sent_time"] = "resign-sent-time"
-                    self._children_yang_names.add("resign-sent-time")
 
                     self.resign_received_time = Hsrp.Ipv6.Groups.Group.ResignReceivedTime()
                     self.resign_received_time.parent = self
                     self._children_name_map["resign_received_time"] = "resign-received-time"
-                    self._children_yang_names.add("resign-received-time")
 
                     self.coup_sent_time = Hsrp.Ipv6.Groups.Group.CoupSentTime()
                     self.coup_sent_time.parent = self
                     self._children_name_map["coup_sent_time"] = "coup-sent-time"
-                    self._children_yang_names.add("coup-sent-time")
 
                     self.coup_received_time = Hsrp.Ipv6.Groups.Group.CoupReceivedTime()
                     self.coup_received_time.parent = self
                     self._children_name_map["coup_received_time"] = "coup-received-time"
-                    self._children_yang_names.add("coup-received-time")
 
                     self.statistics = Hsrp.Ipv6.Groups.Group.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
 
                     self.global_address = YList(self)
                     self.state_change_history = YList(self)
@@ -3126,7 +3087,7 @@ class Hsrp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.Groups.Group, ['interface_name', 'group_number', 'authentication_string', 'virtual_mac_address', 'hsrp_group_number', 'address_family', 'version', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'configured_priority', 'preempt_delay', 'preempt_timer_secs', 'hello_time', 'hold_time', 'learned_hello_time', 'learned_hold_time', 'min_delay_time', 'reload_delay_time', 'virtual_ip_address', 'virtual_linklocal_ipv6_address', 'active_ip_address', 'active_ipv6_address', 'active_mac_address', 'standby_ip_address', 'standby_ipv6_address', 'standby_mac_address', 'hsrp_router_state', 'interface_name_xr', 'interface', 'router_priority', 'active_priority', 'active_timer_flag', 'active_timer_secs', 'active_timer_msecs', 'standby_timer_flag', 'standby_timer_secs', 'standby_timer_msecs', 'hello_timer_flag', 'hello_timer_secs', 'hello_timer_msecs', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'current_state_timer_secs', 'state_change_count', 'tracked_interface_count', 'tracked_interface_up_count', 'preempt_enabled', 'use_configured_timers', 'use_configured_virtual_ip', 'use_bia_configured', 'configured_timers', 'configured_mac_address', 'redirects_disabled', 'bfd_enabled', 'bfd_interface', 'bfd_peer_ip_address', 'bfd_peer_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'virtual_mac_address_state', 'secondary_address'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.Groups.Group, ['interface_name', 'group_number', u'authentication_string', u'virtual_mac_address', u'hsrp_group_number', u'address_family', u'version', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'configured_priority', u'preempt_delay', u'preempt_timer_secs', u'hello_time', u'hold_time', u'learned_hello_time', u'learned_hold_time', u'min_delay_time', u'reload_delay_time', u'virtual_ip_address', u'virtual_linklocal_ipv6_address', u'active_ip_address', u'active_ipv6_address', u'active_mac_address', u'standby_ip_address', u'standby_ipv6_address', u'standby_mac_address', u'hsrp_router_state', u'interface_name_xr', u'interface', u'router_priority', u'active_priority', u'active_timer_flag', u'active_timer_secs', u'active_timer_msecs', u'standby_timer_flag', u'standby_timer_secs', u'standby_timer_msecs', u'hello_timer_flag', u'hello_timer_secs', u'hello_timer_msecs', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'current_state_timer_secs', u'state_change_count', u'tracked_interface_count', u'tracked_interface_up_count', u'preempt_enabled', u'use_configured_timers', u'use_configured_virtual_ip', u'use_bia_configured', u'configured_timers', u'configured_mac_address', u'redirects_disabled', u'bfd_enabled', u'bfd_interface', u'bfd_peer_ip_address', u'bfd_peer_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'virtual_mac_address_state', u'secondary_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -3156,7 +3117,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv6.Groups.Group.ResignSentTime, self).__init__()
@@ -3166,8 +3127,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -3177,7 +3137,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "resign-sent-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class ResignReceivedTime(Entity):
@@ -3207,7 +3167,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, self).__init__()
@@ -3217,8 +3177,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -3228,7 +3187,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "resign-received-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class CoupSentTime(Entity):
@@ -3258,7 +3217,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv6.Groups.Group.CoupSentTime, self).__init__()
@@ -3268,8 +3227,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -3279,7 +3237,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "coup-sent-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class CoupReceivedTime(Entity):
@@ -3309,7 +3267,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, self).__init__()
@@ -3319,8 +3277,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -3330,7 +3287,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "coup-received-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class Statistics(Entity):
@@ -3447,7 +3404,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv6.Groups.Group.Statistics, self).__init__()
@@ -3457,8 +3414,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('active_transitions', YLeaf(YType.uint32, 'active-transitions')),
                             ('standby_transitions', YLeaf(YType.uint32, 'standby-transitions')),
@@ -3494,7 +3450,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.Statistics, ['active_transitions', 'standby_transitions', 'speak_transitions', 'listen_transitions', 'learn_transitions', 'init_transitions', 'hello_packets_sent', 'resign_packets_sent', 'coup_packets_sent', 'hello_packets_received', 'resign_packets_received', 'coup_packets_received', 'auth_fail_received', 'invalid_timer_received', 'mismatch_virtual_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.Statistics, [u'active_transitions', u'standby_transitions', u'speak_transitions', u'listen_transitions', u'learn_transitions', u'init_transitions', u'hello_packets_sent', u'resign_packets_sent', u'coup_packets_sent', u'hello_packets_received', u'resign_packets_received', u'coup_packets_received', u'auth_fail_received', u'invalid_timer_received', u'mismatch_virtual_ip_address_received'], name, value)
 
 
                 class GlobalAddress(Entity):
@@ -3513,7 +3469,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv6.Groups.Group.GlobalAddress, self).__init__()
@@ -3523,8 +3479,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                         ])
@@ -3532,7 +3487,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "global-address"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.GlobalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.GlobalAddress, [u'ipv6_address'], name, value)
 
 
                 class StateChangeHistory(Entity):
@@ -3564,7 +3519,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv6.Groups.Group.StateChangeHistory, self).__init__()
@@ -3574,8 +3529,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("time", ("time", Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("time", ("time", Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time))])
                         self._leafs = OrderedDict([
                             ('old_state', YLeaf(YType.enumeration, 'old-state')),
                             ('new_state', YLeaf(YType.enumeration, 'new-state')),
@@ -3588,11 +3542,10 @@ class Hsrp(Entity):
                         self.time = Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time()
                         self.time.parent = self
                         self._children_name_map["time"] = "time"
-                        self._children_yang_names.add("time")
                         self._segment_path = lambda: "state-change-history"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -3622,7 +3575,7 @@ class Hsrp(Entity):
                         """
 
                         _prefix = 'ipv4-hsrp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, self).__init__()
@@ -3632,8 +3585,7 @@ class Hsrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('seconds', YLeaf(YType.uint32, 'seconds')),
                                 ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -3643,7 +3595,7 @@ class Hsrp(Entity):
                             self._segment_path = lambda: "time"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
         class Interfaces(Entity):
@@ -3660,7 +3612,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Hsrp.Ipv6.Interfaces, self).__init__()
@@ -3670,8 +3622,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Hsrp.Ipv6.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Hsrp.Ipv6.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -3715,7 +3666,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Hsrp.Ipv6.Interfaces.Interface, self).__init__()
@@ -3725,8 +3676,7 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Hsrp.Ipv6.Interfaces.Interface.Statistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("statistics", ("statistics", Hsrp.Ipv6.Interfaces.Interface.Statistics))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('interface', YLeaf(YType.str, 'interface')),
@@ -3739,12 +3689,11 @@ class Hsrp(Entity):
                     self.statistics = Hsrp.Ipv6.Interfaces.Interface.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'use_bia_flag'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface, ['interface_name', u'interface', u'use_bia_flag'], name, value)
 
 
                 class Statistics(Entity):
@@ -3819,7 +3768,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Hsrp.Ipv6.Interfaces.Interface.Statistics, self).__init__()
@@ -3829,8 +3778,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('advert_packets_sent', YLeaf(YType.uint32, 'advert-packets-sent')),
                             ('advert_packets_received', YLeaf(YType.uint32, 'advert-packets-received')),
@@ -3854,7 +3802,7 @@ class Hsrp(Entity):
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface.Statistics, ['advert_packets_sent', 'advert_packets_received', 'long_packets_received', 'short_packets_received', 'invalid_version_received', 'invalid_operation_code_received', 'unknown_group_received', 'inoperational_group_received', 'conflict_source_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface.Statistics, [u'advert_packets_sent', u'advert_packets_received', u'long_packets_received', u'short_packets_received', u'invalid_version_received', u'invalid_operation_code_received', u'unknown_group_received', u'inoperational_group_received', u'conflict_source_ip_address_received'], name, value)
 
 
     class BfdSessions(Entity):
@@ -3871,7 +3819,7 @@ class Hsrp(Entity):
         """
 
         _prefix = 'ipv4-hsrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Hsrp.BfdSessions, self).__init__()
@@ -3881,8 +3829,7 @@ class Hsrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("bfd-session", ("bfd_session", Hsrp.BfdSessions.BfdSession))])
+            self._child_classes = OrderedDict([("bfd-session", ("bfd_session", Hsrp.BfdSessions.BfdSession))])
             self._leafs = OrderedDict()
 
             self.bfd_session = YList(self)
@@ -3972,7 +3919,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Hsrp.BfdSessions.BfdSession, self).__init__()
@@ -3982,8 +3929,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name','ip_address']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("group", ("group", Hsrp.BfdSessions.BfdSession.Group))])
+                self._child_classes = OrderedDict([("group", ("group", Hsrp.BfdSessions.BfdSession.Group))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('ip_address', YLeaf(YType.str, 'ip-address')),
@@ -4010,7 +3956,7 @@ class Hsrp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/bfd-sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Hsrp.BfdSessions.BfdSession, ['interface_name', 'ip_address', 'bfd_interface_name', 'session_address_family', 'destination_address', 'destination_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier'], name, value)
+                self._perform_setattr(Hsrp.BfdSessions.BfdSession, ['interface_name', 'ip_address', u'bfd_interface_name', u'session_address_family', u'destination_address', u'destination_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier'], name, value)
 
 
             class Group(Entity):
@@ -4036,7 +3982,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Hsrp.BfdSessions.BfdSession.Group, self).__init__()
@@ -4046,8 +3992,7 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
@@ -4057,7 +4002,7 @@ class Hsrp(Entity):
                     self._segment_path = lambda: "group"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.BfdSessions.BfdSession.Group, ['interface_name', 'hsrp_group_number'], name, value)
+                    self._perform_setattr(Hsrp.BfdSessions.BfdSession.Group, [u'interface_name', u'hsrp_group_number'], name, value)
 
 
     class Summary(Entity):
@@ -4496,7 +4441,7 @@ class Hsrp(Entity):
         """
 
         _prefix = 'ipv4-hsrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Hsrp.Summary, self).__init__()
@@ -4506,8 +4451,7 @@ class Hsrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ipv4_sessions_active', YLeaf(YType.uint32, 'ipv4-sessions-active')),
                 ('ipv4_sessions_standby', YLeaf(YType.uint32, 'ipv4-sessions-standby')),
@@ -4636,7 +4580,7 @@ class Hsrp(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Hsrp.Summary, ['ipv4_sessions_active', 'ipv4_sessions_standby', 'ipv4_sessions_speak', 'ipv4_sessions_listen', 'ipv4_sessions_learn', 'ipv4_sessions_init', 'ipv4_slaves_active', 'ipv4_slaves_standby', 'ipv4_slaves_speak', 'ipv4_slaves_listen', 'ipv4_slaves_learn', 'ipv4_slaves_init', 'ipv4_virtual_ip_addresses_active_up', 'ipv4_virtual_ip_addresses_active_down', 'ipv4_virtual_ip_addresses_standby_up', 'ipv4_virtual_ip_addresses_standby_down', 'ipv4_virtual_ip_addresses_speak_up', 'ipv4_virtual_ip_addresses_speak_down', 'ipv4_virtual_ip_addresses_listen_up', 'ipv4_virtual_ip_addresses_listen_down', 'ipv4_virtual_ip_addresses_learn_up', 'ipv4_virtual_ip_addresses_learn_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv6_sessions_active', 'ipv6_sessions_standby', 'ipv6_sessions_speak', 'ipv6_sessions_listen', 'ipv6_sessions_learn', 'ipv6_sessions_init', 'ipv6_slaves_active', 'ipv6_slaves_standby', 'ipv6_slaves_speak', 'ipv6_slaves_listen', 'ipv6_slaves_learn', 'ipv6_slaves_init', 'ipv6_virtual_ip_addresses_active_up', 'ipv6_virtual_ip_addresses_active_down', 'ipv6_virtual_ip_addresses_standby_up', 'ipv6_virtual_ip_addresses_standby_down', 'ipv6_virtual_ip_addresses_speak_up', 'ipv6_virtual_ip_addresses_speak_down', 'ipv6_virtual_ip_addresses_listen_up', 'ipv6_virtual_ip_addresses_listen_down', 'ipv6_virtual_ip_addresses_learn_up', 'ipv6_virtual_ip_addresses_learn_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_init_down', 'interfaces_ipv4_state_up', 'interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv4_state_down', 'tracked_objects_up', 'tracked_objects_down', 'interfaces_ipv6_state_up', 'interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_interfaces_ipv6_state_down', 'bfd_sessions_up', 'bfd_sessions_down', 'bfd_session_inactive'], name, value)
+            self._perform_setattr(Hsrp.Summary, [u'ipv4_sessions_active', u'ipv4_sessions_standby', u'ipv4_sessions_speak', u'ipv4_sessions_listen', u'ipv4_sessions_learn', u'ipv4_sessions_init', u'ipv4_slaves_active', u'ipv4_slaves_standby', u'ipv4_slaves_speak', u'ipv4_slaves_listen', u'ipv4_slaves_learn', u'ipv4_slaves_init', u'ipv4_virtual_ip_addresses_active_up', u'ipv4_virtual_ip_addresses_active_down', u'ipv4_virtual_ip_addresses_standby_up', u'ipv4_virtual_ip_addresses_standby_down', u'ipv4_virtual_ip_addresses_speak_up', u'ipv4_virtual_ip_addresses_speak_down', u'ipv4_virtual_ip_addresses_listen_up', u'ipv4_virtual_ip_addresses_listen_down', u'ipv4_virtual_ip_addresses_learn_up', u'ipv4_virtual_ip_addresses_learn_down', u'ipv4_virtual_ip_addresses_init_up', u'ipv4_virtual_ip_addresses_init_down', u'ipv6_sessions_active', u'ipv6_sessions_standby', u'ipv6_sessions_speak', u'ipv6_sessions_listen', u'ipv6_sessions_learn', u'ipv6_sessions_init', u'ipv6_slaves_active', u'ipv6_slaves_standby', u'ipv6_slaves_speak', u'ipv6_slaves_listen', u'ipv6_slaves_learn', u'ipv6_slaves_init', u'ipv6_virtual_ip_addresses_active_up', u'ipv6_virtual_ip_addresses_active_down', u'ipv6_virtual_ip_addresses_standby_up', u'ipv6_virtual_ip_addresses_standby_down', u'ipv6_virtual_ip_addresses_speak_up', u'ipv6_virtual_ip_addresses_speak_down', u'ipv6_virtual_ip_addresses_listen_up', u'ipv6_virtual_ip_addresses_listen_down', u'ipv6_virtual_ip_addresses_learn_up', u'ipv6_virtual_ip_addresses_learn_down', u'ipv6_virtual_ip_addresses_init_up', u'ipv6_virtual_ip_addresses_init_down', u'interfaces_ipv4_state_up', u'interfaces_ipv4_state_down', u'tracked_interfaces_ipv4_state_up', u'tracked_interfaces_ipv4_state_down', u'tracked_objects_up', u'tracked_objects_down', u'interfaces_ipv6_state_up', u'interfaces_ipv6_state_down', u'tracked_interfaces_ipv6_state_up', u'tracked_interfaces_ipv6_state_down', u'bfd_sessions_up', u'bfd_sessions_down', u'bfd_session_inactive'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Hsrp()

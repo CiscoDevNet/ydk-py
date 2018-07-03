@@ -32,7 +32,7 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.7.1'
+VERSION = '0.7.2'
 INSTALL_REQUIREMENTS = ['pybind11>=2.1.1']
 
 

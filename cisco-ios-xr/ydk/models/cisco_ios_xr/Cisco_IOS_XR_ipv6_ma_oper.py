@@ -150,15 +150,16 @@ class Ipv6Network(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ipv6Network.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ipv6Network.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Ipv6Network.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ipv6Network, [], name, value)
 
 
     class Nodes(Entity):
@@ -185,8 +186,7 @@ class Ipv6Network(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Ipv6Network.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Ipv6Network.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -229,8 +229,7 @@ class Ipv6Network(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("interface-data", ("interface_data", Ipv6Network.Nodes.Node.InterfaceData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interface-data", ("interface_data", Ipv6Network.Nodes.Node.InterfaceData))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -239,7 +238,6 @@ class Ipv6Network(Entity):
                 self.interface_data = Ipv6Network.Nodes.Node.InterfaceData()
                 self.interface_data.parent = self
                 self._children_name_map["interface_data"] = "interface-data"
-                self._children_yang_names.add("interface-data")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/%s" % self._segment_path()
 
@@ -276,20 +274,20 @@ class Ipv6Network(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs)), ("summary", ("summary", Ipv6Network.Nodes.Node.InterfaceData.Summary))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs)), ("summary", ("summary", Ipv6Network.Nodes.Node.InterfaceData.Summary))])
                     self._leafs = OrderedDict()
 
                     self.vrfs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs()
                     self.vrfs.parent = self
                     self._children_name_map["vrfs"] = "vrfs"
-                    self._children_yang_names.add("vrfs")
 
                     self.summary = Ipv6Network.Nodes.Node.InterfaceData.Summary()
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
                     self._segment_path = lambda: "interface-data"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData, [], name, value)
 
 
                 class Vrfs(Entity):
@@ -317,8 +315,7 @@ class Ipv6Network(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf))])
+                        self._child_classes = OrderedDict([("vrf", ("vrf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf))])
                         self._leafs = OrderedDict()
 
                         self.vrf = YList(self)
@@ -374,8 +371,7 @@ class Ipv6Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['vrf_name']
-                            self._child_container_classes = OrderedDict([("briefs", ("briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs)), ("global-details", ("global_details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails)), ("global-briefs", ("global_briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs)), ("details", ("details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("briefs", ("briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs)), ("global-details", ("global_details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails)), ("global-briefs", ("global_briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs)), ("details", ("details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details))])
                             self._leafs = OrderedDict([
                                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ])
@@ -384,22 +380,18 @@ class Ipv6Network(Entity):
                             self.briefs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs()
                             self.briefs.parent = self
                             self._children_name_map["briefs"] = "briefs"
-                            self._children_yang_names.add("briefs")
 
                             self.global_details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails()
                             self.global_details.parent = self
                             self._children_name_map["global_details"] = "global-details"
-                            self._children_yang_names.add("global-details")
 
                             self.global_briefs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs()
                             self.global_briefs.parent = self
                             self._children_name_map["global_briefs"] = "global-briefs"
-                            self._children_yang_names.add("global-briefs")
 
                             self.details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details()
                             self.details.parent = self
                             self._children_name_map["details"] = "details"
-                            self._children_yang_names.add("details")
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -431,8 +423,7 @@ class Ipv6Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("brief", ("brief", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief))])
+                                self._child_classes = OrderedDict([("brief", ("brief", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief))])
                                 self._leafs = OrderedDict()
 
                                 self.brief = YList(self)
@@ -491,8 +482,7 @@ class Ipv6Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress))])
-                                    self._child_list_classes = OrderedDict([("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address))])
+                                    self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('line_state', YLeaf(YType.enumeration, 'line-state')),
@@ -505,7 +495,6 @@ class Ipv6Network(Entity):
                                     self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress()
                                     self.link_local_address.parent = self
                                     self._children_name_map["link_local_address"] = "link-local-address"
-                                    self._children_yang_names.add("link-local-address")
 
                                     self.address = YList(self)
                                     self._segment_path = lambda: "brief" + "[interface-name='" + str(self.interface_name) + "']"
@@ -564,8 +553,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -634,8 +622,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -679,8 +666,7 @@ class Ipv6Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("global-detail", ("global_detail", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail))])
+                                self._child_classes = OrderedDict([("global-detail", ("global_detail", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail))])
                                 self._leafs = OrderedDict()
 
                                 self.global_detail = YList(self)
@@ -831,8 +817,7 @@ class Ipv6Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa)), ("utime", ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime)), ("idb-utime", ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime))])
-                                    self._child_list_classes = OrderedDict([("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup))])
+                                    self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa)), ("utime", ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime)), ("idb-utime", ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('line_state', YLeaf(YType.enumeration, 'line-state')),
@@ -859,52 +844,42 @@ class Ipv6Network(Entity):
                                     self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress()
                                     self.link_local_address.parent = self
                                     self._children_name_map["link_local_address"] = "link-local-address"
-                                    self._children_yang_names.add("link-local-address")
 
                                     self.access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList()
                                     self.access_control_list.parent = self
                                     self._children_name_map["access_control_list"] = "access-control-list"
-                                    self._children_yang_names.add("access-control-list")
 
                                     self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList()
                                     self.multi_access_control_list.parent = self
                                     self._children_name_map["multi_access_control_list"] = "multi-access-control-list"
-                                    self._children_yang_names.add("multi-access-control-list")
 
                                     self.rpf = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf()
                                     self.rpf.parent = self
                                     self._children_name_map["rpf"] = "rpf"
-                                    self._children_yang_names.add("rpf")
 
                                     self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa()
                                     self.bgp_pa.parent = self
                                     self._children_name_map["bgp_pa"] = "bgp-pa"
-                                    self._children_yang_names.add("bgp-pa")
 
                                     self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime()
                                     self.utime.parent = self
                                     self._children_name_map["utime"] = "utime"
-                                    self._children_yang_names.add("utime")
 
                                     self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime()
                                     self.idb_utime.parent = self
                                     self._children_name_map["idb_utime"] = "idb-utime"
-                                    self._children_yang_names.add("idb-utime")
 
                                     self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime()
                                     self.caps_utime.parent = self
                                     self._children_name_map["caps_utime"] = "caps-utime"
-                                    self._children_yang_names.add("caps-utime")
 
                                     self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime()
                                     self.fwd_en_utime.parent = self
                                     self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-                                    self._children_yang_names.add("fwd-en-utime")
 
                                     self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime()
                                     self.fwd_dis_utime.parent = self
                                     self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-                                    self._children_yang_names.add("fwd-dis-utime")
 
                                     self.multicast_group = YList(self)
                                     self.address = YList(self)
@@ -965,8 +940,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -1024,8 +998,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('in_bound', YLeaf(YType.str, 'in-bound')),
                                             ('out_bound', YLeaf(YType.str, 'out-bound')),
@@ -1076,8 +1049,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("inbound", ("inbound", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound)), ("outbound", ("outbound", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound)), ("common", ("common", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common))])
+                                        self._child_classes = OrderedDict([("inbound", ("inbound", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound)), ("outbound", ("outbound", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound)), ("common", ("common", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common))])
                                         self._leafs = OrderedDict()
 
                                         self.inbound = YList(self)
@@ -1113,8 +1085,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -1149,8 +1120,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -1185,8 +1155,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -1238,8 +1207,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.boolean, 'enable')),
                                             ('allow_default_route', YLeaf(YType.boolean, 'allow-default-route')),
@@ -1285,20 +1253,20 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("input", ("input", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input)), ("output", ("output", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("input", ("input", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input)), ("output", ("output", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output))])
                                         self._leafs = OrderedDict()
 
                                         self.input = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input()
                                         self.input.parent = self
                                         self._children_name_map["input"] = "input"
-                                        self._children_yang_names.add("input")
 
                                         self.output = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output()
                                         self.output.parent = self
                                         self._children_name_map["output"] = "output"
-                                        self._children_yang_names.add("output")
                                         self._segment_path = lambda: "bgp-pa"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa, [], name, value)
 
 
                                     class Input(Entity):
@@ -1337,8 +1305,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.uint32, 'enable')),
                                                 ('source', YLeaf(YType.boolean, 'source')),
@@ -1389,8 +1356,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.uint32, 'enable')),
                                                 ('source', YLeaf(YType.boolean, 'source')),
@@ -1424,8 +1390,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "utime"
 
@@ -1449,8 +1414,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "idb-utime"
 
@@ -1474,8 +1438,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "caps-utime"
 
@@ -1499,8 +1462,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-en-utime"
 
@@ -1524,8 +1486,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-dis-utime"
 
@@ -1556,8 +1517,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                         ])
@@ -1618,8 +1578,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -1664,8 +1623,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                         ])
@@ -1701,8 +1659,7 @@ class Ipv6Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("global-brief", ("global_brief", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief))])
+                                self._child_classes = OrderedDict([("global-brief", ("global_brief", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief))])
                                 self._leafs = OrderedDict()
 
                                 self.global_brief = YList(self)
@@ -1761,8 +1718,7 @@ class Ipv6Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress))])
-                                    self._child_list_classes = OrderedDict([("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address))])
+                                    self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('line_state', YLeaf(YType.enumeration, 'line-state')),
@@ -1775,7 +1731,6 @@ class Ipv6Network(Entity):
                                     self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress()
                                     self.link_local_address.parent = self
                                     self._children_name_map["link_local_address"] = "link-local-address"
-                                    self._children_yang_names.add("link-local-address")
 
                                     self.address = YList(self)
                                     self._segment_path = lambda: "global-brief" + "[interface-name='" + str(self.interface_name) + "']"
@@ -1834,8 +1789,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -1904,8 +1858,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -1949,8 +1902,7 @@ class Ipv6Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("detail", ("detail", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail))])
+                                self._child_classes = OrderedDict([("detail", ("detail", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail))])
                                 self._leafs = OrderedDict()
 
                                 self.detail = YList(self)
@@ -2101,8 +2053,7 @@ class Ipv6Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("utime", ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime)), ("idb-utime", ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime))])
-                                    self._child_list_classes = OrderedDict([("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup))])
+                                    self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("utime", ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime)), ("idb-utime", ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('line_state', YLeaf(YType.enumeration, 'line-state')),
@@ -2129,52 +2080,42 @@ class Ipv6Network(Entity):
                                     self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress()
                                     self.link_local_address.parent = self
                                     self._children_name_map["link_local_address"] = "link-local-address"
-                                    self._children_yang_names.add("link-local-address")
 
                                     self.access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList()
                                     self.access_control_list.parent = self
                                     self._children_name_map["access_control_list"] = "access-control-list"
-                                    self._children_yang_names.add("access-control-list")
 
                                     self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList()
                                     self.multi_access_control_list.parent = self
                                     self._children_name_map["multi_access_control_list"] = "multi-access-control-list"
-                                    self._children_yang_names.add("multi-access-control-list")
 
                                     self.rpf = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf()
                                     self.rpf.parent = self
                                     self._children_name_map["rpf"] = "rpf"
-                                    self._children_yang_names.add("rpf")
 
                                     self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa()
                                     self.bgp_pa.parent = self
                                     self._children_name_map["bgp_pa"] = "bgp-pa"
-                                    self._children_yang_names.add("bgp-pa")
 
                                     self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime()
                                     self.utime.parent = self
                                     self._children_name_map["utime"] = "utime"
-                                    self._children_yang_names.add("utime")
 
                                     self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
                                     self.idb_utime.parent = self
                                     self._children_name_map["idb_utime"] = "idb-utime"
-                                    self._children_yang_names.add("idb-utime")
 
                                     self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
                                     self.caps_utime.parent = self
                                     self._children_name_map["caps_utime"] = "caps-utime"
-                                    self._children_yang_names.add("caps-utime")
 
                                     self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
                                     self.fwd_en_utime.parent = self
                                     self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-                                    self._children_yang_names.add("fwd-en-utime")
 
                                     self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
                                     self.fwd_dis_utime.parent = self
                                     self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-                                    self._children_yang_names.add("fwd-dis-utime")
 
                                     self.multicast_group = YList(self)
                                     self.address = YList(self)
@@ -2235,8 +2176,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -2294,8 +2234,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('in_bound', YLeaf(YType.str, 'in-bound')),
                                             ('out_bound', YLeaf(YType.str, 'out-bound')),
@@ -2346,8 +2285,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("inbound", ("inbound", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound)), ("outbound", ("outbound", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound)), ("common", ("common", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common))])
+                                        self._child_classes = OrderedDict([("inbound", ("inbound", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound)), ("outbound", ("outbound", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound)), ("common", ("common", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common))])
                                         self._leafs = OrderedDict()
 
                                         self.inbound = YList(self)
@@ -2383,8 +2321,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -2419,8 +2356,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -2455,8 +2391,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -2508,8 +2443,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.boolean, 'enable')),
                                             ('allow_default_route', YLeaf(YType.boolean, 'allow-default-route')),
@@ -2555,20 +2489,20 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("input", ("input", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input)), ("output", ("output", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("input", ("input", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input)), ("output", ("output", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output))])
                                         self._leafs = OrderedDict()
 
                                         self.input = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input()
                                         self.input.parent = self
                                         self._children_name_map["input"] = "input"
-                                        self._children_yang_names.add("input")
 
                                         self.output = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output()
                                         self.output.parent = self
                                         self._children_name_map["output"] = "output"
-                                        self._children_yang_names.add("output")
                                         self._segment_path = lambda: "bgp-pa"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, [], name, value)
 
 
                                     class Input(Entity):
@@ -2607,8 +2541,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.uint32, 'enable')),
                                                 ('source', YLeaf(YType.boolean, 'source')),
@@ -2659,8 +2592,7 @@ class Ipv6Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.uint32, 'enable')),
                                                 ('source', YLeaf(YType.boolean, 'source')),
@@ -2694,8 +2626,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "utime"
 
@@ -2719,8 +2650,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "idb-utime"
 
@@ -2744,8 +2674,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "caps-utime"
 
@@ -2769,8 +2698,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-en-utime"
 
@@ -2794,8 +2722,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-dis-utime"
 
@@ -2826,8 +2753,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                         ])
@@ -2888,8 +2814,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -2934,8 +2859,7 @@ class Ipv6Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                         ])
@@ -2993,8 +2917,7 @@ class Ipv6Network(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("if-up-up", ("if_up_up", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp)), ("if-up-down", ("if_up_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown)), ("if-down-down", ("if_down_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown)), ("if-shutdown-down", ("if_shutdown_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("if-up-up", ("if_up_up", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp)), ("if-up-down", ("if_up_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown)), ("if-down-down", ("if_down_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown)), ("if-shutdown-down", ("if_shutdown_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown))])
                         self._leafs = OrderedDict([
                             ('if_up_down_basecaps_up', YLeaf(YType.uint32, 'if-up-down-basecaps-up')),
                         ])
@@ -3003,22 +2926,18 @@ class Ipv6Network(Entity):
                         self.if_up_up = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp()
                         self.if_up_up.parent = self
                         self._children_name_map["if_up_up"] = "if-up-up"
-                        self._children_yang_names.add("if-up-up")
 
                         self.if_up_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown()
                         self.if_up_down.parent = self
                         self._children_name_map["if_up_down"] = "if-up-down"
-                        self._children_yang_names.add("if-up-down")
 
                         self.if_down_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown()
                         self.if_down_down.parent = self
                         self._children_name_map["if_down_down"] = "if-down-down"
-                        self._children_yang_names.add("if-down-down")
 
                         self.if_shutdown_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown()
                         self.if_shutdown_down.parent = self
                         self._children_name_map["if_shutdown_down"] = "if-shutdown-down"
-                        self._children_yang_names.add("if-shutdown-down")
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
@@ -3065,8 +2984,7 @@ class Ipv6Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
                                 ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
@@ -3121,8 +3039,7 @@ class Ipv6Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
                                 ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
@@ -3177,8 +3094,7 @@ class Ipv6Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
                                 ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
@@ -3233,8 +3149,7 @@ class Ipv6Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
                                 ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),

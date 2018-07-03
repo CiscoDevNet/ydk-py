@@ -645,12 +645,12 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
     .. attribute:: cvcommondccallactivetable
     
     	This table is a common extension to the call active table of IETF Dial Control MIB. It contains common call  leg information about a network call leg
-    	**type**\:  :py:class:`Cvcommondccallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable>`
+    	**type**\:  :py:class:`CvCommonDcCallActiveTable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable>`
     
     .. attribute:: cvcommondccallhistorytable
     
     	This table is the Common extension to the call history table of IETF Dial Control MIB. It contains Common call  leg information about a network call leg
-    	**type**\:  :py:class:`Cvcommondccallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable>`
+    	**type**\:  :py:class:`CvCommonDcCallHistoryTable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable>`
     
     
 
@@ -668,23 +668,23 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cvCommonDcCallActiveTable", ("cvcommondccallactivetable", CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable)), ("cvCommonDcCallHistoryTable", ("cvcommondccallhistorytable", CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cvCommonDcCallActiveTable", ("cvcommondccallactivetable", CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable)), ("cvCommonDcCallHistoryTable", ("cvcommondccallhistorytable", CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable))])
         self._leafs = OrderedDict()
 
-        self.cvcommondccallactivetable = CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable()
+        self.cvcommondccallactivetable = CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable()
         self.cvcommondccallactivetable.parent = self
         self._children_name_map["cvcommondccallactivetable"] = "cvCommonDcCallActiveTable"
-        self._children_yang_names.add("cvCommonDcCallActiveTable")
 
-        self.cvcommondccallhistorytable = CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable()
+        self.cvcommondccallhistorytable = CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable()
         self.cvcommondccallhistorytable.parent = self
         self._children_name_map["cvcommondccallhistorytable"] = "cvCommonDcCallHistoryTable"
-        self._children_yang_names.add("cvCommonDcCallHistoryTable")
         self._segment_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB, [], name, value)
 
-    class Cvcommondccallactivetable(Entity):
+
+    class CvCommonDcCallActiveTable(Entity):
         """
         This table is a common extension to the call active
         table of IETF Dial Control MIB. It contains common call 
@@ -693,7 +693,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         .. attribute:: cvcommondccallactiveentry
         
         	The common information regarding a single network call leg. The call leg entry is identified by using the same  index objects that are used by Call Active table of IETF  Dial Control MIB to identify the call. An entry of this table is created when its associated  call active entry in the IETF Dial Control MIB is created and the call active entry contains information for the  call establishment to a network dialpeer.              The entry is deleted when its associated call active entry  in the IETF Dial Control MIB is deleted
-        	**type**\: list of  		 :py:class:`Cvcommondccallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry>`
+        	**type**\: list of  		 :py:class:`CvCommonDcCallActiveEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry>`
         
         
 
@@ -703,15 +703,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         _revision = '2010-06-30'
 
         def __init__(self):
-            super(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable, self).__init__()
+            super(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable, self).__init__()
 
             self.yang_name = "cvCommonDcCallActiveTable"
             self.yang_parent_name = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCommonDcCallActiveEntry", ("cvcommondccallactiveentry", CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry))])
+            self._child_classes = OrderedDict([("cvCommonDcCallActiveEntry", ("cvcommondccallactiveentry", CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry))])
             self._leafs = OrderedDict()
 
             self.cvcommondccallactiveentry = YList(self)
@@ -719,10 +718,10 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable, [], name, value)
+            self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable, [], name, value)
 
 
-        class Cvcommondccallactiveentry(Entity):
+        class CvCommonDcCallActiveEntry(Entity):
             """
             The common information regarding a single network call
             leg. The call leg entry is identified by using the same 
@@ -742,7 +741,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
             .. attribute:: callactiveindex  (key)
             
@@ -751,7 +750,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
             .. attribute:: cvcommondccallactiveconnectionid
             
@@ -802,15 +801,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             _revision = '2010-06-30'
 
             def __init__(self):
-                super(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry, self).__init__()
+                super(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry, self).__init__()
 
                 self.yang_name = "cvCommonDcCallActiveEntry"
                 self.yang_parent_name = "cvCommonDcCallActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['callactivesetuptime','callactiveindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('callactivesetuptime', YLeaf(YType.str, 'callActiveSetupTime')),
                     ('callactiveindex', YLeaf(YType.str, 'callActiveIndex')),
@@ -835,10 +833,10 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry, ['callactivesetuptime', 'callactiveindex', 'cvcommondccallactiveconnectionid', 'cvcommondccallactivevadenable', 'cvcommondccallactivecodertyperate', 'cvcommondccallactivecodecbytes', 'cvcommondccallactiveinbandsignaling', 'cvcommondccallactivecallingname', 'cvcommondccallactivecalleridblock'], name, value)
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry, [u'callactivesetuptime', u'callactiveindex', u'cvcommondccallactiveconnectionid', u'cvcommondccallactivevadenable', u'cvcommondccallactivecodertyperate', u'cvcommondccallactivecodecbytes', u'cvcommondccallactiveinbandsignaling', u'cvcommondccallactivecallingname', u'cvcommondccallactivecalleridblock'], name, value)
 
 
-    class Cvcommondccallhistorytable(Entity):
+    class CvCommonDcCallHistoryTable(Entity):
         """
         This table is the Common extension to the call history
         table of IETF Dial Control MIB. It contains Common call 
@@ -847,7 +845,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         .. attribute:: cvcommondccallhistoryentry
         
         	The common information regarding a single network call leg. The call leg entry is identified by using the same  index objects that are used by Call Active table of IETF  Dial Control MIB to identify the call. An entry of this table is created when its associated  call history entry in the IETF Dial Control MIB is  created and the call history entry contains information  for the call establishment to a network dialpeer. The entry is deleted when its associated call history  entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of  		 :py:class:`Cvcommondccallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry>`
+        	**type**\: list of  		 :py:class:`CvCommonDcCallHistoryEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry>`
         
         
 
@@ -857,15 +855,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         _revision = '2010-06-30'
 
         def __init__(self):
-            super(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable, self).__init__()
+            super(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable, self).__init__()
 
             self.yang_name = "cvCommonDcCallHistoryTable"
             self.yang_parent_name = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCommonDcCallHistoryEntry", ("cvcommondccallhistoryentry", CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry))])
+            self._child_classes = OrderedDict([("cvCommonDcCallHistoryEntry", ("cvcommondccallhistoryentry", CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.cvcommondccallhistoryentry = YList(self)
@@ -873,10 +870,10 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable, [], name, value)
+            self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable, [], name, value)
 
 
-        class Cvcommondccallhistoryentry(Entity):
+        class CvCommonDcCallHistoryEntry(Entity):
             """
             The common information regarding a single network call
             leg. The call leg entry is identified by using the same 
@@ -896,7 +893,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
+            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry>`
             
             .. attribute:: cvcommondccallhistoryconnectionid
             
@@ -947,15 +944,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             _revision = '2010-06-30'
 
             def __init__(self):
-                super(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, self).__init__()
+                super(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry, self).__init__()
 
                 self.yang_name = "cvCommonDcCallHistoryEntry"
                 self.yang_parent_name = "cvCommonDcCallHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ccallhistoryindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccallhistoryindex', YLeaf(YType.str, 'cCallHistoryIndex')),
                     ('cvcommondccallhistoryconnectionid', YLeaf(YType.str, 'cvCommonDcCallHistoryConnectionId')),
@@ -978,7 +974,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, ['ccallhistoryindex', 'cvcommondccallhistoryconnectionid', 'cvcommondccallhistoryvadenable', 'cvcommondccallhistorycodertyperate', 'cvcommondccallhistorycodecbytes', 'cvcommondccallhistoryinbandsignaling', 'cvcommondccallhistorycallingname', 'cvcommondccallhistorycalleridblock'], name, value)
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry, [u'ccallhistoryindex', u'cvcommondccallhistoryconnectionid', u'cvcommondccallhistoryvadenable', u'cvcommondccallhistorycodertyperate', u'cvcommondccallhistorycodecbytes', u'cvcommondccallhistoryinbandsignaling', u'cvcommondccallhistorycallingname', u'cvcommondccallhistorycalleridblock'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOVOICECOMMONDIALCONTROLMIB()

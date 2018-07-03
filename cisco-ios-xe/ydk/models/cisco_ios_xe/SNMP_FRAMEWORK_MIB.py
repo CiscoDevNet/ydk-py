@@ -59,7 +59,23 @@ class SnmpSecurityLevel(Enum):
 
 
 
-class Snmpauthprotocols(Identity):
+class SnmpPrivProtocols(Identity):
+    """
+    Registration point for standards\-track privacy
+    protocols used in SNMP Management Frameworks.
+    
+    
+
+    """
+
+    _prefix = 'SNMP-FRAMEWORK-MIB'
+    _revision = '2002-10-14'
+
+    def __init__(self):
+        super(SnmpPrivProtocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpPrivProtocols")
+
+
+class SnmpAuthProtocols(Identity):
     """
     Registration point for standards\-track
     authentication protocols used in SNMP Management
@@ -73,23 +89,7 @@ class Snmpauthprotocols(Identity):
     _revision = '2002-10-14'
 
     def __init__(self):
-        super(Snmpauthprotocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpAuthProtocols")
-
-
-class Snmpprivprotocols(Identity):
-    """
-    Registration point for standards\-track privacy
-    protocols used in SNMP Management Frameworks.
-    
-    
-
-    """
-
-    _prefix = 'SNMP-FRAMEWORK-MIB'
-    _revision = '2002-10-14'
-
-    def __init__(self):
-        super(Snmpprivprotocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpPrivProtocols")
+        super(SnmpAuthProtocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpAuthProtocols")
 
 
 class SNMPFRAMEWORKMIB(Entity):
@@ -99,7 +99,7 @@ class SNMPFRAMEWORKMIB(Entity):
     .. attribute:: snmpengine
     
     	
-    	**type**\:  :py:class:`Snmpengine <ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB.SNMPFRAMEWORKMIB.Snmpengine>`
+    	**type**\:  :py:class:`SnmpEngine <ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB.SNMPFRAMEWORKMIB.SnmpEngine>`
     
     
 
@@ -117,18 +117,19 @@ class SNMPFRAMEWORKMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("snmpEngine", ("snmpengine", SNMPFRAMEWORKMIB.Snmpengine))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("snmpEngine", ("snmpengine", SNMPFRAMEWORKMIB.SnmpEngine))])
         self._leafs = OrderedDict()
 
-        self.snmpengine = SNMPFRAMEWORKMIB.Snmpengine()
+        self.snmpengine = SNMPFRAMEWORKMIB.SnmpEngine()
         self.snmpengine.parent = self
         self._children_name_map["snmpengine"] = "snmpEngine"
-        self._children_yang_names.add("snmpEngine")
         self._segment_path = lambda: "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(SNMPFRAMEWORKMIB, [], name, value)
 
-    class Snmpengine(Entity):
+
+    class SnmpEngine(Entity):
         """
         
         
@@ -170,15 +171,14 @@ class SNMPFRAMEWORKMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPFRAMEWORKMIB.Snmpengine, self).__init__()
+            super(SNMPFRAMEWORKMIB.SnmpEngine, self).__init__()
 
             self.yang_name = "snmpEngine"
             self.yang_parent_name = "SNMP-FRAMEWORK-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('snmpengineid', YLeaf(YType.str, 'snmpEngineID')),
                 ('snmpengineboots', YLeaf(YType.int32, 'snmpEngineBoots')),
@@ -193,7 +193,7 @@ class SNMPFRAMEWORKMIB(Entity):
             self._absolute_path = lambda: "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPFRAMEWORKMIB.Snmpengine, ['snmpengineid', 'snmpengineboots', 'snmpenginetime', 'snmpenginemaxmessagesize'], name, value)
+            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, [u'snmpengineid', u'snmpengineboots', u'snmpenginetime', u'snmpenginemaxmessagesize'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SNMPFRAMEWORKMIB()

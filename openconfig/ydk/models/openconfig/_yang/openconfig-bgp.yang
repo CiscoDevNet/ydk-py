@@ -6,9 +6,6 @@ module openconfig-bgp {
   import openconfig-extensions {
     prefix oc-ext;
   }
-  import openconfig-routing-policy {
-    prefix oc-rpol;
-  }
   include openconfig-bgp-common;
   include openconfig-bgp-common-multiprotocol;
   include openconfig-bgp-common-structure;
@@ -30,8 +27,10 @@ module openconfig-bgp {
      submodules to handle other aspects of BGP configuration,
      including policy, VRFs, VPNs, and additional address families
      are also expected.
+     
      This model supports the following BGP configuration level
      hierarchy:
+     
       BGP
         |
         +-> [ global BGP configuration ]
@@ -44,6 +43,16 @@ module openconfig-bgp {
           +-> [ optional pointer to peer-group ]
           +-> AFI / SAFI [ per-AFI overrides ]";
 
+  revision 2017-02-02 {
+    description
+      "Bugfix to remove remaining global-level policy data";
+    reference "3.0.1";
+  }
+  revision 2017-01-26 {
+    description
+      "Add dynamic neighbor support, migrate to OpenConfig types";
+    reference "3.0.0";
+  }
   revision 2016-06-21 {
     description
       "OpenConfig BGP refactor";
@@ -70,7 +79,6 @@ module openconfig-bgp {
         description
           "Global configuration for the BGP router";
         uses bgp-global-base;
-        uses oc-rpol:apply-policy-group;
       }
       container neighbors {
         description
@@ -84,7 +92,7 @@ module openconfig-bgp {
       }
     }
   }
-  oc-ext:openconfig-version "2.1.1";
+  oc-ext:openconfig-version "3.0.1";
 
   uses bgp-top;
 }

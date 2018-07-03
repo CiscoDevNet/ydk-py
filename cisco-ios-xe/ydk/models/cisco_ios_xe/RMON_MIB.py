@@ -168,7 +168,7 @@ class EntryStatus(Enum):
 
 
 
-class Rmoneventsv2(Identity):
+class RmonEventsV2(Identity):
     """
     Definition point for RMON notifications.
     
@@ -180,7 +180,7 @@ class Rmoneventsv2(Identity):
     _revision = '2000-05-11'
 
     def __init__(self):
-        super(Rmoneventsv2, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:RMON-MIB", "RMON-MIB", "RMON-MIB:rmonEventsV2")
+        super(RmonEventsV2, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:RMON-MIB", "RMON-MIB", "RMON-MIB:rmonEventsV2")
 
 
 class RMONMIB(Entity):
@@ -190,92 +190,92 @@ class RMONMIB(Entity):
     .. attribute:: etherstatstable
     
     	A list of Ethernet statistics entries
-    	**type**\:  :py:class:`Etherstatstable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Etherstatstable>`
+    	**type**\:  :py:class:`EtherStatsTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EtherStatsTable>`
     
     .. attribute:: historycontroltable
     
     	A list of history control entries
-    	**type**\:  :py:class:`Historycontroltable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Historycontroltable>`
+    	**type**\:  :py:class:`HistoryControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HistoryControlTable>`
     
     .. attribute:: etherhistorytable
     
     	A list of Ethernet history entries
-    	**type**\:  :py:class:`Etherhistorytable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Etherhistorytable>`
+    	**type**\:  :py:class:`EtherHistoryTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EtherHistoryTable>`
     
     .. attribute:: alarmtable
     
     	A list of alarm entries
-    	**type**\:  :py:class:`Alarmtable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Alarmtable>`
+    	**type**\:  :py:class:`AlarmTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.AlarmTable>`
     
     .. attribute:: hostcontroltable
     
     	A list of host table control entries
-    	**type**\:  :py:class:`Hostcontroltable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hostcontroltable>`
+    	**type**\:  :py:class:`HostControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostControlTable>`
     
     .. attribute:: hosttable
     
     	A list of host entries
-    	**type**\:  :py:class:`Hosttable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttable>`
+    	**type**\:  :py:class:`HostTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTable>`
     
     .. attribute:: hosttimetable
     
     	A list of time\-ordered host table entries
-    	**type**\:  :py:class:`Hosttimetable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttimetable>`
+    	**type**\:  :py:class:`HostTimeTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTimeTable>`
     
     .. attribute:: hosttopncontroltable
     
     	A list of top N host control entries
-    	**type**\:  :py:class:`Hosttopncontroltable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttopncontroltable>`
+    	**type**\:  :py:class:`HostTopNControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNControlTable>`
     
     .. attribute:: hosttopntable
     
     	A list of top N host entries
-    	**type**\:  :py:class:`Hosttopntable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttopntable>`
+    	**type**\:  :py:class:`HostTopNTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNTable>`
     
     .. attribute:: matrixcontroltable
     
     	A list of information entries for the traffic matrix on each interface
-    	**type**\:  :py:class:`Matrixcontroltable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Matrixcontroltable>`
+    	**type**\:  :py:class:`MatrixControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixControlTable>`
     
     .. attribute:: matrixsdtable
     
     	A list of traffic matrix entries indexed by source and destination MAC address
-    	**type**\:  :py:class:`Matrixsdtable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Matrixsdtable>`
+    	**type**\:  :py:class:`MatrixSDTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixSDTable>`
     
     .. attribute:: matrixdstable
     
     	A list of traffic matrix entries indexed by destination and source MAC address
-    	**type**\:  :py:class:`Matrixdstable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Matrixdstable>`
+    	**type**\:  :py:class:`MatrixDSTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixDSTable>`
     
     .. attribute:: filtertable
     
     	A list of packet filter entries
-    	**type**\:  :py:class:`Filtertable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Filtertable>`
+    	**type**\:  :py:class:`FilterTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.FilterTable>`
     
     .. attribute:: channeltable
     
     	A list of packet channel entries
-    	**type**\:  :py:class:`Channeltable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Channeltable>`
+    	**type**\:  :py:class:`ChannelTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable>`
     
     .. attribute:: buffercontroltable
     
     	A list of buffers control entries
-    	**type**\:  :py:class:`Buffercontroltable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Buffercontroltable>`
+    	**type**\:  :py:class:`BufferControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.BufferControlTable>`
     
     .. attribute:: capturebuffertable
     
     	A list of packets captured off of a channel
-    	**type**\:  :py:class:`Capturebuffertable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Capturebuffertable>`
+    	**type**\:  :py:class:`CaptureBufferTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.CaptureBufferTable>`
     
     .. attribute:: eventtable
     
     	A list of events to be generated
-    	**type**\:  :py:class:`Eventtable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Eventtable>`
+    	**type**\:  :py:class:`EventTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EventTable>`
     
     .. attribute:: logtable
     
     	A list of events that have been logged
-    	**type**\:  :py:class:`Logtable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Logtable>`
+    	**type**\:  :py:class:`LogTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.LogTable>`
     
     
 
@@ -293,110 +293,94 @@ class RMONMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("etherStatsTable", ("etherstatstable", RMONMIB.Etherstatstable)), ("historyControlTable", ("historycontroltable", RMONMIB.Historycontroltable)), ("etherHistoryTable", ("etherhistorytable", RMONMIB.Etherhistorytable)), ("alarmTable", ("alarmtable", RMONMIB.Alarmtable)), ("hostControlTable", ("hostcontroltable", RMONMIB.Hostcontroltable)), ("hostTable", ("hosttable", RMONMIB.Hosttable)), ("hostTimeTable", ("hosttimetable", RMONMIB.Hosttimetable)), ("hostTopNControlTable", ("hosttopncontroltable", RMONMIB.Hosttopncontroltable)), ("hostTopNTable", ("hosttopntable", RMONMIB.Hosttopntable)), ("matrixControlTable", ("matrixcontroltable", RMONMIB.Matrixcontroltable)), ("matrixSDTable", ("matrixsdtable", RMONMIB.Matrixsdtable)), ("matrixDSTable", ("matrixdstable", RMONMIB.Matrixdstable)), ("filterTable", ("filtertable", RMONMIB.Filtertable)), ("channelTable", ("channeltable", RMONMIB.Channeltable)), ("bufferControlTable", ("buffercontroltable", RMONMIB.Buffercontroltable)), ("captureBufferTable", ("capturebuffertable", RMONMIB.Capturebuffertable)), ("eventTable", ("eventtable", RMONMIB.Eventtable)), ("logTable", ("logtable", RMONMIB.Logtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("etherStatsTable", ("etherstatstable", RMONMIB.EtherStatsTable)), ("historyControlTable", ("historycontroltable", RMONMIB.HistoryControlTable)), ("etherHistoryTable", ("etherhistorytable", RMONMIB.EtherHistoryTable)), ("alarmTable", ("alarmtable", RMONMIB.AlarmTable)), ("hostControlTable", ("hostcontroltable", RMONMIB.HostControlTable)), ("hostTable", ("hosttable", RMONMIB.HostTable)), ("hostTimeTable", ("hosttimetable", RMONMIB.HostTimeTable)), ("hostTopNControlTable", ("hosttopncontroltable", RMONMIB.HostTopNControlTable)), ("hostTopNTable", ("hosttopntable", RMONMIB.HostTopNTable)), ("matrixControlTable", ("matrixcontroltable", RMONMIB.MatrixControlTable)), ("matrixSDTable", ("matrixsdtable", RMONMIB.MatrixSDTable)), ("matrixDSTable", ("matrixdstable", RMONMIB.MatrixDSTable)), ("filterTable", ("filtertable", RMONMIB.FilterTable)), ("channelTable", ("channeltable", RMONMIB.ChannelTable)), ("bufferControlTable", ("buffercontroltable", RMONMIB.BufferControlTable)), ("captureBufferTable", ("capturebuffertable", RMONMIB.CaptureBufferTable)), ("eventTable", ("eventtable", RMONMIB.EventTable)), ("logTable", ("logtable", RMONMIB.LogTable))])
         self._leafs = OrderedDict()
 
-        self.etherstatstable = RMONMIB.Etherstatstable()
+        self.etherstatstable = RMONMIB.EtherStatsTable()
         self.etherstatstable.parent = self
         self._children_name_map["etherstatstable"] = "etherStatsTable"
-        self._children_yang_names.add("etherStatsTable")
 
-        self.historycontroltable = RMONMIB.Historycontroltable()
+        self.historycontroltable = RMONMIB.HistoryControlTable()
         self.historycontroltable.parent = self
         self._children_name_map["historycontroltable"] = "historyControlTable"
-        self._children_yang_names.add("historyControlTable")
 
-        self.etherhistorytable = RMONMIB.Etherhistorytable()
+        self.etherhistorytable = RMONMIB.EtherHistoryTable()
         self.etherhistorytable.parent = self
         self._children_name_map["etherhistorytable"] = "etherHistoryTable"
-        self._children_yang_names.add("etherHistoryTable")
 
-        self.alarmtable = RMONMIB.Alarmtable()
+        self.alarmtable = RMONMIB.AlarmTable()
         self.alarmtable.parent = self
         self._children_name_map["alarmtable"] = "alarmTable"
-        self._children_yang_names.add("alarmTable")
 
-        self.hostcontroltable = RMONMIB.Hostcontroltable()
+        self.hostcontroltable = RMONMIB.HostControlTable()
         self.hostcontroltable.parent = self
         self._children_name_map["hostcontroltable"] = "hostControlTable"
-        self._children_yang_names.add("hostControlTable")
 
-        self.hosttable = RMONMIB.Hosttable()
+        self.hosttable = RMONMIB.HostTable()
         self.hosttable.parent = self
         self._children_name_map["hosttable"] = "hostTable"
-        self._children_yang_names.add("hostTable")
 
-        self.hosttimetable = RMONMIB.Hosttimetable()
+        self.hosttimetable = RMONMIB.HostTimeTable()
         self.hosttimetable.parent = self
         self._children_name_map["hosttimetable"] = "hostTimeTable"
-        self._children_yang_names.add("hostTimeTable")
 
-        self.hosttopncontroltable = RMONMIB.Hosttopncontroltable()
+        self.hosttopncontroltable = RMONMIB.HostTopNControlTable()
         self.hosttopncontroltable.parent = self
         self._children_name_map["hosttopncontroltable"] = "hostTopNControlTable"
-        self._children_yang_names.add("hostTopNControlTable")
 
-        self.hosttopntable = RMONMIB.Hosttopntable()
+        self.hosttopntable = RMONMIB.HostTopNTable()
         self.hosttopntable.parent = self
         self._children_name_map["hosttopntable"] = "hostTopNTable"
-        self._children_yang_names.add("hostTopNTable")
 
-        self.matrixcontroltable = RMONMIB.Matrixcontroltable()
+        self.matrixcontroltable = RMONMIB.MatrixControlTable()
         self.matrixcontroltable.parent = self
         self._children_name_map["matrixcontroltable"] = "matrixControlTable"
-        self._children_yang_names.add("matrixControlTable")
 
-        self.matrixsdtable = RMONMIB.Matrixsdtable()
+        self.matrixsdtable = RMONMIB.MatrixSDTable()
         self.matrixsdtable.parent = self
         self._children_name_map["matrixsdtable"] = "matrixSDTable"
-        self._children_yang_names.add("matrixSDTable")
 
-        self.matrixdstable = RMONMIB.Matrixdstable()
+        self.matrixdstable = RMONMIB.MatrixDSTable()
         self.matrixdstable.parent = self
         self._children_name_map["matrixdstable"] = "matrixDSTable"
-        self._children_yang_names.add("matrixDSTable")
 
-        self.filtertable = RMONMIB.Filtertable()
+        self.filtertable = RMONMIB.FilterTable()
         self.filtertable.parent = self
         self._children_name_map["filtertable"] = "filterTable"
-        self._children_yang_names.add("filterTable")
 
-        self.channeltable = RMONMIB.Channeltable()
+        self.channeltable = RMONMIB.ChannelTable()
         self.channeltable.parent = self
         self._children_name_map["channeltable"] = "channelTable"
-        self._children_yang_names.add("channelTable")
 
-        self.buffercontroltable = RMONMIB.Buffercontroltable()
+        self.buffercontroltable = RMONMIB.BufferControlTable()
         self.buffercontroltable.parent = self
         self._children_name_map["buffercontroltable"] = "bufferControlTable"
-        self._children_yang_names.add("bufferControlTable")
 
-        self.capturebuffertable = RMONMIB.Capturebuffertable()
+        self.capturebuffertable = RMONMIB.CaptureBufferTable()
         self.capturebuffertable.parent = self
         self._children_name_map["capturebuffertable"] = "captureBufferTable"
-        self._children_yang_names.add("captureBufferTable")
 
-        self.eventtable = RMONMIB.Eventtable()
+        self.eventtable = RMONMIB.EventTable()
         self.eventtable.parent = self
         self._children_name_map["eventtable"] = "eventTable"
-        self._children_yang_names.add("eventTable")
 
-        self.logtable = RMONMIB.Logtable()
+        self.logtable = RMONMIB.LogTable()
         self.logtable.parent = self
         self._children_name_map["logtable"] = "logTable"
-        self._children_yang_names.add("logTable")
         self._segment_path = lambda: "RMON-MIB:RMON-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(RMONMIB, [], name, value)
 
-    class Etherstatstable(Entity):
+
+    class EtherStatsTable(Entity):
         """
         A list of Ethernet statistics entries.
         
         .. attribute:: etherstatsentry
         
         	A collection of statistics kept for a particular Ethernet interface.  As an example, an instance of the etherStatsPkts object might be named etherStatsPkts.1
-        	**type**\: list of  		 :py:class:`Etherstatsentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Etherstatstable.Etherstatsentry>`
+        	**type**\: list of  		 :py:class:`EtherStatsEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EtherStatsTable.EtherStatsEntry>`
         
         
 
@@ -406,15 +390,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Etherstatstable, self).__init__()
+            super(RMONMIB.EtherStatsTable, self).__init__()
 
             self.yang_name = "etherStatsTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("etherStatsEntry", ("etherstatsentry", RMONMIB.Etherstatstable.Etherstatsentry))])
+            self._child_classes = OrderedDict([("etherStatsEntry", ("etherstatsentry", RMONMIB.EtherStatsTable.EtherStatsEntry))])
             self._leafs = OrderedDict()
 
             self.etherstatsentry = YList(self)
@@ -422,10 +405,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Etherstatstable, [], name, value)
+            self._perform_setattr(RMONMIB.EtherStatsTable, [], name, value)
 
 
-        class Etherstatsentry(Entity):
+        class EtherStatsEntry(Entity):
             """
             A collection of statistics kept for a particular
             Ethernet interface.  As an example, an instance of the
@@ -630,15 +613,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Etherstatstable.Etherstatsentry, self).__init__()
+                super(RMONMIB.EtherStatsTable.EtherStatsEntry, self).__init__()
 
                 self.yang_name = "etherStatsEntry"
                 self.yang_parent_name = "etherStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['etherstatsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('etherstatsindex', YLeaf(YType.int32, 'etherStatsIndex')),
                     ('etherstatsdatasource', YLeaf(YType.str, 'etherStatsDataSource')),
@@ -691,17 +673,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/etherStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Etherstatstable.Etherstatsentry, ['etherstatsindex', 'etherstatsdatasource', 'etherstatsdropevents', 'etherstatsoctets', 'etherstatspkts', 'etherstatsbroadcastpkts', 'etherstatsmulticastpkts', 'etherstatscrcalignerrors', 'etherstatsundersizepkts', 'etherstatsoversizepkts', 'etherstatsfragments', 'etherstatsjabbers', 'etherstatscollisions', 'etherstatspkts64octets', 'etherstatspkts65to127octets', 'etherstatspkts128to255octets', 'etherstatspkts256to511octets', 'etherstatspkts512to1023octets', 'etherstatspkts1024to1518octets', 'etherstatsowner', 'etherstatsstatus', 'etherstatsdroppedframes', 'etherstatscreatetime'], name, value)
+                self._perform_setattr(RMONMIB.EtherStatsTable.EtherStatsEntry, [u'etherstatsindex', u'etherstatsdatasource', u'etherstatsdropevents', u'etherstatsoctets', u'etherstatspkts', u'etherstatsbroadcastpkts', u'etherstatsmulticastpkts', u'etherstatscrcalignerrors', u'etherstatsundersizepkts', u'etherstatsoversizepkts', u'etherstatsfragments', u'etherstatsjabbers', u'etherstatscollisions', u'etherstatspkts64octets', u'etherstatspkts65to127octets', u'etherstatspkts128to255octets', u'etherstatspkts256to511octets', u'etherstatspkts512to1023octets', u'etherstatspkts1024to1518octets', u'etherstatsowner', u'etherstatsstatus', u'etherstatsdroppedframes', u'etherstatscreatetime'], name, value)
 
 
-    class Historycontroltable(Entity):
+    class HistoryControlTable(Entity):
         """
         A list of history control entries.
         
         .. attribute:: historycontrolentry
         
         	A list of parameters that set up a periodic sampling of statistics.  As an example, an instance of the historyControlInterval object might be named historyControlInterval.2
-        	**type**\: list of  		 :py:class:`Historycontrolentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Historycontroltable.Historycontrolentry>`
+        	**type**\: list of  		 :py:class:`HistoryControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HistoryControlTable.HistoryControlEntry>`
         
         
 
@@ -711,15 +693,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Historycontroltable, self).__init__()
+            super(RMONMIB.HistoryControlTable, self).__init__()
 
             self.yang_name = "historyControlTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("historyControlEntry", ("historycontrolentry", RMONMIB.Historycontroltable.Historycontrolentry))])
+            self._child_classes = OrderedDict([("historyControlEntry", ("historycontrolentry", RMONMIB.HistoryControlTable.HistoryControlEntry))])
             self._leafs = OrderedDict()
 
             self.historycontrolentry = YList(self)
@@ -727,10 +708,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Historycontroltable, [], name, value)
+            self._perform_setattr(RMONMIB.HistoryControlTable, [], name, value)
 
 
-        class Historycontrolentry(Entity):
+        class HistoryControlEntry(Entity):
             """
             A list of parameters that set up a periodic sampling of
             statistics.  As an example, an instance of the
@@ -801,15 +782,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Historycontroltable.Historycontrolentry, self).__init__()
+                super(RMONMIB.HistoryControlTable.HistoryControlEntry, self).__init__()
 
                 self.yang_name = "historyControlEntry"
                 self.yang_parent_name = "historyControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['historycontrolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('historycontrolindex', YLeaf(YType.int32, 'historyControlIndex')),
                     ('historycontroldatasource', YLeaf(YType.str, 'historyControlDataSource')),
@@ -832,17 +812,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/historyControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Historycontroltable.Historycontrolentry, ['historycontrolindex', 'historycontroldatasource', 'historycontrolbucketsrequested', 'historycontrolbucketsgranted', 'historycontrolinterval', 'historycontrolowner', 'historycontrolstatus', 'historycontroldroppedframes'], name, value)
+                self._perform_setattr(RMONMIB.HistoryControlTable.HistoryControlEntry, [u'historycontrolindex', u'historycontroldatasource', u'historycontrolbucketsrequested', u'historycontrolbucketsgranted', u'historycontrolinterval', u'historycontrolowner', u'historycontrolstatus', u'historycontroldroppedframes'], name, value)
 
 
-    class Etherhistorytable(Entity):
+    class EtherHistoryTable(Entity):
         """
         A list of Ethernet history entries.
         
         .. attribute:: etherhistoryentry
         
         	An historical sample of Ethernet statistics on a particular Ethernet interface.  This sample is associated with the historyControlEntry which set up the parameters for a regular collection of these samples.  As an example, an instance of the etherHistoryPkts object might be named etherHistoryPkts.2.89
-        	**type**\: list of  		 :py:class:`Etherhistoryentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Etherhistorytable.Etherhistoryentry>`
+        	**type**\: list of  		 :py:class:`EtherHistoryEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EtherHistoryTable.EtherHistoryEntry>`
         
         
 
@@ -852,15 +832,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Etherhistorytable, self).__init__()
+            super(RMONMIB.EtherHistoryTable, self).__init__()
 
             self.yang_name = "etherHistoryTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("etherHistoryEntry", ("etherhistoryentry", RMONMIB.Etherhistorytable.Etherhistoryentry))])
+            self._child_classes = OrderedDict([("etherHistoryEntry", ("etherhistoryentry", RMONMIB.EtherHistoryTable.EtherHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.etherhistoryentry = YList(self)
@@ -868,10 +847,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Etherhistorytable, [], name, value)
+            self._perform_setattr(RMONMIB.EtherHistoryTable, [], name, value)
 
 
-        class Etherhistoryentry(Entity):
+        class EtherHistoryEntry(Entity):
             """
             An historical sample of Ethernet statistics on a particular
             Ethernet interface.  This sample is associated with the
@@ -1013,15 +992,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Etherhistorytable.Etherhistoryentry, self).__init__()
+                super(RMONMIB.EtherHistoryTable.EtherHistoryEntry, self).__init__()
 
                 self.yang_name = "etherHistoryEntry"
                 self.yang_parent_name = "etherHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['etherhistoryindex','etherhistorysampleindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('etherhistoryindex', YLeaf(YType.int32, 'etherHistoryIndex')),
                     ('etherhistorysampleindex', YLeaf(YType.int32, 'etherHistorySampleIndex')),
@@ -1058,17 +1036,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/etherHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Etherhistorytable.Etherhistoryentry, ['etherhistoryindex', 'etherhistorysampleindex', 'etherhistoryintervalstart', 'etherhistorydropevents', 'etherhistoryoctets', 'etherhistorypkts', 'etherhistorybroadcastpkts', 'etherhistorymulticastpkts', 'etherhistorycrcalignerrors', 'etherhistoryundersizepkts', 'etherhistoryoversizepkts', 'etherhistoryfragments', 'etherhistoryjabbers', 'etherhistorycollisions', 'etherhistoryutilization'], name, value)
+                self._perform_setattr(RMONMIB.EtherHistoryTable.EtherHistoryEntry, [u'etherhistoryindex', u'etherhistorysampleindex', u'etherhistoryintervalstart', u'etherhistorydropevents', u'etherhistoryoctets', u'etherhistorypkts', u'etherhistorybroadcastpkts', u'etherhistorymulticastpkts', u'etherhistorycrcalignerrors', u'etherhistoryundersizepkts', u'etherhistoryoversizepkts', u'etherhistoryfragments', u'etherhistoryjabbers', u'etherhistorycollisions', u'etherhistoryutilization'], name, value)
 
 
-    class Alarmtable(Entity):
+    class AlarmTable(Entity):
         """
         A list of alarm entries.
         
         .. attribute:: alarmentry
         
         	A list of parameters that set up a periodic checking for alarm conditions.  For example, an instance of the alarmValue object might be named alarmValue.8
-        	**type**\: list of  		 :py:class:`Alarmentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Alarmtable.Alarmentry>`
+        	**type**\: list of  		 :py:class:`AlarmEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.AlarmTable.AlarmEntry>`
         
         
 
@@ -1078,15 +1056,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Alarmtable, self).__init__()
+            super(RMONMIB.AlarmTable, self).__init__()
 
             self.yang_name = "alarmTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("alarmEntry", ("alarmentry", RMONMIB.Alarmtable.Alarmentry))])
+            self._child_classes = OrderedDict([("alarmEntry", ("alarmentry", RMONMIB.AlarmTable.AlarmEntry))])
             self._leafs = OrderedDict()
 
             self.alarmentry = YList(self)
@@ -1094,10 +1071,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Alarmtable, [], name, value)
+            self._perform_setattr(RMONMIB.AlarmTable, [], name, value)
 
 
-        class Alarmentry(Entity):
+        class AlarmEntry(Entity):
             """
             A list of parameters that set up a periodic checking
             for alarm conditions.  For example, an instance of the
@@ -1129,7 +1106,7 @@ class RMONMIB(Entity):
             .. attribute:: alarmsampletype
             
             	The method of sampling the selected variable and calculating the value to be compared against the thresholds.  If the value of this object is absoluteValue(1), the value of the selected variable will be compared directly with the thresholds at the end of the sampling interval.  If the value of this object is deltaValue(2), the value of the selected variable at the last sample will be subtracted from the current value, and the difference compared with the thresholds.  This object may not be modified if the associated alarmStatus object is equal to valid(1)
-            	**type**\:  :py:class:`Alarmsampletype <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Alarmtable.Alarmentry.Alarmsampletype>`
+            	**type**\:  :py:class:`AlarmSampleType <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.AlarmTable.AlarmEntry.AlarmSampleType>`
             
             .. attribute:: alarmvalue
             
@@ -1141,7 +1118,7 @@ class RMONMIB(Entity):
             .. attribute:: alarmstartupalarm
             
             	The alarm that may be sent when this entry is first set to valid.  If the first sample after this entry becomes valid is greater than or equal to the risingThreshold and alarmStartupAlarm is equal to risingAlarm(1) or risingOrFallingAlarm(3), then a single rising alarm will be generated.  If the first sample after this entry becomes valid is less than or equal to the fallingThreshold and alarmStartupAlarm is equal to fallingAlarm(2) or risingOrFallingAlarm(3), then a single falling alarm will be generated.  This object may not be modified if the associated alarmStatus object is equal to valid(1)
-            	**type**\:  :py:class:`Alarmstartupalarm <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Alarmtable.Alarmentry.Alarmstartupalarm>`
+            	**type**\:  :py:class:`AlarmStartupAlarm <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.AlarmTable.AlarmEntry.AlarmStartupAlarm>`
             
             .. attribute:: alarmrisingthreshold
             
@@ -1191,15 +1168,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Alarmtable.Alarmentry, self).__init__()
+                super(RMONMIB.AlarmTable.AlarmEntry, self).__init__()
 
                 self.yang_name = "alarmEntry"
                 self.yang_parent_name = "alarmTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['alarmindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('alarmindex', YLeaf(YType.int32, 'alarmIndex')),
                     ('alarminterval', YLeaf(YType.int32, 'alarmInterval')),
@@ -1230,11 +1206,11 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/alarmTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Alarmtable.Alarmentry, ['alarmindex', 'alarminterval', 'alarmvariable', 'alarmsampletype', 'alarmvalue', 'alarmstartupalarm', 'alarmrisingthreshold', 'alarmfallingthreshold', 'alarmrisingeventindex', 'alarmfallingeventindex', 'alarmowner', 'alarmstatus'], name, value)
+                self._perform_setattr(RMONMIB.AlarmTable.AlarmEntry, [u'alarmindex', u'alarminterval', u'alarmvariable', u'alarmsampletype', u'alarmvalue', u'alarmstartupalarm', u'alarmrisingthreshold', u'alarmfallingthreshold', u'alarmrisingeventindex', u'alarmfallingeventindex', u'alarmowner', u'alarmstatus'], name, value)
 
-            class Alarmsampletype(Enum):
+            class AlarmSampleType(Enum):
                 """
-                Alarmsampletype (Enum Class)
+                AlarmSampleType (Enum Class)
 
                 The method of sampling the selected variable and
 
@@ -1271,9 +1247,9 @@ class RMONMIB(Entity):
                 deltaValue = Enum.YLeaf(2, "deltaValue")
 
 
-            class Alarmstartupalarm(Enum):
+            class AlarmStartupAlarm(Enum):
                 """
-                Alarmstartupalarm (Enum Class)
+                AlarmStartupAlarm (Enum Class)
 
                 The alarm that may be sent when this entry is first
 
@@ -1315,14 +1291,14 @@ class RMONMIB(Entity):
 
 
 
-    class Hostcontroltable(Entity):
+    class HostControlTable(Entity):
         """
         A list of host table control entries.
         
         .. attribute:: hostcontrolentry
         
         	A list of parameters that set up the discovery of hosts on a particular interface and the collection of statistics about these hosts.  For example, an instance of the hostControlTableSize object might be named hostControlTableSize.1
-        	**type**\: list of  		 :py:class:`Hostcontrolentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hostcontroltable.Hostcontrolentry>`
+        	**type**\: list of  		 :py:class:`HostControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostControlTable.HostControlEntry>`
         
         
 
@@ -1332,15 +1308,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Hostcontroltable, self).__init__()
+            super(RMONMIB.HostControlTable, self).__init__()
 
             self.yang_name = "hostControlTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("hostControlEntry", ("hostcontrolentry", RMONMIB.Hostcontroltable.Hostcontrolentry))])
+            self._child_classes = OrderedDict([("hostControlEntry", ("hostcontrolentry", RMONMIB.HostControlTable.HostControlEntry))])
             self._leafs = OrderedDict()
 
             self.hostcontrolentry = YList(self)
@@ -1348,10 +1323,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Hostcontroltable, [], name, value)
+            self._perform_setattr(RMONMIB.HostControlTable, [], name, value)
 
 
-        class Hostcontrolentry(Entity):
+        class HostControlEntry(Entity):
             """
             A list of parameters that set up the discovery of hosts
             on a particular interface and the collection of statistics
@@ -1421,15 +1396,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Hostcontroltable.Hostcontrolentry, self).__init__()
+                super(RMONMIB.HostControlTable.HostControlEntry, self).__init__()
 
                 self.yang_name = "hostControlEntry"
                 self.yang_parent_name = "hostControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['hostcontrolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('hostcontrolindex', YLeaf(YType.int32, 'hostControlIndex')),
                     ('hostcontroldatasource', YLeaf(YType.str, 'hostControlDataSource')),
@@ -1452,17 +1426,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Hostcontroltable.Hostcontrolentry, ['hostcontrolindex', 'hostcontroldatasource', 'hostcontroltablesize', 'hostcontrollastdeletetime', 'hostcontrolowner', 'hostcontrolstatus', 'hostcontroldroppedframes', 'hostcontrolcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.HostControlTable.HostControlEntry, [u'hostcontrolindex', u'hostcontroldatasource', u'hostcontroltablesize', u'hostcontrollastdeletetime', u'hostcontrolowner', u'hostcontrolstatus', u'hostcontroldroppedframes', u'hostcontrolcreatetime'], name, value)
 
 
-    class Hosttable(Entity):
+    class HostTable(Entity):
         """
         A list of host entries.
         
         .. attribute:: hostentry
         
         	A collection of statistics for a particular host that has been discovered on an interface of this device.  For example, an instance of the hostOutBroadcastPkts object might be named hostOutBroadcastPkts.1.6.8.0.32.27.3.176
-        	**type**\: list of  		 :py:class:`Hostentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttable.Hostentry>`
+        	**type**\: list of  		 :py:class:`HostEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTable.HostEntry>`
         
         
 
@@ -1472,15 +1446,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Hosttable, self).__init__()
+            super(RMONMIB.HostTable, self).__init__()
 
             self.yang_name = "hostTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("hostEntry", ("hostentry", RMONMIB.Hosttable.Hostentry))])
+            self._child_classes = OrderedDict([("hostEntry", ("hostentry", RMONMIB.HostTable.HostEntry))])
             self._leafs = OrderedDict()
 
             self.hostentry = YList(self)
@@ -1488,10 +1461,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Hosttable, [], name, value)
+            self._perform_setattr(RMONMIB.HostTable, [], name, value)
 
 
-        class Hostentry(Entity):
+        class HostEntry(Entity):
             """
             A collection of statistics for a particular host that has
             been discovered on an interface of this device.  For example,
@@ -1588,15 +1561,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Hosttable.Hostentry, self).__init__()
+                super(RMONMIB.HostTable.HostEntry, self).__init__()
 
                 self.yang_name = "hostEntry"
                 self.yang_parent_name = "hostTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['hostindex','hostaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('hostindex', YLeaf(YType.int32, 'hostIndex')),
                     ('hostaddress', YLeaf(YType.str, 'hostAddress')),
@@ -1623,17 +1595,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Hosttable.Hostentry, ['hostindex', 'hostaddress', 'hostcreationorder', 'hostinpkts', 'hostoutpkts', 'hostinoctets', 'hostoutoctets', 'hostouterrors', 'hostoutbroadcastpkts', 'hostoutmulticastpkts'], name, value)
+                self._perform_setattr(RMONMIB.HostTable.HostEntry, [u'hostindex', u'hostaddress', u'hostcreationorder', u'hostinpkts', u'hostoutpkts', u'hostinoctets', u'hostoutoctets', u'hostouterrors', u'hostoutbroadcastpkts', u'hostoutmulticastpkts'], name, value)
 
 
-    class Hosttimetable(Entity):
+    class HostTimeTable(Entity):
         """
         A list of time\-ordered host table entries.
         
         .. attribute:: hosttimeentry
         
         	A collection of statistics for a particular host that has been discovered on an interface of this device.  This collection includes the relative ordering of the creation time of this object.  For example, an instance of the hostTimeOutBroadcastPkts object might be named hostTimeOutBroadcastPkts.1.687
-        	**type**\: list of  		 :py:class:`Hosttimeentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttimetable.Hosttimeentry>`
+        	**type**\: list of  		 :py:class:`HostTimeEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTimeTable.HostTimeEntry>`
         
         
 
@@ -1643,15 +1615,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Hosttimetable, self).__init__()
+            super(RMONMIB.HostTimeTable, self).__init__()
 
             self.yang_name = "hostTimeTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("hostTimeEntry", ("hosttimeentry", RMONMIB.Hosttimetable.Hosttimeentry))])
+            self._child_classes = OrderedDict([("hostTimeEntry", ("hosttimeentry", RMONMIB.HostTimeTable.HostTimeEntry))])
             self._leafs = OrderedDict()
 
             self.hosttimeentry = YList(self)
@@ -1659,10 +1630,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Hosttimetable, [], name, value)
+            self._perform_setattr(RMONMIB.HostTimeTable, [], name, value)
 
 
-        class Hosttimeentry(Entity):
+        class HostTimeEntry(Entity):
             """
             A collection of statistics for a particular host that has
             been discovered on an interface of this device.  This
@@ -1761,15 +1732,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Hosttimetable.Hosttimeentry, self).__init__()
+                super(RMONMIB.HostTimeTable.HostTimeEntry, self).__init__()
 
                 self.yang_name = "hostTimeEntry"
                 self.yang_parent_name = "hostTimeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['hosttimeindex','hosttimecreationorder']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('hosttimeindex', YLeaf(YType.int32, 'hostTimeIndex')),
                     ('hosttimecreationorder', YLeaf(YType.int32, 'hostTimeCreationOrder')),
@@ -1796,17 +1766,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostTimeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Hosttimetable.Hosttimeentry, ['hosttimeindex', 'hosttimecreationorder', 'hosttimeaddress', 'hosttimeinpkts', 'hosttimeoutpkts', 'hosttimeinoctets', 'hosttimeoutoctets', 'hosttimeouterrors', 'hosttimeoutbroadcastpkts', 'hosttimeoutmulticastpkts'], name, value)
+                self._perform_setattr(RMONMIB.HostTimeTable.HostTimeEntry, [u'hosttimeindex', u'hosttimecreationorder', u'hosttimeaddress', u'hosttimeinpkts', u'hosttimeoutpkts', u'hosttimeinoctets', u'hosttimeoutoctets', u'hosttimeouterrors', u'hosttimeoutbroadcastpkts', u'hosttimeoutmulticastpkts'], name, value)
 
 
-    class Hosttopncontroltable(Entity):
+    class HostTopNControlTable(Entity):
         """
         A list of top N host control entries.
         
         .. attribute:: hosttopncontrolentry
         
         	A set of parameters that control the creation of a report of the top N hosts according to several metrics.  For example, an instance of the hostTopNDuration object might be named hostTopNDuration.3
-        	**type**\: list of  		 :py:class:`Hosttopncontrolentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttopncontroltable.Hosttopncontrolentry>`
+        	**type**\: list of  		 :py:class:`HostTopNControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNControlTable.HostTopNControlEntry>`
         
         
 
@@ -1816,15 +1786,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Hosttopncontroltable, self).__init__()
+            super(RMONMIB.HostTopNControlTable, self).__init__()
 
             self.yang_name = "hostTopNControlTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("hostTopNControlEntry", ("hosttopncontrolentry", RMONMIB.Hosttopncontroltable.Hosttopncontrolentry))])
+            self._child_classes = OrderedDict([("hostTopNControlEntry", ("hosttopncontrolentry", RMONMIB.HostTopNControlTable.HostTopNControlEntry))])
             self._leafs = OrderedDict()
 
             self.hosttopncontrolentry = YList(self)
@@ -1832,10 +1801,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Hosttopncontroltable, [], name, value)
+            self._perform_setattr(RMONMIB.HostTopNControlTable, [], name, value)
 
 
-        class Hosttopncontrolentry(Entity):
+        class HostTopNControlEntry(Entity):
             """
             A set of parameters that control the creation of a report
             of the top N hosts according to several metrics.  For
@@ -1859,7 +1828,7 @@ class RMONMIB(Entity):
             .. attribute:: hosttopnratebase
             
             	The variable for each host that the hostTopNRate variable is based upon.  This object may not be modified if the associated hostTopNStatus object is equal to valid(1)
-            	**type**\:  :py:class:`Hosttopnratebase <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttopncontroltable.Hosttopncontrolentry.Hosttopnratebase>`
+            	**type**\:  :py:class:`HostTopNRateBase <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNControlTable.HostTopNControlEntry.HostTopNRateBase>`
             
             .. attribute:: hosttopntimeremaining
             
@@ -1920,15 +1889,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Hosttopncontroltable.Hosttopncontrolentry, self).__init__()
+                super(RMONMIB.HostTopNControlTable.HostTopNControlEntry, self).__init__()
 
                 self.yang_name = "hostTopNControlEntry"
                 self.yang_parent_name = "hostTopNControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['hosttopncontrolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('hosttopncontrolindex', YLeaf(YType.int32, 'hostTopNControlIndex')),
                     ('hosttopnhostindex', YLeaf(YType.int32, 'hostTopNHostIndex')),
@@ -1955,11 +1923,11 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostTopNControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Hosttopncontroltable.Hosttopncontrolentry, ['hosttopncontrolindex', 'hosttopnhostindex', 'hosttopnratebase', 'hosttopntimeremaining', 'hosttopnduration', 'hosttopnrequestedsize', 'hosttopngrantedsize', 'hosttopnstarttime', 'hosttopnowner', 'hosttopnstatus'], name, value)
+                self._perform_setattr(RMONMIB.HostTopNControlTable.HostTopNControlEntry, [u'hosttopncontrolindex', u'hosttopnhostindex', u'hosttopnratebase', u'hosttopntimeremaining', u'hosttopnduration', u'hosttopnrequestedsize', u'hosttopngrantedsize', u'hosttopnstarttime', u'hosttopnowner', u'hosttopnstatus'], name, value)
 
-            class Hosttopnratebase(Enum):
+            class HostTopNRateBase(Enum):
                 """
-                Hosttopnratebase (Enum Class)
+                HostTopNRateBase (Enum Class)
 
                 The variable for each host that the hostTopNRate
 
@@ -2001,14 +1969,14 @@ class RMONMIB(Entity):
 
 
 
-    class Hosttopntable(Entity):
+    class HostTopNTable(Entity):
         """
         A list of top N host entries.
         
         .. attribute:: hosttopnentry
         
         	A set of statistics for a host that is part of a top N report.  For example, an instance of the hostTopNRate object might be named hostTopNRate.3.10
-        	**type**\: list of  		 :py:class:`Hosttopnentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Hosttopntable.Hosttopnentry>`
+        	**type**\: list of  		 :py:class:`HostTopNEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNTable.HostTopNEntry>`
         
         
 
@@ -2018,15 +1986,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Hosttopntable, self).__init__()
+            super(RMONMIB.HostTopNTable, self).__init__()
 
             self.yang_name = "hostTopNTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("hostTopNEntry", ("hosttopnentry", RMONMIB.Hosttopntable.Hosttopnentry))])
+            self._child_classes = OrderedDict([("hostTopNEntry", ("hosttopnentry", RMONMIB.HostTopNTable.HostTopNEntry))])
             self._leafs = OrderedDict()
 
             self.hosttopnentry = YList(self)
@@ -2034,10 +2001,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Hosttopntable, [], name, value)
+            self._perform_setattr(RMONMIB.HostTopNTable, [], name, value)
 
 
-        class Hosttopnentry(Entity):
+        class HostTopNEntry(Entity):
             """
             A set of statistics for a host that is part of a top N
             report.  For example, an instance of the hostTopNRate
@@ -2077,15 +2044,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Hosttopntable.Hosttopnentry, self).__init__()
+                super(RMONMIB.HostTopNTable.HostTopNEntry, self).__init__()
 
                 self.yang_name = "hostTopNEntry"
                 self.yang_parent_name = "hostTopNTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['hosttopnreport','hosttopnindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('hosttopnreport', YLeaf(YType.int32, 'hostTopNReport')),
                     ('hosttopnindex', YLeaf(YType.int32, 'hostTopNIndex')),
@@ -2100,10 +2066,10 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostTopNTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Hosttopntable.Hosttopnentry, ['hosttopnreport', 'hosttopnindex', 'hosttopnaddress', 'hosttopnrate'], name, value)
+                self._perform_setattr(RMONMIB.HostTopNTable.HostTopNEntry, [u'hosttopnreport', u'hosttopnindex', u'hosttopnaddress', u'hosttopnrate'], name, value)
 
 
-    class Matrixcontroltable(Entity):
+    class MatrixControlTable(Entity):
         """
         A list of information entries for the
         traffic matrix on each interface.
@@ -2111,7 +2077,7 @@ class RMONMIB(Entity):
         .. attribute:: matrixcontrolentry
         
         	Information about a traffic matrix on a particular interface.  For example, an instance of the matrixControlLastDeleteTime object might be named matrixControlLastDeleteTime.1
-        	**type**\: list of  		 :py:class:`Matrixcontrolentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Matrixcontroltable.Matrixcontrolentry>`
+        	**type**\: list of  		 :py:class:`MatrixControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixControlTable.MatrixControlEntry>`
         
         
 
@@ -2121,15 +2087,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Matrixcontroltable, self).__init__()
+            super(RMONMIB.MatrixControlTable, self).__init__()
 
             self.yang_name = "matrixControlTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("matrixControlEntry", ("matrixcontrolentry", RMONMIB.Matrixcontroltable.Matrixcontrolentry))])
+            self._child_classes = OrderedDict([("matrixControlEntry", ("matrixcontrolentry", RMONMIB.MatrixControlTable.MatrixControlEntry))])
             self._leafs = OrderedDict()
 
             self.matrixcontrolentry = YList(self)
@@ -2137,10 +2102,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Matrixcontroltable, [], name, value)
+            self._perform_setattr(RMONMIB.MatrixControlTable, [], name, value)
 
 
-        class Matrixcontrolentry(Entity):
+        class MatrixControlEntry(Entity):
             """
             Information about a traffic matrix on a particular
             interface.  For example, an instance of the
@@ -2209,15 +2174,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Matrixcontroltable.Matrixcontrolentry, self).__init__()
+                super(RMONMIB.MatrixControlTable.MatrixControlEntry, self).__init__()
 
                 self.yang_name = "matrixControlEntry"
                 self.yang_parent_name = "matrixControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['matrixcontrolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('matrixcontrolindex', YLeaf(YType.int32, 'matrixControlIndex')),
                     ('matrixcontroldatasource', YLeaf(YType.str, 'matrixControlDataSource')),
@@ -2240,10 +2204,10 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/matrixControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Matrixcontroltable.Matrixcontrolentry, ['matrixcontrolindex', 'matrixcontroldatasource', 'matrixcontroltablesize', 'matrixcontrollastdeletetime', 'matrixcontrolowner', 'matrixcontrolstatus', 'matrixcontroldroppedframes', 'matrixcontrolcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.MatrixControlTable.MatrixControlEntry, [u'matrixcontrolindex', u'matrixcontroldatasource', u'matrixcontroltablesize', u'matrixcontrollastdeletetime', u'matrixcontrolowner', u'matrixcontrolstatus', u'matrixcontroldroppedframes', u'matrixcontrolcreatetime'], name, value)
 
 
-    class Matrixsdtable(Entity):
+    class MatrixSDTable(Entity):
         """
         A list of traffic matrix entries indexed by
         source and destination MAC address.
@@ -2251,7 +2215,7 @@ class RMONMIB(Entity):
         .. attribute:: matrixsdentry
         
         	A collection of statistics for communications between two addresses on a particular interface.  For example, an instance of the matrixSDPkts object might be named matrixSDPkts.1.6.8.0.32.27.3.176.6.8.0.32.10.8.113
-        	**type**\: list of  		 :py:class:`Matrixsdentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Matrixsdtable.Matrixsdentry>`
+        	**type**\: list of  		 :py:class:`MatrixSDEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixSDTable.MatrixSDEntry>`
         
         
 
@@ -2261,15 +2225,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Matrixsdtable, self).__init__()
+            super(RMONMIB.MatrixSDTable, self).__init__()
 
             self.yang_name = "matrixSDTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("matrixSDEntry", ("matrixsdentry", RMONMIB.Matrixsdtable.Matrixsdentry))])
+            self._child_classes = OrderedDict([("matrixSDEntry", ("matrixsdentry", RMONMIB.MatrixSDTable.MatrixSDEntry))])
             self._leafs = OrderedDict()
 
             self.matrixsdentry = YList(self)
@@ -2277,10 +2240,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Matrixsdtable, [], name, value)
+            self._perform_setattr(RMONMIB.MatrixSDTable, [], name, value)
 
 
-        class Matrixsdentry(Entity):
+        class MatrixSDEntry(Entity):
             """
             A collection of statistics for communications between
             two addresses on a particular interface.  For example,
@@ -2339,15 +2302,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Matrixsdtable.Matrixsdentry, self).__init__()
+                super(RMONMIB.MatrixSDTable.MatrixSDEntry, self).__init__()
 
                 self.yang_name = "matrixSDEntry"
                 self.yang_parent_name = "matrixSDTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['matrixsdindex','matrixsdsourceaddress','matrixsddestaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('matrixsdindex', YLeaf(YType.int32, 'matrixSDIndex')),
                     ('matrixsdsourceaddress', YLeaf(YType.str, 'matrixSDSourceAddress')),
@@ -2366,10 +2328,10 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/matrixSDTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Matrixsdtable.Matrixsdentry, ['matrixsdindex', 'matrixsdsourceaddress', 'matrixsddestaddress', 'matrixsdpkts', 'matrixsdoctets', 'matrixsderrors'], name, value)
+                self._perform_setattr(RMONMIB.MatrixSDTable.MatrixSDEntry, [u'matrixsdindex', u'matrixsdsourceaddress', u'matrixsddestaddress', u'matrixsdpkts', u'matrixsdoctets', u'matrixsderrors'], name, value)
 
 
-    class Matrixdstable(Entity):
+    class MatrixDSTable(Entity):
         """
         A list of traffic matrix entries indexed by
         destination and source MAC address.
@@ -2377,7 +2339,7 @@ class RMONMIB(Entity):
         .. attribute:: matrixdsentry
         
         	A collection of statistics for communications between two addresses on a particular interface.  For example, an instance of the matrixSDPkts object might be named matrixSDPkts.1.6.8.0.32.10.8.113.6.8.0.32.27.3.176
-        	**type**\: list of  		 :py:class:`Matrixdsentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Matrixdstable.Matrixdsentry>`
+        	**type**\: list of  		 :py:class:`MatrixDSEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixDSTable.MatrixDSEntry>`
         
         
 
@@ -2387,15 +2349,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Matrixdstable, self).__init__()
+            super(RMONMIB.MatrixDSTable, self).__init__()
 
             self.yang_name = "matrixDSTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("matrixDSEntry", ("matrixdsentry", RMONMIB.Matrixdstable.Matrixdsentry))])
+            self._child_classes = OrderedDict([("matrixDSEntry", ("matrixdsentry", RMONMIB.MatrixDSTable.MatrixDSEntry))])
             self._leafs = OrderedDict()
 
             self.matrixdsentry = YList(self)
@@ -2403,10 +2364,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Matrixdstable, [], name, value)
+            self._perform_setattr(RMONMIB.MatrixDSTable, [], name, value)
 
 
-        class Matrixdsentry(Entity):
+        class MatrixDSEntry(Entity):
             """
             A collection of statistics for communications between
             two addresses on a particular interface.  For example,
@@ -2465,15 +2426,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Matrixdstable.Matrixdsentry, self).__init__()
+                super(RMONMIB.MatrixDSTable.MatrixDSEntry, self).__init__()
 
                 self.yang_name = "matrixDSEntry"
                 self.yang_parent_name = "matrixDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['matrixdsindex','matrixdsdestaddress','matrixdssourceaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('matrixdsindex', YLeaf(YType.int32, 'matrixDSIndex')),
                     ('matrixdsdestaddress', YLeaf(YType.str, 'matrixDSDestAddress')),
@@ -2492,17 +2452,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/matrixDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Matrixdstable.Matrixdsentry, ['matrixdsindex', 'matrixdsdestaddress', 'matrixdssourceaddress', 'matrixdspkts', 'matrixdsoctets', 'matrixdserrors'], name, value)
+                self._perform_setattr(RMONMIB.MatrixDSTable.MatrixDSEntry, [u'matrixdsindex', u'matrixdsdestaddress', u'matrixdssourceaddress', u'matrixdspkts', u'matrixdsoctets', u'matrixdserrors'], name, value)
 
 
-    class Filtertable(Entity):
+    class FilterTable(Entity):
         """
         A list of packet filter entries.
         
         .. attribute:: filterentry
         
         	A set of parameters for a packet filter applied on a particular interface.  As an example, an instance of the filterPktData object might be named filterPktData.12
-        	**type**\: list of  		 :py:class:`Filterentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Filtertable.Filterentry>`
+        	**type**\: list of  		 :py:class:`FilterEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.FilterTable.FilterEntry>`
         
         
 
@@ -2512,15 +2472,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Filtertable, self).__init__()
+            super(RMONMIB.FilterTable, self).__init__()
 
             self.yang_name = "filterTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("filterEntry", ("filterentry", RMONMIB.Filtertable.Filterentry))])
+            self._child_classes = OrderedDict([("filterEntry", ("filterentry", RMONMIB.FilterTable.FilterEntry))])
             self._leafs = OrderedDict()
 
             self.filterentry = YList(self)
@@ -2528,10 +2487,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Filtertable, [], name, value)
+            self._perform_setattr(RMONMIB.FilterTable, [], name, value)
 
 
-        class Filterentry(Entity):
+        class FilterEntry(Entity):
             """
             A set of parameters for a packet filter applied on a
             particular interface.  As an example, an instance of the
@@ -2630,15 +2589,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Filtertable.Filterentry, self).__init__()
+                super(RMONMIB.FilterTable.FilterEntry, self).__init__()
 
                 self.yang_name = "filterEntry"
                 self.yang_parent_name = "filterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['filterindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('filterindex', YLeaf(YType.int32, 'filterIndex')),
                     ('filterchannelindex', YLeaf(YType.int32, 'filterChannelIndex')),
@@ -2671,17 +2629,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/filterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Filtertable.Filterentry, ['filterindex', 'filterchannelindex', 'filterpktdataoffset', 'filterpktdata', 'filterpktdatamask', 'filterpktdatanotmask', 'filterpktstatus', 'filterpktstatusmask', 'filterpktstatusnotmask', 'filterowner', 'filterstatus', 'filterprotocoldirdatalocalindex', 'filterprotocoldirlocalindex'], name, value)
+                self._perform_setattr(RMONMIB.FilterTable.FilterEntry, [u'filterindex', u'filterchannelindex', u'filterpktdataoffset', u'filterpktdata', u'filterpktdatamask', u'filterpktdatanotmask', u'filterpktstatus', u'filterpktstatusmask', u'filterpktstatusnotmask', u'filterowner', u'filterstatus', u'filterprotocoldirdatalocalindex', u'filterprotocoldirlocalindex'], name, value)
 
 
-    class Channeltable(Entity):
+    class ChannelTable(Entity):
         """
         A list of packet channel entries.
         
         .. attribute:: channelentry
         
         	A set of parameters for a packet channel applied on a particular interface.  As an example, an instance of the channelMatches object might be named channelMatches.3
-        	**type**\: list of  		 :py:class:`Channelentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Channeltable.Channelentry>`
+        	**type**\: list of  		 :py:class:`ChannelEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable.ChannelEntry>`
         
         
 
@@ -2691,15 +2649,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Channeltable, self).__init__()
+            super(RMONMIB.ChannelTable, self).__init__()
 
             self.yang_name = "channelTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("channelEntry", ("channelentry", RMONMIB.Channeltable.Channelentry))])
+            self._child_classes = OrderedDict([("channelEntry", ("channelentry", RMONMIB.ChannelTable.ChannelEntry))])
             self._leafs = OrderedDict()
 
             self.channelentry = YList(self)
@@ -2707,10 +2664,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Channeltable, [], name, value)
+            self._perform_setattr(RMONMIB.ChannelTable, [], name, value)
 
 
-        class Channelentry(Entity):
+        class ChannelEntry(Entity):
             """
             A set of parameters for a packet channel applied on a
             particular interface.  As an example, an instance of the
@@ -2733,12 +2690,12 @@ class RMONMIB(Entity):
             .. attribute:: channelaccepttype
             
             	This object controls the action of the filters associated with this channel.  If this object is equal to acceptMatched(1), packets will be accepted to this channel if they are accepted by both the packet data and packet status matches of an associated filter.  If this object is equal to acceptFailed(2), packets will be accepted to this channel only if they fail either the packet data match or the packet status match of each of the associated filters.  In particular, a channel with no associated filters will match no packets if set to acceptMatched(1) case and will match all packets in the acceptFailed(2) case.  This object may not be modified if the associated channelStatus object is equal to valid(1)
-            	**type**\:  :py:class:`Channelaccepttype <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Channeltable.Channelentry.Channelaccepttype>`
+            	**type**\:  :py:class:`ChannelAcceptType <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable.ChannelEntry.ChannelAcceptType>`
             
             .. attribute:: channeldatacontrol
             
             	This object controls the flow of data through this channel. If this object is on(1), data, status and events flow through this channel.  If this object is off(2), data, status and events will not flow through this channel
-            	**type**\:  :py:class:`Channeldatacontrol <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Channeltable.Channelentry.Channeldatacontrol>`
+            	**type**\:  :py:class:`ChannelDataControl <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable.ChannelEntry.ChannelDataControl>`
             
             .. attribute:: channelturnoneventindex
             
@@ -2764,7 +2721,7 @@ class RMONMIB(Entity):
             .. attribute:: channeleventstatus
             
             	The event status of this channel.  If this channel is configured to generate events when packets are matched, a means of controlling the flow of those events is often needed.  When this object is equal to eventReady(1), a single event may be generated, after which this object will be set by the probe to eventFired(2).  While in the eventFired(2) state, no events will be generated until the object is modified to eventReady(1) (or eventAlwaysReady(3)).  The management station can thus easily respond to a notification of an event by re\-enabling this object.  If the management station wishes to disable this flow control and allow events to be generated at will, this object may be set to eventAlwaysReady(3).  Disabling the flow control is discouraged as it can result in high network traffic or other performance problems
-            	**type**\:  :py:class:`Channeleventstatus <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Channeltable.Channelentry.Channeleventstatus>`
+            	**type**\:  :py:class:`ChannelEventStatus <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable.ChannelEntry.ChannelEventStatus>`
             
             .. attribute:: channelmatches
             
@@ -2816,15 +2773,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Channeltable.Channelentry, self).__init__()
+                super(RMONMIB.ChannelTable.ChannelEntry, self).__init__()
 
                 self.yang_name = "channelEntry"
                 self.yang_parent_name = "channelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['channelindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('channelindex', YLeaf(YType.int32, 'channelIndex')),
                     ('channelifindex', YLeaf(YType.int32, 'channelIfIndex')),
@@ -2859,11 +2815,11 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/channelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Channeltable.Channelentry, ['channelindex', 'channelifindex', 'channelaccepttype', 'channeldatacontrol', 'channelturnoneventindex', 'channelturnoffeventindex', 'channeleventindex', 'channeleventstatus', 'channelmatches', 'channeldescription', 'channelowner', 'channelstatus', 'channeldroppedframes', 'channelcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.ChannelTable.ChannelEntry, [u'channelindex', u'channelifindex', u'channelaccepttype', u'channeldatacontrol', u'channelturnoneventindex', u'channelturnoffeventindex', u'channeleventindex', u'channeleventstatus', u'channelmatches', u'channeldescription', u'channelowner', u'channelstatus', u'channeldroppedframes', u'channelcreatetime'], name, value)
 
-            class Channelaccepttype(Enum):
+            class ChannelAcceptType(Enum):
                 """
-                Channelaccepttype (Enum Class)
+                ChannelAcceptType (Enum Class)
 
                 This object controls the action of the filters
 
@@ -2904,9 +2860,9 @@ class RMONMIB(Entity):
                 acceptFailed = Enum.YLeaf(2, "acceptFailed")
 
 
-            class Channeldatacontrol(Enum):
+            class ChannelDataControl(Enum):
                 """
-                Channeldatacontrol (Enum Class)
+                ChannelDataControl (Enum Class)
 
                 This object controls the flow of data through this channel.
 
@@ -2927,9 +2883,9 @@ class RMONMIB(Entity):
                 off = Enum.YLeaf(2, "off")
 
 
-            class Channeleventstatus(Enum):
+            class ChannelEventStatus(Enum):
                 """
-                Channeleventstatus (Enum Class)
+                ChannelEventStatus (Enum Class)
 
                 The event status of this channel.
 
@@ -2983,14 +2939,14 @@ class RMONMIB(Entity):
 
 
 
-    class Buffercontroltable(Entity):
+    class BufferControlTable(Entity):
         """
         A list of buffers control entries.
         
         .. attribute:: buffercontrolentry
         
         	A set of parameters that control the collection of a stream of packets that have matched filters.  As an example, an instance of the bufferControlCaptureSliceSize object might be named bufferControlCaptureSliceSize.3
-        	**type**\: list of  		 :py:class:`Buffercontrolentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Buffercontroltable.Buffercontrolentry>`
+        	**type**\: list of  		 :py:class:`BufferControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.BufferControlTable.BufferControlEntry>`
         
         
 
@@ -3000,15 +2956,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Buffercontroltable, self).__init__()
+            super(RMONMIB.BufferControlTable, self).__init__()
 
             self.yang_name = "bufferControlTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("bufferControlEntry", ("buffercontrolentry", RMONMIB.Buffercontroltable.Buffercontrolentry))])
+            self._child_classes = OrderedDict([("bufferControlEntry", ("buffercontrolentry", RMONMIB.BufferControlTable.BufferControlEntry))])
             self._leafs = OrderedDict()
 
             self.buffercontrolentry = YList(self)
@@ -3016,10 +2971,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Buffercontroltable, [], name, value)
+            self._perform_setattr(RMONMIB.BufferControlTable, [], name, value)
 
 
-        class Buffercontrolentry(Entity):
+        class BufferControlEntry(Entity):
             """
             A set of parameters that control the collection of a stream
             of packets that have matched filters.  As an example, an
@@ -3043,12 +2998,12 @@ class RMONMIB(Entity):
             .. attribute:: buffercontrolfullstatus
             
             	This object shows whether the buffer has room to accept new packets or if it is full.  If the status is spaceAvailable(1), the buffer is accepting new packets normally.  If the status is full(2) and the associated bufferControlFullAction object is wrapWhenFull, the buffer is accepting new packets by deleting enough of the oldest packets to make room for new ones as they arrive.  Otherwise, if the status is full(2) and the bufferControlFullAction object is lockWhenFull, then the buffer has stopped collecting packets.  When this object is set to full(2) the probe must not later set it to spaceAvailable(1) except in the case of a significant gain in resources such as an increase of bufferControlOctetsGranted.  In particular, the wrap\-mode action of deleting old packets to make room for newly arrived packets must not affect the value of this object
-            	**type**\:  :py:class:`Buffercontrolfullstatus <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Buffercontroltable.Buffercontrolentry.Buffercontrolfullstatus>`
+            	**type**\:  :py:class:`BufferControlFullStatus <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.BufferControlTable.BufferControlEntry.BufferControlFullStatus>`
             
             .. attribute:: buffercontrolfullaction
             
             	Controls the action of the buffer when it reaches the full status.  When in the lockWhenFull(1) state and a packet is added to the buffer that fills the buffer, the bufferControlFullStatus will be set to full(2) and this buffer will stop capturing packets
-            	**type**\:  :py:class:`Buffercontrolfullaction <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Buffercontroltable.Buffercontrolentry.Buffercontrolfullaction>`
+            	**type**\:  :py:class:`BufferControlFullAction <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.BufferControlTable.BufferControlEntry.BufferControlFullAction>`
             
             .. attribute:: buffercontrolcaptureslicesize
             
@@ -3131,15 +3086,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Buffercontroltable.Buffercontrolentry, self).__init__()
+                super(RMONMIB.BufferControlTable.BufferControlEntry, self).__init__()
 
                 self.yang_name = "bufferControlEntry"
                 self.yang_parent_name = "bufferControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['buffercontrolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('buffercontrolindex', YLeaf(YType.int32, 'bufferControlIndex')),
                     ('buffercontrolchannelindex', YLeaf(YType.int32, 'bufferControlChannelIndex')),
@@ -3172,11 +3126,11 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/bufferControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Buffercontroltable.Buffercontrolentry, ['buffercontrolindex', 'buffercontrolchannelindex', 'buffercontrolfullstatus', 'buffercontrolfullaction', 'buffercontrolcaptureslicesize', 'buffercontroldownloadslicesize', 'buffercontroldownloadoffset', 'buffercontrolmaxoctetsrequested', 'buffercontrolmaxoctetsgranted', 'buffercontrolcapturedpackets', 'buffercontrolturnontime', 'buffercontrolowner', 'buffercontrolstatus'], name, value)
+                self._perform_setattr(RMONMIB.BufferControlTable.BufferControlEntry, [u'buffercontrolindex', u'buffercontrolchannelindex', u'buffercontrolfullstatus', u'buffercontrolfullaction', u'buffercontrolcaptureslicesize', u'buffercontroldownloadslicesize', u'buffercontroldownloadoffset', u'buffercontrolmaxoctetsrequested', u'buffercontrolmaxoctetsgranted', u'buffercontrolcapturedpackets', u'buffercontrolturnontime', u'buffercontrolowner', u'buffercontrolstatus'], name, value)
 
-            class Buffercontrolfullaction(Enum):
+            class BufferControlFullAction(Enum):
                 """
-                Buffercontrolfullaction (Enum Class)
+                BufferControlFullAction (Enum Class)
 
                 Controls the action of the buffer when it
 
@@ -3201,9 +3155,9 @@ class RMONMIB(Entity):
                 wrapWhenFull = Enum.YLeaf(2, "wrapWhenFull")
 
 
-            class Buffercontrolfullstatus(Enum):
+            class BufferControlFullStatus(Enum):
                 """
-                Buffercontrolfullstatus (Enum Class)
+                BufferControlFullStatus (Enum Class)
 
                 This object shows whether the buffer has room to
 
@@ -3253,14 +3207,14 @@ class RMONMIB(Entity):
 
 
 
-    class Capturebuffertable(Entity):
+    class CaptureBufferTable(Entity):
         """
         A list of packets captured off of a channel.
         
         .. attribute:: capturebufferentry
         
         	A packet captured off of an attached network.  As an example, an instance of the captureBufferPacketData object might be named captureBufferPacketData.3.1783
-        	**type**\: list of  		 :py:class:`Capturebufferentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Capturebuffertable.Capturebufferentry>`
+        	**type**\: list of  		 :py:class:`CaptureBufferEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.CaptureBufferTable.CaptureBufferEntry>`
         
         
 
@@ -3270,15 +3224,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Capturebuffertable, self).__init__()
+            super(RMONMIB.CaptureBufferTable, self).__init__()
 
             self.yang_name = "captureBufferTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("captureBufferEntry", ("capturebufferentry", RMONMIB.Capturebuffertable.Capturebufferentry))])
+            self._child_classes = OrderedDict([("captureBufferEntry", ("capturebufferentry", RMONMIB.CaptureBufferTable.CaptureBufferEntry))])
             self._leafs = OrderedDict()
 
             self.capturebufferentry = YList(self)
@@ -3286,10 +3239,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Capturebuffertable, [], name, value)
+            self._perform_setattr(RMONMIB.CaptureBufferTable, [], name, value)
 
 
-        class Capturebufferentry(Entity):
+        class CaptureBufferEntry(Entity):
             """
             A packet captured off of an attached network.  As an
             example, an instance of the captureBufferPacketData
@@ -3354,15 +3307,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Capturebuffertable.Capturebufferentry, self).__init__()
+                super(RMONMIB.CaptureBufferTable.CaptureBufferEntry, self).__init__()
 
                 self.yang_name = "captureBufferEntry"
                 self.yang_parent_name = "captureBufferTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['capturebuffercontrolindex','capturebufferindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('capturebuffercontrolindex', YLeaf(YType.int32, 'captureBufferControlIndex')),
                     ('capturebufferindex', YLeaf(YType.int32, 'captureBufferIndex')),
@@ -3383,17 +3335,17 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/captureBufferTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Capturebuffertable.Capturebufferentry, ['capturebuffercontrolindex', 'capturebufferindex', 'capturebufferpacketid', 'capturebufferpacketdata', 'capturebufferpacketlength', 'capturebufferpackettime', 'capturebufferpacketstatus'], name, value)
+                self._perform_setattr(RMONMIB.CaptureBufferTable.CaptureBufferEntry, [u'capturebuffercontrolindex', u'capturebufferindex', u'capturebufferpacketid', u'capturebufferpacketdata', u'capturebufferpacketlength', u'capturebufferpackettime', u'capturebufferpacketstatus'], name, value)
 
 
-    class Eventtable(Entity):
+    class EventTable(Entity):
         """
         A list of events to be generated.
         
         .. attribute:: evententry
         
         	A set of parameters that describe an event to be generated when certain conditions are met.  As an example, an instance of the eventLastTimeSent object might be named eventLastTimeSent.6
-        	**type**\: list of  		 :py:class:`Evententry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Eventtable.Evententry>`
+        	**type**\: list of  		 :py:class:`EventEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EventTable.EventEntry>`
         
         
 
@@ -3403,15 +3355,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Eventtable, self).__init__()
+            super(RMONMIB.EventTable, self).__init__()
 
             self.yang_name = "eventTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("eventEntry", ("evententry", RMONMIB.Eventtable.Evententry))])
+            self._child_classes = OrderedDict([("eventEntry", ("evententry", RMONMIB.EventTable.EventEntry))])
             self._leafs = OrderedDict()
 
             self.evententry = YList(self)
@@ -3419,10 +3370,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Eventtable, [], name, value)
+            self._perform_setattr(RMONMIB.EventTable, [], name, value)
 
 
-        class Evententry(Entity):
+        class EventEntry(Entity):
             """
             A set of parameters that describe an event to be generated
             when certain conditions are met.  As an example, an instance
@@ -3446,7 +3397,7 @@ class RMONMIB(Entity):
             .. attribute:: eventtype
             
             	The type of notification that the probe will make about this event.  In the case of log, an entry is made in the log table for each event.  In the case of snmp\-trap, an SNMP trap is sent to one or more management stations
-            	**type**\:  :py:class:`Eventtype <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Eventtable.Evententry.Eventtype>`
+            	**type**\:  :py:class:`EventType <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EventTable.EventEntry.EventType>`
             
             .. attribute:: eventcommunity
             
@@ -3482,15 +3433,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Eventtable.Evententry, self).__init__()
+                super(RMONMIB.EventTable.EventEntry, self).__init__()
 
                 self.yang_name = "eventEntry"
                 self.yang_parent_name = "eventTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['eventindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('eventindex', YLeaf(YType.int32, 'eventIndex')),
                     ('eventdescription', YLeaf(YType.str, 'eventDescription')),
@@ -3511,11 +3461,11 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/eventTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Eventtable.Evententry, ['eventindex', 'eventdescription', 'eventtype', 'eventcommunity', 'eventlasttimesent', 'eventowner', 'eventstatus'], name, value)
+                self._perform_setattr(RMONMIB.EventTable.EventEntry, [u'eventindex', u'eventdescription', u'eventtype', u'eventcommunity', u'eventlasttimesent', u'eventowner', u'eventstatus'], name, value)
 
-            class Eventtype(Enum):
+            class EventType(Enum):
                 """
-                Eventtype (Enum Class)
+                EventType (Enum Class)
 
                 The type of notification that the probe will make
 
@@ -3547,14 +3497,14 @@ class RMONMIB(Entity):
 
 
 
-    class Logtable(Entity):
+    class LogTable(Entity):
         """
         A list of events that have been logged.
         
         .. attribute:: logentry
         
         	A set of data describing an event that has been logged.  For example, an instance of the logDescription object might be named logDescription.6.47
-        	**type**\: list of  		 :py:class:`Logentry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.Logtable.Logentry>`
+        	**type**\: list of  		 :py:class:`LogEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.LogTable.LogEntry>`
         
         
 
@@ -3564,15 +3514,14 @@ class RMONMIB(Entity):
         _revision = '2000-05-11'
 
         def __init__(self):
-            super(RMONMIB.Logtable, self).__init__()
+            super(RMONMIB.LogTable, self).__init__()
 
             self.yang_name = "logTable"
             self.yang_parent_name = "RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("logEntry", ("logentry", RMONMIB.Logtable.Logentry))])
+            self._child_classes = OrderedDict([("logEntry", ("logentry", RMONMIB.LogTable.LogEntry))])
             self._leafs = OrderedDict()
 
             self.logentry = YList(self)
@@ -3580,10 +3529,10 @@ class RMONMIB(Entity):
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RMONMIB.Logtable, [], name, value)
+            self._perform_setattr(RMONMIB.LogTable, [], name, value)
 
 
-        class Logentry(Entity):
+        class LogEntry(Entity):
             """
             A set of data describing an event that has been
             logged.  For example, an instance of the logDescription
@@ -3625,15 +3574,14 @@ class RMONMIB(Entity):
             _revision = '2000-05-11'
 
             def __init__(self):
-                super(RMONMIB.Logtable.Logentry, self).__init__()
+                super(RMONMIB.LogTable.LogEntry, self).__init__()
 
                 self.yang_name = "logEntry"
                 self.yang_parent_name = "logTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['logeventindex','logindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('logeventindex', YLeaf(YType.int32, 'logEventIndex')),
                     ('logindex', YLeaf(YType.int32, 'logIndex')),
@@ -3648,7 +3596,7 @@ class RMONMIB(Entity):
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/logTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.Logtable.Logentry, ['logeventindex', 'logindex', 'logtime', 'logdescription'], name, value)
+                self._perform_setattr(RMONMIB.LogTable.LogEntry, [u'logeventindex', u'logindex', u'logtime', u'logdescription'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RMONMIB()

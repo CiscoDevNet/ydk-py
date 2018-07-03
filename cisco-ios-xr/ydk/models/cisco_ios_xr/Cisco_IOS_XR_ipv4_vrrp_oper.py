@@ -304,7 +304,7 @@ class Vrrp(Entity):
     """
 
     _prefix = 'ipv4-vrrp-oper'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Vrrp, self).__init__()
@@ -315,30 +315,28 @@ class Vrrp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("summary", ("summary", Vrrp.Summary)), ("ipv6", ("ipv6", Vrrp.Ipv6)), ("ipv4", ("ipv4", Vrrp.Ipv4)), ("mgo-sessions", ("mgo_sessions", Vrrp.MgoSessions))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("summary", ("summary", Vrrp.Summary)), ("ipv6", ("ipv6", Vrrp.Ipv6)), ("ipv4", ("ipv4", Vrrp.Ipv4)), ("mgo-sessions", ("mgo_sessions", Vrrp.MgoSessions))])
         self._leafs = OrderedDict()
 
         self.summary = Vrrp.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
 
         self.ipv6 = Vrrp.Ipv6()
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
-        self._children_yang_names.add("ipv6")
 
         self.ipv4 = Vrrp.Ipv4()
         self.ipv4.parent = self
         self._children_name_map["ipv4"] = "ipv4"
-        self._children_yang_names.add("ipv4")
 
         self.mgo_sessions = Vrrp.MgoSessions()
         self.mgo_sessions.parent = self
         self._children_name_map["mgo_sessions"] = "mgo-sessions"
-        self._children_yang_names.add("mgo-sessions")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Vrrp, [], name, value)
 
 
     class Summary(Entity):
@@ -672,7 +670,7 @@ class Vrrp(Entity):
         """
 
         _prefix = 'ipv4-vrrp-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vrrp.Summary, self).__init__()
@@ -682,8 +680,7 @@ class Vrrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ipv4_sessions_master_owner', YLeaf(YType.uint32, 'ipv4-sessions-master-owner')),
                 ('ipv4_sessions_master', YLeaf(YType.uint32, 'ipv4-sessions-master')),
@@ -809,7 +806,7 @@ class Vrrp(Entity):
         """
 
         _prefix = 'ipv4-vrrp-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vrrp.Ipv6, self).__init__()
@@ -819,26 +816,25 @@ class Vrrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("track-items", ("track_items", Vrrp.Ipv6.TrackItems)), ("virtual-routers", ("virtual_routers", Vrrp.Ipv6.VirtualRouters)), ("interfaces", ("interfaces", Vrrp.Ipv6.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("track-items", ("track_items", Vrrp.Ipv6.TrackItems)), ("virtual-routers", ("virtual_routers", Vrrp.Ipv6.VirtualRouters)), ("interfaces", ("interfaces", Vrrp.Ipv6.Interfaces))])
             self._leafs = OrderedDict()
 
             self.track_items = Vrrp.Ipv6.TrackItems()
             self.track_items.parent = self
             self._children_name_map["track_items"] = "track-items"
-            self._children_yang_names.add("track-items")
 
             self.virtual_routers = Vrrp.Ipv6.VirtualRouters()
             self.virtual_routers.parent = self
             self._children_name_map["virtual_routers"] = "virtual-routers"
-            self._children_yang_names.add("virtual-routers")
 
             self.interfaces = Vrrp.Ipv6.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vrrp.Ipv6, [], name, value)
 
 
         class TrackItems(Entity):
@@ -855,7 +851,7 @@ class Vrrp(Entity):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vrrp.Ipv6.TrackItems, self).__init__()
@@ -865,8 +861,7 @@ class Vrrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("track-item", ("track_item", Vrrp.Ipv6.TrackItems.TrackItem))])
+                self._child_classes = OrderedDict([("track-item", ("track_item", Vrrp.Ipv6.TrackItems.TrackItem))])
                 self._leafs = OrderedDict()
 
                 self.track_item = YList(self)
@@ -893,7 +888,7 @@ class Vrrp(Entity):
                 	The VRRP virtual router id
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: tracked_interface_name  (key)
                 
@@ -949,7 +944,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vrrp.Ipv6.TrackItems.TrackItem, self).__init__()
@@ -959,11 +954,10 @@ class Vrrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name','virtual_router_id','tracked_interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('virtual_router_id', YLeaf(YType.int32, 'virtual-router-id')),
+                        ('virtual_router_id', YLeaf(YType.uint32, 'virtual-router-id')),
                         ('tracked_interface_name', YLeaf(YType.str, 'tracked-interface-name')),
                         ('interface', YLeaf(YType.str, 'interface')),
                         ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
@@ -1002,7 +996,7 @@ class Vrrp(Entity):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vrrp.Ipv6.VirtualRouters, self).__init__()
@@ -1012,8 +1006,7 @@ class Vrrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("virtual-router", ("virtual_router", Vrrp.Ipv6.VirtualRouters.VirtualRouter))])
+                self._child_classes = OrderedDict([("virtual-router", ("virtual_router", Vrrp.Ipv6.VirtualRouters.VirtualRouter))])
                 self._leafs = OrderedDict()
 
                 self.virtual_router = YList(self)
@@ -1040,7 +1033,7 @@ class Vrrp(Entity):
                 	The VRRP virtual router id
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: resign_sent_time
                 
@@ -1542,7 +1535,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vrrp.Ipv6.VirtualRouters.VirtualRouter, self).__init__()
@@ -1552,11 +1545,10 @@ class Vrrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name','virtual_router_id']
-                    self._child_container_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime)), ("resign-received-time", ("resign_received_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime))])
-                    self._child_list_classes = OrderedDict([("ipv6-operational-address", ("ipv6_operational_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress)), ("ipv6-configured-down-address", ("ipv6_configured_down_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress)), ("track-item-info", ("track_item_info", Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo)), ("state-change-history", ("state_change_history", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory))])
+                    self._child_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime)), ("resign-received-time", ("resign_received_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime)), ("ipv6-operational-address", ("ipv6_operational_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress)), ("ipv6-configured-down-address", ("ipv6_configured_down_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress)), ("track-item-info", ("track_item_info", Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo)), ("state-change-history", ("state_change_history", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('virtual_router_id', YLeaf(YType.int32, 'virtual-router-id')),
+                        ('virtual_router_id', YLeaf(YType.uint32, 'virtual-router-id')),
                         ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
                         ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
                         ('version', YLeaf(YType.uint8, 'version')),
@@ -1702,12 +1694,10 @@ class Vrrp(Entity):
                     self.resign_sent_time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime()
                     self.resign_sent_time.parent = self
                     self._children_name_map["resign_sent_time"] = "resign-sent-time"
-                    self._children_yang_names.add("resign-sent-time")
 
                     self.resign_received_time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime()
                     self.resign_received_time.parent = self
                     self._children_name_map["resign_received_time"] = "resign-received-time"
-                    self._children_yang_names.add("resign-received-time")
 
                     self.ipv6_operational_address = YList(self)
                     self.ipv6_configured_down_address = YList(self)
@@ -1747,7 +1737,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
@@ -1757,8 +1747,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1798,7 +1787,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
@@ -1808,8 +1797,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -1838,7 +1826,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, self).__init__()
@@ -1848,8 +1836,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                         ])
@@ -1876,7 +1863,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
@@ -1886,8 +1873,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                         ])
@@ -1949,7 +1935,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, self).__init__()
@@ -1959,8 +1945,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
@@ -2010,7 +1995,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, self).__init__()
@@ -2020,8 +2005,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("time", ("time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("time", ("time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time))])
                         self._leafs = OrderedDict([
                             ('old_state', YLeaf(YType.enumeration, 'old-state')),
                             ('new_state', YLeaf(YType.enumeration, 'new-state')),
@@ -2034,7 +2018,6 @@ class Vrrp(Entity):
                         self.time = Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time()
                         self.time.parent = self
                         self._children_name_map["time"] = "time"
-                        self._children_yang_names.add("time")
                         self._segment_path = lambda: "state-change-history"
 
                     def __setattr__(self, name, value):
@@ -2068,7 +2051,7 @@ class Vrrp(Entity):
                         """
 
                         _prefix = 'ipv4-vrrp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, self).__init__()
@@ -2078,8 +2061,7 @@ class Vrrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('seconds', YLeaf(YType.uint32, 'seconds')),
                                 ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -2106,7 +2088,7 @@ class Vrrp(Entity):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vrrp.Ipv6.Interfaces, self).__init__()
@@ -2116,8 +2098,7 @@ class Vrrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Vrrp.Ipv6.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Vrrp.Ipv6.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -2179,7 +2160,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vrrp.Ipv6.Interfaces.Interface, self).__init__()
@@ -2189,8 +2170,7 @@ class Vrrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('interface', YLeaf(YType.str, 'interface')),
@@ -2236,7 +2216,7 @@ class Vrrp(Entity):
         """
 
         _prefix = 'ipv4-vrrp-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vrrp.Ipv4, self).__init__()
@@ -2246,26 +2226,25 @@ class Vrrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Vrrp.Ipv4.Interfaces)), ("track-items", ("track_items", Vrrp.Ipv4.TrackItems)), ("virtual-routers", ("virtual_routers", Vrrp.Ipv4.VirtualRouters))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("interfaces", ("interfaces", Vrrp.Ipv4.Interfaces)), ("track-items", ("track_items", Vrrp.Ipv4.TrackItems)), ("virtual-routers", ("virtual_routers", Vrrp.Ipv4.VirtualRouters))])
             self._leafs = OrderedDict()
 
             self.interfaces = Vrrp.Ipv4.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
 
             self.track_items = Vrrp.Ipv4.TrackItems()
             self.track_items.parent = self
             self._children_name_map["track_items"] = "track-items"
-            self._children_yang_names.add("track-items")
 
             self.virtual_routers = Vrrp.Ipv4.VirtualRouters()
             self.virtual_routers.parent = self
             self._children_name_map["virtual_routers"] = "virtual-routers"
-            self._children_yang_names.add("virtual-routers")
             self._segment_path = lambda: "ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vrrp.Ipv4, [], name, value)
 
 
         class Interfaces(Entity):
@@ -2282,7 +2261,7 @@ class Vrrp(Entity):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vrrp.Ipv4.Interfaces, self).__init__()
@@ -2292,8 +2271,7 @@ class Vrrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Vrrp.Ipv4.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Vrrp.Ipv4.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -2355,7 +2333,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vrrp.Ipv4.Interfaces.Interface, self).__init__()
@@ -2365,8 +2343,7 @@ class Vrrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('interface', YLeaf(YType.str, 'interface')),
@@ -2402,7 +2379,7 @@ class Vrrp(Entity):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vrrp.Ipv4.TrackItems, self).__init__()
@@ -2412,8 +2389,7 @@ class Vrrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("track-item", ("track_item", Vrrp.Ipv4.TrackItems.TrackItem))])
+                self._child_classes = OrderedDict([("track-item", ("track_item", Vrrp.Ipv4.TrackItems.TrackItem))])
                 self._leafs = OrderedDict()
 
                 self.track_item = YList(self)
@@ -2440,7 +2416,7 @@ class Vrrp(Entity):
                 	The VRRP virtual router id
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: tracked_interface_name  (key)
                 
@@ -2496,7 +2472,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vrrp.Ipv4.TrackItems.TrackItem, self).__init__()
@@ -2506,11 +2482,10 @@ class Vrrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name','virtual_router_id','tracked_interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('virtual_router_id', YLeaf(YType.int32, 'virtual-router-id')),
+                        ('virtual_router_id', YLeaf(YType.uint32, 'virtual-router-id')),
                         ('tracked_interface_name', YLeaf(YType.str, 'tracked-interface-name')),
                         ('interface', YLeaf(YType.str, 'interface')),
                         ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
@@ -2549,7 +2524,7 @@ class Vrrp(Entity):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vrrp.Ipv4.VirtualRouters, self).__init__()
@@ -2559,8 +2534,7 @@ class Vrrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("virtual-router", ("virtual_router", Vrrp.Ipv4.VirtualRouters.VirtualRouter))])
+                self._child_classes = OrderedDict([("virtual-router", ("virtual_router", Vrrp.Ipv4.VirtualRouters.VirtualRouter))])
                 self._leafs = OrderedDict()
 
                 self.virtual_router = YList(self)
@@ -2587,7 +2561,7 @@ class Vrrp(Entity):
                 	The VRRP virtual router id
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: resign_sent_time
                 
@@ -3089,7 +3063,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vrrp.Ipv4.VirtualRouters.VirtualRouter, self).__init__()
@@ -3099,11 +3073,10 @@ class Vrrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name','virtual_router_id']
-                    self._child_container_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime)), ("resign-received-time", ("resign_received_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime))])
-                    self._child_list_classes = OrderedDict([("ipv6-operational-address", ("ipv6_operational_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress)), ("ipv6-configured-down-address", ("ipv6_configured_down_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress)), ("track-item-info", ("track_item_info", Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo)), ("state-change-history", ("state_change_history", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory))])
+                    self._child_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime)), ("resign-received-time", ("resign_received_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime)), ("ipv6-operational-address", ("ipv6_operational_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress)), ("ipv6-configured-down-address", ("ipv6_configured_down_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress)), ("track-item-info", ("track_item_info", Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo)), ("state-change-history", ("state_change_history", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('virtual_router_id', YLeaf(YType.int32, 'virtual-router-id')),
+                        ('virtual_router_id', YLeaf(YType.uint32, 'virtual-router-id')),
                         ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
                         ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
                         ('version', YLeaf(YType.uint8, 'version')),
@@ -3249,12 +3222,10 @@ class Vrrp(Entity):
                     self.resign_sent_time = Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime()
                     self.resign_sent_time.parent = self
                     self._children_name_map["resign_sent_time"] = "resign-sent-time"
-                    self._children_yang_names.add("resign-sent-time")
 
                     self.resign_received_time = Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime()
                     self.resign_received_time.parent = self
                     self._children_name_map["resign_received_time"] = "resign-received-time"
-                    self._children_yang_names.add("resign-received-time")
 
                     self.ipv6_operational_address = YList(self)
                     self.ipv6_configured_down_address = YList(self)
@@ -3294,7 +3265,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
@@ -3304,8 +3275,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -3345,7 +3315,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
@@ -3355,8 +3325,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -3385,7 +3354,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, self).__init__()
@@ -3395,8 +3364,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                         ])
@@ -3423,7 +3391,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
@@ -3433,8 +3401,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                         ])
@@ -3496,7 +3463,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, self).__init__()
@@ -3506,8 +3473,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
@@ -3557,7 +3523,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, self).__init__()
@@ -3567,8 +3533,7 @@ class Vrrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("time", ("time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("time", ("time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time))])
                         self._leafs = OrderedDict([
                             ('old_state', YLeaf(YType.enumeration, 'old-state')),
                             ('new_state', YLeaf(YType.enumeration, 'new-state')),
@@ -3581,7 +3546,6 @@ class Vrrp(Entity):
                         self.time = Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time()
                         self.time.parent = self
                         self._children_name_map["time"] = "time"
-                        self._children_yang_names.add("time")
                         self._segment_path = lambda: "state-change-history"
 
                     def __setattr__(self, name, value):
@@ -3615,7 +3579,7 @@ class Vrrp(Entity):
                         """
 
                         _prefix = 'ipv4-vrrp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, self).__init__()
@@ -3625,8 +3589,7 @@ class Vrrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('seconds', YLeaf(YType.uint32, 'seconds')),
                                 ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -3653,7 +3616,7 @@ class Vrrp(Entity):
         """
 
         _prefix = 'ipv4-vrrp-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vrrp.MgoSessions, self).__init__()
@@ -3663,8 +3626,7 @@ class Vrrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mgo-session", ("mgo_session", Vrrp.MgoSessions.MgoSession))])
+            self._child_classes = OrderedDict([("mgo-session", ("mgo_session", Vrrp.MgoSessions.MgoSession))])
             self._leafs = OrderedDict()
 
             self.mgo_session = YList(self)
@@ -3727,7 +3689,7 @@ class Vrrp(Entity):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vrrp.MgoSessions.MgoSession, self).__init__()
@@ -3737,8 +3699,7 @@ class Vrrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['session_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("slave", ("slave", Vrrp.MgoSessions.MgoSession.Slave))])
+                self._child_classes = OrderedDict([("slave", ("slave", Vrrp.MgoSessions.MgoSession.Slave))])
                 self._leafs = OrderedDict([
                     ('session_name', YLeaf(YType.str, 'session-name')),
                     ('primary_session_name', YLeaf(YType.str, 'primary-session-name')),
@@ -3785,7 +3746,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vrrp.MgoSessions.MgoSession.Slave, self).__init__()
@@ -3795,8 +3756,7 @@ class Vrrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('slave_interface', YLeaf(YType.str, 'slave-interface')),
                         ('slave_virtual_router_id', YLeaf(YType.uint32, 'slave-virtual-router-id')),

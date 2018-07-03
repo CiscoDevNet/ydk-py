@@ -75,27 +75,27 @@ class CISCOIETFBFDMIB(Entity):
     .. attribute:: ciscobfdscalarobjects
     
     	
-    	**type**\:  :py:class:`Ciscobfdscalarobjects <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdscalarobjects>`
+    	**type**\:  :py:class:`CiscoBfdScalarObjects <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdScalarObjects>`
     
     .. attribute:: ciscobfdsesstable
     
     	The BFD Session Table describes the BFD sessions
-    	**type**\:  :py:class:`Ciscobfdsesstable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable>`
+    	**type**\:  :py:class:`CiscoBfdSessTable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable>`
     
     .. attribute:: ciscobfdsessmaptable
     
     	The BFD Session Mapping Table maps the complex indexing of the BFD sessions to the flat  CiscoBfdSessIndexTC used in the ciscoBfdSessTable
-    	**type**\:  :py:class:`Ciscobfdsessmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessmaptable>`
+    	**type**\:  :py:class:`CiscoBfdSessMapTable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessMapTable>`
     
     .. attribute:: ciscobfdsessdiscmaptable
     
     	The BFD Session Discriminator Mapping Table maps a local discriminator value to associated BFD sessions' CiscoBfdSessIndexTC used in the ciscoBfdSessTable
-    	**type**\:  :py:class:`Ciscobfdsessdiscmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable>`
+    	**type**\:  :py:class:`CiscoBfdSessDiscMapTable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable>`
     
     .. attribute:: ciscobfdsessipmaptable
     
     	The BFD Session IP Mapping Table maps given ciscoBfdSessInterface, ciscoBfdSessAddrType, and ciscoBbfdSessAddr to an associated BFD sessions' CiscoBfdSessIndexTC used in the ciscoBfdSessTable. This table SHOULD contains those BFD sessions are of IP type\: singleHop(1) and multiHop(2)
-    	**type**\:  :py:class:`Ciscobfdsessipmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessipmaptable>`
+    	**type**\:  :py:class:`CiscoBfdSessIpMapTable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessIpMapTable>`
     
     
 
@@ -113,45 +113,42 @@ class CISCOIETFBFDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoBfdScalarObjects", ("ciscobfdscalarobjects", CISCOIETFBFDMIB.Ciscobfdscalarobjects)), ("ciscoBfdSessTable", ("ciscobfdsesstable", CISCOIETFBFDMIB.Ciscobfdsesstable)), ("ciscoBfdSessMapTable", ("ciscobfdsessmaptable", CISCOIETFBFDMIB.Ciscobfdsessmaptable)), ("ciscoBfdSessDiscMapTable", ("ciscobfdsessdiscmaptable", CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable)), ("ciscoBfdSessIpMapTable", ("ciscobfdsessipmaptable", CISCOIETFBFDMIB.Ciscobfdsessipmaptable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoBfdScalarObjects", ("ciscobfdscalarobjects", CISCOIETFBFDMIB.CiscoBfdScalarObjects)), ("ciscoBfdSessTable", ("ciscobfdsesstable", CISCOIETFBFDMIB.CiscoBfdSessTable)), ("ciscoBfdSessMapTable", ("ciscobfdsessmaptable", CISCOIETFBFDMIB.CiscoBfdSessMapTable)), ("ciscoBfdSessDiscMapTable", ("ciscobfdsessdiscmaptable", CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable)), ("ciscoBfdSessIpMapTable", ("ciscobfdsessipmaptable", CISCOIETFBFDMIB.CiscoBfdSessIpMapTable))])
         self._leafs = OrderedDict()
 
-        self.ciscobfdscalarobjects = CISCOIETFBFDMIB.Ciscobfdscalarobjects()
+        self.ciscobfdscalarobjects = CISCOIETFBFDMIB.CiscoBfdScalarObjects()
         self.ciscobfdscalarobjects.parent = self
         self._children_name_map["ciscobfdscalarobjects"] = "ciscoBfdScalarObjects"
-        self._children_yang_names.add("ciscoBfdScalarObjects")
 
-        self.ciscobfdsesstable = CISCOIETFBFDMIB.Ciscobfdsesstable()
+        self.ciscobfdsesstable = CISCOIETFBFDMIB.CiscoBfdSessTable()
         self.ciscobfdsesstable.parent = self
         self._children_name_map["ciscobfdsesstable"] = "ciscoBfdSessTable"
-        self._children_yang_names.add("ciscoBfdSessTable")
 
-        self.ciscobfdsessmaptable = CISCOIETFBFDMIB.Ciscobfdsessmaptable()
+        self.ciscobfdsessmaptable = CISCOIETFBFDMIB.CiscoBfdSessMapTable()
         self.ciscobfdsessmaptable.parent = self
         self._children_name_map["ciscobfdsessmaptable"] = "ciscoBfdSessMapTable"
-        self._children_yang_names.add("ciscoBfdSessMapTable")
 
-        self.ciscobfdsessdiscmaptable = CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable()
+        self.ciscobfdsessdiscmaptable = CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable()
         self.ciscobfdsessdiscmaptable.parent = self
         self._children_name_map["ciscobfdsessdiscmaptable"] = "ciscoBfdSessDiscMapTable"
-        self._children_yang_names.add("ciscoBfdSessDiscMapTable")
 
-        self.ciscobfdsessipmaptable = CISCOIETFBFDMIB.Ciscobfdsessipmaptable()
+        self.ciscobfdsessipmaptable = CISCOIETFBFDMIB.CiscoBfdSessIpMapTable()
         self.ciscobfdsessipmaptable.parent = self
         self._children_name_map["ciscobfdsessipmaptable"] = "ciscoBfdSessIpMapTable"
-        self._children_yang_names.add("ciscoBfdSessIpMapTable")
         self._segment_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIETFBFDMIB, [], name, value)
 
-    class Ciscobfdscalarobjects(Entity):
+
+    class CiscoBfdScalarObjects(Entity):
         """
         
         
         .. attribute:: ciscobfdadminstatus
         
         	The global administrative status of BFD in this router. The value 'enabled' denotes that the BFD Process is  active on at least one interface; 'disabled' disables   it on all interfaces
-        	**type**\:  :py:class:`Ciscobfdadminstatus <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdscalarobjects.Ciscobfdadminstatus>`
+        	**type**\:  :py:class:`CiscoBfdAdminStatus <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdScalarObjects.CiscoBfdAdminStatus>`
         
         .. attribute:: ciscobfdversionnumber
         
@@ -173,15 +170,14 @@ class CISCOIETFBFDMIB(Entity):
         _revision = '2011-04-16'
 
         def __init__(self):
-            super(CISCOIETFBFDMIB.Ciscobfdscalarobjects, self).__init__()
+            super(CISCOIETFBFDMIB.CiscoBfdScalarObjects, self).__init__()
 
             self.yang_name = "ciscoBfdScalarObjects"
             self.yang_parent_name = "CISCO-IETF-BFD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ciscobfdadminstatus', YLeaf(YType.enumeration, 'ciscoBfdAdminStatus')),
                 ('ciscobfdversionnumber', YLeaf(YType.uint32, 'ciscoBfdVersionNumber')),
@@ -194,11 +190,11 @@ class CISCOIETFBFDMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdscalarobjects, ['ciscobfdadminstatus', 'ciscobfdversionnumber', 'ciscobfdsessnotificationsenable'], name, value)
+            self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdScalarObjects, ['ciscobfdadminstatus', 'ciscobfdversionnumber', 'ciscobfdsessnotificationsenable'], name, value)
 
-        class Ciscobfdadminstatus(Enum):
+        class CiscoBfdAdminStatus(Enum):
             """
-            Ciscobfdadminstatus (Enum Class)
+            CiscoBfdAdminStatus (Enum Class)
 
             The global administrative status of BFD in this router.
 
@@ -220,14 +216,14 @@ class CISCOIETFBFDMIB(Entity):
 
 
 
-    class Ciscobfdsesstable(Entity):
+    class CiscoBfdSessTable(Entity):
         """
         The BFD Session Table describes the BFD sessions.
         
         .. attribute:: ciscobfdsessentry
         
         	The BFD Session Entry describes BFD session
-        	**type**\: list of  		 :py:class:`Ciscobfdsessentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
+        	**type**\: list of  		 :py:class:`CiscoBfdSessEntry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry>`
         
         
 
@@ -237,15 +233,14 @@ class CISCOIETFBFDMIB(Entity):
         _revision = '2011-04-16'
 
         def __init__(self):
-            super(CISCOIETFBFDMIB.Ciscobfdsesstable, self).__init__()
+            super(CISCOIETFBFDMIB.CiscoBfdSessTable, self).__init__()
 
             self.yang_name = "ciscoBfdSessTable"
             self.yang_parent_name = "CISCO-IETF-BFD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ciscoBfdSessEntry", ("ciscobfdsessentry", CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry))])
+            self._child_classes = OrderedDict([("ciscoBfdSessEntry", ("ciscobfdsessentry", CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry))])
             self._leafs = OrderedDict()
 
             self.ciscobfdsessentry = YList(self)
@@ -253,10 +248,10 @@ class CISCOIETFBFDMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdsesstable, [], name, value)
+            self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessTable, [], name, value)
 
 
-        class Ciscobfdsessentry(Entity):
+        class CiscoBfdSessEntry(Entity):
             """
             The BFD Session Entry describes BFD session.
             
@@ -298,7 +293,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessstate
             
             	The perceived state of the BFD session
-            	**type**\:  :py:class:`Ciscobfdsessstate <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessstate>`
+            	**type**\:  :py:class:`CiscoBfdSessState <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry.CiscoBfdSessState>`
             
             .. attribute:: ciscobfdsessremoteheardflag
             
@@ -313,7 +308,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessopermode
             
             	This object specifies current operating mode that BFD session is operating in
-            	**type**\:  :py:class:`Ciscobfdsessopermode <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessopermode>`
+            	**type**\:  :py:class:`CiscoBfdSessOperMode <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry.CiscoBfdSessOperMode>`
             
             .. attribute:: ciscobfdsessdemandmodedesiredflag
             
@@ -388,7 +383,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessauthenticationtype
             
             	The Authentication Type used for this BFD session. This field is valid only when the Authentication Present bit is set
-            	**type**\:  :py:class:`Ciscobfdsessauthenticationtype <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessauthenticationtype>`
+            	**type**\:  :py:class:`CiscoBfdSessAuthenticationType <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry.CiscoBfdSessAuthenticationType>`
             
             .. attribute:: ciscobfdsessversionnumber
             
@@ -400,7 +395,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsesstype
             
             	The type of this BFD session
-            	**type**\:  :py:class:`Ciscobfdsesstype <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsesstype>`
+            	**type**\:  :py:class:`CiscoBfdSessType <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry.CiscoBfdSessType>`
             
             .. attribute:: ciscobfdsessinterface
             
@@ -478,15 +473,14 @@ class CISCOIETFBFDMIB(Entity):
             _revision = '2011-04-16'
 
             def __init__(self):
-                super(CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry, self).__init__()
+                super(CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry, self).__init__()
 
                 self.yang_name = "ciscoBfdSessEntry"
                 self.yang_parent_name = "ciscoBfdSessTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciscobfdsessindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciscobfdsessindex', YLeaf(YType.uint32, 'ciscoBfdSessIndex')),
                     ('ciscobfdsessapplicationid', YLeaf(YType.uint32, 'ciscoBfdSessApplicationId')),
@@ -561,11 +555,11 @@ class CISCOIETFBFDMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry, ['ciscobfdsessindex', 'ciscobfdsessapplicationid', 'ciscobfdsessdiscriminator', 'ciscobfdsessremotediscr', 'ciscobfdsessudpport', 'ciscobfdsessstate', 'ciscobfdsessremoteheardflag', 'ciscobfdsessdiag', 'ciscobfdsessopermode', 'ciscobfdsessdemandmodedesiredflag', 'ciscobfdsessechofuncmodedesiredflag', 'ciscobfdsesscontrolplanindepflag', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessdesiredmintxinterval', 'ciscobfdsessreqminrxinterval', 'ciscobfdsessreqminechorxinterval', 'ciscobfdsessdetectmult', 'ciscobfdsessstortype', 'ciscobfdsessrowstatus', 'ciscobfdsessauthpresflag', 'ciscobfdsessauthenticationtype', 'ciscobfdsessversionnumber', 'ciscobfdsesstype', 'ciscobfdsessinterface', 'ciscobfdsessperfpktin', 'ciscobfdsessperfpktout', 'ciscobfdsessuptime', 'ciscobfdsessperflastsessdowntime', 'ciscobfdsessperflastcommlostdiag', 'ciscobfdsessperfsessupcount', 'ciscobfdsessperfdisctime', 'ciscobfdsessperfpktinhc', 'ciscobfdsessperfpktouthc'], name, value)
+                self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry, ['ciscobfdsessindex', 'ciscobfdsessapplicationid', 'ciscobfdsessdiscriminator', 'ciscobfdsessremotediscr', 'ciscobfdsessudpport', 'ciscobfdsessstate', 'ciscobfdsessremoteheardflag', 'ciscobfdsessdiag', 'ciscobfdsessopermode', 'ciscobfdsessdemandmodedesiredflag', 'ciscobfdsessechofuncmodedesiredflag', 'ciscobfdsesscontrolplanindepflag', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessdesiredmintxinterval', 'ciscobfdsessreqminrxinterval', 'ciscobfdsessreqminechorxinterval', 'ciscobfdsessdetectmult', 'ciscobfdsessstortype', 'ciscobfdsessrowstatus', 'ciscobfdsessauthpresflag', 'ciscobfdsessauthenticationtype', 'ciscobfdsessversionnumber', 'ciscobfdsesstype', 'ciscobfdsessinterface', 'ciscobfdsessperfpktin', 'ciscobfdsessperfpktout', 'ciscobfdsessuptime', 'ciscobfdsessperflastsessdowntime', 'ciscobfdsessperflastcommlostdiag', 'ciscobfdsessperfsessupcount', 'ciscobfdsessperfdisctime', 'ciscobfdsessperfpktinhc', 'ciscobfdsessperfpktouthc'], name, value)
 
-            class Ciscobfdsessauthenticationtype(Enum):
+            class CiscoBfdSessAuthenticationType(Enum):
                 """
-                Ciscobfdsessauthenticationtype (Enum Class)
+                CiscoBfdSessAuthenticationType (Enum Class)
 
                 The Authentication Type used for this BFD session. This
 
@@ -594,9 +588,9 @@ class CISCOIETFBFDMIB(Entity):
                 meticulousKeyedSHA1 = Enum.YLeaf(5, "meticulousKeyedSHA1")
 
 
-            class Ciscobfdsessopermode(Enum):
+            class CiscoBfdSessOperMode(Enum):
                 """
-                Ciscobfdsessopermode (Enum Class)
+                CiscoBfdSessOperMode (Enum Class)
 
                 This object specifies current operating mode that BFD
 
@@ -621,9 +615,9 @@ class CISCOIETFBFDMIB(Entity):
                 demandModeWOEchoFunction = Enum.YLeaf(4, "demandModeWOEchoFunction")
 
 
-            class Ciscobfdsessstate(Enum):
+            class CiscoBfdSessState(Enum):
                 """
-                Ciscobfdsessstate (Enum Class)
+                CiscoBfdSessState (Enum Class)
 
                 The perceived state of the BFD session.
 
@@ -650,9 +644,9 @@ class CISCOIETFBFDMIB(Entity):
                 failing = Enum.YLeaf(5, "failing")
 
 
-            class Ciscobfdsesstype(Enum):
+            class CiscoBfdSessType(Enum):
                 """
-                Ciscobfdsesstype (Enum Class)
+                CiscoBfdSessType (Enum Class)
 
                 The type of this BFD session.
 
@@ -668,7 +662,7 @@ class CISCOIETFBFDMIB(Entity):
 
 
 
-    class Ciscobfdsessmaptable(Entity):
+    class CiscoBfdSessMapTable(Entity):
         """
         The BFD Session Mapping Table maps the complex
         indexing of the BFD sessions to the flat 
@@ -677,7 +671,7 @@ class CISCOIETFBFDMIB(Entity):
         .. attribute:: ciscobfdsessmapentry
         
         	The BFD Session Entry describes BFD session that is mapped to this index
-        	**type**\: list of  		 :py:class:`Ciscobfdsessmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessmaptable.Ciscobfdsessmapentry>`
+        	**type**\: list of  		 :py:class:`CiscoBfdSessMapEntry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessMapTable.CiscoBfdSessMapEntry>`
         
         
 
@@ -687,15 +681,14 @@ class CISCOIETFBFDMIB(Entity):
         _revision = '2011-04-16'
 
         def __init__(self):
-            super(CISCOIETFBFDMIB.Ciscobfdsessmaptable, self).__init__()
+            super(CISCOIETFBFDMIB.CiscoBfdSessMapTable, self).__init__()
 
             self.yang_name = "ciscoBfdSessMapTable"
             self.yang_parent_name = "CISCO-IETF-BFD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ciscoBfdSessMapEntry", ("ciscobfdsessmapentry", CISCOIETFBFDMIB.Ciscobfdsessmaptable.Ciscobfdsessmapentry))])
+            self._child_classes = OrderedDict([("ciscoBfdSessMapEntry", ("ciscobfdsessmapentry", CISCOIETFBFDMIB.CiscoBfdSessMapTable.CiscoBfdSessMapEntry))])
             self._leafs = OrderedDict()
 
             self.ciscobfdsessmapentry = YList(self)
@@ -703,10 +696,10 @@ class CISCOIETFBFDMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdsessmaptable, [], name, value)
+            self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessMapTable, [], name, value)
 
 
-        class Ciscobfdsessmapentry(Entity):
+        class CiscoBfdSessMapEntry(Entity):
             """
             The BFD Session Entry describes BFD session
             that is mapped to this index.
@@ -718,7 +711,7 @@ class CISCOIETFBFDMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`ciscobfdsessapplicationid <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
+            	**refers to**\:  :py:class:`ciscobfdsessapplicationid <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry>`
             
             .. attribute:: ciscobfdsessdiscriminator  (key)
             
@@ -727,7 +720,7 @@ class CISCOIETFBFDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`ciscobfdsessdiscriminator <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
+            	**refers to**\:  :py:class:`ciscobfdsessdiscriminator <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry>`
             
             .. attribute:: ciscobfdsessaddrtype  (key)
             
@@ -741,7 +734,7 @@ class CISCOIETFBFDMIB(Entity):
             
             	**length:** 0..255
             
-            	**refers to**\:  :py:class:`ciscobfdsessaddr <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
+            	**refers to**\:  :py:class:`ciscobfdsessaddr <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry>`
             
             .. attribute:: ciscobfdsessmapbfdindex
             
@@ -758,15 +751,14 @@ class CISCOIETFBFDMIB(Entity):
             _revision = '2011-04-16'
 
             def __init__(self):
-                super(CISCOIETFBFDMIB.Ciscobfdsessmaptable.Ciscobfdsessmapentry, self).__init__()
+                super(CISCOIETFBFDMIB.CiscoBfdSessMapTable.CiscoBfdSessMapEntry, self).__init__()
 
                 self.yang_name = "ciscoBfdSessMapEntry"
                 self.yang_parent_name = "ciscoBfdSessMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciscobfdsessapplicationid','ciscobfdsessdiscriminator','ciscobfdsessaddrtype','ciscobfdsessaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciscobfdsessapplicationid', YLeaf(YType.str, 'ciscoBfdSessApplicationId')),
                     ('ciscobfdsessdiscriminator', YLeaf(YType.str, 'ciscoBfdSessDiscriminator')),
@@ -783,10 +775,10 @@ class CISCOIETFBFDMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdsessmaptable.Ciscobfdsessmapentry, ['ciscobfdsessapplicationid', 'ciscobfdsessdiscriminator', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessmapbfdindex'], name, value)
+                self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessMapTable.CiscoBfdSessMapEntry, ['ciscobfdsessapplicationid', 'ciscobfdsessdiscriminator', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessmapbfdindex'], name, value)
 
 
-    class Ciscobfdsessdiscmaptable(Entity):
+    class CiscoBfdSessDiscMapTable(Entity):
         """
         The BFD Session Discriminator Mapping Table maps a
         local discriminator value to associated BFD sessions'
@@ -795,7 +787,7 @@ class CISCOIETFBFDMIB(Entity):
         .. attribute:: ciscobfdsessdiscmapentry
         
         	Each row contains a mapping between a local discriminator value to an entry in ciscoBfdSessTable
-        	**type**\: list of  		 :py:class:`Ciscobfdsessdiscmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry>`
+        	**type**\: list of  		 :py:class:`CiscoBfdSessDiscMapEntry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable.CiscoBfdSessDiscMapEntry>`
         
         
 
@@ -805,15 +797,14 @@ class CISCOIETFBFDMIB(Entity):
         _revision = '2011-04-16'
 
         def __init__(self):
-            super(CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable, self).__init__()
+            super(CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable, self).__init__()
 
             self.yang_name = "ciscoBfdSessDiscMapTable"
             self.yang_parent_name = "CISCO-IETF-BFD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ciscoBfdSessDiscMapEntry", ("ciscobfdsessdiscmapentry", CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry))])
+            self._child_classes = OrderedDict([("ciscoBfdSessDiscMapEntry", ("ciscobfdsessdiscmapentry", CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable.CiscoBfdSessDiscMapEntry))])
             self._leafs = OrderedDict()
 
             self.ciscobfdsessdiscmapentry = YList(self)
@@ -821,10 +812,10 @@ class CISCOIETFBFDMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable, [], name, value)
+            self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable, [], name, value)
 
 
-        class Ciscobfdsessdiscmapentry(Entity):
+        class CiscoBfdSessDiscMapEntry(Entity):
             """
             Each row contains a mapping between a local discriminator
             value to an entry in ciscoBfdSessTable.
@@ -836,7 +827,7 @@ class CISCOIETFBFDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`ciscobfdsessdiscriminator <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
+            	**refers to**\:  :py:class:`ciscobfdsessdiscriminator <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry>`
             
             .. attribute:: ciscobfdsessdiscmapindex
             
@@ -853,15 +844,14 @@ class CISCOIETFBFDMIB(Entity):
             _revision = '2011-04-16'
 
             def __init__(self):
-                super(CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry, self).__init__()
+                super(CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable.CiscoBfdSessDiscMapEntry, self).__init__()
 
                 self.yang_name = "ciscoBfdSessDiscMapEntry"
                 self.yang_parent_name = "ciscoBfdSessDiscMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciscobfdsessdiscriminator']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciscobfdsessdiscriminator', YLeaf(YType.str, 'ciscoBfdSessDiscriminator')),
                     ('ciscobfdsessdiscmapindex', YLeaf(YType.uint32, 'ciscoBfdSessDiscMapIndex')),
@@ -872,10 +862,10 @@ class CISCOIETFBFDMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessDiscMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry, ['ciscobfdsessdiscriminator', 'ciscobfdsessdiscmapindex'], name, value)
+                self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable.CiscoBfdSessDiscMapEntry, ['ciscobfdsessdiscriminator', 'ciscobfdsessdiscmapindex'], name, value)
 
 
-    class Ciscobfdsessipmaptable(Entity):
+    class CiscoBfdSessIpMapTable(Entity):
         """
         The BFD Session IP Mapping Table maps given
         ciscoBfdSessInterface, ciscoBfdSessAddrType, and
@@ -887,7 +877,7 @@ class CISCOIETFBFDMIB(Entity):
         .. attribute:: ciscobfdsessipmapentry
         
         	Each row contains a mapping between ciscoBfdSessInterface, ciscoBfdSessAddrType and ciscoBfdSessAddr values to an  entry in ciscoBfdSessTable
-        	**type**\: list of  		 :py:class:`Ciscobfdsessipmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessipmaptable.Ciscobfdsessipmapentry>`
+        	**type**\: list of  		 :py:class:`CiscoBfdSessIpMapEntry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessIpMapTable.CiscoBfdSessIpMapEntry>`
         
         
 
@@ -897,15 +887,14 @@ class CISCOIETFBFDMIB(Entity):
         _revision = '2011-04-16'
 
         def __init__(self):
-            super(CISCOIETFBFDMIB.Ciscobfdsessipmaptable, self).__init__()
+            super(CISCOIETFBFDMIB.CiscoBfdSessIpMapTable, self).__init__()
 
             self.yang_name = "ciscoBfdSessIpMapTable"
             self.yang_parent_name = "CISCO-IETF-BFD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ciscoBfdSessIpMapEntry", ("ciscobfdsessipmapentry", CISCOIETFBFDMIB.Ciscobfdsessipmaptable.Ciscobfdsessipmapentry))])
+            self._child_classes = OrderedDict([("ciscoBfdSessIpMapEntry", ("ciscobfdsessipmapentry", CISCOIETFBFDMIB.CiscoBfdSessIpMapTable.CiscoBfdSessIpMapEntry))])
             self._leafs = OrderedDict()
 
             self.ciscobfdsessipmapentry = YList(self)
@@ -913,10 +902,10 @@ class CISCOIETFBFDMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdsessipmaptable, [], name, value)
+            self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessIpMapTable, [], name, value)
 
 
-        class Ciscobfdsessipmapentry(Entity):
+        class CiscoBfdSessIpMapEntry(Entity):
             """
             Each row contains a mapping between ciscoBfdSessInterface,
             ciscoBfdSessAddrType and ciscoBfdSessAddr values to an 
@@ -929,7 +918,7 @@ class CISCOIETFBFDMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ciscobfdsessinterface <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
+            	**refers to**\:  :py:class:`ciscobfdsessinterface <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry>`
             
             .. attribute:: ciscobfdsessaddrtype  (key)
             
@@ -943,7 +932,7 @@ class CISCOIETFBFDMIB(Entity):
             
             	**length:** 0..255
             
-            	**refers to**\:  :py:class:`ciscobfdsessaddr <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
+            	**refers to**\:  :py:class:`ciscobfdsessaddr <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry>`
             
             .. attribute:: ciscobfdsessipmapindex
             
@@ -960,15 +949,14 @@ class CISCOIETFBFDMIB(Entity):
             _revision = '2011-04-16'
 
             def __init__(self):
-                super(CISCOIETFBFDMIB.Ciscobfdsessipmaptable.Ciscobfdsessipmapentry, self).__init__()
+                super(CISCOIETFBFDMIB.CiscoBfdSessIpMapTable.CiscoBfdSessIpMapEntry, self).__init__()
 
                 self.yang_name = "ciscoBfdSessIpMapEntry"
                 self.yang_parent_name = "ciscoBfdSessIpMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciscobfdsessinterface','ciscobfdsessaddrtype','ciscobfdsessaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciscobfdsessinterface', YLeaf(YType.str, 'ciscoBfdSessInterface')),
                     ('ciscobfdsessaddrtype', YLeaf(YType.enumeration, 'ciscoBfdSessAddrType')),
@@ -983,7 +971,7 @@ class CISCOIETFBFDMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessIpMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFBFDMIB.Ciscobfdsessipmaptable.Ciscobfdsessipmapentry, ['ciscobfdsessinterface', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessipmapindex'], name, value)
+                self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessIpMapTable.CiscoBfdSessIpMapEntry, ['ciscobfdsessinterface', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessipmapindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIETFBFDMIB()

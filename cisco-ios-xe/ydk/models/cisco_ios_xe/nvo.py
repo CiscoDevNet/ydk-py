@@ -57,8 +57,7 @@ class NvoInstances(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("nvo-instance", ("nvo_instance", NvoInstances.NvoInstance))])
+        self._child_classes = OrderedDict([("nvo-instance", ("nvo_instance", NvoInstances.NvoInstance))])
         self._leafs = OrderedDict()
 
         self.nvo_instance = YList(self)
@@ -79,6 +78,15 @@ class NvoInstances(Entity):
         
         	**range:** 0..65535
         
+        .. attribute:: source_interface
+        
+        	Source interface name
+        	**type**\: str
+        
+        	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
+        
+        	**mandatory**\: True
+        
         .. attribute:: virtual_network
         
         	VNI member attributes
@@ -88,15 +96,6 @@ class NvoInstances(Entity):
         
         	Encapsulation type
         	**type**\:  :py:class:`OverlayEncapType <ydk.models.cisco_ios_xe.nvo.OverlayEncapType>`
-        
-        .. attribute:: source_interface
-        
-        	Source interface name
-        	**type**\: str
-        
-        	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
-        
-        	**mandatory**\: True
         
         
 
@@ -113,23 +112,22 @@ class NvoInstances(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['nvo_id']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("virtual-network", ("virtual_network", NvoInstances.NvoInstance.VirtualNetwork))])
+            self._child_classes = OrderedDict([("virtual-network", ("virtual_network", NvoInstances.NvoInstance.VirtualNetwork))])
             self._leafs = OrderedDict([
                 ('nvo_id', YLeaf(YType.uint16, 'nvo-id')),
-                ('overlay_encapsulation', YLeaf(YType.identityref, 'overlay-encapsulation')),
                 ('source_interface', YLeaf(YType.str, 'source-interface')),
+                ('overlay_encapsulation', YLeaf(YType.identityref, 'overlay-encapsulation')),
             ])
             self.nvo_id = None
-            self.overlay_encapsulation = None
             self.source_interface = None
+            self.overlay_encapsulation = None
 
             self.virtual_network = YList(self)
             self._segment_path = lambda: "nvo-instance" + "[nvo-id='" + str(self.nvo_id) + "']"
             self._absolute_path = lambda: "nvo:nvo-instances/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvoInstances.NvoInstance, ['nvo_id', 'overlay_encapsulation', 'source_interface'], name, value)
+            self._perform_setattr(NvoInstances.NvoInstance, [u'nvo_id', u'source_interface', u'overlay_encapsulation'], name, value)
 
 
         class VirtualNetwork(Entity):
@@ -154,16 +152,6 @@ class NvoInstances(Entity):
             
             	**mandatory**\: True
             
-            .. attribute:: suppress_arp
-            
-            	Enable ARP request suppression for this VNI
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: peers
-            
-            	List of VTEP peers
-            	**type**\: list of  		 :py:class:`Peers <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Peers>`
-            
             .. attribute:: multicast
             
             	Mulitcast group range associated  with the VxLAN segment(s)
@@ -174,12 +162,22 @@ class NvoInstances(Entity):
             	Use control protocol BGP to discover  peers
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            .. attribute:: peers
+            
+            	List of VTEP peers
+            	**type**\: list of  		 :py:class:`Peers <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Peers>`
+            
             .. attribute:: end_host_discovery
             
             	How to peform endpoint discovery
             	**type**\:  :py:class:`EndHostDiscovery <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.EndHostDiscovery>`
             
             	**default value**\: flood-and-learn
+            
+            .. attribute:: suppress_arp
+            
+            	Enable ARP request suppression for this VNI
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: routing_instance
             
@@ -203,33 +201,31 @@ class NvoInstances(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['vni_start','vni_end']
-                self._child_container_classes = OrderedDict([("multicast", ("multicast", NvoInstances.NvoInstance.VirtualNetwork.Multicast))])
-                self._child_list_classes = OrderedDict([("peers", ("peers", NvoInstances.NvoInstance.VirtualNetwork.Peers))])
+                self._child_classes = OrderedDict([("multicast", ("multicast", NvoInstances.NvoInstance.VirtualNetwork.Multicast)), ("peers", ("peers", NvoInstances.NvoInstance.VirtualNetwork.Peers))])
                 self._leafs = OrderedDict([
                     ('vni_start', YLeaf(YType.uint32, 'vni-start')),
                     ('vni_end', YLeaf(YType.uint32, 'vni-end')),
-                    ('suppress_arp', YLeaf(YType.empty, 'suppress-arp')),
                     ('bgp', YLeaf(YType.empty, 'bgp')),
                     ('end_host_discovery', YLeaf(YType.enumeration, 'end-host-discovery')),
+                    ('suppress_arp', YLeaf(YType.empty, 'suppress-arp')),
                     ('routing_instance', YLeaf(YType.str, 'routing-instance')),
                 ])
                 self.vni_start = None
                 self.vni_end = None
-                self.suppress_arp = None
                 self.bgp = None
                 self.end_host_discovery = None
+                self.suppress_arp = None
                 self.routing_instance = None
 
                 self.multicast = NvoInstances.NvoInstance.VirtualNetwork.Multicast()
                 self.multicast.parent = self
                 self._children_name_map["multicast"] = "multicast"
-                self._children_yang_names.add("multicast")
 
                 self.peers = YList(self)
                 self._segment_path = lambda: "virtual-network" + "[vni-start='" + str(self.vni_start) + "']" + "[vni-end='" + str(self.vni_end) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork, ['vni_start', 'vni_end', 'suppress_arp', 'bgp', 'end_host_discovery', 'routing_instance'], name, value)
+                self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork, [u'vni_start', u'vni_end', u'bgp', u'end_host_discovery', u'suppress_arp', u'routing_instance'], name, value)
 
             class EndHostDiscovery(Enum):
                 """
@@ -253,50 +249,6 @@ class NvoInstances(Entity):
 
                 bgp = Enum.YLeaf(1, "bgp")
 
-
-
-            class Peers(Entity):
-                """
-                List of VTEP peers
-                
-                .. attribute:: peer_ip  (key)
-                
-                	VTEP peer IP address
-                	**type**\: union of the below types:
-                
-                		**type**\: str
-                
-                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                		**type**\: str
-                
-                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                
-
-                """
-
-                _prefix = 'nvo'
-                _revision = '2015-06-02'
-
-                def __init__(self):
-                    super(NvoInstances.NvoInstance.VirtualNetwork.Peers, self).__init__()
-
-                    self.yang_name = "peers"
-                    self.yang_parent_name = "virtual-network"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = ['peer_ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('peer_ip', YLeaf(YType.str, 'peer-ip')),
-                    ])
-                    self.peer_ip = None
-                    self._segment_path = lambda: "peers" + "[peer-ip='" + str(self.peer_ip) + "']"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Peers, ['peer_ip'], name, value)
 
 
             class Multicast(Entity):
@@ -333,8 +285,7 @@ class NvoInstances(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('multicast_group_min', YLeaf(YType.str, 'multicast-group-min')),
                         ('multicast_group_max', YLeaf(YType.str, 'multicast-group-max')),
@@ -344,26 +295,54 @@ class NvoInstances(Entity):
                     self._segment_path = lambda: "multicast"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Multicast, ['multicast_group_min', 'multicast_group_max'], name, value)
+                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Multicast, [u'multicast_group_min', u'multicast_group_max'], name, value)
+
+
+            class Peers(Entity):
+                """
+                List of VTEP peers
+                
+                .. attribute:: peer_ip  (key)
+                
+                	VTEP peer IP address
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                
+
+                """
+
+                _prefix = 'nvo'
+                _revision = '2015-06-02'
+
+                def __init__(self):
+                    super(NvoInstances.NvoInstance.VirtualNetwork.Peers, self).__init__()
+
+                    self.yang_name = "peers"
+                    self.yang_parent_name = "virtual-network"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = ['peer_ip']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('peer_ip', YLeaf(YType.str, 'peer-ip')),
+                    ])
+                    self.peer_ip = None
+                    self._segment_path = lambda: "peers" + "[peer-ip='" + str(self.peer_ip) + "']"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Peers, [u'peer_ip'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NvoInstances()
         return self._top_entity
-
-class VxlanType(Identity):
-    """
-    This identity represents vxlan encapsulation.
-    
-    
-
-    """
-
-    _prefix = 'nvo'
-    _revision = '2015-06-02'
-
-    def __init__(self):
-        super(VxlanType, self).__init__("urn:ietf:params:xml:ns:yang:nvo", "nvo", "nvo:vxlan-type")
-
 
 class NvgreType(Identity):
     """
@@ -378,5 +357,20 @@ class NvgreType(Identity):
 
     def __init__(self):
         super(NvgreType, self).__init__("urn:ietf:params:xml:ns:yang:nvo", "nvo", "nvo:nvgre-type")
+
+
+class VxlanType(Identity):
+    """
+    This identity represents vxlan encapsulation.
+    
+    
+
+    """
+
+    _prefix = 'nvo'
+    _revision = '2015-06-02'
+
+    def __init__(self):
+        super(VxlanType, self).__init__("urn:ietf:params:xml:ns:yang:nvo", "nvo", "nvo:vxlan-type")
 
 

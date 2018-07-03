@@ -779,30 +779,28 @@ class Ipsla(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mpls-data", ("mpls_data", Ipsla.MplsData)), ("responder", ("responder", Ipsla.Responder)), ("operation-data", ("operation_data", Ipsla.OperationData)), ("application-info", ("application_info", Ipsla.ApplicationInfo))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mpls-data", ("mpls_data", Ipsla.MplsData)), ("responder", ("responder", Ipsla.Responder)), ("operation-data", ("operation_data", Ipsla.OperationData)), ("application-info", ("application_info", Ipsla.ApplicationInfo))])
         self._leafs = OrderedDict()
 
         self.mpls_data = Ipsla.MplsData()
         self.mpls_data.parent = self
         self._children_name_map["mpls_data"] = "mpls-data"
-        self._children_yang_names.add("mpls-data")
 
         self.responder = Ipsla.Responder()
         self.responder.parent = self
         self._children_name_map["responder"] = "responder"
-        self._children_yang_names.add("responder")
 
         self.operation_data = Ipsla.OperationData()
         self.operation_data.parent = self
         self._children_name_map["operation_data"] = "operation-data"
-        self._children_yang_names.add("operation-data")
 
         self.application_info = Ipsla.ApplicationInfo()
         self.application_info.parent = self
         self._children_name_map["application_info"] = "application-info"
-        self._children_yang_names.add("application-info")
         self._segment_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ipsla, [], name, value)
 
 
     class MplsData(Entity):
@@ -834,21 +832,21 @@ class Ipsla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("lsp-monitors", ("lsp_monitors", Ipsla.MplsData.LspMonitors)), ("discovery", ("discovery", Ipsla.MplsData.Discovery))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("lsp-monitors", ("lsp_monitors", Ipsla.MplsData.LspMonitors)), ("discovery", ("discovery", Ipsla.MplsData.Discovery))])
             self._leafs = OrderedDict()
 
             self.lsp_monitors = Ipsla.MplsData.LspMonitors()
             self.lsp_monitors.parent = self
             self._children_name_map["lsp_monitors"] = "lsp-monitors"
-            self._children_yang_names.add("lsp-monitors")
 
             self.discovery = Ipsla.MplsData.Discovery()
             self.discovery.parent = self
             self._children_name_map["discovery"] = "discovery"
-            self._children_yang_names.add("discovery")
             self._segment_path = lambda: "mpls-data"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipsla.MplsData, [], name, value)
 
 
         class LspMonitors(Entity):
@@ -875,8 +873,7 @@ class Ipsla(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("lsp-monitor", ("lsp_monitor", Ipsla.MplsData.LspMonitors.LspMonitor))])
+                self._child_classes = OrderedDict([("lsp-monitor", ("lsp_monitor", Ipsla.MplsData.LspMonitors.LspMonitor))])
                 self._leafs = OrderedDict()
 
                 self.lsp_monitor = YList(self)
@@ -896,7 +893,7 @@ class Ipsla(Entity):
                 	Monitor ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: state
                 
@@ -928,27 +925,23 @@ class Ipsla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['monitor_id']
-                    self._child_container_classes = OrderedDict([("state", ("state", Ipsla.MplsData.LspMonitors.LspMonitor.State)), ("operations", ("operations", Ipsla.MplsData.LspMonitors.LspMonitor.Operations)), ("scan-queues", ("scan_queues", Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("state", ("state", Ipsla.MplsData.LspMonitors.LspMonitor.State)), ("operations", ("operations", Ipsla.MplsData.LspMonitors.LspMonitor.Operations)), ("scan-queues", ("scan_queues", Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues))])
                     self._leafs = OrderedDict([
-                        ('monitor_id', YLeaf(YType.int32, 'monitor-id')),
+                        ('monitor_id', YLeaf(YType.uint32, 'monitor-id')),
                     ])
                     self.monitor_id = None
 
                     self.state = Ipsla.MplsData.LspMonitors.LspMonitor.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
 
                     self.operations = Ipsla.MplsData.LspMonitors.LspMonitor.Operations()
                     self.operations.parent = self
                     self._children_name_map["operations"] = "operations"
-                    self._children_yang_names.add("operations")
 
                     self.scan_queues = Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues()
                     self.scan_queues.parent = self
                     self._children_name_map["scan_queues"] = "scan-queues"
-                    self._children_yang_names.add("scan-queues")
                     self._segment_path = lambda: "lsp-monitor" + "[monitor-id='" + str(self.monitor_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/%s" % self._segment_path()
 
@@ -1011,8 +1004,7 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('scan_remaining', YLeaf(YType.uint32, 'scan-remaining')),
                             ('delete_scan_remaining', YLeaf(YType.uint32, 'delete-scan-remaining')),
@@ -1026,7 +1018,7 @@ class Ipsla(Entity):
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.State, ['scan_remaining', 'delete_scan_remaining', 'rediscovery_remaining', 'lpd_compeletion_time'], name, value)
+                        self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.State, [u'scan_remaining', u'delete_scan_remaining', u'rediscovery_remaining', u'lpd_compeletion_time'], name, value)
 
 
                 class Operations(Entity):
@@ -1053,8 +1045,7 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("operation", ("operation_", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation))])
+                        self._child_classes = OrderedDict([("operation", ("operation_", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation))])
                         self._leafs = OrderedDict()
 
                         self.operation_ = YList(self)
@@ -1073,7 +1064,7 @@ class Ipsla(Entity):
                         	Operation ID
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: state
                         
@@ -1100,22 +1091,19 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['operation_id']
-                            self._child_container_classes = OrderedDict([("state", ("state", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State)), ("lpd-paths", ("lpd_paths", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state", ("state", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State)), ("lpd-paths", ("lpd_paths", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths))])
                             self._leafs = OrderedDict([
-                                ('operation_id', YLeaf(YType.int32, 'operation-id')),
+                                ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                             ])
                             self.operation_id = None
 
                             self.state = Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
 
                             self.lpd_paths = Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths()
                             self.lpd_paths.parent = self
                             self._children_name_map["lpd_paths"] = "lpd-paths"
-                            self._children_yang_names.add("lpd-paths")
                             self._segment_path = lambda: "operation" + "[operation-id='" + str(self.operation_id) + "']"
 
                         def __setattr__(self, name, value):
@@ -1167,8 +1155,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('target_address', YLeaf(YType.str, 'target-address')),
                                     ('target_mask', YLeaf(YType.uint32, 'target-mask')),
@@ -1182,7 +1169,7 @@ class Ipsla(Entity):
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, ['target_address', 'target_mask', 'group_status', 'operation_time'], name, value)
+                                self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, [u'target_address', u'target_mask', u'group_status', u'operation_time'], name, value)
 
 
                         class LpdPaths(Entity):
@@ -1210,8 +1197,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("lpd-path", ("lpd_path", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath))])
+                                self._child_classes = OrderedDict([("lpd-path", ("lpd_path", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath))])
                                 self._leafs = OrderedDict()
 
                                 self.lpd_path = YList(self)
@@ -1231,7 +1217,7 @@ class Ipsla(Entity):
                                 	LPD path index
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: path_id
                                 
@@ -1286,10 +1272,9 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['path_index']
-                                    self._child_container_classes = OrderedDict([("path-id", ("path_id", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("path-id", ("path_id", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId))])
                                     self._leafs = OrderedDict([
-                                        ('path_index', YLeaf(YType.int32, 'path-index')),
+                                        ('path_index', YLeaf(YType.uint32, 'path-index')),
                                         ('path_status', YLeaf(YType.enumeration, 'path-status')),
                                         ('operation_time', YLeaf(YType.uint64, 'operation-time')),
                                         ('response_time', YLeaf(YType.uint32, 'response-time')),
@@ -1306,11 +1291,10 @@ class Ipsla(Entity):
                                     self.path_id = Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId()
                                     self.path_id.parent = self
                                     self._children_name_map["path_id"] = "path-id"
-                                    self._children_yang_names.add("path-id")
                                     self._segment_path = lambda: "lpd-path" + "[path-index='" + str(self.path_index) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath, ['path_index', 'path_status', 'operation_time', 'response_time', 'success_count', 'failure_count'], name, value)
+                                    self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath, ['path_index', u'path_status', u'operation_time', u'response_time', u'success_count', u'failure_count'], name, value)
 
 
                                 class PathId(Entity):
@@ -1360,8 +1344,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
                                             ('output_interface', YLeaf(YType.str, 'output-interface')),
@@ -1375,7 +1358,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "path-id"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
+                                        self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
 
 
                 class ScanQueues(Entity):
@@ -1403,8 +1386,7 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("scan-queue", ("scan_queue", Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue))])
+                        self._child_classes = OrderedDict([("scan-queue", ("scan_queue", Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue))])
                         self._leafs = OrderedDict()
 
                         self.scan_queue = YList(self)
@@ -1460,8 +1442,7 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('target_address', YLeaf(YType.str, 'target-address')),
@@ -1475,7 +1456,7 @@ class Ipsla(Entity):
                             self._segment_path = lambda: "scan-queue" + "[address='" + str(self.address) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, ['address', 'target_address', 'target_mask', 'entry'], name, value)
+                            self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, ['address', u'target_address', u'target_mask', u'entry'], name, value)
 
 
         class Discovery(Entity):
@@ -1502,16 +1483,17 @@ class Ipsla(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("vpn", ("vpn", Ipsla.MplsData.Discovery.Vpn))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("vpn", ("vpn", Ipsla.MplsData.Discovery.Vpn))])
                 self._leafs = OrderedDict()
 
                 self.vpn = Ipsla.MplsData.Discovery.Vpn()
                 self.vpn.parent = self
                 self._children_name_map["vpn"] = "vpn"
-                self._children_yang_names.add("vpn")
                 self._segment_path = lambda: "discovery"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipsla.MplsData.Discovery, [], name, value)
 
 
             class Vpn(Entity):
@@ -1543,21 +1525,21 @@ class Ipsla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("state", ("state", Ipsla.MplsData.Discovery.Vpn.State)), ("nexthops", ("nexthops", Ipsla.MplsData.Discovery.Vpn.Nexthops))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("state", ("state", Ipsla.MplsData.Discovery.Vpn.State)), ("nexthops", ("nexthops", Ipsla.MplsData.Discovery.Vpn.Nexthops))])
                     self._leafs = OrderedDict()
 
                     self.state = Ipsla.MplsData.Discovery.Vpn.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
 
                     self.nexthops = Ipsla.MplsData.Discovery.Vpn.Nexthops()
                     self.nexthops.parent = self
                     self._children_name_map["nexthops"] = "nexthops"
-                    self._children_yang_names.add("nexthops")
                     self._segment_path = lambda: "vpn"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipsla.MplsData.Discovery.Vpn, [], name, value)
 
 
                 class State(Entity):
@@ -1588,8 +1570,7 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('refresh_remaining', YLeaf(YType.uint32, 'refresh-remaining')),
                         ])
@@ -1598,7 +1579,7 @@ class Ipsla(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.State, ['refresh_remaining'], name, value)
+                        self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.State, [u'refresh_remaining'], name, value)
 
 
                 class Nexthops(Entity):
@@ -1626,8 +1607,7 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("nexthop", ("nexthop", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop))])
+                        self._child_classes = OrderedDict([("nexthop", ("nexthop", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop))])
                         self._leafs = OrderedDict()
 
                         self.nexthop = YList(self)
@@ -1674,8 +1654,7 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['address']
-                            self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs)), ("prefix", ("prefix", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs)), ("prefix", ("prefix", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix))])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                             ])
@@ -1684,12 +1663,10 @@ class Ipsla(Entity):
                             self.vrfs = Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs()
                             self.vrfs.parent = self
                             self._children_name_map["vrfs"] = "vrfs"
-                            self._children_yang_names.add("vrfs")
 
                             self.prefix = Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix()
                             self.prefix.parent = self
                             self._children_name_map["prefix"] = "prefix"
-                            self._children_yang_names.add("prefix")
                             self._segment_path = lambda: "nexthop" + "[address='" + str(self.address) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/nexthops/%s" % self._segment_path()
 
@@ -1721,8 +1698,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf))])
+                                self._child_classes = OrderedDict([("vrf", ("vrf", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf))])
                                 self._leafs = OrderedDict()
 
                                 self.vrf = YList(self)
@@ -1765,8 +1741,7 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['vrf_name']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                                         ('prefix_count', YLeaf(YType.uint32, 'prefix-count')),
@@ -1776,7 +1751,7 @@ class Ipsla(Entity):
                                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, ['vrf_name', 'prefix_count'], name, value)
+                                    self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, ['vrf_name', u'prefix_count'], name, value)
 
 
                         class Prefix(Entity):
@@ -1812,8 +1787,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('target_address', YLeaf(YType.str, 'target-address')),
                                     ('target_mask', YLeaf(YType.uint32, 'target-mask')),
@@ -1823,7 +1797,7 @@ class Ipsla(Entity):
                                 self._segment_path = lambda: "prefix"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, ['target_address', 'target_mask'], name, value)
+                                self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, [u'target_address', u'target_mask'], name, value)
 
 
     class Responder(Entity):
@@ -1850,16 +1824,17 @@ class Ipsla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ports", ("ports", Ipsla.Responder.Ports))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("ports", ("ports", Ipsla.Responder.Ports))])
             self._leafs = OrderedDict()
 
             self.ports = Ipsla.Responder.Ports()
             self.ports.parent = self
             self._children_name_map["ports"] = "ports"
-            self._children_yang_names.add("ports")
             self._segment_path = lambda: "responder"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipsla.Responder, [], name, value)
 
 
         class Ports(Entity):
@@ -1886,8 +1861,7 @@ class Ipsla(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("port", ("port", Ipsla.Responder.Ports.Port))])
+                self._child_classes = OrderedDict([("port", ("port", Ipsla.Responder.Ports.Port))])
                 self._leafs = OrderedDict()
 
                 self.port = YList(self)
@@ -1991,8 +1965,7 @@ class Ipsla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['port']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("sender", ("sender", Ipsla.Responder.Ports.Port.Sender))])
+                    self._child_classes = OrderedDict([("sender", ("sender", Ipsla.Responder.Ports.Port.Sender))])
                     self._leafs = OrderedDict([
                         ('port', YLeaf(YType.uint16, 'port')),
                         ('port_xr', YLeaf(YType.uint16, 'port-xr')),
@@ -2066,8 +2039,7 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ip_address', YLeaf(YType.uint32, 'ip-address')),
                             ('port', YLeaf(YType.uint16, 'port')),
@@ -2106,16 +2078,17 @@ class Ipsla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("operations", ("operations", Ipsla.OperationData.Operations))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("operations", ("operations", Ipsla.OperationData.Operations))])
             self._leafs = OrderedDict()
 
             self.operations = Ipsla.OperationData.Operations()
             self.operations.parent = self
             self._children_name_map["operations"] = "operations"
-            self._children_yang_names.add("operations")
             self._segment_path = lambda: "operation-data"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipsla.OperationData, [], name, value)
 
 
         class Operations(Entity):
@@ -2142,8 +2115,7 @@ class Ipsla(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("operation", ("operation_", Ipsla.OperationData.Operations.Operation))])
+                self._child_classes = OrderedDict([("operation", ("operation_", Ipsla.OperationData.Operations.Operation))])
                 self._leafs = OrderedDict()
 
                 self.operation_ = YList(self)
@@ -2163,7 +2135,7 @@ class Ipsla(Entity):
                 	Operation ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: common
                 
@@ -2200,32 +2172,27 @@ class Ipsla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['operation_id']
-                    self._child_container_classes = OrderedDict([("common", ("common", Ipsla.OperationData.Operations.Operation.Common)), ("lpd", ("lpd", Ipsla.OperationData.Operations.Operation.Lpd)), ("history", ("history", Ipsla.OperationData.Operations.Operation.History)), ("statistics", ("statistics", Ipsla.OperationData.Operations.Operation.Statistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("common", ("common", Ipsla.OperationData.Operations.Operation.Common)), ("lpd", ("lpd", Ipsla.OperationData.Operations.Operation.Lpd)), ("history", ("history", Ipsla.OperationData.Operations.Operation.History)), ("statistics", ("statistics", Ipsla.OperationData.Operations.Operation.Statistics))])
                     self._leafs = OrderedDict([
-                        ('operation_id', YLeaf(YType.int32, 'operation-id')),
+                        ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                     ])
                     self.operation_id = None
 
                     self.common = Ipsla.OperationData.Operations.Operation.Common()
                     self.common.parent = self
                     self._children_name_map["common"] = "common"
-                    self._children_yang_names.add("common")
 
                     self.lpd = Ipsla.OperationData.Operations.Operation.Lpd()
                     self.lpd.parent = self
                     self._children_name_map["lpd"] = "lpd"
-                    self._children_yang_names.add("lpd")
 
                     self.history = Ipsla.OperationData.Operations.Operation.History()
                     self.history.parent = self
                     self._children_name_map["history"] = "history"
-                    self._children_yang_names.add("history")
 
                     self.statistics = Ipsla.OperationData.Operations.Operation.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
                     self._segment_path = lambda: "operation" + "[operation-id='" + str(self.operation_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/%s" % self._segment_path()
 
@@ -2257,15 +2224,16 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("operational-state", ("operational_state", Ipsla.OperationData.Operations.Operation.Common.OperationalState))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("operational-state", ("operational_state", Ipsla.OperationData.Operations.Operation.Common.OperationalState))])
                         self._leafs = OrderedDict()
 
                         self.operational_state = Ipsla.OperationData.Operations.Operation.Common.OperationalState()
                         self.operational_state.parent = self
                         self._children_name_map["operational_state"] = "operational-state"
-                        self._children_yang_names.add("operational-state")
                         self._segment_path = lambda: "common"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common, [], name, value)
 
 
                     class OperationalState(Entity):
@@ -2376,8 +2344,7 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('modification_time', YLeaf(YType.uint64, 'modification-time')),
                                 ('start_time', YLeaf(YType.uint64, 'start-time')),
@@ -2409,7 +2376,7 @@ class Ipsla(Entity):
                             self._segment_path = lambda: "operational-state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common.OperationalState, ['modification_time', 'start_time', 'attempt_count', 'skipped_count', 'life_remaining', 'frequency', 'recurring', 'operational_state', 'flags', 'local_port', 'unexpected_packets', 'unexpected_control_packets', 'operation_time'], name, value)
+                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common.OperationalState, [u'modification_time', u'start_time', u'attempt_count', u'skipped_count', u'life_remaining', u'frequency', u'recurring', u'operational_state', u'flags', u'local_port', u'unexpected_packets', u'unexpected_control_packets', u'operation_time'], name, value)
 
 
                 class Lpd(Entity):
@@ -2442,20 +2409,20 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("statistics", ("statistics", Ipsla.OperationData.Operations.Operation.Lpd.Statistics)), ("status", ("status", Ipsla.OperationData.Operations.Operation.Lpd.Status))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("statistics", ("statistics", Ipsla.OperationData.Operations.Operation.Lpd.Statistics)), ("status", ("status", Ipsla.OperationData.Operations.Operation.Lpd.Status))])
                         self._leafs = OrderedDict()
 
                         self.statistics = Ipsla.OperationData.Operations.Operation.Lpd.Statistics()
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
 
                         self.status = Ipsla.OperationData.Operations.Operation.Lpd.Status()
                         self.status.parent = self
                         self._children_name_map["status"] = "status"
-                        self._children_yang_names.add("status")
                         self._segment_path = lambda: "lpd"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd, [], name, value)
 
 
                     class Statistics(Entity):
@@ -2487,20 +2454,20 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("latest", ("latest", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest)), ("aggregated", ("aggregated", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("latest", ("latest", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest)), ("aggregated", ("aggregated", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated))])
                             self._leafs = OrderedDict()
 
                             self.latest = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest()
                             self.latest.parent = self
                             self._children_name_map["latest"] = "latest"
-                            self._children_yang_names.add("latest")
 
                             self.aggregated = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated()
                             self.aggregated.parent = self
                             self._children_name_map["aggregated"] = "aggregated"
-                            self._children_yang_names.add("aggregated")
                             self._segment_path = lambda: "statistics"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics, [], name, value)
 
 
                         class Latest(Entity):
@@ -2528,15 +2495,16 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("target", ("target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("target", ("target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target))])
                                 self._leafs = OrderedDict()
 
                                 self.target = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target()
                                 self.target.parent = self
                                 self._children_name_map["target"] = "target"
-                                self._children_yang_names.add("target")
                                 self._segment_path = lambda: "latest"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest, [], name, value)
 
 
                             class Target(Entity):
@@ -2687,8 +2655,7 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress))])
                                     self._leafs = OrderedDict([
                                         ('start_time', YLeaf(YType.uint64, 'start-time')),
                                         ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -2731,11 +2698,10 @@ class Ipsla(Entity):
                                     self.target_address = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress()
                                     self.target_address.parent = self
                                     self._children_name_map["target_address"] = "target-address"
-                                    self._children_yang_names.add("target-address")
                                     self._segment_path = lambda: "target"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target, ['start_time', 'return_code', 'completion_time_count', 'completion_time', 'min_completion_time', 'max_completion_time', 'sum_completion_time', 'path_count', 'min_path_count', 'max_path_count', 'ok_count', 'no_path_count', 'all_paths_broken_count', 'all_paths_unexplorable_count', 'all_paths_broken_or_unexplorable_count', 'timeout_count', 'internal_error_count', 'unknown_count'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target, [u'start_time', u'return_code', u'completion_time_count', u'completion_time', u'min_completion_time', u'max_completion_time', u'sum_completion_time', u'path_count', u'min_path_count', u'max_path_count', u'ok_count', u'no_path_count', u'all_paths_broken_count', u'all_paths_unexplorable_count', u'all_paths_broken_or_unexplorable_count', u'timeout_count', u'internal_error_count', u'unknown_count'], name, value)
 
 
                                 class TargetAddress(Entity):
@@ -2791,8 +2757,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget))])
                                         self._leafs = OrderedDict([
                                             ('target_type', YLeaf(YType.enumeration, 'target-type')),
                                             ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
@@ -2805,21 +2770,18 @@ class Ipsla(Entity):
                                         self.ipv4_prefix_target = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget()
                                         self.ipv4_prefix_target.parent = self
                                         self._children_name_map["ipv4_prefix_target"] = "ipv4-prefix-target"
-                                        self._children_yang_names.add("ipv4-prefix-target")
 
                                         self.tunnel_id_target = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget()
                                         self.tunnel_id_target.parent = self
                                         self._children_name_map["tunnel_id_target"] = "tunnel-id-target"
-                                        self._children_yang_names.add("tunnel-id-target")
 
                                         self.ipv4_pseudowire_target = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget()
                                         self.ipv4_pseudowire_target.parent = self
                                         self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
-                                        self._children_yang_names.add("ipv4-pseudowire-target")
                                         self._segment_path = lambda: "target-address"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
 
 
                                     class Ipv4PrefixTarget(Entity):
@@ -2855,8 +2817,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                                 ('mask_length', YLeaf(YType.uint8, 'mask-length')),
@@ -2866,7 +2827,7 @@ class Ipsla(Entity):
                                             self._segment_path = lambda: "ipv4-prefix-target"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
                                     class TunnelIdTarget(Entity):
@@ -2895,8 +2856,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                                             ])
@@ -2904,7 +2864,7 @@ class Ipsla(Entity):
                                             self._segment_path = lambda: "tunnel-id-target"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
                                     class Ipv4PseudowireTarget(Entity):
@@ -2940,8 +2900,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                                 ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
@@ -2951,7 +2910,7 @@ class Ipsla(Entity):
                                             self._segment_path = lambda: "ipv4-pseudowire-target"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
                         class Aggregated(Entity):
@@ -2979,15 +2938,16 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("hours", ("hours", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("hours", ("hours", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours))])
                                 self._leafs = OrderedDict()
 
                                 self.hours = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours()
                                 self.hours.parent = self
                                 self._children_name_map["hours"] = "hours"
-                                self._children_yang_names.add("hours")
                                 self._segment_path = lambda: "aggregated"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated, [], name, value)
 
 
                             class Hours(Entity):
@@ -3015,8 +2975,7 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("hour", ("hour", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour))])
+                                    self._child_classes = OrderedDict([("hour", ("hour", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour))])
                                     self._leafs = OrderedDict()
 
                                     self.hour = YList(self)
@@ -3036,7 +2995,7 @@ class Ipsla(Entity):
                                     	Hour Index
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: target_address
                                     
@@ -3182,10 +3141,9 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['hour_index']
-                                        self._child_container_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress))])
                                         self._leafs = OrderedDict([
-                                            ('hour_index', YLeaf(YType.int32, 'hour-index')),
+                                            ('hour_index', YLeaf(YType.uint32, 'hour-index')),
                                             ('start_time', YLeaf(YType.uint64, 'start-time')),
                                             ('return_code', YLeaf(YType.enumeration, 'return-code')),
                                             ('completion_time_count', YLeaf(YType.uint32, 'completion-time-count')),
@@ -3228,11 +3186,10 @@ class Ipsla(Entity):
                                         self.target_address = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress()
                                         self.target_address.parent = self
                                         self._children_name_map["target_address"] = "target-address"
-                                        self._children_yang_names.add("target-address")
                                         self._segment_path = lambda: "hour" + "[hour-index='" + str(self.hour_index) + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour, ['hour_index', 'start_time', 'return_code', 'completion_time_count', 'completion_time', 'min_completion_time', 'max_completion_time', 'sum_completion_time', 'path_count', 'min_path_count', 'max_path_count', 'ok_count', 'no_path_count', 'all_paths_broken_count', 'all_paths_unexplorable_count', 'all_paths_broken_or_unexplorable_count', 'timeout_count', 'internal_error_count', 'unknown_count'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour, ['hour_index', u'start_time', u'return_code', u'completion_time_count', u'completion_time', u'min_completion_time', u'max_completion_time', u'sum_completion_time', u'path_count', u'min_path_count', u'max_path_count', u'ok_count', u'no_path_count', u'all_paths_broken_count', u'all_paths_unexplorable_count', u'all_paths_broken_or_unexplorable_count', u'timeout_count', u'internal_error_count', u'unknown_count'], name, value)
 
 
                                     class TargetAddress(Entity):
@@ -3288,8 +3245,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget))])
                                             self._leafs = OrderedDict([
                                                 ('target_type', YLeaf(YType.enumeration, 'target-type')),
                                                 ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
@@ -3302,21 +3258,18 @@ class Ipsla(Entity):
                                             self.ipv4_prefix_target = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget()
                                             self.ipv4_prefix_target.parent = self
                                             self._children_name_map["ipv4_prefix_target"] = "ipv4-prefix-target"
-                                            self._children_yang_names.add("ipv4-prefix-target")
 
                                             self.tunnel_id_target = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget()
                                             self.tunnel_id_target.parent = self
                                             self._children_name_map["tunnel_id_target"] = "tunnel-id-target"
-                                            self._children_yang_names.add("tunnel-id-target")
 
                                             self.ipv4_pseudowire_target = Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget()
                                             self.ipv4_pseudowire_target.parent = self
                                             self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
-                                            self._children_yang_names.add("ipv4-pseudowire-target")
                                             self._segment_path = lambda: "target-address"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
 
 
                                         class Ipv4PrefixTarget(Entity):
@@ -3352,8 +3305,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                     ('mask_length', YLeaf(YType.uint8, 'mask-length')),
@@ -3363,7 +3315,7 @@ class Ipsla(Entity):
                                                 self._segment_path = lambda: "ipv4-prefix-target"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
                                         class TunnelIdTarget(Entity):
@@ -3392,8 +3344,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                                                 ])
@@ -3401,7 +3352,7 @@ class Ipsla(Entity):
                                                 self._segment_path = lambda: "tunnel-id-target"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
                                         class Ipv4PseudowireTarget(Entity):
@@ -3437,8 +3388,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                     ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
@@ -3448,7 +3398,7 @@ class Ipsla(Entity):
                                                 self._segment_path = lambda: "ipv4-pseudowire-target"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
                     class Status(Entity):
@@ -3480,20 +3430,20 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("lpd-paths", ("lpd_paths", Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths)), ("state", ("state", Ipsla.OperationData.Operations.Operation.Lpd.Status.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("lpd-paths", ("lpd_paths", Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths)), ("state", ("state", Ipsla.OperationData.Operations.Operation.Lpd.Status.State))])
                             self._leafs = OrderedDict()
 
                             self.lpd_paths = Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths()
                             self.lpd_paths.parent = self
                             self._children_name_map["lpd_paths"] = "lpd-paths"
-                            self._children_yang_names.add("lpd-paths")
 
                             self.state = Ipsla.OperationData.Operations.Operation.Lpd.Status.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "status"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status, [], name, value)
 
 
                         class LpdPaths(Entity):
@@ -3520,8 +3470,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("lpd-path", ("lpd_path", Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath))])
+                                self._child_classes = OrderedDict([("lpd-path", ("lpd_path", Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath))])
                                 self._leafs = OrderedDict()
 
                                 self.lpd_path = YList(self)
@@ -3541,7 +3490,7 @@ class Ipsla(Entity):
                                 	LPD path index
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: path_id
                                 
@@ -3568,10 +3517,9 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['path_index']
-                                    self._child_container_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId))])
                                     self._leafs = OrderedDict([
-                                        ('path_index', YLeaf(YType.int32, 'path-index')),
+                                        ('path_index', YLeaf(YType.uint32, 'path-index')),
                                         ('path_status', YLeaf(YType.enumeration, 'path-status')),
                                     ])
                                     self.path_index = None
@@ -3580,11 +3528,10 @@ class Ipsla(Entity):
                                     self.path_id = Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId()
                                     self.path_id.parent = self
                                     self._children_name_map["path_id"] = "path-id"
-                                    self._children_yang_names.add("path-id")
                                     self._segment_path = lambda: "lpd-path" + "[path-index='" + str(self.path_index) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath, ['path_index', 'path_status'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath, ['path_index', u'path_status'], name, value)
 
 
                                 class PathId(Entity):
@@ -3634,8 +3581,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
                                             ('output_interface', YLeaf(YType.str, 'output-interface')),
@@ -3649,7 +3595,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "path-id"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
 
 
                         class State(Entity):
@@ -3714,8 +3660,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress))])
                                 self._leafs = OrderedDict([
                                     ('monitor_id', YLeaf(YType.uint32, 'monitor-id')),
                                     ('discovery_mode', YLeaf(YType.enumeration, 'discovery-mode')),
@@ -3734,11 +3679,10 @@ class Ipsla(Entity):
                                 self.target_address = Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress()
                                 self.target_address.parent = self
                                 self._children_name_map["target_address"] = "target-address"
-                                self._children_yang_names.add("target-address")
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State, ['monitor_id', 'discovery_mode', 'start_time', 'return_code', 'completion_time', 'path_count'], name, value)
+                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State, [u'monitor_id', u'discovery_mode', u'start_time', u'return_code', u'completion_time', u'path_count'], name, value)
 
 
                             class TargetAddress(Entity):
@@ -3794,8 +3738,7 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget))])
                                     self._leafs = OrderedDict([
                                         ('target_type', YLeaf(YType.enumeration, 'target-type')),
                                         ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
@@ -3808,21 +3751,18 @@ class Ipsla(Entity):
                                     self.ipv4_prefix_target = Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget()
                                     self.ipv4_prefix_target.parent = self
                                     self._children_name_map["ipv4_prefix_target"] = "ipv4-prefix-target"
-                                    self._children_yang_names.add("ipv4-prefix-target")
 
                                     self.tunnel_id_target = Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget()
                                     self.tunnel_id_target.parent = self
                                     self._children_name_map["tunnel_id_target"] = "tunnel-id-target"
-                                    self._children_yang_names.add("tunnel-id-target")
 
                                     self.ipv4_pseudowire_target = Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget()
                                     self.ipv4_pseudowire_target.parent = self
                                     self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
-                                    self._children_yang_names.add("ipv4-pseudowire-target")
                                     self._segment_path = lambda: "target-address"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
 
 
                                 class Ipv4PrefixTarget(Entity):
@@ -3858,8 +3798,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('mask_length', YLeaf(YType.uint8, 'mask-length')),
@@ -3869,7 +3808,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "ipv4-prefix-target"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
                                 class TunnelIdTarget(Entity):
@@ -3898,8 +3837,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                                         ])
@@ -3907,7 +3845,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "tunnel-id-target"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
                                 class Ipv4PseudowireTarget(Entity):
@@ -3943,8 +3881,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
@@ -3954,7 +3891,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "ipv4-pseudowire-target"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
                 class History(Entity):
@@ -3986,20 +3923,20 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("path", ("path", Ipsla.OperationData.Operations.Operation.History.Path)), ("target", ("target", Ipsla.OperationData.Operations.Operation.History.Target))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("path", ("path", Ipsla.OperationData.Operations.Operation.History.Path)), ("target", ("target", Ipsla.OperationData.Operations.Operation.History.Target))])
                         self._leafs = OrderedDict()
 
                         self.path = Ipsla.OperationData.Operations.Operation.History.Path()
                         self.path.parent = self
                         self._children_name_map["path"] = "path"
-                        self._children_yang_names.add("path")
 
                         self.target = Ipsla.OperationData.Operations.Operation.History.Target()
                         self.target.parent = self
                         self._children_name_map["target"] = "target"
-                        self._children_yang_names.add("target")
                         self._segment_path = lambda: "history"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.History, [], name, value)
 
 
                     class Path(Entity):
@@ -4027,15 +3964,16 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("lifes", ("lifes", Ipsla.OperationData.Operations.Operation.History.Path.Lifes))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("lifes", ("lifes", Ipsla.OperationData.Operations.Operation.History.Path.Lifes))])
                             self._leafs = OrderedDict()
 
                             self.lifes = Ipsla.OperationData.Operations.Operation.History.Path.Lifes()
                             self.lifes.parent = self
                             self._children_name_map["lifes"] = "lifes"
-                            self._children_yang_names.add("lifes")
                             self._segment_path = lambda: "path"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path, [], name, value)
 
 
                         class Lifes(Entity):
@@ -4062,8 +4000,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("life", ("life", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life))])
+                                self._child_classes = OrderedDict([("life", ("life", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life))])
                                 self._leafs = OrderedDict()
 
                                 self.life = YList(self)
@@ -4083,7 +4020,7 @@ class Ipsla(Entity):
                                 	Life Index
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: buckets
                                 
@@ -4105,17 +4042,15 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['life_index']
-                                    self._child_container_classes = OrderedDict([("buckets", ("buckets", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("buckets", ("buckets", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets))])
                                     self._leafs = OrderedDict([
-                                        ('life_index', YLeaf(YType.int32, 'life-index')),
+                                        ('life_index', YLeaf(YType.uint32, 'life-index')),
                                     ])
                                     self.life_index = None
 
                                     self.buckets = Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets()
                                     self.buckets.parent = self
                                     self._children_name_map["buckets"] = "buckets"
-                                    self._children_yang_names.add("buckets")
                                     self._segment_path = lambda: "life" + "[life-index='" + str(self.life_index) + "']"
 
                                 def __setattr__(self, name, value):
@@ -4147,8 +4082,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bucket", ("bucket", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket))])
+                                        self._child_classes = OrderedDict([("bucket", ("bucket", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket))])
                                         self._leafs = OrderedDict()
 
                                         self.bucket = YList(self)
@@ -4167,7 +4101,7 @@ class Ipsla(Entity):
                                         	Bucket Index
                                         	**type**\: int
                                         
-                                        	**range:** \-2147483648..2147483647
+                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: samples
                                         
@@ -4189,17 +4123,15 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['bucket_index']
-                                            self._child_container_classes = OrderedDict([("samples", ("samples", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("samples", ("samples", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples))])
                                             self._leafs = OrderedDict([
-                                                ('bucket_index', YLeaf(YType.int32, 'bucket-index')),
+                                                ('bucket_index', YLeaf(YType.uint32, 'bucket-index')),
                                             ])
                                             self.bucket_index = None
 
                                             self.samples = Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples()
                                             self.samples.parent = self
                                             self._children_name_map["samples"] = "samples"
-                                            self._children_yang_names.add("samples")
                                             self._segment_path = lambda: "bucket" + "[bucket-index='" + str(self.bucket_index) + "']"
 
                                         def __setattr__(self, name, value):
@@ -4230,8 +4162,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("sample", ("sample", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample))])
+                                                self._child_classes = OrderedDict([("sample", ("sample", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample))])
                                                 self._leafs = OrderedDict()
 
                                                 self.sample = YList(self)
@@ -4250,7 +4181,7 @@ class Ipsla(Entity):
                                                 	Sample Index
                                                 	**type**\: int
                                                 
-                                                	**range:** \-2147483648..2147483647
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: target_address
                                                 
@@ -4293,10 +4224,9 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['sample_index']
-                                                    self._child_container_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress))])
                                                     self._leafs = OrderedDict([
-                                                        ('sample_index', YLeaf(YType.int32, 'sample-index')),
+                                                        ('sample_index', YLeaf(YType.uint32, 'sample-index')),
                                                         ('start_time', YLeaf(YType.uint64, 'start-time')),
                                                         ('response_time', YLeaf(YType.uint32, 'response-time')),
                                                         ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -4309,11 +4239,10 @@ class Ipsla(Entity):
                                                     self.target_address = Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress()
                                                     self.target_address.parent = self
                                                     self._children_name_map["target_address"] = "target-address"
-                                                    self._children_yang_names.add("target-address")
                                                     self._segment_path = lambda: "sample" + "[sample-index='" + str(self.sample_index) + "']"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample, ['sample_index', 'start_time', 'response_time', 'return_code'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample, ['sample_index', u'start_time', u'response_time', u'return_code'], name, value)
 
 
                                                 class TargetAddress(Entity):
@@ -4369,8 +4298,7 @@ class Ipsla(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget))])
                                                         self._leafs = OrderedDict([
                                                             ('target_type', YLeaf(YType.enumeration, 'target-type')),
                                                             ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
@@ -4383,21 +4311,18 @@ class Ipsla(Entity):
                                                         self.ipv4_prefix_target = Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget()
                                                         self.ipv4_prefix_target.parent = self
                                                         self._children_name_map["ipv4_prefix_target"] = "ipv4-prefix-target"
-                                                        self._children_yang_names.add("ipv4-prefix-target")
 
                                                         self.tunnel_id_target = Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget()
                                                         self.tunnel_id_target.parent = self
                                                         self._children_name_map["tunnel_id_target"] = "tunnel-id-target"
-                                                        self._children_yang_names.add("tunnel-id-target")
 
                                                         self.ipv4_pseudowire_target = Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget()
                                                         self.ipv4_pseudowire_target.parent = self
                                                         self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
-                                                        self._children_yang_names.add("ipv4-pseudowire-target")
                                                         self._segment_path = lambda: "target-address"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
+                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
 
 
                                                     class Ipv4PrefixTarget(Entity):
@@ -4433,8 +4358,7 @@ class Ipsla(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('address', YLeaf(YType.str, 'address')),
                                                                 ('mask_length', YLeaf(YType.uint8, 'mask-length')),
@@ -4444,7 +4368,7 @@ class Ipsla(Entity):
                                                             self._segment_path = lambda: "ipv4-prefix-target"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
                                                     class TunnelIdTarget(Entity):
@@ -4473,8 +4397,7 @@ class Ipsla(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                                                             ])
@@ -4482,7 +4405,7 @@ class Ipsla(Entity):
                                                             self._segment_path = lambda: "tunnel-id-target"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
                                                     class Ipv4PseudowireTarget(Entity):
@@ -4518,8 +4441,7 @@ class Ipsla(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('address', YLeaf(YType.str, 'address')),
                                                                 ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
@@ -4529,7 +4451,7 @@ class Ipsla(Entity):
                                                             self._segment_path = lambda: "ipv4-pseudowire-target"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
                     class Target(Entity):
@@ -4556,15 +4478,16 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("lifes", ("lifes", Ipsla.OperationData.Operations.Operation.History.Target.Lifes))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("lifes", ("lifes", Ipsla.OperationData.Operations.Operation.History.Target.Lifes))])
                             self._leafs = OrderedDict()
 
                             self.lifes = Ipsla.OperationData.Operations.Operation.History.Target.Lifes()
                             self.lifes.parent = self
                             self._children_name_map["lifes"] = "lifes"
-                            self._children_yang_names.add("lifes")
                             self._segment_path = lambda: "target"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target, [], name, value)
 
 
                         class Lifes(Entity):
@@ -4591,8 +4514,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("life", ("life", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life))])
+                                self._child_classes = OrderedDict([("life", ("life", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life))])
                                 self._leafs = OrderedDict()
 
                                 self.life = YList(self)
@@ -4612,7 +4534,7 @@ class Ipsla(Entity):
                                 	Life Index
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: buckets
                                 
@@ -4634,17 +4556,15 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['life_index']
-                                    self._child_container_classes = OrderedDict([("buckets", ("buckets", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("buckets", ("buckets", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets))])
                                     self._leafs = OrderedDict([
-                                        ('life_index', YLeaf(YType.int32, 'life-index')),
+                                        ('life_index', YLeaf(YType.uint32, 'life-index')),
                                     ])
                                     self.life_index = None
 
                                     self.buckets = Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets()
                                     self.buckets.parent = self
                                     self._children_name_map["buckets"] = "buckets"
-                                    self._children_yang_names.add("buckets")
                                     self._segment_path = lambda: "life" + "[life-index='" + str(self.life_index) + "']"
 
                                 def __setattr__(self, name, value):
@@ -4676,8 +4596,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bucket", ("bucket", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket))])
+                                        self._child_classes = OrderedDict([("bucket", ("bucket", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket))])
                                         self._leafs = OrderedDict()
 
                                         self.bucket = YList(self)
@@ -4696,7 +4615,7 @@ class Ipsla(Entity):
                                         	Bucket Index
                                         	**type**\: int
                                         
-                                        	**range:** \-2147483648..2147483647
+                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: target_address
                                         
@@ -4739,10 +4658,9 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['bucket_index']
-                                            self._child_container_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress))])
                                             self._leafs = OrderedDict([
-                                                ('bucket_index', YLeaf(YType.int32, 'bucket-index')),
+                                                ('bucket_index', YLeaf(YType.uint32, 'bucket-index')),
                                                 ('start_time', YLeaf(YType.uint64, 'start-time')),
                                                 ('response_time', YLeaf(YType.uint32, 'response-time')),
                                                 ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -4755,11 +4673,10 @@ class Ipsla(Entity):
                                             self.target_address = Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress()
                                             self.target_address.parent = self
                                             self._children_name_map["target_address"] = "target-address"
-                                            self._children_yang_names.add("target-address")
                                             self._segment_path = lambda: "bucket" + "[bucket-index='" + str(self.bucket_index) + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket, ['bucket_index', 'start_time', 'response_time', 'return_code'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket, ['bucket_index', u'start_time', u'response_time', u'return_code'], name, value)
 
 
                                         class TargetAddress(Entity):
@@ -4815,8 +4732,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget))])
                                                 self._leafs = OrderedDict([
                                                     ('target_type', YLeaf(YType.enumeration, 'target-type')),
                                                     ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
@@ -4829,21 +4745,18 @@ class Ipsla(Entity):
                                                 self.ipv4_prefix_target = Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget()
                                                 self.ipv4_prefix_target.parent = self
                                                 self._children_name_map["ipv4_prefix_target"] = "ipv4-prefix-target"
-                                                self._children_yang_names.add("ipv4-prefix-target")
 
                                                 self.tunnel_id_target = Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget()
                                                 self.tunnel_id_target.parent = self
                                                 self._children_name_map["tunnel_id_target"] = "tunnel-id-target"
-                                                self._children_yang_names.add("tunnel-id-target")
 
                                                 self.ipv4_pseudowire_target = Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget()
                                                 self.ipv4_pseudowire_target.parent = self
                                                 self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
-                                                self._children_yang_names.add("ipv4-pseudowire-target")
                                                 self._segment_path = lambda: "target-address"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
 
 
                                             class Ipv4PrefixTarget(Entity):
@@ -4879,8 +4792,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('address', YLeaf(YType.str, 'address')),
                                                         ('mask_length', YLeaf(YType.uint8, 'mask-length')),
@@ -4890,7 +4802,7 @@ class Ipsla(Entity):
                                                     self._segment_path = lambda: "ipv4-prefix-target"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
                                             class TunnelIdTarget(Entity):
@@ -4919,8 +4831,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                                                     ])
@@ -4928,7 +4839,7 @@ class Ipsla(Entity):
                                                     self._segment_path = lambda: "tunnel-id-target"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
                                             class Ipv4PseudowireTarget(Entity):
@@ -4964,8 +4875,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('address', YLeaf(YType.str, 'address')),
                                                         ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
@@ -4975,7 +4885,7 @@ class Ipsla(Entity):
                                                     self._segment_path = lambda: "ipv4-pseudowire-target"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
                 class Statistics(Entity):
@@ -5007,20 +4917,20 @@ class Ipsla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("latest", ("latest", Ipsla.OperationData.Operations.Operation.Statistics.Latest)), ("aggregated", ("aggregated", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("latest", ("latest", Ipsla.OperationData.Operations.Operation.Statistics.Latest)), ("aggregated", ("aggregated", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated))])
                         self._leafs = OrderedDict()
 
                         self.latest = Ipsla.OperationData.Operations.Operation.Statistics.Latest()
                         self.latest.parent = self
                         self._children_name_map["latest"] = "latest"
-                        self._children_yang_names.add("latest")
 
                         self.aggregated = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated()
                         self.aggregated.parent = self
                         self._children_name_map["aggregated"] = "aggregated"
-                        self._children_yang_names.add("aggregated")
                         self._segment_path = lambda: "statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics, [], name, value)
 
 
                     class Latest(Entity):
@@ -5058,25 +4968,24 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("target", ("target", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target)), ("hops", ("hops", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops)), ("lpd-paths", ("lpd_paths", Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("target", ("target", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target)), ("hops", ("hops", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops)), ("lpd-paths", ("lpd_paths", Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths))])
                             self._leafs = OrderedDict()
 
                             self.target = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target()
                             self.target.parent = self
                             self._children_name_map["target"] = "target"
-                            self._children_yang_names.add("target")
 
                             self.hops = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops()
                             self.hops.parent = self
                             self._children_name_map["hops"] = "hops"
-                            self._children_yang_names.add("hops")
 
                             self.lpd_paths = Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths()
                             self.lpd_paths.parent = self
                             self._children_name_map["lpd_paths"] = "lpd-paths"
-                            self._children_yang_names.add("lpd-paths")
                             self._segment_path = lambda: "latest"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest, [], name, value)
 
 
                         class Target(Entity):
@@ -5108,20 +5017,20 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats))])
                                 self._leafs = OrderedDict()
 
                                 self.common_stats = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats()
                                 self.common_stats.parent = self
                                 self._children_name_map["common_stats"] = "common-stats"
-                                self._children_yang_names.add("common-stats")
 
                                 self.specific_stats = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats()
                                 self.specific_stats.parent = self
                                 self._children_name_map["specific_stats"] = "specific-stats"
-                                self._children_yang_names.add("specific-stats")
                                 self._segment_path = lambda: "target"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target, [], name, value)
 
 
                             class CommonStats(Entity):
@@ -5267,8 +5176,7 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('operation_time', YLeaf(YType.uint64, 'operation-time')),
                                         ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -5310,7 +5218,7 @@ class Ipsla(Entity):
                                     self._segment_path = lambda: "common-stats"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
                             class SpecificStats(Entity):
@@ -5347,8 +5255,7 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats))])
                                     self._leafs = OrderedDict([
                                         ('op_type', YLeaf(YType.enumeration, 'op-type')),
                                     ])
@@ -5357,16 +5264,14 @@ class Ipsla(Entity):
                                     self.icmp_path_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats()
                                     self.icmp_path_jitter_stats.parent = self
                                     self._children_name_map["icmp_path_jitter_stats"] = "icmp-path-jitter-stats"
-                                    self._children_yang_names.add("icmp-path-jitter-stats")
 
                                     self.udp_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats()
                                     self.udp_jitter_stats.parent = self
                                     self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
-                                    self._children_yang_names.add("udp-jitter-stats")
                                     self._segment_path = lambda: "specific-stats"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats, ['op_type'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats, [u'op_type'], name, value)
 
 
                                 class IcmpPathJitterStats(Entity):
@@ -5577,8 +5482,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('source_address', YLeaf(YType.str, 'source-address')),
                                             ('dest_address', YLeaf(YType.str, 'dest-address')),
@@ -5638,7 +5542,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "icmp-path-jitter-stats"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
                                 class UdpJitterStats(Entity):
@@ -5948,8 +5852,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
                                             ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
@@ -6035,7 +5938,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "udp-jitter-stats"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
                         class Hops(Entity):
@@ -6063,8 +5966,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("hop", ("hop", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop))])
+                                self._child_classes = OrderedDict([("hop", ("hop", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop))])
                                 self._leafs = OrderedDict()
 
                                 self.hop = YList(self)
@@ -6084,7 +5986,7 @@ class Ipsla(Entity):
                                 	Hop Index
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: common_stats
                                 
@@ -6111,22 +6013,19 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['hop_index']
-                                    self._child_container_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats))])
                                     self._leafs = OrderedDict([
-                                        ('hop_index', YLeaf(YType.int32, 'hop-index')),
+                                        ('hop_index', YLeaf(YType.uint32, 'hop-index')),
                                     ])
                                     self.hop_index = None
 
                                     self.common_stats = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats()
                                     self.common_stats.parent = self
                                     self._children_name_map["common_stats"] = "common-stats"
-                                    self._children_yang_names.add("common-stats")
 
                                     self.specific_stats = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats()
                                     self.specific_stats.parent = self
                                     self._children_name_map["specific_stats"] = "specific-stats"
-                                    self._children_yang_names.add("specific-stats")
                                     self._segment_path = lambda: "hop" + "[hop-index='" + str(self.hop_index) + "']"
 
                                 def __setattr__(self, name, value):
@@ -6276,8 +6175,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('operation_time', YLeaf(YType.uint64, 'operation-time')),
                                             ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -6319,7 +6217,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "common-stats"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
                                 class SpecificStats(Entity):
@@ -6356,8 +6254,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats))])
                                         self._leafs = OrderedDict([
                                             ('op_type', YLeaf(YType.enumeration, 'op-type')),
                                         ])
@@ -6366,16 +6263,14 @@ class Ipsla(Entity):
                                         self.icmp_path_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats()
                                         self.icmp_path_jitter_stats.parent = self
                                         self._children_name_map["icmp_path_jitter_stats"] = "icmp-path-jitter-stats"
-                                        self._children_yang_names.add("icmp-path-jitter-stats")
 
                                         self.udp_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats()
                                         self.udp_jitter_stats.parent = self
                                         self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
-                                        self._children_yang_names.add("udp-jitter-stats")
                                         self._segment_path = lambda: "specific-stats"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats, ['op_type'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats, [u'op_type'], name, value)
 
 
                                     class IcmpPathJitterStats(Entity):
@@ -6586,8 +6481,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('source_address', YLeaf(YType.str, 'source-address')),
                                                 ('dest_address', YLeaf(YType.str, 'dest-address')),
@@ -6647,7 +6541,7 @@ class Ipsla(Entity):
                                             self._segment_path = lambda: "icmp-path-jitter-stats"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
                                     class UdpJitterStats(Entity):
@@ -6957,8 +6851,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
                                                 ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
@@ -7044,7 +6937,7 @@ class Ipsla(Entity):
                                             self._segment_path = lambda: "udp-jitter-stats"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
                         class LpdPaths(Entity):
@@ -7071,8 +6964,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("lpd-path", ("lpd_path", Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath))])
+                                self._child_classes = OrderedDict([("lpd-path", ("lpd_path", Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath))])
                                 self._leafs = OrderedDict()
 
                                 self.lpd_path = YList(self)
@@ -7092,7 +6984,7 @@ class Ipsla(Entity):
                                 	LPD path index
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: path_id
                                 
@@ -7119,10 +7011,9 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['path_index']
-                                    self._child_container_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId))])
                                     self._leafs = OrderedDict([
-                                        ('path_index', YLeaf(YType.int32, 'path-index')),
+                                        ('path_index', YLeaf(YType.uint32, 'path-index')),
                                         ('return_code', YLeaf(YType.enumeration, 'return-code')),
                                     ])
                                     self.path_index = None
@@ -7131,11 +7022,10 @@ class Ipsla(Entity):
                                     self.path_id = Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId()
                                     self.path_id.parent = self
                                     self._children_name_map["path_id"] = "path-id"
-                                    self._children_yang_names.add("path-id")
                                     self._segment_path = lambda: "lpd-path" + "[path-index='" + str(self.path_index) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath, ['path_index', 'return_code'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath, ['path_index', u'return_code'], name, value)
 
 
                                 class PathId(Entity):
@@ -7185,8 +7075,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
                                             ('output_interface', YLeaf(YType.str, 'output-interface')),
@@ -7200,7 +7089,7 @@ class Ipsla(Entity):
                                         self._segment_path = lambda: "path-id"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
 
 
                     class Aggregated(Entity):
@@ -7233,20 +7122,20 @@ class Ipsla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("enhanced-intervals", ("enhanced_intervals", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals)), ("hours", ("hours", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("enhanced-intervals", ("enhanced_intervals", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals)), ("hours", ("hours", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours))])
                             self._leafs = OrderedDict()
 
                             self.enhanced_intervals = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals()
                             self.enhanced_intervals.parent = self
                             self._children_name_map["enhanced_intervals"] = "enhanced-intervals"
-                            self._children_yang_names.add("enhanced-intervals")
 
                             self.hours = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours()
                             self.hours.parent = self
                             self._children_name_map["hours"] = "hours"
-                            self._children_yang_names.add("hours")
                             self._segment_path = lambda: "aggregated"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated, [], name, value)
 
 
                         class EnhancedIntervals(Entity):
@@ -7274,8 +7163,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("enhanced-interval", ("enhanced_interval", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval))])
+                                self._child_classes = OrderedDict([("enhanced-interval", ("enhanced_interval", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval))])
                                 self._leafs = OrderedDict()
 
                                 self.enhanced_interval = YList(self)
@@ -7297,7 +7185,7 @@ class Ipsla(Entity):
                                 	Enhanced Interval in seconds
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 	**units**\: second
                                 
@@ -7321,17 +7209,15 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['enhanced_interval']
-                                    self._child_container_classes = OrderedDict([("start-times", ("start_times", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("start-times", ("start_times", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes))])
                                     self._leafs = OrderedDict([
-                                        ('enhanced_interval', YLeaf(YType.int32, 'enhanced-interval')),
+                                        ('enhanced_interval', YLeaf(YType.uint32, 'enhanced-interval')),
                                     ])
                                     self.enhanced_interval = None
 
                                     self.start_times = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes()
                                     self.start_times.parent = self
                                     self._children_name_map["start_times"] = "start-times"
-                                    self._children_yang_names.add("start-times")
                                     self._segment_path = lambda: "enhanced-interval" + "[enhanced-interval='" + str(self.enhanced_interval) + "']"
 
                                 def __setattr__(self, name, value):
@@ -7362,8 +7248,7 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("start-time", ("start_time", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime))])
+                                        self._child_classes = OrderedDict([("start-time", ("start_time", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime))])
                                         self._leafs = OrderedDict()
 
                                         self.start_time = YList(self)
@@ -7410,8 +7295,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['interval_start_time']
-                                            self._child_container_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats))])
                                             self._leafs = OrderedDict([
                                                 ('interval_start_time', YLeaf(YType.str, 'interval-start-time')),
                                             ])
@@ -7420,12 +7304,10 @@ class Ipsla(Entity):
                                             self.common_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats()
                                             self.common_stats.parent = self
                                             self._children_name_map["common_stats"] = "common-stats"
-                                            self._children_yang_names.add("common-stats")
 
                                             self.specific_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats()
                                             self.specific_stats.parent = self
                                             self._children_name_map["specific_stats"] = "specific-stats"
-                                            self._children_yang_names.add("specific-stats")
                                             self._segment_path = lambda: "start-time" + "[interval-start-time='" + str(self.interval_start_time) + "']"
 
                                         def __setattr__(self, name, value):
@@ -7575,8 +7457,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('operation_time', YLeaf(YType.uint64, 'operation-time')),
                                                     ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -7618,7 +7499,7 @@ class Ipsla(Entity):
                                                 self._segment_path = lambda: "common-stats"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
                                         class SpecificStats(Entity):
@@ -7655,8 +7536,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats))])
                                                 self._leafs = OrderedDict([
                                                     ('op_type', YLeaf(YType.enumeration, 'op-type')),
                                                 ])
@@ -7665,16 +7545,14 @@ class Ipsla(Entity):
                                                 self.icmp_path_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats()
                                                 self.icmp_path_jitter_stats.parent = self
                                                 self._children_name_map["icmp_path_jitter_stats"] = "icmp-path-jitter-stats"
-                                                self._children_yang_names.add("icmp-path-jitter-stats")
 
                                                 self.udp_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats()
                                                 self.udp_jitter_stats.parent = self
                                                 self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
-                                                self._children_yang_names.add("udp-jitter-stats")
                                                 self._segment_path = lambda: "specific-stats"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats, ['op_type'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats, [u'op_type'], name, value)
 
 
                                             class IcmpPathJitterStats(Entity):
@@ -7885,8 +7763,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('source_address', YLeaf(YType.str, 'source-address')),
                                                         ('dest_address', YLeaf(YType.str, 'dest-address')),
@@ -7946,7 +7823,7 @@ class Ipsla(Entity):
                                                     self._segment_path = lambda: "icmp-path-jitter-stats"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
                                             class UdpJitterStats(Entity):
@@ -8256,8 +8133,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
                                                         ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
@@ -8343,7 +8219,7 @@ class Ipsla(Entity):
                                                     self._segment_path = lambda: "udp-jitter-stats"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
                         class Hours(Entity):
@@ -8371,8 +8247,7 @@ class Ipsla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("hour", ("hour", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour))])
+                                self._child_classes = OrderedDict([("hour", ("hour", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour))])
                                 self._leafs = OrderedDict()
 
                                 self.hour = YList(self)
@@ -8392,7 +8267,7 @@ class Ipsla(Entity):
                                 	Hour Index
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: distributed
                                 
@@ -8419,22 +8294,19 @@ class Ipsla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['hour_index']
-                                    self._child_container_classes = OrderedDict([("distributed", ("distributed", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed)), ("non-distributed", ("non_distributed", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("distributed", ("distributed", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed)), ("non-distributed", ("non_distributed", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed))])
                                     self._leafs = OrderedDict([
-                                        ('hour_index', YLeaf(YType.int32, 'hour-index')),
+                                        ('hour_index', YLeaf(YType.uint32, 'hour-index')),
                                     ])
                                     self.hour_index = None
 
                                     self.distributed = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed()
                                     self.distributed.parent = self
                                     self._children_name_map["distributed"] = "distributed"
-                                    self._children_yang_names.add("distributed")
 
                                     self.non_distributed = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed()
                                     self.non_distributed.parent = self
                                     self._children_name_map["non_distributed"] = "non-distributed"
-                                    self._children_yang_names.add("non-distributed")
                                     self._segment_path = lambda: "hour" + "[hour-index='" + str(self.hour_index) + "']"
 
                                 def __setattr__(self, name, value):
@@ -8471,20 +8343,20 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("paths", ("paths", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths)), ("target", ("target", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("paths", ("paths", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths)), ("target", ("target", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target))])
                                         self._leafs = OrderedDict()
 
                                         self.paths = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths()
                                         self.paths.parent = self
                                         self._children_name_map["paths"] = "paths"
-                                        self._children_yang_names.add("paths")
 
                                         self.target = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target()
                                         self.target.parent = self
                                         self._children_name_map["target"] = "target"
-                                        self._children_yang_names.add("target")
                                         self._segment_path = lambda: "distributed"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed, [], name, value)
 
 
                                     class Paths(Entity):
@@ -8512,8 +8384,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("path", ("path", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path))])
+                                            self._child_classes = OrderedDict([("path", ("path", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path))])
                                             self._leafs = OrderedDict()
 
                                             self.path = YList(self)
@@ -8532,7 +8403,7 @@ class Ipsla(Entity):
                                             	Path Index
                                             	**type**\: int
                                             
-                                            	**range:** \-2147483648..2147483647
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: hops
                                             
@@ -8554,17 +8425,15 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['path_index']
-                                                self._child_container_classes = OrderedDict([("hops", ("hops", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("hops", ("hops", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops))])
                                                 self._leafs = OrderedDict([
-                                                    ('path_index', YLeaf(YType.int32, 'path-index')),
+                                                    ('path_index', YLeaf(YType.uint32, 'path-index')),
                                                 ])
                                                 self.path_index = None
 
                                                 self.hops = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops()
                                                 self.hops.parent = self
                                                 self._children_name_map["hops"] = "hops"
-                                                self._children_yang_names.add("hops")
                                                 self._segment_path = lambda: "path" + "[path-index='" + str(self.path_index) + "']"
 
                                             def __setattr__(self, name, value):
@@ -8595,8 +8464,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("hop", ("hop", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop))])
+                                                    self._child_classes = OrderedDict([("hop", ("hop", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop))])
                                                     self._leafs = OrderedDict()
 
                                                     self.hop = YList(self)
@@ -8616,7 +8484,7 @@ class Ipsla(Entity):
                                                     	Hop Index
                                                     	**type**\: int
                                                     
-                                                    	**range:** \-2147483648..2147483647
+                                                    	**range:** 0..4294967295
                                                     
                                                     .. attribute:: distribution_intervals
                                                     
@@ -8638,17 +8506,15 @@ class Ipsla(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['hop_index']
-                                                        self._child_container_classes = OrderedDict([("distribution-intervals", ("distribution_intervals", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("distribution-intervals", ("distribution_intervals", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals))])
                                                         self._leafs = OrderedDict([
-                                                            ('hop_index', YLeaf(YType.int32, 'hop-index')),
+                                                            ('hop_index', YLeaf(YType.uint32, 'hop-index')),
                                                         ])
                                                         self.hop_index = None
 
                                                         self.distribution_intervals = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals()
                                                         self.distribution_intervals.parent = self
                                                         self._children_name_map["distribution_intervals"] = "distribution-intervals"
-                                                        self._children_yang_names.add("distribution-intervals")
                                                         self._segment_path = lambda: "hop" + "[hop-index='" + str(self.hop_index) + "']"
 
                                                     def __setattr__(self, name, value):
@@ -8680,8 +8546,7 @@ class Ipsla(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([("distribution-interval", ("distribution_interval", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval))])
+                                                            self._child_classes = OrderedDict([("distribution-interval", ("distribution_interval", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval))])
                                                             self._leafs = OrderedDict()
 
                                                             self.distribution_interval = YList(self)
@@ -8701,7 +8566,7 @@ class Ipsla(Entity):
                                                             	Distribution Interval
                                                             	**type**\: int
                                                             
-                                                            	**range:** \-2147483648..2147483647
+                                                            	**range:** 0..4294967295
                                                             
                                                             .. attribute:: common_stats
                                                             
@@ -8728,22 +8593,19 @@ class Ipsla(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = ['distribution_index']
-                                                                self._child_container_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats))])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats))])
                                                                 self._leafs = OrderedDict([
-                                                                    ('distribution_index', YLeaf(YType.int32, 'distribution-index')),
+                                                                    ('distribution_index', YLeaf(YType.uint32, 'distribution-index')),
                                                                 ])
                                                                 self.distribution_index = None
 
                                                                 self.common_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats()
                                                                 self.common_stats.parent = self
                                                                 self._children_name_map["common_stats"] = "common-stats"
-                                                                self._children_yang_names.add("common-stats")
 
                                                                 self.specific_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats()
                                                                 self.specific_stats.parent = self
                                                                 self._children_name_map["specific_stats"] = "specific-stats"
-                                                                self._children_yang_names.add("specific-stats")
                                                                 self._segment_path = lambda: "distribution-interval" + "[distribution-index='" + str(self.distribution_index) + "']"
 
                                                             def __setattr__(self, name, value):
@@ -8893,8 +8755,7 @@ class Ipsla(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([])
                                                                     self._leafs = OrderedDict([
                                                                         ('operation_time', YLeaf(YType.uint64, 'operation-time')),
                                                                         ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -8936,7 +8797,7 @@ class Ipsla(Entity):
                                                                     self._segment_path = lambda: "common-stats"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
+                                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
                                                             class SpecificStats(Entity):
@@ -8973,8 +8834,7 @@ class Ipsla(Entity):
                                                                     self.is_top_level_class = False
                                                                     self.has_list_ancestor = True
                                                                     self.ylist_key_names = []
-                                                                    self._child_container_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats))])
-                                                                    self._child_list_classes = OrderedDict([])
+                                                                    self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats))])
                                                                     self._leafs = OrderedDict([
                                                                         ('op_type', YLeaf(YType.enumeration, 'op-type')),
                                                                     ])
@@ -8983,16 +8843,14 @@ class Ipsla(Entity):
                                                                     self.icmp_path_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats()
                                                                     self.icmp_path_jitter_stats.parent = self
                                                                     self._children_name_map["icmp_path_jitter_stats"] = "icmp-path-jitter-stats"
-                                                                    self._children_yang_names.add("icmp-path-jitter-stats")
 
                                                                     self.udp_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats()
                                                                     self.udp_jitter_stats.parent = self
                                                                     self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
-                                                                    self._children_yang_names.add("udp-jitter-stats")
                                                                     self._segment_path = lambda: "specific-stats"
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats, ['op_type'], name, value)
+                                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats, [u'op_type'], name, value)
 
 
                                                                 class IcmpPathJitterStats(Entity):
@@ -9203,8 +9061,7 @@ class Ipsla(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
                                                                             ('source_address', YLeaf(YType.str, 'source-address')),
                                                                             ('dest_address', YLeaf(YType.str, 'dest-address')),
@@ -9264,7 +9121,7 @@ class Ipsla(Entity):
                                                                         self._segment_path = lambda: "icmp-path-jitter-stats"
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
+                                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
                                                                 class UdpJitterStats(Entity):
@@ -9574,8 +9431,7 @@ class Ipsla(Entity):
                                                                         self.is_top_level_class = False
                                                                         self.has_list_ancestor = True
                                                                         self.ylist_key_names = []
-                                                                        self._child_container_classes = OrderedDict([])
-                                                                        self._child_list_classes = OrderedDict([])
+                                                                        self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
                                                                             ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
                                                                             ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
@@ -9661,7 +9517,7 @@ class Ipsla(Entity):
                                                                         self._segment_path = lambda: "udp-jitter-stats"
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
+                                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
                                     class Target(Entity):
@@ -9689,15 +9545,16 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("distribution-intervals", ("distribution_intervals", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("distribution-intervals", ("distribution_intervals", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals))])
                                             self._leafs = OrderedDict()
 
                                             self.distribution_intervals = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals()
                                             self.distribution_intervals.parent = self
                                             self._children_name_map["distribution_intervals"] = "distribution-intervals"
-                                            self._children_yang_names.add("distribution-intervals")
                                             self._segment_path = lambda: "target"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target, [], name, value)
 
 
                                         class DistributionIntervals(Entity):
@@ -9725,8 +9582,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("distribution-interval", ("distribution_interval", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval))])
+                                                self._child_classes = OrderedDict([("distribution-interval", ("distribution_interval", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval))])
                                                 self._leafs = OrderedDict()
 
                                                 self.distribution_interval = YList(self)
@@ -9746,7 +9602,7 @@ class Ipsla(Entity):
                                                 	Distribution Interval
                                                 	**type**\: int
                                                 
-                                                	**range:** \-2147483648..2147483647
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: common_stats
                                                 
@@ -9773,22 +9629,19 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['distribution_index']
-                                                    self._child_container_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats))])
                                                     self._leafs = OrderedDict([
-                                                        ('distribution_index', YLeaf(YType.int32, 'distribution-index')),
+                                                        ('distribution_index', YLeaf(YType.uint32, 'distribution-index')),
                                                     ])
                                                     self.distribution_index = None
 
                                                     self.common_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats()
                                                     self.common_stats.parent = self
                                                     self._children_name_map["common_stats"] = "common-stats"
-                                                    self._children_yang_names.add("common-stats")
 
                                                     self.specific_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats()
                                                     self.specific_stats.parent = self
                                                     self._children_name_map["specific_stats"] = "specific-stats"
-                                                    self._children_yang_names.add("specific-stats")
                                                     self._segment_path = lambda: "distribution-interval" + "[distribution-index='" + str(self.distribution_index) + "']"
 
                                                 def __setattr__(self, name, value):
@@ -9938,8 +9791,7 @@ class Ipsla(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('operation_time', YLeaf(YType.uint64, 'operation-time')),
                                                             ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -9981,7 +9833,7 @@ class Ipsla(Entity):
                                                         self._segment_path = lambda: "common-stats"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
+                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
                                                 class SpecificStats(Entity):
@@ -10018,8 +9870,7 @@ class Ipsla(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats))])
                                                         self._leafs = OrderedDict([
                                                             ('op_type', YLeaf(YType.enumeration, 'op-type')),
                                                         ])
@@ -10028,16 +9879,14 @@ class Ipsla(Entity):
                                                         self.icmp_path_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats()
                                                         self.icmp_path_jitter_stats.parent = self
                                                         self._children_name_map["icmp_path_jitter_stats"] = "icmp-path-jitter-stats"
-                                                        self._children_yang_names.add("icmp-path-jitter-stats")
 
                                                         self.udp_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats()
                                                         self.udp_jitter_stats.parent = self
                                                         self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
-                                                        self._children_yang_names.add("udp-jitter-stats")
                                                         self._segment_path = lambda: "specific-stats"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats, ['op_type'], name, value)
+                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats, [u'op_type'], name, value)
 
 
                                                     class IcmpPathJitterStats(Entity):
@@ -10248,8 +10097,7 @@ class Ipsla(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('source_address', YLeaf(YType.str, 'source-address')),
                                                                 ('dest_address', YLeaf(YType.str, 'dest-address')),
@@ -10309,7 +10157,7 @@ class Ipsla(Entity):
                                                             self._segment_path = lambda: "icmp-path-jitter-stats"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
                                                     class UdpJitterStats(Entity):
@@ -10619,8 +10467,7 @@ class Ipsla(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
                                                                 ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
@@ -10706,7 +10553,7 @@ class Ipsla(Entity):
                                                             self._segment_path = lambda: "udp-jitter-stats"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
                                 class NonDistributed(Entity):
@@ -10744,25 +10591,24 @@ class Ipsla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("target", ("target", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target)), ("paths", ("paths", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths)), ("lpd-paths", ("lpd_paths", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("target", ("target", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target)), ("paths", ("paths", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths)), ("lpd-paths", ("lpd_paths", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths))])
                                         self._leafs = OrderedDict()
 
                                         self.target = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target()
                                         self.target.parent = self
                                         self._children_name_map["target"] = "target"
-                                        self._children_yang_names.add("target")
 
                                         self.paths = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths()
                                         self.paths.parent = self
                                         self._children_name_map["paths"] = "paths"
-                                        self._children_yang_names.add("paths")
 
                                         self.lpd_paths = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths()
                                         self.lpd_paths.parent = self
                                         self._children_name_map["lpd_paths"] = "lpd-paths"
-                                        self._children_yang_names.add("lpd-paths")
                                         self._segment_path = lambda: "non-distributed"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed, [], name, value)
 
 
                                     class Target(Entity):
@@ -10795,20 +10641,20 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats))])
                                             self._leafs = OrderedDict()
 
                                             self.common_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats()
                                             self.common_stats.parent = self
                                             self._children_name_map["common_stats"] = "common-stats"
-                                            self._children_yang_names.add("common-stats")
 
                                             self.specific_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats()
                                             self.specific_stats.parent = self
                                             self._children_name_map["specific_stats"] = "specific-stats"
-                                            self._children_yang_names.add("specific-stats")
                                             self._segment_path = lambda: "target"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target, [], name, value)
 
 
                                         class CommonStats(Entity):
@@ -10954,8 +10800,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('operation_time', YLeaf(YType.uint64, 'operation-time')),
                                                     ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -10997,7 +10842,7 @@ class Ipsla(Entity):
                                                 self._segment_path = lambda: "common-stats"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
                                         class SpecificStats(Entity):
@@ -11034,8 +10879,7 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats))])
                                                 self._leafs = OrderedDict([
                                                     ('op_type', YLeaf(YType.enumeration, 'op-type')),
                                                 ])
@@ -11044,16 +10888,14 @@ class Ipsla(Entity):
                                                 self.icmp_path_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats()
                                                 self.icmp_path_jitter_stats.parent = self
                                                 self._children_name_map["icmp_path_jitter_stats"] = "icmp-path-jitter-stats"
-                                                self._children_yang_names.add("icmp-path-jitter-stats")
 
                                                 self.udp_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats()
                                                 self.udp_jitter_stats.parent = self
                                                 self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
-                                                self._children_yang_names.add("udp-jitter-stats")
                                                 self._segment_path = lambda: "specific-stats"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats, ['op_type'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats, [u'op_type'], name, value)
 
 
                                             class IcmpPathJitterStats(Entity):
@@ -11264,8 +11106,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('source_address', YLeaf(YType.str, 'source-address')),
                                                         ('dest_address', YLeaf(YType.str, 'dest-address')),
@@ -11325,7 +11166,7 @@ class Ipsla(Entity):
                                                     self._segment_path = lambda: "icmp-path-jitter-stats"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
                                             class UdpJitterStats(Entity):
@@ -11635,8 +11476,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
                                                         ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
@@ -11722,7 +11562,7 @@ class Ipsla(Entity):
                                                     self._segment_path = lambda: "udp-jitter-stats"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
                                     class Paths(Entity):
@@ -11750,8 +11590,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("path", ("path", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path))])
+                                            self._child_classes = OrderedDict([("path", ("path", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path))])
                                             self._leafs = OrderedDict()
 
                                             self.path = YList(self)
@@ -11770,7 +11609,7 @@ class Ipsla(Entity):
                                             	Path Index
                                             	**type**\: int
                                             
-                                            	**range:** \-2147483648..2147483647
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: hops
                                             
@@ -11792,17 +11631,15 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['path_index']
-                                                self._child_container_classes = OrderedDict([("hops", ("hops", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("hops", ("hops", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops))])
                                                 self._leafs = OrderedDict([
-                                                    ('path_index', YLeaf(YType.int32, 'path-index')),
+                                                    ('path_index', YLeaf(YType.uint32, 'path-index')),
                                                 ])
                                                 self.path_index = None
 
                                                 self.hops = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops()
                                                 self.hops.parent = self
                                                 self._children_name_map["hops"] = "hops"
-                                                self._children_yang_names.add("hops")
                                                 self._segment_path = lambda: "path" + "[path-index='" + str(self.path_index) + "']"
 
                                             def __setattr__(self, name, value):
@@ -11833,8 +11670,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("hop", ("hop", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop))])
+                                                    self._child_classes = OrderedDict([("hop", ("hop", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop))])
                                                     self._leafs = OrderedDict()
 
                                                     self.hop = YList(self)
@@ -11854,7 +11690,7 @@ class Ipsla(Entity):
                                                     	Hop Index
                                                     	**type**\: int
                                                     
-                                                    	**range:** \-2147483648..2147483647
+                                                    	**range:** 0..4294967295
                                                     
                                                     .. attribute:: common_stats
                                                     
@@ -11881,22 +11717,19 @@ class Ipsla(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['hop_index']
-                                                        self._child_container_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats))])
                                                         self._leafs = OrderedDict([
-                                                            ('hop_index', YLeaf(YType.int32, 'hop-index')),
+                                                            ('hop_index', YLeaf(YType.uint32, 'hop-index')),
                                                         ])
                                                         self.hop_index = None
 
                                                         self.common_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats()
                                                         self.common_stats.parent = self
                                                         self._children_name_map["common_stats"] = "common-stats"
-                                                        self._children_yang_names.add("common-stats")
 
                                                         self.specific_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats()
                                                         self.specific_stats.parent = self
                                                         self._children_name_map["specific_stats"] = "specific-stats"
-                                                        self._children_yang_names.add("specific-stats")
                                                         self._segment_path = lambda: "hop" + "[hop-index='" + str(self.hop_index) + "']"
 
                                                     def __setattr__(self, name, value):
@@ -12046,8 +11879,7 @@ class Ipsla(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('operation_time', YLeaf(YType.uint64, 'operation-time')),
                                                                 ('return_code', YLeaf(YType.enumeration, 'return-code')),
@@ -12089,7 +11921,7 @@ class Ipsla(Entity):
                                                             self._segment_path = lambda: "common-stats"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
                                                     class SpecificStats(Entity):
@@ -12126,8 +11958,7 @@ class Ipsla(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats))])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats))])
                                                             self._leafs = OrderedDict([
                                                                 ('op_type', YLeaf(YType.enumeration, 'op-type')),
                                                             ])
@@ -12136,16 +11967,14 @@ class Ipsla(Entity):
                                                             self.icmp_path_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats()
                                                             self.icmp_path_jitter_stats.parent = self
                                                             self._children_name_map["icmp_path_jitter_stats"] = "icmp-path-jitter-stats"
-                                                            self._children_yang_names.add("icmp-path-jitter-stats")
 
                                                             self.udp_jitter_stats = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats()
                                                             self.udp_jitter_stats.parent = self
                                                             self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
-                                                            self._children_yang_names.add("udp-jitter-stats")
                                                             self._segment_path = lambda: "specific-stats"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats, ['op_type'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats, [u'op_type'], name, value)
 
 
                                                         class IcmpPathJitterStats(Entity):
@@ -12356,8 +12185,7 @@ class Ipsla(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
                                                                     ('source_address', YLeaf(YType.str, 'source-address')),
                                                                     ('dest_address', YLeaf(YType.str, 'dest-address')),
@@ -12417,7 +12245,7 @@ class Ipsla(Entity):
                                                                 self._segment_path = lambda: "icmp-path-jitter-stats"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
+                                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
                                                         class UdpJitterStats(Entity):
@@ -12727,8 +12555,7 @@ class Ipsla(Entity):
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
                                                                 self.ylist_key_names = []
-                                                                self._child_container_classes = OrderedDict([])
-                                                                self._child_list_classes = OrderedDict([])
+                                                                self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
                                                                     ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
                                                                     ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
@@ -12814,7 +12641,7 @@ class Ipsla(Entity):
                                                                 self._segment_path = lambda: "udp-jitter-stats"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
+                                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
                                     class LpdPaths(Entity):
@@ -12841,8 +12668,7 @@ class Ipsla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("lpd-path", ("lpd_path", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath))])
+                                            self._child_classes = OrderedDict([("lpd-path", ("lpd_path", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath))])
                                             self._leafs = OrderedDict()
 
                                             self.lpd_path = YList(self)
@@ -12862,7 +12688,7 @@ class Ipsla(Entity):
                                             	LPD path index
                                             	**type**\: int
                                             
-                                            	**range:** \-2147483648..2147483647
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: path_id
                                             
@@ -12889,10 +12715,9 @@ class Ipsla(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['path_index']
-                                                self._child_container_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId))])
                                                 self._leafs = OrderedDict([
-                                                    ('path_index', YLeaf(YType.int32, 'path-index')),
+                                                    ('path_index', YLeaf(YType.uint32, 'path-index')),
                                                     ('return_code', YLeaf(YType.enumeration, 'return-code')),
                                                 ])
                                                 self.path_index = None
@@ -12901,11 +12726,10 @@ class Ipsla(Entity):
                                                 self.path_id = Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId()
                                                 self.path_id.parent = self
                                                 self._children_name_map["path_id"] = "path-id"
-                                                self._children_yang_names.add("path-id")
                                                 self._segment_path = lambda: "lpd-path" + "[path-index='" + str(self.path_index) + "']"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath, ['path_index', 'return_code'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath, ['path_index', u'return_code'], name, value)
 
 
                                             class PathId(Entity):
@@ -12955,8 +12779,7 @@ class Ipsla(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
                                                         ('output_interface', YLeaf(YType.str, 'output-interface')),
@@ -12970,7 +12793,7 @@ class Ipsla(Entity):
                                                     self._segment_path = lambda: "path-id"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
 
 
     class ApplicationInfo(Entity):
@@ -13056,8 +12879,7 @@ class Ipsla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('version', YLeaf(YType.str, 'version')),
                 ('max_entries', YLeaf(YType.uint32, 'max-entries')),

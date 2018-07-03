@@ -103,7 +103,7 @@ class CfgHistGl(Entity):
     """
 
     _prefix = 'config-cfgmgr-exec-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(CfgHistGl, self).__init__()
@@ -114,8 +114,7 @@ class CfgHistGl(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("record-type", ("record_type", CfgHistGl.RecordType))])
+        self._child_classes = OrderedDict([("record-type", ("record_type", CfgHistGl.RecordType))])
         self._leafs = OrderedDict()
 
         self.record_type = YList(self)
@@ -147,7 +146,7 @@ class CfgHistGl(Entity):
         """
 
         _prefix = 'config-cfgmgr-exec-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(CfgHistGl.RecordType, self).__init__()
@@ -157,8 +156,7 @@ class CfgHistGl(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['record_type']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("record", ("record", CfgHistGl.RecordType.Record))])
+            self._child_classes = OrderedDict([("record", ("record", CfgHistGl.RecordType.Record))])
             self._leafs = OrderedDict([
                 ('record_type', YLeaf(YType.str, 'record-type')),
             ])
@@ -182,7 +180,7 @@ class CfgHistGl(Entity):
             	Record
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: info
             
@@ -206,7 +204,7 @@ class CfgHistGl(Entity):
             """
 
             _prefix = 'config-cfgmgr-exec-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(CfgHistGl.RecordType.Record, self).__init__()
@@ -216,10 +214,9 @@ class CfgHistGl(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['record']
-                self._child_container_classes = OrderedDict([("info", ("info", CfgHistGl.RecordType.Record.Info))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("info", ("info", CfgHistGl.RecordType.Record.Info))])
                 self._leafs = OrderedDict([
-                    ('record', YLeaf(YType.int32, 'record')),
+                    ('record', YLeaf(YType.uint32, 'record')),
                     ('timestamp', YLeaf(YType.uint32, 'timestamp')),
                     ('record_type', YLeaf(YType.enumeration, 'record-type')),
                 ])
@@ -230,7 +227,6 @@ class CfgHistGl(Entity):
                 self.info = CfgHistGl.RecordType.Record.Info()
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
-                self._children_yang_names.add("info")
                 self._segment_path = lambda: "record" + "[record='" + str(self.record) + "']"
 
             def __setattr__(self, name, value):
@@ -293,7 +289,7 @@ class CfgHistGl(Entity):
                 """
 
                 _prefix = 'config-cfgmgr-exec-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(CfgHistGl.RecordType.Record.Info, self).__init__()
@@ -303,8 +299,7 @@ class CfgHistGl(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("alarm-info", ("alarm_info", CfgHistGl.RecordType.Record.Info.AlarmInfo)), ("cfscheck-info", ("cfscheck_info", CfgHistGl.RecordType.Record.Info.CfscheckInfo)), ("commit-info", ("commit_info", CfgHistGl.RecordType.Record.Info.CommitInfo)), ("oir-info", ("oir_info", CfgHistGl.RecordType.Record.Info.OirInfo)), ("shutdown-info", ("shutdown_info", CfgHistGl.RecordType.Record.Info.ShutdownInfo)), ("startup-info", ("startup_info", CfgHistGl.RecordType.Record.Info.StartupInfo)), ("backup-info", ("backup_info", CfgHistGl.RecordType.Record.Info.BackupInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("alarm-info", ("alarm_info", CfgHistGl.RecordType.Record.Info.AlarmInfo)), ("cfscheck-info", ("cfscheck_info", CfgHistGl.RecordType.Record.Info.CfscheckInfo)), ("commit-info", ("commit_info", CfgHistGl.RecordType.Record.Info.CommitInfo)), ("oir-info", ("oir_info", CfgHistGl.RecordType.Record.Info.OirInfo)), ("shutdown-info", ("shutdown_info", CfgHistGl.RecordType.Record.Info.ShutdownInfo)), ("startup-info", ("startup_info", CfgHistGl.RecordType.Record.Info.StartupInfo)), ("backup-info", ("backup_info", CfgHistGl.RecordType.Record.Info.BackupInfo))])
                     self._leafs = OrderedDict([
                         ('type', YLeaf(YType.enumeration, 'type')),
                         ('a', YLeaf(YType.uint32, 'a')),
@@ -315,37 +310,30 @@ class CfgHistGl(Entity):
                     self.alarm_info = CfgHistGl.RecordType.Record.Info.AlarmInfo()
                     self.alarm_info.parent = self
                     self._children_name_map["alarm_info"] = "alarm-info"
-                    self._children_yang_names.add("alarm-info")
 
                     self.cfscheck_info = CfgHistGl.RecordType.Record.Info.CfscheckInfo()
                     self.cfscheck_info.parent = self
                     self._children_name_map["cfscheck_info"] = "cfscheck-info"
-                    self._children_yang_names.add("cfscheck-info")
 
                     self.commit_info = CfgHistGl.RecordType.Record.Info.CommitInfo()
                     self.commit_info.parent = self
                     self._children_name_map["commit_info"] = "commit-info"
-                    self._children_yang_names.add("commit-info")
 
                     self.oir_info = CfgHistGl.RecordType.Record.Info.OirInfo()
                     self.oir_info.parent = self
                     self._children_name_map["oir_info"] = "oir-info"
-                    self._children_yang_names.add("oir-info")
 
                     self.shutdown_info = CfgHistGl.RecordType.Record.Info.ShutdownInfo()
                     self.shutdown_info.parent = self
                     self._children_name_map["shutdown_info"] = "shutdown-info"
-                    self._children_yang_names.add("shutdown-info")
 
                     self.startup_info = CfgHistGl.RecordType.Record.Info.StartupInfo()
                     self.startup_info.parent = self
                     self._children_name_map["startup_info"] = "startup-info"
-                    self._children_yang_names.add("startup-info")
 
                     self.backup_info = CfgHistGl.RecordType.Record.Info.BackupInfo()
                     self.backup_info.parent = self
                     self._children_name_map["backup_info"] = "backup-info"
-                    self._children_yang_names.add("backup-info")
                     self._segment_path = lambda: "info"
 
                 def __setattr__(self, name, value):
@@ -371,7 +359,7 @@ class CfgHistGl(Entity):
                     """
 
                     _prefix = 'config-cfgmgr-exec-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(CfgHistGl.RecordType.Record.Info.AlarmInfo, self).__init__()
@@ -381,8 +369,7 @@ class CfgHistGl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('state', YLeaf(YType.str, 'state')),
                             ('where', YLeaf(YType.str, 'where')),
@@ -414,7 +401,7 @@ class CfgHistGl(Entity):
                     """
 
                     _prefix = 'config-cfgmgr-exec-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(CfgHistGl.RecordType.Record.Info.CfscheckInfo, self).__init__()
@@ -424,8 +411,7 @@ class CfgHistGl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('user_id', YLeaf(YType.str, 'user-id')),
                             ('line', YLeaf(YType.str, 'line')),
@@ -477,7 +463,7 @@ class CfgHistGl(Entity):
                     """
 
                     _prefix = 'config-cfgmgr-exec-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(CfgHistGl.RecordType.Record.Info.CommitInfo, self).__init__()
@@ -487,8 +473,7 @@ class CfgHistGl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('commit_id', YLeaf(YType.str, 'commit-id')),
                             ('user_id', YLeaf(YType.str, 'user-id')),
@@ -533,7 +518,7 @@ class CfgHistGl(Entity):
                     """
 
                     _prefix = 'config-cfgmgr-exec-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(CfgHistGl.RecordType.Record.Info.OirInfo, self).__init__()
@@ -543,8 +528,7 @@ class CfgHistGl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('config_type', YLeaf(YType.str, 'config-type')),
                             ('operation_', YLeaf(YType.str, 'operation')),
@@ -573,7 +557,7 @@ class CfgHistGl(Entity):
                     """
 
                     _prefix = 'config-cfgmgr-exec-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(CfgHistGl.RecordType.Record.Info.ShutdownInfo, self).__init__()
@@ -583,8 +567,7 @@ class CfgHistGl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('comment', YLeaf(YType.str, 'comment')),
                         ])
@@ -614,7 +597,7 @@ class CfgHistGl(Entity):
                     """
 
                     _prefix = 'config-cfgmgr-exec-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(CfgHistGl.RecordType.Record.Info.StartupInfo, self).__init__()
@@ -624,8 +607,7 @@ class CfgHistGl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('how_booted', YLeaf(YType.str, 'how-booted')),
                             ('boot_path', YLeaf(YType.str, 'boot-path')),
@@ -652,7 +634,7 @@ class CfgHistGl(Entity):
                     """
 
                     _prefix = 'config-cfgmgr-exec-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(CfgHistGl.RecordType.Record.Info.BackupInfo, self).__init__()
@@ -662,8 +644,7 @@ class CfgHistGl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('comment', YLeaf(YType.str, 'comment')),
                         ])

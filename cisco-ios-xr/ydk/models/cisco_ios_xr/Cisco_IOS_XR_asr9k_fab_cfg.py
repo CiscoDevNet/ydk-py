@@ -60,15 +60,16 @@ class FabVqiConfig(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mode", ("mode", FabVqiConfig.Mode))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mode", ("mode", FabVqiConfig.Mode))])
         self._leafs = OrderedDict()
 
         self.mode = FabVqiConfig.Mode()
         self.mode.parent = self
         self._children_name_map["mode"] = "mode"
-        self._children_yang_names.add("mode")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fab-cfg:fab-vqi-config"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(FabVqiConfig, [], name, value)
 
 
     class Mode(Entity):
@@ -100,8 +101,7 @@ class FabVqiConfig(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('fab_mode_type_xr', YLeaf(YType.enumeration, 'fab-mode-type-xr')),
                 ('fab_mode_type', YLeaf(YType.enumeration, 'fab-mode-type')),

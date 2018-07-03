@@ -21,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ipv4Arm(Entity):
+class Ipv4arm(Entity):
     """
     IPv4 Address Repository Manager (IPv4 ARM)
     operational data
@@ -29,22 +29,22 @@ class Ipv4Arm(Entity):
     .. attribute:: addresses
     
     	IPv4 ARM address database information
-    	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses>`
+    	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses>`
     
     .. attribute:: summary
     
     	IPv4 ARM summary information
-    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Summary>`
+    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Summary>`
     
     .. attribute:: vrf_summaries
     
     	IPv4 ARM VRFs summary information
-    	**type**\:  :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.VrfSummaries>`
+    	**type**\:  :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.VrfSummaries>`
     
     .. attribute:: router_id
     
     	IPv4 ARM Router ID information
-    	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.RouterId>`
+    	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.RouterId>`
     
     .. attribute:: multicast_host_interface
     
@@ -61,7 +61,7 @@ class Ipv4Arm(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Ipv4Arm, self).__init__()
+        super(Ipv4arm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv4arm"
@@ -69,36 +69,31 @@ class Ipv4Arm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("addresses", ("addresses", Ipv4Arm.Addresses)), ("summary", ("summary", Ipv4Arm.Summary)), ("vrf-summaries", ("vrf_summaries", Ipv4Arm.VrfSummaries)), ("router-id", ("router_id", Ipv4Arm.RouterId))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("addresses", ("addresses", Ipv4arm.Addresses)), ("summary", ("summary", Ipv4arm.Summary)), ("vrf-summaries", ("vrf_summaries", Ipv4arm.VrfSummaries)), ("router-id", ("router_id", Ipv4arm.RouterId))])
         self._leafs = OrderedDict([
             ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
         ])
         self.multicast_host_interface = None
 
-        self.addresses = Ipv4Arm.Addresses()
+        self.addresses = Ipv4arm.Addresses()
         self.addresses.parent = self
         self._children_name_map["addresses"] = "addresses"
-        self._children_yang_names.add("addresses")
 
-        self.summary = Ipv4Arm.Summary()
+        self.summary = Ipv4arm.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
 
-        self.vrf_summaries = Ipv4Arm.VrfSummaries()
+        self.vrf_summaries = Ipv4arm.VrfSummaries()
         self.vrf_summaries.parent = self
         self._children_name_map["vrf_summaries"] = "vrf-summaries"
-        self._children_yang_names.add("vrf-summaries")
 
-        self.router_id = Ipv4Arm.RouterId()
+        self.router_id = Ipv4arm.RouterId()
         self.router_id.parent = self
         self._children_name_map["router_id"] = "router-id"
-        self._children_yang_names.add("router-id")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Ipv4Arm, ['multicast_host_interface'], name, value)
+        self._perform_setattr(Ipv4arm, ['multicast_host_interface'], name, value)
 
 
     class Addresses(Entity):
@@ -108,7 +103,7 @@ class Ipv4Arm(Entity):
         .. attribute:: vrfs
         
         	IPv4 ARM address database information per VRF
-        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs>`
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs>`
         
         
 
@@ -118,23 +113,24 @@ class Ipv4Arm(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Ipv4Arm.Addresses, self).__init__()
+            super(Ipv4arm.Addresses, self).__init__()
 
             self.yang_name = "addresses"
             self.yang_parent_name = "ipv4arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipv4Arm.Addresses.Vrfs))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipv4arm.Addresses.Vrfs))])
             self._leafs = OrderedDict()
 
-            self.vrfs = Ipv4Arm.Addresses.Vrfs()
+            self.vrfs = Ipv4arm.Addresses.Vrfs()
             self.vrfs.parent = self
             self._children_name_map["vrfs"] = "vrfs"
-            self._children_yang_names.add("vrfs")
             self._segment_path = lambda: "addresses"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipv4arm.Addresses, [], name, value)
 
 
         class Vrfs(Entity):
@@ -144,7 +140,7 @@ class Ipv4Arm(Entity):
             .. attribute:: vrf
             
             	IPv4 ARM address database information in a VRF
-            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf>`
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf>`
             
             
 
@@ -154,15 +150,14 @@ class Ipv4Arm(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Ipv4Arm.Addresses.Vrfs, self).__init__()
+                super(Ipv4arm.Addresses.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "addresses"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv4Arm.Addresses.Vrfs.Vrf))])
+                self._child_classes = OrderedDict([("vrf", ("vrf", Ipv4arm.Addresses.Vrfs.Vrf))])
                 self._leafs = OrderedDict()
 
                 self.vrf = YList(self)
@@ -170,7 +165,7 @@ class Ipv4Arm(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/addresses/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Arm.Addresses.Vrfs, [], name, value)
+                self._perform_setattr(Ipv4arm.Addresses.Vrfs, [], name, value)
 
 
             class Vrf(Entity):
@@ -185,12 +180,12 @@ class Ipv4Arm(Entity):
                 .. attribute:: networks
                 
                 	IPv4 ARM address database information by network
-                	**type**\:  :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks>`
+                	**type**\:  :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks>`
                 
                 .. attribute:: interfaces
                 
                 	IPv4 ARM address database information by interface
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces>`
                 
                 
 
@@ -200,34 +195,31 @@ class Ipv4Arm(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Ipv4Arm.Addresses.Vrfs.Vrf, self).__init__()
+                    super(Ipv4arm.Addresses.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([("networks", ("networks", Ipv4Arm.Addresses.Vrfs.Vrf.Networks)), ("interfaces", ("interfaces", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("networks", ("networks", Ipv4arm.Addresses.Vrfs.Vrf.Networks)), ("interfaces", ("interfaces", Ipv4arm.Addresses.Vrfs.Vrf.Interfaces))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ])
                     self.vrf_name = None
 
-                    self.networks = Ipv4Arm.Addresses.Vrfs.Vrf.Networks()
+                    self.networks = Ipv4arm.Addresses.Vrfs.Vrf.Networks()
                     self.networks.parent = self
                     self._children_name_map["networks"] = "networks"
-                    self._children_yang_names.add("networks")
 
-                    self.interfaces = Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces()
+                    self.interfaces = Ipv4arm.Addresses.Vrfs.Vrf.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/addresses/vrfs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf, ['vrf_name'], name, value)
+                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
                 class Networks(Entity):
@@ -238,7 +230,7 @@ class Ipv4Arm(Entity):
                     .. attribute:: network
                     
                     	An IPv4 Address in IPv4 ARM
-                    	**type**\: list of  		 :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network>`
+                    	**type**\: list of  		 :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network>`
                     
                     
 
@@ -248,22 +240,21 @@ class Ipv4Arm(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Ipv4Arm.Addresses.Vrfs.Vrf.Networks, self).__init__()
+                        super(Ipv4arm.Addresses.Vrfs.Vrf.Networks, self).__init__()
 
                         self.yang_name = "networks"
                         self.yang_parent_name = "vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("network", ("network", Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network))])
+                        self._child_classes = OrderedDict([("network", ("network", Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network))])
                         self._leafs = OrderedDict()
 
                         self.network = YList(self)
                         self._segment_path = lambda: "networks"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks, [], name, value)
+                        self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks, [], name, value)
 
 
                     class Network(Entity):
@@ -294,7 +285,7 @@ class Ipv4Arm(Entity):
                         .. attribute:: address_xr
                         
                         	Address info
-                        	**type**\:  :py:class:`AddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr>`
+                        	**type**\:  :py:class:`AddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr>`
                         
                         .. attribute:: interface_name
                         
@@ -319,15 +310,14 @@ class Ipv4Arm(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network, self).__init__()
+                            super(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, self).__init__()
 
                             self.yang_name = "network"
                             self.yang_parent_name = "networks"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address-xr", ("address_xr", Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address-xr", ("address_xr", Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr))])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -343,14 +333,13 @@ class Ipv4Arm(Entity):
                             self.referenced_interface = None
                             self.vrf_name = None
 
-                            self.address_xr = Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr()
+                            self.address_xr = Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr()
                             self.address_xr.parent = self
                             self._children_name_map["address_xr"] = "address-xr"
-                            self._children_yang_names.add("address-xr")
                             self._segment_path = lambda: "network"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', 'interface_name', 'referenced_interface', 'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', u'interface_name', u'referenced_interface', u'vrf_name'], name, value)
 
 
                         class AddressXr(Entity):
@@ -360,7 +349,7 @@ class Ipv4Arm(Entity):
                             .. attribute:: address
                             
                             	Address
-                            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address>`
+                            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address>`
                             
                             .. attribute:: prefix_length
                             
@@ -404,15 +393,14 @@ class Ipv4Arm(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, self).__init__()
+                                super(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, self).__init__()
 
                                 self.yang_name = "address-xr"
                                 self.yang_parent_name = "network"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("address", ("address", Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("address", ("address", Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address))])
                                 self._leafs = OrderedDict([
                                     ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                                     ('route_tag', YLeaf(YType.uint32, 'route-tag')),
@@ -428,14 +416,13 @@ class Ipv4Arm(Entity):
                                 self.is_prefix_sid = None
                                 self.producer = None
 
-                                self.address = Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address()
+                                self.address = Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address()
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
-                                self._children_yang_names.add("address")
                                 self._segment_path = lambda: "address-xr"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
 
 
                             class Address(Entity):
@@ -471,15 +458,14 @@ class Ipv4Arm(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, self).__init__()
+                                    super(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "address-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('afi', YLeaf(YType.int32, 'afi')),
                                         ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -491,7 +477,7 @@ class Ipv4Arm(Entity):
                                     self._segment_path = lambda: "address"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
 
 
                 class Interfaces(Entity):
@@ -502,7 +488,7 @@ class Ipv4Arm(Entity):
                     .. attribute:: interface
                     
                     	An IPv4 address in IPv4 ARM
-                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface>`
                     
                     
 
@@ -512,22 +498,21 @@ class Ipv4Arm(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces, self).__init__()
+                        super(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces, [], name, value)
+                        self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces, [], name, value)
 
 
                     class Interface(Entity):
@@ -554,7 +539,7 @@ class Ipv4Arm(Entity):
                         .. attribute:: address
                         
                         	Address info
-                        	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address>`
+                        	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address>`
                         
                         
 
@@ -564,15 +549,14 @@ class Ipv4Arm(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface, self).__init__()
+                            super(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("address", ("address", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address))])
+                            self._child_classes = OrderedDict([("address", ("address", Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address))])
                             self._leafs = OrderedDict([
                                 ('interface', YLeaf(YType.str, 'interface')),
                                 ('referenced_interface', YLeaf(YType.str, 'referenced-interface')),
@@ -586,7 +570,7 @@ class Ipv4Arm(Entity):
                             self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', u'referenced_interface', u'vrf_name'], name, value)
 
 
                         class Address(Entity):
@@ -596,7 +580,7 @@ class Ipv4Arm(Entity):
                             .. attribute:: address
                             
                             	Address
-                            	**type**\:  :py:class:`Address_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_>`
+                            	**type**\:  :py:class:`Address_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_>`
                             
                             .. attribute:: prefix_length
                             
@@ -640,15 +624,14 @@ class Ipv4Arm(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, self).__init__()
+                                super(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("address", ("address", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("address", ("address", Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_))])
                                 self._leafs = OrderedDict([
                                     ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                                     ('route_tag', YLeaf(YType.uint32, 'route-tag')),
@@ -664,14 +647,13 @@ class Ipv4Arm(Entity):
                                 self.is_prefix_sid = None
                                 self.producer = None
 
-                                self.address = Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_()
+                                self.address = Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_()
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
-                                self._children_yang_names.add("address")
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
 
 
                             class Address_(Entity):
@@ -707,15 +689,14 @@ class Ipv4Arm(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, self).__init__()
+                                    super(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('afi', YLeaf(YType.int32, 'afi')),
                                         ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -727,7 +708,7 @@ class Ipv4Arm(Entity):
                                     self._segment_path = lambda: "address"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
 
 
     class Summary(Entity):
@@ -777,15 +758,14 @@ class Ipv4Arm(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Ipv4Arm.Summary, self).__init__()
+            super(Ipv4arm.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "ipv4arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('producer_count', YLeaf(YType.int32, 'producer-count')),
                 ('address_conflict_count', YLeaf(YType.int32, 'address-conflict-count')),
@@ -802,7 +782,7 @@ class Ipv4Arm(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4Arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_master_version', 'vrf_count'], name, value)
+            self._perform_setattr(Ipv4arm.Summary, [u'producer_count', u'address_conflict_count', u'unnumbered_conflict_count', u'db_master_version', u'vrf_count'], name, value)
 
 
     class VrfSummaries(Entity):
@@ -812,7 +792,7 @@ class Ipv4Arm(Entity):
         .. attribute:: vrf_summary
         
         	IPv4 ARM VRF summary information
-        	**type**\: list of  		 :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.VrfSummaries.VrfSummary>`
+        	**type**\: list of  		 :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.VrfSummaries.VrfSummary>`
         
         
 
@@ -822,15 +802,14 @@ class Ipv4Arm(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Ipv4Arm.VrfSummaries, self).__init__()
+            super(Ipv4arm.VrfSummaries, self).__init__()
 
             self.yang_name = "vrf-summaries"
             self.yang_parent_name = "ipv4arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf-summary", ("vrf_summary", Ipv4Arm.VrfSummaries.VrfSummary))])
+            self._child_classes = OrderedDict([("vrf-summary", ("vrf_summary", Ipv4arm.VrfSummaries.VrfSummary))])
             self._leafs = OrderedDict()
 
             self.vrf_summary = YList(self)
@@ -838,7 +817,7 @@ class Ipv4Arm(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4Arm.VrfSummaries, [], name, value)
+            self._perform_setattr(Ipv4arm.VrfSummaries, [], name, value)
 
 
         class VrfSummary(Entity):
@@ -870,15 +849,14 @@ class Ipv4Arm(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Ipv4Arm.VrfSummaries.VrfSummary, self).__init__()
+                super(Ipv4arm.VrfSummaries.VrfSummary, self).__init__()
 
                 self.yang_name = "vrf-summary"
                 self.yang_parent_name = "vrf-summaries"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
@@ -891,7 +869,7 @@ class Ipv4Arm(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/vrf-summaries/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Arm.VrfSummaries.VrfSummary, ['vrf_name', 'vrf_id', 'vrf_name_xr'], name, value)
+                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', u'vrf_id', u'vrf_name_xr'], name, value)
 
 
     class RouterId(Entity):
@@ -930,15 +908,14 @@ class Ipv4Arm(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Ipv4Arm.RouterId, self).__init__()
+            super(Ipv4arm.RouterId, self).__init__()
 
             self.yang_name = "router-id"
             self.yang_parent_name = "ipv4arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -953,9 +930,9 @@ class Ipv4Arm(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4Arm.RouterId, ['vrf_id', 'vrf_name', 'interface_name', 'router_id'], name, value)
+            self._perform_setattr(Ipv4arm.RouterId, [u'vrf_id', u'vrf_name', u'interface_name', u'router_id'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = Ipv4Arm()
+        self._top_entity = Ipv4arm()
         return self._top_entity
 

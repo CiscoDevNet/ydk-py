@@ -48,15 +48,16 @@ class EnvironmentalMonitoring(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("racks", ("racks", EnvironmentalMonitoring.Racks))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("racks", ("racks", EnvironmentalMonitoring.Racks))])
         self._leafs = OrderedDict()
 
         self.racks = EnvironmentalMonitoring.Racks()
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
-        self._children_yang_names.add("racks")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-sc-envmon-admin-oper:environmental-monitoring"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(EnvironmentalMonitoring, [], name, value)
 
 
     class Racks(Entity):
@@ -83,8 +84,7 @@ class EnvironmentalMonitoring(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rack", ("rack", EnvironmentalMonitoring.Racks.Rack))])
+            self._child_classes = OrderedDict([("rack", ("rack", EnvironmentalMonitoring.Racks.Rack))])
             self._leafs = OrderedDict()
 
             self.rack = YList(self)
@@ -104,7 +104,7 @@ class EnvironmentalMonitoring(Entity):
             	Rack number
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: slots
             
@@ -126,17 +126,15 @@ class EnvironmentalMonitoring(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rack']
-                self._child_container_classes = OrderedDict([("slots", ("slots", EnvironmentalMonitoring.Racks.Rack.Slots))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("slots", ("slots", EnvironmentalMonitoring.Racks.Rack.Slots))])
                 self._leafs = OrderedDict([
-                    ('rack', YLeaf(YType.int32, 'rack')),
+                    ('rack', YLeaf(YType.uint32, 'rack')),
                 ])
                 self.rack = None
 
                 self.slots = EnvironmentalMonitoring.Racks.Rack.Slots()
                 self.slots.parent = self
                 self._children_name_map["slots"] = "slots"
-                self._children_yang_names.add("slots")
                 self._segment_path = lambda: "rack" + "[rack='" + str(self.rack) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-sc-envmon-admin-oper:environmental-monitoring/racks/%s" % self._segment_path()
 
@@ -168,8 +166,7 @@ class EnvironmentalMonitoring(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slot", ("slot", EnvironmentalMonitoring.Racks.Rack.Slots.Slot))])
+                    self._child_classes = OrderedDict([("slot", ("slot", EnvironmentalMonitoring.Racks.Rack.Slots.Slot))])
                     self._leafs = OrderedDict()
 
                     self.slot = YList(self)
@@ -210,8 +207,7 @@ class EnvironmentalMonitoring(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['slot']
-                        self._child_container_classes = OrderedDict([("modules", ("modules", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("modules", ("modules", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules))])
                         self._leafs = OrderedDict([
                             ('slot', YLeaf(YType.str, 'slot')),
                         ])
@@ -220,7 +216,6 @@ class EnvironmentalMonitoring(Entity):
                         self.modules = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules()
                         self.modules.parent = self
                         self._children_name_map["modules"] = "modules"
-                        self._children_yang_names.add("modules")
                         self._segment_path = lambda: "slot" + "[slot='" + str(self.slot) + "']"
 
                     def __setattr__(self, name, value):
@@ -251,8 +246,7 @@ class EnvironmentalMonitoring(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("module", ("module", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module))])
+                            self._child_classes = OrderedDict([("module", ("module", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module))])
                             self._leafs = OrderedDict()
 
                             self.module = YList(self)
@@ -298,8 +292,7 @@ class EnvironmentalMonitoring(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['module']
-                                self._child_container_classes = OrderedDict([("sensor-types", ("sensor_types", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes)), ("power", ("power", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("sensor-types", ("sensor_types", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes)), ("power", ("power", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power))])
                                 self._leafs = OrderedDict([
                                     ('module', YLeaf(YType.str, 'module')),
                                 ])
@@ -308,12 +301,10 @@ class EnvironmentalMonitoring(Entity):
                                 self.sensor_types = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes()
                                 self.sensor_types.parent = self
                                 self._children_name_map["sensor_types"] = "sensor-types"
-                                self._children_yang_names.add("sensor-types")
 
                                 self.power = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power()
                                 self.power.parent = self
                                 self._children_name_map["power"] = "power"
-                                self._children_yang_names.add("power")
                                 self._segment_path = lambda: "module" + "[module='" + str(self.module) + "']"
 
                             def __setattr__(self, name, value):
@@ -344,8 +335,7 @@ class EnvironmentalMonitoring(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("sensor-type", ("sensor_type", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType))])
+                                    self._child_classes = OrderedDict([("sensor-type", ("sensor_type", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType))])
                                     self._leafs = OrderedDict()
 
                                     self.sensor_type = YList(self)
@@ -386,8 +376,7 @@ class EnvironmentalMonitoring(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['type']
-                                        self._child_container_classes = OrderedDict([("sensor-names", ("sensor_names", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("sensor-names", ("sensor_names", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames))])
                                         self._leafs = OrderedDict([
                                             ('type', YLeaf(YType.str, 'type')),
                                         ])
@@ -396,7 +385,6 @@ class EnvironmentalMonitoring(Entity):
                                         self.sensor_names = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames()
                                         self.sensor_names.parent = self
                                         self._children_name_map["sensor_names"] = "sensor-names"
-                                        self._children_yang_names.add("sensor-names")
                                         self._segment_path = lambda: "sensor-type" + "[type='" + str(self.type) + "']"
 
                                     def __setattr__(self, name, value):
@@ -427,8 +415,7 @@ class EnvironmentalMonitoring(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("sensor-name", ("sensor_name", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName))])
+                                            self._child_classes = OrderedDict([("sensor-name", ("sensor_name", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName))])
                                             self._leafs = OrderedDict()
 
                                             self.sensor_name = YList(self)
@@ -481,8 +468,7 @@ class EnvironmentalMonitoring(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['name']
-                                                self._child_container_classes = OrderedDict([("thresholds", ("thresholds", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds)), ("value-detailed", ("value_detailed", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("thresholds", ("thresholds", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds)), ("value-detailed", ("value_detailed", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed))])
                                                 self._leafs = OrderedDict([
                                                     ('name', YLeaf(YType.str, 'name')),
                                                     ('value_brief', YLeaf(YType.str, 'value-brief')),
@@ -493,12 +479,10 @@ class EnvironmentalMonitoring(Entity):
                                                 self.thresholds = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds()
                                                 self.thresholds.parent = self
                                                 self._children_name_map["thresholds"] = "thresholds"
-                                                self._children_yang_names.add("thresholds")
 
                                                 self.value_detailed = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed()
                                                 self.value_detailed.parent = self
                                                 self._children_name_map["value_detailed"] = "value-detailed"
-                                                self._children_yang_names.add("value-detailed")
                                                 self._segment_path = lambda: "sensor-name" + "[name='" + str(self.name) + "']"
 
                                             def __setattr__(self, name, value):
@@ -529,8 +513,7 @@ class EnvironmentalMonitoring(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("threshold", ("threshold", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold))])
+                                                    self._child_classes = OrderedDict([("threshold", ("threshold", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold))])
                                                     self._leafs = OrderedDict()
 
                                                     self.threshold = YList(self)
@@ -583,8 +566,7 @@ class EnvironmentalMonitoring(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['type']
-                                                        self._child_container_classes = OrderedDict([("value-detailed", ("value_detailed", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("value-detailed", ("value_detailed", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed))])
                                                         self._leafs = OrderedDict([
                                                             ('type', YLeaf(YType.str, 'type')),
                                                             ('trap', YLeaf(YType.boolean, 'trap')),
@@ -597,7 +579,6 @@ class EnvironmentalMonitoring(Entity):
                                                         self.value_detailed = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed()
                                                         self.value_detailed.parent = self
                                                         self._children_name_map["value_detailed"] = "value-detailed"
-                                                        self._children_yang_names.add("value-detailed")
                                                         self._segment_path = lambda: "threshold" + "[type='" + str(self.type) + "']"
 
                                                     def __setattr__(self, name, value):
@@ -655,8 +636,7 @@ class EnvironmentalMonitoring(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('threshold_severity', YLeaf(YType.uint32, 'threshold-severity')),
                                                                 ('threshold_relation', YLeaf(YType.uint32, 'threshold-relation')),
@@ -672,7 +652,7 @@ class EnvironmentalMonitoring(Entity):
                                                             self._segment_path = lambda: "value-detailed"
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, ['threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
+                                                            self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, [u'threshold_severity', u'threshold_relation', u'threshold_value', u'threshold_evaluation', u'threshold_notification_enabled'], name, value)
 
 
                                             class ValueDetailed(Entity):
@@ -779,8 +759,7 @@ class EnvironmentalMonitoring(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('field_validity_bitmap', YLeaf(YType.uint32, 'field-validity-bitmap')),
                                                         ('device_description', YLeaf(YType.str, 'device-description')),
@@ -810,7 +789,7 @@ class EnvironmentalMonitoring(Entity):
                                                     self._segment_path = lambda: "value-detailed"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, ['field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate'], name, value)
+                                                    self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, [u'field_validity_bitmap', u'device_description', u'units', u'device_id', u'value', u'alarm_type', u'data_type', u'scale', u'precision', u'status', u'age_time_stamp', u'update_rate'], name, value)
 
 
                             class Power(Entity):
@@ -837,15 +816,16 @@ class EnvironmentalMonitoring(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("power-bag", ("power_bag", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("power-bag", ("power_bag", EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag))])
                                     self._leafs = OrderedDict()
 
                                     self.power_bag = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag()
                                     self.power_bag.parent = self
                                     self._children_name_map["power_bag"] = "power-bag"
-                                    self._children_yang_names.add("power-bag")
                                     self._segment_path = lambda: "power"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power, [], name, value)
 
 
                                 class PowerBag(Entity):
@@ -937,8 +917,7 @@ class EnvironmentalMonitoring(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('power_value', YLeaf(YType.int32, 'power-value')),
                                             ('power_max_value', YLeaf(YType.int32, 'power-max-value')),
@@ -964,7 +943,7 @@ class EnvironmentalMonitoring(Entity):
                                         self._segment_path = lambda: "power-bag"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, ['power_value', 'power_max_value', 'power_unit_multiplier', 'power_accuracy', 'power_measure_caliber', 'power_current_type', 'power_origin', 'power_admin_state', 'power_oper_state', 'power_state_enter_reason'], name, value)
+                                        self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, [u'power_value', u'power_max_value', u'power_unit_multiplier', u'power_accuracy', u'power_measure_caliber', u'power_current_type', u'power_origin', u'power_admin_state', u'power_oper_state', u'power_state_enter_reason'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EnvironmentalMonitoring()

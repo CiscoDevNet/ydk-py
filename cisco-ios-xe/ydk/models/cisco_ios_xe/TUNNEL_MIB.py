@@ -25,19 +25,19 @@ class TUNNELMIB(Entity):
     .. attribute:: tunneliftable
     
     	The (conceptual) table containing information on configured tunnels
-    	**type**\:  :py:class:`Tunneliftable <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.Tunneliftable>`
+    	**type**\:  :py:class:`TunnelIfTable <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.TunnelIfTable>`
     
     .. attribute:: tunnelconfigtable
     
     	The (conceptual) table containing information on configured tunnels.  This table can be used to map a set of tunnel endpoints to the associated ifIndex value.  It can also be used for row creation.  Note that every row in the tunnelIfTable with a fixed IPv4 destination address should have a corresponding row in the tunnelConfigTable, regardless of whether it was created via SNMP.  Since this table does not support IPv6, it is deprecated in favor of tunnelInetConfigTable
-    	**type**\:  :py:class:`Tunnelconfigtable <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.Tunnelconfigtable>`
+    	**type**\:  :py:class:`TunnelConfigTable <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.TunnelConfigTable>`
     
     	**status**\: deprecated
     
     .. attribute:: tunnelinetconfigtable
     
     	The (conceptual) table containing information on configured tunnels.  This table can be used to map a set of tunnel endpoints to the associated ifIndex value.  It can also be used for row creation.  Note that every row in the tunnelIfTable with a fixed destination address should have a corresponding row in the tunnelInetConfigTable, regardless of whether it was created via SNMP
-    	**type**\:  :py:class:`Tunnelinetconfigtable <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.Tunnelinetconfigtable>`
+    	**type**\:  :py:class:`TunnelInetConfigTable <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.TunnelInetConfigTable>`
     
     
 
@@ -55,28 +55,27 @@ class TUNNELMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("tunnelIfTable", ("tunneliftable", TUNNELMIB.Tunneliftable)), ("tunnelConfigTable", ("tunnelconfigtable", TUNNELMIB.Tunnelconfigtable)), ("tunnelInetConfigTable", ("tunnelinetconfigtable", TUNNELMIB.Tunnelinetconfigtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("tunnelIfTable", ("tunneliftable", TUNNELMIB.TunnelIfTable)), ("tunnelConfigTable", ("tunnelconfigtable", TUNNELMIB.TunnelConfigTable)), ("tunnelInetConfigTable", ("tunnelinetconfigtable", TUNNELMIB.TunnelInetConfigTable))])
         self._leafs = OrderedDict()
 
-        self.tunneliftable = TUNNELMIB.Tunneliftable()
+        self.tunneliftable = TUNNELMIB.TunnelIfTable()
         self.tunneliftable.parent = self
         self._children_name_map["tunneliftable"] = "tunnelIfTable"
-        self._children_yang_names.add("tunnelIfTable")
 
-        self.tunnelconfigtable = TUNNELMIB.Tunnelconfigtable()
+        self.tunnelconfigtable = TUNNELMIB.TunnelConfigTable()
         self.tunnelconfigtable.parent = self
         self._children_name_map["tunnelconfigtable"] = "tunnelConfigTable"
-        self._children_yang_names.add("tunnelConfigTable")
 
-        self.tunnelinetconfigtable = TUNNELMIB.Tunnelinetconfigtable()
+        self.tunnelinetconfigtable = TUNNELMIB.TunnelInetConfigTable()
         self.tunnelinetconfigtable.parent = self
         self._children_name_map["tunnelinetconfigtable"] = "tunnelInetConfigTable"
-        self._children_yang_names.add("tunnelInetConfigTable")
         self._segment_path = lambda: "TUNNEL-MIB:TUNNEL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(TUNNELMIB, [], name, value)
 
-    class Tunneliftable(Entity):
+
+    class TunnelIfTable(Entity):
         """
         The (conceptual) table containing information on
         configured tunnels.
@@ -84,7 +83,7 @@ class TUNNELMIB(Entity):
         .. attribute:: tunnelifentry
         
         	An entry (conceptual row) containing the information on a particular configured tunnel
-        	**type**\: list of  		 :py:class:`Tunnelifentry <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.Tunneliftable.Tunnelifentry>`
+        	**type**\: list of  		 :py:class:`TunnelIfEntry <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.TunnelIfTable.TunnelIfEntry>`
         
         
 
@@ -94,15 +93,14 @@ class TUNNELMIB(Entity):
         _revision = '2005-05-16'
 
         def __init__(self):
-            super(TUNNELMIB.Tunneliftable, self).__init__()
+            super(TUNNELMIB.TunnelIfTable, self).__init__()
 
             self.yang_name = "tunnelIfTable"
             self.yang_parent_name = "TUNNEL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tunnelIfEntry", ("tunnelifentry", TUNNELMIB.Tunneliftable.Tunnelifentry))])
+            self._child_classes = OrderedDict([("tunnelIfEntry", ("tunnelifentry", TUNNELMIB.TunnelIfTable.TunnelIfEntry))])
             self._leafs = OrderedDict()
 
             self.tunnelifentry = YList(self)
@@ -110,10 +108,10 @@ class TUNNELMIB(Entity):
             self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TUNNELMIB.Tunneliftable, [], name, value)
+            self._perform_setattr(TUNNELMIB.TunnelIfTable, [], name, value)
 
 
-        class Tunnelifentry(Entity):
+        class TunnelIfEntry(Entity):
             """
             An entry (conceptual row) containing the information
             on a particular configured tunnel.
@@ -125,7 +123,7 @@ class TUNNELMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: tunneliflocaladdress
             
@@ -160,7 +158,7 @@ class TUNNELMIB(Entity):
             .. attribute:: tunnelifsecurity
             
             	The method used by the tunnel to secure the outer IP header.  The value ipsec indicates that IPsec is used between the tunnel endpoints for authentication or encryption or both.  More specific security\-related information may be available in a MIB module for the security protocol in use
-            	**type**\:  :py:class:`Tunnelifsecurity <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.Tunneliftable.Tunnelifentry.Tunnelifsecurity>`
+            	**type**\:  :py:class:`TunnelIfSecurity <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.TunnelIfTable.TunnelIfEntry.TunnelIfSecurity>`
             
             .. attribute:: tunneliftos
             
@@ -210,15 +208,14 @@ class TUNNELMIB(Entity):
             _revision = '2005-05-16'
 
             def __init__(self):
-                super(TUNNELMIB.Tunneliftable.Tunnelifentry, self).__init__()
+                super(TUNNELMIB.TunnelIfTable.TunnelIfEntry, self).__init__()
 
                 self.yang_name = "tunnelIfEntry"
                 self.yang_parent_name = "tunnelIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('tunneliflocaladdress', YLeaf(YType.str, 'tunnelIfLocalAddress')),
@@ -249,11 +246,11 @@ class TUNNELMIB(Entity):
                 self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/tunnelIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TUNNELMIB.Tunneliftable.Tunnelifentry, ['ifindex', 'tunneliflocaladdress', 'tunnelifremoteaddress', 'tunnelifencapsmethod', 'tunnelifhoplimit', 'tunnelifsecurity', 'tunneliftos', 'tunnelifflowlabel', 'tunnelifaddresstype', 'tunneliflocalinetaddress', 'tunnelifremoteinetaddress', 'tunnelifencapslimit'], name, value)
+                self._perform_setattr(TUNNELMIB.TunnelIfTable.TunnelIfEntry, ['ifindex', 'tunneliflocaladdress', 'tunnelifremoteaddress', 'tunnelifencapsmethod', 'tunnelifhoplimit', 'tunnelifsecurity', 'tunneliftos', 'tunnelifflowlabel', 'tunnelifaddresstype', 'tunneliflocalinetaddress', 'tunnelifremoteinetaddress', 'tunnelifencapslimit'], name, value)
 
-            class Tunnelifsecurity(Enum):
+            class TunnelIfSecurity(Enum):
                 """
-                Tunnelifsecurity (Enum Class)
+                TunnelIfSecurity (Enum Class)
 
                 The method used by the tunnel to secure the outer IP
 
@@ -283,7 +280,7 @@ class TUNNELMIB(Entity):
 
 
 
-    class Tunnelconfigtable(Entity):
+    class TunnelConfigTable(Entity):
         """
         The (conceptual) table containing information on
         configured tunnels.  This table can be used to map a
@@ -300,7 +297,7 @@ class TUNNELMIB(Entity):
         .. attribute:: tunnelconfigentry
         
         	An entry (conceptual row) containing the information on a particular configured tunnel.  Since this entry does not support IPv6, it is deprecated in favor of tunnelInetConfigEntry
-        	**type**\: list of  		 :py:class:`Tunnelconfigentry <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.Tunnelconfigtable.Tunnelconfigentry>`
+        	**type**\: list of  		 :py:class:`TunnelConfigEntry <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.TunnelConfigTable.TunnelConfigEntry>`
         
         	**status**\: deprecated
         
@@ -312,15 +309,14 @@ class TUNNELMIB(Entity):
         _revision = '2005-05-16'
 
         def __init__(self):
-            super(TUNNELMIB.Tunnelconfigtable, self).__init__()
+            super(TUNNELMIB.TunnelConfigTable, self).__init__()
 
             self.yang_name = "tunnelConfigTable"
             self.yang_parent_name = "TUNNEL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tunnelConfigEntry", ("tunnelconfigentry", TUNNELMIB.Tunnelconfigtable.Tunnelconfigentry))])
+            self._child_classes = OrderedDict([("tunnelConfigEntry", ("tunnelconfigentry", TUNNELMIB.TunnelConfigTable.TunnelConfigEntry))])
             self._leafs = OrderedDict()
 
             self.tunnelconfigentry = YList(self)
@@ -328,10 +324,10 @@ class TUNNELMIB(Entity):
             self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TUNNELMIB.Tunnelconfigtable, [], name, value)
+            self._perform_setattr(TUNNELMIB.TunnelConfigTable, [], name, value)
 
 
-        class Tunnelconfigentry(Entity):
+        class TunnelConfigEntry(Entity):
             """
             An entry (conceptual row) containing the information
             on a particular configured tunnel.
@@ -397,15 +393,14 @@ class TUNNELMIB(Entity):
             _revision = '2005-05-16'
 
             def __init__(self):
-                super(TUNNELMIB.Tunnelconfigtable.Tunnelconfigentry, self).__init__()
+                super(TUNNELMIB.TunnelConfigTable.TunnelConfigEntry, self).__init__()
 
                 self.yang_name = "tunnelConfigEntry"
                 self.yang_parent_name = "tunnelConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tunnelconfiglocaladdress','tunnelconfigremoteaddress','tunnelconfigencapsmethod','tunnelconfigid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tunnelconfiglocaladdress', YLeaf(YType.str, 'tunnelConfigLocalAddress')),
                     ('tunnelconfigremoteaddress', YLeaf(YType.str, 'tunnelConfigRemoteAddress')),
@@ -424,10 +419,10 @@ class TUNNELMIB(Entity):
                 self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/tunnelConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TUNNELMIB.Tunnelconfigtable.Tunnelconfigentry, ['tunnelconfiglocaladdress', 'tunnelconfigremoteaddress', 'tunnelconfigencapsmethod', 'tunnelconfigid', 'tunnelconfigifindex', 'tunnelconfigstatus'], name, value)
+                self._perform_setattr(TUNNELMIB.TunnelConfigTable.TunnelConfigEntry, ['tunnelconfiglocaladdress', 'tunnelconfigremoteaddress', 'tunnelconfigencapsmethod', 'tunnelconfigid', 'tunnelconfigifindex', 'tunnelconfigstatus'], name, value)
 
 
-    class Tunnelinetconfigtable(Entity):
+    class TunnelInetConfigTable(Entity):
         """
         The (conceptual) table containing information on
         configured tunnels.  This table can be used to map a
@@ -441,7 +436,7 @@ class TUNNELMIB(Entity):
         .. attribute:: tunnelinetconfigentry
         
         	An entry (conceptual row) containing the information on a particular configured tunnel.  Note that there is a 128 subid maximum for object OIDs.  Implementers need to be aware that if the total number of octets in tunnelInetConfigLocalAddress and tunnelInetConfigRemoteAddress exceeds 110 then OIDs of column instances in this table will have more than 128 sub\-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3.  In practice this is not expected to be a problem since IPv4 and IPv6 addresses will not cause the limit to be reached, but if other types are supported by an agent, care must be taken to ensure that the sum of the lengths do not cause the limit to be exceeded
-        	**type**\: list of  		 :py:class:`Tunnelinetconfigentry <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.Tunnelinetconfigtable.Tunnelinetconfigentry>`
+        	**type**\: list of  		 :py:class:`TunnelInetConfigEntry <ydk.models.cisco_ios_xe.TUNNEL_MIB.TUNNELMIB.TunnelInetConfigTable.TunnelInetConfigEntry>`
         
         
 
@@ -451,15 +446,14 @@ class TUNNELMIB(Entity):
         _revision = '2005-05-16'
 
         def __init__(self):
-            super(TUNNELMIB.Tunnelinetconfigtable, self).__init__()
+            super(TUNNELMIB.TunnelInetConfigTable, self).__init__()
 
             self.yang_name = "tunnelInetConfigTable"
             self.yang_parent_name = "TUNNEL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tunnelInetConfigEntry", ("tunnelinetconfigentry", TUNNELMIB.Tunnelinetconfigtable.Tunnelinetconfigentry))])
+            self._child_classes = OrderedDict([("tunnelInetConfigEntry", ("tunnelinetconfigentry", TUNNELMIB.TunnelInetConfigTable.TunnelInetConfigEntry))])
             self._leafs = OrderedDict()
 
             self.tunnelinetconfigentry = YList(self)
@@ -467,10 +461,10 @@ class TUNNELMIB(Entity):
             self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TUNNELMIB.Tunnelinetconfigtable, [], name, value)
+            self._perform_setattr(TUNNELMIB.TunnelInetConfigTable, [], name, value)
 
 
-        class Tunnelinetconfigentry(Entity):
+        class TunnelInetConfigEntry(Entity):
             """
             An entry (conceptual row) containing the information
             on a particular configured tunnel.  Note that there is
@@ -543,15 +537,14 @@ class TUNNELMIB(Entity):
             _revision = '2005-05-16'
 
             def __init__(self):
-                super(TUNNELMIB.Tunnelinetconfigtable.Tunnelinetconfigentry, self).__init__()
+                super(TUNNELMIB.TunnelInetConfigTable.TunnelInetConfigEntry, self).__init__()
 
                 self.yang_name = "tunnelInetConfigEntry"
                 self.yang_parent_name = "tunnelInetConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tunnelinetconfigaddresstype','tunnelinetconfiglocaladdress','tunnelinetconfigremoteaddress','tunnelinetconfigencapsmethod','tunnelinetconfigid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tunnelinetconfigaddresstype', YLeaf(YType.enumeration, 'tunnelInetConfigAddressType')),
                     ('tunnelinetconfiglocaladdress', YLeaf(YType.str, 'tunnelInetConfigLocalAddress')),
@@ -574,7 +567,7 @@ class TUNNELMIB(Entity):
                 self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/tunnelInetConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TUNNELMIB.Tunnelinetconfigtable.Tunnelinetconfigentry, ['tunnelinetconfigaddresstype', 'tunnelinetconfiglocaladdress', 'tunnelinetconfigremoteaddress', 'tunnelinetconfigencapsmethod', 'tunnelinetconfigid', 'tunnelinetconfigifindex', 'tunnelinetconfigstatus', 'tunnelinetconfigstoragetype'], name, value)
+                self._perform_setattr(TUNNELMIB.TunnelInetConfigTable.TunnelInetConfigEntry, ['tunnelinetconfigaddresstype', 'tunnelinetconfiglocaladdress', 'tunnelinetconfigremoteaddress', 'tunnelinetconfigencapsmethod', 'tunnelinetconfigid', 'tunnelinetconfigifindex', 'tunnelinetconfigstatus', 'tunnelinetconfigstoragetype'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TUNNELMIB()

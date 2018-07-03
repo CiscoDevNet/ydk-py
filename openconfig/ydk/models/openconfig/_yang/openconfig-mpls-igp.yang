@@ -1,14 +1,11 @@
 submodule openconfig-mpls-igp {
   yang-version 1;
   belongs-to openconfig-mpls {
-    prefix mpls;
+    prefix oc-mpls;
   }
 
   import openconfig-mpls-ldp {
-    prefix ldp;
-  }
-  import openconfig-mpls-sr {
-    prefix sr;
+    prefix oc-ldp;
   }
   import openconfig-extensions {
     prefix oc-ext;
@@ -23,15 +20,30 @@ submodule openconfig-mpls-igp {
     "Configuration generic configuration parameters for IGP-congruent
      LSPs";
 
-  revision 2015-11-05 {
+  revision 2017-03-22 {
     description
-      "Initial public release of MPLS models";
-    reference "0.2.1";
+      "Add RSVP calculated-absolute-subscription-bw";
+    reference "2.3.0";
   }
-  revision 2015-10-14 {
+  revision 2017-01-26 {
     description
-      "Work in progress";
-    reference "0.2.0";
+      "Add RSVP Tspec, clarify units for RSVP, remove unused LDP";
+    reference "2.2.0";
+  }
+  revision 2016-12-15 {
+    description
+      "Add additional MPLS parameters";
+    reference "2.1.0";
+  }
+  revision 2016-09-01 {
+    description
+      "Revisions based on implementation feedback";
+    reference "2.0.0";
+  }
+  revision 2016-08-08 {
+    description
+      "Public release of MPLS models";
+    reference "1.0.1";
   }
 
   grouping igp-lsp-common {
@@ -46,9 +58,8 @@ submodule openconfig-mpls-igp {
       description
         "select and configure the signaling method for
           the LSP";
-      uses ldp:igp-lsp-ldp-setup;
-      uses sr:igp-lsp-sr-setup;
+      uses oc-ldp:igp-lsp-ldp-setup;
     }
   }
-  oc-ext:openconfig-version "0.2.1";
+  oc-ext:openconfig-version "2.3.0";
 }

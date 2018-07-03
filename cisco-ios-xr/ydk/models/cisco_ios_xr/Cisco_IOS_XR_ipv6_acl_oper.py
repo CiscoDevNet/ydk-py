@@ -542,20 +542,20 @@ class Ipv6AclAndPrefixList(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("access-list-manager", ("access_list_manager", Ipv6AclAndPrefixList.AccessListManager)), ("oor", ("oor", Ipv6AclAndPrefixList.Oor))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("access-list-manager", ("access_list_manager", Ipv6AclAndPrefixList.AccessListManager)), ("oor", ("oor", Ipv6AclAndPrefixList.Oor))])
         self._leafs = OrderedDict()
 
         self.access_list_manager = Ipv6AclAndPrefixList.AccessListManager()
         self.access_list_manager.parent = self
         self._children_name_map["access_list_manager"] = "access-list-manager"
-        self._children_yang_names.add("access-list-manager")
 
         self.oor = Ipv6AclAndPrefixList.Oor()
         self.oor.parent = self
         self._children_name_map["oor"] = "oor"
-        self._children_yang_names.add("oor")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ipv6AclAndPrefixList, [], name, value)
 
 
     class AccessListManager(Entity):
@@ -593,26 +593,25 @@ class Ipv6AclAndPrefixList(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("prefixes", ("prefixes", Ipv6AclAndPrefixList.AccessListManager.Prefixes)), ("usages", ("usages", Ipv6AclAndPrefixList.AccessListManager.Usages)), ("accesses", ("accesses", Ipv6AclAndPrefixList.AccessListManager.Accesses))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("prefixes", ("prefixes", Ipv6AclAndPrefixList.AccessListManager.Prefixes)), ("usages", ("usages", Ipv6AclAndPrefixList.AccessListManager.Usages)), ("accesses", ("accesses", Ipv6AclAndPrefixList.AccessListManager.Accesses))])
             self._leafs = OrderedDict()
 
             self.prefixes = Ipv6AclAndPrefixList.AccessListManager.Prefixes()
             self.prefixes.parent = self
             self._children_name_map["prefixes"] = "prefixes"
-            self._children_yang_names.add("prefixes")
 
             self.usages = Ipv6AclAndPrefixList.AccessListManager.Usages()
             self.usages.parent = self
             self._children_name_map["usages"] = "usages"
-            self._children_yang_names.add("usages")
 
             self.accesses = Ipv6AclAndPrefixList.AccessListManager.Accesses()
             self.accesses.parent = self
             self._children_name_map["accesses"] = "accesses"
-            self._children_yang_names.add("accesses")
             self._segment_path = lambda: "access-list-manager"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager, [], name, value)
 
 
         class Prefixes(Entity):
@@ -639,8 +638,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("prefix", ("prefix", Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix))])
+                self._child_classes = OrderedDict([("prefix", ("prefix", Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix))])
                 self._leafs = OrderedDict()
 
                 self.prefix = YList(self)
@@ -660,7 +658,7 @@ class Ipv6AclAndPrefixList(Entity):
                 	Name of the prefix list
                 	**type**\: str
                 
-                	**length:** 1..65
+                	**length:** 1..64
                 
                 .. attribute:: prefix_list_sequences
                 
@@ -682,8 +680,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['prefix_list_name']
-                    self._child_container_classes = OrderedDict([("prefix-list-sequences", ("prefix_list_sequences", Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("prefix-list-sequences", ("prefix_list_sequences", Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences))])
                     self._leafs = OrderedDict([
                         ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
                     ])
@@ -692,7 +689,6 @@ class Ipv6AclAndPrefixList(Entity):
                     self.prefix_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences()
                     self.prefix_list_sequences.parent = self
                     self._children_name_map["prefix_list_sequences"] = "prefix-list-sequences"
-                    self._children_yang_names.add("prefix-list-sequences")
                     self._segment_path = lambda: "prefix" + "[prefix-list-name='" + str(self.prefix_list_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/prefixes/%s" % self._segment_path()
 
@@ -725,8 +721,7 @@ class Ipv6AclAndPrefixList(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("prefix-list-sequence", ("prefix_list_sequence", Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence))])
+                        self._child_classes = OrderedDict([("prefix-list-sequence", ("prefix_list_sequence", Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence))])
                         self._leafs = OrderedDict()
 
                         self.prefix_list_sequence = YList(self)
@@ -829,8 +824,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['sequence_number']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
                                 ('is_ace_type', YLeaf(YType.enumeration, 'is-ace-type')),
@@ -888,8 +882,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("usage", ("usage", Ipv6AclAndPrefixList.AccessListManager.Usages.Usage))])
+                self._child_classes = OrderedDict([("usage", ("usage", Ipv6AclAndPrefixList.AccessListManager.Usages.Usage))])
                 self._leafs = OrderedDict()
 
                 self.usage = YList(self)
@@ -921,7 +914,7 @@ class Ipv6AclAndPrefixList(Entity):
                 	Name of the ACL
                 	**type**\: str
                 
-                	**length:** 1..65
+                	**length:** 1..64
                 
                 .. attribute:: usage_details
                 
@@ -945,8 +938,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('node_name', YLeaf(YType.str, 'node-name')),
                         ('application_id', YLeaf(YType.enumeration, 'application-id')),
@@ -988,8 +980,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("access", ("access", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access))])
+                self._child_classes = OrderedDict([("access", ("access", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access))])
                 self._leafs = OrderedDict()
 
                 self.access = YList(self)
@@ -1009,7 +1000,7 @@ class Ipv6AclAndPrefixList(Entity):
                 	Name of the Access List
                 	**type**\: str
                 
-                	**length:** 1..65
+                	**length:** 1..64
                 
                 .. attribute:: access_list_sequences
                 
@@ -1031,8 +1022,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['access_list_name']
-                    self._child_container_classes = OrderedDict([("access-list-sequences", ("access_list_sequences", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("access-list-sequences", ("access_list_sequences", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences))])
                     self._leafs = OrderedDict([
                         ('access_list_name', YLeaf(YType.str, 'access-list-name')),
                     ])
@@ -1041,7 +1031,6 @@ class Ipv6AclAndPrefixList(Entity):
                     self.access_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences()
                     self.access_list_sequences.parent = self
                     self._children_name_map["access_list_sequences"] = "access-list-sequences"
-                    self._children_yang_names.add("access-list-sequences")
                     self._segment_path = lambda: "access" + "[access-list-name='" + str(self.access_list_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/accesses/%s" % self._segment_path()
 
@@ -1073,8 +1062,7 @@ class Ipv6AclAndPrefixList(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("access-list-sequence", ("access_list_sequence", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence))])
+                        self._child_classes = OrderedDict([("access-list-sequence", ("access_list_sequence", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence))])
                         self._leafs = OrderedDict()
 
                         self.access_list_sequence = YList(self)
@@ -1252,12 +1240,26 @@ class Ipv6AclAndPrefixList(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: dscp_operator
+                        
+                        	DSCP Operator
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
                         .. attribute:: is_dscp_valu
                         
                         	IsDSCPValu
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 0..255
+                        
+                        .. attribute:: is_dscp_valu2
+                        
+                        	IsDSCPValu2
+                        	**type**\: int
+                        
+                        	**range:** 0..255
                         
                         .. attribute:: is_precedence_present
                         
@@ -1435,8 +1437,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['sequence_number']
-                            self._child_container_classes = OrderedDict([("hw-next-hop-info", ("hw_next_hop_info", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo))])
-                            self._child_list_classes = OrderedDict([("next-hop-info", ("next_hop_info", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo)), ("udf", ("udf", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf))])
+                            self._child_classes = OrderedDict([("hw-next-hop-info", ("hw_next_hop_info", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo)), ("next-hop-info", ("next_hop_info", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo)), ("udf", ("udf", Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf))])
                             self._leafs = OrderedDict([
                                 ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
                                 ('is_ace_type', YLeaf(YType.enumeration, 'is-ace-type')),
@@ -1463,7 +1464,9 @@ class Ipv6AclAndPrefixList(Entity):
                                 ('is_tcp_bits', YLeaf(YType.uint32, 'is-tcp-bits')),
                                 ('is_tcp_bits_mask', YLeaf(YType.uint32, 'is-tcp-bits-mask')),
                                 ('is_dscp_present', YLeaf(YType.int32, 'is-dscp-present')),
-                                ('is_dscp_valu', YLeaf(YType.uint32, 'is-dscp-valu')),
+                                ('dscp_operator', YLeaf(YType.uint8, 'dscp-operator')),
+                                ('is_dscp_valu', YLeaf(YType.uint8, 'is-dscp-valu')),
+                                ('is_dscp_valu2', YLeaf(YType.uint8, 'is-dscp-valu2')),
                                 ('is_precedence_present', YLeaf(YType.int32, 'is-precedence-present')),
                                 ('is_precedence_value', YLeaf(YType.uint32, 'is-precedence-value')),
                                 ('is_header_matches', YLeaf(YType.uint32, 'is-header-matches')),
@@ -1515,7 +1518,9 @@ class Ipv6AclAndPrefixList(Entity):
                             self.is_tcp_bits = None
                             self.is_tcp_bits_mask = None
                             self.is_dscp_present = None
+                            self.dscp_operator = None
                             self.is_dscp_valu = None
+                            self.is_dscp_valu2 = None
                             self.is_precedence_present = None
                             self.is_precedence_value = None
                             self.is_header_matches = None
@@ -1545,14 +1550,13 @@ class Ipv6AclAndPrefixList(Entity):
                             self.hw_next_hop_info = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
                             self.hw_next_hop_info.parent = self
                             self._children_name_map["hw_next_hop_info"] = "hw-next-hop-info"
-                            self._children_yang_names.add("hw-next-hop-info")
 
                             self.next_hop_info = YList(self)
                             self.udf = YList(self)
                             self._segment_path = lambda: "access-list-sequence" + "[sequence-number='" + str(self.sequence_number) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', 'is_ace_type', 'is_ace_sequence_number', 'is_packet_allow_or_deny', 'is_protocol_operator', 'is_ipv6_protocol_type', 'is_ipv6_protocol2_type', 'is_source_address_in_numbers', 'is_source_address_prefix_length', 'source_mask', 'is_destination_address_in_numbers', 'is_destination_address_prefix_length', 'destination_mask', 'is_source_operator', 'is_source_port1', 'is_source_port2', 'is_destination_operator', 'is_destination_port1', 'is_destination_port2', 'is_log_option', 'counter_name', 'is_tcp_bits_operator', 'is_tcp_bits', 'is_tcp_bits_mask', 'is_dscp_present', 'is_dscp_valu', 'is_precedence_present', 'is_precedence_value', 'is_header_matches', 'is_packet_length_operator', 'is_packet_length_start', 'is_packet_length_end', 'is_time_to_live_operator', 'is_time_to_live_start', 'is_time_to_live_end', 'no_stats', 'hits', 'capture', 'undetermined_transport', 'is_icmp_message_off', 'qos_group', 'is_comment_for_entry', 'next_hop_type', 'is_flow_id', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'acl_name', 'sequence_str', 'set_ttl'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', 'is_ace_type', 'is_ace_sequence_number', 'is_packet_allow_or_deny', 'is_protocol_operator', 'is_ipv6_protocol_type', 'is_ipv6_protocol2_type', 'is_source_address_in_numbers', 'is_source_address_prefix_length', 'source_mask', 'is_destination_address_in_numbers', 'is_destination_address_prefix_length', 'destination_mask', 'is_source_operator', 'is_source_port1', 'is_source_port2', 'is_destination_operator', 'is_destination_port1', 'is_destination_port2', 'is_log_option', 'counter_name', 'is_tcp_bits_operator', 'is_tcp_bits', 'is_tcp_bits_mask', 'is_dscp_present', 'dscp_operator', 'is_dscp_valu', 'is_dscp_valu2', 'is_precedence_present', 'is_precedence_value', 'is_header_matches', 'is_packet_length_operator', 'is_packet_length_start', 'is_packet_length_end', 'is_time_to_live_operator', 'is_time_to_live_start', 'is_time_to_live_end', 'no_stats', 'hits', 'capture', 'undetermined_transport', 'is_icmp_message_off', 'qos_group', 'is_comment_for_entry', 'next_hop_type', 'is_flow_id', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'acl_name', 'sequence_str', 'set_ttl'], name, value)
 
 
                         class HwNextHopInfo(Entity):
@@ -1600,8 +1604,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.enumeration, 'type')),
                                     ('next_hop', YLeaf(YType.str, 'next-hop')),
@@ -1675,8 +1678,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('next_hop', YLeaf(YType.str, 'next-hop')),
                                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -1737,8 +1739,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('udf_name', YLeaf(YType.str, 'udf-name')),
                                     ('udf_value', YLeaf(YType.uint32, 'udf-value')),
@@ -1798,36 +1799,33 @@ class Ipv6AclAndPrefixList(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("details", ("details", Ipv6AclAndPrefixList.Oor.Details)), ("prefix-list-summary", ("prefix_list_summary", Ipv6AclAndPrefixList.Oor.PrefixListSummary)), ("oor-accesses", ("oor_accesses", Ipv6AclAndPrefixList.Oor.OorAccesses)), ("oor-prefixes", ("oor_prefixes", Ipv6AclAndPrefixList.Oor.OorPrefixes)), ("access-list-summary", ("access_list_summary", Ipv6AclAndPrefixList.Oor.AccessListSummary))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("details", ("details", Ipv6AclAndPrefixList.Oor.Details)), ("prefix-list-summary", ("prefix_list_summary", Ipv6AclAndPrefixList.Oor.PrefixListSummary)), ("oor-accesses", ("oor_accesses", Ipv6AclAndPrefixList.Oor.OorAccesses)), ("oor-prefixes", ("oor_prefixes", Ipv6AclAndPrefixList.Oor.OorPrefixes)), ("access-list-summary", ("access_list_summary", Ipv6AclAndPrefixList.Oor.AccessListSummary))])
             self._leafs = OrderedDict()
 
             self.details = Ipv6AclAndPrefixList.Oor.Details()
             self.details.parent = self
             self._children_name_map["details"] = "details"
-            self._children_yang_names.add("details")
 
             self.prefix_list_summary = Ipv6AclAndPrefixList.Oor.PrefixListSummary()
             self.prefix_list_summary.parent = self
             self._children_name_map["prefix_list_summary"] = "prefix-list-summary"
-            self._children_yang_names.add("prefix-list-summary")
 
             self.oor_accesses = Ipv6AclAndPrefixList.Oor.OorAccesses()
             self.oor_accesses.parent = self
             self._children_name_map["oor_accesses"] = "oor-accesses"
-            self._children_yang_names.add("oor-accesses")
 
             self.oor_prefixes = Ipv6AclAndPrefixList.Oor.OorPrefixes()
             self.oor_prefixes.parent = self
             self._children_name_map["oor_prefixes"] = "oor-prefixes"
-            self._children_yang_names.add("oor-prefixes")
 
             self.access_list_summary = Ipv6AclAndPrefixList.Oor.AccessListSummary()
             self.access_list_summary.parent = self
             self._children_name_map["access_list_summary"] = "access-list-summary"
-            self._children_yang_names.add("access-list-summary")
             self._segment_path = lambda: "oor"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipv6AclAndPrefixList.Oor, [], name, value)
 
 
         class Details(Entity):
@@ -1905,8 +1903,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('is_default_maximum_configurable_ac_ls', YLeaf(YType.uint32, 'is-default-maximum-configurable-ac-ls')),
                     ('is_default_maximum_configurable_ac_es', YLeaf(YType.uint32, 'is-default-maximum-configurable-ac-es')),
@@ -1957,16 +1954,17 @@ class Ipv6AclAndPrefixList(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("details", ("details", Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("details", ("details", Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details))])
                 self._leafs = OrderedDict()
 
                 self.details = Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details()
                 self.details.parent = self
                 self._children_name_map["details"] = "details"
-                self._children_yang_names.add("details")
                 self._segment_path = lambda: "prefix-list-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv6AclAndPrefixList.Oor.PrefixListSummary, [], name, value)
 
 
             class Details(Entity):
@@ -2045,8 +2043,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('is_default_maximum_configurable_ac_ls', YLeaf(YType.uint32, 'is-default-maximum-configurable-ac-ls')),
                         ('is_default_maximum_configurable_ac_es', YLeaf(YType.uint32, 'is-default-maximum-configurable-ac-es')),
@@ -2096,8 +2093,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("oor-access", ("oor_access", Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess))])
+                self._child_classes = OrderedDict([("oor-access", ("oor_access", Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess))])
                 self._leafs = OrderedDict()
 
                 self.oor_access = YList(self)
@@ -2118,7 +2114,7 @@ class Ipv6AclAndPrefixList(Entity):
                 	Name of the Access List
                 	**type**\: str
                 
-                	**length:** 1..65
+                	**length:** 1..64
                 
                 .. attribute:: is_default_maximum_configurable_ac_ls
                 
@@ -2191,8 +2187,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['access_list_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('access_list_name', YLeaf(YType.str, 'access-list-name')),
                         ('is_default_maximum_configurable_ac_ls', YLeaf(YType.uint32, 'is-default-maximum-configurable-ac-ls')),
@@ -2244,8 +2239,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("oor-prefix", ("oor_prefix", Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix))])
+                self._child_classes = OrderedDict([("oor-prefix", ("oor_prefix", Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix))])
                 self._leafs = OrderedDict()
 
                 self.oor_prefix = YList(self)
@@ -2266,7 +2260,7 @@ class Ipv6AclAndPrefixList(Entity):
                 	Name of a prefix list
                 	**type**\: str
                 
-                	**length:** 1..65
+                	**length:** 1..64
                 
                 .. attribute:: is_default_maximum_configurable_ac_ls
                 
@@ -2339,8 +2333,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['prefix_list_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
                         ('is_default_maximum_configurable_ac_ls', YLeaf(YType.uint32, 'is-default-maximum-configurable-ac-ls')),
@@ -2392,16 +2385,17 @@ class Ipv6AclAndPrefixList(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("details", ("details", Ipv6AclAndPrefixList.Oor.AccessListSummary.Details))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("details", ("details", Ipv6AclAndPrefixList.Oor.AccessListSummary.Details))])
                 self._leafs = OrderedDict()
 
                 self.details = Ipv6AclAndPrefixList.Oor.AccessListSummary.Details()
                 self.details.parent = self
                 self._children_name_map["details"] = "details"
-                self._children_yang_names.add("details")
                 self._segment_path = lambda: "access-list-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv6AclAndPrefixList.Oor.AccessListSummary, [], name, value)
 
 
             class Details(Entity):
@@ -2480,8 +2474,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('is_default_maximum_configurable_ac_ls', YLeaf(YType.uint32, 'is-default-maximum-configurable-ac-ls')),
                         ('is_default_maximum_configurable_ac_es', YLeaf(YType.uint32, 'is-default-maximum-configurable-ac-es')),

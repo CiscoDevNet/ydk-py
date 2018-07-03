@@ -12,8 +12,11 @@ submodule openconfig-bgp-common {
   import openconfig-routing-policy {
     prefix oc-rpol;
   }
-  import ietf-inet-types {
-    prefix inet;
+  import openconfig-types {
+    prefix oc-types;
+  }
+  import openconfig-inet-types {
+    prefix oc-inet;
   }
 
   organization
@@ -27,6 +30,16 @@ submodule openconfig-bgp-common {
      may be application to a subset of global, peer-group or neighbor
      contexts.";
 
+  revision 2017-02-02 {
+    description
+      "Bugfix to remove remaining global-level policy data";
+    reference "3.0.1";
+  }
+  revision 2017-01-26 {
+    description
+      "Add dynamic neighbor support, migrate to OpenConfig types";
+    reference "3.0.0";
+  }
   revision 2016-06-21 {
     description
       "OpenConfig BGP refactor";
@@ -88,12 +101,12 @@ submodule openconfig-bgp-common {
     description
       "Neighbor level configuration items.";
     leaf peer-as {
-      type inet:as-number;
+      type oc-inet:as-number;
       description
         "AS number of the peer.";
     }
     leaf local-as {
-      type inet:as-number;
+      type oc-inet:as-number;
       description
         "The local autonomous system number that is to be used
          when establishing sessions with the remote peer or peer
@@ -107,7 +120,7 @@ submodule openconfig-bgp-common {
          (iBGP) or external (eBGP).";
     }
     leaf auth-password {
-      type string;
+      type oc-types:routing-password;
       description
         "Configures an MD5 authentication password for use with
          neighboring devices.";
@@ -166,7 +179,7 @@ submodule openconfig-bgp-common {
     }
     leaf local-address {
       type union {
-        type inet:ip-address;
+        type oc-inet:ip-address;
         type string;
       }
       description
@@ -536,5 +549,5 @@ submodule openconfig-bgp-common {
         "Total number of BGP prefixes received within the context";
     }
   }
-  oc-ext:openconfig-version "2.1.1";
+  oc-ext:openconfig-version "3.0.1";
 }

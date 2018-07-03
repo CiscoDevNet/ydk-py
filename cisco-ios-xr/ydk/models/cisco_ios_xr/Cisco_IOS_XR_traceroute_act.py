@@ -46,19 +46,16 @@ class Traceroute(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Traceroute.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Traceroute.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute"
 
 
@@ -96,26 +93,25 @@ class Traceroute(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("destination", ("destination", Traceroute.Input.Destination)), ("ipv4", ("ipv4", Traceroute.Input.Ipv4)), ("ipv6", ("ipv6", Traceroute.Input.Ipv6))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("destination", ("destination", Traceroute.Input.Destination)), ("ipv4", ("ipv4", Traceroute.Input.Ipv4)), ("ipv6", ("ipv6", Traceroute.Input.Ipv6))])
             self._leafs = OrderedDict()
 
             self.destination = Traceroute.Input.Destination()
             self.destination.parent = self
             self._children_name_map["destination"] = "destination"
-            self._children_yang_names.add("destination")
 
             self.ipv4 = Traceroute.Input.Ipv4()
             self.ipv4.parent = self
             self._children_name_map["ipv4"] = "ipv4"
-            self._children_yang_names.add("ipv4")
 
             self.ipv6 = Traceroute.Input.Ipv6()
             self.ipv6.parent = self
             self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Traceroute.Input, [], name, value)
 
 
         class Destination(Entity):
@@ -219,8 +215,7 @@ class Traceroute(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('destination', YLeaf(YType.str, 'destination')),
                     ('source', YLeaf(YType.str, 'source')),
@@ -251,7 +246,7 @@ class Traceroute(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Destination, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'priority', 'outgoing_interface'], name, value)
+                self._perform_setattr(Traceroute.Input.Destination, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
         class Ipv4(Entity):
@@ -343,8 +338,7 @@ class Traceroute(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('destination', YLeaf(YType.str, 'destination')),
                     ('source', YLeaf(YType.str, 'source')),
@@ -371,7 +365,7 @@ class Traceroute(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv4, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv4, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose'], name, value)
 
 
         class Ipv6(Entity):
@@ -475,8 +469,7 @@ class Traceroute(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('destination', YLeaf(YType.str, 'destination')),
                     ('source', YLeaf(YType.str, 'source')),
@@ -507,7 +500,7 @@ class Traceroute(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv6, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'priority', 'outgoing_interface'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv6, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
     class Output(Entity):
@@ -534,16 +527,17 @@ class Traceroute(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("traceroute-response", ("traceroute_response", Traceroute.Output.TracerouteResponse))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("traceroute-response", ("traceroute_response", Traceroute.Output.TracerouteResponse))])
             self._leafs = OrderedDict()
 
             self.traceroute_response = Traceroute.Output.TracerouteResponse()
             self.traceroute_response.parent = self
             self._children_name_map["traceroute_response"] = "traceroute-response"
-            self._children_yang_names.add("traceroute-response")
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Traceroute.Output, [], name, value)
 
 
         class TracerouteResponse(Entity):
@@ -575,21 +569,21 @@ class Traceroute(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Traceroute.Output.TracerouteResponse.Ipv4)), ("ipv6", ("ipv6", Traceroute.Output.TracerouteResponse.Ipv6))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv4", ("ipv4", Traceroute.Output.TracerouteResponse.Ipv4)), ("ipv6", ("ipv6", Traceroute.Output.TracerouteResponse.Ipv6))])
                 self._leafs = OrderedDict()
 
                 self.ipv4 = Traceroute.Output.TracerouteResponse.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
 
                 self.ipv6 = Traceroute.Output.TracerouteResponse.Ipv6()
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
                 self._segment_path = lambda: "traceroute-response"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/output/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Traceroute.Output.TracerouteResponse, [], name, value)
 
 
             class Ipv4(Entity):
@@ -626,8 +620,7 @@ class Traceroute(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("hops", ("hops", Traceroute.Output.TracerouteResponse.Ipv4.Hops))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("hops", ("hops", Traceroute.Output.TracerouteResponse.Ipv4.Hops))])
                     self._leafs = OrderedDict([
                         ('destination', YLeaf(YType.str, 'destination')),
                         ('verbose_output', YLeaf(YType.str, 'verbose-output')),
@@ -638,12 +631,11 @@ class Traceroute(Entity):
                     self.hops = Traceroute.Output.TracerouteResponse.Ipv4.Hops()
                     self.hops.parent = self
                     self._children_name_map["hops"] = "hops"
-                    self._children_yang_names.add("hops")
                     self._segment_path = lambda: "ipv4"
                     self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, ['destination', 'verbose_output'], name, value)
+                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, [u'destination', u'verbose_output'], name, value)
 
 
                 class Hops(Entity):
@@ -670,8 +662,7 @@ class Traceroute(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("hop", ("hop", Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop))])
+                        self._child_classes = OrderedDict([("hop", ("hop", Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop))])
                         self._leafs = OrderedDict()
 
                         self.hop = YList(self)
@@ -723,8 +714,7 @@ class Traceroute(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['hop_index']
-                            self._child_container_classes = OrderedDict([("probes", ("probes", Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("probes", ("probes", Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes))])
                             self._leafs = OrderedDict([
                                 ('hop_index', YLeaf(YType.uint32, 'hop-index')),
                                 ('hop_address', YLeaf(YType.str, 'hop-address')),
@@ -737,12 +727,11 @@ class Traceroute(Entity):
                             self.probes = Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes()
                             self.probes.parent = self
                             self._children_name_map["probes"] = "probes"
-                            self._children_yang_names.add("probes")
                             self._segment_path = lambda: "hop" + "[hop-index='" + str(self.hop_index) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv4/hops/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, [u'hop_index', u'hop_address', u'hop_hostname'], name, value)
 
 
                         class Probes(Entity):
@@ -769,8 +758,7 @@ class Traceroute(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("probe", ("probe", Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe))])
+                                self._child_classes = OrderedDict([("probe", ("probe", Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe))])
                                 self._leafs = OrderedDict()
 
                                 self.probe = YList(self)
@@ -828,8 +816,7 @@ class Traceroute(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['probe_index']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('probe_index', YLeaf(YType.uint32, 'probe-index')),
                                         ('result', YLeaf(YType.str, 'result')),
@@ -845,7 +832,7 @@ class Traceroute(Entity):
                                     self._segment_path = lambda: "probe" + "[probe-index='" + str(self.probe_index) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
+                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
 
 
             class Ipv6(Entity):
@@ -882,8 +869,7 @@ class Traceroute(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("hops", ("hops", Traceroute.Output.TracerouteResponse.Ipv6.Hops))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("hops", ("hops", Traceroute.Output.TracerouteResponse.Ipv6.Hops))])
                     self._leafs = OrderedDict([
                         ('destination', YLeaf(YType.str, 'destination')),
                         ('verbose_output', YLeaf(YType.str, 'verbose-output')),
@@ -894,12 +880,11 @@ class Traceroute(Entity):
                     self.hops = Traceroute.Output.TracerouteResponse.Ipv6.Hops()
                     self.hops.parent = self
                     self._children_name_map["hops"] = "hops"
-                    self._children_yang_names.add("hops")
                     self._segment_path = lambda: "ipv6"
                     self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, ['destination', 'verbose_output'], name, value)
+                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, [u'destination', u'verbose_output'], name, value)
 
 
                 class Hops(Entity):
@@ -926,8 +911,7 @@ class Traceroute(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("hop", ("hop", Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop))])
+                        self._child_classes = OrderedDict([("hop", ("hop", Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop))])
                         self._leafs = OrderedDict()
 
                         self.hop = YList(self)
@@ -979,8 +963,7 @@ class Traceroute(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['hop_index']
-                            self._child_container_classes = OrderedDict([("probes", ("probes", Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("probes", ("probes", Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes))])
                             self._leafs = OrderedDict([
                                 ('hop_index', YLeaf(YType.uint32, 'hop-index')),
                                 ('hop_address', YLeaf(YType.str, 'hop-address')),
@@ -993,12 +976,11 @@ class Traceroute(Entity):
                             self.probes = Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes()
                             self.probes.parent = self
                             self._children_name_map["probes"] = "probes"
-                            self._children_yang_names.add("probes")
                             self._segment_path = lambda: "hop" + "[hop-index='" + str(self.hop_index) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv6/hops/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, [u'hop_index', u'hop_address', u'hop_hostname'], name, value)
 
 
                         class Probes(Entity):
@@ -1025,8 +1007,7 @@ class Traceroute(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("probe", ("probe", Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe))])
+                                self._child_classes = OrderedDict([("probe", ("probe", Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe))])
                                 self._leafs = OrderedDict()
 
                                 self.probe = YList(self)
@@ -1084,8 +1065,7 @@ class Traceroute(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['probe_index']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('probe_index', YLeaf(YType.uint32, 'probe-index')),
                                         ('result', YLeaf(YType.str, 'result')),
@@ -1101,7 +1081,7 @@ class Traceroute(Entity):
                                     self._segment_path = lambda: "probe" + "[probe-index='" + str(self.probe_index) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
+                                    self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Traceroute()

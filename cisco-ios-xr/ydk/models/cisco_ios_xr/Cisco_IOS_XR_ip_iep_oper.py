@@ -108,7 +108,7 @@ class ExplicitPaths(Entity):
     """
 
     _prefix = 'ip-iep-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(ExplicitPaths, self).__init__()
@@ -119,20 +119,20 @@ class ExplicitPaths(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("identifiers", ("identifiers", ExplicitPaths.Identifiers)), ("names", ("names", ExplicitPaths.Names))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("identifiers", ("identifiers", ExplicitPaths.Identifiers)), ("names", ("names", ExplicitPaths.Names))])
         self._leafs = OrderedDict()
 
         self.identifiers = ExplicitPaths.Identifiers()
         self.identifiers.parent = self
         self._children_name_map["identifiers"] = "identifiers"
-        self._children_yang_names.add("identifiers")
 
         self.names = ExplicitPaths.Names()
         self.names.parent = self
         self._children_name_map["names"] = "names"
-        self._children_yang_names.add("names")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-iep-oper:explicit-paths"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ExplicitPaths, [], name, value)
 
 
     class Identifiers(Entity):
@@ -150,7 +150,7 @@ class ExplicitPaths(Entity):
         """
 
         _prefix = 'ip-iep-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(ExplicitPaths.Identifiers, self).__init__()
@@ -160,8 +160,7 @@ class ExplicitPaths(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("identifier", ("identifier", ExplicitPaths.Identifiers.Identifier))])
+            self._child_classes = OrderedDict([("identifier", ("identifier", ExplicitPaths.Identifiers.Identifier))])
             self._leafs = OrderedDict()
 
             self.identifier = YList(self)
@@ -182,7 +181,7 @@ class ExplicitPaths(Entity):
             	Identifier ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: status
             
@@ -199,7 +198,7 @@ class ExplicitPaths(Entity):
             """
 
             _prefix = 'ip-iep-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ExplicitPaths.Identifiers.Identifier, self).__init__()
@@ -209,10 +208,9 @@ class ExplicitPaths(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['identifier_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("address", ("address", ExplicitPaths.Identifiers.Identifier.Address))])
+                self._child_classes = OrderedDict([("address", ("address", ExplicitPaths.Identifiers.Identifier.Address))])
                 self._leafs = OrderedDict([
-                    ('identifier_id', YLeaf(YType.int32, 'identifier-id')),
+                    ('identifier_id', YLeaf(YType.uint32, 'identifier-id')),
                     ('status', YLeaf(YType.enumeration, 'status')),
                 ])
                 self.identifier_id = None
@@ -274,7 +272,7 @@ class ExplicitPaths(Entity):
                 """
 
                 _prefix = 'ip-iep-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ExplicitPaths.Identifiers.Identifier.Address, self).__init__()
@@ -284,8 +282,7 @@ class ExplicitPaths(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.uint32, 'index')),
                         ('if_index', YLeaf(YType.uint32, 'if-index')),
@@ -321,7 +318,7 @@ class ExplicitPaths(Entity):
         """
 
         _prefix = 'ip-iep-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(ExplicitPaths.Names, self).__init__()
@@ -331,8 +328,7 @@ class ExplicitPaths(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("name", ("name", ExplicitPaths.Names.Name))])
+            self._child_classes = OrderedDict([("name", ("name", ExplicitPaths.Names.Name))])
             self._leafs = OrderedDict()
 
             self.name = YList(self)
@@ -370,7 +366,7 @@ class ExplicitPaths(Entity):
             """
 
             _prefix = 'ip-iep-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ExplicitPaths.Names.Name, self).__init__()
@@ -380,8 +376,7 @@ class ExplicitPaths(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['path_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("address", ("address", ExplicitPaths.Names.Name.Address))])
+                self._child_classes = OrderedDict([("address", ("address", ExplicitPaths.Names.Name.Address))])
                 self._leafs = OrderedDict([
                     ('path_name', YLeaf(YType.str, 'path-name')),
                     ('status', YLeaf(YType.enumeration, 'status')),
@@ -445,7 +440,7 @@ class ExplicitPaths(Entity):
                 """
 
                 _prefix = 'ip-iep-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ExplicitPaths.Names.Name.Address, self).__init__()
@@ -455,8 +450,7 @@ class ExplicitPaths(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.uint32, 'index')),
                         ('if_index', YLeaf(YType.uint32, 'if-index')),

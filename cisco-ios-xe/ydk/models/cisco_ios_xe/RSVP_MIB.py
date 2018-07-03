@@ -42,42 +42,42 @@ class RSVPMIB(Entity):
     .. attribute:: rsvpgenobjects
     
     	
-    	**type**\:  :py:class:`Rsvpgenobjects <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpgenobjects>`
+    	**type**\:  :py:class:`RsvpGenObjects <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpGenObjects>`
     
     .. attribute:: rsvpsessiontable
     
     	A table  of	 all  sessions	seen  by  a  given system
-    	**type**\:  :py:class:`Rsvpsessiontable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable>`
+    	**type**\:  :py:class:`RsvpSessionTable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSessionTable>`
     
     .. attribute:: rsvpsendertable
     
     	Information	describing the	state  information displayed by	senders	in PATH	messages
-    	**type**\:  :py:class:`Rsvpsendertable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsendertable>`
+    	**type**\:  :py:class:`RsvpSenderTable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSenderTable>`
     
     .. attribute:: rsvpsenderoutinterfacetable
     
     	List of outgoing interfaces	that PATH messages use.	 The  ifIndex  is the ifIndex value of the egress interface
-    	**type**\:  :py:class:`Rsvpsenderoutinterfacetable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsenderoutinterfacetable>`
+    	**type**\:  :py:class:`RsvpSenderOutInterfaceTable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSenderOutInterfaceTable>`
     
     .. attribute:: rsvpresvtable
     
     	Information	describing the	state  information displayed by	receivers in RESV messages
-    	**type**\:  :py:class:`Rsvpresvtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvtable>`
+    	**type**\:  :py:class:`RsvpResvTable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpResvTable>`
     
     .. attribute:: rsvpresvfwdtable
     
     	Information	describing the	state  information displayed upstream in RESV messages
-    	**type**\:  :py:class:`Rsvpresvfwdtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvfwdtable>`
+    	**type**\:  :py:class:`RsvpResvFwdTable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpResvFwdTable>`
     
     .. attribute:: rsvpiftable
     
     	The	RSVP\-specific attributes of  the  system's interfaces
-    	**type**\:  :py:class:`Rsvpiftable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpiftable>`
+    	**type**\:  :py:class:`RsvpIfTable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpIfTable>`
     
     .. attribute:: rsvpnbrtable
     
     	Information	describing  the	 Neighbors  of	an RSVP	system
-    	**type**\:  :py:class:`Rsvpnbrtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpnbrtable>`
+    	**type**\:  :py:class:`RsvpNbrTable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpNbrTable>`
     
     
 
@@ -95,53 +95,47 @@ class RSVPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("rsvpGenObjects", ("rsvpgenobjects", RSVPMIB.Rsvpgenobjects)), ("rsvpSessionTable", ("rsvpsessiontable", RSVPMIB.Rsvpsessiontable)), ("rsvpSenderTable", ("rsvpsendertable", RSVPMIB.Rsvpsendertable)), ("rsvpSenderOutInterfaceTable", ("rsvpsenderoutinterfacetable", RSVPMIB.Rsvpsenderoutinterfacetable)), ("rsvpResvTable", ("rsvpresvtable", RSVPMIB.Rsvpresvtable)), ("rsvpResvFwdTable", ("rsvpresvfwdtable", RSVPMIB.Rsvpresvfwdtable)), ("rsvpIfTable", ("rsvpiftable", RSVPMIB.Rsvpiftable)), ("rsvpNbrTable", ("rsvpnbrtable", RSVPMIB.Rsvpnbrtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("rsvpGenObjects", ("rsvpgenobjects", RSVPMIB.RsvpGenObjects)), ("rsvpSessionTable", ("rsvpsessiontable", RSVPMIB.RsvpSessionTable)), ("rsvpSenderTable", ("rsvpsendertable", RSVPMIB.RsvpSenderTable)), ("rsvpSenderOutInterfaceTable", ("rsvpsenderoutinterfacetable", RSVPMIB.RsvpSenderOutInterfaceTable)), ("rsvpResvTable", ("rsvpresvtable", RSVPMIB.RsvpResvTable)), ("rsvpResvFwdTable", ("rsvpresvfwdtable", RSVPMIB.RsvpResvFwdTable)), ("rsvpIfTable", ("rsvpiftable", RSVPMIB.RsvpIfTable)), ("rsvpNbrTable", ("rsvpnbrtable", RSVPMIB.RsvpNbrTable))])
         self._leafs = OrderedDict()
 
-        self.rsvpgenobjects = RSVPMIB.Rsvpgenobjects()
+        self.rsvpgenobjects = RSVPMIB.RsvpGenObjects()
         self.rsvpgenobjects.parent = self
         self._children_name_map["rsvpgenobjects"] = "rsvpGenObjects"
-        self._children_yang_names.add("rsvpGenObjects")
 
-        self.rsvpsessiontable = RSVPMIB.Rsvpsessiontable()
+        self.rsvpsessiontable = RSVPMIB.RsvpSessionTable()
         self.rsvpsessiontable.parent = self
         self._children_name_map["rsvpsessiontable"] = "rsvpSessionTable"
-        self._children_yang_names.add("rsvpSessionTable")
 
-        self.rsvpsendertable = RSVPMIB.Rsvpsendertable()
+        self.rsvpsendertable = RSVPMIB.RsvpSenderTable()
         self.rsvpsendertable.parent = self
         self._children_name_map["rsvpsendertable"] = "rsvpSenderTable"
-        self._children_yang_names.add("rsvpSenderTable")
 
-        self.rsvpsenderoutinterfacetable = RSVPMIB.Rsvpsenderoutinterfacetable()
+        self.rsvpsenderoutinterfacetable = RSVPMIB.RsvpSenderOutInterfaceTable()
         self.rsvpsenderoutinterfacetable.parent = self
         self._children_name_map["rsvpsenderoutinterfacetable"] = "rsvpSenderOutInterfaceTable"
-        self._children_yang_names.add("rsvpSenderOutInterfaceTable")
 
-        self.rsvpresvtable = RSVPMIB.Rsvpresvtable()
+        self.rsvpresvtable = RSVPMIB.RsvpResvTable()
         self.rsvpresvtable.parent = self
         self._children_name_map["rsvpresvtable"] = "rsvpResvTable"
-        self._children_yang_names.add("rsvpResvTable")
 
-        self.rsvpresvfwdtable = RSVPMIB.Rsvpresvfwdtable()
+        self.rsvpresvfwdtable = RSVPMIB.RsvpResvFwdTable()
         self.rsvpresvfwdtable.parent = self
         self._children_name_map["rsvpresvfwdtable"] = "rsvpResvFwdTable"
-        self._children_yang_names.add("rsvpResvFwdTable")
 
-        self.rsvpiftable = RSVPMIB.Rsvpiftable()
+        self.rsvpiftable = RSVPMIB.RsvpIfTable()
         self.rsvpiftable.parent = self
         self._children_name_map["rsvpiftable"] = "rsvpIfTable"
-        self._children_yang_names.add("rsvpIfTable")
 
-        self.rsvpnbrtable = RSVPMIB.Rsvpnbrtable()
+        self.rsvpnbrtable = RSVPMIB.RsvpNbrTable()
         self.rsvpnbrtable.parent = self
         self._children_name_map["rsvpnbrtable"] = "rsvpNbrTable"
-        self._children_yang_names.add("rsvpNbrTable")
         self._segment_path = lambda: "RSVP-MIB:RSVP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(RSVPMIB, [], name, value)
 
-    class Rsvpgenobjects(Entity):
+
+    class RsvpGenObjects(Entity):
         """
         
         
@@ -188,15 +182,14 @@ class RSVPMIB(Entity):
         _revision = '1998-08-25'
 
         def __init__(self):
-            super(RSVPMIB.Rsvpgenobjects, self).__init__()
+            super(RSVPMIB.RsvpGenObjects, self).__init__()
 
             self.yang_name = "rsvpGenObjects"
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('rsvpbadpackets', YLeaf(YType.uint32, 'rsvpBadPackets')),
                 ('rsvpsendernewindex', YLeaf(YType.int32, 'rsvpSenderNewIndex')),
@@ -213,10 +206,10 @@ class RSVPMIB(Entity):
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RSVPMIB.Rsvpgenobjects, ['rsvpbadpackets', 'rsvpsendernewindex', 'rsvpresvnewindex', 'rsvpresvfwdnewindex', 'rsvpsessionnewindex'], name, value)
+            self._perform_setattr(RSVPMIB.RsvpGenObjects, ['rsvpbadpackets', 'rsvpsendernewindex', 'rsvpresvnewindex', 'rsvpresvfwdnewindex', 'rsvpsessionnewindex'], name, value)
 
 
-    class Rsvpsessiontable(Entity):
+    class RsvpSessionTable(Entity):
         """
         A table  of	 all  sessions	seen  by  a  given
         system.
@@ -224,7 +217,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpsessionentry
         
         	A single session seen by a given system
-        	**type**\: list of  		 :py:class:`Rsvpsessionentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
+        	**type**\: list of  		 :py:class:`RsvpSessionEntry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSessionTable.RsvpSessionEntry>`
         
         
 
@@ -234,15 +227,14 @@ class RSVPMIB(Entity):
         _revision = '1998-08-25'
 
         def __init__(self):
-            super(RSVPMIB.Rsvpsessiontable, self).__init__()
+            super(RSVPMIB.RsvpSessionTable, self).__init__()
 
             self.yang_name = "rsvpSessionTable"
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rsvpSessionEntry", ("rsvpsessionentry", RSVPMIB.Rsvpsessiontable.Rsvpsessionentry))])
+            self._child_classes = OrderedDict([("rsvpSessionEntry", ("rsvpsessionentry", RSVPMIB.RsvpSessionTable.RsvpSessionEntry))])
             self._leafs = OrderedDict()
 
             self.rsvpsessionentry = YList(self)
@@ -250,10 +242,10 @@ class RSVPMIB(Entity):
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RSVPMIB.Rsvpsessiontable, [], name, value)
+            self._perform_setattr(RSVPMIB.RsvpSessionTable, [], name, value)
 
 
-        class Rsvpsessionentry(Entity):
+        class RsvpSessionEntry(Entity):
             """
             A single session seen by a given system.
             
@@ -328,15 +320,14 @@ class RSVPMIB(Entity):
             _revision = '1998-08-25'
 
             def __init__(self):
-                super(RSVPMIB.Rsvpsessiontable.Rsvpsessionentry, self).__init__()
+                super(RSVPMIB.RsvpSessionTable.RsvpSessionEntry, self).__init__()
 
                 self.yang_name = "rsvpSessionEntry"
                 self.yang_parent_name = "rsvpSessionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rsvpsessionnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rsvpsessionnumber', YLeaf(YType.int32, 'rsvpSessionNumber')),
                     ('rsvpsessiontype', YLeaf(YType.int32, 'rsvpSessionType')),
@@ -361,10 +352,10 @@ class RSVPMIB(Entity):
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpSessionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RSVPMIB.Rsvpsessiontable.Rsvpsessionentry, ['rsvpsessionnumber', 'rsvpsessiontype', 'rsvpsessiondestaddr', 'rsvpsessiondestaddrlength', 'rsvpsessionprotocol', 'rsvpsessionport', 'rsvpsessionsenders', 'rsvpsessionreceivers', 'rsvpsessionrequests'], name, value)
+                self._perform_setattr(RSVPMIB.RsvpSessionTable.RsvpSessionEntry, ['rsvpsessionnumber', 'rsvpsessiontype', 'rsvpsessiondestaddr', 'rsvpsessiondestaddrlength', 'rsvpsessionprotocol', 'rsvpsessionport', 'rsvpsessionsenders', 'rsvpsessionreceivers', 'rsvpsessionrequests'], name, value)
 
 
-    class Rsvpsendertable(Entity):
+    class RsvpSenderTable(Entity):
         """
         Information	describing the	state  information
         displayed by	senders	in PATH	messages.
@@ -372,7 +363,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpsenderentry
         
         	Information	describing the	state  information displayed by	a single sender's PATH message
-        	**type**\: list of  		 :py:class:`Rsvpsenderentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsendertable.Rsvpsenderentry>`
+        	**type**\: list of  		 :py:class:`RsvpSenderEntry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSenderTable.RsvpSenderEntry>`
         
         
 
@@ -382,15 +373,14 @@ class RSVPMIB(Entity):
         _revision = '1998-08-25'
 
         def __init__(self):
-            super(RSVPMIB.Rsvpsendertable, self).__init__()
+            super(RSVPMIB.RsvpSenderTable, self).__init__()
 
             self.yang_name = "rsvpSenderTable"
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rsvpSenderEntry", ("rsvpsenderentry", RSVPMIB.Rsvpsendertable.Rsvpsenderentry))])
+            self._child_classes = OrderedDict([("rsvpSenderEntry", ("rsvpsenderentry", RSVPMIB.RsvpSenderTable.RsvpSenderEntry))])
             self._leafs = OrderedDict()
 
             self.rsvpsenderentry = YList(self)
@@ -398,10 +388,10 @@ class RSVPMIB(Entity):
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RSVPMIB.Rsvpsendertable, [], name, value)
+            self._perform_setattr(RSVPMIB.RsvpSenderTable, [], name, value)
 
 
-        class Rsvpsenderentry(Entity):
+        class RsvpSenderEntry(Entity):
             """
             Information	describing the	state  information
             displayed by	a single sender's PATH message.
@@ -413,7 +403,7 @@ class RSVPMIB(Entity):
             
             	**range:** 0..2147483647
             
-            	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
+            	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSessionTable.RsvpSessionEntry>`
             
             .. attribute:: rsvpsendernumber  (key)
             
@@ -756,15 +746,14 @@ class RSVPMIB(Entity):
             _revision = '1998-08-25'
 
             def __init__(self):
-                super(RSVPMIB.Rsvpsendertable.Rsvpsenderentry, self).__init__()
+                super(RSVPMIB.RsvpSenderTable.RsvpSenderEntry, self).__init__()
 
                 self.yang_name = "rsvpSenderEntry"
                 self.yang_parent_name = "rsvpSenderTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rsvpsessionnumber','rsvpsendernumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rsvpsessionnumber', YLeaf(YType.str, 'rsvpSessionNumber')),
                     ('rsvpsendernumber', YLeaf(YType.int32, 'rsvpSenderNumber')),
@@ -863,10 +852,10 @@ class RSVPMIB(Entity):
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpSenderTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RSVPMIB.Rsvpsendertable.Rsvpsenderentry, ['rsvpsessionnumber', 'rsvpsendernumber', 'rsvpsendertype', 'rsvpsenderdestaddr', 'rsvpsenderaddr', 'rsvpsenderdestaddrlength', 'rsvpsenderaddrlength', 'rsvpsenderprotocol', 'rsvpsenderdestport', 'rsvpsenderport', 'rsvpsenderflowid', 'rsvpsenderhopaddr', 'rsvpsenderhoplih', 'rsvpsenderinterface', 'rsvpsendertspecrate', 'rsvpsendertspecpeakrate', 'rsvpsendertspecburst', 'rsvpsendertspecmintu', 'rsvpsendertspecmaxtu', 'rsvpsenderinterval', 'rsvpsenderrsvphop', 'rsvpsenderlastchange', 'rsvpsenderpolicy', 'rsvpsenderadspecbreak', 'rsvpsenderadspechopcount', 'rsvpsenderadspecpathbw', 'rsvpsenderadspecminlatency', 'rsvpsenderadspecmtu', 'rsvpsenderadspecguaranteedsvc', 'rsvpsenderadspecguaranteedbreak', 'rsvpsenderadspecguaranteedctot', 'rsvpsenderadspecguaranteeddtot', 'rsvpsenderadspecguaranteedcsum', 'rsvpsenderadspecguaranteeddsum', 'rsvpsenderadspecguaranteedhopcount', 'rsvpsenderadspecguaranteedpathbw', 'rsvpsenderadspecguaranteedminlatency', 'rsvpsenderadspecguaranteedmtu', 'rsvpsenderadspecctrlloadsvc', 'rsvpsenderadspecctrlloadbreak', 'rsvpsenderadspecctrlloadhopcount', 'rsvpsenderadspecctrlloadpathbw', 'rsvpsenderadspecctrlloadminlatency', 'rsvpsenderadspecctrlloadmtu', 'rsvpsenderstatus', 'rsvpsenderttl'], name, value)
+                self._perform_setattr(RSVPMIB.RsvpSenderTable.RsvpSenderEntry, ['rsvpsessionnumber', 'rsvpsendernumber', 'rsvpsendertype', 'rsvpsenderdestaddr', 'rsvpsenderaddr', 'rsvpsenderdestaddrlength', 'rsvpsenderaddrlength', 'rsvpsenderprotocol', 'rsvpsenderdestport', 'rsvpsenderport', 'rsvpsenderflowid', 'rsvpsenderhopaddr', 'rsvpsenderhoplih', 'rsvpsenderinterface', 'rsvpsendertspecrate', 'rsvpsendertspecpeakrate', 'rsvpsendertspecburst', 'rsvpsendertspecmintu', 'rsvpsendertspecmaxtu', 'rsvpsenderinterval', 'rsvpsenderrsvphop', 'rsvpsenderlastchange', 'rsvpsenderpolicy', 'rsvpsenderadspecbreak', 'rsvpsenderadspechopcount', 'rsvpsenderadspecpathbw', 'rsvpsenderadspecminlatency', 'rsvpsenderadspecmtu', 'rsvpsenderadspecguaranteedsvc', 'rsvpsenderadspecguaranteedbreak', 'rsvpsenderadspecguaranteedctot', 'rsvpsenderadspecguaranteeddtot', 'rsvpsenderadspecguaranteedcsum', 'rsvpsenderadspecguaranteeddsum', 'rsvpsenderadspecguaranteedhopcount', 'rsvpsenderadspecguaranteedpathbw', 'rsvpsenderadspecguaranteedminlatency', 'rsvpsenderadspecguaranteedmtu', 'rsvpsenderadspecctrlloadsvc', 'rsvpsenderadspecctrlloadbreak', 'rsvpsenderadspecctrlloadhopcount', 'rsvpsenderadspecctrlloadpathbw', 'rsvpsenderadspecctrlloadminlatency', 'rsvpsenderadspecctrlloadmtu', 'rsvpsenderstatus', 'rsvpsenderttl'], name, value)
 
 
-    class Rsvpsenderoutinterfacetable(Entity):
+    class RsvpSenderOutInterfaceTable(Entity):
         """
         List of outgoing interfaces	that PATH messages
         use.	 The  ifIndex  is the ifIndex value of the
@@ -875,7 +864,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpsenderoutinterfaceentry
         
         	List of outgoing interfaces	that a	particular PATH	message	has
-        	**type**\: list of  		 :py:class:`Rsvpsenderoutinterfaceentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry>`
+        	**type**\: list of  		 :py:class:`RsvpSenderOutInterfaceEntry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSenderOutInterfaceTable.RsvpSenderOutInterfaceEntry>`
         
         
 
@@ -885,15 +874,14 @@ class RSVPMIB(Entity):
         _revision = '1998-08-25'
 
         def __init__(self):
-            super(RSVPMIB.Rsvpsenderoutinterfacetable, self).__init__()
+            super(RSVPMIB.RsvpSenderOutInterfaceTable, self).__init__()
 
             self.yang_name = "rsvpSenderOutInterfaceTable"
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rsvpSenderOutInterfaceEntry", ("rsvpsenderoutinterfaceentry", RSVPMIB.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry))])
+            self._child_classes = OrderedDict([("rsvpSenderOutInterfaceEntry", ("rsvpsenderoutinterfaceentry", RSVPMIB.RsvpSenderOutInterfaceTable.RsvpSenderOutInterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.rsvpsenderoutinterfaceentry = YList(self)
@@ -901,10 +889,10 @@ class RSVPMIB(Entity):
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RSVPMIB.Rsvpsenderoutinterfacetable, [], name, value)
+            self._perform_setattr(RSVPMIB.RsvpSenderOutInterfaceTable, [], name, value)
 
 
-        class Rsvpsenderoutinterfaceentry(Entity):
+        class RsvpSenderOutInterfaceEntry(Entity):
             """
             List of outgoing interfaces	that a	particular
             PATH	message	has.
@@ -916,7 +904,7 @@ class RSVPMIB(Entity):
             
             	**range:** 0..2147483647
             
-            	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
+            	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSessionTable.RsvpSessionEntry>`
             
             .. attribute:: rsvpsendernumber  (key)
             
@@ -925,7 +913,7 @@ class RSVPMIB(Entity):
             
             	**range:** 0..2147483647
             
-            	**refers to**\:  :py:class:`rsvpsendernumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsendertable.Rsvpsenderentry>`
+            	**refers to**\:  :py:class:`rsvpsendernumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSenderTable.RsvpSenderEntry>`
             
             .. attribute:: ifindex  (key)
             
@@ -934,7 +922,7 @@ class RSVPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: rsvpsenderoutinterfacestatus
             
@@ -949,15 +937,14 @@ class RSVPMIB(Entity):
             _revision = '1998-08-25'
 
             def __init__(self):
-                super(RSVPMIB.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry, self).__init__()
+                super(RSVPMIB.RsvpSenderOutInterfaceTable.RsvpSenderOutInterfaceEntry, self).__init__()
 
                 self.yang_name = "rsvpSenderOutInterfaceEntry"
                 self.yang_parent_name = "rsvpSenderOutInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rsvpsessionnumber','rsvpsendernumber','ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rsvpsessionnumber', YLeaf(YType.str, 'rsvpSessionNumber')),
                     ('rsvpsendernumber', YLeaf(YType.str, 'rsvpSenderNumber')),
@@ -972,10 +959,10 @@ class RSVPMIB(Entity):
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpSenderOutInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RSVPMIB.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry, ['rsvpsessionnumber', 'rsvpsendernumber', 'ifindex', 'rsvpsenderoutinterfacestatus'], name, value)
+                self._perform_setattr(RSVPMIB.RsvpSenderOutInterfaceTable.RsvpSenderOutInterfaceEntry, ['rsvpsessionnumber', 'rsvpsendernumber', 'ifindex', 'rsvpsenderoutinterfacestatus'], name, value)
 
 
-    class Rsvpresvtable(Entity):
+    class RsvpResvTable(Entity):
         """
         Information	describing the	state  information
         displayed by	receivers in RESV messages.
@@ -983,7 +970,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpresventry
         
         	Information	describing the	state  information displayed  by  a single receiver's RESV message concerning a	single sender
-        	**type**\: list of  		 :py:class:`Rsvpresventry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvtable.Rsvpresventry>`
+        	**type**\: list of  		 :py:class:`RsvpResvEntry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpResvTable.RsvpResvEntry>`
         
         
 
@@ -993,15 +980,14 @@ class RSVPMIB(Entity):
         _revision = '1998-08-25'
 
         def __init__(self):
-            super(RSVPMIB.Rsvpresvtable, self).__init__()
+            super(RSVPMIB.RsvpResvTable, self).__init__()
 
             self.yang_name = "rsvpResvTable"
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rsvpResvEntry", ("rsvpresventry", RSVPMIB.Rsvpresvtable.Rsvpresventry))])
+            self._child_classes = OrderedDict([("rsvpResvEntry", ("rsvpresventry", RSVPMIB.RsvpResvTable.RsvpResvEntry))])
             self._leafs = OrderedDict()
 
             self.rsvpresventry = YList(self)
@@ -1009,10 +995,10 @@ class RSVPMIB(Entity):
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RSVPMIB.Rsvpresvtable, [], name, value)
+            self._perform_setattr(RSVPMIB.RsvpResvTable, [], name, value)
 
 
-        class Rsvpresventry(Entity):
+        class RsvpResvEntry(Entity):
             """
             Information	describing the	state  information
             displayed  by  a single receiver's RESV message
@@ -1025,7 +1011,7 @@ class RSVPMIB(Entity):
             
             	**range:** 0..2147483647
             
-            	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
+            	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSessionTable.RsvpSessionEntry>`
             
             .. attribute:: rsvpresvnumber  (key)
             
@@ -1245,15 +1231,14 @@ class RSVPMIB(Entity):
             _revision = '1998-08-25'
 
             def __init__(self):
-                super(RSVPMIB.Rsvpresvtable.Rsvpresventry, self).__init__()
+                super(RSVPMIB.RsvpResvTable.RsvpResvEntry, self).__init__()
 
                 self.yang_name = "rsvpResvEntry"
                 self.yang_parent_name = "rsvpResvTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rsvpsessionnumber','rsvpresvnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rsvpsessionnumber', YLeaf(YType.str, 'rsvpSessionNumber')),
                     ('rsvpresvnumber', YLeaf(YType.int32, 'rsvpResvNumber')),
@@ -1322,10 +1307,10 @@ class RSVPMIB(Entity):
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpResvTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RSVPMIB.Rsvpresvtable.Rsvpresventry, ['rsvpsessionnumber', 'rsvpresvnumber', 'rsvpresvtype', 'rsvpresvdestaddr', 'rsvpresvsenderaddr', 'rsvpresvdestaddrlength', 'rsvpresvsenderaddrlength', 'rsvpresvprotocol', 'rsvpresvdestport', 'rsvpresvport', 'rsvpresvhopaddr', 'rsvpresvhoplih', 'rsvpresvinterface', 'rsvpresvservice', 'rsvpresvtspecrate', 'rsvpresvtspecpeakrate', 'rsvpresvtspecburst', 'rsvpresvtspecmintu', 'rsvpresvtspecmaxtu', 'rsvpresvrspecrate', 'rsvpresvrspecslack', 'rsvpresvinterval', 'rsvpresvscope', 'rsvpresvshared', 'rsvpresvexplicit', 'rsvpresvrsvphop', 'rsvpresvlastchange', 'rsvpresvpolicy', 'rsvpresvstatus', 'rsvpresvttl', 'rsvpresvflowid'], name, value)
+                self._perform_setattr(RSVPMIB.RsvpResvTable.RsvpResvEntry, ['rsvpsessionnumber', 'rsvpresvnumber', 'rsvpresvtype', 'rsvpresvdestaddr', 'rsvpresvsenderaddr', 'rsvpresvdestaddrlength', 'rsvpresvsenderaddrlength', 'rsvpresvprotocol', 'rsvpresvdestport', 'rsvpresvport', 'rsvpresvhopaddr', 'rsvpresvhoplih', 'rsvpresvinterface', 'rsvpresvservice', 'rsvpresvtspecrate', 'rsvpresvtspecpeakrate', 'rsvpresvtspecburst', 'rsvpresvtspecmintu', 'rsvpresvtspecmaxtu', 'rsvpresvrspecrate', 'rsvpresvrspecslack', 'rsvpresvinterval', 'rsvpresvscope', 'rsvpresvshared', 'rsvpresvexplicit', 'rsvpresvrsvphop', 'rsvpresvlastchange', 'rsvpresvpolicy', 'rsvpresvstatus', 'rsvpresvttl', 'rsvpresvflowid'], name, value)
 
 
-    class Rsvpresvfwdtable(Entity):
+    class RsvpResvFwdTable(Entity):
         """
         Information	describing the	state  information
         displayed upstream in RESV messages.
@@ -1333,7 +1318,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpresvfwdentry
         
         	Information	describing the	state  information displayed   upstream	  in   an   RESV   message concerning a	single sender
-        	**type**\: list of  		 :py:class:`Rsvpresvfwdentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvfwdtable.Rsvpresvfwdentry>`
+        	**type**\: list of  		 :py:class:`RsvpResvFwdEntry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpResvFwdTable.RsvpResvFwdEntry>`
         
         
 
@@ -1343,15 +1328,14 @@ class RSVPMIB(Entity):
         _revision = '1998-08-25'
 
         def __init__(self):
-            super(RSVPMIB.Rsvpresvfwdtable, self).__init__()
+            super(RSVPMIB.RsvpResvFwdTable, self).__init__()
 
             self.yang_name = "rsvpResvFwdTable"
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rsvpResvFwdEntry", ("rsvpresvfwdentry", RSVPMIB.Rsvpresvfwdtable.Rsvpresvfwdentry))])
+            self._child_classes = OrderedDict([("rsvpResvFwdEntry", ("rsvpresvfwdentry", RSVPMIB.RsvpResvFwdTable.RsvpResvFwdEntry))])
             self._leafs = OrderedDict()
 
             self.rsvpresvfwdentry = YList(self)
@@ -1359,10 +1343,10 @@ class RSVPMIB(Entity):
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RSVPMIB.Rsvpresvfwdtable, [], name, value)
+            self._perform_setattr(RSVPMIB.RsvpResvFwdTable, [], name, value)
 
 
-        class Rsvpresvfwdentry(Entity):
+        class RsvpResvFwdEntry(Entity):
             """
             Information	describing the	state  information
             displayed   upstream	  in   an   RESV   message
@@ -1375,7 +1359,7 @@ class RSVPMIB(Entity):
             
             	**range:** 0..2147483647
             
-            	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
+            	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpSessionTable.RsvpSessionEntry>`
             
             .. attribute:: rsvpresvfwdnumber  (key)
             
@@ -1595,15 +1579,14 @@ class RSVPMIB(Entity):
             _revision = '1998-08-25'
 
             def __init__(self):
-                super(RSVPMIB.Rsvpresvfwdtable.Rsvpresvfwdentry, self).__init__()
+                super(RSVPMIB.RsvpResvFwdTable.RsvpResvFwdEntry, self).__init__()
 
                 self.yang_name = "rsvpResvFwdEntry"
                 self.yang_parent_name = "rsvpResvFwdTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rsvpsessionnumber','rsvpresvfwdnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rsvpsessionnumber', YLeaf(YType.str, 'rsvpSessionNumber')),
                     ('rsvpresvfwdnumber', YLeaf(YType.int32, 'rsvpResvFwdNumber')),
@@ -1672,10 +1655,10 @@ class RSVPMIB(Entity):
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpResvFwdTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RSVPMIB.Rsvpresvfwdtable.Rsvpresvfwdentry, ['rsvpsessionnumber', 'rsvpresvfwdnumber', 'rsvpresvfwdtype', 'rsvpresvfwddestaddr', 'rsvpresvfwdsenderaddr', 'rsvpresvfwddestaddrlength', 'rsvpresvfwdsenderaddrlength', 'rsvpresvfwdprotocol', 'rsvpresvfwddestport', 'rsvpresvfwdport', 'rsvpresvfwdhopaddr', 'rsvpresvfwdhoplih', 'rsvpresvfwdinterface', 'rsvpresvfwdservice', 'rsvpresvfwdtspecrate', 'rsvpresvfwdtspecpeakrate', 'rsvpresvfwdtspecburst', 'rsvpresvfwdtspecmintu', 'rsvpresvfwdtspecmaxtu', 'rsvpresvfwdrspecrate', 'rsvpresvfwdrspecslack', 'rsvpresvfwdinterval', 'rsvpresvfwdscope', 'rsvpresvfwdshared', 'rsvpresvfwdexplicit', 'rsvpresvfwdrsvphop', 'rsvpresvfwdlastchange', 'rsvpresvfwdpolicy', 'rsvpresvfwdstatus', 'rsvpresvfwdttl', 'rsvpresvfwdflowid'], name, value)
+                self._perform_setattr(RSVPMIB.RsvpResvFwdTable.RsvpResvFwdEntry, ['rsvpsessionnumber', 'rsvpresvfwdnumber', 'rsvpresvfwdtype', 'rsvpresvfwddestaddr', 'rsvpresvfwdsenderaddr', 'rsvpresvfwddestaddrlength', 'rsvpresvfwdsenderaddrlength', 'rsvpresvfwdprotocol', 'rsvpresvfwddestport', 'rsvpresvfwdport', 'rsvpresvfwdhopaddr', 'rsvpresvfwdhoplih', 'rsvpresvfwdinterface', 'rsvpresvfwdservice', 'rsvpresvfwdtspecrate', 'rsvpresvfwdtspecpeakrate', 'rsvpresvfwdtspecburst', 'rsvpresvfwdtspecmintu', 'rsvpresvfwdtspecmaxtu', 'rsvpresvfwdrspecrate', 'rsvpresvfwdrspecslack', 'rsvpresvfwdinterval', 'rsvpresvfwdscope', 'rsvpresvfwdshared', 'rsvpresvfwdexplicit', 'rsvpresvfwdrsvphop', 'rsvpresvfwdlastchange', 'rsvpresvfwdpolicy', 'rsvpresvfwdstatus', 'rsvpresvfwdttl', 'rsvpresvfwdflowid'], name, value)
 
 
-    class Rsvpiftable(Entity):
+    class RsvpIfTable(Entity):
         """
         The	RSVP\-specific attributes of  the  system's
         interfaces.
@@ -1683,7 +1666,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpifentry
         
         	The	RSVP\-specific attributes of  the  a  given interface
-        	**type**\: list of  		 :py:class:`Rsvpifentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpiftable.Rsvpifentry>`
+        	**type**\: list of  		 :py:class:`RsvpIfEntry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpIfTable.RsvpIfEntry>`
         
         
 
@@ -1693,15 +1676,14 @@ class RSVPMIB(Entity):
         _revision = '1998-08-25'
 
         def __init__(self):
-            super(RSVPMIB.Rsvpiftable, self).__init__()
+            super(RSVPMIB.RsvpIfTable, self).__init__()
 
             self.yang_name = "rsvpIfTable"
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rsvpIfEntry", ("rsvpifentry", RSVPMIB.Rsvpiftable.Rsvpifentry))])
+            self._child_classes = OrderedDict([("rsvpIfEntry", ("rsvpifentry", RSVPMIB.RsvpIfTable.RsvpIfEntry))])
             self._leafs = OrderedDict()
 
             self.rsvpifentry = YList(self)
@@ -1709,10 +1691,10 @@ class RSVPMIB(Entity):
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RSVPMIB.Rsvpiftable, [], name, value)
+            self._perform_setattr(RSVPMIB.RsvpIfTable, [], name, value)
 
 
-        class Rsvpifentry(Entity):
+        class RsvpIfEntry(Entity):
             """
             The	RSVP\-specific attributes of  the  a  given
             interface.
@@ -1724,7 +1706,7 @@ class RSVPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: rsvpifudpnbrs
             
@@ -1809,15 +1791,14 @@ class RSVPMIB(Entity):
             _revision = '1998-08-25'
 
             def __init__(self):
-                super(RSVPMIB.Rsvpiftable.Rsvpifentry, self).__init__()
+                super(RSVPMIB.RsvpIfTable.RsvpIfEntry, self).__init__()
 
                 self.yang_name = "rsvpIfEntry"
                 self.yang_parent_name = "rsvpIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('rsvpifudpnbrs', YLeaf(YType.uint32, 'rsvpIfUdpNbrs')),
@@ -1848,10 +1829,10 @@ class RSVPMIB(Entity):
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RSVPMIB.Rsvpiftable.Rsvpifentry, ['ifindex', 'rsvpifudpnbrs', 'rsvpifipnbrs', 'rsvpifnbrs', 'rsvpifrefreshblockademultiple', 'rsvpifrefreshmultiple', 'rsvpifttl', 'rsvpifrefreshinterval', 'rsvpifroutedelay', 'rsvpifenabled', 'rsvpifudprequired', 'rsvpifstatus'], name, value)
+                self._perform_setattr(RSVPMIB.RsvpIfTable.RsvpIfEntry, ['ifindex', 'rsvpifudpnbrs', 'rsvpifipnbrs', 'rsvpifnbrs', 'rsvpifrefreshblockademultiple', 'rsvpifrefreshmultiple', 'rsvpifttl', 'rsvpifrefreshinterval', 'rsvpifroutedelay', 'rsvpifenabled', 'rsvpifudprequired', 'rsvpifstatus'], name, value)
 
 
-    class Rsvpnbrtable(Entity):
+    class RsvpNbrTable(Entity):
         """
         Information	describing  the	 Neighbors  of	an
         RSVP	system.
@@ -1859,7 +1840,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpnbrentry
         
         	Information	  describing   a    single    RSVP Neighbor
-        	**type**\: list of  		 :py:class:`Rsvpnbrentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpnbrtable.Rsvpnbrentry>`
+        	**type**\: list of  		 :py:class:`RsvpNbrEntry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.RsvpNbrTable.RsvpNbrEntry>`
         
         
 
@@ -1869,15 +1850,14 @@ class RSVPMIB(Entity):
         _revision = '1998-08-25'
 
         def __init__(self):
-            super(RSVPMIB.Rsvpnbrtable, self).__init__()
+            super(RSVPMIB.RsvpNbrTable, self).__init__()
 
             self.yang_name = "rsvpNbrTable"
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rsvpNbrEntry", ("rsvpnbrentry", RSVPMIB.Rsvpnbrtable.Rsvpnbrentry))])
+            self._child_classes = OrderedDict([("rsvpNbrEntry", ("rsvpnbrentry", RSVPMIB.RsvpNbrTable.RsvpNbrEntry))])
             self._leafs = OrderedDict()
 
             self.rsvpnbrentry = YList(self)
@@ -1885,10 +1865,10 @@ class RSVPMIB(Entity):
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RSVPMIB.Rsvpnbrtable, [], name, value)
+            self._perform_setattr(RSVPMIB.RsvpNbrTable, [], name, value)
 
 
-        class Rsvpnbrentry(Entity):
+        class RsvpNbrEntry(Entity):
             """
             Information	  describing   a    single    RSVP
             Neighbor.
@@ -1900,7 +1880,7 @@ class RSVPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: rsvpnbraddress  (key)
             
@@ -1927,15 +1907,14 @@ class RSVPMIB(Entity):
             _revision = '1998-08-25'
 
             def __init__(self):
-                super(RSVPMIB.Rsvpnbrtable.Rsvpnbrentry, self).__init__()
+                super(RSVPMIB.RsvpNbrTable.RsvpNbrEntry, self).__init__()
 
                 self.yang_name = "rsvpNbrEntry"
                 self.yang_parent_name = "rsvpNbrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','rsvpnbraddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('rsvpnbraddress', YLeaf(YType.str, 'rsvpNbrAddress')),
@@ -1950,7 +1929,7 @@ class RSVPMIB(Entity):
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpNbrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RSVPMIB.Rsvpnbrtable.Rsvpnbrentry, ['ifindex', 'rsvpnbraddress', 'rsvpnbrprotocol', 'rsvpnbrstatus'], name, value)
+                self._perform_setattr(RSVPMIB.RsvpNbrTable.RsvpNbrEntry, ['ifindex', 'rsvpnbraddress', 'rsvpnbrprotocol', 'rsvpnbrstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RSVPMIB()

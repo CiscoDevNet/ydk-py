@@ -52,14 +52,12 @@ class Cm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("Cisco-IOS-XR-sysadmin-cm:lsp", ("lsp", Cm.Lsp))])
-        self._child_list_classes = OrderedDict([("trace", ("trace", Cm.Trace))])
+        self._child_classes = OrderedDict([("trace", ("trace", Cm.Trace)), ("Cisco-IOS-XR-sysadmin-cm:lsp", ("lsp", Cm.Lsp))])
         self._leafs = OrderedDict()
 
         self.lsp = Cm.Lsp()
         self.lsp.parent = self
         self._children_name_map["lsp"] = "Cisco-IOS-XR-sysadmin-cm:lsp"
-        self._children_yang_names.add("Cisco-IOS-XR-sysadmin-cm:lsp")
 
         self.trace = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-show-trace-cm:cm"
@@ -97,8 +95,7 @@ class Cm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['buffer']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Cm.Trace.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Cm.Trace.Location))])
             self._leafs = OrderedDict([
                 ('buffer', YLeaf(YType.str, 'buffer')),
             ])
@@ -109,7 +106,7 @@ class Cm(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-trace-cm:cm/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Cm.Trace, ['buffer'], name, value)
+            self._perform_setattr(Cm.Trace, [u'buffer'], name, value)
 
 
         class Location(Entity):
@@ -141,8 +138,7 @@ class Cm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['location_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("all-options", ("all_options", Cm.Trace.Location.AllOptions))])
+                self._child_classes = OrderedDict([("all-options", ("all_options", Cm.Trace.Location.AllOptions))])
                 self._leafs = OrderedDict([
                     ('location_name', YLeaf(YType.str, 'location_name')),
                 ])
@@ -152,7 +148,7 @@ class Cm(Entity):
                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Cm.Trace.Location, ['location_name'], name, value)
+                self._perform_setattr(Cm.Trace.Location, [u'location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -184,8 +180,7 @@ class Cm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['option']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Cm.Trace.Location.AllOptions.TraceBlocks))])
+                    self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Cm.Trace.Location.AllOptions.TraceBlocks))])
                     self._leafs = OrderedDict([
                         ('option', YLeaf(YType.str, 'option')),
                     ])
@@ -195,7 +190,7 @@ class Cm(Entity):
                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cm.Trace.Location.AllOptions, ['option'], name, value)
+                    self._perform_setattr(Cm.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -222,8 +217,7 @@ class Cm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('data', YLeaf(YType.str, 'data')),
                         ])
@@ -231,7 +225,7 @@ class Cm(Entity):
                         self._segment_path = lambda: "trace-blocks"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cm.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                        self._perform_setattr(Cm.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
     class Lsp(Entity):
@@ -258,8 +252,7 @@ class Cm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("lspdb_locations", ("lspdb_locations", Cm.Lsp.LspdbLocations))])
+            self._child_classes = OrderedDict([("lspdb_locations", ("lspdb_locations", Cm.Lsp.LspdbLocations))])
             self._leafs = OrderedDict()
 
             self.lspdb_locations = YList(self)
@@ -279,7 +272,7 @@ class Cm(Entity):
             	
             	**type**\: str
             
-            	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
             
             .. attribute:: lspdbi
             
@@ -301,8 +294,7 @@ class Cm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['lspdb_location']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("lspdbi", ("lspdbi", Cm.Lsp.LspdbLocations.Lspdbi))])
+                self._child_classes = OrderedDict([("lspdbi", ("lspdbi", Cm.Lsp.LspdbLocations.Lspdbi))])
                 self._leafs = OrderedDict([
                     ('lspdb_location', YLeaf(YType.str, 'lspdb_location')),
                 ])
@@ -362,8 +354,7 @@ class Cm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['lsp_id','lsp_area_type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lsp_id', YLeaf(YType.str, 'lsp_id')),
                         ('lsp_area_type', YLeaf(YType.enumeration, 'lsp_area_type')),

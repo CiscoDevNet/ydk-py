@@ -261,7 +261,7 @@ class ENTITYSENSORMIB(Entity):
     .. attribute:: entphysensortable
     
     	This table contains one row per physical sensor represented by an associated row in the entPhysicalTable
-    	**type**\:  :py:class:`Entphysensortable <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.Entphysensortable>`
+    	**type**\:  :py:class:`EntPhySensorTable <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.EntPhySensorTable>`
     
     
 
@@ -279,18 +279,19 @@ class ENTITYSENSORMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("entPhySensorTable", ("entphysensortable", ENTITYSENSORMIB.Entphysensortable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("entPhySensorTable", ("entphysensortable", ENTITYSENSORMIB.EntPhySensorTable))])
         self._leafs = OrderedDict()
 
-        self.entphysensortable = ENTITYSENSORMIB.Entphysensortable()
+        self.entphysensortable = ENTITYSENSORMIB.EntPhySensorTable()
         self.entphysensortable.parent = self
         self._children_name_map["entphysensortable"] = "entPhySensorTable"
-        self._children_yang_names.add("entPhySensorTable")
         self._segment_path = lambda: "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(ENTITYSENSORMIB, [], name, value)
 
-    class Entphysensortable(Entity):
+
+    class EntPhySensorTable(Entity):
         """
         This table contains one row per physical sensor represented
         by an associated row in the entPhysicalTable.
@@ -298,7 +299,7 @@ class ENTITYSENSORMIB(Entity):
         .. attribute:: entphysensorentry
         
         	Information about a particular physical sensor.  An entry in this table describes the present reading of a sensor, the measurement units and scale, and sensor operational status.  Entries are created in this table by the agent.  An entry for each physical sensor SHOULD be created at the same time as the associated entPhysicalEntry.  An entry SHOULD be destroyed if the associated entPhysicalEntry is destroyed
-        	**type**\: list of  		 :py:class:`Entphysensorentry <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.Entphysensortable.Entphysensorentry>`
+        	**type**\: list of  		 :py:class:`EntPhySensorEntry <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.EntPhySensorTable.EntPhySensorEntry>`
         
         
 
@@ -308,15 +309,14 @@ class ENTITYSENSORMIB(Entity):
         _revision = '2002-12-16'
 
         def __init__(self):
-            super(ENTITYSENSORMIB.Entphysensortable, self).__init__()
+            super(ENTITYSENSORMIB.EntPhySensorTable, self).__init__()
 
             self.yang_name = "entPhySensorTable"
             self.yang_parent_name = "ENTITY-SENSOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entPhySensorEntry", ("entphysensorentry", ENTITYSENSORMIB.Entphysensortable.Entphysensorentry))])
+            self._child_classes = OrderedDict([("entPhySensorEntry", ("entphysensorentry", ENTITYSENSORMIB.EntPhySensorTable.EntPhySensorEntry))])
             self._leafs = OrderedDict()
 
             self.entphysensorentry = YList(self)
@@ -324,10 +324,10 @@ class ENTITYSENSORMIB(Entity):
             self._absolute_path = lambda: "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYSENSORMIB.Entphysensortable, [], name, value)
+            self._perform_setattr(ENTITYSENSORMIB.EntPhySensorTable, [], name, value)
 
 
-        class Entphysensorentry(Entity):
+        class EntPhySensorEntry(Entity):
             """
             Information about a particular physical sensor.
             
@@ -347,7 +347,7 @@ class ENTITYSENSORMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: entphysensortype
             
@@ -407,15 +407,14 @@ class ENTITYSENSORMIB(Entity):
             _revision = '2002-12-16'
 
             def __init__(self):
-                super(ENTITYSENSORMIB.Entphysensortable.Entphysensorentry, self).__init__()
+                super(ENTITYSENSORMIB.EntPhySensorTable.EntPhySensorEntry, self).__init__()
 
                 self.yang_name = "entPhySensorEntry"
                 self.yang_parent_name = "entPhySensorTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('entphysensortype', YLeaf(YType.enumeration, 'entPhySensorType')),
@@ -440,7 +439,7 @@ class ENTITYSENSORMIB(Entity):
                 self._absolute_path = lambda: "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/entPhySensorTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYSENSORMIB.Entphysensortable.Entphysensorentry, ['entphysicalindex', 'entphysensortype', 'entphysensorscale', 'entphysensorprecision', 'entphysensorvalue', 'entphysensoroperstatus', 'entphysensorunitsdisplay', 'entphysensorvaluetimestamp', 'entphysensorvalueupdaterate'], name, value)
+                self._perform_setattr(ENTITYSENSORMIB.EntPhySensorTable.EntPhySensorEntry, ['entphysicalindex', 'entphysensortype', 'entphysensorscale', 'entphysensorprecision', 'entphysensorvalue', 'entphysensoroperstatus', 'entphysensorunitsdisplay', 'entphysensorvaluetimestamp', 'entphysensorvalueupdaterate'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ENTITYSENSORMIB()

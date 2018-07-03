@@ -56,20 +56,20 @@ class RestconfState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("capabilities", ("capabilities", RestconfState.Capabilities)), ("streams", ("streams", RestconfState.Streams))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("capabilities", ("capabilities", RestconfState.Capabilities)), ("streams", ("streams", RestconfState.Streams))])
         self._leafs = OrderedDict()
 
         self.capabilities = RestconfState.Capabilities()
         self.capabilities.parent = self
         self._children_name_map["capabilities"] = "capabilities"
-        self._children_yang_names.add("capabilities")
 
         self.streams = RestconfState.Streams()
         self.streams.parent = self
         self._children_name_map["streams"] = "streams"
-        self._children_yang_names.add("streams")
         self._segment_path = lambda: "ietf-restconf-monitoring:restconf-state"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(RestconfState, [], name, value)
 
 
     class Capabilities(Entity):
@@ -96,8 +96,7 @@ class RestconfState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('capability', YLeafList(YType.str, 'capability')),
             ])
@@ -134,8 +133,7 @@ class RestconfState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stream", ("stream", RestconfState.Streams.Stream))])
+            self._child_classes = OrderedDict([("stream", ("stream", RestconfState.Streams.Stream))])
             self._leafs = OrderedDict()
 
             self.stream = YList(self)
@@ -195,8 +193,7 @@ class RestconfState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("access", ("access", RestconfState.Streams.Stream.Access))])
+                self._child_classes = OrderedDict([("access", ("access", RestconfState.Streams.Stream.Access))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('description', YLeaf(YType.str, 'description')),
@@ -251,8 +248,7 @@ class RestconfState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['encoding']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('encoding', YLeaf(YType.str, 'encoding')),
                         ('location', YLeaf(YType.str, 'location')),

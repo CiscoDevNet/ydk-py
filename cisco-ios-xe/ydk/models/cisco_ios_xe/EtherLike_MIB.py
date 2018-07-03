@@ -38,7 +38,30 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Dot3Testtdr(Identity):
+class Dot3ErrorInitError(Identity):
+    """
+    \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
+    
+    Couldn't initialize MAC chip for test.
+    
+    This object identity has been deprecated, since
+    the ifTestTable in the IF\-MIB was deprecated,
+    and there is no longer a standard mechanism for
+    initiating an interface test.  This left no
+    standard way of using this object identity.
+    
+    
+
+    """
+
+    _prefix = 'EtherLike-MIB'
+    _revision = '2003-09-19'
+
+    def __init__(self):
+        super(Dot3ErrorInitError, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", "EtherLike-MIB", "EtherLike-MIB:dot3ErrorInitError")
+
+
+class Dot3TestTdr(Identity):
     """
     \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
     
@@ -78,10 +101,34 @@ class Dot3Testtdr(Identity):
     _revision = '2003-09-19'
 
     def __init__(self):
-        super(Dot3Testtdr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", "EtherLike-MIB", "EtherLike-MIB:dot3TestTdr")
+        super(Dot3TestTdr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", "EtherLike-MIB", "EtherLike-MIB:dot3TestTdr")
 
 
-class Dot3Testloopback(Identity):
+class Dot3ErrorLoopbackError(Identity):
+    """
+    \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
+    
+    Expected data not received (or not received
+    correctly) in loopback test.
+    
+    This object identity has been deprecated, since
+    the ifTestTable in the IF\-MIB was deprecated,
+    and there is no longer a standard mechanism for
+    initiating an interface test.  This left no
+    standard way of using this object identity.
+    
+    
+
+    """
+
+    _prefix = 'EtherLike-MIB'
+    _revision = '2003-09-19'
+
+    def __init__(self):
+        super(Dot3ErrorLoopbackError, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", "EtherLike-MIB", "EtherLike-MIB:dot3ErrorLoopbackError")
+
+
+class Dot3TestLoopBack(Identity):
     """
     \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
     
@@ -115,54 +162,7 @@ class Dot3Testloopback(Identity):
     _revision = '2003-09-19'
 
     def __init__(self):
-        super(Dot3Testloopback, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", "EtherLike-MIB", "EtherLike-MIB:dot3TestLoopBack")
-
-
-class Dot3Erroriniterror(Identity):
-    """
-    \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
-    
-    Couldn't initialize MAC chip for test.
-    
-    This object identity has been deprecated, since
-    the ifTestTable in the IF\-MIB was deprecated,
-    and there is no longer a standard mechanism for
-    initiating an interface test.  This left no
-    standard way of using this object identity.
-    
-    
-
-    """
-
-    _prefix = 'EtherLike-MIB'
-    _revision = '2003-09-19'
-
-    def __init__(self):
-        super(Dot3Erroriniterror, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", "EtherLike-MIB", "EtherLike-MIB:dot3ErrorInitError")
-
-
-class Dot3Errorloopbackerror(Identity):
-    """
-    \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
-    
-    Expected data not received (or not received
-    correctly) in loopback test.
-    
-    This object identity has been deprecated, since
-    the ifTestTable in the IF\-MIB was deprecated,
-    and there is no longer a standard mechanism for
-    initiating an interface test.  This left no
-    standard way of using this object identity.
-    
-    
-
-    """
-
-    _prefix = 'EtherLike-MIB'
-    _revision = '2003-09-19'
-
-    def __init__(self):
-        super(Dot3Errorloopbackerror, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", "EtherLike-MIB", "EtherLike-MIB:dot3ErrorLoopbackError")
+        super(Dot3TestLoopBack, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", "EtherLike-MIB", "EtherLike-MIB:dot3TestLoopBack")
 
 
 class EtherLikeMIB(Entity):
@@ -172,27 +172,27 @@ class EtherLikeMIB(Entity):
     .. attribute:: dot3statstable
     
     	Statistics for a collection of ethernet\-like interfaces attached to a particular system. There will be one row in this table for each ethernet\-like interface in the system
-    	**type**\:  :py:class:`Dot3Statstable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Statstable>`
+    	**type**\:  :py:class:`Dot3StatsTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable>`
     
     .. attribute:: dot3colltable
     
     	A collection of collision histograms for a particular set of interfaces
-    	**type**\:  :py:class:`Dot3Colltable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Colltable>`
+    	**type**\:  :py:class:`Dot3CollTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3CollTable>`
     
     .. attribute:: dot3controltable
     
     	A table of descriptive and status information about the MAC Control sublayer on the ethernet\-like interfaces attached to a particular system.  There will be one row in this table for each ethernet\-like interface in the system which implements the MAC Control sublayer.  If some, but not all, of the ethernet\-like interfaces in the system implement the MAC Control sublayer, there will be fewer rows in this table than in the dot3StatsTable
-    	**type**\:  :py:class:`Dot3Controltable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Controltable>`
+    	**type**\:  :py:class:`Dot3ControlTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3ControlTable>`
     
     .. attribute:: dot3pausetable
     
     	A table of descriptive and status information about the MAC Control PAUSE function on the ethernet\-like interfaces attached to a particular system. There will be one row in this table for each ethernet\-like interface in the system which supports the MAC Control PAUSE function (i.e., the 'pause' bit in the corresponding instance of dot3ControlFunctionsSupported is set).  If some, but not all, of the ethernet\-like interfaces in the system implement the MAC Control PAUSE function (for example, if some interfaces only support half\-duplex), there will be fewer rows in this table than in the dot3StatsTable
-    	**type**\:  :py:class:`Dot3Pausetable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Pausetable>`
+    	**type**\:  :py:class:`Dot3PauseTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3PauseTable>`
     
     .. attribute:: dot3hcstatstable
     
     	A table containing 64\-bit versions of error counters from the dot3StatsTable.  The 32\-bit versions of these counters may roll over quite quickly on higher speed ethernet interfaces. The counters that have 64\-bit versions in this table are the counters that apply to full\-duplex interfaces, since 10 Gb/s and faster ethernet\-like interfaces do not support half\-duplex, and very few 1000 Mb/s ethernet\-like interfaces support half\-duplex.  Entries in this table are recommended for interfaces capable of operating at 1000 Mb/s or faster, and are required for interfaces capable of operating at 10 Gb/s or faster.  Lower speed ethernet\-like interfaces do not need entries in this table, in which case there may be fewer entries in this table than in the dot3StatsTable. However, implementations containing interfaces with a mix of speeds may choose to implement entries in this table for all ethernet\-like interfaces
-    	**type**\:  :py:class:`Dot3Hcstatstable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Hcstatstable>`
+    	**type**\:  :py:class:`Dot3HCStatsTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3HCStatsTable>`
     
     
 
@@ -210,38 +210,35 @@ class EtherLikeMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dot3StatsTable", ("dot3statstable", EtherLikeMIB.Dot3Statstable)), ("dot3CollTable", ("dot3colltable", EtherLikeMIB.Dot3Colltable)), ("dot3ControlTable", ("dot3controltable", EtherLikeMIB.Dot3Controltable)), ("dot3PauseTable", ("dot3pausetable", EtherLikeMIB.Dot3Pausetable)), ("dot3HCStatsTable", ("dot3hcstatstable", EtherLikeMIB.Dot3Hcstatstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dot3StatsTable", ("dot3statstable", EtherLikeMIB.Dot3StatsTable)), ("dot3CollTable", ("dot3colltable", EtherLikeMIB.Dot3CollTable)), ("dot3ControlTable", ("dot3controltable", EtherLikeMIB.Dot3ControlTable)), ("dot3PauseTable", ("dot3pausetable", EtherLikeMIB.Dot3PauseTable)), ("dot3HCStatsTable", ("dot3hcstatstable", EtherLikeMIB.Dot3HCStatsTable))])
         self._leafs = OrderedDict()
 
-        self.dot3statstable = EtherLikeMIB.Dot3Statstable()
+        self.dot3statstable = EtherLikeMIB.Dot3StatsTable()
         self.dot3statstable.parent = self
         self._children_name_map["dot3statstable"] = "dot3StatsTable"
-        self._children_yang_names.add("dot3StatsTable")
 
-        self.dot3colltable = EtherLikeMIB.Dot3Colltable()
+        self.dot3colltable = EtherLikeMIB.Dot3CollTable()
         self.dot3colltable.parent = self
         self._children_name_map["dot3colltable"] = "dot3CollTable"
-        self._children_yang_names.add("dot3CollTable")
 
-        self.dot3controltable = EtherLikeMIB.Dot3Controltable()
+        self.dot3controltable = EtherLikeMIB.Dot3ControlTable()
         self.dot3controltable.parent = self
         self._children_name_map["dot3controltable"] = "dot3ControlTable"
-        self._children_yang_names.add("dot3ControlTable")
 
-        self.dot3pausetable = EtherLikeMIB.Dot3Pausetable()
+        self.dot3pausetable = EtherLikeMIB.Dot3PauseTable()
         self.dot3pausetable.parent = self
         self._children_name_map["dot3pausetable"] = "dot3PauseTable"
-        self._children_yang_names.add("dot3PauseTable")
 
-        self.dot3hcstatstable = EtherLikeMIB.Dot3Hcstatstable()
+        self.dot3hcstatstable = EtherLikeMIB.Dot3HCStatsTable()
         self.dot3hcstatstable.parent = self
         self._children_name_map["dot3hcstatstable"] = "dot3HCStatsTable"
-        self._children_yang_names.add("dot3HCStatsTable")
         self._segment_path = lambda: "EtherLike-MIB:EtherLike-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(EtherLikeMIB, [], name, value)
 
-    class Dot3Statstable(Entity):
+
+    class Dot3StatsTable(Entity):
         """
         Statistics for a collection of ethernet\-like
         interfaces attached to a particular system.
@@ -251,7 +248,7 @@ class EtherLikeMIB(Entity):
         .. attribute:: dot3statsentry
         
         	Statistics for a particular interface to an ethernet\-like medium
-        	**type**\: list of  		 :py:class:`Dot3Statsentry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Statstable.Dot3Statsentry>`
+        	**type**\: list of  		 :py:class:`Dot3StatsEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry>`
         
         
 
@@ -261,15 +258,14 @@ class EtherLikeMIB(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(EtherLikeMIB.Dot3Statstable, self).__init__()
+            super(EtherLikeMIB.Dot3StatsTable, self).__init__()
 
             self.yang_name = "dot3StatsTable"
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot3StatsEntry", ("dot3statsentry", EtherLikeMIB.Dot3Statstable.Dot3Statsentry))])
+            self._child_classes = OrderedDict([("dot3StatsEntry", ("dot3statsentry", EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry))])
             self._leafs = OrderedDict()
 
             self.dot3statsentry = YList(self)
@@ -277,10 +273,10 @@ class EtherLikeMIB(Entity):
             self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EtherLikeMIB.Dot3Statstable, [], name, value)
+            self._perform_setattr(EtherLikeMIB.Dot3StatsTable, [], name, value)
 
 
-        class Dot3Statsentry(Entity):
+        class Dot3StatsEntry(Entity):
             """
             Statistics for a particular interface to an
             ethernet\-like medium.
@@ -395,7 +391,7 @@ class EtherLikeMIB(Entity):
             .. attribute:: dot3statsduplexstatus
             
             	The current mode of operation of the MAC entity.  'unknown' indicates that the current duplex mode could not be determined.  Management control of the duplex mode is accomplished through the MAU MIB.  When an interface does not support autonegotiation, or when autonegotiation is not enabled, the duplex mode is controlled using ifMauDefaultType.  When autonegotiation is supported and enabled, duplex mode is controlled using ifMauAutoNegAdvertisedBits.  In either case, the currently operating duplex mode is reflected both in this object and in ifMauType.  Note that this object provides redundant information with ifMauType.  Normally, redundant objects are discouraged.  However, in this instance, it allows a management application to determine the duplex status of an interface without having to know every possible value of ifMauType.  This was felt to be sufficiently valuable to justify the redundancy
-            	**type**\:  :py:class:`Dot3Statsduplexstatus <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Statstable.Dot3Statsentry.Dot3Statsduplexstatus>`
+            	**type**\:  :py:class:`Dot3StatsDuplexStatus <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry.Dot3StatsDuplexStatus>`
             
             .. attribute:: dot3statsratecontrolability
             
@@ -405,7 +401,7 @@ class EtherLikeMIB(Entity):
             .. attribute:: dot3statsratecontrolstatus
             
             	The current Rate Control mode of operation of the MAC sublayer of this interface
-            	**type**\:  :py:class:`Dot3Statsratecontrolstatus <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Statstable.Dot3Statsentry.Dot3Statsratecontrolstatus>`
+            	**type**\:  :py:class:`Dot3StatsRateControlStatus <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry.Dot3StatsRateControlStatus>`
             
             
 
@@ -415,15 +411,14 @@ class EtherLikeMIB(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(EtherLikeMIB.Dot3Statstable.Dot3Statsentry, self).__init__()
+                super(EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry, self).__init__()
 
                 self.yang_name = "dot3StatsEntry"
                 self.yang_parent_name = "dot3StatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot3statsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot3statsindex', YLeaf(YType.int32, 'dot3StatsIndex')),
                     ('dot3statsalignmenterrors', YLeaf(YType.uint32, 'dot3StatsAlignmentErrors')),
@@ -466,11 +461,11 @@ class EtherLikeMIB(Entity):
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3StatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3Statstable.Dot3Statsentry, ['dot3statsindex', 'dot3statsalignmenterrors', 'dot3statsfcserrors', 'dot3statssinglecollisionframes', 'dot3statsmultiplecollisionframes', 'dot3statssqetesterrors', 'dot3statsdeferredtransmissions', 'dot3statslatecollisions', 'dot3statsexcessivecollisions', 'dot3statsinternalmactransmiterrors', 'dot3statscarriersenseerrors', 'dot3statsframetoolongs', 'dot3statsinternalmacreceiveerrors', 'dot3statsetherchipset', 'dot3statssymbolerrors', 'dot3statsduplexstatus', 'dot3statsratecontrolability', 'dot3statsratecontrolstatus'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry, ['dot3statsindex', 'dot3statsalignmenterrors', 'dot3statsfcserrors', 'dot3statssinglecollisionframes', 'dot3statsmultiplecollisionframes', 'dot3statssqetesterrors', 'dot3statsdeferredtransmissions', 'dot3statslatecollisions', 'dot3statsexcessivecollisions', 'dot3statsinternalmactransmiterrors', 'dot3statscarriersenseerrors', 'dot3statsframetoolongs', 'dot3statsinternalmacreceiveerrors', 'dot3statsetherchipset', 'dot3statssymbolerrors', 'dot3statsduplexstatus', 'dot3statsratecontrolability', 'dot3statsratecontrolstatus'], name, value)
 
-            class Dot3Statsduplexstatus(Enum):
+            class Dot3StatsDuplexStatus(Enum):
                 """
-                Dot3Statsduplexstatus (Enum Class)
+                Dot3StatsDuplexStatus (Enum Class)
 
                 The current mode of operation of the MAC
 
@@ -529,9 +524,9 @@ class EtherLikeMIB(Entity):
                 fullDuplex = Enum.YLeaf(3, "fullDuplex")
 
 
-            class Dot3Statsratecontrolstatus(Enum):
+            class Dot3StatsRateControlStatus(Enum):
                 """
-                Dot3Statsratecontrolstatus (Enum Class)
+                Dot3StatsRateControlStatus (Enum Class)
 
                 The current Rate Control mode of operation of
 
@@ -553,7 +548,7 @@ class EtherLikeMIB(Entity):
 
 
 
-    class Dot3Colltable(Entity):
+    class Dot3CollTable(Entity):
         """
         A collection of collision histograms for a
         particular set of interfaces.
@@ -561,7 +556,7 @@ class EtherLikeMIB(Entity):
         .. attribute:: dot3collentry
         
         	A cell in the histogram of per\-frame collisions for a particular interface.  An instance of this object represents the frequency of individual MAC frames for which the transmission (successful or otherwise) on a particular interface is accompanied by a particular number of media collisions
-        	**type**\: list of  		 :py:class:`Dot3Collentry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Colltable.Dot3Collentry>`
+        	**type**\: list of  		 :py:class:`Dot3CollEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3CollTable.Dot3CollEntry>`
         
         
 
@@ -571,15 +566,14 @@ class EtherLikeMIB(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(EtherLikeMIB.Dot3Colltable, self).__init__()
+            super(EtherLikeMIB.Dot3CollTable, self).__init__()
 
             self.yang_name = "dot3CollTable"
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot3CollEntry", ("dot3collentry", EtherLikeMIB.Dot3Colltable.Dot3Collentry))])
+            self._child_classes = OrderedDict([("dot3CollEntry", ("dot3collentry", EtherLikeMIB.Dot3CollTable.Dot3CollEntry))])
             self._leafs = OrderedDict()
 
             self.dot3collentry = YList(self)
@@ -587,10 +581,10 @@ class EtherLikeMIB(Entity):
             self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EtherLikeMIB.Dot3Colltable, [], name, value)
+            self._perform_setattr(EtherLikeMIB.Dot3CollTable, [], name, value)
 
 
-        class Dot3Collentry(Entity):
+        class Dot3CollEntry(Entity):
             """
             A cell in the histogram of per\-frame
             collisions for a particular interface.  An
@@ -607,7 +601,7 @@ class EtherLikeMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: dot3collcount  (key)
             
@@ -631,15 +625,14 @@ class EtherLikeMIB(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(EtherLikeMIB.Dot3Colltable.Dot3Collentry, self).__init__()
+                super(EtherLikeMIB.Dot3CollTable.Dot3CollEntry, self).__init__()
 
                 self.yang_name = "dot3CollEntry"
                 self.yang_parent_name = "dot3CollTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','dot3collcount']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('dot3collcount', YLeaf(YType.int32, 'dot3CollCount')),
@@ -652,10 +645,10 @@ class EtherLikeMIB(Entity):
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3CollTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3Colltable.Dot3Collentry, ['ifindex', 'dot3collcount', 'dot3collfrequencies'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3CollTable.Dot3CollEntry, ['ifindex', 'dot3collcount', 'dot3collfrequencies'], name, value)
 
 
-    class Dot3Controltable(Entity):
+    class Dot3ControlTable(Entity):
         """
         A table of descriptive and status information
         about the MAC Control sublayer on the
@@ -671,7 +664,7 @@ class EtherLikeMIB(Entity):
         .. attribute:: dot3controlentry
         
         	An entry in the table, containing information about the MAC Control sublayer on a single ethernet\-like interface
-        	**type**\: list of  		 :py:class:`Dot3Controlentry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Controltable.Dot3Controlentry>`
+        	**type**\: list of  		 :py:class:`Dot3ControlEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry>`
         
         
 
@@ -681,15 +674,14 @@ class EtherLikeMIB(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(EtherLikeMIB.Dot3Controltable, self).__init__()
+            super(EtherLikeMIB.Dot3ControlTable, self).__init__()
 
             self.yang_name = "dot3ControlTable"
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot3ControlEntry", ("dot3controlentry", EtherLikeMIB.Dot3Controltable.Dot3Controlentry))])
+            self._child_classes = OrderedDict([("dot3ControlEntry", ("dot3controlentry", EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry))])
             self._leafs = OrderedDict()
 
             self.dot3controlentry = YList(self)
@@ -697,10 +689,10 @@ class EtherLikeMIB(Entity):
             self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EtherLikeMIB.Dot3Controltable, [], name, value)
+            self._perform_setattr(EtherLikeMIB.Dot3ControlTable, [], name, value)
 
 
-        class Dot3Controlentry(Entity):
+        class Dot3ControlEntry(Entity):
             """
             An entry in the table, containing information
             about the MAC Control sublayer on a single
@@ -713,12 +705,12 @@ class EtherLikeMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Statstable.Dot3Statsentry>`
+            	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry>`
             
             .. attribute:: dot3controlfunctionssupported
             
             	A list of the possible MAC Control functions implemented for this interface
-            	**type**\:  :py:class:`Dot3Controlfunctionssupported <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Controltable.Dot3Controlentry.Dot3Controlfunctionssupported>`
+            	**type**\:  :py:class:`Dot3ControlFunctionsSupported <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry.Dot3ControlFunctionsSupported>`
             
             .. attribute:: dot3controlinunknownopcodes
             
@@ -742,15 +734,14 @@ class EtherLikeMIB(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(EtherLikeMIB.Dot3Controltable.Dot3Controlentry, self).__init__()
+                super(EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry, self).__init__()
 
                 self.yang_name = "dot3ControlEntry"
                 self.yang_parent_name = "dot3ControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot3statsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot3statsindex', YLeaf(YType.str, 'dot3StatsIndex')),
                     ('dot3controlfunctionssupported', YLeaf(YType.bits, 'dot3ControlFunctionsSupported')),
@@ -765,10 +756,10 @@ class EtherLikeMIB(Entity):
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3ControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3Controltable.Dot3Controlentry, ['dot3statsindex', 'dot3controlfunctionssupported', 'dot3controlinunknownopcodes', 'dot3hccontrolinunknownopcodes'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry, ['dot3statsindex', 'dot3controlfunctionssupported', 'dot3controlinunknownopcodes', 'dot3hccontrolinunknownopcodes'], name, value)
 
 
-    class Dot3Pausetable(Entity):
+    class Dot3PauseTable(Entity):
         """
         A table of descriptive and status information
         about the MAC Control PAUSE function on the
@@ -788,7 +779,7 @@ class EtherLikeMIB(Entity):
         .. attribute:: dot3pauseentry
         
         	An entry in the table, containing information about the MAC Control PAUSE function on a single ethernet\-like interface
-        	**type**\: list of  		 :py:class:`Dot3Pauseentry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Pausetable.Dot3Pauseentry>`
+        	**type**\: list of  		 :py:class:`Dot3PauseEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry>`
         
         
 
@@ -798,15 +789,14 @@ class EtherLikeMIB(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(EtherLikeMIB.Dot3Pausetable, self).__init__()
+            super(EtherLikeMIB.Dot3PauseTable, self).__init__()
 
             self.yang_name = "dot3PauseTable"
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot3PauseEntry", ("dot3pauseentry", EtherLikeMIB.Dot3Pausetable.Dot3Pauseentry))])
+            self._child_classes = OrderedDict([("dot3PauseEntry", ("dot3pauseentry", EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry))])
             self._leafs = OrderedDict()
 
             self.dot3pauseentry = YList(self)
@@ -814,10 +804,10 @@ class EtherLikeMIB(Entity):
             self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EtherLikeMIB.Dot3Pausetable, [], name, value)
+            self._perform_setattr(EtherLikeMIB.Dot3PauseTable, [], name, value)
 
 
-        class Dot3Pauseentry(Entity):
+        class Dot3PauseEntry(Entity):
             """
             An entry in the table, containing information
             about the MAC Control PAUSE function on a single
@@ -830,17 +820,17 @@ class EtherLikeMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Statstable.Dot3Statsentry>`
+            	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry>`
             
             .. attribute:: dot3pauseadminmode
             
             	This object is used to configure the default administrative PAUSE mode for this interface.  This object represents the administratively\-configured PAUSE mode for this interface.  If auto\-negotiation is not enabled or is not implemented for the active MAU attached to this interface, the value of this object determines the operational PAUSE mode of the interface whenever it is operating in full\-duplex mode.  In this case, a set to this object will force the interface into the specified mode.  If auto\-negotiation is implemented and enabled for the MAU attached to this interface, the PAUSE mode for this interface is determined by auto\-negotiation, and the value of this object denotes the mode to which the interface will automatically revert if/when auto\-negotiation is later disabled.  Note that when auto\-negotiation is running, administrative control of the PAUSE mode may be accomplished using the ifMauAutoNegCapAdvertisedBits object in the MAU\-MIB.  Note that the value of this object is ignored when the interface is not operating in full\-duplex mode.  An attempt to set this object to 'enabledXmit(2)' or 'enabledRcv(3)' will fail on interfaces that do not support operation at greater than 100 Mb/s
-            	**type**\:  :py:class:`Dot3Pauseadminmode <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Pausetable.Dot3Pauseentry.Dot3Pauseadminmode>`
+            	**type**\:  :py:class:`Dot3PauseAdminMode <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry.Dot3PauseAdminMode>`
             
             .. attribute:: dot3pauseopermode
             
             	This object reflects the PAUSE mode currently in use on this interface, as determined by either (1) the result of the auto\-negotiation function or (2) if auto\-negotiation is not enabled or is not implemented for the active MAU attached to this interface, by the value of dot3PauseAdminMode.  Interfaces operating at 100 Mb/s or less will never return 'enabledXmit(2)' or 'enabledRcv(3)'.  Interfaces operating in half\-duplex mode will always return 'disabled(1)'.  Interfaces on which auto\-negotiation is enabled but not yet completed should return the value 'disabled(1)'
-            	**type**\:  :py:class:`Dot3Pauseopermode <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Pausetable.Dot3Pauseentry.Dot3Pauseopermode>`
+            	**type**\:  :py:class:`Dot3PauseOperMode <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry.Dot3PauseOperMode>`
             
             .. attribute:: dot3inpauseframes
             
@@ -878,15 +868,14 @@ class EtherLikeMIB(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(EtherLikeMIB.Dot3Pausetable.Dot3Pauseentry, self).__init__()
+                super(EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry, self).__init__()
 
                 self.yang_name = "dot3PauseEntry"
                 self.yang_parent_name = "dot3PauseTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot3statsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot3statsindex', YLeaf(YType.str, 'dot3StatsIndex')),
                     ('dot3pauseadminmode', YLeaf(YType.enumeration, 'dot3PauseAdminMode')),
@@ -907,11 +896,11 @@ class EtherLikeMIB(Entity):
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3PauseTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3Pausetable.Dot3Pauseentry, ['dot3statsindex', 'dot3pauseadminmode', 'dot3pauseopermode', 'dot3inpauseframes', 'dot3outpauseframes', 'dot3hcinpauseframes', 'dot3hcoutpauseframes'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry, ['dot3statsindex', 'dot3pauseadminmode', 'dot3pauseopermode', 'dot3inpauseframes', 'dot3outpauseframes', 'dot3hcinpauseframes', 'dot3hcoutpauseframes'], name, value)
 
-            class Dot3Pauseadminmode(Enum):
+            class Dot3PauseAdminMode(Enum):
                 """
-                Dot3Pauseadminmode (Enum Class)
+                Dot3PauseAdminMode (Enum Class)
 
                 This object is used to configure the default
 
@@ -992,9 +981,9 @@ class EtherLikeMIB(Entity):
                 enabledXmitAndRcv = Enum.YLeaf(4, "enabledXmitAndRcv")
 
 
-            class Dot3Pauseopermode(Enum):
+            class Dot3PauseOperMode(Enum):
                 """
-                Dot3Pauseopermode (Enum Class)
+                Dot3PauseOperMode (Enum Class)
 
                 This object reflects the PAUSE mode currently
 
@@ -1044,7 +1033,7 @@ class EtherLikeMIB(Entity):
 
 
 
-    class Dot3Hcstatstable(Entity):
+    class Dot3HCStatsTable(Entity):
         """
         A table containing 64\-bit versions of error
         counters from the dot3StatsTable.  The 32\-bit
@@ -1072,7 +1061,7 @@ class EtherLikeMIB(Entity):
         .. attribute:: dot3hcstatsentry
         
         	An entry containing 64\-bit statistics for a single ethernet\-like interface
-        	**type**\: list of  		 :py:class:`Dot3Hcstatsentry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Hcstatstable.Dot3Hcstatsentry>`
+        	**type**\: list of  		 :py:class:`Dot3HCStatsEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3HCStatsTable.Dot3HCStatsEntry>`
         
         
 
@@ -1082,15 +1071,14 @@ class EtherLikeMIB(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(EtherLikeMIB.Dot3Hcstatstable, self).__init__()
+            super(EtherLikeMIB.Dot3HCStatsTable, self).__init__()
 
             self.yang_name = "dot3HCStatsTable"
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot3HCStatsEntry", ("dot3hcstatsentry", EtherLikeMIB.Dot3Hcstatstable.Dot3Hcstatsentry))])
+            self._child_classes = OrderedDict([("dot3HCStatsEntry", ("dot3hcstatsentry", EtherLikeMIB.Dot3HCStatsTable.Dot3HCStatsEntry))])
             self._leafs = OrderedDict()
 
             self.dot3hcstatsentry = YList(self)
@@ -1098,10 +1086,10 @@ class EtherLikeMIB(Entity):
             self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EtherLikeMIB.Dot3Hcstatstable, [], name, value)
+            self._perform_setattr(EtherLikeMIB.Dot3HCStatsTable, [], name, value)
 
 
-        class Dot3Hcstatsentry(Entity):
+        class Dot3HCStatsEntry(Entity):
             """
             An entry containing 64\-bit statistics for a
             single ethernet\-like interface.
@@ -1113,7 +1101,7 @@ class EtherLikeMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3Statstable.Dot3Statsentry>`
+            	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry>`
             
             .. attribute:: dot3hcstatsalignmenterrors
             
@@ -1165,15 +1153,14 @@ class EtherLikeMIB(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(EtherLikeMIB.Dot3Hcstatstable.Dot3Hcstatsentry, self).__init__()
+                super(EtherLikeMIB.Dot3HCStatsTable.Dot3HCStatsEntry, self).__init__()
 
                 self.yang_name = "dot3HCStatsEntry"
                 self.yang_parent_name = "dot3HCStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot3statsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot3statsindex', YLeaf(YType.str, 'dot3StatsIndex')),
                     ('dot3hcstatsalignmenterrors', YLeaf(YType.uint64, 'dot3HCStatsAlignmentErrors')),
@@ -1194,7 +1181,7 @@ class EtherLikeMIB(Entity):
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3HCStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3Hcstatstable.Dot3Hcstatsentry, ['dot3statsindex', 'dot3hcstatsalignmenterrors', 'dot3hcstatsfcserrors', 'dot3hcstatsinternalmactransmiterrors', 'dot3hcstatsframetoolongs', 'dot3hcstatsinternalmacreceiveerrors', 'dot3hcstatssymbolerrors'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3HCStatsTable.Dot3HCStatsEntry, ['dot3statsindex', 'dot3hcstatsalignmenterrors', 'dot3hcstatsfcserrors', 'dot3hcstatsinternalmactransmiterrors', 'dot3hcstatsframetoolongs', 'dot3hcstatsinternalmacreceiveerrors', 'dot3hcstatssymbolerrors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EtherLikeMIB()

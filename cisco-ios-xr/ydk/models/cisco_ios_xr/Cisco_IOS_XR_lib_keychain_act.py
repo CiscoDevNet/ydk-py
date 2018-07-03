@@ -41,14 +41,12 @@ class MasterKeyAdd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = MasterKeyAdd.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-act:master-key-add"
 
 
@@ -76,8 +74,7 @@ class MasterKeyAdd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('new_key', YLeaf(YType.str, 'new-key')),
             ])
@@ -112,8 +109,7 @@ class MasterKeyDelete(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-act:master-key-delete"
 
@@ -146,14 +142,12 @@ class MasterKeyUpdate(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = MasterKeyUpdate.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-act:master-key-update"
 
 
@@ -190,8 +184,7 @@ class MasterKeyUpdate(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('old_key', YLeaf(YType.str, 'old-key')),
                 ('new_key', YLeaf(YType.str, 'new-key')),

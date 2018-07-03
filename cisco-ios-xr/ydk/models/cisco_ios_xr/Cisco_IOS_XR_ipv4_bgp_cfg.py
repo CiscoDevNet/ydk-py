@@ -234,6 +234,33 @@ class BgpFlowspecValidationCfg(Enum):
     redirect_nexhop_disable = Enum.YLeaf(3, "redirect-nexhop-disable")
 
 
+class BgpGlobalRouteDistinguisher(Enum):
+    """
+    BgpGlobalRouteDistinguisher (Enum Class)
+
+    Bgp global route distinguisher
+
+    .. data:: as_ = 2
+
+    	AS format RD
+
+    .. data:: four_byte_as = 3
+
+    	4-byte AS format RD
+
+    .. data:: ipv4_address = 4
+
+    	IPv4 address format RD
+
+    """
+
+    as_ = Enum.YLeaf(2, "as")
+
+    four_byte_as = Enum.YLeaf(3, "four-byte-as")
+
+    ipv4_address = Enum.YLeaf(4, "ipv4-address")
+
+
 class BgpMvpnSfsSelect(Enum):
     """
     BgpMvpnSfsSelect (Enum Class)
@@ -599,7 +626,7 @@ class Bgp(Entity):
     """
 
     _prefix = 'ipv4-bgp-cfg'
-    _revision = '2017-07-31'
+    _revision = '2017-11-05'
 
     def __init__(self):
         super(Bgp, self).__init__()
@@ -610,8 +637,7 @@ class Bgp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("instance", ("instance", Bgp.Instance))])
+        self._child_classes = OrderedDict([("instance", ("instance", Bgp.Instance))])
         self._leafs = OrderedDict()
 
         self.instance = YList(self)
@@ -642,7 +668,7 @@ class Bgp(Entity):
         """
 
         _prefix = 'ipv4-bgp-cfg'
-        _revision = '2017-07-31'
+        _revision = '2017-11-05'
 
         def __init__(self):
             super(Bgp.Instance, self).__init__()
@@ -652,8 +678,7 @@ class Bgp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['instance_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("instance-as", ("instance_as", Bgp.Instance.InstanceAs))])
+            self._child_classes = OrderedDict([("instance-as", ("instance_as", Bgp.Instance.InstanceAs))])
             self._leafs = OrderedDict([
                 ('instance_name', YLeaf(YType.str, 'instance-name')),
             ])
@@ -688,7 +713,7 @@ class Bgp(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2017-07-31'
+            _revision = '2017-11-05'
 
             def __init__(self):
                 super(Bgp.Instance.InstanceAs, self).__init__()
@@ -698,8 +723,7 @@ class Bgp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['as_']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("four-byte-as", ("four_byte_as", Bgp.Instance.InstanceAs.FourByteAs))])
+                self._child_classes = OrderedDict([("four-byte-as", ("four_byte_as", Bgp.Instance.InstanceAs.FourByteAs))])
                 self._leafs = OrderedDict([
                     ('as_', YLeaf(YType.uint32, 'as')),
                 ])
@@ -743,7 +767,7 @@ class Bgp(Entity):
                 """
 
                 _prefix = 'ipv4-bgp-cfg'
-                _revision = '2017-07-31'
+                _revision = '2017-11-05'
 
                 def __init__(self):
                     super(Bgp.Instance.InstanceAs.FourByteAs, self).__init__()
@@ -753,8 +777,7 @@ class Bgp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['as_']
-                    self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs)), ("default-vrf", ("default_vrf", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("vrfs", ("vrfs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs)), ("default-vrf", ("default_vrf", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf))])
                     self._leafs = OrderedDict([
                         ('as_', YLeaf(YType.uint32, 'as')),
                         ('bgp_running', YLeaf(YType.empty, 'bgp-running')),
@@ -765,12 +788,10 @@ class Bgp(Entity):
                     self.vrfs = Bgp.Instance.InstanceAs.FourByteAs.Vrfs()
                     self.vrfs.parent = self
                     self._children_name_map["vrfs"] = "vrfs"
-                    self._children_yang_names.add("vrfs")
 
                     self.default_vrf = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf()
                     self.default_vrf.parent = self
                     self._children_name_map["default_vrf"] = "default-vrf"
-                    self._children_yang_names.add("default-vrf")
                     self._segment_path = lambda: "four-byte-as" + "[as='" + str(self.as_) + "']"
 
                 def __setattr__(self, name, value):
@@ -791,7 +812,7 @@ class Bgp(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-07-31'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs, self).__init__()
@@ -801,8 +822,7 @@ class Bgp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("vrf", ("vrf", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf))])
+                        self._child_classes = OrderedDict([("vrf", ("vrf", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf))])
                         self._leafs = OrderedDict()
 
                         self.vrf = YList(self)
@@ -838,7 +858,7 @@ class Bgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf, self).__init__()
@@ -848,8 +868,7 @@ class Bgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['vrf_name']
-                            self._child_container_classes = OrderedDict([("vrf-global", ("vrf_global", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal)), ("vrf-neighbors", ("vrf_neighbors", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("vrf-global", ("vrf_global", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal)), ("vrf-neighbors", ("vrf_neighbors", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors))])
                             self._leafs = OrderedDict([
                                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ])
@@ -858,12 +877,10 @@ class Bgp(Entity):
                             self.vrf_global = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal()
                             self.vrf_global.parent = self
                             self._children_name_map["vrf_global"] = "vrf-global"
-                            self._children_yang_names.add("vrf-global")
 
                             self.vrf_neighbors = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors()
                             self.vrf_neighbors.parent = self
                             self._children_name_map["vrf_neighbors"] = "vrf-neighbors"
-                            self._children_yang_names.add("vrf-neighbors")
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -1034,7 +1051,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal, self).__init__()
@@ -1044,8 +1061,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("route-distinguisher", ("route_distinguisher", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher)), ("vrf-global-afs", ("vrf_global_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs)), ("mpls-activated-interfaces", ("mpls_activated_interfaces", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces)), ("global-timers", ("global_timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers)), ("bfd", ("bfd", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd)), ("send-socket-buffer-sizes", ("send_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes)), ("receive-socket-buffer-sizes", ("receive_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("route-distinguisher", ("route_distinguisher", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher)), ("vrf-global-afs", ("vrf_global_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs)), ("mpls-activated-interfaces", ("mpls_activated_interfaces", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces)), ("global-timers", ("global_timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers)), ("bfd", ("bfd", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd)), ("send-socket-buffer-sizes", ("send_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes)), ("receive-socket-buffer-sizes", ("receive_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes))])
                                 self._leafs = OrderedDict([
                                     ('exists', YLeaf(YType.empty, 'exists')),
                                     ('router_id', YLeaf(YType.str, 'router-id')),
@@ -1096,37 +1112,30 @@ class Bgp(Entity):
                                 self.route_distinguisher = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher()
                                 self.route_distinguisher.parent = self
                                 self._children_name_map["route_distinguisher"] = "route-distinguisher"
-                                self._children_yang_names.add("route-distinguisher")
 
                                 self.vrf_global_afs = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs()
                                 self.vrf_global_afs.parent = self
                                 self._children_name_map["vrf_global_afs"] = "vrf-global-afs"
-                                self._children_yang_names.add("vrf-global-afs")
 
                                 self.mpls_activated_interfaces = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces()
                                 self.mpls_activated_interfaces.parent = self
                                 self._children_name_map["mpls_activated_interfaces"] = "mpls-activated-interfaces"
-                                self._children_yang_names.add("mpls-activated-interfaces")
 
                                 self.global_timers = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers()
                                 self.global_timers.parent = self
                                 self._children_name_map["global_timers"] = "global-timers"
-                                self._children_yang_names.add("global-timers")
 
                                 self.bfd = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd()
                                 self.bfd.parent = self
                                 self._children_name_map["bfd"] = "bfd"
-                                self._children_yang_names.add("bfd")
 
                                 self.send_socket_buffer_sizes = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes()
                                 self.send_socket_buffer_sizes.parent = self
                                 self._children_name_map["send_socket_buffer_sizes"] = "send-socket-buffer-sizes"
-                                self._children_yang_names.add("send-socket-buffer-sizes")
 
                                 self.receive_socket_buffer_sizes = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes()
                                 self.receive_socket_buffer_sizes.parent = self
                                 self._children_name_map["receive_socket_buffer_sizes"] = "receive-socket-buffer-sizes"
-                                self._children_yang_names.add("receive-socket-buffer-sizes")
                                 self._segment_path = lambda: "vrf-global"
 
                             def __setattr__(self, name, value):
@@ -1182,7 +1191,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher, self).__init__()
@@ -1192,8 +1201,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.enumeration, 'type')),
                                         ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -1228,7 +1236,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs, self).__init__()
@@ -1238,8 +1246,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("vrf-global-af", ("vrf_global_af", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf))])
+                                    self._child_classes = OrderedDict([("vrf-global-af", ("vrf_global_af", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf))])
                                     self._leafs = OrderedDict()
 
                                     self.vrf_global_af = YList(self)
@@ -1468,7 +1475,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf, self).__init__()
@@ -1478,8 +1485,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['af_name']
-                                        self._child_container_classes = OrderedDict([("mvpn", ("mvpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn)), ("ebgp", ("ebgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp)), ("eibgp", ("eibgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp)), ("ibgp", ("ibgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp)), ("aggregate-addresses", ("aggregate_addresses", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses)), ("optimal-route-reflector-groups", ("optimal_route_reflector_groups", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups)), ("dampening", ("dampening", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening)), ("rip-routes", ("rip_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes)), ("lisp-routes", ("lisp_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes)), ("static-routes", ("static_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes)), ("distance", ("distance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance)), ("application-routes", ("application_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode)), ("eigrp-routes", ("eigrp_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes)), ("sourced-networks", ("sourced_networks", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks)), ("connected-routes", ("connected_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes)), ("allocate-label", ("allocate_label", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel)), ("additional-paths-selection", ("additional_paths_selection", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection)), ("ospf-routes", ("ospf_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes)), ("mobile-routes", ("mobile_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes)), ("subscriber-routes", ("subscriber_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("mvpn", ("mvpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn)), ("ebgp", ("ebgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp)), ("eibgp", ("eibgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp)), ("ibgp", ("ibgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp)), ("aggregate-addresses", ("aggregate_addresses", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses)), ("optimal-route-reflector-groups", ("optimal_route_reflector_groups", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups)), ("dampening", ("dampening", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening)), ("rip-routes", ("rip_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes)), ("lisp-routes", ("lisp_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes)), ("static-routes", ("static_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes)), ("distance", ("distance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance)), ("application-routes", ("application_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode)), ("eigrp-routes", ("eigrp_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes)), ("sourced-networks", ("sourced_networks", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks)), ("connected-routes", ("connected_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes)), ("allocate-label", ("allocate_label", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel)), ("additional-paths-selection", ("additional_paths_selection", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection)), ("ospf-routes", ("ospf_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes)), ("mobile-routes", ("mobile_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes)), ("subscriber-routes", ("subscriber_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes))])
                                         self._leafs = OrderedDict([
                                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                             ('rt_download', YLeaf(YType.empty, 'rt-download')),
@@ -1516,97 +1522,76 @@ class Bgp(Entity):
                                         self.mvpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn()
                                         self.mvpn.parent = self
                                         self._children_name_map["mvpn"] = "mvpn"
-                                        self._children_yang_names.add("mvpn")
 
                                         self.ebgp = None
                                         self._children_name_map["ebgp"] = "ebgp"
-                                        self._children_yang_names.add("ebgp")
 
                                         self.eibgp = None
                                         self._children_name_map["eibgp"] = "eibgp"
-                                        self._children_yang_names.add("eibgp")
 
                                         self.ibgp = None
                                         self._children_name_map["ibgp"] = "ibgp"
-                                        self._children_yang_names.add("ibgp")
 
                                         self.aggregate_addresses = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses()
                                         self.aggregate_addresses.parent = self
                                         self._children_name_map["aggregate_addresses"] = "aggregate-addresses"
-                                        self._children_yang_names.add("aggregate-addresses")
 
                                         self.optimal_route_reflector_groups = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups()
                                         self.optimal_route_reflector_groups.parent = self
                                         self._children_name_map["optimal_route_reflector_groups"] = "optimal-route-reflector-groups"
-                                        self._children_yang_names.add("optimal-route-reflector-groups")
 
                                         self.dampening = None
                                         self._children_name_map["dampening"] = "dampening"
-                                        self._children_yang_names.add("dampening")
 
                                         self.rip_routes = None
                                         self._children_name_map["rip_routes"] = "rip-routes"
-                                        self._children_yang_names.add("rip-routes")
 
                                         self.lisp_routes = None
                                         self._children_name_map["lisp_routes"] = "lisp-routes"
-                                        self._children_yang_names.add("lisp-routes")
 
                                         self.static_routes = None
                                         self._children_name_map["static_routes"] = "static-routes"
-                                        self._children_yang_names.add("static-routes")
 
                                         self.distance = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance()
                                         self.distance.parent = self
                                         self._children_name_map["distance"] = "distance"
-                                        self._children_yang_names.add("distance")
 
                                         self.application_routes = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes()
                                         self.application_routes.parent = self
                                         self._children_name_map["application_routes"] = "application-routes"
-                                        self._children_yang_names.add("application-routes")
 
                                         self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode()
                                         self.label_mode.parent = self
                                         self._children_name_map["label_mode"] = "label-mode"
-                                        self._children_yang_names.add("label-mode")
 
                                         self.eigrp_routes = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes()
                                         self.eigrp_routes.parent = self
                                         self._children_name_map["eigrp_routes"] = "eigrp-routes"
-                                        self._children_yang_names.add("eigrp-routes")
 
                                         self.sourced_networks = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks()
                                         self.sourced_networks.parent = self
                                         self._children_name_map["sourced_networks"] = "sourced-networks"
-                                        self._children_yang_names.add("sourced-networks")
 
                                         self.connected_routes = None
                                         self._children_name_map["connected_routes"] = "connected-routes"
-                                        self._children_yang_names.add("connected-routes")
 
                                         self.allocate_label = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel()
                                         self.allocate_label.parent = self
                                         self._children_name_map["allocate_label"] = "allocate-label"
-                                        self._children_yang_names.add("allocate-label")
 
                                         self.additional_paths_selection = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection()
                                         self.additional_paths_selection.parent = self
                                         self._children_name_map["additional_paths_selection"] = "additional-paths-selection"
-                                        self._children_yang_names.add("additional-paths-selection")
 
                                         self.ospf_routes = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes()
                                         self.ospf_routes.parent = self
                                         self._children_name_map["ospf_routes"] = "ospf-routes"
-                                        self._children_yang_names.add("ospf-routes")
 
                                         self.mobile_routes = None
                                         self._children_name_map["mobile_routes"] = "mobile-routes"
-                                        self._children_yang_names.add("mobile-routes")
 
                                         self.subscriber_routes = None
                                         self._children_name_map["subscriber_routes"] = "subscriber-routes"
-                                        self._children_yang_names.add("subscriber-routes")
                                         self._segment_path = lambda: "vrf-global-af" + "[af-name='" + str(self.af_name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -1627,7 +1612,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn, self).__init__()
@@ -1637,8 +1622,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('single_forwarder_selection', YLeaf(YType.enumeration, 'single-forwarder-selection')),
                                             ])
@@ -1690,7 +1674,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp, self).__init__()
@@ -1700,8 +1684,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('paths_value', YLeaf(YType.uint32, 'paths-value')),
@@ -1760,7 +1743,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp, self).__init__()
@@ -1770,8 +1753,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('paths_value', YLeaf(YType.uint32, 'paths-value')),
@@ -1830,7 +1812,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp, self).__init__()
@@ -1840,8 +1822,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('paths_value', YLeaf(YType.uint32, 'paths-value')),
@@ -1873,7 +1854,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses, self).__init__()
@@ -1883,8 +1864,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("aggregate-address", ("aggregate_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress))])
+                                            self._child_classes = OrderedDict([("aggregate-address", ("aggregate_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress))])
                                             self._leafs = OrderedDict()
 
                                             self.aggregate_address = YList(self)
@@ -1943,7 +1923,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress, self).__init__()
@@ -1953,8 +1933,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['aggregate_addr','aggregate_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('aggregate_addr', YLeaf(YType.str, 'aggregate-addr')),
                                                     ('aggregate_prefix', YLeaf(YType.uint16, 'aggregate-prefix')),
@@ -1989,7 +1968,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups, self).__init__()
@@ -1999,8 +1978,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("optimal-route-reflector-group", ("optimal_route_reflector_group", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup))])
+                                            self._child_classes = OrderedDict([("optimal-route-reflector-group", ("optimal_route_reflector_group", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup))])
                                             self._leafs = OrderedDict()
 
                                             self.optimal_route_reflector_group = YList(self)
@@ -2066,7 +2044,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, self).__init__()
@@ -2076,8 +2054,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['group_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('group_name', YLeaf(YType.str, 'group-name')),
                                                     ('primary_root_address', YLeaf(YType.str, 'primary-root-address')),
@@ -2142,7 +2119,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening, self).__init__()
@@ -2152,8 +2129,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('half_life', YLeaf(YType.uint32, 'half-life')),
@@ -2203,7 +2179,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes, self).__init__()
@@ -2213,8 +2189,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -2253,7 +2228,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes, self).__init__()
@@ -2263,8 +2238,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -2308,7 +2282,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes, self).__init__()
@@ -2318,8 +2292,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -2371,7 +2344,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance, self).__init__()
@@ -2381,8 +2354,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('external_routes', YLeaf(YType.uint32, 'external-routes')),
                                                 ('internal_routes', YLeaf(YType.uint32, 'internal-routes')),
@@ -2411,7 +2383,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes, self).__init__()
@@ -2421,8 +2393,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("application-route", ("application_route", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute))])
+                                            self._child_classes = OrderedDict([("application-route", ("application_route", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute))])
                                             self._leafs = OrderedDict()
 
                                             self.application_route = YList(self)
@@ -2467,7 +2438,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute, self).__init__()
@@ -2477,8 +2448,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['instance_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('instance_name', YLeaf(YType.str, 'instance-name')),
                                                     ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -2514,7 +2484,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode, self).__init__()
@@ -2524,8 +2494,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('label_allocation_mode', YLeaf(YType.str, 'label-allocation-mode')),
                                                 ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -2552,7 +2521,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes, self).__init__()
@@ -2562,8 +2531,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("eigrp-route", ("eigrp_route", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute))])
+                                            self._child_classes = OrderedDict([("eigrp-route", ("eigrp_route", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute))])
                                             self._leafs = OrderedDict()
 
                                             self.eigrp_route = YList(self)
@@ -2608,7 +2576,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute, self).__init__()
@@ -2618,8 +2586,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['instance_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('instance_name', YLeaf(YType.str, 'instance-name')),
                                                     ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -2650,7 +2617,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks, self).__init__()
@@ -2660,8 +2627,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("sourced-network", ("sourced_network", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork))])
+                                            self._child_classes = OrderedDict([("sourced-network", ("sourced_network", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork))])
                                             self._leafs = OrderedDict()
 
                                             self.sourced_network = YList(self)
@@ -2710,7 +2676,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork, self).__init__()
@@ -2720,8 +2686,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['network_addr','network_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('network_addr', YLeaf(YType.str, 'network-addr')),
                                                     ('network_prefix', YLeaf(YType.uint16, 'network-prefix')),
@@ -2768,7 +2733,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes, self).__init__()
@@ -2778,8 +2743,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -2814,7 +2778,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel, self).__init__()
@@ -2824,8 +2788,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('all', YLeaf(YType.boolean, 'all')),
                                                 ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -2857,7 +2820,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection, self).__init__()
@@ -2867,8 +2830,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('selection', YLeaf(YType.enumeration, 'selection')),
                                                 ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -2895,7 +2857,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes, self).__init__()
@@ -2905,8 +2867,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ospf-route", ("ospf_route", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute))])
+                                            self._child_classes = OrderedDict([("ospf-route", ("ospf_route", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute))])
                                             self._leafs = OrderedDict()
 
                                             self.ospf_route = YList(self)
@@ -2951,7 +2912,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute, self).__init__()
@@ -2961,8 +2922,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['instance_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('instance_name', YLeaf(YType.str, 'instance-name')),
                                                     ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -3009,7 +2969,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes, self).__init__()
@@ -3019,8 +2979,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -3066,7 +3025,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes, self).__init__()
@@ -3076,8 +3035,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -3107,7 +3065,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces, self).__init__()
@@ -3117,8 +3075,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("mpls-activated-interface", ("mpls_activated_interface", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface))])
+                                    self._child_classes = OrderedDict([("mpls-activated-interface", ("mpls_activated_interface", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface))])
                                     self._leafs = OrderedDict()
 
                                     self.mpls_activated_interface = YList(self)
@@ -3144,7 +3101,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface, self).__init__()
@@ -3154,8 +3111,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ])
@@ -3208,7 +3164,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers, self).__init__()
@@ -3218,8 +3174,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('keepalive', YLeaf(YType.uint32, 'keepalive')),
                                         ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -3259,7 +3214,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd, self).__init__()
@@ -3269,8 +3224,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
                                         ('interval', YLeaf(YType.uint32, 'interval')),
@@ -3314,7 +3268,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes, self).__init__()
@@ -3324,8 +3278,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('socket_send_size', YLeaf(YType.uint32, 'socket-send-size')),
                                         ('bgp_send_size', YLeaf(YType.uint32, 'bgp-send-size')),
@@ -3369,7 +3322,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes, self).__init__()
@@ -3379,8 +3332,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('socket_receive_size', YLeaf(YType.uint32, 'socket-receive-size')),
                                         ('bgp_receive_size', YLeaf(YType.uint32, 'bgp-receive-size')),
@@ -3412,7 +3364,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors, self).__init__()
@@ -3422,8 +3374,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("vrf-neighbor", ("vrf_neighbor", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor)), ("vrf-neighbor-prefix-length", ("vrf_neighbor_prefix_length", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength))])
+                                self._child_classes = OrderedDict([("vrf-neighbor", ("vrf_neighbor", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor)), ("vrf-neighbor-prefix-length", ("vrf_neighbor_prefix_length", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength))])
                                 self._leafs = OrderedDict()
 
                                 self.vrf_neighbor = YList(self)
@@ -3716,7 +3667,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor, self).__init__()
@@ -3726,8 +3677,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['neighbor_address']
-                                    self._child_container_classes = OrderedDict([("vrf-neighbor-afs", ("vrf_neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("vrf-neighbor-afs", ("vrf_neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                         ('internal_vpn_client_ibgp_ce', YLeaf(YType.boolean, 'internal-vpn-client-ibgp-ce')),
@@ -3790,96 +3740,77 @@ class Bgp(Entity):
                                     self.vrf_neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs()
                                     self.vrf_neighbor_afs.parent = self
                                     self._children_name_map["vrf_neighbor_afs"] = "vrf-neighbor-afs"
-                                    self._children_yang_names.add("vrf-neighbor-afs")
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress()
                                     self.local_address.parent = self
                                     self._children_name_map["local_address"] = "local-address"
-                                    self._children_yang_names.add("local-address")
 
                                     self.bmp_activates = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates()
                                     self.bmp_activates.parent = self
                                     self._children_name_map["bmp_activates"] = "bmp-activates"
-                                    self._children_yang_names.add("bmp-activates")
 
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
                                     self._children_name_map["ebgp_multihop"] = "ebgp-multihop"
-                                    self._children_yang_names.add("ebgp-multihop")
 
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs()
                                     self.remote_as.parent = self
                                     self._children_name_map["remote_as"] = "remote-as"
-                                    self._children_yang_names.add("remote-as")
 
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs()
                                     self.local_as.parent = self
                                     self._children_name_map["local_as"] = "local-as"
-                                    self._children_yang_names.add("local-as")
 
                                     self.password = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password()
                                     self.password.parent = self
                                     self._children_name_map["password"] = "password"
-                                    self._children_yang_names.add("password")
 
                                     self.advertisement_interval = None
                                     self._children_name_map["advertisement_interval"] = "advertisement-interval"
-                                    self._children_yang_names.add("advertisement-interval")
 
                                     self.neighbor_cluster_id = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId()
                                     self.neighbor_cluster_id.parent = self
                                     self._children_name_map["neighbor_cluster_id"] = "neighbor-cluster-id"
-                                    self._children_yang_names.add("neighbor-cluster-id")
 
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss()
                                     self.tcpmss.parent = self
                                     self._children_name_map["tcpmss"] = "tcpmss"
-                                    self._children_yang_names.add("tcpmss")
 
                                     self.tos = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos()
                                     self.tos.parent = self
                                     self._children_name_map["tos"] = "tos"
-                                    self._children_yang_names.add("tos")
 
                                     self.update_in_filtering = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering()
                                     self.update_in_filtering.parent = self
                                     self._children_name_map["update_in_filtering"] = "update-in-filtering"
-                                    self._children_yang_names.add("update-in-filtering")
 
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut()
                                     self.msg_log_out.parent = self
                                     self._children_name_map["msg_log_out"] = "msg-log-out"
-                                    self._children_yang_names.add("msg-log-out")
 
                                     self.receive_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize()
                                     self.receive_buffer_size.parent = self
                                     self._children_name_map["receive_buffer_size"] = "receive-buffer-size"
-                                    self._children_yang_names.add("receive-buffer-size")
 
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self._children_name_map["msg_log_in"] = "msg-log-in"
-                                    self._children_yang_names.add("msg-log-in")
 
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize()
                                     self.send_buffer_size.parent = self
                                     self._children_name_map["send_buffer_size"] = "send-buffer-size"
-                                    self._children_yang_names.add("send-buffer-size")
 
                                     self.timers = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers()
                                     self.timers.parent = self
                                     self._children_name_map["timers"] = "timers"
-                                    self._children_yang_names.add("timers")
 
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain()
                                     self.keychain.parent = self
                                     self._children_name_map["keychain"] = "keychain"
-                                    self._children_yang_names.add("keychain")
 
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
                                     self._children_name_map["graceful_maintenance"] = "graceful-maintenance"
-                                    self._children_yang_names.add("graceful-maintenance")
                                     self._segment_path = lambda: "vrf-neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                                 def __setattr__(self, name, value):
@@ -3900,7 +3831,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs, self).__init__()
@@ -3910,8 +3841,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("vrf-neighbor-af", ("vrf_neighbor_af", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf))])
+                                        self._child_classes = OrderedDict([("vrf-neighbor-af", ("vrf_neighbor_af", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf))])
                                         self._leafs = OrderedDict()
 
                                         self.vrf_neighbor_af = YList(self)
@@ -4004,12 +3934,12 @@ class Bgp(Entity):
                                         .. attribute:: advertise_l2vpn_evpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn>`
                                         
                                         .. attribute:: advertise_local_l2vpn_evpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseLocalL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn>`
                                         
                                         .. attribute:: encapsulation_type
                                         
@@ -4193,7 +4123,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf, self).__init__()
@@ -4203,8 +4133,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_container_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable')),
@@ -4269,99 +4198,79 @@ class Bgp(Entity):
                                             self.aigp_cost_community = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity()
                                             self.aigp_cost_community.parent = self
                                             self._children_name_map["aigp_cost_community"] = "aigp-cost-community"
-                                            self._children_yang_names.add("aigp-cost-community")
 
                                             self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6()
                                             self.advertise_def_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v6"] = "advertise-def-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v6")
 
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
                                             self._children_name_map["advertise_disable"] = "advertise-disable"
-                                            self._children_yang_names.add("advertise-disable")
 
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
-                                            self._children_yang_names.add("maximum-prefixes")
 
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path-inbound")
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v4")
 
-                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn()
+                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_l2vpn_evpn"] = "advertise-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-l2vpn-evpn")
 
-                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn()
+                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn()
                                             self.advertise_local_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_local_l2vpn_evpn"] = "advertise-local-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-local-l2vpn-evpn")
 
                                             self.neighbor_af_long_lived_graceful_restart_stale_time = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime()
                                             self.neighbor_af_long_lived_graceful_restart_stale_time.parent = self
                                             self._children_name_map["neighbor_af_long_lived_graceful_restart_stale_time"] = "neighbor-af-long-lived-graceful-restart-stale-time"
-                                            self._children_yang_names.add("neighbor-af-long-lived-graceful-restart-stale-time")
 
                                             self.site_of_origin = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin()
                                             self.site_of_origin.parent = self
                                             self._children_name_map["site_of_origin"] = "site-of-origin"
-                                            self._children_yang_names.add("site-of-origin")
 
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
                                             self._children_name_map["advertise_v6"] = "advertise-v6"
-                                            self._children_yang_names.add("advertise-v6")
 
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6()
                                             self.advertise_local_v6.parent = self
                                             self._children_name_map["advertise_local_v6"] = "advertise-local-v6"
-                                            self._children_yang_names.add("advertise-local-v6")
 
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import()
                                             self.import_.parent = self
                                             self._children_name_map["import_"] = "import"
-                                            self._children_yang_names.add("import")
 
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self._children_name_map["default_originate"] = "default-originate"
-                                            self._children_yang_names.add("default-originate")
 
                                             self.soft_reconfiguration = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration()
                                             self.soft_reconfiguration.parent = self
                                             self._children_name_map["soft_reconfiguration"] = "soft-reconfiguration"
-                                            self._children_yang_names.add("soft-reconfiguration")
 
                                             self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6()
                                             self.advertise_vrf_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v6"] = "advertise-vrf-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v6")
 
                                             self.advertise_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4()
                                             self.advertise_v4.parent = self
                                             self._children_name_map["advertise_v4"] = "advertise-v4"
-                                            self._children_yang_names.add("advertise-v4")
 
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self._children_name_map["advertise_local_v4"] = "advertise-local-v4"
-                                            self._children_yang_names.add("advertise-local-v4")
 
                                             self.remove_private_as_entire_as_path = None
                                             self._children_name_map["remove_private_as_entire_as_path"] = "remove-private-as-entire-as-path"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path")
 
                                             self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4()
                                             self.advertise_vrf_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v4"] = "advertise-vrf-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v4")
                                             self._segment_path = lambda: "vrf-neighbor-af" + "[af-name='" + str(self.af_name) + "']"
 
                                         def __setattr__(self, name, value):
@@ -4399,7 +4308,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, self).__init__()
@@ -4409,8 +4318,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('cost_community_id', YLeaf(YType.uint32, 'cost-community-id')),
@@ -4451,7 +4359,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -4461,8 +4369,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -4501,7 +4408,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, self).__init__()
@@ -4511,8 +4418,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -4580,7 +4486,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, self).__init__()
@@ -4590,8 +4496,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
@@ -4634,7 +4539,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -4644,8 +4549,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -4683,7 +4587,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -4693,8 +4597,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -4709,7 +4612,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseL2VpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -4733,18 +4636,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "vrf-neighbor-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -4756,10 +4658,10 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseLocalL2VpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(Entity):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -4784,18 +4686,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "vrf-neighbor-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -4807,7 +4708,7 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-local-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -4842,7 +4743,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -4852,8 +4753,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('stale_time_send', YLeaf(YType.uint32, 'stale-time-send')),
                                                     ('stale_time_accept', YLeaf(YType.uint32, 'stale-time-accept')),
@@ -4916,7 +4816,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, self).__init__()
@@ -4926,8 +4826,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('type', YLeaf(YType.enumeration, 'type')),
                                                     ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -4972,7 +4871,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, self).__init__()
@@ -4982,8 +4881,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -5023,7 +4921,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, self).__init__()
@@ -5033,8 +4931,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -5074,7 +4971,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import, self).__init__()
@@ -5084,8 +4981,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('import_stitching', YLeaf(YType.boolean, 'import-stitching')),
                                                     ('import_reoriginate', YLeaf(YType.boolean, 'import-reoriginate')),
@@ -5121,7 +5017,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, self).__init__()
@@ -5131,8 +5027,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -5169,7 +5064,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, self).__init__()
@@ -5179,8 +5074,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('inbound_soft', YLeaf(YType.boolean, 'inbound-soft')),
                                                     ('soft_always', YLeaf(YType.boolean, 'soft-always')),
@@ -5217,7 +5111,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -5227,8 +5121,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -5267,7 +5160,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, self).__init__()
@@ -5277,8 +5170,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -5318,7 +5210,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, self).__init__()
@@ -5328,8 +5220,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -5367,7 +5258,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -5377,8 +5268,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -5416,7 +5306,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -5426,8 +5316,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -5469,7 +5358,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress, self).__init__()
@@ -5479,8 +5368,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('local_address_disable', YLeaf(YType.boolean, 'local-address-disable')),
                                             ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
@@ -5507,7 +5395,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates, self).__init__()
@@ -5517,8 +5405,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate))])
+                                        self._child_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate))])
                                         self._leafs = OrderedDict()
 
                                         self.bmp_activate = YList(self)
@@ -5544,7 +5431,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate, self).__init__()
@@ -5554,8 +5441,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['server_id']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('server_id', YLeaf(YType.uint32, 'server-id')),
                                             ])
@@ -5592,7 +5478,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop, self).__init__()
@@ -5602,8 +5488,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('max_hop_count', YLeaf(YType.uint32, 'max-hop-count')),
                                             ('mpls_deactivation', YLeaf(YType.boolean, 'mpls-deactivation')),
@@ -5639,7 +5524,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs, self).__init__()
@@ -5649,8 +5534,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -5706,7 +5590,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs, self).__init__()
@@ -5716,8 +5600,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -5759,7 +5642,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password, self).__init__()
@@ -5769,8 +5652,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('password_disable', YLeaf(YType.boolean, 'password-disable')),
                                             ('password', YLeaf(YType.str, 'password')),
@@ -5815,7 +5697,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval, self).__init__()
@@ -5825,8 +5707,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
@@ -5863,7 +5744,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId, self).__init__()
@@ -5873,8 +5754,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cluster_id_number', YLeaf(YType.uint32, 'cluster-id-number')),
                                             ('cluster_id_address', YLeaf(YType.str, 'cluster-id-address')),
@@ -5908,7 +5788,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss, self).__init__()
@@ -5918,8 +5798,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tcpmss_disable', YLeaf(YType.boolean, 'tcpmss-disable')),
                                             ('mss', YLeaf(YType.uint32, 'mss')),
@@ -5957,7 +5836,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos, self).__init__()
@@ -5967,8 +5846,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('type', YLeaf(YType.enumeration, 'type')),
                                             ('value', YLeaf(YType.str, 'value')),
@@ -6012,7 +5890,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering, self).__init__()
@@ -6022,8 +5900,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('update_in_filtering_attribute_filter_group', YLeaf(YType.str, 'update-in-filtering-attribute-filter-group')),
@@ -6035,7 +5912,6 @@ class Bgp(Entity):
 
                                         self.update_in_filtering_message_buffers = None
                                         self._children_name_map["update_in_filtering_message_buffers"] = "update-in-filtering-message-buffers"
-                                        self._children_yang_names.add("update-in-filtering-message-buffers")
                                         self._segment_path = lambda: "update-in-filtering"
 
                                     def __setattr__(self, name, value):
@@ -6069,7 +5945,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -6079,8 +5955,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('number_of_buffers', YLeaf(YType.uint32, 'number-of-buffers')),
@@ -6120,7 +5995,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut, self).__init__()
@@ -6130,8 +6005,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -6178,7 +6052,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize, self).__init__()
@@ -6188,8 +6062,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_receive_size', YLeaf(YType.uint32, 'socket-receive-size')),
                                             ('bgp_receive_size', YLeaf(YType.uint32, 'bgp-receive-size')),
@@ -6228,7 +6101,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn, self).__init__()
@@ -6238,8 +6111,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -6286,7 +6158,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize, self).__init__()
@@ -6296,8 +6168,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_send_size', YLeaf(YType.uint32, 'socket-send-size')),
                                             ('bgp_send_size', YLeaf(YType.uint32, 'bgp-send-size')),
@@ -6346,7 +6217,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers, self).__init__()
@@ -6356,8 +6227,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keepalive_interval', YLeaf(YType.uint32, 'keepalive-interval')),
                                             ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -6391,7 +6261,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain, self).__init__()
@@ -6401,8 +6271,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keychain_disable', YLeaf(YType.boolean, 'keychain-disable')),
                                             ('keychain_name', YLeaf(YType.str, 'keychain-name')),
@@ -6444,7 +6313,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance, self).__init__()
@@ -6454,8 +6323,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('graceful_maintenance_activate', YLeaf(YType.boolean, 'graceful-maintenance-activate')),
@@ -6466,12 +6334,10 @@ class Bgp(Entity):
                                         self.graceful_maintenance_local_preference = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference()
                                         self.graceful_maintenance_local_preference.parent = self
                                         self._children_name_map["graceful_maintenance_local_preference"] = "graceful-maintenance-local-preference"
-                                        self._children_yang_names.add("graceful-maintenance-local-preference")
 
                                         self.graceful_maintenance_as_prepends = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends()
                                         self.graceful_maintenance_as_prepends.parent = self
                                         self._children_name_map["graceful_maintenance_as_prepends"] = "graceful-maintenance-as-prepends"
-                                        self._children_yang_names.add("graceful-maintenance-as-prepends")
                                         self._segment_path = lambda: "graceful-maintenance"
 
                                     def __setattr__(self, name, value):
@@ -6499,7 +6365,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -6509,8 +6375,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_loc_pref_disable', YLeaf(YType.boolean, 'gshut-loc-pref-disable')),
                                                 ('local_preference', YLeaf(YType.uint32, 'local-preference')),
@@ -6545,7 +6410,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -6555,8 +6420,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_prepends_disable', YLeaf(YType.boolean, 'gshut-prepends-disable')),
                                                 ('as_prepends', YLeaf(YType.uint32, 'as-prepends')),
@@ -6858,7 +6722,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength, self).__init__()
@@ -6868,8 +6732,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix_length','neighbor_address']
-                                    self._child_container_classes = OrderedDict([("vrf-neighbor-afs", ("vrf_neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("vrf-neighbor-afs", ("vrf_neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                                         ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
@@ -6934,96 +6797,77 @@ class Bgp(Entity):
                                     self.vrf_neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs()
                                     self.vrf_neighbor_afs.parent = self
                                     self._children_name_map["vrf_neighbor_afs"] = "vrf-neighbor-afs"
-                                    self._children_yang_names.add("vrf-neighbor-afs")
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress()
                                     self.local_address.parent = self
                                     self._children_name_map["local_address"] = "local-address"
-                                    self._children_yang_names.add("local-address")
 
                                     self.bmp_activates = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates()
                                     self.bmp_activates.parent = self
                                     self._children_name_map["bmp_activates"] = "bmp-activates"
-                                    self._children_yang_names.add("bmp-activates")
 
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
                                     self._children_name_map["ebgp_multihop"] = "ebgp-multihop"
-                                    self._children_yang_names.add("ebgp-multihop")
 
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs()
                                     self.remote_as.parent = self
                                     self._children_name_map["remote_as"] = "remote-as"
-                                    self._children_yang_names.add("remote-as")
 
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs()
                                     self.local_as.parent = self
                                     self._children_name_map["local_as"] = "local-as"
-                                    self._children_yang_names.add("local-as")
 
                                     self.password = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password()
                                     self.password.parent = self
                                     self._children_name_map["password"] = "password"
-                                    self._children_yang_names.add("password")
 
                                     self.advertisement_interval = None
                                     self._children_name_map["advertisement_interval"] = "advertisement-interval"
-                                    self._children_yang_names.add("advertisement-interval")
 
                                     self.neighbor_cluster_id = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId()
                                     self.neighbor_cluster_id.parent = self
                                     self._children_name_map["neighbor_cluster_id"] = "neighbor-cluster-id"
-                                    self._children_yang_names.add("neighbor-cluster-id")
 
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss()
                                     self.tcpmss.parent = self
                                     self._children_name_map["tcpmss"] = "tcpmss"
-                                    self._children_yang_names.add("tcpmss")
 
                                     self.tos = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos()
                                     self.tos.parent = self
                                     self._children_name_map["tos"] = "tos"
-                                    self._children_yang_names.add("tos")
 
                                     self.update_in_filtering = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering()
                                     self.update_in_filtering.parent = self
                                     self._children_name_map["update_in_filtering"] = "update-in-filtering"
-                                    self._children_yang_names.add("update-in-filtering")
 
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut()
                                     self.msg_log_out.parent = self
                                     self._children_name_map["msg_log_out"] = "msg-log-out"
-                                    self._children_yang_names.add("msg-log-out")
 
                                     self.receive_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize()
                                     self.receive_buffer_size.parent = self
                                     self._children_name_map["receive_buffer_size"] = "receive-buffer-size"
-                                    self._children_yang_names.add("receive-buffer-size")
 
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self._children_name_map["msg_log_in"] = "msg-log-in"
-                                    self._children_yang_names.add("msg-log-in")
 
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize()
                                     self.send_buffer_size.parent = self
                                     self._children_name_map["send_buffer_size"] = "send-buffer-size"
-                                    self._children_yang_names.add("send-buffer-size")
 
                                     self.timers = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers()
                                     self.timers.parent = self
                                     self._children_name_map["timers"] = "timers"
-                                    self._children_yang_names.add("timers")
 
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain()
                                     self.keychain.parent = self
                                     self._children_name_map["keychain"] = "keychain"
-                                    self._children_yang_names.add("keychain")
 
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
                                     self._children_name_map["graceful_maintenance"] = "graceful-maintenance"
-                                    self._children_yang_names.add("graceful-maintenance")
                                     self._segment_path = lambda: "vrf-neighbor-prefix-length" + "[prefix-length='" + str(self.prefix_length) + "']" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                                 def __setattr__(self, name, value):
@@ -7044,7 +6888,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs, self).__init__()
@@ -7054,8 +6898,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("vrf-neighbor-af", ("vrf_neighbor_af", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf))])
+                                        self._child_classes = OrderedDict([("vrf-neighbor-af", ("vrf_neighbor_af", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf))])
                                         self._leafs = OrderedDict()
 
                                         self.vrf_neighbor_af = YList(self)
@@ -7148,12 +6991,12 @@ class Bgp(Entity):
                                         .. attribute:: advertise_l2vpn_evpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn>`
                                         
                                         .. attribute:: advertise_local_l2vpn_evpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseLocalL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn>`
                                         
                                         .. attribute:: encapsulation_type
                                         
@@ -7337,7 +7180,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf, self).__init__()
@@ -7347,8 +7190,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_container_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable')),
@@ -7413,99 +7255,79 @@ class Bgp(Entity):
                                             self.aigp_cost_community = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity()
                                             self.aigp_cost_community.parent = self
                                             self._children_name_map["aigp_cost_community"] = "aigp-cost-community"
-                                            self._children_yang_names.add("aigp-cost-community")
 
                                             self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6()
                                             self.advertise_def_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v6"] = "advertise-def-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v6")
 
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
                                             self._children_name_map["advertise_disable"] = "advertise-disable"
-                                            self._children_yang_names.add("advertise-disable")
 
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
-                                            self._children_yang_names.add("maximum-prefixes")
 
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path-inbound")
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v4")
 
-                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn()
+                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_l2vpn_evpn"] = "advertise-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-l2vpn-evpn")
 
-                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn()
+                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn()
                                             self.advertise_local_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_local_l2vpn_evpn"] = "advertise-local-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-local-l2vpn-evpn")
 
                                             self.neighbor_af_long_lived_graceful_restart_stale_time = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime()
                                             self.neighbor_af_long_lived_graceful_restart_stale_time.parent = self
                                             self._children_name_map["neighbor_af_long_lived_graceful_restart_stale_time"] = "neighbor-af-long-lived-graceful-restart-stale-time"
-                                            self._children_yang_names.add("neighbor-af-long-lived-graceful-restart-stale-time")
 
                                             self.site_of_origin = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin()
                                             self.site_of_origin.parent = self
                                             self._children_name_map["site_of_origin"] = "site-of-origin"
-                                            self._children_yang_names.add("site-of-origin")
 
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
                                             self._children_name_map["advertise_v6"] = "advertise-v6"
-                                            self._children_yang_names.add("advertise-v6")
 
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6()
                                             self.advertise_local_v6.parent = self
                                             self._children_name_map["advertise_local_v6"] = "advertise-local-v6"
-                                            self._children_yang_names.add("advertise-local-v6")
 
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import()
                                             self.import_.parent = self
                                             self._children_name_map["import_"] = "import"
-                                            self._children_yang_names.add("import")
 
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self._children_name_map["default_originate"] = "default-originate"
-                                            self._children_yang_names.add("default-originate")
 
                                             self.soft_reconfiguration = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration()
                                             self.soft_reconfiguration.parent = self
                                             self._children_name_map["soft_reconfiguration"] = "soft-reconfiguration"
-                                            self._children_yang_names.add("soft-reconfiguration")
 
                                             self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6()
                                             self.advertise_vrf_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v6"] = "advertise-vrf-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v6")
 
                                             self.advertise_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4()
                                             self.advertise_v4.parent = self
                                             self._children_name_map["advertise_v4"] = "advertise-v4"
-                                            self._children_yang_names.add("advertise-v4")
 
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self._children_name_map["advertise_local_v4"] = "advertise-local-v4"
-                                            self._children_yang_names.add("advertise-local-v4")
 
                                             self.remove_private_as_entire_as_path = None
                                             self._children_name_map["remove_private_as_entire_as_path"] = "remove-private-as-entire-as-path"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path")
 
                                             self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4()
                                             self.advertise_vrf_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v4"] = "advertise-vrf-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v4")
                                             self._segment_path = lambda: "vrf-neighbor-af" + "[af-name='" + str(self.af_name) + "']"
 
                                         def __setattr__(self, name, value):
@@ -7543,7 +7365,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, self).__init__()
@@ -7553,8 +7375,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('cost_community_id', YLeaf(YType.uint32, 'cost-community-id')),
@@ -7595,7 +7416,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -7605,8 +7426,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -7645,7 +7465,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, self).__init__()
@@ -7655,8 +7475,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -7724,7 +7543,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, self).__init__()
@@ -7734,8 +7553,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
@@ -7778,7 +7596,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -7788,8 +7606,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -7827,7 +7644,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -7837,8 +7654,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -7853,7 +7669,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseL2VpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -7877,18 +7693,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "vrf-neighbor-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -7900,10 +7715,10 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseLocalL2VpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(Entity):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -7928,18 +7743,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "vrf-neighbor-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -7951,7 +7765,7 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-local-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -7986,7 +7800,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -7996,8 +7810,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('stale_time_send', YLeaf(YType.uint32, 'stale-time-send')),
                                                     ('stale_time_accept', YLeaf(YType.uint32, 'stale-time-accept')),
@@ -8060,7 +7873,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, self).__init__()
@@ -8070,8 +7883,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('type', YLeaf(YType.enumeration, 'type')),
                                                     ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -8116,7 +7928,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, self).__init__()
@@ -8126,8 +7938,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -8167,7 +7978,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, self).__init__()
@@ -8177,8 +7988,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -8218,7 +8028,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import, self).__init__()
@@ -8228,8 +8038,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('import_stitching', YLeaf(YType.boolean, 'import-stitching')),
                                                     ('import_reoriginate', YLeaf(YType.boolean, 'import-reoriginate')),
@@ -8265,7 +8074,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, self).__init__()
@@ -8275,8 +8084,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -8313,7 +8121,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, self).__init__()
@@ -8323,8 +8131,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('inbound_soft', YLeaf(YType.boolean, 'inbound-soft')),
                                                     ('soft_always', YLeaf(YType.boolean, 'soft-always')),
@@ -8361,7 +8168,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -8371,8 +8178,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -8411,7 +8217,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, self).__init__()
@@ -8421,8 +8227,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -8462,7 +8267,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, self).__init__()
@@ -8472,8 +8277,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -8511,7 +8315,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -8521,8 +8325,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -8560,7 +8363,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -8570,8 +8373,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -8613,7 +8415,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress, self).__init__()
@@ -8623,8 +8425,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('local_address_disable', YLeaf(YType.boolean, 'local-address-disable')),
                                             ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
@@ -8651,7 +8452,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates, self).__init__()
@@ -8661,8 +8462,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate))])
+                                        self._child_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate))])
                                         self._leafs = OrderedDict()
 
                                         self.bmp_activate = YList(self)
@@ -8688,7 +8488,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate, self).__init__()
@@ -8698,8 +8498,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['server_id']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('server_id', YLeaf(YType.uint32, 'server-id')),
                                             ])
@@ -8736,7 +8535,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop, self).__init__()
@@ -8746,8 +8545,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('max_hop_count', YLeaf(YType.uint32, 'max-hop-count')),
                                             ('mpls_deactivation', YLeaf(YType.boolean, 'mpls-deactivation')),
@@ -8783,7 +8581,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs, self).__init__()
@@ -8793,8 +8591,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -8850,7 +8647,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs, self).__init__()
@@ -8860,8 +8657,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -8903,7 +8699,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password, self).__init__()
@@ -8913,8 +8709,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('password_disable', YLeaf(YType.boolean, 'password-disable')),
                                             ('password', YLeaf(YType.str, 'password')),
@@ -8959,7 +8754,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval, self).__init__()
@@ -8969,8 +8764,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
@@ -9007,7 +8801,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId, self).__init__()
@@ -9017,8 +8811,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cluster_id_number', YLeaf(YType.uint32, 'cluster-id-number')),
                                             ('cluster_id_address', YLeaf(YType.str, 'cluster-id-address')),
@@ -9052,7 +8845,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss, self).__init__()
@@ -9062,8 +8855,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tcpmss_disable', YLeaf(YType.boolean, 'tcpmss-disable')),
                                             ('mss', YLeaf(YType.uint32, 'mss')),
@@ -9101,7 +8893,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos, self).__init__()
@@ -9111,8 +8903,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('type', YLeaf(YType.enumeration, 'type')),
                                             ('value', YLeaf(YType.str, 'value')),
@@ -9156,7 +8947,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering, self).__init__()
@@ -9166,8 +8957,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('update_in_filtering_attribute_filter_group', YLeaf(YType.str, 'update-in-filtering-attribute-filter-group')),
@@ -9179,7 +8969,6 @@ class Bgp(Entity):
 
                                         self.update_in_filtering_message_buffers = None
                                         self._children_name_map["update_in_filtering_message_buffers"] = "update-in-filtering-message-buffers"
-                                        self._children_yang_names.add("update-in-filtering-message-buffers")
                                         self._segment_path = lambda: "update-in-filtering"
 
                                     def __setattr__(self, name, value):
@@ -9213,7 +9002,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -9223,8 +9012,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('number_of_buffers', YLeaf(YType.uint32, 'number-of-buffers')),
@@ -9264,7 +9052,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut, self).__init__()
@@ -9274,8 +9062,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -9322,7 +9109,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize, self).__init__()
@@ -9332,8 +9119,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_receive_size', YLeaf(YType.uint32, 'socket-receive-size')),
                                             ('bgp_receive_size', YLeaf(YType.uint32, 'bgp-receive-size')),
@@ -9372,7 +9158,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn, self).__init__()
@@ -9382,8 +9168,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -9430,7 +9215,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize, self).__init__()
@@ -9440,8 +9225,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_send_size', YLeaf(YType.uint32, 'socket-send-size')),
                                             ('bgp_send_size', YLeaf(YType.uint32, 'bgp-send-size')),
@@ -9490,7 +9274,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers, self).__init__()
@@ -9500,8 +9284,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keepalive_interval', YLeaf(YType.uint32, 'keepalive-interval')),
                                             ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -9535,7 +9318,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain, self).__init__()
@@ -9545,8 +9328,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keychain_disable', YLeaf(YType.boolean, 'keychain-disable')),
                                             ('keychain_name', YLeaf(YType.str, 'keychain-name')),
@@ -9588,7 +9370,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance, self).__init__()
@@ -9598,8 +9380,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('graceful_maintenance_activate', YLeaf(YType.boolean, 'graceful-maintenance-activate')),
@@ -9610,12 +9391,10 @@ class Bgp(Entity):
                                         self.graceful_maintenance_local_preference = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference()
                                         self.graceful_maintenance_local_preference.parent = self
                                         self._children_name_map["graceful_maintenance_local_preference"] = "graceful-maintenance-local-preference"
-                                        self._children_yang_names.add("graceful-maintenance-local-preference")
 
                                         self.graceful_maintenance_as_prepends = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends()
                                         self.graceful_maintenance_as_prepends.parent = self
                                         self._children_name_map["graceful_maintenance_as_prepends"] = "graceful-maintenance-as-prepends"
-                                        self._children_yang_names.add("graceful-maintenance-as-prepends")
                                         self._segment_path = lambda: "graceful-maintenance"
 
                                     def __setattr__(self, name, value):
@@ -9643,7 +9422,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -9653,8 +9432,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_loc_pref_disable', YLeaf(YType.boolean, 'gshut-loc-pref-disable')),
                                                 ('local_preference', YLeaf(YType.uint32, 'local-preference')),
@@ -9689,7 +9467,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -9699,8 +9477,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_prepends_disable', YLeaf(YType.boolean, 'gshut-prepends-disable')),
                                                 ('as_prepends', YLeaf(YType.uint32, 'as-prepends')),
@@ -9732,7 +9509,7 @@ class Bgp(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-07-31'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf, self).__init__()
@@ -9742,20 +9519,20 @@ class Bgp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("bgp-entity", ("bgp_entity", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity)), ("global", ("global_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("bgp-entity", ("bgp_entity", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity)), ("global", ("global_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global))])
                         self._leafs = OrderedDict()
 
                         self.bgp_entity = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity()
                         self.bgp_entity.parent = self
                         self._children_name_map["bgp_entity"] = "bgp-entity"
-                        self._children_yang_names.add("bgp-entity")
 
                         self.global_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global()
                         self.global_.parent = self
                         self._children_name_map["global_"] = "global"
-                        self._children_yang_names.add("global")
                         self._segment_path = lambda: "default-vrf"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf, [], name, value)
 
 
                     class BgpEntity(Entity):
@@ -9788,7 +9565,7 @@ class Bgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity, self).__init__()
@@ -9798,30 +9575,28 @@ class Bgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors)), ("neighbor-groups", ("neighbor_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups)), ("af-groups", ("af_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups)), ("session-groups", ("session_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("neighbors", ("neighbors", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors)), ("neighbor-groups", ("neighbor_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups)), ("af-groups", ("af_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups)), ("session-groups", ("session_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups))])
                             self._leafs = OrderedDict()
 
                             self.neighbors = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors()
                             self.neighbors.parent = self
                             self._children_name_map["neighbors"] = "neighbors"
-                            self._children_yang_names.add("neighbors")
 
                             self.neighbor_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups()
                             self.neighbor_groups.parent = self
                             self._children_name_map["neighbor_groups"] = "neighbor-groups"
-                            self._children_yang_names.add("neighbor-groups")
 
                             self.af_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups()
                             self.af_groups.parent = self
                             self._children_name_map["af_groups"] = "af-groups"
-                            self._children_yang_names.add("af-groups")
 
                             self.session_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups()
                             self.session_groups.parent = self
                             self._children_name_map["session_groups"] = "session-groups"
-                            self._children_yang_names.add("session-groups")
                             self._segment_path = lambda: "bgp-entity"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity, [], name, value)
 
 
                         class Neighbors(Entity):
@@ -9843,7 +9618,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors, self).__init__()
@@ -9853,8 +9628,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor)), ("neighbor-prefix-length", ("neighbor_prefix_length", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength))])
+                                self._child_classes = OrderedDict([("neighbor", ("neighbor", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor)), ("neighbor-prefix-length", ("neighbor_prefix_length", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength))])
                                 self._leafs = OrderedDict()
 
                                 self.neighbor = YList(self)
@@ -10157,7 +9931,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor, self).__init__()
@@ -10167,8 +9941,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['neighbor_address']
-                                    self._child_container_classes = OrderedDict([("neighbor-afs", ("neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("neighbor-afs", ("neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                         ('internal_vpn_client_ibgp_ce', YLeaf(YType.boolean, 'internal-vpn-client-ibgp-ce')),
@@ -10235,96 +10008,77 @@ class Bgp(Entity):
                                     self.neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs()
                                     self.neighbor_afs.parent = self
                                     self._children_name_map["neighbor_afs"] = "neighbor-afs"
-                                    self._children_yang_names.add("neighbor-afs")
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress()
                                     self.local_address.parent = self
                                     self._children_name_map["local_address"] = "local-address"
-                                    self._children_yang_names.add("local-address")
 
                                     self.bmp_activates = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates()
                                     self.bmp_activates.parent = self
                                     self._children_name_map["bmp_activates"] = "bmp-activates"
-                                    self._children_yang_names.add("bmp-activates")
 
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
                                     self._children_name_map["ebgp_multihop"] = "ebgp-multihop"
-                                    self._children_yang_names.add("ebgp-multihop")
 
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs()
                                     self.remote_as.parent = self
                                     self._children_name_map["remote_as"] = "remote-as"
-                                    self._children_yang_names.add("remote-as")
 
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs()
                                     self.local_as.parent = self
                                     self._children_name_map["local_as"] = "local-as"
-                                    self._children_yang_names.add("local-as")
 
                                     self.password = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password()
                                     self.password.parent = self
                                     self._children_name_map["password"] = "password"
-                                    self._children_yang_names.add("password")
 
                                     self.advertisement_interval = None
                                     self._children_name_map["advertisement_interval"] = "advertisement-interval"
-                                    self._children_yang_names.add("advertisement-interval")
 
                                     self.neighbor_cluster_id = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId()
                                     self.neighbor_cluster_id.parent = self
                                     self._children_name_map["neighbor_cluster_id"] = "neighbor-cluster-id"
-                                    self._children_yang_names.add("neighbor-cluster-id")
 
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss()
                                     self.tcpmss.parent = self
                                     self._children_name_map["tcpmss"] = "tcpmss"
-                                    self._children_yang_names.add("tcpmss")
 
                                     self.tos = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos()
                                     self.tos.parent = self
                                     self._children_name_map["tos"] = "tos"
-                                    self._children_yang_names.add("tos")
 
                                     self.update_in_filtering = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering()
                                     self.update_in_filtering.parent = self
                                     self._children_name_map["update_in_filtering"] = "update-in-filtering"
-                                    self._children_yang_names.add("update-in-filtering")
 
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut()
                                     self.msg_log_out.parent = self
                                     self._children_name_map["msg_log_out"] = "msg-log-out"
-                                    self._children_yang_names.add("msg-log-out")
 
                                     self.receive_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize()
                                     self.receive_buffer_size.parent = self
                                     self._children_name_map["receive_buffer_size"] = "receive-buffer-size"
-                                    self._children_yang_names.add("receive-buffer-size")
 
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self._children_name_map["msg_log_in"] = "msg-log-in"
-                                    self._children_yang_names.add("msg-log-in")
 
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize()
                                     self.send_buffer_size.parent = self
                                     self._children_name_map["send_buffer_size"] = "send-buffer-size"
-                                    self._children_yang_names.add("send-buffer-size")
 
                                     self.timers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers()
                                     self.timers.parent = self
                                     self._children_name_map["timers"] = "timers"
-                                    self._children_yang_names.add("timers")
 
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain()
                                     self.keychain.parent = self
                                     self._children_name_map["keychain"] = "keychain"
-                                    self._children_yang_names.add("keychain")
 
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
                                     self._children_name_map["graceful_maintenance"] = "graceful-maintenance"
-                                    self._children_yang_names.add("graceful-maintenance")
                                     self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                                 def __setattr__(self, name, value):
@@ -10345,7 +10099,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs, self).__init__()
@@ -10355,8 +10109,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("neighbor-af", ("neighbor_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf))])
+                                        self._child_classes = OrderedDict([("neighbor-af", ("neighbor_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf))])
                                         self._leafs = OrderedDict()
 
                                         self.neighbor_af = YList(self)
@@ -10464,12 +10217,12 @@ class Bgp(Entity):
                                         .. attribute:: advertise_l2vpn_evpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn>`
                                         
                                         .. attribute:: advertise_local_l2vpn_evpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseLocalL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn>`
                                         
                                         .. attribute:: encapsulation_type
                                         
@@ -10653,7 +10406,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf, self).__init__()
@@ -10663,8 +10416,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_container_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable')),
@@ -10737,94 +10489,75 @@ class Bgp(Entity):
                                             self.aigp_cost_community = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity()
                                             self.aigp_cost_community.parent = self
                                             self._children_name_map["aigp_cost_community"] = "aigp-cost-community"
-                                            self._children_yang_names.add("aigp-cost-community")
 
                                             self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6()
                                             self.advertise_def_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v6"] = "advertise-def-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v6")
 
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
                                             self._children_name_map["advertise_disable"] = "advertise-disable"
-                                            self._children_yang_names.add("advertise-disable")
 
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
-                                            self._children_yang_names.add("maximum-prefixes")
 
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path-inbound")
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v4")
 
-                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn()
+                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_l2vpn_evpn"] = "advertise-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-l2vpn-evpn")
 
-                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn()
+                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn()
                                             self.advertise_local_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_local_l2vpn_evpn"] = "advertise-local-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-local-l2vpn-evpn")
 
                                             self.neighbor_af_long_lived_graceful_restart_stale_time = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime()
                                             self.neighbor_af_long_lived_graceful_restart_stale_time.parent = self
                                             self._children_name_map["neighbor_af_long_lived_graceful_restart_stale_time"] = "neighbor-af-long-lived-graceful-restart-stale-time"
-                                            self._children_yang_names.add("neighbor-af-long-lived-graceful-restart-stale-time")
 
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
                                             self._children_name_map["advertise_v6"] = "advertise-v6"
-                                            self._children_yang_names.add("advertise-v6")
 
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6()
                                             self.advertise_local_v6.parent = self
                                             self._children_name_map["advertise_local_v6"] = "advertise-local-v6"
-                                            self._children_yang_names.add("advertise-local-v6")
 
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import()
                                             self.import_.parent = self
                                             self._children_name_map["import_"] = "import"
-                                            self._children_yang_names.add("import")
 
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self._children_name_map["default_originate"] = "default-originate"
-                                            self._children_yang_names.add("default-originate")
 
                                             self.soft_reconfiguration = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration()
                                             self.soft_reconfiguration.parent = self
                                             self._children_name_map["soft_reconfiguration"] = "soft-reconfiguration"
-                                            self._children_yang_names.add("soft-reconfiguration")
 
                                             self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6()
                                             self.advertise_vrf_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v6"] = "advertise-vrf-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v6")
 
                                             self.advertise_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4()
                                             self.advertise_v4.parent = self
                                             self._children_name_map["advertise_v4"] = "advertise-v4"
-                                            self._children_yang_names.add("advertise-v4")
 
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self._children_name_map["advertise_local_v4"] = "advertise-local-v4"
-                                            self._children_yang_names.add("advertise-local-v4")
 
                                             self.remove_private_as_entire_as_path = None
                                             self._children_name_map["remove_private_as_entire_as_path"] = "remove-private-as-entire-as-path"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path")
 
                                             self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4()
                                             self.advertise_vrf_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v4"] = "advertise-vrf-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v4")
                                             self._segment_path = lambda: "neighbor-af" + "[af-name='" + str(self.af_name) + "']"
 
                                         def __setattr__(self, name, value):
@@ -10862,7 +10595,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity, self).__init__()
@@ -10872,8 +10605,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('cost_community_id', YLeaf(YType.uint32, 'cost-community-id')),
@@ -10914,7 +10646,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -10924,8 +10656,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -10964,7 +10695,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable, self).__init__()
@@ -10974,8 +10705,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -11043,7 +10773,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes, self).__init__()
@@ -11053,8 +10783,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
@@ -11097,7 +10826,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -11107,8 +10836,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -11146,7 +10874,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -11156,8 +10884,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -11172,7 +10899,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseL2VpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -11196,18 +10923,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -11219,10 +10945,10 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseLocalL2VpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(Entity):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -11247,18 +10973,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -11270,7 +10995,7 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-local-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -11305,7 +11030,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -11315,8 +11040,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('stale_time_send', YLeaf(YType.uint32, 'stale-time-send')),
                                                     ('stale_time_accept', YLeaf(YType.uint32, 'stale-time-accept')),
@@ -11353,7 +11077,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6, self).__init__()
@@ -11363,8 +11087,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -11404,7 +11127,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6, self).__init__()
@@ -11414,8 +11137,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -11455,7 +11177,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import, self).__init__()
@@ -11465,8 +11187,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('import_stitching', YLeaf(YType.boolean, 'import-stitching')),
                                                     ('import_reoriginate', YLeaf(YType.boolean, 'import-reoriginate')),
@@ -11502,7 +11223,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate, self).__init__()
@@ -11512,8 +11233,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -11550,7 +11270,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration, self).__init__()
@@ -11560,8 +11280,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('inbound_soft', YLeaf(YType.boolean, 'inbound-soft')),
                                                     ('soft_always', YLeaf(YType.boolean, 'soft-always')),
@@ -11598,7 +11317,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -11608,8 +11327,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -11648,7 +11366,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4, self).__init__()
@@ -11658,8 +11376,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -11699,7 +11416,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4, self).__init__()
@@ -11709,8 +11426,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -11748,7 +11464,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -11758,8 +11474,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -11797,7 +11512,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -11807,8 +11522,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -11850,7 +11564,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress, self).__init__()
@@ -11860,8 +11574,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('local_address_disable', YLeaf(YType.boolean, 'local-address-disable')),
                                             ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
@@ -11888,7 +11601,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates, self).__init__()
@@ -11898,8 +11611,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate))])
+                                        self._child_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate))])
                                         self._leafs = OrderedDict()
 
                                         self.bmp_activate = YList(self)
@@ -11925,7 +11637,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate, self).__init__()
@@ -11935,8 +11647,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['server_id']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('server_id', YLeaf(YType.uint32, 'server-id')),
                                             ])
@@ -11973,7 +11684,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop, self).__init__()
@@ -11983,8 +11694,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('max_hop_count', YLeaf(YType.uint32, 'max-hop-count')),
                                             ('mpls_deactivation', YLeaf(YType.boolean, 'mpls-deactivation')),
@@ -12020,7 +11730,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs, self).__init__()
@@ -12030,8 +11740,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -12087,7 +11796,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs, self).__init__()
@@ -12097,8 +11806,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -12140,7 +11848,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password, self).__init__()
@@ -12150,8 +11858,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('password_disable', YLeaf(YType.boolean, 'password-disable')),
                                             ('password', YLeaf(YType.str, 'password')),
@@ -12196,7 +11903,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval, self).__init__()
@@ -12206,8 +11913,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
@@ -12244,7 +11950,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId, self).__init__()
@@ -12254,8 +11960,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cluster_id_number', YLeaf(YType.uint32, 'cluster-id-number')),
                                             ('cluster_id_address', YLeaf(YType.str, 'cluster-id-address')),
@@ -12289,7 +11994,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss, self).__init__()
@@ -12299,8 +12004,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tcpmss_disable', YLeaf(YType.boolean, 'tcpmss-disable')),
                                             ('mss', YLeaf(YType.uint32, 'mss')),
@@ -12338,7 +12042,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos, self).__init__()
@@ -12348,8 +12052,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('type', YLeaf(YType.enumeration, 'type')),
                                             ('value', YLeaf(YType.str, 'value')),
@@ -12393,7 +12096,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering, self).__init__()
@@ -12403,8 +12106,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('update_in_filtering_attribute_filter_group', YLeaf(YType.str, 'update-in-filtering-attribute-filter-group')),
@@ -12416,7 +12118,6 @@ class Bgp(Entity):
 
                                         self.update_in_filtering_message_buffers = None
                                         self._children_name_map["update_in_filtering_message_buffers"] = "update-in-filtering-message-buffers"
-                                        self._children_yang_names.add("update-in-filtering-message-buffers")
                                         self._segment_path = lambda: "update-in-filtering"
 
                                     def __setattr__(self, name, value):
@@ -12450,7 +12151,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -12460,8 +12161,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('number_of_buffers', YLeaf(YType.uint32, 'number-of-buffers')),
@@ -12501,7 +12201,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut, self).__init__()
@@ -12511,8 +12211,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -12559,7 +12258,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize, self).__init__()
@@ -12569,8 +12268,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_receive_size', YLeaf(YType.uint32, 'socket-receive-size')),
                                             ('bgp_receive_size', YLeaf(YType.uint32, 'bgp-receive-size')),
@@ -12609,7 +12307,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn, self).__init__()
@@ -12619,8 +12317,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -12667,7 +12364,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize, self).__init__()
@@ -12677,8 +12374,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_send_size', YLeaf(YType.uint32, 'socket-send-size')),
                                             ('bgp_send_size', YLeaf(YType.uint32, 'bgp-send-size')),
@@ -12727,7 +12423,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers, self).__init__()
@@ -12737,8 +12433,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keepalive_interval', YLeaf(YType.uint32, 'keepalive-interval')),
                                             ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -12772,7 +12467,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain, self).__init__()
@@ -12782,8 +12477,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keychain_disable', YLeaf(YType.boolean, 'keychain-disable')),
                                             ('keychain_name', YLeaf(YType.str, 'keychain-name')),
@@ -12825,7 +12519,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance, self).__init__()
@@ -12835,8 +12529,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('graceful_maintenance_activate', YLeaf(YType.boolean, 'graceful-maintenance-activate')),
@@ -12847,12 +12540,10 @@ class Bgp(Entity):
                                         self.graceful_maintenance_local_preference = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference()
                                         self.graceful_maintenance_local_preference.parent = self
                                         self._children_name_map["graceful_maintenance_local_preference"] = "graceful-maintenance-local-preference"
-                                        self._children_yang_names.add("graceful-maintenance-local-preference")
 
                                         self.graceful_maintenance_as_prepends = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends()
                                         self.graceful_maintenance_as_prepends.parent = self
                                         self._children_name_map["graceful_maintenance_as_prepends"] = "graceful-maintenance-as-prepends"
-                                        self._children_yang_names.add("graceful-maintenance-as-prepends")
                                         self._segment_path = lambda: "graceful-maintenance"
 
                                     def __setattr__(self, name, value):
@@ -12880,7 +12571,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -12890,8 +12581,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_loc_pref_disable', YLeaf(YType.boolean, 'gshut-loc-pref-disable')),
                                                 ('local_preference', YLeaf(YType.uint32, 'local-preference')),
@@ -12926,7 +12616,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -12936,8 +12626,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_prepends_disable', YLeaf(YType.boolean, 'gshut-prepends-disable')),
                                                 ('as_prepends', YLeaf(YType.uint32, 'as-prepends')),
@@ -13249,7 +12938,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength, self).__init__()
@@ -13259,8 +12948,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix_length','neighbor_address']
-                                    self._child_container_classes = OrderedDict([("neighbor-afs", ("neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("neighbor-afs", ("neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                                         ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
@@ -13329,96 +13017,77 @@ class Bgp(Entity):
                                     self.neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs()
                                     self.neighbor_afs.parent = self
                                     self._children_name_map["neighbor_afs"] = "neighbor-afs"
-                                    self._children_yang_names.add("neighbor-afs")
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress()
                                     self.local_address.parent = self
                                     self._children_name_map["local_address"] = "local-address"
-                                    self._children_yang_names.add("local-address")
 
                                     self.bmp_activates = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates()
                                     self.bmp_activates.parent = self
                                     self._children_name_map["bmp_activates"] = "bmp-activates"
-                                    self._children_yang_names.add("bmp-activates")
 
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
                                     self._children_name_map["ebgp_multihop"] = "ebgp-multihop"
-                                    self._children_yang_names.add("ebgp-multihop")
 
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs()
                                     self.remote_as.parent = self
                                     self._children_name_map["remote_as"] = "remote-as"
-                                    self._children_yang_names.add("remote-as")
 
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs()
                                     self.local_as.parent = self
                                     self._children_name_map["local_as"] = "local-as"
-                                    self._children_yang_names.add("local-as")
 
                                     self.password = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password()
                                     self.password.parent = self
                                     self._children_name_map["password"] = "password"
-                                    self._children_yang_names.add("password")
 
                                     self.advertisement_interval = None
                                     self._children_name_map["advertisement_interval"] = "advertisement-interval"
-                                    self._children_yang_names.add("advertisement-interval")
 
                                     self.neighbor_cluster_id = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId()
                                     self.neighbor_cluster_id.parent = self
                                     self._children_name_map["neighbor_cluster_id"] = "neighbor-cluster-id"
-                                    self._children_yang_names.add("neighbor-cluster-id")
 
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss()
                                     self.tcpmss.parent = self
                                     self._children_name_map["tcpmss"] = "tcpmss"
-                                    self._children_yang_names.add("tcpmss")
 
                                     self.tos = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos()
                                     self.tos.parent = self
                                     self._children_name_map["tos"] = "tos"
-                                    self._children_yang_names.add("tos")
 
                                     self.update_in_filtering = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering()
                                     self.update_in_filtering.parent = self
                                     self._children_name_map["update_in_filtering"] = "update-in-filtering"
-                                    self._children_yang_names.add("update-in-filtering")
 
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut()
                                     self.msg_log_out.parent = self
                                     self._children_name_map["msg_log_out"] = "msg-log-out"
-                                    self._children_yang_names.add("msg-log-out")
 
                                     self.receive_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize()
                                     self.receive_buffer_size.parent = self
                                     self._children_name_map["receive_buffer_size"] = "receive-buffer-size"
-                                    self._children_yang_names.add("receive-buffer-size")
 
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self._children_name_map["msg_log_in"] = "msg-log-in"
-                                    self._children_yang_names.add("msg-log-in")
 
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize()
                                     self.send_buffer_size.parent = self
                                     self._children_name_map["send_buffer_size"] = "send-buffer-size"
-                                    self._children_yang_names.add("send-buffer-size")
 
                                     self.timers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers()
                                     self.timers.parent = self
                                     self._children_name_map["timers"] = "timers"
-                                    self._children_yang_names.add("timers")
 
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain()
                                     self.keychain.parent = self
                                     self._children_name_map["keychain"] = "keychain"
-                                    self._children_yang_names.add("keychain")
 
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
                                     self._children_name_map["graceful_maintenance"] = "graceful-maintenance"
-                                    self._children_yang_names.add("graceful-maintenance")
                                     self._segment_path = lambda: "neighbor-prefix-length" + "[prefix-length='" + str(self.prefix_length) + "']" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                                 def __setattr__(self, name, value):
@@ -13439,7 +13108,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs, self).__init__()
@@ -13449,8 +13118,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("neighbor-af", ("neighbor_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf))])
+                                        self._child_classes = OrderedDict([("neighbor-af", ("neighbor_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf))])
                                         self._leafs = OrderedDict()
 
                                         self.neighbor_af = YList(self)
@@ -13558,12 +13226,12 @@ class Bgp(Entity):
                                         .. attribute:: advertise_l2vpn_evpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn>`
                                         
                                         .. attribute:: advertise_local_l2vpn_evpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseLocalL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn>`
                                         
                                         .. attribute:: encapsulation_type
                                         
@@ -13747,7 +13415,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf, self).__init__()
@@ -13757,8 +13425,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_container_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable')),
@@ -13831,94 +13498,75 @@ class Bgp(Entity):
                                             self.aigp_cost_community = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity()
                                             self.aigp_cost_community.parent = self
                                             self._children_name_map["aigp_cost_community"] = "aigp-cost-community"
-                                            self._children_yang_names.add("aigp-cost-community")
 
                                             self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6()
                                             self.advertise_def_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v6"] = "advertise-def-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v6")
 
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
                                             self._children_name_map["advertise_disable"] = "advertise-disable"
-                                            self._children_yang_names.add("advertise-disable")
 
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
-                                            self._children_yang_names.add("maximum-prefixes")
 
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path-inbound")
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v4")
 
-                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn()
+                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_l2vpn_evpn"] = "advertise-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-l2vpn-evpn")
 
-                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn()
+                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn()
                                             self.advertise_local_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_local_l2vpn_evpn"] = "advertise-local-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-local-l2vpn-evpn")
 
                                             self.neighbor_af_long_lived_graceful_restart_stale_time = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime()
                                             self.neighbor_af_long_lived_graceful_restart_stale_time.parent = self
                                             self._children_name_map["neighbor_af_long_lived_graceful_restart_stale_time"] = "neighbor-af-long-lived-graceful-restart-stale-time"
-                                            self._children_yang_names.add("neighbor-af-long-lived-graceful-restart-stale-time")
 
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
                                             self._children_name_map["advertise_v6"] = "advertise-v6"
-                                            self._children_yang_names.add("advertise-v6")
 
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6()
                                             self.advertise_local_v6.parent = self
                                             self._children_name_map["advertise_local_v6"] = "advertise-local-v6"
-                                            self._children_yang_names.add("advertise-local-v6")
 
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import()
                                             self.import_.parent = self
                                             self._children_name_map["import_"] = "import"
-                                            self._children_yang_names.add("import")
 
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self._children_name_map["default_originate"] = "default-originate"
-                                            self._children_yang_names.add("default-originate")
 
                                             self.soft_reconfiguration = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration()
                                             self.soft_reconfiguration.parent = self
                                             self._children_name_map["soft_reconfiguration"] = "soft-reconfiguration"
-                                            self._children_yang_names.add("soft-reconfiguration")
 
                                             self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6()
                                             self.advertise_vrf_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v6"] = "advertise-vrf-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v6")
 
                                             self.advertise_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4()
                                             self.advertise_v4.parent = self
                                             self._children_name_map["advertise_v4"] = "advertise-v4"
-                                            self._children_yang_names.add("advertise-v4")
 
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self._children_name_map["advertise_local_v4"] = "advertise-local-v4"
-                                            self._children_yang_names.add("advertise-local-v4")
 
                                             self.remove_private_as_entire_as_path = None
                                             self._children_name_map["remove_private_as_entire_as_path"] = "remove-private-as-entire-as-path"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path")
 
                                             self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4()
                                             self.advertise_vrf_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v4"] = "advertise-vrf-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v4")
                                             self._segment_path = lambda: "neighbor-af" + "[af-name='" + str(self.af_name) + "']"
 
                                         def __setattr__(self, name, value):
@@ -13956,7 +13604,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity, self).__init__()
@@ -13966,8 +13614,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('cost_community_id', YLeaf(YType.uint32, 'cost-community-id')),
@@ -14008,7 +13655,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -14018,8 +13665,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -14058,7 +13704,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable, self).__init__()
@@ -14068,8 +13714,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -14137,7 +13782,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes, self).__init__()
@@ -14147,8 +13792,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
@@ -14191,7 +13835,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -14201,8 +13845,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -14240,7 +13883,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -14250,8 +13893,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -14266,7 +13908,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseL2VpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -14290,18 +13932,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -14313,10 +13954,10 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseLocalL2VpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(Entity):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -14341,18 +13982,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -14364,7 +14004,7 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-local-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -14399,7 +14039,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -14409,8 +14049,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('stale_time_send', YLeaf(YType.uint32, 'stale-time-send')),
                                                     ('stale_time_accept', YLeaf(YType.uint32, 'stale-time-accept')),
@@ -14447,7 +14086,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6, self).__init__()
@@ -14457,8 +14096,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -14498,7 +14136,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6, self).__init__()
@@ -14508,8 +14146,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -14549,7 +14186,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import, self).__init__()
@@ -14559,8 +14196,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('import_stitching', YLeaf(YType.boolean, 'import-stitching')),
                                                     ('import_reoriginate', YLeaf(YType.boolean, 'import-reoriginate')),
@@ -14596,7 +14232,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate, self).__init__()
@@ -14606,8 +14242,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -14644,7 +14279,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration, self).__init__()
@@ -14654,8 +14289,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('inbound_soft', YLeaf(YType.boolean, 'inbound-soft')),
                                                     ('soft_always', YLeaf(YType.boolean, 'soft-always')),
@@ -14692,7 +14326,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -14702,8 +14336,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -14742,7 +14375,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4, self).__init__()
@@ -14752,8 +14385,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -14793,7 +14425,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4, self).__init__()
@@ -14803,8 +14435,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -14842,7 +14473,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -14852,8 +14483,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -14891,7 +14521,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -14901,8 +14531,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -14944,7 +14573,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress, self).__init__()
@@ -14954,8 +14583,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('local_address_disable', YLeaf(YType.boolean, 'local-address-disable')),
                                             ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
@@ -14982,7 +14610,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates, self).__init__()
@@ -14992,8 +14620,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate))])
+                                        self._child_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate))])
                                         self._leafs = OrderedDict()
 
                                         self.bmp_activate = YList(self)
@@ -15019,7 +14646,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate, self).__init__()
@@ -15029,8 +14656,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['server_id']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('server_id', YLeaf(YType.uint32, 'server-id')),
                                             ])
@@ -15067,7 +14693,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop, self).__init__()
@@ -15077,8 +14703,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('max_hop_count', YLeaf(YType.uint32, 'max-hop-count')),
                                             ('mpls_deactivation', YLeaf(YType.boolean, 'mpls-deactivation')),
@@ -15114,7 +14739,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs, self).__init__()
@@ -15124,8 +14749,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -15181,7 +14805,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs, self).__init__()
@@ -15191,8 +14815,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -15234,7 +14857,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password, self).__init__()
@@ -15244,8 +14867,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('password_disable', YLeaf(YType.boolean, 'password-disable')),
                                             ('password', YLeaf(YType.str, 'password')),
@@ -15290,7 +14912,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval, self).__init__()
@@ -15300,8 +14922,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
@@ -15338,7 +14959,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId, self).__init__()
@@ -15348,8 +14969,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cluster_id_number', YLeaf(YType.uint32, 'cluster-id-number')),
                                             ('cluster_id_address', YLeaf(YType.str, 'cluster-id-address')),
@@ -15383,7 +15003,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss, self).__init__()
@@ -15393,8 +15013,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tcpmss_disable', YLeaf(YType.boolean, 'tcpmss-disable')),
                                             ('mss', YLeaf(YType.uint32, 'mss')),
@@ -15432,7 +15051,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos, self).__init__()
@@ -15442,8 +15061,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('type', YLeaf(YType.enumeration, 'type')),
                                             ('value', YLeaf(YType.str, 'value')),
@@ -15487,7 +15105,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering, self).__init__()
@@ -15497,8 +15115,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('update_in_filtering_attribute_filter_group', YLeaf(YType.str, 'update-in-filtering-attribute-filter-group')),
@@ -15510,7 +15127,6 @@ class Bgp(Entity):
 
                                         self.update_in_filtering_message_buffers = None
                                         self._children_name_map["update_in_filtering_message_buffers"] = "update-in-filtering-message-buffers"
-                                        self._children_yang_names.add("update-in-filtering-message-buffers")
                                         self._segment_path = lambda: "update-in-filtering"
 
                                     def __setattr__(self, name, value):
@@ -15544,7 +15160,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -15554,8 +15170,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('number_of_buffers', YLeaf(YType.uint32, 'number-of-buffers')),
@@ -15595,7 +15210,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut, self).__init__()
@@ -15605,8 +15220,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -15653,7 +15267,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize, self).__init__()
@@ -15663,8 +15277,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_receive_size', YLeaf(YType.uint32, 'socket-receive-size')),
                                             ('bgp_receive_size', YLeaf(YType.uint32, 'bgp-receive-size')),
@@ -15703,7 +15316,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn, self).__init__()
@@ -15713,8 +15326,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -15761,7 +15373,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize, self).__init__()
@@ -15771,8 +15383,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_send_size', YLeaf(YType.uint32, 'socket-send-size')),
                                             ('bgp_send_size', YLeaf(YType.uint32, 'bgp-send-size')),
@@ -15821,7 +15432,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers, self).__init__()
@@ -15831,8 +15442,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keepalive_interval', YLeaf(YType.uint32, 'keepalive-interval')),
                                             ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -15866,7 +15476,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain, self).__init__()
@@ -15876,8 +15486,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keychain_disable', YLeaf(YType.boolean, 'keychain-disable')),
                                             ('keychain_name', YLeaf(YType.str, 'keychain-name')),
@@ -15919,7 +15528,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance, self).__init__()
@@ -15929,8 +15538,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('graceful_maintenance_activate', YLeaf(YType.boolean, 'graceful-maintenance-activate')),
@@ -15941,12 +15549,10 @@ class Bgp(Entity):
                                         self.graceful_maintenance_local_preference = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference()
                                         self.graceful_maintenance_local_preference.parent = self
                                         self._children_name_map["graceful_maintenance_local_preference"] = "graceful-maintenance-local-preference"
-                                        self._children_yang_names.add("graceful-maintenance-local-preference")
 
                                         self.graceful_maintenance_as_prepends = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends()
                                         self.graceful_maintenance_as_prepends.parent = self
                                         self._children_name_map["graceful_maintenance_as_prepends"] = "graceful-maintenance-as-prepends"
-                                        self._children_yang_names.add("graceful-maintenance-as-prepends")
                                         self._segment_path = lambda: "graceful-maintenance"
 
                                     def __setattr__(self, name, value):
@@ -15974,7 +15580,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -15984,8 +15590,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_loc_pref_disable', YLeaf(YType.boolean, 'gshut-loc-pref-disable')),
                                                 ('local_preference', YLeaf(YType.uint32, 'local-preference')),
@@ -16020,7 +15625,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -16030,8 +15635,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_prepends_disable', YLeaf(YType.boolean, 'gshut-prepends-disable')),
                                                 ('as_prepends', YLeaf(YType.uint32, 'as-prepends')),
@@ -16058,7 +15662,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups, self).__init__()
@@ -16068,8 +15672,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("neighbor-group", ("neighbor_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup))])
+                                self._child_classes = OrderedDict([("neighbor-group", ("neighbor_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup))])
                                 self._leafs = OrderedDict()
 
                                 self.neighbor_group = YList(self)
@@ -16370,7 +15973,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup, self).__init__()
@@ -16380,8 +15983,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['neighbor_group_name']
-                                    self._child_container_classes = OrderedDict([("neighbor-group-afs", ("neighbor_group_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("neighbor-group-afs", ("neighbor_group_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('neighbor_group_name', YLeaf(YType.str, 'neighbor-group-name')),
                                         ('neighbor_group_add_member', YLeaf(YType.str, 'neighbor-group-add-member')),
@@ -16450,96 +16052,77 @@ class Bgp(Entity):
                                     self.neighbor_group_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs()
                                     self.neighbor_group_afs.parent = self
                                     self._children_name_map["neighbor_group_afs"] = "neighbor-group-afs"
-                                    self._children_yang_names.add("neighbor-group-afs")
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress()
                                     self.local_address.parent = self
                                     self._children_name_map["local_address"] = "local-address"
-                                    self._children_yang_names.add("local-address")
 
                                     self.bmp_activates = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates()
                                     self.bmp_activates.parent = self
                                     self._children_name_map["bmp_activates"] = "bmp-activates"
-                                    self._children_yang_names.add("bmp-activates")
 
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
                                     self._children_name_map["ebgp_multihop"] = "ebgp-multihop"
-                                    self._children_yang_names.add("ebgp-multihop")
 
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs()
                                     self.remote_as.parent = self
                                     self._children_name_map["remote_as"] = "remote-as"
-                                    self._children_yang_names.add("remote-as")
 
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs()
                                     self.local_as.parent = self
                                     self._children_name_map["local_as"] = "local-as"
-                                    self._children_yang_names.add("local-as")
 
                                     self.password = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password()
                                     self.password.parent = self
                                     self._children_name_map["password"] = "password"
-                                    self._children_yang_names.add("password")
 
                                     self.advertisement_interval = None
                                     self._children_name_map["advertisement_interval"] = "advertisement-interval"
-                                    self._children_yang_names.add("advertisement-interval")
 
                                     self.neighbor_cluster_id = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId()
                                     self.neighbor_cluster_id.parent = self
                                     self._children_name_map["neighbor_cluster_id"] = "neighbor-cluster-id"
-                                    self._children_yang_names.add("neighbor-cluster-id")
 
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss()
                                     self.tcpmss.parent = self
                                     self._children_name_map["tcpmss"] = "tcpmss"
-                                    self._children_yang_names.add("tcpmss")
 
                                     self.tos = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos()
                                     self.tos.parent = self
                                     self._children_name_map["tos"] = "tos"
-                                    self._children_yang_names.add("tos")
 
                                     self.update_in_filtering = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering()
                                     self.update_in_filtering.parent = self
                                     self._children_name_map["update_in_filtering"] = "update-in-filtering"
-                                    self._children_yang_names.add("update-in-filtering")
 
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut()
                                     self.msg_log_out.parent = self
                                     self._children_name_map["msg_log_out"] = "msg-log-out"
-                                    self._children_yang_names.add("msg-log-out")
 
                                     self.receive_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize()
                                     self.receive_buffer_size.parent = self
                                     self._children_name_map["receive_buffer_size"] = "receive-buffer-size"
-                                    self._children_yang_names.add("receive-buffer-size")
 
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self._children_name_map["msg_log_in"] = "msg-log-in"
-                                    self._children_yang_names.add("msg-log-in")
 
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize()
                                     self.send_buffer_size.parent = self
                                     self._children_name_map["send_buffer_size"] = "send-buffer-size"
-                                    self._children_yang_names.add("send-buffer-size")
 
                                     self.timers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers()
                                     self.timers.parent = self
                                     self._children_name_map["timers"] = "timers"
-                                    self._children_yang_names.add("timers")
 
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain()
                                     self.keychain.parent = self
                                     self._children_name_map["keychain"] = "keychain"
-                                    self._children_yang_names.add("keychain")
 
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
                                     self._children_name_map["graceful_maintenance"] = "graceful-maintenance"
-                                    self._children_yang_names.add("graceful-maintenance")
                                     self._segment_path = lambda: "neighbor-group" + "[neighbor-group-name='" + str(self.neighbor_group_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -16560,7 +16143,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs, self).__init__()
@@ -16570,8 +16153,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("neighbor-group-af", ("neighbor_group_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf))])
+                                        self._child_classes = OrderedDict([("neighbor-group-af", ("neighbor_group_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf))])
                                         self._leafs = OrderedDict()
 
                                         self.neighbor_group_af = YList(self)
@@ -16679,12 +16261,12 @@ class Bgp(Entity):
                                         .. attribute:: advertise_l2vpn_evpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn>`
                                         
                                         .. attribute:: advertise_local_l2vpn_evpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseLocalL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn>`
                                         
                                         .. attribute:: encapsulation_type
                                         
@@ -16873,7 +16455,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf, self).__init__()
@@ -16883,8 +16465,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_container_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2VpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2VpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable')),
@@ -16957,99 +16538,79 @@ class Bgp(Entity):
                                             self.aigp_cost_community = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity()
                                             self.aigp_cost_community.parent = self
                                             self._children_name_map["aigp_cost_community"] = "aigp-cost-community"
-                                            self._children_yang_names.add("aigp-cost-community")
 
                                             self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6()
                                             self.advertise_def_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v6"] = "advertise-def-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v6")
 
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
                                             self._children_name_map["advertise_disable"] = "advertise-disable"
-                                            self._children_yang_names.add("advertise-disable")
 
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
-                                            self._children_yang_names.add("maximum-prefixes")
 
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path-inbound")
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v4")
 
-                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2VpnEvpn()
+                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_l2vpn_evpn"] = "advertise-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-l2vpn-evpn")
 
-                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2VpnEvpn()
+                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn()
                                             self.advertise_local_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_local_l2vpn_evpn"] = "advertise-local-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-local-l2vpn-evpn")
 
                                             self.neighbor_af_long_lived_graceful_restart_stale_time = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime()
                                             self.neighbor_af_long_lived_graceful_restart_stale_time.parent = self
                                             self._children_name_map["neighbor_af_long_lived_graceful_restart_stale_time"] = "neighbor-af-long-lived-graceful-restart-stale-time"
-                                            self._children_yang_names.add("neighbor-af-long-lived-graceful-restart-stale-time")
 
                                             self.site_of_origin = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin()
                                             self.site_of_origin.parent = self
                                             self._children_name_map["site_of_origin"] = "site-of-origin"
-                                            self._children_yang_names.add("site-of-origin")
 
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
                                             self._children_name_map["advertise_v6"] = "advertise-v6"
-                                            self._children_yang_names.add("advertise-v6")
 
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6()
                                             self.advertise_local_v6.parent = self
                                             self._children_name_map["advertise_local_v6"] = "advertise-local-v6"
-                                            self._children_yang_names.add("advertise-local-v6")
 
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import()
                                             self.import_.parent = self
                                             self._children_name_map["import_"] = "import"
-                                            self._children_yang_names.add("import")
 
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self._children_name_map["default_originate"] = "default-originate"
-                                            self._children_yang_names.add("default-originate")
 
                                             self.soft_reconfiguration = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration()
                                             self.soft_reconfiguration.parent = self
                                             self._children_name_map["soft_reconfiguration"] = "soft-reconfiguration"
-                                            self._children_yang_names.add("soft-reconfiguration")
 
                                             self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6()
                                             self.advertise_vrf_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v6"] = "advertise-vrf-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v6")
 
                                             self.advertise_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4()
                                             self.advertise_v4.parent = self
                                             self._children_name_map["advertise_v4"] = "advertise-v4"
-                                            self._children_yang_names.add("advertise-v4")
 
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self._children_name_map["advertise_local_v4"] = "advertise-local-v4"
-                                            self._children_yang_names.add("advertise-local-v4")
 
                                             self.remove_private_as_entire_as_path = None
                                             self._children_name_map["remove_private_as_entire_as_path"] = "remove-private-as-entire-as-path"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path")
 
                                             self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4()
                                             self.advertise_vrf_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v4"] = "advertise-vrf-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v4")
                                             self._segment_path = lambda: "neighbor-group-af" + "[af-name='" + str(self.af_name) + "']"
 
                                         def __setattr__(self, name, value):
@@ -17087,7 +16648,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity, self).__init__()
@@ -17097,8 +16658,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('cost_community_id', YLeaf(YType.uint32, 'cost-community-id')),
@@ -17139,7 +16699,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -17149,8 +16709,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -17189,7 +16748,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable, self).__init__()
@@ -17199,8 +16758,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -17268,7 +16826,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes, self).__init__()
@@ -17278,8 +16836,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
@@ -17322,7 +16879,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -17332,8 +16889,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -17371,7 +16927,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -17381,8 +16937,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -17397,7 +16952,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseL2VpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -17421,18 +16976,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-group-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -17444,10 +16998,10 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseLocalL2VpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(Entity):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -17472,18 +17026,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-group-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -17495,7 +17048,7 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-local-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -17530,7 +17083,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -17540,8 +17093,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('stale_time_send', YLeaf(YType.uint32, 'stale-time-send')),
                                                     ('stale_time_accept', YLeaf(YType.uint32, 'stale-time-accept')),
@@ -17604,7 +17156,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin, self).__init__()
@@ -17614,8 +17166,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('type', YLeaf(YType.enumeration, 'type')),
                                                     ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -17660,7 +17211,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6, self).__init__()
@@ -17670,8 +17221,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -17711,7 +17261,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6, self).__init__()
@@ -17721,8 +17271,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -17762,7 +17311,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import, self).__init__()
@@ -17772,8 +17321,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('import_stitching', YLeaf(YType.boolean, 'import-stitching')),
                                                     ('import_reoriginate', YLeaf(YType.boolean, 'import-reoriginate')),
@@ -17809,7 +17357,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate, self).__init__()
@@ -17819,8 +17367,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -17857,7 +17404,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration, self).__init__()
@@ -17867,8 +17414,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('inbound_soft', YLeaf(YType.boolean, 'inbound-soft')),
                                                     ('soft_always', YLeaf(YType.boolean, 'soft-always')),
@@ -17905,7 +17451,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -17915,8 +17461,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -17955,7 +17500,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4, self).__init__()
@@ -17965,8 +17510,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -18006,7 +17550,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4, self).__init__()
@@ -18016,8 +17560,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -18055,7 +17598,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -18065,8 +17608,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -18104,7 +17646,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -18114,8 +17656,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -18157,7 +17698,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress, self).__init__()
@@ -18167,8 +17708,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('local_address_disable', YLeaf(YType.boolean, 'local-address-disable')),
                                             ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
@@ -18195,7 +17735,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates, self).__init__()
@@ -18205,8 +17745,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate))])
+                                        self._child_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate))])
                                         self._leafs = OrderedDict()
 
                                         self.bmp_activate = YList(self)
@@ -18232,7 +17771,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate, self).__init__()
@@ -18242,8 +17781,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['server_id']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('server_id', YLeaf(YType.uint32, 'server-id')),
                                             ])
@@ -18280,7 +17818,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop, self).__init__()
@@ -18290,8 +17828,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('max_hop_count', YLeaf(YType.uint32, 'max-hop-count')),
                                             ('mpls_deactivation', YLeaf(YType.boolean, 'mpls-deactivation')),
@@ -18327,7 +17864,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs, self).__init__()
@@ -18337,8 +17874,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -18394,7 +17930,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs, self).__init__()
@@ -18404,8 +17940,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -18447,7 +17982,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password, self).__init__()
@@ -18457,8 +17992,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('password_disable', YLeaf(YType.boolean, 'password-disable')),
                                             ('password', YLeaf(YType.str, 'password')),
@@ -18503,7 +18037,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval, self).__init__()
@@ -18513,8 +18047,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
@@ -18551,7 +18084,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId, self).__init__()
@@ -18561,8 +18094,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cluster_id_number', YLeaf(YType.uint32, 'cluster-id-number')),
                                             ('cluster_id_address', YLeaf(YType.str, 'cluster-id-address')),
@@ -18596,7 +18128,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss, self).__init__()
@@ -18606,8 +18138,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tcpmss_disable', YLeaf(YType.boolean, 'tcpmss-disable')),
                                             ('mss', YLeaf(YType.uint32, 'mss')),
@@ -18645,7 +18176,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos, self).__init__()
@@ -18655,8 +18186,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('type', YLeaf(YType.enumeration, 'type')),
                                             ('value', YLeaf(YType.str, 'value')),
@@ -18700,7 +18230,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering, self).__init__()
@@ -18710,8 +18240,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('update_in_filtering_attribute_filter_group', YLeaf(YType.str, 'update-in-filtering-attribute-filter-group')),
@@ -18723,7 +18252,6 @@ class Bgp(Entity):
 
                                         self.update_in_filtering_message_buffers = None
                                         self._children_name_map["update_in_filtering_message_buffers"] = "update-in-filtering-message-buffers"
-                                        self._children_yang_names.add("update-in-filtering-message-buffers")
                                         self._segment_path = lambda: "update-in-filtering"
 
                                     def __setattr__(self, name, value):
@@ -18757,7 +18285,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -18767,8 +18295,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('number_of_buffers', YLeaf(YType.uint32, 'number-of-buffers')),
@@ -18808,7 +18335,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut, self).__init__()
@@ -18818,8 +18345,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -18866,7 +18392,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize, self).__init__()
@@ -18876,8 +18402,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_receive_size', YLeaf(YType.uint32, 'socket-receive-size')),
                                             ('bgp_receive_size', YLeaf(YType.uint32, 'bgp-receive-size')),
@@ -18916,7 +18441,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn, self).__init__()
@@ -18926,8 +18451,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -18974,7 +18498,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize, self).__init__()
@@ -18984,8 +18508,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_send_size', YLeaf(YType.uint32, 'socket-send-size')),
                                             ('bgp_send_size', YLeaf(YType.uint32, 'bgp-send-size')),
@@ -19034,7 +18557,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers, self).__init__()
@@ -19044,8 +18567,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keepalive_interval', YLeaf(YType.uint32, 'keepalive-interval')),
                                             ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -19079,7 +18601,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain, self).__init__()
@@ -19089,8 +18611,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keychain_disable', YLeaf(YType.boolean, 'keychain-disable')),
                                             ('keychain_name', YLeaf(YType.str, 'keychain-name')),
@@ -19132,7 +18653,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance, self).__init__()
@@ -19142,8 +18663,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('graceful_maintenance_activate', YLeaf(YType.boolean, 'graceful-maintenance-activate')),
@@ -19154,12 +18674,10 @@ class Bgp(Entity):
                                         self.graceful_maintenance_local_preference = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference()
                                         self.graceful_maintenance_local_preference.parent = self
                                         self._children_name_map["graceful_maintenance_local_preference"] = "graceful-maintenance-local-preference"
-                                        self._children_yang_names.add("graceful-maintenance-local-preference")
 
                                         self.graceful_maintenance_as_prepends = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends()
                                         self.graceful_maintenance_as_prepends.parent = self
                                         self._children_name_map["graceful_maintenance_as_prepends"] = "graceful-maintenance-as-prepends"
-                                        self._children_yang_names.add("graceful-maintenance-as-prepends")
                                         self._segment_path = lambda: "graceful-maintenance"
 
                                     def __setattr__(self, name, value):
@@ -19187,7 +18705,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -19197,8 +18715,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_loc_pref_disable', YLeaf(YType.boolean, 'gshut-loc-pref-disable')),
                                                 ('local_preference', YLeaf(YType.uint32, 'local-preference')),
@@ -19233,7 +18750,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -19243,8 +18760,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_prepends_disable', YLeaf(YType.boolean, 'gshut-prepends-disable')),
                                                 ('as_prepends', YLeaf(YType.uint32, 'as-prepends')),
@@ -19271,7 +18787,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups, self).__init__()
@@ -19281,8 +18797,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("af-group", ("af_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup))])
+                                self._child_classes = OrderedDict([("af-group", ("af_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup))])
                                 self._leafs = OrderedDict()
 
                                 self.af_group = YList(self)
@@ -19313,7 +18828,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup, self).__init__()
@@ -19323,8 +18838,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['af_group_name']
-                                    self._child_container_classes = OrderedDict([("af-group-afs", ("af_group_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("af-group-afs", ("af_group_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs))])
                                     self._leafs = OrderedDict([
                                         ('af_group_name', YLeaf(YType.str, 'af-group-name')),
                                     ])
@@ -19333,7 +18847,6 @@ class Bgp(Entity):
                                     self.af_group_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs()
                                     self.af_group_afs.parent = self
                                     self._children_name_map["af_group_afs"] = "af-group-afs"
-                                    self._children_yang_names.add("af-group-afs")
                                     self._segment_path = lambda: "af-group" + "[af-group-name='" + str(self.af_group_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -19354,7 +18867,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs, self).__init__()
@@ -19364,8 +18877,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("af-group-af", ("af_group_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf))])
+                                        self._child_classes = OrderedDict([("af-group-af", ("af_group_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf))])
                                         self._leafs = OrderedDict()
 
                                         self.af_group_af = YList(self)
@@ -19483,12 +18995,12 @@ class Bgp(Entity):
                                         .. attribute:: advertise_l2vpn_evpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn>`
                                         
                                         .. attribute:: advertise_local_l2vpn_evpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2VpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2VpnEvpn>`
+                                        	**type**\:  :py:class:`AdvertiseLocalL2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn>`
                                         
                                         .. attribute:: encapsulation_type
                                         
@@ -19667,7 +19179,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf, self).__init__()
@@ -19677,8 +19189,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_container_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2VpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2VpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                 ('af_group', YLeaf(YType.str, 'af-group')),
@@ -19751,99 +19262,79 @@ class Bgp(Entity):
                                             self.aigp_cost_community = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity()
                                             self.aigp_cost_community.parent = self
                                             self._children_name_map["aigp_cost_community"] = "aigp-cost-community"
-                                            self._children_yang_names.add("aigp-cost-community")
 
                                             self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6()
                                             self.advertise_def_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v6"] = "advertise-def-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v6")
 
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
                                             self._children_name_map["advertise_disable"] = "advertise-disable"
-                                            self._children_yang_names.add("advertise-disable")
 
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
-                                            self._children_yang_names.add("maximum-prefixes")
 
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path-inbound")
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-def-imp-disable-v4")
 
-                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2VpnEvpn()
+                                            self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_l2vpn_evpn"] = "advertise-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-l2vpn-evpn")
 
-                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2VpnEvpn()
+                                            self.advertise_local_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn()
                                             self.advertise_local_l2vpn_evpn.parent = self
                                             self._children_name_map["advertise_local_l2vpn_evpn"] = "advertise-local-l2vpn-evpn"
-                                            self._children_yang_names.add("advertise-local-l2vpn-evpn")
 
                                             self.neighbor_af_long_lived_graceful_restart_stale_time = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime()
                                             self.neighbor_af_long_lived_graceful_restart_stale_time.parent = self
                                             self._children_name_map["neighbor_af_long_lived_graceful_restart_stale_time"] = "neighbor-af-long-lived-graceful-restart-stale-time"
-                                            self._children_yang_names.add("neighbor-af-long-lived-graceful-restart-stale-time")
 
                                             self.site_of_origin = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin()
                                             self.site_of_origin.parent = self
                                             self._children_name_map["site_of_origin"] = "site-of-origin"
-                                            self._children_yang_names.add("site-of-origin")
 
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
                                             self._children_name_map["advertise_v6"] = "advertise-v6"
-                                            self._children_yang_names.add("advertise-v6")
 
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6()
                                             self.advertise_local_v6.parent = self
                                             self._children_name_map["advertise_local_v6"] = "advertise-local-v6"
-                                            self._children_yang_names.add("advertise-local-v6")
 
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import()
                                             self.import_.parent = self
                                             self._children_name_map["import_"] = "import"
-                                            self._children_yang_names.add("import")
 
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self._children_name_map["default_originate"] = "default-originate"
-                                            self._children_yang_names.add("default-originate")
 
                                             self.soft_reconfiguration = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration()
                                             self.soft_reconfiguration.parent = self
                                             self._children_name_map["soft_reconfiguration"] = "soft-reconfiguration"
-                                            self._children_yang_names.add("soft-reconfiguration")
 
                                             self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6()
                                             self.advertise_vrf_imp_disable_v6.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v6"] = "advertise-vrf-imp-disable-v6"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v6")
 
                                             self.advertise_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4()
                                             self.advertise_v4.parent = self
                                             self._children_name_map["advertise_v4"] = "advertise-v4"
-                                            self._children_yang_names.add("advertise-v4")
 
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self._children_name_map["advertise_local_v4"] = "advertise-local-v4"
-                                            self._children_yang_names.add("advertise-local-v4")
 
                                             self.remove_private_as_entire_as_path = None
                                             self._children_name_map["remove_private_as_entire_as_path"] = "remove-private-as-entire-as-path"
-                                            self._children_yang_names.add("remove-private-as-entire-as-path")
 
                                             self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4()
                                             self.advertise_vrf_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_vrf_imp_disable_v4"] = "advertise-vrf-imp-disable-v4"
-                                            self._children_yang_names.add("advertise-vrf-imp-disable-v4")
                                             self._segment_path = lambda: "af-group-af" + "[af-name='" + str(self.af_name) + "']"
 
                                         def __setattr__(self, name, value):
@@ -19881,7 +19372,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity, self).__init__()
@@ -19891,8 +19382,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('cost_community_id', YLeaf(YType.uint32, 'cost-community-id')),
@@ -19933,7 +19423,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -19943,8 +19433,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -19983,7 +19472,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable, self).__init__()
@@ -19993,8 +19482,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -20062,7 +19550,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes, self).__init__()
@@ -20072,8 +19560,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
@@ -20116,7 +19603,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -20126,8 +19613,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -20165,7 +19651,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -20175,8 +19661,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -20191,7 +19676,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseL2VpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -20215,18 +19700,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "af-group-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -20238,10 +19722,10 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
-                                        class AdvertiseLocalL2VpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(Entity):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -20266,18 +19750,17 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2VpnEvpn, self).__init__()
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "af-group-af"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -20289,7 +19772,7 @@ class Bgp(Entity):
                                                 self._segment_path = lambda: "advertise-local-l2vpn-evpn"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2VpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -20324,7 +19807,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -20334,8 +19817,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('stale_time_send', YLeaf(YType.uint32, 'stale-time-send')),
                                                     ('stale_time_accept', YLeaf(YType.uint32, 'stale-time-accept')),
@@ -20398,7 +19880,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin, self).__init__()
@@ -20408,8 +19890,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('type', YLeaf(YType.enumeration, 'type')),
                                                     ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -20454,7 +19935,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6, self).__init__()
@@ -20464,8 +19945,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -20505,7 +19985,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6, self).__init__()
@@ -20515,8 +19995,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -20556,7 +20035,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import, self).__init__()
@@ -20566,8 +20045,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('import_stitching', YLeaf(YType.boolean, 'import-stitching')),
                                                     ('import_reoriginate', YLeaf(YType.boolean, 'import-reoriginate')),
@@ -20603,7 +20081,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate, self).__init__()
@@ -20613,8 +20091,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -20651,7 +20128,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration, self).__init__()
@@ -20661,8 +20138,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('inbound_soft', YLeaf(YType.boolean, 'inbound-soft')),
                                                     ('soft_always', YLeaf(YType.boolean, 'soft-always')),
@@ -20699,7 +20175,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -20709,8 +20185,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -20749,7 +20224,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4, self).__init__()
@@ -20759,8 +20234,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -20800,7 +20274,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4, self).__init__()
@@ -20810,8 +20284,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('reorg_option', YLeaf(YType.enumeration, 'reorg-option')),
@@ -20849,7 +20322,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -20859,8 +20332,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self.is_presence_container = True
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
@@ -20898,7 +20370,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -20908,8 +20380,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('adv_option', YLeaf(YType.enumeration, 'adv-option')),
@@ -20938,7 +20409,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups, self).__init__()
@@ -20948,8 +20419,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("session-group", ("session_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup))])
+                                self._child_classes = OrderedDict([("session-group", ("session_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup))])
                                 self._leafs = OrderedDict()
 
                                 self.session_group = YList(self)
@@ -21240,7 +20710,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup, self).__init__()
@@ -21250,8 +20720,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['session_group_name']
-                                    self._child_container_classes = OrderedDict([("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('session_group_name', YLeaf(YType.str, 'session-group-name')),
                                         ('session_group_add_member', YLeaf(YType.str, 'session-group-add-member')),
@@ -21318,91 +20787,73 @@ class Bgp(Entity):
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress()
                                     self.local_address.parent = self
                                     self._children_name_map["local_address"] = "local-address"
-                                    self._children_yang_names.add("local-address")
 
                                     self.bmp_activates = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates()
                                     self.bmp_activates.parent = self
                                     self._children_name_map["bmp_activates"] = "bmp-activates"
-                                    self._children_yang_names.add("bmp-activates")
 
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
                                     self._children_name_map["ebgp_multihop"] = "ebgp-multihop"
-                                    self._children_yang_names.add("ebgp-multihop")
 
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs()
                                     self.remote_as.parent = self
                                     self._children_name_map["remote_as"] = "remote-as"
-                                    self._children_yang_names.add("remote-as")
 
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs()
                                     self.local_as.parent = self
                                     self._children_name_map["local_as"] = "local-as"
-                                    self._children_yang_names.add("local-as")
 
                                     self.password = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password()
                                     self.password.parent = self
                                     self._children_name_map["password"] = "password"
-                                    self._children_yang_names.add("password")
 
                                     self.advertisement_interval = None
                                     self._children_name_map["advertisement_interval"] = "advertisement-interval"
-                                    self._children_yang_names.add("advertisement-interval")
 
                                     self.neighbor_cluster_id = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId()
                                     self.neighbor_cluster_id.parent = self
                                     self._children_name_map["neighbor_cluster_id"] = "neighbor-cluster-id"
-                                    self._children_yang_names.add("neighbor-cluster-id")
 
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss()
                                     self.tcpmss.parent = self
                                     self._children_name_map["tcpmss"] = "tcpmss"
-                                    self._children_yang_names.add("tcpmss")
 
                                     self.tos = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos()
                                     self.tos.parent = self
                                     self._children_name_map["tos"] = "tos"
-                                    self._children_yang_names.add("tos")
 
                                     self.update_in_filtering = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering()
                                     self.update_in_filtering.parent = self
                                     self._children_name_map["update_in_filtering"] = "update-in-filtering"
-                                    self._children_yang_names.add("update-in-filtering")
 
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut()
                                     self.msg_log_out.parent = self
                                     self._children_name_map["msg_log_out"] = "msg-log-out"
-                                    self._children_yang_names.add("msg-log-out")
 
                                     self.receive_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize()
                                     self.receive_buffer_size.parent = self
                                     self._children_name_map["receive_buffer_size"] = "receive-buffer-size"
-                                    self._children_yang_names.add("receive-buffer-size")
 
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self._children_name_map["msg_log_in"] = "msg-log-in"
-                                    self._children_yang_names.add("msg-log-in")
 
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize()
                                     self.send_buffer_size.parent = self
                                     self._children_name_map["send_buffer_size"] = "send-buffer-size"
-                                    self._children_yang_names.add("send-buffer-size")
 
                                     self.timers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers()
                                     self.timers.parent = self
                                     self._children_name_map["timers"] = "timers"
-                                    self._children_yang_names.add("timers")
 
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain()
                                     self.keychain.parent = self
                                     self._children_name_map["keychain"] = "keychain"
-                                    self._children_yang_names.add("keychain")
 
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
                                     self._children_name_map["graceful_maintenance"] = "graceful-maintenance"
-                                    self._children_yang_names.add("graceful-maintenance")
                                     self._segment_path = lambda: "session-group" + "[session-group-name='" + str(self.session_group_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -21436,7 +20887,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress, self).__init__()
@@ -21446,8 +20897,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('local_address_disable', YLeaf(YType.boolean, 'local-address-disable')),
                                             ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
@@ -21474,7 +20924,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates, self).__init__()
@@ -21484,8 +20934,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate))])
+                                        self._child_classes = OrderedDict([("bmp-activate", ("bmp_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate))])
                                         self._leafs = OrderedDict()
 
                                         self.bmp_activate = YList(self)
@@ -21511,7 +20960,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate, self).__init__()
@@ -21521,8 +20970,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['server_id']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('server_id', YLeaf(YType.uint32, 'server-id')),
                                             ])
@@ -21559,7 +21007,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop, self).__init__()
@@ -21569,8 +21017,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('max_hop_count', YLeaf(YType.uint32, 'max-hop-count')),
                                             ('mpls_deactivation', YLeaf(YType.boolean, 'mpls-deactivation')),
@@ -21606,7 +21053,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs, self).__init__()
@@ -21616,8 +21063,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -21673,7 +21119,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs, self).__init__()
@@ -21683,8 +21129,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -21726,7 +21171,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password, self).__init__()
@@ -21736,8 +21181,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('password_disable', YLeaf(YType.boolean, 'password-disable')),
                                             ('password', YLeaf(YType.str, 'password')),
@@ -21782,7 +21226,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval, self).__init__()
@@ -21792,8 +21236,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
@@ -21830,7 +21273,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId, self).__init__()
@@ -21840,8 +21283,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cluster_id_number', YLeaf(YType.uint32, 'cluster-id-number')),
                                             ('cluster_id_address', YLeaf(YType.str, 'cluster-id-address')),
@@ -21875,7 +21317,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss, self).__init__()
@@ -21885,8 +21327,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tcpmss_disable', YLeaf(YType.boolean, 'tcpmss-disable')),
                                             ('mss', YLeaf(YType.uint32, 'mss')),
@@ -21924,7 +21365,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos, self).__init__()
@@ -21934,8 +21375,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('type', YLeaf(YType.enumeration, 'type')),
                                             ('value', YLeaf(YType.str, 'value')),
@@ -21979,7 +21419,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering, self).__init__()
@@ -21989,8 +21429,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("update-in-filtering-message-buffers", ("update_in_filtering_message_buffers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('update_in_filtering_attribute_filter_group', YLeaf(YType.str, 'update-in-filtering-attribute-filter-group')),
@@ -22002,7 +21441,6 @@ class Bgp(Entity):
 
                                         self.update_in_filtering_message_buffers = None
                                         self._children_name_map["update_in_filtering_message_buffers"] = "update-in-filtering-message-buffers"
-                                        self._children_yang_names.add("update-in-filtering-message-buffers")
                                         self._segment_path = lambda: "update-in-filtering"
 
                                     def __setattr__(self, name, value):
@@ -22036,7 +21474,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -22046,8 +21484,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('number_of_buffers', YLeaf(YType.uint32, 'number-of-buffers')),
@@ -22087,7 +21524,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut, self).__init__()
@@ -22097,8 +21534,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -22145,7 +21581,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize, self).__init__()
@@ -22155,8 +21591,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_receive_size', YLeaf(YType.uint32, 'socket-receive-size')),
                                             ('bgp_receive_size', YLeaf(YType.uint32, 'bgp-receive-size')),
@@ -22195,7 +21630,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn, self).__init__()
@@ -22205,8 +21640,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('msg_buf_count', YLeaf(YType.uint32, 'msg-buf-count')),
                                             ('msg_log_disable', YLeaf(YType.boolean, 'msg-log-disable')),
@@ -22253,7 +21687,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize, self).__init__()
@@ -22263,8 +21697,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('socket_send_size', YLeaf(YType.uint32, 'socket-send-size')),
                                             ('bgp_send_size', YLeaf(YType.uint32, 'bgp-send-size')),
@@ -22313,7 +21746,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers, self).__init__()
@@ -22323,8 +21756,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keepalive_interval', YLeaf(YType.uint32, 'keepalive-interval')),
                                             ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -22358,7 +21790,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain, self).__init__()
@@ -22368,8 +21800,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('keychain_disable', YLeaf(YType.boolean, 'keychain-disable')),
                                             ('keychain_name', YLeaf(YType.str, 'keychain-name')),
@@ -22411,7 +21842,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance, self).__init__()
@@ -22421,8 +21852,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("graceful-maintenance-local-preference", ("graceful_maintenance_local_preference", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference)), ("graceful-maintenance-as-prepends", ("graceful_maintenance_as_prepends", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends))])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.empty, 'enable')),
                                             ('graceful_maintenance_activate', YLeaf(YType.boolean, 'graceful-maintenance-activate')),
@@ -22433,12 +21863,10 @@ class Bgp(Entity):
                                         self.graceful_maintenance_local_preference = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference()
                                         self.graceful_maintenance_local_preference.parent = self
                                         self._children_name_map["graceful_maintenance_local_preference"] = "graceful-maintenance-local-preference"
-                                        self._children_yang_names.add("graceful-maintenance-local-preference")
 
                                         self.graceful_maintenance_as_prepends = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends()
                                         self.graceful_maintenance_as_prepends.parent = self
                                         self._children_name_map["graceful_maintenance_as_prepends"] = "graceful-maintenance-as-prepends"
-                                        self._children_yang_names.add("graceful-maintenance-as-prepends")
                                         self._segment_path = lambda: "graceful-maintenance"
 
                                     def __setattr__(self, name, value):
@@ -22466,7 +21894,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -22476,8 +21904,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_loc_pref_disable', YLeaf(YType.boolean, 'gshut-loc-pref-disable')),
                                                 ('local_preference', YLeaf(YType.uint32, 'local-preference')),
@@ -22512,7 +21939,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -22522,8 +21949,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('gshut_prepends_disable', YLeaf(YType.boolean, 'gshut-prepends-disable')),
                                                 ('as_prepends', YLeaf(YType.uint32, 'as-prepends')),
@@ -22915,7 +22341,7 @@ class Bgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-07-31'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global, self).__init__()
@@ -22925,8 +22351,7 @@ class Bgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("cluster-id", ("cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId)), ("write-limit", ("write_limit", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit)), ("update-delay", ("update_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay)), ("as-league", ("as_league", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague)), ("rpki-servers", ("rpki_servers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers)), ("as-list-groups", ("as_list_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups)), ("limits", ("limits", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits)), ("confederation-domain", ("confederation_domain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain)), ("confederation-peer-ases", ("confederation_peer_ases", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses)), ("attribute-filter-groups", ("attribute_filter_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups)), ("global-graceful-maintenance-activate", ("global_graceful_maintenance_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate)), ("global-afs", ("global_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs)), ("rpki-static-routes", ("rpki_static_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes)), ("mpls-activated-interfaces", ("mpls_activated_interfaces", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces)), ("global-timers", ("global_timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers)), ("bfd", ("bfd", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd)), ("send-socket-buffer-sizes", ("send_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes)), ("receive-socket-buffer-sizes", ("receive_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("cluster-id", ("cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId)), ("write-limit", ("write_limit", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit)), ("update-delay", ("update_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay)), ("as-league", ("as_league", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague)), ("rpki-servers", ("rpki_servers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers)), ("as-list-groups", ("as_list_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups)), ("limits", ("limits", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits)), ("confederation-domain", ("confederation_domain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain)), ("confederation-peer-ases", ("confederation_peer_ases", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses)), ("attribute-filter-groups", ("attribute_filter_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups)), ("global-graceful-maintenance-activate", ("global_graceful_maintenance_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate)), ("global-afs", ("global_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs)), ("rpki-static-routes", ("rpki_static_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes)), ("mpls-activated-interfaces", ("mpls_activated_interfaces", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces)), ("global-timers", ("global_timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers)), ("bfd", ("bfd", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd)), ("send-socket-buffer-sizes", ("send_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes)), ("receive-socket-buffer-sizes", ("receive_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes))])
                             self._leafs = OrderedDict([
                                 ('graceful_restart', YLeaf(YType.empty, 'graceful-restart')),
                                 ('update_out_logging', YLeaf(YType.empty, 'update-out-logging')),
@@ -23025,92 +22450,74 @@ class Bgp(Entity):
                             self.cluster_id = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId()
                             self.cluster_id.parent = self
                             self._children_name_map["cluster_id"] = "cluster-id"
-                            self._children_yang_names.add("cluster-id")
 
                             self.write_limit = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit()
                             self.write_limit.parent = self
                             self._children_name_map["write_limit"] = "write-limit"
-                            self._children_yang_names.add("write-limit")
 
                             self.update_delay = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay()
                             self.update_delay.parent = self
                             self._children_name_map["update_delay"] = "update-delay"
-                            self._children_yang_names.add("update-delay")
 
                             self.as_league = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague()
                             self.as_league.parent = self
                             self._children_name_map["as_league"] = "as-league"
-                            self._children_yang_names.add("as-league")
 
                             self.rpki_servers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers()
                             self.rpki_servers.parent = self
                             self._children_name_map["rpki_servers"] = "rpki-servers"
-                            self._children_yang_names.add("rpki-servers")
 
                             self.as_list_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups()
                             self.as_list_groups.parent = self
                             self._children_name_map["as_list_groups"] = "as-list-groups"
-                            self._children_yang_names.add("as-list-groups")
 
                             self.limits = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits()
                             self.limits.parent = self
                             self._children_name_map["limits"] = "limits"
-                            self._children_yang_names.add("limits")
 
                             self.confederation_domain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain()
                             self.confederation_domain.parent = self
                             self._children_name_map["confederation_domain"] = "confederation-domain"
-                            self._children_yang_names.add("confederation-domain")
 
                             self.confederation_peer_ases = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses()
                             self.confederation_peer_ases.parent = self
                             self._children_name_map["confederation_peer_ases"] = "confederation-peer-ases"
-                            self._children_yang_names.add("confederation-peer-ases")
 
                             self.attribute_filter_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups()
                             self.attribute_filter_groups.parent = self
                             self._children_name_map["attribute_filter_groups"] = "attribute-filter-groups"
-                            self._children_yang_names.add("attribute-filter-groups")
 
                             self.global_graceful_maintenance_activate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate()
                             self.global_graceful_maintenance_activate.parent = self
                             self._children_name_map["global_graceful_maintenance_activate"] = "global-graceful-maintenance-activate"
-                            self._children_yang_names.add("global-graceful-maintenance-activate")
 
                             self.global_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs()
                             self.global_afs.parent = self
                             self._children_name_map["global_afs"] = "global-afs"
-                            self._children_yang_names.add("global-afs")
 
                             self.rpki_static_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes()
                             self.rpki_static_routes.parent = self
                             self._children_name_map["rpki_static_routes"] = "rpki-static-routes"
-                            self._children_yang_names.add("rpki-static-routes")
 
                             self.mpls_activated_interfaces = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces()
                             self.mpls_activated_interfaces.parent = self
                             self._children_name_map["mpls_activated_interfaces"] = "mpls-activated-interfaces"
-                            self._children_yang_names.add("mpls-activated-interfaces")
 
                             self.global_timers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers()
                             self.global_timers.parent = self
                             self._children_name_map["global_timers"] = "global-timers"
-                            self._children_yang_names.add("global-timers")
 
                             self.bfd = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd()
                             self.bfd.parent = self
                             self._children_name_map["bfd"] = "bfd"
-                            self._children_yang_names.add("bfd")
 
                             self.send_socket_buffer_sizes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes()
                             self.send_socket_buffer_sizes.parent = self
                             self._children_name_map["send_socket_buffer_sizes"] = "send-socket-buffer-sizes"
-                            self._children_yang_names.add("send-socket-buffer-sizes")
 
                             self.receive_socket_buffer_sizes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes()
                             self.receive_socket_buffer_sizes.parent = self
                             self._children_name_map["receive_socket_buffer_sizes"] = "receive-socket-buffer-sizes"
-                            self._children_yang_names.add("receive-socket-buffer-sizes")
                             self._segment_path = lambda: "global"
 
                         def __setattr__(self, name, value):
@@ -23140,7 +22547,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId, self).__init__()
@@ -23150,8 +22557,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('cluster_id_number', YLeaf(YType.uint32, 'cluster-id-number')),
                                     ('cluster_id_address', YLeaf(YType.str, 'cluster-id-address')),
@@ -23198,7 +22604,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit, self).__init__()
@@ -23208,8 +22614,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('formatted_messages', YLeaf(YType.uint32, 'formatted-messages')),
                                     ('enqueued_messages', YLeaf(YType.uint32, 'enqueued-messages')),
@@ -23252,7 +22657,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay, self).__init__()
@@ -23262,8 +22667,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('delay', YLeaf(YType.uint32, 'delay')),
                                     ('always', YLeaf(YType.boolean, 'always')),
@@ -23295,7 +22699,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague, self).__init__()
@@ -23305,8 +22709,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peers", ("peers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peers", ("peers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers))])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.empty, 'enable')),
                                 ])
@@ -23315,7 +22718,6 @@ class Bgp(Entity):
                                 self.peers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers()
                                 self.peers.parent = self
                                 self._children_name_map["peers"] = "peers"
-                                self._children_yang_names.add("peers")
                                 self._segment_path = lambda: "as-league"
 
                             def __setattr__(self, name, value):
@@ -23336,7 +22738,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers, self).__init__()
@@ -23346,8 +22748,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("peer", ("peer", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer))])
+                                    self._child_classes = OrderedDict([("peer", ("peer", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer))])
                                     self._leafs = OrderedDict()
 
                                     self.peer = YList(self)
@@ -23380,7 +22781,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer, self).__init__()
@@ -23390,8 +22791,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['as_xx','as_yy']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                             ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -23418,7 +22818,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers, self).__init__()
@@ -23428,8 +22828,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("rpki-server", ("rpki_server", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer))])
+                                self._child_classes = OrderedDict([("rpki-server", ("rpki_server", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer))])
                                 self._leafs = OrderedDict()
 
                                 self.rpki_server = YList(self)
@@ -23507,7 +22906,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer, self).__init__()
@@ -23517,8 +22916,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['server']
-                                    self._child_container_classes = OrderedDict([("transport", ("transport", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("transport", ("transport", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport))])
                                     self._leafs = OrderedDict([
                                         ('server', YLeaf(YType.str, 'server')),
                                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -23541,7 +22939,6 @@ class Bgp(Entity):
                                     self.transport = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport()
                                     self.transport.parent = self
                                     self._children_name_map["transport"] = "transport"
-                                    self._children_yang_names.add("transport")
                                     self._segment_path = lambda: "rpki-server" + "[server='" + str(self.server) + "']"
 
                                 def __setattr__(self, name, value):
@@ -23573,7 +22970,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport, self).__init__()
@@ -23583,8 +22980,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('transport', YLeaf(YType.enumeration, 'transport')),
                                             ('port', YLeaf(YType.uint16, 'port')),
@@ -23611,7 +23007,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups, self).__init__()
@@ -23621,8 +23017,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("as-list-group", ("as_list_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup))])
+                                self._child_classes = OrderedDict([("as-list-group", ("as_list_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup))])
                                 self._leafs = OrderedDict()
 
                                 self.as_list_group = YList(self)
@@ -23658,7 +23053,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup, self).__init__()
@@ -23668,8 +23063,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['as_list_group_name']
-                                    self._child_container_classes = OrderedDict([("ases", ("ases", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("ases", ("ases", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases))])
                                     self._leafs = OrderedDict([
                                         ('as_list_group_name', YLeaf(YType.str, 'as-list-group-name')),
                                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -23680,7 +23074,6 @@ class Bgp(Entity):
                                     self.ases = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases()
                                     self.ases.parent = self
                                     self._children_name_map["ases"] = "ases"
-                                    self._children_yang_names.add("ases")
                                     self._segment_path = lambda: "as-list-group" + "[as-list-group-name='" + str(self.as_list_group_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -23701,7 +23094,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases, self).__init__()
@@ -23711,8 +23104,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("as", ("as_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As))])
+                                        self._child_classes = OrderedDict([("as", ("as_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As))])
                                         self._leafs = OrderedDict()
 
                                         self.as_ = YList(self)
@@ -23745,7 +23137,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As, self).__init__()
@@ -23755,8 +23147,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['as_xx','as_yy']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                                 ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -23787,7 +23178,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits, self).__init__()
@@ -23797,8 +23188,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('maximum_neighbors', YLeaf(YType.uint32, 'maximum-neighbors')),
                                 ])
@@ -23832,7 +23222,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain, self).__init__()
@@ -23842,8 +23232,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                     ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -23870,7 +23259,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses, self).__init__()
@@ -23880,8 +23269,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("confederation-peer-as", ("confederation_peer_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs))])
+                                self._child_classes = OrderedDict([("confederation-peer-as", ("confederation_peer_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs))])
                                 self._leafs = OrderedDict()
 
                                 self.confederation_peer_as = YList(self)
@@ -23914,7 +23302,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs, self).__init__()
@@ -23924,8 +23312,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['as_xx','as_yy']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                         ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -23952,7 +23339,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups, self).__init__()
@@ -23962,8 +23349,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("attribute-filter-group", ("attribute_filter_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup))])
+                                self._child_classes = OrderedDict([("attribute-filter-group", ("attribute_filter_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup))])
                                 self._leafs = OrderedDict()
 
                                 self.attribute_filter_group = YList(self)
@@ -23999,7 +23385,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup, self).__init__()
@@ -24009,8 +23395,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['attribute_filter_group_name']
-                                    self._child_container_classes = OrderedDict([("attribute-filters", ("attribute_filters", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("attribute-filters", ("attribute_filters", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters))])
                                     self._leafs = OrderedDict([
                                         ('attribute_filter_group_name', YLeaf(YType.str, 'attribute-filter-group-name')),
                                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -24021,7 +23406,6 @@ class Bgp(Entity):
                                     self.attribute_filters = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters()
                                     self.attribute_filters.parent = self
                                     self._children_name_map["attribute_filters"] = "attribute-filters"
-                                    self._children_yang_names.add("attribute-filters")
                                     self._segment_path = lambda: "attribute-filter-group" + "[attribute-filter-group-name='" + str(self.attribute_filter_group_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -24042,7 +23426,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters, self).__init__()
@@ -24052,8 +23436,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("attribute-filter", ("attribute_filter", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter))])
+                                        self._child_classes = OrderedDict([("attribute-filter", ("attribute_filter", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter))])
                                         self._leafs = OrderedDict()
 
                                         self.attribute_filter = YList(self)
@@ -24093,7 +23476,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter, self).__init__()
@@ -24103,8 +23486,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['attribute_start','attribute_end']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('attribute_start', YLeaf(YType.uint32, 'attribute-start')),
                                                 ('attribute_end', YLeaf(YType.uint32, 'attribute-end')),
@@ -24139,7 +23521,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate, self).__init__()
@@ -24149,8 +23531,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('all_neighbors', YLeaf(YType.boolean, 'all-neighbors')),
                                     ('retain_routes', YLeaf(YType.boolean, 'retain-routes')),
@@ -24177,7 +23558,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs, self).__init__()
@@ -24187,8 +23568,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("global-af", ("global_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf))])
+                                self._child_classes = OrderedDict([("global-af", ("global_af", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf))])
                                 self._leafs = OrderedDict()
 
                                 self.global_af = YList(self)
@@ -24419,6 +23799,11 @@ class Bgp(Entity):
                                 	Wait for route install before sending updates to neighbors
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
+                                .. attribute:: prefix_sid_map
+                                
+                                	Retrieve prefix sid mapping from SRMS
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
                                 .. attribute:: aggregate_addresses
                                 
                                 	Configure BGP aggregate entries
@@ -24593,7 +23978,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, self).__init__()
@@ -24603,8 +23988,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['af_name']
-                                    self._child_container_classes = OrderedDict([("isis-routes", ("isis_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes)), ("domain-distinguisher", ("domain_distinguisher", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher)), ("vrf-all", ("vrf_all", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll)), ("disable-cluster-client-to-client-rrs", ("disable_cluster_client_to_client_rrs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs)), ("label-delay", ("label_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay)), ("ebgp", ("ebgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp)), ("eibgp", ("eibgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp)), ("retain-rt", ("retain_rt", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt)), ("ibgp", ("ibgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp)), ("import-delay", ("import_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay)), ("aggregate-addresses", ("aggregate_addresses", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses)), ("optimal-route-reflector-groups", ("optimal_route_reflector_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups)), ("dampening", ("dampening", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening)), ("rip-routes", ("rip_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes)), ("lisp-routes", ("lisp_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes)), ("static-routes", ("static_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes)), ("distance", ("distance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance)), ("application-routes", ("application_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode)), ("eigrp-routes", ("eigrp_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes)), ("sourced-networks", ("sourced_networks", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks)), ("connected-routes", ("connected_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes)), ("allocate-label", ("allocate_label", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel)), ("additional-paths-selection", ("additional_paths_selection", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection)), ("ospf-routes", ("ospf_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes)), ("mobile-routes", ("mobile_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes)), ("subscriber-routes", ("subscriber_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis-routes", ("isis_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes)), ("domain-distinguisher", ("domain_distinguisher", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher)), ("vrf-all", ("vrf_all", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll)), ("disable-cluster-client-to-client-rrs", ("disable_cluster_client_to_client_rrs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs)), ("label-delay", ("label_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay)), ("ebgp", ("ebgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp)), ("eibgp", ("eibgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp)), ("retain-rt", ("retain_rt", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt)), ("ibgp", ("ibgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp)), ("import-delay", ("import_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay)), ("aggregate-addresses", ("aggregate_addresses", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses)), ("optimal-route-reflector-groups", ("optimal_route_reflector_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups)), ("dampening", ("dampening", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening)), ("rip-routes", ("rip_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes)), ("lisp-routes", ("lisp_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes)), ("static-routes", ("static_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes)), ("distance", ("distance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance)), ("application-routes", ("application_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode)), ("eigrp-routes", ("eigrp_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes)), ("sourced-networks", ("sourced_networks", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks)), ("connected-routes", ("connected_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes)), ("allocate-label", ("allocate_label", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel)), ("additional-paths-selection", ("additional_paths_selection", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection)), ("ospf-routes", ("ospf_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes)), ("mobile-routes", ("mobile_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes)), ("subscriber-routes", ("subscriber_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes))])
                                     self._leafs = OrderedDict([
                                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                         ('rnh_install_format', YLeaf(YType.enumeration, 'rnh-install-format')),
@@ -24629,6 +24013,7 @@ class Bgp(Entity):
                                         ('next_hop_route_policy', YLeaf(YType.str, 'next-hop-route-policy')),
                                         ('global_table_mcast', YLeaf(YType.empty, 'global-table-mcast')),
                                         ('wait_rib_install', YLeaf(YType.empty, 'wait-rib-install')),
+                                        ('prefix_sid_map', YLeaf(YType.empty, 'prefix-sid-map')),
                                         ('dynamic_med_interval', YLeaf(YType.uint32, 'dynamic-med-interval')),
                                         ('enable', YLeaf(YType.empty, 'enable')),
                                         ('table_policy', YLeaf(YType.str, 'table-policy')),
@@ -24665,6 +24050,7 @@ class Bgp(Entity):
                                     self.next_hop_route_policy = None
                                     self.global_table_mcast = None
                                     self.wait_rib_install = None
+                                    self.prefix_sid_map = None
                                     self.dynamic_med_interval = None
                                     self.enable = None
                                     self.table_policy = None
@@ -24681,128 +24067,101 @@ class Bgp(Entity):
                                     self.isis_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes()
                                     self.isis_routes.parent = self
                                     self._children_name_map["isis_routes"] = "isis-routes"
-                                    self._children_yang_names.add("isis-routes")
 
                                     self.domain_distinguisher = None
                                     self._children_name_map["domain_distinguisher"] = "domain-distinguisher"
-                                    self._children_yang_names.add("domain-distinguisher")
 
                                     self.vrf_all = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll()
                                     self.vrf_all.parent = self
                                     self._children_name_map["vrf_all"] = "vrf-all"
-                                    self._children_yang_names.add("vrf-all")
 
                                     self.disable_cluster_client_to_client_rrs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs()
                                     self.disable_cluster_client_to_client_rrs.parent = self
                                     self._children_name_map["disable_cluster_client_to_client_rrs"] = "disable-cluster-client-to-client-rrs"
-                                    self._children_yang_names.add("disable-cluster-client-to-client-rrs")
 
                                     self.label_delay = None
                                     self._children_name_map["label_delay"] = "label-delay"
-                                    self._children_yang_names.add("label-delay")
 
                                     self.ebgp = None
                                     self._children_name_map["ebgp"] = "ebgp"
-                                    self._children_yang_names.add("ebgp")
 
                                     self.eibgp = None
                                     self._children_name_map["eibgp"] = "eibgp"
-                                    self._children_yang_names.add("eibgp")
 
                                     self.retain_rt = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt()
                                     self.retain_rt.parent = self
                                     self._children_name_map["retain_rt"] = "retain-rt"
-                                    self._children_yang_names.add("retain-rt")
 
                                     self.ibgp = None
                                     self._children_name_map["ibgp"] = "ibgp"
-                                    self._children_yang_names.add("ibgp")
 
                                     self.import_delay = None
                                     self._children_name_map["import_delay"] = "import-delay"
-                                    self._children_yang_names.add("import-delay")
 
                                     self.aggregate_addresses = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses()
                                     self.aggregate_addresses.parent = self
                                     self._children_name_map["aggregate_addresses"] = "aggregate-addresses"
-                                    self._children_yang_names.add("aggregate-addresses")
 
                                     self.optimal_route_reflector_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups()
                                     self.optimal_route_reflector_groups.parent = self
                                     self._children_name_map["optimal_route_reflector_groups"] = "optimal-route-reflector-groups"
-                                    self._children_yang_names.add("optimal-route-reflector-groups")
 
                                     self.dampening = None
                                     self._children_name_map["dampening"] = "dampening"
-                                    self._children_yang_names.add("dampening")
 
                                     self.rip_routes = None
                                     self._children_name_map["rip_routes"] = "rip-routes"
-                                    self._children_yang_names.add("rip-routes")
 
                                     self.lisp_routes = None
                                     self._children_name_map["lisp_routes"] = "lisp-routes"
-                                    self._children_yang_names.add("lisp-routes")
 
                                     self.static_routes = None
                                     self._children_name_map["static_routes"] = "static-routes"
-                                    self._children_yang_names.add("static-routes")
 
                                     self.distance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance()
                                     self.distance.parent = self
                                     self._children_name_map["distance"] = "distance"
-                                    self._children_yang_names.add("distance")
 
                                     self.application_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes()
                                     self.application_routes.parent = self
                                     self._children_name_map["application_routes"] = "application-routes"
-                                    self._children_yang_names.add("application-routes")
 
                                     self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode()
                                     self.label_mode.parent = self
                                     self._children_name_map["label_mode"] = "label-mode"
-                                    self._children_yang_names.add("label-mode")
 
                                     self.eigrp_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes()
                                     self.eigrp_routes.parent = self
                                     self._children_name_map["eigrp_routes"] = "eigrp-routes"
-                                    self._children_yang_names.add("eigrp-routes")
 
                                     self.sourced_networks = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks()
                                     self.sourced_networks.parent = self
                                     self._children_name_map["sourced_networks"] = "sourced-networks"
-                                    self._children_yang_names.add("sourced-networks")
 
                                     self.connected_routes = None
                                     self._children_name_map["connected_routes"] = "connected-routes"
-                                    self._children_yang_names.add("connected-routes")
 
                                     self.allocate_label = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel()
                                     self.allocate_label.parent = self
                                     self._children_name_map["allocate_label"] = "allocate-label"
-                                    self._children_yang_names.add("allocate-label")
 
                                     self.additional_paths_selection = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection()
                                     self.additional_paths_selection.parent = self
                                     self._children_name_map["additional_paths_selection"] = "additional-paths-selection"
-                                    self._children_yang_names.add("additional-paths-selection")
 
                                     self.ospf_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes()
                                     self.ospf_routes.parent = self
                                     self._children_name_map["ospf_routes"] = "ospf-routes"
-                                    self._children_yang_names.add("ospf-routes")
 
                                     self.mobile_routes = None
                                     self._children_name_map["mobile_routes"] = "mobile-routes"
-                                    self._children_yang_names.add("mobile-routes")
 
                                     self.subscriber_routes = None
                                     self._children_name_map["subscriber_routes"] = "subscriber-routes"
-                                    self._children_yang_names.add("subscriber-routes")
                                     self._segment_path = lambda: "global-af" + "[af-name='" + str(self.af_name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, ['af_name', 'rnh_install_format', 'inter_as_install', 'segmented_mcast', 'implicit_import', 'disable_default_martian_check', 'next_hop_critical_trigger_delay', 'next_hop_non_critical_trigger_delay', 'label_security_rpf', 'use_igpsr_label', 'label_retain', 'scan_time', 'rpki_origin_as_validation_disable', 'rpki_origin_as_validity_signal_ibgp', 'update_limit_sub_group_ebgp', 'update_limit_address_family', 'rpki_bestpath_use_origin_as_validity', 'update_limit_sub_group_ibgp', 'rpki_bestpath_origin_as_allow_invalid', 'disable_client_to_client_rr', 'next_hop_route_policy', 'global_table_mcast', 'wait_rib_install', 'dynamic_med_interval', 'enable', 'table_policy', 'attribute_download', 'best_external', 'additional_paths_receive', 'permanent_network', 'next_hop_resolution_prefix_length_minimum', 'reset_weight_on_import', 'additional_paths_send', 'advertise_local_labeled_route_safi_unicast', 'disable_as_path_loop_check'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, ['af_name', 'rnh_install_format', 'inter_as_install', 'segmented_mcast', 'implicit_import', 'disable_default_martian_check', 'next_hop_critical_trigger_delay', 'next_hop_non_critical_trigger_delay', 'label_security_rpf', 'use_igpsr_label', 'label_retain', 'scan_time', 'rpki_origin_as_validation_disable', 'rpki_origin_as_validity_signal_ibgp', 'update_limit_sub_group_ebgp', 'update_limit_address_family', 'rpki_bestpath_use_origin_as_validity', 'update_limit_sub_group_ibgp', 'rpki_bestpath_origin_as_allow_invalid', 'disable_client_to_client_rr', 'next_hop_route_policy', 'global_table_mcast', 'wait_rib_install', 'prefix_sid_map', 'dynamic_med_interval', 'enable', 'table_policy', 'attribute_download', 'best_external', 'additional_paths_receive', 'permanent_network', 'next_hop_resolution_prefix_length_minimum', 'reset_weight_on_import', 'additional_paths_send', 'advertise_local_labeled_route_safi_unicast', 'disable_as_path_loop_check'], name, value)
 
 
                                 class IsisRoutes(Entity):
@@ -24820,7 +24179,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes, self).__init__()
@@ -24830,8 +24189,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("isis-route", ("isis_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute))])
+                                        self._child_classes = OrderedDict([("isis-route", ("isis_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute))])
                                         self._leafs = OrderedDict()
 
                                         self.isis_route = YList(self)
@@ -24876,7 +24234,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute, self).__init__()
@@ -24886,8 +24244,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['instance_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('instance_name', YLeaf(YType.str, 'instance-name')),
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -24934,7 +24291,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher, self).__init__()
@@ -24944,8 +24301,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('as_', YLeaf(YType.uint32, 'as')),
@@ -24994,7 +24350,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll, self).__init__()
@@ -25004,8 +24360,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode))])
                                         self._leafs = OrderedDict([
                                             ('rnh_install_format', YLeaf(YType.enumeration, 'rnh-install-format')),
                                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -25020,7 +24375,6 @@ class Bgp(Entity):
                                         self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode()
                                         self.label_mode.parent = self
                                         self._children_name_map["label_mode"] = "label-mode"
-                                        self._children_yang_names.add("label-mode")
                                         self._segment_path = lambda: "vrf-all"
 
                                     def __setattr__(self, name, value):
@@ -25046,7 +24400,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode, self).__init__()
@@ -25056,8 +24410,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('label_allocation_mode', YLeaf(YType.str, 'label-allocation-mode')),
                                                 ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -25085,7 +24438,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs, self).__init__()
@@ -25095,8 +24448,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("disable-cluster-client-to-client-rr", ("disable_cluster_client_to_client_rr", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr))])
+                                        self._child_classes = OrderedDict([("disable-cluster-client-to-client-rr", ("disable_cluster_client_to_client_rr", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr))])
                                         self._leafs = OrderedDict()
 
                                         self.disable_cluster_client_to_client_rr = YList(self)
@@ -25131,7 +24483,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr, self).__init__()
@@ -25141,8 +24493,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['cluster_type']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("number", ("number", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number)), ("ipv4-address", ("ipv4_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address))])
+                                            self._child_classes = OrderedDict([("number", ("number", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number)), ("ipv4-address", ("ipv4_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address))])
                                             self._leafs = OrderedDict([
                                                 ('cluster_type', YLeaf(YType.enumeration, 'cluster-type')),
                                             ])
@@ -25172,7 +24523,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number, self).__init__()
@@ -25182,8 +24533,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['cluster_id_number']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('cluster_id_number', YLeaf(YType.uint32, 'cluster-id-number')),
                                                 ])
@@ -25216,7 +24566,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2017-07-31'
+                                            _revision = '2017-11-05'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address, self).__init__()
@@ -25226,8 +24576,7 @@ class Bgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['cluster_id_address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('cluster_id_address', YLeaf(YType.str, 'cluster-id-address')),
                                                 ])
@@ -25271,7 +24620,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay, self).__init__()
@@ -25281,8 +24630,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('seconds', YLeaf(YType.uint32, 'seconds')),
@@ -25337,7 +24685,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp, self).__init__()
@@ -25347,8 +24695,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('paths_value', YLeaf(YType.uint32, 'paths-value')),
@@ -25407,7 +24754,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp, self).__init__()
@@ -25417,8 +24764,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('paths_value', YLeaf(YType.uint32, 'paths-value')),
@@ -25456,7 +24802,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt, self).__init__()
@@ -25466,8 +24812,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('all', YLeaf(YType.boolean, 'all')),
                                             ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -25521,7 +24866,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp, self).__init__()
@@ -25531,8 +24876,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('paths_value', YLeaf(YType.uint32, 'paths-value')),
@@ -25583,7 +24927,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay, self).__init__()
@@ -25593,8 +24937,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('seconds', YLeaf(YType.uint32, 'seconds')),
@@ -25622,7 +24965,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses, self).__init__()
@@ -25632,8 +24975,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("aggregate-address", ("aggregate_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress))])
+                                        self._child_classes = OrderedDict([("aggregate-address", ("aggregate_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress))])
                                         self._leafs = OrderedDict()
 
                                         self.aggregate_address = YList(self)
@@ -25692,7 +25034,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress, self).__init__()
@@ -25702,8 +25044,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['aggregate_addr','aggregate_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('aggregate_addr', YLeaf(YType.str, 'aggregate-addr')),
                                                 ('aggregate_prefix', YLeaf(YType.uint16, 'aggregate-prefix')),
@@ -25738,7 +25079,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups, self).__init__()
@@ -25748,8 +25089,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("optimal-route-reflector-group", ("optimal_route_reflector_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup))])
+                                        self._child_classes = OrderedDict([("optimal-route-reflector-group", ("optimal_route_reflector_group", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup))])
                                         self._leafs = OrderedDict()
 
                                         self.optimal_route_reflector_group = YList(self)
@@ -25815,7 +25155,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, self).__init__()
@@ -25825,8 +25165,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['group_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('group_name', YLeaf(YType.str, 'group-name')),
                                                 ('primary_root_address', YLeaf(YType.str, 'primary-root-address')),
@@ -25891,7 +25230,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening, self).__init__()
@@ -25901,8 +25240,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('half_life', YLeaf(YType.uint32, 'half-life')),
@@ -25952,7 +25290,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes, self).__init__()
@@ -25962,8 +25300,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26002,7 +25339,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes, self).__init__()
@@ -26012,8 +25349,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26057,7 +25393,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes, self).__init__()
@@ -26067,8 +25403,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26120,7 +25455,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance, self).__init__()
@@ -26130,8 +25465,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('external_routes', YLeaf(YType.uint32, 'external-routes')),
                                             ('internal_routes', YLeaf(YType.uint32, 'internal-routes')),
@@ -26160,7 +25494,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes, self).__init__()
@@ -26170,8 +25504,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("application-route", ("application_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute))])
+                                        self._child_classes = OrderedDict([("application-route", ("application_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute))])
                                         self._leafs = OrderedDict()
 
                                         self.application_route = YList(self)
@@ -26216,7 +25549,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute, self).__init__()
@@ -26226,8 +25559,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['instance_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('instance_name', YLeaf(YType.str, 'instance-name')),
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26263,7 +25595,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode, self).__init__()
@@ -26273,8 +25605,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('label_allocation_mode', YLeaf(YType.str, 'label-allocation-mode')),
                                             ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -26301,7 +25632,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes, self).__init__()
@@ -26311,8 +25642,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("eigrp-route", ("eigrp_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute))])
+                                        self._child_classes = OrderedDict([("eigrp-route", ("eigrp_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute))])
                                         self._leafs = OrderedDict()
 
                                         self.eigrp_route = YList(self)
@@ -26357,7 +25687,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute, self).__init__()
@@ -26367,8 +25697,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['instance_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('instance_name', YLeaf(YType.str, 'instance-name')),
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26399,7 +25728,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks, self).__init__()
@@ -26409,8 +25738,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("sourced-network", ("sourced_network", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork))])
+                                        self._child_classes = OrderedDict([("sourced-network", ("sourced_network", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork))])
                                         self._leafs = OrderedDict()
 
                                         self.sourced_network = YList(self)
@@ -26459,7 +25787,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork, self).__init__()
@@ -26469,8 +25797,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['network_addr','network_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('network_addr', YLeaf(YType.str, 'network-addr')),
                                                 ('network_prefix', YLeaf(YType.uint16, 'network-prefix')),
@@ -26517,7 +25844,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes, self).__init__()
@@ -26527,8 +25854,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26563,7 +25889,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel, self).__init__()
@@ -26573,8 +25899,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('all', YLeaf(YType.boolean, 'all')),
                                             ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -26606,7 +25931,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection, self).__init__()
@@ -26616,8 +25941,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('selection', YLeaf(YType.enumeration, 'selection')),
                                             ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
@@ -26644,7 +25968,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes, self).__init__()
@@ -26654,8 +25978,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("ospf-route", ("ospf_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute))])
+                                        self._child_classes = OrderedDict([("ospf-route", ("ospf_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute))])
                                         self._leafs = OrderedDict()
 
                                         self.ospf_route = YList(self)
@@ -26700,7 +26023,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2017-07-31'
+                                        _revision = '2017-11-05'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute, self).__init__()
@@ -26710,8 +26033,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['instance_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('instance_name', YLeaf(YType.str, 'instance-name')),
                                                 ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26758,7 +26080,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes, self).__init__()
@@ -26768,8 +26090,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26815,7 +26136,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-07-31'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes, self).__init__()
@@ -26825,8 +26146,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('default_metric', YLeaf(YType.uint32, 'default-metric')),
@@ -26856,7 +26176,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes, self).__init__()
@@ -26866,8 +26186,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("rpki-static-route", ("rpki_static_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute))])
+                                self._child_classes = OrderedDict([("rpki-static-route", ("rpki_static_route", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute))])
                                 self._leafs = OrderedDict()
 
                                 self.rpki_static_route = YList(self)
@@ -26899,14 +26218,14 @@ class Bgp(Entity):
                                 	Minimum Prefix Length
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: maximum  (key)
                                 
                                 	Maximum Prefix Length
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: as_  (key)
                                 
@@ -26920,7 +26239,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute, self).__init__()
@@ -26930,12 +26249,11 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['addrress','minimum','maximum','as_']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('addrress', YLeaf(YType.str, 'addrress')),
-                                        ('minimum', YLeaf(YType.int32, 'minimum')),
-                                        ('maximum', YLeaf(YType.int32, 'maximum')),
+                                        ('minimum', YLeaf(YType.uint32, 'minimum')),
+                                        ('maximum', YLeaf(YType.uint32, 'maximum')),
                                         ('as_', YLeaf(YType.uint32, 'as')),
                                     ])
                                     self.addrress = None
@@ -26962,7 +26280,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces, self).__init__()
@@ -26972,8 +26290,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("mpls-activated-interface", ("mpls_activated_interface", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface))])
+                                self._child_classes = OrderedDict([("mpls-activated-interface", ("mpls_activated_interface", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface))])
                                 self._leafs = OrderedDict()
 
                                 self.mpls_activated_interface = YList(self)
@@ -26999,7 +26316,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-07-31'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface, self).__init__()
@@ -27009,8 +26326,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                     ])
@@ -27063,7 +26379,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers, self).__init__()
@@ -27073,8 +26389,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('keepalive', YLeaf(YType.uint32, 'keepalive')),
                                     ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -27114,7 +26429,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd, self).__init__()
@@ -27124,8 +26439,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
                                     ('interval', YLeaf(YType.uint32, 'interval')),
@@ -27169,7 +26483,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes, self).__init__()
@@ -27179,8 +26493,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('socket_send_size', YLeaf(YType.uint32, 'socket-send-size')),
                                     ('bgp_send_size', YLeaf(YType.uint32, 'bgp-send-size')),
@@ -27224,7 +26537,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-07-31'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes, self).__init__()
@@ -27234,8 +26547,7 @@ class Bgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('socket_receive_size', YLeaf(YType.uint32, 'socket-receive-size')),
                                     ('bgp_receive_size', YLeaf(YType.uint32, 'bgp-receive-size')),
@@ -27274,7 +26586,7 @@ class BmpServerAll(Entity):
     """
 
     _prefix = 'ipv4-bgp-cfg'
-    _revision = '2017-07-31'
+    _revision = '2017-11-05'
 
     def __init__(self):
         super(BmpServerAll, self).__init__()
@@ -27285,8 +26597,7 @@ class BmpServerAll(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("route-monitoring", ("route_monitoring", BmpServerAll.RouteMonitoring))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("route-monitoring", ("route_monitoring", BmpServerAll.RouteMonitoring))])
         self._leafs = OrderedDict([
             ('maximum_buffer_size', YLeaf(YType.uint32, 'maximum-buffer-size')),
         ])
@@ -27295,7 +26606,6 @@ class BmpServerAll(Entity):
         self.route_monitoring = BmpServerAll.RouteMonitoring()
         self.route_monitoring.parent = self
         self._children_name_map["route_monitoring"] = "route-monitoring"
-        self._children_yang_names.add("route-monitoring")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-server-all"
 
     def __setattr__(self, name, value):
@@ -27325,7 +26635,7 @@ class BmpServerAll(Entity):
         """
 
         _prefix = 'ipv4-bgp-cfg'
-        _revision = '2017-07-31'
+        _revision = '2017-11-05'
 
         def __init__(self):
             super(BmpServerAll.RouteMonitoring, self).__init__()
@@ -27335,8 +26645,7 @@ class BmpServerAll(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('policy', YLeaf(YType.enumeration, 'policy')),
                 ('direction', YLeaf(YType.enumeration, 'direction')),
@@ -27367,7 +26676,7 @@ class BmpServers(Entity):
     """
 
     _prefix = 'ipv4-bgp-cfg'
-    _revision = '2017-07-31'
+    _revision = '2017-11-05'
 
     def __init__(self):
         super(BmpServers, self).__init__()
@@ -27378,8 +26687,7 @@ class BmpServers(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("bmp-server", ("bmp_server", BmpServers.BmpServer))])
+        self._child_classes = OrderedDict([("bmp-server", ("bmp_server", BmpServers.BmpServer))])
         self._leafs = OrderedDict()
 
         self.bmp_server = YList(self)
@@ -27501,7 +26809,7 @@ class BmpServers(Entity):
         """
 
         _prefix = 'ipv4-bgp-cfg'
-        _revision = '2017-07-31'
+        _revision = '2017-11-05'
 
         def __init__(self):
             super(BmpServers.BmpServer, self).__init__()
@@ -27511,8 +26819,7 @@ class BmpServers(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['server_id']
-            self._child_container_classes = OrderedDict([("initial-refresh-delay", ("initial_refresh_delay", BmpServers.BmpServer.InitialRefreshDelay)), ("host-port", ("host_port", BmpServers.BmpServer.HostPort)), ("tos", ("tos", BmpServers.BmpServer.Tos))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("initial-refresh-delay", ("initial_refresh_delay", BmpServers.BmpServer.InitialRefreshDelay)), ("host-port", ("host_port", BmpServers.BmpServer.HostPort)), ("tos", ("tos", BmpServers.BmpServer.Tos))])
             self._leafs = OrderedDict([
                 ('server_id', YLeaf(YType.uint32, 'server-id')),
                 ('create', YLeaf(YType.empty, 'create')),
@@ -27543,17 +26850,14 @@ class BmpServers(Entity):
             self.initial_refresh_delay = BmpServers.BmpServer.InitialRefreshDelay()
             self.initial_refresh_delay.parent = self
             self._children_name_map["initial_refresh_delay"] = "initial-refresh-delay"
-            self._children_yang_names.add("initial-refresh-delay")
 
             self.host_port = BmpServers.BmpServer.HostPort()
             self.host_port.parent = self
             self._children_name_map["host_port"] = "host-port"
-            self._children_yang_names.add("host-port")
 
             self.tos = BmpServers.BmpServer.Tos()
             self.tos.parent = self
             self._children_name_map["tos"] = "tos"
-            self._children_yang_names.add("tos")
             self._segment_path = lambda: "bmp-server" + "[server-id='" + str(self.server_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-servers/%s" % self._segment_path()
 
@@ -27591,7 +26895,7 @@ class BmpServers(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2017-07-31'
+            _revision = '2017-11-05'
 
             def __init__(self):
                 super(BmpServers.BmpServer.InitialRefreshDelay, self).__init__()
@@ -27601,8 +26905,7 @@ class BmpServers(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('delay', YLeaf(YType.uint32, 'delay')),
                     ('spread', YLeaf(YType.uint32, 'spread')),
@@ -27639,7 +26942,7 @@ class BmpServers(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2017-07-31'
+            _revision = '2017-11-05'
 
             def __init__(self):
                 super(BmpServers.BmpServer.HostPort, self).__init__()
@@ -27649,8 +26952,7 @@ class BmpServers(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('host', YLeaf(YType.str, 'host')),
                     ('port', YLeaf(YType.uint16, 'port')),
@@ -27688,7 +26990,7 @@ class BmpServers(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2017-07-31'
+            _revision = '2017-11-05'
 
             def __init__(self):
                 super(BmpServers.BmpServer.Tos, self).__init__()
@@ -27698,8 +27000,7 @@ class BmpServers(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.enumeration, 'type')),
                     ('value', YLeaf(YType.str, 'value')),

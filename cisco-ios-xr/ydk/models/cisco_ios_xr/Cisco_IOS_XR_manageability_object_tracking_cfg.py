@@ -38,7 +38,7 @@ class ObjectTrackings(Entity):
     """
 
     _prefix = 'manageability-object-tracking-cfg'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(ObjectTrackings, self).__init__()
@@ -49,8 +49,7 @@ class ObjectTrackings(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("object-tracking", ("object_tracking", ObjectTrackings.ObjectTracking))])
+        self._child_classes = OrderedDict([("object-tracking", ("object_tracking", ObjectTrackings.ObjectTracking))])
         self._leafs = OrderedDict()
 
         self.object_tracking = YList(self)
@@ -144,7 +143,7 @@ class ObjectTrackings(Entity):
         """
 
         _prefix = 'manageability-object-tracking-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(ObjectTrackings.ObjectTracking, self).__init__()
@@ -154,8 +153,7 @@ class ObjectTrackings(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['track_name']
-            self._child_container_classes = OrderedDict([("type-interface", ("type_interface", ObjectTrackings.ObjectTracking.TypeInterface)), ("type-rtr", ("type_rtr", ObjectTrackings.ObjectTracking.TypeRtr)), ("type-list", ("type_list", ObjectTrackings.ObjectTracking.TypeList)), ("type-route", ("type_route", ObjectTrackings.ObjectTracking.TypeRoute)), ("type-boolean-list", ("type_boolean_list", ObjectTrackings.ObjectTracking.TypeBooleanList))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("type-interface", ("type_interface", ObjectTrackings.ObjectTracking.TypeInterface)), ("type-rtr", ("type_rtr", ObjectTrackings.ObjectTracking.TypeRtr)), ("type-list", ("type_list", ObjectTrackings.ObjectTracking.TypeList)), ("type-route", ("type_route", ObjectTrackings.ObjectTracking.TypeRoute)), ("type-boolean-list", ("type_boolean_list", ObjectTrackings.ObjectTracking.TypeBooleanList))])
             self._leafs = OrderedDict([
                 ('track_name', YLeaf(YType.str, 'track-name')),
                 ('delay_up', YLeaf(YType.uint32, 'delay-up')),
@@ -178,27 +176,22 @@ class ObjectTrackings(Entity):
             self.type_interface = ObjectTrackings.ObjectTracking.TypeInterface()
             self.type_interface.parent = self
             self._children_name_map["type_interface"] = "type-interface"
-            self._children_yang_names.add("type-interface")
 
             self.type_rtr = ObjectTrackings.ObjectTracking.TypeRtr()
             self.type_rtr.parent = self
             self._children_name_map["type_rtr"] = "type-rtr"
-            self._children_yang_names.add("type-rtr")
 
             self.type_list = ObjectTrackings.ObjectTracking.TypeList()
             self.type_list.parent = self
             self._children_name_map["type_list"] = "type-list"
-            self._children_yang_names.add("type-list")
 
             self.type_route = ObjectTrackings.ObjectTracking.TypeRoute()
             self.type_route.parent = self
             self._children_name_map["type_route"] = "type-route"
-            self._children_yang_names.add("type-route")
 
             self.type_boolean_list = ObjectTrackings.ObjectTracking.TypeBooleanList()
             self.type_boolean_list.parent = self
             self._children_name_map["type_boolean_list"] = "type-boolean-list"
-            self._children_yang_names.add("type-boolean-list")
             self._segment_path = lambda: "object-tracking" + "[track-name='" + str(self.track_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/%s" % self._segment_path()
 
@@ -222,7 +215,7 @@ class ObjectTrackings(Entity):
             """
 
             _prefix = 'manageability-object-tracking-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ObjectTrackings.ObjectTracking.TypeInterface, self).__init__()
@@ -232,8 +225,7 @@ class ObjectTrackings(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface', YLeaf(YType.str, 'interface')),
                 ])
@@ -260,7 +252,7 @@ class ObjectTrackings(Entity):
             """
 
             _prefix = 'manageability-object-tracking-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ObjectTrackings.ObjectTracking.TypeRtr, self).__init__()
@@ -270,8 +262,7 @@ class ObjectTrackings(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rtr', YLeaf(YType.uint32, 'rtr')),
                 ])
@@ -311,7 +302,7 @@ class ObjectTrackings(Entity):
             """
 
             _prefix = 'manageability-object-tracking-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ObjectTrackings.ObjectTracking.TypeList, self).__init__()
@@ -321,30 +312,28 @@ class ObjectTrackings(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("threshold-weight", ("threshold_weight", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight)), ("threshold-percentage-object", ("threshold_percentage_object", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject)), ("threshold-percentage", ("threshold_percentage", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage)), ("threshold-weight-object", ("threshold_weight_object", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("threshold-weight", ("threshold_weight", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight)), ("threshold-percentage-object", ("threshold_percentage_object", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject)), ("threshold-percentage", ("threshold_percentage", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage)), ("threshold-weight-object", ("threshold_weight_object", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject))])
                 self._leafs = OrderedDict()
 
                 self.threshold_weight = ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight()
                 self.threshold_weight.parent = self
                 self._children_name_map["threshold_weight"] = "threshold-weight"
-                self._children_yang_names.add("threshold-weight")
 
                 self.threshold_percentage_object = ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject()
                 self.threshold_percentage_object.parent = self
                 self._children_name_map["threshold_percentage_object"] = "threshold-percentage-object"
-                self._children_yang_names.add("threshold-percentage-object")
 
                 self.threshold_percentage = ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage()
                 self.threshold_percentage.parent = self
                 self._children_name_map["threshold_percentage"] = "threshold-percentage"
-                self._children_yang_names.add("threshold-percentage")
 
                 self.threshold_weight_object = ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject()
                 self.threshold_weight_object.parent = self
                 self._children_name_map["threshold_weight_object"] = "threshold-weight-object"
-                self._children_yang_names.add("threshold-weight-object")
                 self._segment_path = lambda: "type-list"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList, [], name, value)
 
 
             class ThresholdWeight(Entity):
@@ -361,7 +350,7 @@ class ObjectTrackings(Entity):
                 """
 
                 _prefix = 'manageability-object-tracking-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight, self).__init__()
@@ -371,15 +360,16 @@ class ObjectTrackings(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("threshold-limits", ("threshold_limits", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits))])
                     self._leafs = OrderedDict()
 
                     self.threshold_limits = ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits()
                     self.threshold_limits.parent = self
                     self._children_name_map["threshold_limits"] = "threshold-limits"
-                    self._children_yang_names.add("threshold-limits")
                     self._segment_path = lambda: "threshold-weight"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight, [], name, value)
 
 
                 class ThresholdLimits(Entity):
@@ -396,7 +386,7 @@ class ObjectTrackings(Entity):
                     """
 
                     _prefix = 'manageability-object-tracking-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits, self).__init__()
@@ -406,15 +396,16 @@ class ObjectTrackings(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("threshold-up-values", ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("threshold-up-values", ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues))])
                         self._leafs = OrderedDict()
 
                         self.threshold_up_values = ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues()
                         self.threshold_up_values.parent = self
                         self._children_name_map["threshold_up_values"] = "threshold-up-values"
-                        self._children_yang_names.add("threshold-up-values")
                         self._segment_path = lambda: "threshold-limits"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits, [], name, value)
 
 
                     class ThresholdUpValues(Entity):
@@ -432,7 +423,7 @@ class ObjectTrackings(Entity):
                         """
 
                         _prefix = 'manageability-object-tracking-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues, self).__init__()
@@ -442,8 +433,7 @@ class ObjectTrackings(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("threshold-up-value", ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue))])
+                            self._child_classes = OrderedDict([("threshold-up-value", ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue))])
                             self._leafs = OrderedDict()
 
                             self.threshold_up_value = YList(self)
@@ -463,14 +453,14 @@ class ObjectTrackings(Entity):
                             	Up value
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: threshold_down
                             
                             	Threshold limit at which track is set to Down state
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             	**default value**\: 0
                             
@@ -479,7 +469,7 @@ class ObjectTrackings(Entity):
                             """
 
                             _prefix = 'manageability-object-tracking-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, self).__init__()
@@ -489,11 +479,10 @@ class ObjectTrackings(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['up']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('up', YLeaf(YType.int32, 'up')),
-                                    ('threshold_down', YLeaf(YType.int32, 'threshold-down')),
+                                    ('up', YLeaf(YType.uint32, 'up')),
+                                    ('threshold_down', YLeaf(YType.uint32, 'threshold-down')),
                                 ])
                                 self.up = None
                                 self.threshold_down = None
@@ -517,7 +506,7 @@ class ObjectTrackings(Entity):
                 """
 
                 _prefix = 'manageability-object-tracking-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject, self).__init__()
@@ -527,8 +516,7 @@ class ObjectTrackings(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("object", ("object", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object))])
+                    self._child_classes = OrderedDict([("object", ("object", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object))])
                     self._leafs = OrderedDict()
 
                     self.object = YList(self)
@@ -554,7 +542,7 @@ class ObjectTrackings(Entity):
                     	Weight of object
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     	**default value**\: 1
                     
@@ -563,7 +551,7 @@ class ObjectTrackings(Entity):
                     """
 
                     _prefix = 'manageability-object-tracking-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object, self).__init__()
@@ -573,11 +561,10 @@ class ObjectTrackings(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['object']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object', YLeaf(YType.str, 'object')),
-                            ('object_weight', YLeaf(YType.int32, 'object-weight')),
+                            ('object_weight', YLeaf(YType.uint32, 'object-weight')),
                         ])
                         self.object = None
                         self.object_weight = None
@@ -601,7 +588,7 @@ class ObjectTrackings(Entity):
                 """
 
                 _prefix = 'manageability-object-tracking-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage, self).__init__()
@@ -611,15 +598,16 @@ class ObjectTrackings(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("threshold-limits", ("threshold_limits", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits))])
                     self._leafs = OrderedDict()
 
                     self.threshold_limits = ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits()
                     self.threshold_limits.parent = self
                     self._children_name_map["threshold_limits"] = "threshold-limits"
-                    self._children_yang_names.add("threshold-limits")
                     self._segment_path = lambda: "threshold-percentage"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage, [], name, value)
 
 
                 class ThresholdLimits(Entity):
@@ -636,7 +624,7 @@ class ObjectTrackings(Entity):
                     """
 
                     _prefix = 'manageability-object-tracking-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits, self).__init__()
@@ -646,15 +634,16 @@ class ObjectTrackings(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("threshold-up-values", ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("threshold-up-values", ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues))])
                         self._leafs = OrderedDict()
 
                         self.threshold_up_values = ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues()
                         self.threshold_up_values.parent = self
                         self._children_name_map["threshold_up_values"] = "threshold-up-values"
-                        self._children_yang_names.add("threshold-up-values")
                         self._segment_path = lambda: "threshold-limits"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits, [], name, value)
 
 
                     class ThresholdUpValues(Entity):
@@ -672,7 +661,7 @@ class ObjectTrackings(Entity):
                         """
 
                         _prefix = 'manageability-object-tracking-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues, self).__init__()
@@ -682,8 +671,7 @@ class ObjectTrackings(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("threshold-up-value", ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue))])
+                            self._child_classes = OrderedDict([("threshold-up-value", ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue))])
                             self._leafs = OrderedDict()
 
                             self.threshold_up_value = YList(self)
@@ -703,14 +691,14 @@ class ObjectTrackings(Entity):
                             	Up value
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: threshold_down
                             
                             	Threshold limit at which track is set to Down state
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             	**default value**\: 0
                             
@@ -719,7 +707,7 @@ class ObjectTrackings(Entity):
                             """
 
                             _prefix = 'manageability-object-tracking-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, self).__init__()
@@ -729,11 +717,10 @@ class ObjectTrackings(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['up']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('up', YLeaf(YType.int32, 'up')),
-                                    ('threshold_down', YLeaf(YType.int32, 'threshold-down')),
+                                    ('up', YLeaf(YType.uint32, 'up')),
+                                    ('threshold_down', YLeaf(YType.uint32, 'threshold-down')),
                                 ])
                                 self.up = None
                                 self.threshold_down = None
@@ -757,7 +744,7 @@ class ObjectTrackings(Entity):
                 """
 
                 _prefix = 'manageability-object-tracking-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject, self).__init__()
@@ -767,8 +754,7 @@ class ObjectTrackings(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("object", ("object", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object))])
+                    self._child_classes = OrderedDict([("object", ("object", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object))])
                     self._leafs = OrderedDict()
 
                     self.object = YList(self)
@@ -794,7 +780,7 @@ class ObjectTrackings(Entity):
                     	Weight of object
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     	**default value**\: 1
                     
@@ -803,7 +789,7 @@ class ObjectTrackings(Entity):
                     """
 
                     _prefix = 'manageability-object-tracking-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object, self).__init__()
@@ -813,11 +799,10 @@ class ObjectTrackings(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['object']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object', YLeaf(YType.str, 'object')),
-                            ('object_weight', YLeaf(YType.int32, 'object-weight')),
+                            ('object_weight', YLeaf(YType.uint32, 'object-weight')),
                         ])
                         self.object = None
                         self.object_weight = None
@@ -850,7 +835,7 @@ class ObjectTrackings(Entity):
             """
 
             _prefix = 'manageability-object-tracking-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ObjectTrackings.ObjectTracking.TypeRoute, self).__init__()
@@ -860,8 +845,7 @@ class ObjectTrackings(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ip-address", ("ip_address", ObjectTrackings.ObjectTracking.TypeRoute.IpAddress))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ip-address", ("ip_address", ObjectTrackings.ObjectTracking.TypeRoute.IpAddress))])
                 self._leafs = OrderedDict([
                     ('vrf', YLeaf(YType.str, 'vrf')),
                 ])
@@ -869,7 +853,6 @@ class ObjectTrackings(Entity):
 
                 self.ip_address = None
                 self._children_name_map["ip_address"] = "ip-address"
-                self._children_yang_names.add("ip-address")
                 self._segment_path = lambda: "type-route"
 
             def __setattr__(self, name, value):
@@ -901,7 +884,7 @@ class ObjectTrackings(Entity):
                 """
 
                 _prefix = 'manageability-object-tracking-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ObjectTrackings.ObjectTracking.TypeRoute.IpAddress, self).__init__()
@@ -911,8 +894,7 @@ class ObjectTrackings(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('address', YLeaf(YType.str, 'address')),
@@ -945,7 +927,7 @@ class ObjectTrackings(Entity):
             """
 
             _prefix = 'manageability-object-tracking-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ObjectTrackings.ObjectTracking.TypeBooleanList, self).__init__()
@@ -955,20 +937,20 @@ class ObjectTrackings(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("or-objects", ("or_objects", ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects)), ("and-objects", ("and_objects", ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("or-objects", ("or_objects", ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects)), ("and-objects", ("and_objects", ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects))])
                 self._leafs = OrderedDict()
 
                 self.or_objects = ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects()
                 self.or_objects.parent = self
                 self._children_name_map["or_objects"] = "or-objects"
-                self._children_yang_names.add("or-objects")
 
                 self.and_objects = ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects()
                 self.and_objects.parent = self
                 self._children_name_map["and_objects"] = "and-objects"
-                self._children_yang_names.add("and-objects")
                 self._segment_path = lambda: "type-boolean-list"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList, [], name, value)
 
 
             class OrObjects(Entity):
@@ -985,7 +967,7 @@ class ObjectTrackings(Entity):
                 """
 
                 _prefix = 'manageability-object-tracking-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects, self).__init__()
@@ -995,8 +977,7 @@ class ObjectTrackings(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("or-object", ("or_object", ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject))])
+                    self._child_classes = OrderedDict([("or-object", ("or_object", ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject))])
                     self._leafs = OrderedDict()
 
                     self.or_object = YList(self)
@@ -1027,7 +1008,7 @@ class ObjectTrackings(Entity):
                     """
 
                     _prefix = 'manageability-object-tracking-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject, self).__init__()
@@ -1037,8 +1018,7 @@ class ObjectTrackings(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['object']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object', YLeaf(YType.str, 'object')),
                             ('object_sign', YLeaf(YType.enumeration, 'object-sign')),
@@ -1065,7 +1045,7 @@ class ObjectTrackings(Entity):
                 """
 
                 _prefix = 'manageability-object-tracking-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects, self).__init__()
@@ -1075,8 +1055,7 @@ class ObjectTrackings(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("and-object", ("and_object", ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject))])
+                    self._child_classes = OrderedDict([("and-object", ("and_object", ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject))])
                     self._leafs = OrderedDict()
 
                     self.and_object = YList(self)
@@ -1107,7 +1086,7 @@ class ObjectTrackings(Entity):
                     """
 
                     _prefix = 'manageability-object-tracking-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject, self).__init__()
@@ -1117,8 +1096,7 @@ class ObjectTrackings(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['object_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object_name', YLeaf(YType.str, 'object-name')),
                             ('object_sign', YLeaf(YType.enumeration, 'object-sign')),

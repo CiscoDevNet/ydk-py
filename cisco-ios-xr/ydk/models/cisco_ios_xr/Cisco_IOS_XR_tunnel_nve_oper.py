@@ -50,20 +50,20 @@ class Nve(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vnis", ("vnis", Nve.Vnis)), ("interfaces", ("interfaces", Nve.Interfaces))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vnis", ("vnis", Nve.Vnis)), ("interfaces", ("interfaces", Nve.Interfaces))])
         self._leafs = OrderedDict()
 
         self.vnis = Nve.Vnis()
         self.vnis.parent = self
         self._children_name_map["vnis"] = "vnis"
-        self._children_yang_names.add("vnis")
 
         self.interfaces = Nve.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-nve-oper:nve"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Nve, [], name, value)
 
 
     class Vnis(Entity):
@@ -90,8 +90,7 @@ class Nve(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vni", ("vni", Nve.Vnis.Vni))])
+            self._child_classes = OrderedDict([("vni", ("vni", Nve.Vnis.Vni))])
             self._leafs = OrderedDict()
 
             self.vni = YList(self)
@@ -262,8 +261,7 @@ class Nve(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vni']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vni', YLeaf(YType.str, 'vni')),
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -312,7 +310,7 @@ class Nve(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-nve-oper:nve/vnis/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Nve.Vnis.Vni, ['vni', 'interface_name', 'vni_xr', 'state', 'mcast_ipv4_address', 'flags', 'vni_min', 'vni_max', 'mcast_flags', 'udp_port', 'bvi_ifh', 'bvi_state', 'bvi_mac', 'vrf_name', 'vrf_id', 'ipv4_tbl_id', 'ipv6_tbl_id', 'vrf_vni', 'topo_valid', 'topo_id', 'topo_name'], name, value)
+                self._perform_setattr(Nve.Vnis.Vni, ['vni', u'interface_name', u'vni_xr', u'state', u'mcast_ipv4_address', u'flags', u'vni_min', u'vni_max', u'mcast_flags', u'udp_port', u'bvi_ifh', u'bvi_state', u'bvi_mac', u'vrf_name', u'vrf_id', u'ipv4_tbl_id', u'ipv6_tbl_id', u'vrf_vni', u'topo_valid', u'topo_id', u'topo_name'], name, value)
 
 
     class Interfaces(Entity):
@@ -339,8 +337,7 @@ class Nve(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Nve.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Nve.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -476,8 +473,7 @@ class Nve(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
@@ -516,7 +512,7 @@ class Nve(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-nve-oper:nve/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Nve.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'state', 'admin_state', 'flags', 'encap', 'source_interface_name', 'source_ipv4_address', 'if_handle', 'source_state', 'udp_port', 'any_cast_source_interface_name', 'any_cast_source_ipv4_address', 'any_cast_source_state', 'sync_mcast_ipv4_address', 'sync_mcast_flags'], name, value)
+                self._perform_setattr(Nve.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'state', u'admin_state', u'flags', u'encap', u'source_interface_name', u'source_ipv4_address', u'if_handle', u'source_state', u'udp_port', u'any_cast_source_interface_name', u'any_cast_source_ipv4_address', u'any_cast_source_state', u'sync_mcast_ipv4_address', u'sync_mcast_flags'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Nve()

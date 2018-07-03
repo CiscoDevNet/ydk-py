@@ -122,7 +122,7 @@ class Vpdn(Entity):
     .. attribute:: l2tp
     
     	L2TPv2 protocol commands
-    	**type**\:  :py:class:`L2Tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp>`
+    	**type**\:  :py:class:`L2tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2tp>`
     
     .. attribute:: session_limit
     
@@ -146,7 +146,7 @@ class Vpdn(Entity):
     """
 
     _prefix = 'tunnel-vpdn-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Vpdn, self).__init__()
@@ -157,8 +157,7 @@ class Vpdn(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("history", ("history", Vpdn.History)), ("redundancy", ("redundancy", Vpdn.Redundancy)), ("local", ("local", Vpdn.Local)), ("templates", ("templates", Vpdn.Templates)), ("caller-id", ("caller_id", Vpdn.CallerId)), ("vpd-ngroups", ("vpd_ngroups", Vpdn.VpdNgroups)), ("loggings", ("loggings", Vpdn.Loggings)), ("l2tp", ("l2tp", Vpdn.L2Tp))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("history", ("history", Vpdn.History)), ("redundancy", ("redundancy", Vpdn.Redundancy)), ("local", ("local", Vpdn.Local)), ("templates", ("templates", Vpdn.Templates)), ("caller-id", ("caller_id", Vpdn.CallerId)), ("vpd-ngroups", ("vpd_ngroups", Vpdn.VpdNgroups)), ("loggings", ("loggings", Vpdn.Loggings)), ("l2tp", ("l2tp", Vpdn.L2tp))])
         self._leafs = OrderedDict([
             ('session_limit', YLeaf(YType.uint32, 'session-limit')),
             ('enable', YLeaf(YType.empty, 'enable')),
@@ -171,42 +170,34 @@ class Vpdn(Entity):
         self.history = Vpdn.History()
         self.history.parent = self
         self._children_name_map["history"] = "history"
-        self._children_yang_names.add("history")
 
         self.redundancy = Vpdn.Redundancy()
         self.redundancy.parent = self
         self._children_name_map["redundancy"] = "redundancy"
-        self._children_yang_names.add("redundancy")
 
         self.local = Vpdn.Local()
         self.local.parent = self
         self._children_name_map["local"] = "local"
-        self._children_yang_names.add("local")
 
         self.templates = Vpdn.Templates()
         self.templates.parent = self
         self._children_name_map["templates"] = "templates"
-        self._children_yang_names.add("templates")
 
         self.caller_id = Vpdn.CallerId()
         self.caller_id.parent = self
         self._children_name_map["caller_id"] = "caller-id"
-        self._children_yang_names.add("caller-id")
 
         self.vpd_ngroups = Vpdn.VpdNgroups()
         self.vpd_ngroups.parent = self
         self._children_name_map["vpd_ngroups"] = "vpd-ngroups"
-        self._children_yang_names.add("vpd-ngroups")
 
         self.loggings = Vpdn.Loggings()
         self.loggings.parent = self
         self._children_name_map["loggings"] = "loggings"
-        self._children_yang_names.add("loggings")
 
-        self.l2tp = Vpdn.L2Tp()
+        self.l2tp = Vpdn.L2tp()
         self.l2tp.parent = self
         self._children_name_map["l2tp"] = "l2tp"
-        self._children_yang_names.add("l2tp")
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn"
 
     def __setattr__(self, name, value):
@@ -227,7 +218,7 @@ class Vpdn(Entity):
         """
 
         _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vpdn.History, self).__init__()
@@ -237,8 +228,7 @@ class Vpdn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('failure', YLeaf(YType.empty, 'failure')),
             ])
@@ -269,7 +259,7 @@ class Vpdn(Entity):
         """
 
         _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vpdn.Redundancy, self).__init__()
@@ -279,8 +269,7 @@ class Vpdn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("process-failures", ("process_failures", Vpdn.Redundancy.ProcessFailures))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("process-failures", ("process_failures", Vpdn.Redundancy.ProcessFailures))])
             self._leafs = OrderedDict([
                 ('enable', YLeaf(YType.empty, 'enable')),
             ])
@@ -289,7 +278,6 @@ class Vpdn(Entity):
             self.process_failures = Vpdn.Redundancy.ProcessFailures()
             self.process_failures.parent = self
             self._children_name_map["process_failures"] = "process-failures"
-            self._children_yang_names.add("process-failures")
             self._segment_path = lambda: "redundancy"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
 
@@ -311,7 +299,7 @@ class Vpdn(Entity):
             """
 
             _prefix = 'tunnel-vpdn-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vpdn.Redundancy.ProcessFailures, self).__init__()
@@ -321,8 +309,7 @@ class Vpdn(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('switchover', YLeaf(YType.empty, 'switchover')),
                 ])
@@ -369,7 +356,7 @@ class Vpdn(Entity):
         """
 
         _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vpdn.Local, self).__init__()
@@ -379,8 +366,7 @@ class Vpdn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('secret_text', YLeaf(YType.str, 'secret-text')),
                 ('path', YLeaf(YType.str, 'path')),
@@ -412,7 +398,7 @@ class Vpdn(Entity):
         """
 
         _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vpdn.Templates, self).__init__()
@@ -422,8 +408,7 @@ class Vpdn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("template", ("template", Vpdn.Templates.Template))])
+            self._child_classes = OrderedDict([("template", ("template", Vpdn.Templates.Template))])
             self._leafs = OrderedDict()
 
             self.template = YList(self)
@@ -499,7 +484,7 @@ class Vpdn(Entity):
             """
 
             _prefix = 'tunnel-vpdn-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vpdn.Templates.Template, self).__init__()
@@ -509,8 +494,7 @@ class Vpdn(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['template_name']
-                self._child_container_classes = OrderedDict([("caller-id", ("caller_id", Vpdn.Templates.Template.CallerId)), ("vpn", ("vpn", Vpdn.Templates.Template.Vpn)), ("tunnel", ("tunnel", Vpdn.Templates.Template.Tunnel)), ("ip", ("ip", Vpdn.Templates.Template.Ip)), ("ipv4", ("ipv4", Vpdn.Templates.Template.Ipv4))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("caller-id", ("caller_id", Vpdn.Templates.Template.CallerId)), ("vpn", ("vpn", Vpdn.Templates.Template.Vpn)), ("tunnel", ("tunnel", Vpdn.Templates.Template.Tunnel)), ("ip", ("ip", Vpdn.Templates.Template.Ip)), ("ipv4", ("ipv4", Vpdn.Templates.Template.Ipv4))])
                 self._leafs = OrderedDict([
                     ('template_name', YLeaf(YType.str, 'template-name')),
                     ('cisco_avp100_format_e_enable', YLeaf(YType.empty, 'cisco-avp100-format-e-enable')),
@@ -527,27 +511,22 @@ class Vpdn(Entity):
                 self.caller_id = Vpdn.Templates.Template.CallerId()
                 self.caller_id.parent = self
                 self._children_name_map["caller_id"] = "caller-id"
-                self._children_yang_names.add("caller-id")
 
                 self.vpn = Vpdn.Templates.Template.Vpn()
                 self.vpn.parent = self
                 self._children_name_map["vpn"] = "vpn"
-                self._children_yang_names.add("vpn")
 
                 self.tunnel = Vpdn.Templates.Template.Tunnel()
                 self.tunnel.parent = self
                 self._children_name_map["tunnel"] = "tunnel"
-                self._children_yang_names.add("tunnel")
 
                 self.ip = Vpdn.Templates.Template.Ip()
                 self.ip.parent = self
                 self._children_name_map["ip"] = "ip"
-                self._children_yang_names.add("ip")
 
                 self.ipv4 = Vpdn.Templates.Template.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
                 self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/%s" % self._segment_path()
 
@@ -571,7 +550,7 @@ class Vpdn(Entity):
                 """
 
                 _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vpdn.Templates.Template.CallerId, self).__init__()
@@ -581,8 +560,7 @@ class Vpdn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('mask', YLeaf(YType.str, 'mask')),
                     ])
@@ -614,7 +592,7 @@ class Vpdn(Entity):
                 """
 
                 _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vpdn.Templates.Template.Vpn, self).__init__()
@@ -624,8 +602,7 @@ class Vpdn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("id", ("id", Vpdn.Templates.Template.Vpn.Id))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("id", ("id", Vpdn.Templates.Template.Vpn.Id))])
                     self._leafs = OrderedDict([
                         ('vrf', YLeaf(YType.str, 'vrf')),
                     ])
@@ -634,7 +611,6 @@ class Vpdn(Entity):
                     self.id = Vpdn.Templates.Template.Vpn.Id()
                     self.id.parent = self
                     self._children_name_map["id"] = "id"
-                    self._children_yang_names.add("id")
                     self._segment_path = lambda: "vpn"
 
                 def __setattr__(self, name, value):
@@ -664,7 +640,7 @@ class Vpdn(Entity):
                     """
 
                     _prefix = 'tunnel-vpdn-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vpdn.Templates.Template.Vpn.Id, self).__init__()
@@ -674,8 +650,7 @@ class Vpdn(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('oui', YLeaf(YType.str, 'oui')),
                             ('index', YLeaf(YType.str, 'index')),
@@ -706,7 +681,7 @@ class Vpdn(Entity):
                 """
 
                 _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vpdn.Templates.Template.Tunnel, self).__init__()
@@ -716,8 +691,7 @@ class Vpdn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('busy_timeout', YLeaf(YType.uint32, 'busy-timeout')),
                     ])
@@ -737,14 +711,14 @@ class Vpdn(Entity):
                 	Set constant integer
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 
 
                 """
 
                 _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vpdn.Templates.Template.Ip, self).__init__()
@@ -754,10 +728,9 @@ class Vpdn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('tos', YLeaf(YType.int32, 'tos')),
+                        ('tos', YLeaf(YType.uint32, 'tos')),
                     ])
                     self.tos = None
                     self._segment_path = lambda: "ip"
@@ -787,7 +760,7 @@ class Vpdn(Entity):
                 """
 
                 _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vpdn.Templates.Template.Ipv4, self).__init__()
@@ -797,8 +770,7 @@ class Vpdn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('df_bit', YLeaf(YType.enumeration, 'df-bit')),
                         ('source', YLeaf(YType.str, 'source')),
@@ -827,7 +799,7 @@ class Vpdn(Entity):
         """
 
         _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vpdn.CallerId, self).__init__()
@@ -837,8 +809,7 @@ class Vpdn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mask', YLeaf(YType.str, 'mask')),
             ])
@@ -864,7 +835,7 @@ class Vpdn(Entity):
         """
 
         _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vpdn.VpdNgroups, self).__init__()
@@ -874,8 +845,7 @@ class Vpdn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vpd-ngroup", ("vpd_ngroup", Vpdn.VpdNgroups.VpdNgroup))])
+            self._child_classes = OrderedDict([("vpd-ngroup", ("vpd_ngroup", Vpdn.VpdNgroups.VpdNgroup))])
             self._leafs = OrderedDict()
 
             self.vpd_ngroup = YList(self)
@@ -964,7 +934,7 @@ class Vpdn(Entity):
             """
 
             _prefix = 'tunnel-vpdn-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vpdn.VpdNgroups.VpdNgroup, self).__init__()
@@ -974,8 +944,7 @@ class Vpdn(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vpd_ngroupname']
-                self._child_container_classes = OrderedDict([("vpn-id", ("vpn_id", Vpdn.VpdNgroups.VpdNgroup.VpnId)), ("ip", ("ip", Vpdn.VpdNgroups.VpdNgroup.Ip))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("vpn-id", ("vpn_id", Vpdn.VpdNgroups.VpdNgroup.VpnId)), ("ip", ("ip", Vpdn.VpdNgroups.VpdNgroup.Ip))])
                 self._leafs = OrderedDict([
                     ('vpd_ngroupname', YLeaf(YType.str, 'vpd-ngroupname')),
                     ('dsl_line_forwarding', YLeaf(YType.empty, 'dsl-line-forwarding')),
@@ -1000,12 +969,10 @@ class Vpdn(Entity):
                 self.vpn_id = Vpdn.VpdNgroups.VpdNgroup.VpnId()
                 self.vpn_id.parent = self
                 self._children_name_map["vpn_id"] = "vpn-id"
-                self._children_yang_names.add("vpn-id")
 
                 self.ip = Vpdn.VpdNgroups.VpdNgroup.Ip()
                 self.ip.parent = self
                 self._children_name_map["ip"] = "ip"
-                self._children_yang_names.add("ip")
                 self._segment_path = lambda: "vpd-ngroup" + "[vpd-ngroupname='" + str(self.vpd_ngroupname) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/vpd-ngroups/%s" % self._segment_path()
 
@@ -1036,7 +1003,7 @@ class Vpdn(Entity):
                 """
 
                 _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vpdn.VpdNgroups.VpdNgroup.VpnId, self).__init__()
@@ -1046,8 +1013,7 @@ class Vpdn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('vpn_id_oui', YLeaf(YType.str, 'vpn-id-oui')),
                         ('vpn_id_index', YLeaf(YType.str, 'vpn-id-index')),
@@ -1076,7 +1042,7 @@ class Vpdn(Entity):
                 """
 
                 _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vpdn.VpdNgroups.VpdNgroup.Ip, self).__init__()
@@ -1086,8 +1052,7 @@ class Vpdn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('tos', YLeaf(YType.uint32, 'tos')),
                     ])
@@ -1112,7 +1077,7 @@ class Vpdn(Entity):
         """
 
         _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vpdn.Loggings, self).__init__()
@@ -1122,8 +1087,7 @@ class Vpdn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("logging", ("logging", Vpdn.Loggings.Logging))])
+            self._child_classes = OrderedDict([("logging", ("logging", Vpdn.Loggings.Logging))])
             self._leafs = OrderedDict()
 
             self.logging = YList(self)
@@ -1148,7 +1112,7 @@ class Vpdn(Entity):
             """
 
             _prefix = 'tunnel-vpdn-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vpdn.Loggings.Logging, self).__init__()
@@ -1158,8 +1122,7 @@ class Vpdn(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['option']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('option', YLeaf(YType.enumeration, 'option')),
                 ])
@@ -1171,14 +1134,14 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.Loggings.Logging, ['option'], name, value)
 
 
-    class L2Tp(Entity):
+    class L2tp(Entity):
         """
         L2TPv2 protocol commands
         
         .. attribute:: session_id
         
         	Session ID commands
-        	**type**\:  :py:class:`SessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId>`
+        	**type**\:  :py:class:`SessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2tp.SessionId>`
         
         .. attribute:: tcp_mss_adjust
         
@@ -1197,18 +1160,17 @@ class Vpdn(Entity):
         """
 
         _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.L2Tp, self).__init__()
+            super(Vpdn.L2tp, self).__init__()
 
             self.yang_name = "l2tp"
             self.yang_parent_name = "vpdn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("session-id", ("session_id", Vpdn.L2Tp.SessionId))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("session-id", ("session_id", Vpdn.L2tp.SessionId))])
             self._leafs = OrderedDict([
                 ('tcp_mss_adjust', YLeaf(YType.uint32, 'tcp-mss-adjust')),
                 ('reassembly', YLeaf(YType.empty, 'reassembly')),
@@ -1216,15 +1178,14 @@ class Vpdn(Entity):
             self.tcp_mss_adjust = None
             self.reassembly = None
 
-            self.session_id = Vpdn.L2Tp.SessionId()
+            self.session_id = Vpdn.L2tp.SessionId()
             self.session_id.parent = self
             self._children_name_map["session_id"] = "session-id"
-            self._children_yang_names.add("session-id")
             self._segment_path = lambda: "l2tp"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.L2Tp, ['tcp_mss_adjust', 'reassembly'], name, value)
+            self._perform_setattr(Vpdn.L2tp, ['tcp_mss_adjust', 'reassembly'], name, value)
 
 
         class SessionId(Entity):
@@ -1234,33 +1195,34 @@ class Vpdn(Entity):
             .. attribute:: space
             
             	Session ID space commands
-            	**type**\:  :py:class:`Space <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId.Space>`
+            	**type**\:  :py:class:`Space <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2tp.SessionId.Space>`
             
             
 
             """
 
             _prefix = 'tunnel-vpdn-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vpdn.L2Tp.SessionId, self).__init__()
+                super(Vpdn.L2tp.SessionId, self).__init__()
 
                 self.yang_name = "session-id"
                 self.yang_parent_name = "l2tp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("space", ("space", Vpdn.L2Tp.SessionId.Space))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("space", ("space", Vpdn.L2tp.SessionId.Space))])
                 self._leafs = OrderedDict()
 
-                self.space = Vpdn.L2Tp.SessionId.Space()
+                self.space = Vpdn.L2tp.SessionId.Space()
                 self.space.parent = self
                 self._children_name_map["space"] = "space"
-                self._children_yang_names.add("space")
                 self._segment_path = lambda: "session-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vpdn.L2tp.SessionId, [], name, value)
 
 
             class Space(Entity):
@@ -1277,18 +1239,17 @@ class Vpdn(Entity):
                 """
 
                 _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.L2Tp.SessionId.Space, self).__init__()
+                    super(Vpdn.L2tp.SessionId.Space, self).__init__()
 
                     self.yang_name = "space"
                     self.yang_parent_name = "session-id"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('hierarchy', YLeaf(YType.empty, 'hierarchy')),
                     ])
@@ -1297,7 +1258,7 @@ class Vpdn(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/session-id/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.L2Tp.SessionId.Space, ['hierarchy'], name, value)
+                    self._perform_setattr(Vpdn.L2tp.SessionId.Space, ['hierarchy'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vpdn()

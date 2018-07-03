@@ -41,37 +41,37 @@ class CISCOIETFPWMIB(Entity):
     .. attribute:: cpwvcobjects
     
     	
-    	**type**\:  :py:class:`Cpwvcobjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcobjects>`
+    	**type**\:  :py:class:`CpwVcObjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcObjects>`
     
     .. attribute:: cpwvctable
     
     	This table specifies information for connecting various  emulated services to various tunnel type
-    	**type**\:  :py:class:`Cpwvctable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable>`
+    	**type**\:  :py:class:`CpwVcTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable>`
     
     .. attribute:: cpwvcperfcurrenttable
     
     	This table provides per\-VC performance information for the   current interval
-    	**type**\:  :py:class:`Cpwvcperfcurrenttable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcperfcurrenttable>`
+    	**type**\:  :py:class:`CpwVcPerfCurrentTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfCurrentTable>`
     
     .. attribute:: cpwvcperfintervaltable
     
     	This table provides per\-VC performance information for   each interval
-    	**type**\:  :py:class:`Cpwvcperfintervaltable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcperfintervaltable>`
+    	**type**\:  :py:class:`CpwVcPerfIntervalTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfIntervalTable>`
     
     .. attribute:: cpwvcperftotaltable
     
     	This table provides per\-VC Performance information from VC   start time
-    	**type**\:  :py:class:`Cpwvcperftotaltable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcperftotaltable>`
+    	**type**\:  :py:class:`CpwVcPerfTotalTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfTotalTable>`
     
     .. attribute:: cpwvcidmappingtable
     
     	This table provides reverse mapping of the existing VCs   based on vc type and VC ID ordering. This table is   typically useful for EMS ordered query of existing VCs
-    	**type**\:  :py:class:`Cpwvcidmappingtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcidmappingtable>`
+    	**type**\:  :py:class:`CpwVcIdMappingTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcIdMappingTable>`
     
     .. attribute:: cpwvcpeermappingtable
     
     	This table provides reverse mapping of the existing VCs   based on vc type and VC ID ordering. This table is   typically useful for EMS ordered query of existing VCs
-    	**type**\:  :py:class:`Cpwvcpeermappingtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcpeermappingtable>`
+    	**type**\:  :py:class:`CpwVcPeerMappingTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPeerMappingTable>`
     
     
 
@@ -89,48 +89,43 @@ class CISCOIETFPWMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpwVcObjects", ("cpwvcobjects", CISCOIETFPWMIB.Cpwvcobjects)), ("cpwVcTable", ("cpwvctable", CISCOIETFPWMIB.Cpwvctable)), ("cpwVcPerfCurrentTable", ("cpwvcperfcurrenttable", CISCOIETFPWMIB.Cpwvcperfcurrenttable)), ("cpwVcPerfIntervalTable", ("cpwvcperfintervaltable", CISCOIETFPWMIB.Cpwvcperfintervaltable)), ("cpwVcPerfTotalTable", ("cpwvcperftotaltable", CISCOIETFPWMIB.Cpwvcperftotaltable)), ("cpwVcIdMappingTable", ("cpwvcidmappingtable", CISCOIETFPWMIB.Cpwvcidmappingtable)), ("cpwVcPeerMappingTable", ("cpwvcpeermappingtable", CISCOIETFPWMIB.Cpwvcpeermappingtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpwVcObjects", ("cpwvcobjects", CISCOIETFPWMIB.CpwVcObjects)), ("cpwVcTable", ("cpwvctable", CISCOIETFPWMIB.CpwVcTable)), ("cpwVcPerfCurrentTable", ("cpwvcperfcurrenttable", CISCOIETFPWMIB.CpwVcPerfCurrentTable)), ("cpwVcPerfIntervalTable", ("cpwvcperfintervaltable", CISCOIETFPWMIB.CpwVcPerfIntervalTable)), ("cpwVcPerfTotalTable", ("cpwvcperftotaltable", CISCOIETFPWMIB.CpwVcPerfTotalTable)), ("cpwVcIdMappingTable", ("cpwvcidmappingtable", CISCOIETFPWMIB.CpwVcIdMappingTable)), ("cpwVcPeerMappingTable", ("cpwvcpeermappingtable", CISCOIETFPWMIB.CpwVcPeerMappingTable))])
         self._leafs = OrderedDict()
 
-        self.cpwvcobjects = CISCOIETFPWMIB.Cpwvcobjects()
+        self.cpwvcobjects = CISCOIETFPWMIB.CpwVcObjects()
         self.cpwvcobjects.parent = self
         self._children_name_map["cpwvcobjects"] = "cpwVcObjects"
-        self._children_yang_names.add("cpwVcObjects")
 
-        self.cpwvctable = CISCOIETFPWMIB.Cpwvctable()
+        self.cpwvctable = CISCOIETFPWMIB.CpwVcTable()
         self.cpwvctable.parent = self
         self._children_name_map["cpwvctable"] = "cpwVcTable"
-        self._children_yang_names.add("cpwVcTable")
 
-        self.cpwvcperfcurrenttable = CISCOIETFPWMIB.Cpwvcperfcurrenttable()
+        self.cpwvcperfcurrenttable = CISCOIETFPWMIB.CpwVcPerfCurrentTable()
         self.cpwvcperfcurrenttable.parent = self
         self._children_name_map["cpwvcperfcurrenttable"] = "cpwVcPerfCurrentTable"
-        self._children_yang_names.add("cpwVcPerfCurrentTable")
 
-        self.cpwvcperfintervaltable = CISCOIETFPWMIB.Cpwvcperfintervaltable()
+        self.cpwvcperfintervaltable = CISCOIETFPWMIB.CpwVcPerfIntervalTable()
         self.cpwvcperfintervaltable.parent = self
         self._children_name_map["cpwvcperfintervaltable"] = "cpwVcPerfIntervalTable"
-        self._children_yang_names.add("cpwVcPerfIntervalTable")
 
-        self.cpwvcperftotaltable = CISCOIETFPWMIB.Cpwvcperftotaltable()
+        self.cpwvcperftotaltable = CISCOIETFPWMIB.CpwVcPerfTotalTable()
         self.cpwvcperftotaltable.parent = self
         self._children_name_map["cpwvcperftotaltable"] = "cpwVcPerfTotalTable"
-        self._children_yang_names.add("cpwVcPerfTotalTable")
 
-        self.cpwvcidmappingtable = CISCOIETFPWMIB.Cpwvcidmappingtable()
+        self.cpwvcidmappingtable = CISCOIETFPWMIB.CpwVcIdMappingTable()
         self.cpwvcidmappingtable.parent = self
         self._children_name_map["cpwvcidmappingtable"] = "cpwVcIdMappingTable"
-        self._children_yang_names.add("cpwVcIdMappingTable")
 
-        self.cpwvcpeermappingtable = CISCOIETFPWMIB.Cpwvcpeermappingtable()
+        self.cpwvcpeermappingtable = CISCOIETFPWMIB.CpwVcPeerMappingTable()
         self.cpwvcpeermappingtable.parent = self
         self._children_name_map["cpwvcpeermappingtable"] = "cpwVcPeerMappingTable"
-        self._children_yang_names.add("cpwVcPeerMappingTable")
         self._segment_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIETFPWMIB, [], name, value)
 
-    class Cpwvcobjects(Entity):
+
+    class CpwVcObjects(Entity):
         """
         
         
@@ -168,15 +163,14 @@ class CISCOIETFPWMIB(Entity):
         _revision = '2004-03-17'
 
         def __init__(self):
-            super(CISCOIETFPWMIB.Cpwvcobjects, self).__init__()
+            super(CISCOIETFPWMIB.CpwVcObjects, self).__init__()
 
             self.yang_name = "cpwVcObjects"
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpwvcindexnext', YLeaf(YType.uint32, 'cpwVcIndexNext')),
                 ('cpwvcperftotalerrorpackets', YLeaf(YType.uint64, 'cpwVcPerfTotalErrorPackets')),
@@ -191,10 +185,10 @@ class CISCOIETFPWMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMIB.Cpwvcobjects, ['cpwvcindexnext', 'cpwvcperftotalerrorpackets', 'cpwvcupdownnotifenable', 'cpwvcnotifrate'], name, value)
+            self._perform_setattr(CISCOIETFPWMIB.CpwVcObjects, [u'cpwvcindexnext', u'cpwvcperftotalerrorpackets', u'cpwvcupdownnotifenable', u'cpwvcnotifrate'], name, value)
 
 
-    class Cpwvctable(Entity):
+    class CpwVcTable(Entity):
         """
         This table specifies information for connecting various 
         emulated services to various tunnel type.
@@ -202,7 +196,7 @@ class CISCOIETFPWMIB(Entity):
         .. attribute:: cpwvcentry
         
         	A row in this table represents an emulated virtual  connection (VC) across a packet network. It is indexed by  cpwVcIndex, which uniquely identifying a singular   connection. 
-        	**type**\: list of  		 :py:class:`Cpwvcentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+        	**type**\: list of  		 :py:class:`CpwVcEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
         
         
 
@@ -212,15 +206,14 @@ class CISCOIETFPWMIB(Entity):
         _revision = '2004-03-17'
 
         def __init__(self):
-            super(CISCOIETFPWMIB.Cpwvctable, self).__init__()
+            super(CISCOIETFPWMIB.CpwVcTable, self).__init__()
 
             self.yang_name = "cpwVcTable"
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcEntry", ("cpwvcentry", CISCOIETFPWMIB.Cpwvctable.Cpwvcentry))])
+            self._child_classes = OrderedDict([("cpwVcEntry", ("cpwvcentry", CISCOIETFPWMIB.CpwVcTable.CpwVcEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcentry = YList(self)
@@ -228,10 +221,10 @@ class CISCOIETFPWMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMIB.Cpwvctable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMIB.CpwVcTable, [], name, value)
 
 
-        class Cpwvcentry(Entity):
+        class CpwVcEntry(Entity):
             """
             A row in this table represents an emulated virtual 
             connection (VC) across a packet network. It is indexed by 
@@ -253,12 +246,12 @@ class CISCOIETFPWMIB(Entity):
             .. attribute:: cpwvcowner
             
             	Set by the operator to indicate the protocol responsible   for establishing this VC. Value 'manual' is used in all  cases where no maintenance protocol (PW signaling) is used   to set\-up the VC, i.e. require configuration of entries in  the VC tables including VC labels, etc. The value   'maintenanceProtocol' is used in case of standard  signaling of the VC for the specific PSN, for example LDP  for MPLS PSN as specified in <draft\- draft\-martini\-  l2circuit\-trans\-mpls> or L2TP control protocol.   Value 'other' is used for other types of signaling
-            	**type**\:  :py:class:`Cpwvcowner <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry.Cpwvcowner>`
+            	**type**\:  :py:class:`CpwVcOwner <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcOwner>`
             
             .. attribute:: cpwvcpsntype
             
             	Set by the operator to indicate the PSN type on which this   VC will be carried. Based on this object, the relevant PSN   table entries are created in the in the PSN specific MIB   modules. For example, if mpls(1) is defined, the agent   create an entry in cpwVcMplsTable, which further define the   MPLS PSN configuration.  Note\: the exact set of PSN types is yet to be worked   out by the WG. 
-            	**type**\:  :py:class:`Cpwvcpsntype <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry.Cpwvcpsntype>`
+            	**type**\:  :py:class:`CpwVcPsnType <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcPsnType>`
             
             .. attribute:: cpwvcsetuppriority
             
@@ -277,7 +270,7 @@ class CISCOIETFPWMIB(Entity):
             .. attribute:: cpwvcinboundmode
             
             	This object is used to enable greater security for   implementation that use per platform VC label space. In   strict mode, packets coming from the PSN are accepted only   from tunnels that are associated to the same VC via the   inbound tunnel table in the case of MPLS, or as identified   by the source IP address in case of L2TP or IP PSN. The   entries in the inbound tunnel table are either explicitly   configured or implicitly known by the maintenance protocol   used for VC set\-up.   If such association is not known, not configured or not   desired, loose mode should be configured, and the node   should accept the packet based on the VC label only   regardless of the outer tunnel used to carry the VC
-            	**type**\:  :py:class:`Cpwvcinboundmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry.Cpwvcinboundmode>`
+            	**type**\:  :py:class:`CpwVcInboundMode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcInboundMode>`
             
             .. attribute:: cpwvcpeeraddrtype
             
@@ -332,7 +325,7 @@ class CISCOIETFPWMIB(Entity):
             .. attribute:: cpwvcremotecontrolword
             
             	If maintenance protocol is used for VC establishment, this   parameter indicates the received status of the control word   usage, i.e. if packets will be received with control word  or not. The value of 'notYetKnown' is used while the  maintenance protocol has not yet received the indication   from the remote node.  In manual configuration of the VC this parameters indicate   to the local node what is the expected encapsulation for  the received packets. 
-            	**type**\:  :py:class:`Cpwvcremotecontrolword <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry.Cpwvcremotecontrolword>`
+            	**type**\:  :py:class:`CpwVcRemoteControlWord <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcRemoteControlWord>`
             
             .. attribute:: cpwvcremoteifmtu
             
@@ -389,7 +382,7 @@ class CISCOIETFPWMIB(Entity):
             .. attribute:: cpwvcadminstatus
             
             	The desired operational status of this VC
-            	**type**\:  :py:class:`Cpwvcadminstatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry.Cpwvcadminstatus>`
+            	**type**\:  :py:class:`CpwVcAdminStatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcAdminStatus>`
             
             .. attribute:: cpwvcoperstatus
             
@@ -438,15 +431,14 @@ class CISCOIETFPWMIB(Entity):
             _revision = '2004-03-17'
 
             def __init__(self):
-                super(CISCOIETFPWMIB.Cpwvctable.Cpwvcentry, self).__init__()
+                super(CISCOIETFPWMIB.CpwVcTable.CpwVcEntry, self).__init__()
 
                 self.yang_name = "cpwVcEntry"
                 self.yang_parent_name = "cpwVcTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.uint32, 'cpwVcIndex')),
                     ('cpwvctype', YLeaf(YType.enumeration, 'cpwVcType')),
@@ -517,11 +509,11 @@ class CISCOIETFPWMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.Cpwvctable.Cpwvcentry, ['cpwvcindex', 'cpwvctype', 'cpwvcowner', 'cpwvcpsntype', 'cpwvcsetuppriority', 'cpwvcholdingpriority', 'cpwvcinboundmode', 'cpwvcpeeraddrtype', 'cpwvcpeeraddr', 'cpwvcid', 'cpwvclocalgroupid', 'cpwvccontrolword', 'cpwvclocalifmtu', 'cpwvclocalifstring', 'cpwvcremotegroupid', 'cpwvcremotecontrolword', 'cpwvcremoteifmtu', 'cpwvcremoteifstring', 'cpwvcoutboundvclabel', 'cpwvcinboundvclabel', 'cpwvcname', 'cpwvcdescr', 'cpwvccreatetime', 'cpwvcuptime', 'cpwvcadminstatus', 'cpwvcoperstatus', 'cpwvcinboundoperstatus', 'cpwvcoutboundoperstatus', 'cpwvctimeelapsed', 'cpwvcvalidintervals', 'cpwvcrowstatus', 'cpwvcstoragetype'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcTable.CpwVcEntry, [u'cpwvcindex', u'cpwvctype', u'cpwvcowner', u'cpwvcpsntype', u'cpwvcsetuppriority', u'cpwvcholdingpriority', u'cpwvcinboundmode', u'cpwvcpeeraddrtype', u'cpwvcpeeraddr', u'cpwvcid', u'cpwvclocalgroupid', u'cpwvccontrolword', u'cpwvclocalifmtu', u'cpwvclocalifstring', u'cpwvcremotegroupid', u'cpwvcremotecontrolword', u'cpwvcremoteifmtu', u'cpwvcremoteifstring', u'cpwvcoutboundvclabel', u'cpwvcinboundvclabel', u'cpwvcname', u'cpwvcdescr', u'cpwvccreatetime', u'cpwvcuptime', u'cpwvcadminstatus', u'cpwvcoperstatus', u'cpwvcinboundoperstatus', u'cpwvcoutboundoperstatus', u'cpwvctimeelapsed', u'cpwvcvalidintervals', u'cpwvcrowstatus', u'cpwvcstoragetype'], name, value)
 
-            class Cpwvcadminstatus(Enum):
+            class CpwVcAdminStatus(Enum):
                 """
-                Cpwvcadminstatus (Enum Class)
+                CpwVcAdminStatus (Enum Class)
 
                 The desired operational status of this VC.
 
@@ -540,9 +532,9 @@ class CISCOIETFPWMIB(Entity):
                 testing = Enum.YLeaf(3, "testing")
 
 
-            class Cpwvcinboundmode(Enum):
+            class CpwVcInboundMode(Enum):
                 """
-                Cpwvcinboundmode (Enum Class)
+                CpwVcInboundMode (Enum Class)
 
                 This object is used to enable greater security for  
 
@@ -581,9 +573,9 @@ class CISCOIETFPWMIB(Entity):
                 strict = Enum.YLeaf(2, "strict")
 
 
-            class Cpwvcowner(Enum):
+            class CpwVcOwner(Enum):
                 """
-                Cpwvcowner (Enum Class)
+                CpwVcOwner (Enum Class)
 
                 Set by the operator to indicate the protocol responsible  
 
@@ -620,9 +612,9 @@ class CISCOIETFPWMIB(Entity):
                 other = Enum.YLeaf(3, "other")
 
 
-            class Cpwvcpsntype(Enum):
+            class CpwVcPsnType(Enum):
                 """
-                Cpwvcpsntype (Enum Class)
+                CpwVcPsnType (Enum Class)
 
                 Set by the operator to indicate the PSN type on which this  
 
@@ -667,9 +659,9 @@ class CISCOIETFPWMIB(Entity):
                 other = Enum.YLeaf(6, "other")
 
 
-            class Cpwvcremotecontrolword(Enum):
+            class CpwVcRemoteControlWord(Enum):
                 """
-                Cpwvcremotecontrolword (Enum Class)
+                CpwVcRemoteControlWord (Enum Class)
 
                 If maintenance protocol is used for VC establishment, this  
 
@@ -705,7 +697,7 @@ class CISCOIETFPWMIB(Entity):
 
 
 
-    class Cpwvcperfcurrenttable(Entity):
+    class CpwVcPerfCurrentTable(Entity):
         """
         This table provides per\-VC performance information for the  
         current interval.
@@ -713,7 +705,7 @@ class CISCOIETFPWMIB(Entity):
         .. attribute:: cpwvcperfcurrententry
         
         	An entry in this table is created by the agent for  every VC
-        	**type**\: list of  		 :py:class:`Cpwvcperfcurrententry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcperfcurrenttable.Cpwvcperfcurrententry>`
+        	**type**\: list of  		 :py:class:`CpwVcPerfCurrentEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry>`
         
         
 
@@ -723,15 +715,14 @@ class CISCOIETFPWMIB(Entity):
         _revision = '2004-03-17'
 
         def __init__(self):
-            super(CISCOIETFPWMIB.Cpwvcperfcurrenttable, self).__init__()
+            super(CISCOIETFPWMIB.CpwVcPerfCurrentTable, self).__init__()
 
             self.yang_name = "cpwVcPerfCurrentTable"
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcPerfCurrentEntry", ("cpwvcperfcurrententry", CISCOIETFPWMIB.Cpwvcperfcurrenttable.Cpwvcperfcurrententry))])
+            self._child_classes = OrderedDict([("cpwVcPerfCurrentEntry", ("cpwvcperfcurrententry", CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcperfcurrententry = YList(self)
@@ -739,10 +730,10 @@ class CISCOIETFPWMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMIB.Cpwvcperfcurrenttable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfCurrentTable, [], name, value)
 
 
-        class Cpwvcperfcurrententry(Entity):
+        class CpwVcPerfCurrentEntry(Entity):
             """
             An entry in this table is created by the agent for 
             every VC.
@@ -754,7 +745,7 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcperfcurrentinhcpackets
             
@@ -792,15 +783,14 @@ class CISCOIETFPWMIB(Entity):
             _revision = '2004-03-17'
 
             def __init__(self):
-                super(CISCOIETFPWMIB.Cpwvcperfcurrenttable.Cpwvcperfcurrententry, self).__init__()
+                super(CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry, self).__init__()
 
                 self.yang_name = "cpwVcPerfCurrentEntry"
                 self.yang_parent_name = "cpwVcPerfCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcperfcurrentinhcpackets', YLeaf(YType.uint64, 'cpwVcPerfCurrentInHCPackets')),
@@ -817,10 +807,10 @@ class CISCOIETFPWMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.Cpwvcperfcurrenttable.Cpwvcperfcurrententry, ['cpwvcindex', 'cpwvcperfcurrentinhcpackets', 'cpwvcperfcurrentinhcbytes', 'cpwvcperfcurrentouthcpackets', 'cpwvcperfcurrentouthcbytes'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry, [u'cpwvcindex', u'cpwvcperfcurrentinhcpackets', u'cpwvcperfcurrentinhcbytes', u'cpwvcperfcurrentouthcpackets', u'cpwvcperfcurrentouthcbytes'], name, value)
 
 
-    class Cpwvcperfintervaltable(Entity):
+    class CpwVcPerfIntervalTable(Entity):
         """
         This table provides per\-VC performance information for  
         each interval.
@@ -828,7 +818,7 @@ class CISCOIETFPWMIB(Entity):
         .. attribute:: cpwvcperfintervalentry
         
         	An entry in this table is created agent for every VC
-        	**type**\: list of  		 :py:class:`Cpwvcperfintervalentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcperfintervaltable.Cpwvcperfintervalentry>`
+        	**type**\: list of  		 :py:class:`CpwVcPerfIntervalEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry>`
         
         
 
@@ -838,15 +828,14 @@ class CISCOIETFPWMIB(Entity):
         _revision = '2004-03-17'
 
         def __init__(self):
-            super(CISCOIETFPWMIB.Cpwvcperfintervaltable, self).__init__()
+            super(CISCOIETFPWMIB.CpwVcPerfIntervalTable, self).__init__()
 
             self.yang_name = "cpwVcPerfIntervalTable"
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcPerfIntervalEntry", ("cpwvcperfintervalentry", CISCOIETFPWMIB.Cpwvcperfintervaltable.Cpwvcperfintervalentry))])
+            self._child_classes = OrderedDict([("cpwVcPerfIntervalEntry", ("cpwvcperfintervalentry", CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcperfintervalentry = YList(self)
@@ -854,10 +843,10 @@ class CISCOIETFPWMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMIB.Cpwvcperfintervaltable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfIntervalTable, [], name, value)
 
 
-        class Cpwvcperfintervalentry(Entity):
+        class CpwVcPerfIntervalEntry(Entity):
             """
             An entry in this table is created agent for every VC.
             
@@ -868,7 +857,7 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcperfintervalnumber  (key)
             
@@ -925,15 +914,14 @@ class CISCOIETFPWMIB(Entity):
             _revision = '2004-03-17'
 
             def __init__(self):
-                super(CISCOIETFPWMIB.Cpwvcperfintervaltable.Cpwvcperfintervalentry, self).__init__()
+                super(CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry, self).__init__()
 
                 self.yang_name = "cpwVcPerfIntervalEntry"
                 self.yang_parent_name = "cpwVcPerfIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex','cpwvcperfintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcperfintervalnumber', YLeaf(YType.int32, 'cpwVcPerfIntervalNumber')),
@@ -956,10 +944,10 @@ class CISCOIETFPWMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.Cpwvcperfintervaltable.Cpwvcperfintervalentry, ['cpwvcindex', 'cpwvcperfintervalnumber', 'cpwvcperfintervalvaliddata', 'cpwvcperfintervaltimeelapsed', 'cpwvcperfintervalinhcpackets', 'cpwvcperfintervalinhcbytes', 'cpwvcperfintervalouthcpackets', 'cpwvcperfintervalouthcbytes'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry, [u'cpwvcindex', u'cpwvcperfintervalnumber', u'cpwvcperfintervalvaliddata', u'cpwvcperfintervaltimeelapsed', u'cpwvcperfintervalinhcpackets', u'cpwvcperfintervalinhcbytes', u'cpwvcperfintervalouthcpackets', u'cpwvcperfintervalouthcbytes'], name, value)
 
 
-    class Cpwvcperftotaltable(Entity):
+    class CpwVcPerfTotalTable(Entity):
         """
         This table provides per\-VC Performance information from VC  
         start time.
@@ -967,7 +955,7 @@ class CISCOIETFPWMIB(Entity):
         .. attribute:: cpwvcperftotalentry
         
         	An entry in this table is created agent for every VC
-        	**type**\: list of  		 :py:class:`Cpwvcperftotalentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcperftotaltable.Cpwvcperftotalentry>`
+        	**type**\: list of  		 :py:class:`CpwVcPerfTotalEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry>`
         
         
 
@@ -977,15 +965,14 @@ class CISCOIETFPWMIB(Entity):
         _revision = '2004-03-17'
 
         def __init__(self):
-            super(CISCOIETFPWMIB.Cpwvcperftotaltable, self).__init__()
+            super(CISCOIETFPWMIB.CpwVcPerfTotalTable, self).__init__()
 
             self.yang_name = "cpwVcPerfTotalTable"
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcPerfTotalEntry", ("cpwvcperftotalentry", CISCOIETFPWMIB.Cpwvcperftotaltable.Cpwvcperftotalentry))])
+            self._child_classes = OrderedDict([("cpwVcPerfTotalEntry", ("cpwvcperftotalentry", CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcperftotalentry = YList(self)
@@ -993,10 +980,10 @@ class CISCOIETFPWMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMIB.Cpwvcperftotaltable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfTotalTable, [], name, value)
 
 
-        class Cpwvcperftotalentry(Entity):
+        class CpwVcPerfTotalEntry(Entity):
             """
             An entry in this table is created agent for every VC.
             
@@ -1007,7 +994,7 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcperftotalinhcpackets
             
@@ -1052,15 +1039,14 @@ class CISCOIETFPWMIB(Entity):
             _revision = '2004-03-17'
 
             def __init__(self):
-                super(CISCOIETFPWMIB.Cpwvcperftotaltable.Cpwvcperftotalentry, self).__init__()
+                super(CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry, self).__init__()
 
                 self.yang_name = "cpwVcPerfTotalEntry"
                 self.yang_parent_name = "cpwVcPerfTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcperftotalinhcpackets', YLeaf(YType.uint64, 'cpwVcPerfTotalInHCPackets')),
@@ -1079,10 +1065,10 @@ class CISCOIETFPWMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.Cpwvcperftotaltable.Cpwvcperftotalentry, ['cpwvcindex', 'cpwvcperftotalinhcpackets', 'cpwvcperftotalinhcbytes', 'cpwvcperftotalouthcpackets', 'cpwvcperftotalouthcbytes', 'cpwvcperftotaldiscontinuitytime'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry, [u'cpwvcindex', u'cpwvcperftotalinhcpackets', u'cpwvcperftotalinhcbytes', u'cpwvcperftotalouthcpackets', u'cpwvcperftotalouthcbytes', u'cpwvcperftotaldiscontinuitytime'], name, value)
 
 
-    class Cpwvcidmappingtable(Entity):
+    class CpwVcIdMappingTable(Entity):
         """
         This table provides reverse mapping of the existing VCs  
         based on vc type and VC ID ordering. This table is  
@@ -1091,7 +1077,7 @@ class CISCOIETFPWMIB(Entity):
         .. attribute:: cpwvcidmappingentry
         
         	An entry in this table is created by the agent for every   VC configured by the cpwVcTable
-        	**type**\: list of  		 :py:class:`Cpwvcidmappingentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcidmappingtable.Cpwvcidmappingentry>`
+        	**type**\: list of  		 :py:class:`CpwVcIdMappingEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry>`
         
         
 
@@ -1101,15 +1087,14 @@ class CISCOIETFPWMIB(Entity):
         _revision = '2004-03-17'
 
         def __init__(self):
-            super(CISCOIETFPWMIB.Cpwvcidmappingtable, self).__init__()
+            super(CISCOIETFPWMIB.CpwVcIdMappingTable, self).__init__()
 
             self.yang_name = "cpwVcIdMappingTable"
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcIdMappingEntry", ("cpwvcidmappingentry", CISCOIETFPWMIB.Cpwvcidmappingtable.Cpwvcidmappingentry))])
+            self._child_classes = OrderedDict([("cpwVcIdMappingEntry", ("cpwvcidmappingentry", CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcidmappingentry = YList(self)
@@ -1117,10 +1102,10 @@ class CISCOIETFPWMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMIB.Cpwvcidmappingtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMIB.CpwVcIdMappingTable, [], name, value)
 
 
-        class Cpwvcidmappingentry(Entity):
+        class CpwVcIdMappingEntry(Entity):
             """
             An entry in this table is created by the agent for every  
             VC configured by the cpwVcTable.
@@ -1164,15 +1149,14 @@ class CISCOIETFPWMIB(Entity):
             _revision = '2004-03-17'
 
             def __init__(self):
-                super(CISCOIETFPWMIB.Cpwvcidmappingtable.Cpwvcidmappingentry, self).__init__()
+                super(CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry, self).__init__()
 
                 self.yang_name = "cpwVcIdMappingEntry"
                 self.yang_parent_name = "cpwVcIdMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcidmappingvctype','cpwvcidmappingvcid','cpwvcidmappingpeeraddrtype','cpwvcidmappingpeeraddr','cpwvcidmappingvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcidmappingvctype', YLeaf(YType.enumeration, 'cpwVcIdMappingVcType')),
                     ('cpwvcidmappingvcid', YLeaf(YType.uint32, 'cpwVcIdMappingVcID')),
@@ -1189,10 +1173,10 @@ class CISCOIETFPWMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcIdMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.Cpwvcidmappingtable.Cpwvcidmappingentry, ['cpwvcidmappingvctype', 'cpwvcidmappingvcid', 'cpwvcidmappingpeeraddrtype', 'cpwvcidmappingpeeraddr', 'cpwvcidmappingvcindex'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry, [u'cpwvcidmappingvctype', u'cpwvcidmappingvcid', u'cpwvcidmappingpeeraddrtype', u'cpwvcidmappingpeeraddr', u'cpwvcidmappingvcindex'], name, value)
 
 
-    class Cpwvcpeermappingtable(Entity):
+    class CpwVcPeerMappingTable(Entity):
         """
         This table provides reverse mapping of the existing VCs  
         based on vc type and VC ID ordering. This table is  
@@ -1201,7 +1185,7 @@ class CISCOIETFPWMIB(Entity):
         .. attribute:: cpwvcpeermappingentry
         
         	An entry in this table is created by the agent for every   VC configured in cpwVcTable
-        	**type**\: list of  		 :py:class:`Cpwvcpeermappingentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvcpeermappingtable.Cpwvcpeermappingentry>`
+        	**type**\: list of  		 :py:class:`CpwVcPeerMappingEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry>`
         
         
 
@@ -1211,15 +1195,14 @@ class CISCOIETFPWMIB(Entity):
         _revision = '2004-03-17'
 
         def __init__(self):
-            super(CISCOIETFPWMIB.Cpwvcpeermappingtable, self).__init__()
+            super(CISCOIETFPWMIB.CpwVcPeerMappingTable, self).__init__()
 
             self.yang_name = "cpwVcPeerMappingTable"
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcPeerMappingEntry", ("cpwvcpeermappingentry", CISCOIETFPWMIB.Cpwvcpeermappingtable.Cpwvcpeermappingentry))])
+            self._child_classes = OrderedDict([("cpwVcPeerMappingEntry", ("cpwvcpeermappingentry", CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcpeermappingentry = YList(self)
@@ -1227,10 +1210,10 @@ class CISCOIETFPWMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMIB.Cpwvcpeermappingtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMIB.CpwVcPeerMappingTable, [], name, value)
 
 
-        class Cpwvcpeermappingentry(Entity):
+        class CpwVcPeerMappingEntry(Entity):
             """
             An entry in this table is created by the agent for every  
             VC configured in cpwVcTable.
@@ -1274,15 +1257,14 @@ class CISCOIETFPWMIB(Entity):
             _revision = '2004-03-17'
 
             def __init__(self):
-                super(CISCOIETFPWMIB.Cpwvcpeermappingtable.Cpwvcpeermappingentry, self).__init__()
+                super(CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry, self).__init__()
 
                 self.yang_name = "cpwVcPeerMappingEntry"
                 self.yang_parent_name = "cpwVcPeerMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcpeermappingpeeraddrtype','cpwvcpeermappingpeeraddr','cpwvcpeermappingvctype','cpwvcpeermappingvcid','cpwvcpeermappingvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcpeermappingpeeraddrtype', YLeaf(YType.enumeration, 'cpwVcPeerMappingPeerAddrType')),
                     ('cpwvcpeermappingpeeraddr', YLeaf(YType.str, 'cpwVcPeerMappingPeerAddr')),
@@ -1299,7 +1281,7 @@ class CISCOIETFPWMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPeerMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.Cpwvcpeermappingtable.Cpwvcpeermappingentry, ['cpwvcpeermappingpeeraddrtype', 'cpwvcpeermappingpeeraddr', 'cpwvcpeermappingvctype', 'cpwvcpeermappingvcid', 'cpwvcpeermappingvcindex'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry, [u'cpwvcpeermappingpeeraddrtype', u'cpwvcpeermappingpeeraddr', u'cpwvcpeermappingvctype', u'cpwvcpeermappingvcid', u'cpwvcpeermappingvcindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIETFPWMIB()

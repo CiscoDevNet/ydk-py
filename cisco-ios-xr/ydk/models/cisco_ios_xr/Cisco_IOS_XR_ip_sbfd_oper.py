@@ -82,7 +82,7 @@ class Sbfd(Entity):
     """
 
     _prefix = 'ip-sbfd-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Sbfd, self).__init__()
@@ -93,15 +93,16 @@ class Sbfd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("target-identifier", ("target_identifier", Sbfd.TargetIdentifier))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("target-identifier", ("target_identifier", Sbfd.TargetIdentifier))])
         self._leafs = OrderedDict()
 
         self.target_identifier = Sbfd.TargetIdentifier()
         self.target_identifier.parent = self
         self._children_name_map["target_identifier"] = "target-identifier"
-        self._children_yang_names.add("target-identifier")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Sbfd, [], name, value)
 
 
     class TargetIdentifier(Entity):
@@ -123,7 +124,7 @@ class Sbfd(Entity):
         """
 
         _prefix = 'ip-sbfd-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Sbfd.TargetIdentifier, self).__init__()
@@ -133,21 +134,21 @@ class Sbfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("remote-vrfs", ("remote_vrfs", Sbfd.TargetIdentifier.RemoteVrfs)), ("local-vrfs", ("local_vrfs", Sbfd.TargetIdentifier.LocalVrfs))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("remote-vrfs", ("remote_vrfs", Sbfd.TargetIdentifier.RemoteVrfs)), ("local-vrfs", ("local_vrfs", Sbfd.TargetIdentifier.LocalVrfs))])
             self._leafs = OrderedDict()
 
             self.remote_vrfs = Sbfd.TargetIdentifier.RemoteVrfs()
             self.remote_vrfs.parent = self
             self._children_name_map["remote_vrfs"] = "remote-vrfs"
-            self._children_yang_names.add("remote-vrfs")
 
             self.local_vrfs = Sbfd.TargetIdentifier.LocalVrfs()
             self.local_vrfs.parent = self
             self._children_name_map["local_vrfs"] = "local-vrfs"
-            self._children_yang_names.add("local-vrfs")
             self._segment_path = lambda: "target-identifier"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Sbfd.TargetIdentifier, [], name, value)
 
 
         class RemoteVrfs(Entity):
@@ -164,7 +165,7 @@ class Sbfd(Entity):
             """
 
             _prefix = 'ip-sbfd-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Sbfd.TargetIdentifier.RemoteVrfs, self).__init__()
@@ -174,8 +175,7 @@ class Sbfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("remote-vrf", ("remote_vrf", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf))])
+                self._child_classes = OrderedDict([("remote-vrf", ("remote_vrf", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf))])
                 self._leafs = OrderedDict()
 
                 self.remote_vrf = YList(self)
@@ -207,7 +207,7 @@ class Sbfd(Entity):
                 """
 
                 _prefix = 'ip-sbfd-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf, self).__init__()
@@ -217,8 +217,7 @@ class Sbfd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("remote-discriminator", ("remote_discriminator", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator))])
+                    self._child_classes = OrderedDict([("remote-discriminator", ("remote_discriminator", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ])
@@ -248,7 +247,7 @@ class Sbfd(Entity):
                     	Remote Discriminator
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: address
                     
@@ -300,7 +299,7 @@ class Sbfd(Entity):
                     """
 
                     _prefix = 'ip-sbfd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, self).__init__()
@@ -310,11 +309,10 @@ class Sbfd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("ip-address", ("ip_address", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("ip-address", ("ip_address", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress))])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('remote_discriminator', YLeaf(YType.int32, 'remote-discriminator')),
+                            ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
                             ('address', YLeaf(YType.str, 'address')),
                             ('tid_type', YLeaf(YType.enumeration, 'tid-type')),
                             ('discr', YLeaf(YType.uint32, 'discr')),
@@ -334,7 +332,6 @@ class Sbfd(Entity):
                         self.ip_address = Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress()
                         self.ip_address.parent = self
                         self._children_name_map["ip_address"] = "ip-address"
-                        self._children_yang_names.add("ip-address")
                         self._segment_path = lambda: "remote-discriminator"
 
                     def __setattr__(self, name, value):
@@ -376,7 +373,7 @@ class Sbfd(Entity):
                         """
 
                         _prefix = 'ip-sbfd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, self).__init__()
@@ -386,8 +383,7 @@ class Sbfd(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('afi', YLeaf(YType.enumeration, 'afi')),
                                 ('dummy', YLeaf(YType.uint8, 'dummy')),
@@ -418,7 +414,7 @@ class Sbfd(Entity):
             """
 
             _prefix = 'ip-sbfd-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Sbfd.TargetIdentifier.LocalVrfs, self).__init__()
@@ -428,8 +424,7 @@ class Sbfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("local-vrf", ("local_vrf", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf))])
+                self._child_classes = OrderedDict([("local-vrf", ("local_vrf", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf))])
                 self._leafs = OrderedDict()
 
                 self.local_vrf = YList(self)
@@ -461,7 +456,7 @@ class Sbfd(Entity):
                 """
 
                 _prefix = 'ip-sbfd-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, self).__init__()
@@ -471,8 +466,7 @@ class Sbfd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("local-discriminator", ("local_discriminator", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator))])
+                    self._child_classes = OrderedDict([("local-discriminator", ("local_discriminator", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ])
@@ -495,7 +489,7 @@ class Sbfd(Entity):
                     	Local discriminator
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: vrf_name
                     
@@ -536,7 +530,7 @@ class Sbfd(Entity):
                     """
 
                     _prefix = 'ip-sbfd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, self).__init__()
@@ -546,10 +540,9 @@ class Sbfd(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('local_discriminator', YLeaf(YType.int32, 'local-discriminator')),
+                            ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('discr', YLeaf(YType.uint32, 'discr')),
                             ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),

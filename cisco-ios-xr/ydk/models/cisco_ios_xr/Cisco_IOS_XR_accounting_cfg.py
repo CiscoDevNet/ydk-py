@@ -50,8 +50,7 @@ class Accounting(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Accounting.Interfaces))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("interfaces", ("interfaces", Accounting.Interfaces))])
         self._leafs = OrderedDict([
             ('enable', YLeaf(YType.empty, 'enable')),
         ])
@@ -60,7 +59,6 @@ class Accounting(Entity):
         self.interfaces = Accounting.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
         self._segment_path = lambda: "Cisco-IOS-XR-accounting-cfg:accounting"
 
     def __setattr__(self, name, value):
@@ -101,8 +99,7 @@ class Accounting(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("mpls", ("mpls", Accounting.Interfaces.Mpls)), ("segment-routing", ("segment_routing", Accounting.Interfaces.SegmentRouting))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("mpls", ("mpls", Accounting.Interfaces.Mpls)), ("segment-routing", ("segment_routing", Accounting.Interfaces.SegmentRouting))])
             self._leafs = OrderedDict([
                 ('enable', YLeaf(YType.empty, 'enable')),
             ])
@@ -111,12 +108,10 @@ class Accounting(Entity):
             self.mpls = Accounting.Interfaces.Mpls()
             self.mpls.parent = self
             self._children_name_map["mpls"] = "mpls"
-            self._children_yang_names.add("mpls")
 
             self.segment_routing = Accounting.Interfaces.SegmentRouting()
             self.segment_routing.parent = self
             self._children_name_map["segment_routing"] = "segment-routing"
-            self._children_yang_names.add("segment-routing")
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-accounting-cfg:accounting/%s" % self._segment_path()
 
@@ -153,8 +148,7 @@ class Accounting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('enable', YLeaf(YType.empty, 'enable')),
                     ('enable_v4rsvpte', YLeaf(YType.empty, 'enable-v4rsvpte')),
@@ -202,8 +196,7 @@ class Accounting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('enable', YLeaf(YType.empty, 'enable')),
                     ('enable_mplsv4', YLeaf(YType.empty, 'enable-mplsv4')),

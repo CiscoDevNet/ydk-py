@@ -367,7 +367,7 @@ class SessionRedundancyManager(Entity):
     """
 
     _prefix = 'infra-serg-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(SessionRedundancyManager, self).__init__()
@@ -378,25 +378,24 @@ class SessionRedundancyManager(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", SessionRedundancyManager.Interfaces)), ("groups", ("groups", SessionRedundancyManager.Groups)), ("summary", ("summary", SessionRedundancyManager.Summary))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("interfaces", ("interfaces", SessionRedundancyManager.Interfaces)), ("groups", ("groups", SessionRedundancyManager.Groups)), ("summary", ("summary", SessionRedundancyManager.Summary))])
         self._leafs = OrderedDict()
 
         self.interfaces = SessionRedundancyManager.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.groups = SessionRedundancyManager.Groups()
         self.groups.parent = self
         self._children_name_map["groups"] = "groups"
-        self._children_yang_names.add("groups")
 
         self.summary = SessionRedundancyManager.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SessionRedundancyManager, [], name, value)
 
 
     class Interfaces(Entity):
@@ -413,7 +412,7 @@ class SessionRedundancyManager(Entity):
         """
 
         _prefix = 'infra-serg-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(SessionRedundancyManager.Interfaces, self).__init__()
@@ -423,8 +422,7 @@ class SessionRedundancyManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", SessionRedundancyManager.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", SessionRedundancyManager.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -480,7 +478,7 @@ class SessionRedundancyManager(Entity):
             """
 
             _prefix = 'infra-serg-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(SessionRedundancyManager.Interfaces.Interface, self).__init__()
@@ -490,8 +488,7 @@ class SessionRedundancyManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface', YLeaf(YType.str, 'interface')),
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -510,7 +507,7 @@ class SessionRedundancyManager(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SessionRedundancyManager.Interfaces.Interface, ['interface', 'interface_name', 'interface_mapping_id', 'forward_referenced', 'group_id', 'role'], name, value)
+                self._perform_setattr(SessionRedundancyManager.Interfaces.Interface, ['interface', u'interface_name', u'interface_mapping_id', u'forward_referenced', u'group_id', u'role'], name, value)
 
 
     class Groups(Entity):
@@ -527,7 +524,7 @@ class SessionRedundancyManager(Entity):
         """
 
         _prefix = 'infra-serg-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(SessionRedundancyManager.Groups, self).__init__()
@@ -537,8 +534,7 @@ class SessionRedundancyManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("group", ("group", SessionRedundancyManager.Groups.Group))])
+            self._child_classes = OrderedDict([("group", ("group", SessionRedundancyManager.Groups.Group))])
             self._leafs = OrderedDict()
 
             self.group = YList(self)
@@ -628,7 +624,7 @@ class SessionRedundancyManager(Entity):
             """
 
             _prefix = 'infra-serg-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(SessionRedundancyManager.Groups.Group, self).__init__()
@@ -638,8 +634,7 @@ class SessionRedundancyManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['group']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('group', YLeaf(YType.str, 'group')),
                     ('group_id', YLeaf(YType.uint32, 'group-id')),
@@ -670,7 +665,7 @@ class SessionRedundancyManager(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SessionRedundancyManager.Groups.Group, ['group', 'group_id', 'description', 'disabled', 'role', 'peer_ipv4_address', 'peer_ipv6_address', 'interface_count', 'preferred_role', 'slave_mode', 'object_tracking_status', 'node_name'], name, value)
+                self._perform_setattr(SessionRedundancyManager.Groups.Group, ['group', u'group_id', u'description', u'disabled', u'role', u'peer_ipv4_address', u'peer_ipv6_address', u'interface_count', u'preferred_role', u'slave_mode', u'object_tracking_status', u'node_name'], name, value)
 
 
     class Summary(Entity):
@@ -782,7 +777,7 @@ class SessionRedundancyManager(Entity):
         """
 
         _prefix = 'infra-serg-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(SessionRedundancyManager.Summary, self).__init__()
@@ -792,8 +787,7 @@ class SessionRedundancyManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('disabled', YLeaf(YType.boolean, 'disabled')),
                 ('active_state', YLeaf(YType.boolean, 'active-state')),
@@ -832,7 +826,7 @@ class SessionRedundancyManager(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SessionRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count'], name, value)
+            self._perform_setattr(SessionRedundancyManager.Summary, [u'disabled', u'active_state', u'preferred_role', u'slave_mode', u'hold_timer', u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'group_count', u'disabled_group_count', u'master_group_count', u'slave_group_count', u'interface_count', u'master_interface_count', u'slave_interface_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SessionRedundancyManager()
@@ -852,7 +846,7 @@ class SessionRedundancyAgent(Entity):
     """
 
     _prefix = 'infra-serg-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(SessionRedundancyAgent, self).__init__()
@@ -863,15 +857,16 @@ class SessionRedundancyAgent(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", SessionRedundancyAgent.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", SessionRedundancyAgent.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = SessionRedundancyAgent.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SessionRedundancyAgent, [], name, value)
 
 
     class Nodes(Entity):
@@ -889,7 +884,7 @@ class SessionRedundancyAgent(Entity):
         """
 
         _prefix = 'infra-serg-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(SessionRedundancyAgent.Nodes, self).__init__()
@@ -899,8 +894,7 @@ class SessionRedundancyAgent(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", SessionRedundancyAgent.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", SessionRedundancyAgent.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -962,7 +956,7 @@ class SessionRedundancyAgent(Entity):
             """
 
             _prefix = 'infra-serg-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(SessionRedundancyAgent.Nodes.Node, self).__init__()
@@ -972,8 +966,7 @@ class SessionRedundancyAgent(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("group-id-xr", ("group_id_xr", SessionRedundancyAgent.Nodes.Node.GroupIdXr)), ("client-ids", ("client_ids", SessionRedundancyAgent.Nodes.Node.ClientIds)), ("memory", ("memory", SessionRedundancyAgent.Nodes.Node.Memory)), ("group-ids", ("group_ids", SessionRedundancyAgent.Nodes.Node.GroupIds)), ("interfaces", ("interfaces", SessionRedundancyAgent.Nodes.Node.Interfaces)), ("stats-global", ("stats_global", SessionRedundancyAgent.Nodes.Node.StatsGlobal)), ("group-summaries", ("group_summaries", SessionRedundancyAgent.Nodes.Node.GroupSummaries))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("group-id-xr", ("group_id_xr", SessionRedundancyAgent.Nodes.Node.GroupIdXr)), ("client-ids", ("client_ids", SessionRedundancyAgent.Nodes.Node.ClientIds)), ("memory", ("memory", SessionRedundancyAgent.Nodes.Node.Memory)), ("group-ids", ("group_ids", SessionRedundancyAgent.Nodes.Node.GroupIds)), ("interfaces", ("interfaces", SessionRedundancyAgent.Nodes.Node.Interfaces)), ("stats-global", ("stats_global", SessionRedundancyAgent.Nodes.Node.StatsGlobal)), ("group-summaries", ("group_summaries", SessionRedundancyAgent.Nodes.Node.GroupSummaries))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -982,37 +975,30 @@ class SessionRedundancyAgent(Entity):
                 self.group_id_xr = SessionRedundancyAgent.Nodes.Node.GroupIdXr()
                 self.group_id_xr.parent = self
                 self._children_name_map["group_id_xr"] = "group-id-xr"
-                self._children_yang_names.add("group-id-xr")
 
                 self.client_ids = SessionRedundancyAgent.Nodes.Node.ClientIds()
                 self.client_ids.parent = self
                 self._children_name_map["client_ids"] = "client-ids"
-                self._children_yang_names.add("client-ids")
 
                 self.memory = SessionRedundancyAgent.Nodes.Node.Memory()
                 self.memory.parent = self
                 self._children_name_map["memory"] = "memory"
-                self._children_yang_names.add("memory")
 
                 self.group_ids = SessionRedundancyAgent.Nodes.Node.GroupIds()
                 self.group_ids.parent = self
                 self._children_name_map["group_ids"] = "group-ids"
-                self._children_yang_names.add("group-ids")
 
                 self.interfaces = SessionRedundancyAgent.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.stats_global = SessionRedundancyAgent.Nodes.Node.StatsGlobal()
                 self.stats_global.parent = self
                 self._children_name_map["stats_global"] = "stats-global"
-                self._children_yang_names.add("stats-global")
 
                 self.group_summaries = SessionRedundancyAgent.Nodes.Node.GroupSummaries()
                 self.group_summaries.parent = self
                 self._children_name_map["group_summaries"] = "group-summaries"
-                self._children_yang_names.add("group-summaries")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/%s" % self._segment_path()
 
@@ -1034,7 +1020,7 @@ class SessionRedundancyAgent(Entity):
                 """
 
                 _prefix = 'infra-serg-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SessionRedundancyAgent.Nodes.Node.GroupIdXr, self).__init__()
@@ -1044,8 +1030,7 @@ class SessionRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("group-id", ("group_id", SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId))])
+                    self._child_classes = OrderedDict([("group-id", ("group_id", SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId))])
                     self._leafs = OrderedDict()
 
                     self.group_id = YList(self)
@@ -1108,7 +1093,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, self).__init__()
@@ -1118,8 +1103,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("session-detailed-information", ("session_detailed_information", SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation)), ("session-sync-error-information", ("session_sync_error_information", SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation))])
+                        self._child_classes = OrderedDict([("session-detailed-information", ("session_detailed_information", SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation)), ("session-sync-error-information", ("session_sync_error_information", SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation))])
                         self._leafs = OrderedDict([
                             ('group_id', YLeaf(YType.str, 'group-id')),
                             ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
@@ -1140,7 +1124,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', 'group_id_xr', 'interface_name', 'key_index', 'role_master', 'negative_acknowledgement_update_all'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', u'group_id_xr', u'interface_name', u'key_index', u'role_master', u'negative_acknowledgement_update_all'], name, value)
 
 
                     class SessionDetailedInformation(Entity):
@@ -1177,7 +1161,7 @@ class SessionRedundancyAgent(Entity):
                         """
 
                         _prefix = 'infra-serg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, self).__init__()
@@ -1187,8 +1171,7 @@ class SessionRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('component', YLeaf(YType.enumeration, 'component')),
                                 ('operation_', YLeaf(YType.enumeration, 'operation')),
@@ -1204,7 +1187,7 @@ class SessionRedundancyAgent(Entity):
                             self._segment_path = lambda: "session-detailed-information"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, ['component', 'operation_', 'tx_list_queue_fail', 'marked_for_sweeping', 'marked_for_cleanup'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, [u'component', u'operation_', u'tx_list_queue_fail', u'marked_for_sweeping', u'marked_for_cleanup'], name, value)
 
 
                     class SessionSyncErrorInformation(Entity):
@@ -1235,7 +1218,7 @@ class SessionRedundancyAgent(Entity):
                         """
 
                         _prefix = 'infra-serg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, self).__init__()
@@ -1245,8 +1228,7 @@ class SessionRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sync_error_count', YLeaf(YType.uint16, 'sync-error-count')),
                                 ('last_error_code', YLeaf(YType.uint32, 'last-error-code')),
@@ -1258,7 +1240,7 @@ class SessionRedundancyAgent(Entity):
                             self._segment_path = lambda: "session-sync-error-information"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, ['sync_error_count', 'last_error_code', 'last_error_type'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, [u'sync_error_count', u'last_error_code', u'last_error_type'], name, value)
 
 
             class ClientIds(Entity):
@@ -1275,7 +1257,7 @@ class SessionRedundancyAgent(Entity):
                 """
 
                 _prefix = 'infra-serg-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SessionRedundancyAgent.Nodes.Node.ClientIds, self).__init__()
@@ -1285,8 +1267,7 @@ class SessionRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("client-id", ("client_id", SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId))])
+                    self._child_classes = OrderedDict([("client-id", ("client_id", SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId))])
                     self._leafs = OrderedDict()
 
                     self.client_id = YList(self)
@@ -1305,7 +1286,7 @@ class SessionRedundancyAgent(Entity):
                     	Client Id
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_start_of_download_add_ok
                     
@@ -1641,7 +1622,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, self).__init__()
@@ -1651,10 +1632,9 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['stats_client_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('stats_client_id', YLeaf(YType.int32, 'stats-client-id')),
+                            ('stats_client_id', YLeaf(YType.uint32, 'stats-client-id')),
                             ('tx_list_start_of_download_add_ok', YLeaf(YType.uint32, 'tx-list-start-of-download-add-ok')),
                             ('tx_list_start_of_download_add_not_ok', YLeaf(YType.uint32, 'tx-list-start-of-download-add-not-ok')),
                             ('tx_list_end_of_download_add_ok', YLeaf(YType.uint32, 'tx-list-end-of-download-add-ok')),
@@ -1754,7 +1734,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "client-id" + "[stats-client-id='" + str(self.stats_client_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, ['stats_client_id', 'tx_list_start_of_download_add_ok', 'tx_list_start_of_download_add_not_ok', 'tx_list_end_of_download_add_ok', 'tx_list_end_of_download_add_not_ok', 'tx_list_end_of_message_add_ok', 'tx_list_end_of_message_add_not_ok', 'tx_list_clear_all_add_ok', 'tx_list_clear_all_add_not_ok', 'tx_list_clear_selected_add_ok', 'tx_list_clear_selected_add_not_ok', 'tx_list_replay_all_add_ok', 'tx_list_replay_all_add_not_ok', 'tx_list_replay_selected_add_ok', 'tx_list_replay_selected_add_not_ok', 'tx_list_session_session_add_ok', 'tx_list_session_session_add_not_ok', 'tx_list_session_session_update_ok', 'tx_list_session_session_update_not_ok', 'tx_list_session_session_delete', 'clean_call_back', 'tx_list_encode_session_session_ok', 'tx_list_encode_session_session_partial_write', 'last_replay_all_count', 'tx_list_receive_command_replay_all', 'tx_list_receive_command_replay_selected', 'tx_list_receive_session_session_delete_valid', 'tx_list_receive_session_session_delete_invalid', 'tx_list_receive_session_session_update_valid', 'tx_list_receive_session_session_update_invalid', 'tx_list_receive_session_session_sod_all', 'tx_list_receive_session_session_sod_selected', 'tx_list_receive_session_session_eod_all', 'tx_list_receive_session_session_eod_selected', 'tx_list_receive_session_session_eoms', 'tx_list_receive_session_session_clear_all', 'tx_list_receive_session_session_clear_selected', 'tx_list_receive_session_session_neg_ack', 'tx_list_receive_session_session_neg_ack_not_ok', 'tx_list_client_registration_ok', 'tx_list_client_registration_not_ok', 'tx_list_client_de_registration', 'tx_list_client_connection_down', 'tx_list_client_cleanup', 'tx_list_active_ok', 'tx_list_active_not_ok', 'tx_list_de_active_ok', 'tx_list_de_active_not_ok'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, ['stats_client_id', u'tx_list_start_of_download_add_ok', u'tx_list_start_of_download_add_not_ok', u'tx_list_end_of_download_add_ok', u'tx_list_end_of_download_add_not_ok', u'tx_list_end_of_message_add_ok', u'tx_list_end_of_message_add_not_ok', u'tx_list_clear_all_add_ok', u'tx_list_clear_all_add_not_ok', u'tx_list_clear_selected_add_ok', u'tx_list_clear_selected_add_not_ok', u'tx_list_replay_all_add_ok', u'tx_list_replay_all_add_not_ok', u'tx_list_replay_selected_add_ok', u'tx_list_replay_selected_add_not_ok', u'tx_list_session_session_add_ok', u'tx_list_session_session_add_not_ok', u'tx_list_session_session_update_ok', u'tx_list_session_session_update_not_ok', u'tx_list_session_session_delete', u'clean_call_back', u'tx_list_encode_session_session_ok', u'tx_list_encode_session_session_partial_write', u'last_replay_all_count', u'tx_list_receive_command_replay_all', u'tx_list_receive_command_replay_selected', u'tx_list_receive_session_session_delete_valid', u'tx_list_receive_session_session_delete_invalid', u'tx_list_receive_session_session_update_valid', u'tx_list_receive_session_session_update_invalid', u'tx_list_receive_session_session_sod_all', u'tx_list_receive_session_session_sod_selected', u'tx_list_receive_session_session_eod_all', u'tx_list_receive_session_session_eod_selected', u'tx_list_receive_session_session_eoms', u'tx_list_receive_session_session_clear_all', u'tx_list_receive_session_session_clear_selected', u'tx_list_receive_session_session_neg_ack', u'tx_list_receive_session_session_neg_ack_not_ok', u'tx_list_client_registration_ok', u'tx_list_client_registration_not_ok', u'tx_list_client_de_registration', u'tx_list_client_connection_down', u'tx_list_client_cleanup', u'tx_list_active_ok', u'tx_list_active_not_ok', u'tx_list_de_active_ok', u'tx_list_de_active_not_ok'], name, value)
 
 
             class Memory(Entity):
@@ -1781,7 +1761,7 @@ class SessionRedundancyAgent(Entity):
                 """
 
                 _prefix = 'infra-serg-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SessionRedundancyAgent.Nodes.Node.Memory, self).__init__()
@@ -1791,8 +1771,7 @@ class SessionRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("memory-info", ("memory_info", SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo)), ("edm-memory-info", ("edm_memory_info", SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo)), ("string-memory-info", ("string_memory_info", SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo))])
+                    self._child_classes = OrderedDict([("memory-info", ("memory_info", SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo)), ("edm-memory-info", ("edm_memory_info", SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo)), ("string-memory-info", ("string_memory_info", SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo))])
                     self._leafs = OrderedDict()
 
                     self.memory_info = YList(self)
@@ -1858,7 +1837,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, self).__init__()
@@ -1868,8 +1847,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('structure_name', YLeaf(YType.str, 'structure-name')),
                             ('size', YLeaf(YType.uint32, 'size')),
@@ -1889,7 +1867,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "memory-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, ['structure_name', 'size', 'current_count', 'alloc_fails', 'alloc_count', 'freed_count', 'memory_type'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, [u'structure_name', u'size', u'current_count', u'alloc_fails', u'alloc_count', u'freed_count', u'memory_type'], name, value)
 
 
                 class EdmMemoryInfo(Entity):
@@ -1929,7 +1907,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, self).__init__()
@@ -1939,8 +1917,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('size', YLeaf(YType.uint32, 'size')),
                             ('total', YLeaf(YType.uint32, 'total')),
@@ -1954,7 +1931,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "edm-memory-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, [u'size', u'total', u'success', u'failure'], name, value)
 
 
                 class StringMemoryInfo(Entity):
@@ -1994,7 +1971,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, self).__init__()
@@ -2004,8 +1981,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('size', YLeaf(YType.uint32, 'size')),
                             ('total', YLeaf(YType.uint32, 'total')),
@@ -2019,7 +1995,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "string-memory-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, [u'size', u'total', u'success', u'failure'], name, value)
 
 
             class GroupIds(Entity):
@@ -2036,7 +2012,7 @@ class SessionRedundancyAgent(Entity):
                 """
 
                 _prefix = 'infra-serg-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SessionRedundancyAgent.Nodes.Node.GroupIds, self).__init__()
@@ -2046,8 +2022,7 @@ class SessionRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("group-id", ("group_id", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId))])
+                    self._child_classes = OrderedDict([("group-id", ("group_id", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId))])
                     self._leafs = OrderedDict()
 
                     self.group_id = YList(self)
@@ -2283,7 +2258,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, self).__init__()
@@ -2293,8 +2268,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("client-session-count", ("client_session_count", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount)), ("interface", ("interface", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface))])
+                        self._child_classes = OrderedDict([("client-session-count", ("client_session_count", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount)), ("interface", ("interface", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface))])
                         self._leafs = OrderedDict([
                             ('group_id', YLeaf(YType.str, 'group-id')),
                             ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
@@ -2373,7 +2347,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time', 'peer_last_up_time', 'peer_last_down_time', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', u'group_id_xr', u'description', u'disabled', u'init_role', u'negotiating_role', u'current_role', u'slave_mode', u'hold_timer', u'core_tracking_object_name', u'core_tracking_object_status', u'access_tracking_object_name', u'access_tracking_object_status', u'object_tracking_status', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'peer_last_negotiation_time', u'peer_last_up_time', u'peer_last_down_time', u'peer_init_role', u'peer_negotiating_role', u'peer_current_role', u'peer_object_tracking_status', u'last_switchover_time', u'switchover_count', u'last_switchover_reason', u'switchover_hold_time', u'session_count', u'slave_update_failure_count', u'pending_session_update_count', u'pending_session_delete_count', u'interface_count', u'revertive_timer', u'switchover_revert_time'], name, value)
 
 
                     class ClientSessionCount(Entity):
@@ -2397,7 +2371,7 @@ class SessionRedundancyAgent(Entity):
                         """
 
                         _prefix = 'infra-serg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, self).__init__()
@@ -2407,8 +2381,7 @@ class SessionRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('component', YLeaf(YType.enumeration, 'component')),
                                 ('session_count', YLeaf(YType.uint32, 'session-count')),
@@ -2418,7 +2391,7 @@ class SessionRedundancyAgent(Entity):
                             self._segment_path = lambda: "client-session-count"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, ['component', 'session_count'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, [u'component', u'session_count'], name, value)
 
 
                     class Interface(Entity):
@@ -2454,7 +2427,7 @@ class SessionRedundancyAgent(Entity):
                         """
 
                         _prefix = 'infra-serg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, self).__init__()
@@ -2464,8 +2437,7 @@ class SessionRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('interface_synchronization_id', YLeaf(YType.uint32, 'interface-synchronization-id')),
@@ -2479,7 +2451,7 @@ class SessionRedundancyAgent(Entity):
                             self._segment_path = lambda: "interface"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, ['interface_name', 'interface_synchronization_id', 'forward_referenced', 'session_count'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, [u'interface_name', u'interface_synchronization_id', u'forward_referenced', u'session_count'], name, value)
 
 
             class Interfaces(Entity):
@@ -2496,7 +2468,7 @@ class SessionRedundancyAgent(Entity):
                 """
 
                 _prefix = 'infra-serg-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SessionRedundancyAgent.Nodes.Node.Interfaces, self).__init__()
@@ -2506,8 +2478,7 @@ class SessionRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -2619,7 +2590,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, self).__init__()
@@ -2629,8 +2600,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface']
-                        self._child_container_classes = OrderedDict([("interface-oper", ("interface_oper", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper)), ("interface-status", ("interface_status", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus))])
-                        self._child_list_classes = OrderedDict([("client-status", ("client_status", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus))])
+                        self._child_classes = OrderedDict([("interface-oper", ("interface_oper", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper)), ("interface-status", ("interface_status", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus)), ("client-status", ("client_status", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus))])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -2661,18 +2631,16 @@ class SessionRedundancyAgent(Entity):
                         self.interface_oper = SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper()
                         self.interface_oper.parent = self
                         self._children_name_map["interface_oper"] = "interface-oper"
-                        self._children_yang_names.add("interface-oper")
 
                         self.interface_status = SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus()
                         self.interface_status.parent = self
                         self._children_name_map["interface_status"] = "interface-status"
-                        self._children_yang_names.add("interface-status")
 
                         self.client_status = YList(self)
                         self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', 'interface_name', 'interface_synchronization_id', 'group_id', 'role', 'forward_referenced', 'session_count', 'interface_enable_error_count', 'interface_disable_error_count', 'interface_caps_add_error_count', 'interface_caps_remove_error_count', 'interface_attribute_update_error_count'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', u'interface_name', u'interface_synchronization_id', u'group_id', u'role', u'forward_referenced', u'session_count', u'interface_enable_error_count', u'interface_disable_error_count', u'interface_caps_add_error_count', u'interface_caps_remove_error_count', u'interface_attribute_update_error_count'], name, value)
 
 
                     class InterfaceOper(Entity):
@@ -2709,7 +2677,7 @@ class SessionRedundancyAgent(Entity):
                         """
 
                         _prefix = 'infra-serg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, self).__init__()
@@ -2719,8 +2687,7 @@ class SessionRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('idb_oper_reg_enable', YLeaf(YType.boolean, 'idb-oper-reg-enable')),
                                 ('idb_oper_reg_disable', YLeaf(YType.boolean, 'idb-oper-reg-disable')),
@@ -2736,7 +2703,7 @@ class SessionRedundancyAgent(Entity):
                             self._segment_path = lambda: "interface-oper"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, ['idb_oper_reg_enable', 'idb_oper_reg_disable', 'idb_oper_caps_add', 'idb_oper_caps_remove', 'idb_oper_attr_update'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, [u'idb_oper_reg_enable', u'idb_oper_reg_disable', u'idb_oper_caps_add', u'idb_oper_caps_remove', u'idb_oper_attr_update'], name, value)
 
 
                     class InterfaceStatus(Entity):
@@ -2788,7 +2755,7 @@ class SessionRedundancyAgent(Entity):
                         """
 
                         _prefix = 'infra-serg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, self).__init__()
@@ -2798,8 +2765,7 @@ class SessionRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('idb_state_fwd_ref', YLeaf(YType.boolean, 'idb-state-fwd-ref')),
                                 ('idb_state_stale', YLeaf(YType.boolean, 'idb-state-stale')),
@@ -2821,7 +2787,7 @@ class SessionRedundancyAgent(Entity):
                             self._segment_path = lambda: "interface-status"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, ['idb_state_fwd_ref', 'idb_state_stale', 'idb_state_registered', 'idb_state_caps_added', 'idb_state_owned_re_source', 'idb_client_eoms_pending', 'idb_state_p_end_caps_rem', 'idb_state_p_end_reg_disable'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, [u'idb_state_fwd_ref', u'idb_state_stale', u'idb_state_registered', u'idb_state_caps_added', u'idb_state_owned_re_source', u'idb_client_eoms_pending', u'idb_state_p_end_caps_rem', u'idb_state_p_end_reg_disable'], name, value)
 
 
                     class ClientStatus(Entity):
@@ -2855,7 +2821,7 @@ class SessionRedundancyAgent(Entity):
                         """
 
                         _prefix = 'infra-serg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, self).__init__()
@@ -2865,8 +2831,7 @@ class SessionRedundancyAgent(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('component', YLeaf(YType.enumeration, 'component')),
                                 ('serg_show_idb_client_eoms_pending', YLeaf(YType.boolean, 'serg-show-idb-client-eoms-pending')),
@@ -2880,7 +2845,7 @@ class SessionRedundancyAgent(Entity):
                             self._segment_path = lambda: "client-status"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, ['component', 'serg_show_idb_client_eoms_pending', 'serg_show_idb_client_sync_eod_pending', 'session_count'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, [u'component', u'serg_show_idb_client_eoms_pending', u'serg_show_idb_client_sync_eod_pending', u'session_count'], name, value)
 
 
             class StatsGlobal(Entity):
@@ -3143,7 +3108,7 @@ class SessionRedundancyAgent(Entity):
                 """
 
                 _prefix = 'infra-serg-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SessionRedundancyAgent.Nodes.Node.StatsGlobal, self).__init__()
@@ -3153,8 +3118,7 @@ class SessionRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("intf-status-statistics", ("intf_status_statistics", SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics)), ("tx-list-statistics", ("tx_list_statistics", SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics))])
-                    self._child_list_classes = OrderedDict([("client-status", ("client_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus)), ("opaque-memory-status", ("opaque_memory_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus)), ("tx-list-over-tcp-status", ("tx_list_over_tcp_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus))])
+                    self._child_classes = OrderedDict([("intf-status-statistics", ("intf_status_statistics", SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics)), ("tx-list-statistics", ("tx_list_statistics", SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics)), ("client-status", ("client_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus)), ("opaque-memory-status", ("opaque_memory_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus)), ("tx-list-over-tcp-status", ("tx_list_over_tcp_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus))])
                     self._leafs = OrderedDict([
                         ('source_interface_name', YLeaf(YType.str, 'source-interface-name')),
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -3229,12 +3193,10 @@ class SessionRedundancyAgent(Entity):
                     self.intf_status_statistics = SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics()
                     self.intf_status_statistics.parent = self
                     self._children_name_map["intf_status_statistics"] = "intf-status-statistics"
-                    self._children_yang_names.add("intf-status-statistics")
 
                     self.tx_list_statistics = SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics()
                     self.tx_list_statistics.parent = self
                     self._children_name_map["tx_list_statistics"] = "tx-list-statistics"
-                    self._children_yang_names.add("tx-list-statistics")
 
                     self.client_status = YList(self)
                     self.opaque_memory_status = YList(self)
@@ -3242,7 +3204,7 @@ class SessionRedundancyAgent(Entity):
                     self._segment_path = lambda: "stats-global"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal, ['source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'redundancy_role', 'restart_client_sync_in_progress', 'client_init_sync_time_stamp', 'restart_peer_sync_in_progress', 'peer_init_sync_time_stamp', 'sync_in_progress', 'peer_action_timer', 'retry_timer_remaining', 'tx_list_client_registration_invalid', 'tx_list_client_de_registration_invalid', 'tx_list_client_connection_up', 'tx_list_client_connection_down', 'tx_list_client_peer_done', 'tx_list_client_message_call_back', 'tx_list_client_receive_valid', 'tx_list_client_receive_invalid', 'tx_list_client_receive_command_valid', 'tx_list_client_receive_command_invalid', 'tx_list_client_receive_session_sessionvalid', 'tx_list_client_receive_session_session_invalid', 'tx_list_peer_timer_handler', 'tx_list_peer_registration_invalid', 'tx_list_peer_de_registration_invalid', 'tx_list_peer_message_call_back_valid', 'tx_list_peer_message_call_back_invalid', 'tx_list_peer_done', 'tx_list_peer_cmd_connection_up_not_ok', 'tx_list_peer_cmd_connection_down_not_ok', 'tx_list_peer_session_connection_up_not_ok', 'tx_list_peer_session_connection_down_not_ok'], name, value)
+                    self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal, [u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'redundancy_role', u'restart_client_sync_in_progress', u'client_init_sync_time_stamp', u'restart_peer_sync_in_progress', u'peer_init_sync_time_stamp', u'sync_in_progress', u'peer_action_timer', u'retry_timer_remaining', u'tx_list_client_registration_invalid', u'tx_list_client_de_registration_invalid', u'tx_list_client_connection_up', u'tx_list_client_connection_down', u'tx_list_client_peer_done', u'tx_list_client_message_call_back', u'tx_list_client_receive_valid', u'tx_list_client_receive_invalid', u'tx_list_client_receive_command_valid', u'tx_list_client_receive_command_invalid', u'tx_list_client_receive_session_sessionvalid', u'tx_list_client_receive_session_session_invalid', u'tx_list_peer_timer_handler', u'tx_list_peer_registration_invalid', u'tx_list_peer_de_registration_invalid', u'tx_list_peer_message_call_back_valid', u'tx_list_peer_message_call_back_invalid', u'tx_list_peer_done', u'tx_list_peer_cmd_connection_up_not_ok', u'tx_list_peer_cmd_connection_down_not_ok', u'tx_list_peer_session_connection_up_not_ok', u'tx_list_peer_session_connection_down_not_ok'], name, value)
 
 
                 class IntfStatusStatistics(Entity):
@@ -3289,7 +3251,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, self).__init__()
@@ -3299,8 +3261,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('pend_caps_rem_cnt', YLeaf(YType.uint32, 'pend-caps-rem-cnt')),
                             ('pend_reg_disable_cnt', YLeaf(YType.uint32, 'pend-reg-disable-cnt')),
@@ -3316,7 +3277,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "intf-status-statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, ['pend_caps_rem_cnt', 'pend_reg_disable_cnt', 'pend_other_batch_oper_cnt', 'non_stale_cnt', 'grp_bound_cnt'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, [u'pend_caps_rem_cnt', u'pend_reg_disable_cnt', u'pend_other_batch_oper_cnt', u'non_stale_cnt', u'grp_bound_cnt'], name, value)
 
 
                 class TxListStatistics(Entity):
@@ -3391,7 +3352,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, self).__init__()
@@ -3401,8 +3362,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('tx_list_encode_marker_ok', YLeaf(YType.uint32, 'tx-list-encode-marker-ok')),
                             ('tx_list_encode_marker_partial_write', YLeaf(YType.uint32, 'tx-list-encode-marker-partial-write')),
@@ -3426,7 +3386,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "tx-list-statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, ['tx_list_encode_marker_ok', 'tx_list_encode_marker_partial_write', 'tx_list_clean_marker', 'tx_list_encode_command_ok', 'tx_list_encode_command_partial_write', 'tx_list_clean_command', 'tx_list_encode_negotiation_ok', 'tx_list_encode_negotiation_partial_write', 'tx_list_clean_negotiation'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, [u'tx_list_encode_marker_ok', u'tx_list_encode_marker_partial_write', u'tx_list_clean_marker', u'tx_list_encode_command_ok', u'tx_list_encode_command_partial_write', u'tx_list_clean_command', u'tx_list_encode_negotiation_ok', u'tx_list_encode_negotiation_partial_write', u'tx_list_clean_negotiation'], name, value)
 
 
                 class ClientStatus(Entity):
@@ -3477,7 +3437,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, self).__init__()
@@ -3487,8 +3447,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('component', YLeaf(YType.enumeration, 'component')),
                             ('client_connection_status', YLeaf(YType.boolean, 'client-connection-status')),
@@ -3508,7 +3467,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "client-status"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, ['component', 'client_connection_status', 'client_initialization_synchronization_pending', 'client_synchronization_end_of_download_pending', 'up_time_stamp', 'down_time_stamp', 'clean_up_timer_remaining'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, [u'component', u'client_connection_status', u'client_initialization_synchronization_pending', u'client_synchronization_end_of_download_pending', u'up_time_stamp', u'down_time_stamp', u'clean_up_timer_remaining'], name, value)
 
 
                 class OpaqueMemoryStatus(Entity):
@@ -3553,7 +3512,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, self).__init__()
@@ -3563,8 +3522,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('component', YLeaf(YType.enumeration, 'component')),
                             ('session_count', YLeaf(YType.uint32, 'session-count')),
@@ -3580,7 +3538,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "opaque-memory-status"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, ['component', 'session_count', 'opaque_size', 'opaque_high_size', 'opaque_data_size'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, [u'component', u'session_count', u'opaque_size', u'opaque_high_size', u'opaque_data_size'], name, value)
 
 
                 class TxListOverTcpStatus(Entity):
@@ -3750,7 +3708,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, self).__init__()
@@ -3760,8 +3718,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('messages_sent', YLeaf(YType.uint32, 'messages-sent')),
                             ('bytes_sent', YLeaf(YType.uint32, 'bytes-sent')),
@@ -3811,7 +3768,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "tx-list-over-tcp-status"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, ['messages_sent', 'bytes_sent', 'messages_received', 'bytes_received', 'connect_count', 'blocked_connect_count', 'connect_retry_count', 'remote_node_down_count', 'accept_count', 'maximum_sent_message_size', 'maximum_received_message_size', 'peer_pause_count', 'buffer_full_occurence_count', 'mem_move_message_count', 'mem_move_bytes_count', 'socket_read_count', 'socket_write_count', 'active_socket_count', 'maximum_requested_buffer_size', 'buffer_freed_count', 'buffer_cache_hit', 'buffer_cache_miss'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, [u'messages_sent', u'bytes_sent', u'messages_received', u'bytes_received', u'connect_count', u'blocked_connect_count', u'connect_retry_count', u'remote_node_down_count', u'accept_count', u'maximum_sent_message_size', u'maximum_received_message_size', u'peer_pause_count', u'buffer_full_occurence_count', u'mem_move_message_count', u'mem_move_bytes_count', u'socket_read_count', u'socket_write_count', u'active_socket_count', u'maximum_requested_buffer_size', u'buffer_freed_count', u'buffer_cache_hit', u'buffer_cache_miss'], name, value)
 
 
             class GroupSummaries(Entity):
@@ -3828,7 +3785,7 @@ class SessionRedundancyAgent(Entity):
                 """
 
                 _prefix = 'infra-serg-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(SessionRedundancyAgent.Nodes.Node.GroupSummaries, self).__init__()
@@ -3838,8 +3795,7 @@ class SessionRedundancyAgent(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("group-summary", ("group_summary", SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary))])
+                    self._child_classes = OrderedDict([("group-summary", ("group_summary", SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary))])
                     self._leafs = OrderedDict()
 
                     self.group_summary = YList(self)
@@ -3937,7 +3893,7 @@ class SessionRedundancyAgent(Entity):
                     """
 
                     _prefix = 'infra-serg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, self).__init__()
@@ -3947,8 +3903,7 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('group_id', YLeaf(YType.str, 'group-id')),
                             ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
@@ -3980,7 +3935,7 @@ class SessionRedundancyAgent(Entity):
                         self._segment_path = lambda: "group-summary" + "[group-id='" + str(self.group_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', 'group_id_xr', 'role', 'disabled', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'preferred_role', 'slave_mode', 'object_tracking_status', 'interface_count', 'session_count', 'pending_add_session_count'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', u'group_id_xr', u'role', u'disabled', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'preferred_role', u'slave_mode', u'object_tracking_status', u'interface_count', u'session_count', u'pending_add_session_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SessionRedundancyAgent()

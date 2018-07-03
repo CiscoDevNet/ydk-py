@@ -66,15 +66,16 @@ class Hardware(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("access-list", ("access_list", Hardware.AccessList))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("access-list", ("access_list", Hardware.AccessList))])
         self._leafs = OrderedDict()
 
         self.access_list = Hardware.AccessList()
         self.access_list.parent = self
         self._children_name_map["access_list"] = "access-list"
-        self._children_yang_names.add("access-list")
         self._segment_path = lambda: "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg:hardware"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Hardware, [], name, value)
 
 
     class AccessList(Entity):
@@ -101,8 +102,7 @@ class Hardware(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('atomic_disable', YLeaf(YType.enumeration, 'atomic-disable')),
             ])

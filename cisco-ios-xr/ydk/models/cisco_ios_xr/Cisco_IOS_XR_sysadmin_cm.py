@@ -1,11 +1,17 @@
 """ Cisco_IOS_XR_sysadmin_cm 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 The System Admin Manager (CM)
 
 Copyright(c) 2010\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -69,20 +75,20 @@ class NodeInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("summary", ("summary", NodeInventory.Summary)), ("detail", ("detail", NodeInventory.Detail))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("summary", ("summary", NodeInventory.Summary)), ("detail", ("detail", NodeInventory.Detail))])
         self._leafs = OrderedDict()
 
         self.summary = NodeInventory.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
 
         self.detail = NodeInventory.Detail()
         self.detail.parent = self
         self._children_name_map["detail"] = "detail"
-        self._children_yang_names.add("detail")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:node-inventory"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NodeInventory, [], name, value)
 
 
     class Summary(Entity):
@@ -111,8 +117,7 @@ class NodeInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node_locations", ("node_locations", NodeInventory.Summary.NodeLocations))])
+            self._child_classes = OrderedDict([("node_locations", ("node_locations", NodeInventory.Summary.NodeLocations))])
             self._leafs = OrderedDict()
 
             self.node_locations = YList(self)
@@ -132,7 +137,7 @@ class NodeInventory(Entity):
             	
             	**type**\: str
             
-            	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
             
             .. attribute:: nodei
             
@@ -154,8 +159,7 @@ class NodeInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_location']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("nodei", ("nodei", NodeInventory.Summary.NodeLocations.Nodei))])
+                self._child_classes = OrderedDict([("nodei", ("nodei", NodeInventory.Summary.NodeLocations.Nodei))])
                 self._leafs = OrderedDict([
                     ('node_location', YLeaf(YType.str, 'node_location')),
                 ])
@@ -225,8 +229,7 @@ class NodeInventory(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip_address']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip_address', YLeaf(YType.str, 'ip_address')),
                         ('type', YLeaf(YType.str, 'type')),
@@ -271,8 +274,7 @@ class NodeInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node_locations", ("node_locations", NodeInventory.Detail.NodeLocations))])
+            self._child_classes = OrderedDict([("node_locations", ("node_locations", NodeInventory.Detail.NodeLocations))])
             self._leafs = OrderedDict()
 
             self.node_locations = YList(self)
@@ -292,7 +294,7 @@ class NodeInventory(Entity):
             	
             	**type**\: str
             
-            	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
             
             .. attribute:: nodei
             
@@ -314,8 +316,7 @@ class NodeInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_location']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("nodei", ("nodei", NodeInventory.Detail.NodeLocations.Nodei))])
+                self._child_classes = OrderedDict([("nodei", ("nodei", NodeInventory.Detail.NodeLocations.Nodei))])
                 self._leafs = OrderedDict([
                     ('node_location', YLeaf(YType.str, 'node_location')),
                 ])
@@ -400,8 +401,7 @@ class NodeInventory(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip_address']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip_address', YLeaf(YType.str, 'ip_address')),
                         ('type', YLeaf(YType.str, 'type')),
@@ -456,8 +456,7 @@ class CardInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("card_locations", ("card_locations", CardInventory.CardLocations))])
+        self._child_classes = OrderedDict([("card_locations", ("card_locations", CardInventory.CardLocations))])
         self._leafs = OrderedDict()
 
         self.card_locations = YList(self)
@@ -476,7 +475,7 @@ class CardInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: cardi
         
@@ -498,8 +497,7 @@ class CardInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['card_location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cardi", ("cardi", CardInventory.CardLocations.Cardi))])
+            self._child_classes = OrderedDict([("cardi", ("cardi", CardInventory.CardLocations.Cardi))])
             self._leafs = OrderedDict([
                 ('card_location', YLeaf(YType.str, 'card_location')),
             ])
@@ -571,8 +569,7 @@ class CardInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['card_serial']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('card_serial', YLeaf(YType.str, 'card_serial')),
                     ('node_id', YLeaf(YType.str, 'node_id')),
@@ -623,8 +620,7 @@ class RackInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("rack_locations", ("rack_locations", RackInventory.RackLocations))])
+        self._child_classes = OrderedDict([("rack_locations", ("rack_locations", RackInventory.RackLocations))])
         self._leafs = OrderedDict()
 
         self.rack_locations = YList(self)
@@ -643,7 +639,7 @@ class RackInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: racki
         
@@ -665,8 +661,7 @@ class RackInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['rack_location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("racki", ("racki", RackInventory.RackLocations.Racki))])
+            self._child_classes = OrderedDict([("racki", ("racki", RackInventory.RackLocations.Racki))])
             self._leafs = OrderedDict([
                 ('rack_location', YLeaf(YType.str, 'rack_location')),
             ])
@@ -718,8 +713,7 @@ class RackInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['rack_serial']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('rack_serial', YLeaf(YType.str, 'rack_serial')),
                     ('rack_number', YLeaf(YType.int32, 'rack_number')),
@@ -762,8 +756,7 @@ class SystemServiceInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("ssvc_locations", ("ssvc_locations", SystemServiceInventory.SsvcLocations))])
+        self._child_classes = OrderedDict([("ssvc_locations", ("ssvc_locations", SystemServiceInventory.SsvcLocations))])
         self._leafs = OrderedDict()
 
         self.ssvc_locations = YList(self)
@@ -782,7 +775,7 @@ class SystemServiceInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: ssvci
         
@@ -804,8 +797,7 @@ class SystemServiceInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['ssvc_location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ssvci", ("ssvci", SystemServiceInventory.SsvcLocations.Ssvci))])
+            self._child_classes = OrderedDict([("ssvci", ("ssvci", SystemServiceInventory.SsvcLocations.Ssvci))])
             self._leafs = OrderedDict([
                 ('ssvc_location', YLeaf(YType.str, 'ssvc_location')),
             ])
@@ -870,8 +862,7 @@ class SystemServiceInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['svc_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('svc_name', YLeaf(YType.str, 'svc_name')),
                     ('placement_first', YLeaf(YType.str, 'placement_first')),
@@ -920,8 +911,7 @@ class RackServiceInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("rsvc_locations", ("rsvc_locations", RackServiceInventory.RsvcLocations))])
+        self._child_classes = OrderedDict([("rsvc_locations", ("rsvc_locations", RackServiceInventory.RsvcLocations))])
         self._leafs = OrderedDict()
 
         self.rsvc_locations = YList(self)
@@ -940,7 +930,7 @@ class RackServiceInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: rsvci
         
@@ -962,8 +952,7 @@ class RackServiceInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['rsvc_location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rsvci", ("rsvci", RackServiceInventory.RsvcLocations.Rsvci))])
+            self._child_classes = OrderedDict([("rsvci", ("rsvci", RackServiceInventory.RsvcLocations.Rsvci))])
             self._leafs = OrderedDict([
                 ('rsvc_location', YLeaf(YType.str, 'rsvc_location')),
             ])
@@ -1028,8 +1017,7 @@ class RackServiceInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['svc_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('svc_name', YLeaf(YType.str, 'svc_name')),
                     ('placement_first', YLeaf(YType.str, 'placement_first')),
@@ -1078,8 +1066,7 @@ class SdrInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("sdr_locations", ("sdr_locations", SdrInventory.SdrLocations))])
+        self._child_classes = OrderedDict([("sdr_locations", ("sdr_locations", SdrInventory.SdrLocations))])
         self._leafs = OrderedDict()
 
         self.sdr_locations = YList(self)
@@ -1098,7 +1085,7 @@ class SdrInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: sdri
         
@@ -1120,8 +1107,7 @@ class SdrInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['sdr_location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sdri", ("sdri", SdrInventory.SdrLocations.Sdri))])
+            self._child_classes = OrderedDict([("sdri", ("sdri", SdrInventory.SdrLocations.Sdri))])
             self._leafs = OrderedDict([
                 ('sdr_location', YLeaf(YType.str, 'sdr_location')),
             ])
@@ -1180,8 +1166,7 @@ class SdrInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['sdr_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sdr_name', YLeaf(YType.str, 'sdr_name')),
                     ('sdr_id', YLeaf(YType.uint32, 'sdr_id')),
@@ -1226,8 +1211,7 @@ class LeaderStatistics(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("ldr_locations", ("ldr_locations", LeaderStatistics.LdrLocations))])
+        self._child_classes = OrderedDict([("ldr_locations", ("ldr_locations", LeaderStatistics.LdrLocations))])
         self._leafs = OrderedDict()
 
         self.ldr_locations = YList(self)
@@ -1246,7 +1230,7 @@ class LeaderStatistics(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: syslead
         
@@ -1293,8 +1277,7 @@ class LeaderStatistics(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['ldr_location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ldr_location', YLeaf(YType.str, 'ldr_location')),
                 ('syslead', YLeaf(YType.str, 'syslead')),
@@ -1346,8 +1329,7 @@ class TopologyNeighbors(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("nbr_locations", ("nbr_locations", TopologyNeighbors.NbrLocations))])
+        self._child_classes = OrderedDict([("nbr_locations", ("nbr_locations", TopologyNeighbors.NbrLocations))])
         self._leafs = OrderedDict()
 
         self.nbr_locations = YList(self)
@@ -1366,7 +1348,7 @@ class TopologyNeighbors(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: nbri
         
@@ -1388,8 +1370,7 @@ class TopologyNeighbors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['nbr_location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nbri", ("nbri", TopologyNeighbors.NbrLocations.Nbri))])
+            self._child_classes = OrderedDict([("nbri", ("nbri", TopologyNeighbors.NbrLocations.Nbri))])
             self._leafs = OrderedDict([
                 ('nbr_location', YLeaf(YType.str, 'nbr_location')),
             ])
@@ -1454,8 +1435,7 @@ class TopologyNeighbors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['nbr_system_id','nbr_area_type']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nbr_system_id', YLeaf(YType.str, 'nbr_system_id')),
                     ('nbr_area_type', YLeaf(YType.str, 'nbr_area_type')),
@@ -1499,8 +1479,7 @@ class Placement(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:placement"
 

@@ -50,20 +50,20 @@ class Redundancy(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Redundancy.Nodes)), ("summary", ("summary", Redundancy.Summary))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Redundancy.Nodes)), ("summary", ("summary", Redundancy.Summary))])
         self._leafs = OrderedDict()
 
         self.nodes = Redundancy.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
 
         self.summary = Redundancy.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Redundancy, [], name, value)
 
 
     class Nodes(Entity):
@@ -90,8 +90,7 @@ class Redundancy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Redundancy.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Redundancy.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -153,8 +152,7 @@ class Redundancy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_id']
-                self._child_container_classes = OrderedDict([("redundancy", ("redundancy", Redundancy.Nodes.Node.Redundancy_))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("redundancy", ("redundancy", Redundancy.Nodes.Node.Redundancy_))])
                 self._leafs = OrderedDict([
                     ('node_id', YLeaf(YType.str, 'node-id')),
                     ('log', YLeaf(YType.str, 'log')),
@@ -171,7 +169,6 @@ class Redundancy(Entity):
                 self.redundancy = Redundancy.Nodes.Node.Redundancy_()
                 self.redundancy.parent = self
                 self._children_name_map["redundancy"] = "redundancy"
-                self._children_yang_names.add("redundancy")
                 self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/nodes/%s" % self._segment_path()
 
@@ -223,8 +220,7 @@ class Redundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("groupinfo", ("groupinfo", Redundancy.Nodes.Node.Redundancy_.Groupinfo))])
+                    self._child_classes = OrderedDict([("groupinfo", ("groupinfo", Redundancy.Nodes.Node.Redundancy_.Groupinfo))])
                     self._leafs = OrderedDict([
                         ('active', YLeaf(YType.str, 'active')),
                         ('standby', YLeaf(YType.str, 'standby')),
@@ -282,8 +278,7 @@ class Redundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('active', YLeaf(YType.str, 'active')),
                             ('standby', YLeaf(YType.str, 'standby')),
@@ -329,8 +324,7 @@ class Redundancy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("red-pair", ("red_pair", Redundancy.Summary.RedPair))])
+            self._child_classes = OrderedDict([("red-pair", ("red_pair", Redundancy.Summary.RedPair))])
             self._leafs = OrderedDict([
                 ('err_log', YLeaf(YType.str, 'err-log')),
             ])
@@ -388,8 +382,7 @@ class Redundancy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("groupinfo", ("groupinfo", Redundancy.Summary.RedPair.Groupinfo))])
+                self._child_classes = OrderedDict([("groupinfo", ("groupinfo", Redundancy.Summary.RedPair.Groupinfo))])
                 self._leafs = OrderedDict([
                     ('active', YLeaf(YType.str, 'active')),
                     ('standby', YLeaf(YType.str, 'standby')),
@@ -448,8 +441,7 @@ class Redundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('active', YLeaf(YType.str, 'active')),
                         ('standby', YLeaf(YType.str, 'standby')),

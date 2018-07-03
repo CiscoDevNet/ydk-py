@@ -48,15 +48,16 @@ class PlatformLptspIfibStatic(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("node-statics", ("node_statics", PlatformLptspIfibStatic.NodeStatics))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("node-statics", ("node_statics", PlatformLptspIfibStatic.NodeStatics))])
         self._leafs = OrderedDict()
 
         self.node_statics = PlatformLptspIfibStatic.NodeStatics()
         self.node_statics.parent = self
         self._children_name_map["node_statics"] = "node-statics"
-        self._children_yang_names.add("node-statics")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-lpts-oper:platform-lptsp-ifib-static"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PlatformLptspIfibStatic, [], name, value)
 
 
     class NodeStatics(Entity):
@@ -84,8 +85,7 @@ class PlatformLptspIfibStatic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node-static", ("node_static", PlatformLptspIfibStatic.NodeStatics.NodeStatic))])
+            self._child_classes = OrderedDict([("node-static", ("node_static", PlatformLptspIfibStatic.NodeStatics.NodeStatic))])
             self._leafs = OrderedDict()
 
             self.node_static = YList(self)
@@ -132,8 +132,7 @@ class PlatformLptspIfibStatic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("police", ("police", PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police)), ("stats", ("stats", PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("police", ("police", PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police)), ("stats", ("stats", PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -142,12 +141,10 @@ class PlatformLptspIfibStatic(Entity):
                 self.police = PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police()
                 self.police.parent = self
                 self._children_name_map["police"] = "police"
-                self._children_yang_names.add("police")
 
                 self.stats = PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats()
                 self.stats.parent = self
                 self._children_name_map["stats"] = "stats"
-                self._children_yang_names.add("stats")
                 self._segment_path = lambda: "node-static" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-lpts-oper:platform-lptsp-ifib-static/node-statics/%s" % self._segment_path()
 
@@ -179,8 +176,7 @@ class PlatformLptspIfibStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("static-info", ("static_info", PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo))])
+                    self._child_classes = OrderedDict([("static-info", ("static_info", PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo))])
                     self._leafs = OrderedDict()
 
                     self.static_info = YList(self)
@@ -265,8 +261,7 @@ class PlatformLptspIfibStatic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('punt_reason', YLeaf(YType.uint32, 'punt-reason')),
                             ('sid', YLeaf(YType.uint32, 'sid')),
@@ -338,8 +333,7 @@ class PlatformLptspIfibStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('accepted', YLeaf(YType.uint64, 'accepted')),
                         ('dropped', YLeaf(YType.uint64, 'dropped')),
@@ -384,15 +378,16 @@ class PlatformLptspIfib(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", PlatformLptspIfib.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", PlatformLptspIfib.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = PlatformLptspIfib.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-lpts-oper:platform-lptsp-ifib"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PlatformLptspIfib, [], name, value)
 
 
     class Nodes(Entity):
@@ -420,8 +415,7 @@ class PlatformLptspIfib(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", PlatformLptspIfib.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", PlatformLptspIfib.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -468,8 +462,7 @@ class PlatformLptspIfib(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("police", ("police", PlatformLptspIfib.Nodes.Node.Police)), ("stats", ("stats", PlatformLptspIfib.Nodes.Node.Stats))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("police", ("police", PlatformLptspIfib.Nodes.Node.Police)), ("stats", ("stats", PlatformLptspIfib.Nodes.Node.Stats))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -478,12 +471,10 @@ class PlatformLptspIfib(Entity):
                 self.police = PlatformLptspIfib.Nodes.Node.Police()
                 self.police.parent = self
                 self._children_name_map["police"] = "police"
-                self._children_yang_names.add("police")
 
                 self.stats = PlatformLptspIfib.Nodes.Node.Stats()
                 self.stats.parent = self
                 self._children_name_map["stats"] = "stats"
-                self._children_yang_names.add("stats")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-lpts-oper:platform-lptsp-ifib/nodes/%s" % self._segment_path()
 
@@ -515,8 +506,7 @@ class PlatformLptspIfib(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("police-info", ("police_info", PlatformLptspIfib.Nodes.Node.Police.PoliceInfo))])
+                    self._child_classes = OrderedDict([("police-info", ("police_info", PlatformLptspIfib.Nodes.Node.Police.PoliceInfo))])
                     self._leafs = OrderedDict()
 
                     self.police_info = YList(self)
@@ -629,8 +619,7 @@ class PlatformLptspIfib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('avgrate', YLeaf(YType.uint32, 'avgrate')),
                             ('burst', YLeaf(YType.uint32, 'burst')),
@@ -710,8 +699,7 @@ class PlatformLptspIfib(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('accepted', YLeaf(YType.uint64, 'accepted')),
                         ('dropped', YLeaf(YType.uint64, 'dropped')),
@@ -756,15 +744,16 @@ class PlatformLptspIfibNpStats(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("node-np-stats", ("node_np_stats", PlatformLptspIfibNpStats.NodeNpStats))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("node-np-stats", ("node_np_stats", PlatformLptspIfibNpStats.NodeNpStats))])
         self._leafs = OrderedDict()
 
         self.node_np_stats = PlatformLptspIfibNpStats.NodeNpStats()
         self.node_np_stats.parent = self
         self._children_name_map["node_np_stats"] = "node-np-stats"
-        self._children_yang_names.add("node-np-stats")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-lpts-oper:platform-lptsp-ifib-np-stats"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PlatformLptspIfibNpStats, [], name, value)
 
 
     class NodeNpStats(Entity):
@@ -792,8 +781,7 @@ class PlatformLptspIfibNpStats(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node-np-stat", ("node_np_stat", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat))])
+            self._child_classes = OrderedDict([("node-np-stat", ("node_np_stat", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat))])
             self._leafs = OrderedDict()
 
             self.node_np_stat = YList(self)
@@ -835,8 +823,7 @@ class PlatformLptspIfibNpStats(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("nps", ("nps", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("nps", ("nps", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -845,7 +832,6 @@ class PlatformLptspIfibNpStats(Entity):
                 self.nps = PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps()
                 self.nps.parent = self
                 self._children_name_map["nps"] = "nps"
-                self._children_yang_names.add("nps")
                 self._segment_path = lambda: "node-np-stat" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-lpts-oper:platform-lptsp-ifib-np-stats/node-np-stats/%s" % self._segment_path()
 
@@ -877,8 +863,7 @@ class PlatformLptspIfibNpStats(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("np", ("np", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np))])
+                    self._child_classes = OrderedDict([("np", ("np", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np))])
                     self._leafs = OrderedDict()
 
                     self.np = YList(self)
@@ -919,8 +904,7 @@ class PlatformLptspIfibNpStats(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['np_name']
-                        self._child_container_classes = OrderedDict([("np-police", ("np_police", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("np-police", ("np_police", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice))])
                         self._leafs = OrderedDict([
                             ('np_name', YLeaf(YType.str, 'np-name')),
                         ])
@@ -929,7 +913,6 @@ class PlatformLptspIfibNpStats(Entity):
                         self.np_police = PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice()
                         self.np_police.parent = self
                         self._children_name_map["np_police"] = "np-police"
-                        self._children_yang_names.add("np-police")
                         self._segment_path = lambda: "np" + "[np-name='" + str(self.np_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -960,8 +943,7 @@ class PlatformLptspIfibNpStats(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("police-info", ("police_info", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo))])
+                            self._child_classes = OrderedDict([("police-info", ("police_info", PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo))])
                             self._leafs = OrderedDict()
 
                             self.police_info = YList(self)
@@ -1074,8 +1056,7 @@ class PlatformLptspIfibNpStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('avgrate', YLeaf(YType.uint32, 'avgrate')),
                                     ('burst', YLeaf(YType.uint32, 'burst')),

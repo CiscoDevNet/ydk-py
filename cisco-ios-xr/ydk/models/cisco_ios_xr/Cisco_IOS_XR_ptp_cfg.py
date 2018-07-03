@@ -120,8 +120,7 @@ class Ptp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("clock", ("clock", Ptp.Clock)), ("profiles", ("profiles", Ptp.Profiles)), ("utc-offset", ("utc_offset", Ptp.UtcOffset)), ("logging", ("logging", Ptp.Logging)), ("transparent-clock", ("transparent_clock", Ptp.TransparentClock))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("clock", ("clock", Ptp.Clock)), ("profiles", ("profiles", Ptp.Profiles)), ("utc-offset", ("utc_offset", Ptp.UtcOffset)), ("logging", ("logging", Ptp.Logging)), ("transparent-clock", ("transparent_clock", Ptp.TransparentClock))])
         self._leafs = OrderedDict([
             ('time_of_day_priority', YLeaf(YType.uint32, 'time-of-day-priority')),
             ('frequency_priority', YLeaf(YType.uint32, 'frequency-priority')),
@@ -142,31 +141,26 @@ class Ptp(Entity):
         self.clock = Ptp.Clock()
         self.clock.parent = self
         self._children_name_map["clock"] = "clock"
-        self._children_yang_names.add("clock")
 
         self.profiles = Ptp.Profiles()
         self.profiles.parent = self
         self._children_name_map["profiles"] = "profiles"
-        self._children_yang_names.add("profiles")
 
         self.utc_offset = Ptp.UtcOffset()
         self.utc_offset.parent = self
         self._children_name_map["utc_offset"] = "utc-offset"
-        self._children_yang_names.add("utc-offset")
 
         self.logging = Ptp.Logging()
         self.logging.parent = self
         self._children_name_map["logging"] = "logging"
-        self._children_yang_names.add("logging")
 
         self.transparent_clock = Ptp.TransparentClock()
         self.transparent_clock.parent = self
         self._children_name_map["transparent_clock"] = "transparent-clock"
-        self._children_yang_names.add("transparent-clock")
         self._segment_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Ptp, ['time_of_day_priority', 'frequency_priority', 'startup_clock_class', 'enable', 'min_clock_class', 'uncalibrated_clock_class', 'freerun_clock_class'], name, value)
+        self._perform_setattr(Ptp, [u'time_of_day_priority', u'frequency_priority', u'startup_clock_class', u'enable', u'min_clock_class', u'uncalibrated_clock_class', u'freerun_clock_class'], name, value)
 
 
     class Clock(Entity):
@@ -244,8 +238,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("profile", ("profile", Ptp.Clock.Profile)), ("identity", ("identity", Ptp.Clock.Identity))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("profile", ("profile", Ptp.Clock.Profile)), ("identity", ("identity", Ptp.Clock.Identity))])
             self._leafs = OrderedDict([
                 ('timescale', YLeaf(YType.enumeration, 'timescale')),
                 ('domain', YLeaf(YType.uint32, 'domain')),
@@ -264,17 +257,15 @@ class Ptp(Entity):
             self.profile = Ptp.Clock.Profile()
             self.profile.parent = self
             self._children_name_map["profile"] = "profile"
-            self._children_yang_names.add("profile")
 
             self.identity = Ptp.Clock.Identity()
             self.identity.parent = self
             self._children_name_map["identity"] = "identity"
-            self._children_yang_names.add("identity")
             self._segment_path = lambda: "clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.Clock, ['timescale', 'domain', 'priority2', 'time_source', 'priority1', 'clock_class'], name, value)
+            self._perform_setattr(Ptp.Clock, [u'timescale', u'domain', u'priority2', u'time_source', u'priority1', u'clock_class'], name, value)
 
 
         class Profile(Entity):
@@ -308,8 +299,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('clock_profile', YLeaf(YType.enumeration, 'clock-profile')),
                     ('telecom_clock_type', YLeaf(YType.enumeration, 'telecom-clock-type')),
@@ -320,7 +310,7 @@ class Ptp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/clock/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Clock.Profile, ['clock_profile', 'telecom_clock_type'], name, value)
+                self._perform_setattr(Ptp.Clock.Profile, [u'clock_profile', u'telecom_clock_type'], name, value)
 
 
         class Identity(Entity):
@@ -361,8 +351,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('clock_id_type', YLeaf(YType.enumeration, 'clock-id-type')),
                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -375,7 +364,7 @@ class Ptp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/clock/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Clock.Identity, ['clock_id_type', 'mac_address', 'eui'], name, value)
+                self._perform_setattr(Ptp.Clock.Identity, [u'clock_id_type', u'mac_address', u'eui'], name, value)
 
 
     class Profiles(Entity):
@@ -402,8 +391,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("profile", ("profile", Ptp.Profiles.Profile))])
+            self._child_classes = OrderedDict([("profile", ("profile", Ptp.Profiles.Profile))])
             self._leafs = OrderedDict()
 
             self.profile = YList(self)
@@ -626,8 +614,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['profile_name']
-                self._child_container_classes = OrderedDict([("announce-interval", ("announce_interval", Ptp.Profiles.Profile.AnnounceInterval)), ("source-ipv4-address", ("source_ipv4_address", Ptp.Profiles.Profile.SourceIpv4Address)), ("slaves", ("slaves", Ptp.Profiles.Profile.Slaves)), ("sync-interval", ("sync_interval", Ptp.Profiles.Profile.SyncInterval)), ("masters", ("masters", Ptp.Profiles.Profile.Masters)), ("communication", ("communication", Ptp.Profiles.Profile.Communication)), ("delay-request-minimum-interval", ("delay_request_minimum_interval", Ptp.Profiles.Profile.DelayRequestMinimumInterval)), ("source-ipv6-address", ("source_ipv6_address", Ptp.Profiles.Profile.SourceIpv6Address))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("announce-interval", ("announce_interval", Ptp.Profiles.Profile.AnnounceInterval)), ("source-ipv4-address", ("source_ipv4_address", Ptp.Profiles.Profile.SourceIpv4Address)), ("slaves", ("slaves", Ptp.Profiles.Profile.Slaves)), ("sync-interval", ("sync_interval", Ptp.Profiles.Profile.SyncInterval)), ("masters", ("masters", Ptp.Profiles.Profile.Masters)), ("communication", ("communication", Ptp.Profiles.Profile.Communication)), ("delay-request-minimum-interval", ("delay_request_minimum_interval", Ptp.Profiles.Profile.DelayRequestMinimumInterval)), ("source-ipv6-address", ("source_ipv6_address", Ptp.Profiles.Profile.SourceIpv6Address))])
                 self._leafs = OrderedDict([
                     ('profile_name', YLeaf(YType.str, 'profile-name')),
                     ('sync_grant_duration', YLeaf(YType.uint32, 'sync-grant-duration')),
@@ -668,47 +655,39 @@ class Ptp(Entity):
                 self.announce_interval = Ptp.Profiles.Profile.AnnounceInterval()
                 self.announce_interval.parent = self
                 self._children_name_map["announce_interval"] = "announce-interval"
-                self._children_yang_names.add("announce-interval")
 
                 self.source_ipv4_address = Ptp.Profiles.Profile.SourceIpv4Address()
                 self.source_ipv4_address.parent = self
                 self._children_name_map["source_ipv4_address"] = "source-ipv4-address"
-                self._children_yang_names.add("source-ipv4-address")
 
                 self.slaves = Ptp.Profiles.Profile.Slaves()
                 self.slaves.parent = self
                 self._children_name_map["slaves"] = "slaves"
-                self._children_yang_names.add("slaves")
 
                 self.sync_interval = Ptp.Profiles.Profile.SyncInterval()
                 self.sync_interval.parent = self
                 self._children_name_map["sync_interval"] = "sync-interval"
-                self._children_yang_names.add("sync-interval")
 
                 self.masters = Ptp.Profiles.Profile.Masters()
                 self.masters.parent = self
                 self._children_name_map["masters"] = "masters"
-                self._children_yang_names.add("masters")
 
                 self.communication = Ptp.Profiles.Profile.Communication()
                 self.communication.parent = self
                 self._children_name_map["communication"] = "communication"
-                self._children_yang_names.add("communication")
 
                 self.delay_request_minimum_interval = Ptp.Profiles.Profile.DelayRequestMinimumInterval()
                 self.delay_request_minimum_interval.parent = self
                 self._children_name_map["delay_request_minimum_interval"] = "delay-request-minimum-interval"
-                self._children_yang_names.add("delay-request-minimum-interval")
 
                 self.source_ipv6_address = Ptp.Profiles.Profile.SourceIpv6Address()
                 self.source_ipv6_address.parent = self
                 self._children_name_map["source_ipv6_address"] = "source-ipv6-address"
-                self._children_yang_names.add("source-ipv6-address")
                 self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/profiles/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Profiles.Profile, ['profile_name', 'sync_grant_duration', 'general_cos', 'sync_timeout', 'transport', 'announce_timeout', 'cos', 'port_state', 'delay_response_timeout', 'delay_response_grant_duration', 'event_cos', 'dscp', 'general_dscp', 'clock_operation', 'announce_grant_duration', 'unicast_grant_invalid_request', 'event_dscp'], name, value)
+                self._perform_setattr(Ptp.Profiles.Profile, [u'profile_name', u'sync_grant_duration', u'general_cos', u'sync_timeout', u'transport', u'announce_timeout', u'cos', u'port_state', u'delay_response_timeout', u'delay_response_grant_duration', u'event_cos', u'dscp', u'general_dscp', u'clock_operation', u'announce_grant_duration', u'unicast_grant_invalid_request', u'event_dscp'], name, value)
 
 
             class AnnounceInterval(Entity):
@@ -744,8 +723,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('time_type', YLeaf(YType.enumeration, 'time-type')),
                         ('time_period', YLeaf(YType.enumeration, 'time-period')),
@@ -755,7 +733,7 @@ class Ptp(Entity):
                     self._segment_path = lambda: "announce-interval"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.AnnounceInterval, ['time_type', 'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.AnnounceInterval, [u'time_type', u'time_period'], name, value)
 
 
             class SourceIpv4Address(Entity):
@@ -789,8 +767,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.boolean, 'enable')),
                         ('source_ip', YLeaf(YType.str, 'source-ip')),
@@ -800,7 +777,7 @@ class Ptp(Entity):
                     self._segment_path = lambda: "source-ipv4-address"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv4Address, ['enable', 'source_ip'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv4Address, [u'enable', u'source_ip'], name, value)
 
 
             class Slaves(Entity):
@@ -827,8 +804,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slave", ("slave", Ptp.Profiles.Profile.Slaves.Slave))])
+                    self._child_classes = OrderedDict([("slave", ("slave", Ptp.Profiles.Profile.Slaves.Slave))])
                     self._leafs = OrderedDict()
 
                     self.slave = YList(self)
@@ -872,8 +848,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['transport']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ethernet", ("ethernet", Ptp.Profiles.Profile.Slaves.Slave.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6))])
+                        self._child_classes = OrderedDict([("ethernet", ("ethernet", Ptp.Profiles.Profile.Slaves.Slave.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6))])
                         self._leafs = OrderedDict([
                             ('transport', YLeaf(YType.enumeration, 'transport')),
                         ])
@@ -884,7 +859,7 @@ class Ptp(Entity):
                         self._segment_path = lambda: "slave" + "[transport='" + str(self.transport) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave, ['transport'], name, value)
+                        self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave, [u'transport'], name, value)
 
 
                     class Ethernet(Entity):
@@ -918,8 +893,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['slave_mac_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('slave_mac_address', YLeaf(YType.str, 'slave-mac-address')),
                                 ('non_negotiated', YLeaf(YType.boolean, 'non-negotiated')),
@@ -929,7 +903,7 @@ class Ptp(Entity):
                             self._segment_path = lambda: "ethernet" + "[slave-mac-address='" + str(self.slave_mac_address) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, ['slave_mac_address', 'non_negotiated'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, [u'slave_mac_address', u'non_negotiated'], name, value)
 
 
                     class Ipv4OrIpv6(Entity):
@@ -969,8 +943,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['slave_ip_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('slave_ip_address', YLeaf(YType.str, 'slave-ip-address')),
                                 ('non_negotiated', YLeaf(YType.boolean, 'non-negotiated')),
@@ -980,7 +953,7 @@ class Ptp(Entity):
                             self._segment_path = lambda: "ipv4-or-ipv6" + "[slave-ip-address='" + str(self.slave_ip_address) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, ['slave_ip_address', 'non_negotiated'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, [u'slave_ip_address', u'non_negotiated'], name, value)
 
 
             class SyncInterval(Entity):
@@ -1016,8 +989,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('time_type', YLeaf(YType.enumeration, 'time-type')),
                         ('time_period', YLeaf(YType.enumeration, 'time-period')),
@@ -1027,7 +999,7 @@ class Ptp(Entity):
                     self._segment_path = lambda: "sync-interval"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SyncInterval, ['time_type', 'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SyncInterval, [u'time_type', u'time_period'], name, value)
 
 
             class Masters(Entity):
@@ -1054,8 +1026,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("master", ("master", Ptp.Profiles.Profile.Masters.Master))])
+                    self._child_classes = OrderedDict([("master", ("master", Ptp.Profiles.Profile.Masters.Master))])
                     self._leafs = OrderedDict()
 
                     self.master = YList(self)
@@ -1099,8 +1070,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['transport']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ethernet", ("ethernet", Ptp.Profiles.Profile.Masters.Master.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6))])
+                        self._child_classes = OrderedDict([("ethernet", ("ethernet", Ptp.Profiles.Profile.Masters.Master.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6))])
                         self._leafs = OrderedDict([
                             ('transport', YLeaf(YType.enumeration, 'transport')),
                         ])
@@ -1111,7 +1081,7 @@ class Ptp(Entity):
                         self._segment_path = lambda: "master" + "[transport='" + str(self.transport) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Profiles.Profile.Masters.Master, ['transport'], name, value)
+                        self._perform_setattr(Ptp.Profiles.Profile.Masters.Master, [u'transport'], name, value)
 
 
                     class Ethernet(Entity):
@@ -1173,8 +1143,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['master_mac_address']
-                            self._child_container_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry))])
                             self._leafs = OrderedDict([
                                 ('master_mac_address', YLeaf(YType.str, 'master-mac-address')),
                                 ('master_clock_class', YLeaf(YType.uint32, 'master-clock-class')),
@@ -1190,11 +1159,10 @@ class Ptp(Entity):
 
                             self.delay_asymmetry = None
                             self._children_name_map["delay_asymmetry"] = "delay-asymmetry"
-                            self._children_yang_names.add("delay-asymmetry")
                             self._segment_path = lambda: "ethernet" + "[master-mac-address='" + str(self.master_mac_address) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet, ['master_mac_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet, [u'master_mac_address', u'master_clock_class', u'non_negotiated', u'priority', u'communication'], name, value)
 
 
                         class DelayAsymmetry(Entity):
@@ -1234,8 +1202,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('magnitude', YLeaf(YType.int32, 'magnitude')),
@@ -1246,7 +1213,7 @@ class Ptp(Entity):
                                 self._segment_path = lambda: "delay-asymmetry"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, ['magnitude', 'units'], name, value)
+                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, [u'magnitude', u'units'], name, value)
 
 
                     class Ipv4OrIpv6(Entity):
@@ -1314,8 +1281,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['master_ip_address']
-                            self._child_container_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry))])
                             self._leafs = OrderedDict([
                                 ('master_ip_address', YLeaf(YType.str, 'master-ip-address')),
                                 ('master_clock_class', YLeaf(YType.uint32, 'master-clock-class')),
@@ -1331,11 +1297,10 @@ class Ptp(Entity):
 
                             self.delay_asymmetry = None
                             self._children_name_map["delay_asymmetry"] = "delay-asymmetry"
-                            self._children_yang_names.add("delay-asymmetry")
                             self._segment_path = lambda: "ipv4-or-ipv6" + "[master-ip-address='" + str(self.master_ip_address) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, ['master_ip_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, [u'master_ip_address', u'master_clock_class', u'non_negotiated', u'priority', u'communication'], name, value)
 
 
                         class DelayAsymmetry(Entity):
@@ -1375,8 +1340,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('magnitude', YLeaf(YType.int32, 'magnitude')),
@@ -1387,7 +1351,7 @@ class Ptp(Entity):
                                 self._segment_path = lambda: "delay-asymmetry"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, ['magnitude', 'units'], name, value)
+                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, [u'magnitude', u'units'], name, value)
 
 
             class Communication(Entity):
@@ -1428,8 +1392,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('model', YLeaf(YType.enumeration, 'model')),
                         ('target_address_set', YLeaf(YType.boolean, 'target-address-set')),
@@ -1441,7 +1404,7 @@ class Ptp(Entity):
                     self._segment_path = lambda: "communication"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.Communication, ['model', 'target_address_set', 'target_address'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.Communication, [u'model', u'target_address_set', u'target_address'], name, value)
 
 
             class DelayRequestMinimumInterval(Entity):
@@ -1477,8 +1440,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('time_type', YLeaf(YType.enumeration, 'time-type')),
                         ('time_period', YLeaf(YType.enumeration, 'time-period')),
@@ -1488,7 +1450,7 @@ class Ptp(Entity):
                     self._segment_path = lambda: "delay-request-minimum-interval"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.DelayRequestMinimumInterval, ['time_type', 'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.DelayRequestMinimumInterval, [u'time_type', u'time_period'], name, value)
 
 
             class SourceIpv6Address(Entity):
@@ -1522,8 +1484,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.boolean, 'enable')),
                         ('source_ipv6', YLeaf(YType.str, 'source-ipv6')),
@@ -1533,7 +1494,7 @@ class Ptp(Entity):
                     self._segment_path = lambda: "source-ipv6-address"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv6Address, ['enable', 'source_ipv6'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv6Address, [u'enable', u'source_ipv6'], name, value)
 
 
     class UtcOffset(Entity):
@@ -1576,8 +1537,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("leap-second-file", ("leap_second_file", Ptp.UtcOffset.LeapSecondFile)), ("scheduled-offsets", ("scheduled_offsets", Ptp.UtcOffset.ScheduledOffsets))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("leap-second-file", ("leap_second_file", Ptp.UtcOffset.LeapSecondFile)), ("scheduled-offsets", ("scheduled_offsets", Ptp.UtcOffset.ScheduledOffsets))])
             self._leafs = OrderedDict([
                 ('base_offset', YLeaf(YType.uint32, 'base-offset')),
             ])
@@ -1585,17 +1545,15 @@ class Ptp(Entity):
 
             self.leap_second_file = None
             self._children_name_map["leap_second_file"] = "leap-second-file"
-            self._children_yang_names.add("leap-second-file")
 
             self.scheduled_offsets = Ptp.UtcOffset.ScheduledOffsets()
             self.scheduled_offsets.parent = self
             self._children_name_map["scheduled_offsets"] = "scheduled-offsets"
-            self._children_yang_names.add("scheduled-offsets")
             self._segment_path = lambda: "utc-offset"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.UtcOffset, ['base_offset'], name, value)
+            self._perform_setattr(Ptp.UtcOffset, [u'base_offset'], name, value)
 
 
         class LeapSecondFile(Entity):
@@ -1635,8 +1593,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('source_url', YLeaf(YType.str, 'source-url')),
@@ -1648,7 +1605,7 @@ class Ptp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/utc-offset/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.UtcOffset.LeapSecondFile, ['source_url', 'polling_frequency'], name, value)
+                self._perform_setattr(Ptp.UtcOffset.LeapSecondFile, [u'source_url', u'polling_frequency'], name, value)
 
 
         class ScheduledOffsets(Entity):
@@ -1675,8 +1632,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("scheduled-offset", ("scheduled_offset", Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset))])
+                self._child_classes = OrderedDict([("scheduled-offset", ("scheduled_offset", Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset))])
                 self._leafs = OrderedDict()
 
                 self.scheduled_offset = YList(self)
@@ -1724,8 +1680,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['date']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('date', YLeaf(YType.str, 'date')),
                         ('offset', YLeaf(YType.uint32, 'offset')),
@@ -1736,7 +1691,7 @@ class Ptp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/utc-offset/scheduled-offsets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, ['date', 'offset'], name, value)
+                    self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, [u'date', u'offset'], name, value)
 
 
     class Logging(Entity):
@@ -1768,21 +1723,21 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("best-master-clock", ("best_master_clock", Ptp.Logging.BestMasterClock)), ("Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo", ("servo", Ptp.Logging.Servo))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("best-master-clock", ("best_master_clock", Ptp.Logging.BestMasterClock)), ("Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo", ("servo", Ptp.Logging.Servo))])
             self._leafs = OrderedDict()
 
             self.best_master_clock = Ptp.Logging.BestMasterClock()
             self.best_master_clock.parent = self
             self._children_name_map["best_master_clock"] = "best-master-clock"
-            self._children_yang_names.add("best-master-clock")
 
             self.servo = Ptp.Logging.Servo()
             self.servo.parent = self
             self._children_name_map["servo"] = "Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo"
-            self._children_yang_names.add("Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo")
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ptp.Logging, [], name, value)
 
 
         class BestMasterClock(Entity):
@@ -1809,8 +1764,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('changes', YLeaf(YType.empty, 'changes')),
                 ])
@@ -1819,7 +1773,7 @@ class Ptp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/logging/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Logging.BestMasterClock, ['changes'], name, value)
+                self._perform_setattr(Ptp.Logging.BestMasterClock, [u'changes'], name, value)
 
 
         class Servo(Entity):
@@ -1846,8 +1800,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('events', YLeaf(YType.empty, 'events')),
                 ])
@@ -1883,16 +1836,17 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("domains", ("domains", Ptp.TransparentClock.Domains))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("domains", ("domains", Ptp.TransparentClock.Domains))])
             self._leafs = OrderedDict()
 
             self.domains = Ptp.TransparentClock.Domains()
             self.domains.parent = self
             self._children_name_map["domains"] = "domains"
-            self._children_yang_names.add("domains")
             self._segment_path = lambda: "transparent-clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ptp.TransparentClock, [], name, value)
 
 
         class Domains(Entity):
@@ -1920,8 +1874,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("domain", ("domain", Ptp.TransparentClock.Domains.Domain))])
+                self._child_classes = OrderedDict([("domain", ("domain", Ptp.TransparentClock.Domains.Domain))])
                 self._leafs = OrderedDict()
 
                 self.domain = YList(self)
@@ -1958,8 +1911,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                     ])
@@ -1968,7 +1920,7 @@ class Ptp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/transparent-clock/domains/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.TransparentClock.Domains.Domain, ['domain'], name, value)
+                    self._perform_setattr(Ptp.TransparentClock.Domains.Domain, [u'domain'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ptp()

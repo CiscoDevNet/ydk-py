@@ -30,9 +30,9 @@ class Action(Enum):
     accept_log = Enum.YLeaf(2, "accept_log")
 
 
-class Builtinmodes(Enum):
+class BuiltinModes(Enum):
     """
-    Builtinmodes (Enum Class)
+    BuiltinModes (Enum Class)
 
     .. data:: exec_ = 0
 
@@ -45,9 +45,9 @@ class Builtinmodes(Enum):
     configure = Enum.YLeaf(1, "configure")
 
 
-class Builtinmodes_(Enum):
+class BuiltinModes_(Enum):
     """
-    Builtinmodes\_ (Enum Class)
+    BuiltinModes\_ (Enum Class)
 
     .. data:: exec_ = 0
 
@@ -60,9 +60,9 @@ class Builtinmodes_(Enum):
     configure = Enum.YLeaf(1, "configure")
 
 
-class Cmdoperationtype(Enum):
+class CmdOperationType(Enum):
     """
-    Cmdoperationtype (Enum Class)
+    CmdOperationType (Enum Class)
 
     .. data:: r = 0
 
@@ -79,9 +79,9 @@ class Cmdoperationtype(Enum):
     x = Enum.YLeaf(2, "x")
 
 
-class Dataoperationtype(Enum):
+class DataOperationType(Enum):
     """
-    Dataoperationtype (Enum Class)
+    DataOperationType (Enum Class)
 
     .. data:: r = 0
 
@@ -276,44 +276,39 @@ class Aaa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("authentication", ("authentication", Aaa.Authentication)), ("authorization", ("authorization", Aaa.Authorization)), ("ios", ("ios", Aaa.Ios)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", ("privileged_access", Aaa.PrivilegedAccess)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", ("accounting", Aaa.Accounting)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", ("user_group", Aaa.UserGroup)), ("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", ("disaster_recovery", Aaa.DisasterRecovery))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("authentication", ("authentication", Aaa.Authentication)), ("authorization", ("authorization", Aaa.Authorization)), ("ios", ("ios", Aaa.Ios)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", ("privileged_access", Aaa.PrivilegedAccess)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", ("accounting", Aaa.Accounting)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", ("user_group", Aaa.UserGroup)), ("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", ("disaster_recovery", Aaa.DisasterRecovery))])
         self._leafs = OrderedDict()
 
         self.authentication = Aaa.Authentication()
         self.authentication.parent = self
         self._children_name_map["authentication"] = "authentication"
-        self._children_yang_names.add("authentication")
 
         self.authorization = Aaa.Authorization()
         self.authorization.parent = self
         self._children_name_map["authorization"] = "authorization"
-        self._children_yang_names.add("authorization")
 
         self.ios = None
         self._children_name_map["ios"] = "ios"
-        self._children_yang_names.add("ios")
 
         self.privileged_access = Aaa.PrivilegedAccess()
         self.privileged_access.parent = self
         self._children_name_map["privileged_access"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access"
-        self._children_yang_names.add("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access")
 
         self.accounting = Aaa.Accounting()
         self.accounting.parent = self
         self._children_name_map["accounting"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting"
-        self._children_yang_names.add("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting")
 
         self.user_group = Aaa.UserGroup()
         self.user_group.parent = self
         self._children_name_map["user_group"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group"
-        self._children_yang_names.add("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group")
 
         self.disaster_recovery = Aaa.DisasterRecovery()
         self.disaster_recovery.parent = self
         self._children_name_map["disaster_recovery"] = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
-        self._children_yang_names.add("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery")
         self._segment_path = lambda: "tailf-aaa:aaa"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Aaa, [], name, value)
 
 
     class Authentication(Entity):
@@ -345,21 +340,21 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("users", ("users", Aaa.Authentication.Users)), ("groups", ("groups", Aaa.Authentication.Groups))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("users", ("users", Aaa.Authentication.Users)), ("groups", ("groups", Aaa.Authentication.Groups))])
             self._leafs = OrderedDict()
 
             self.users = Aaa.Authentication.Users()
             self.users.parent = self
             self._children_name_map["users"] = "users"
-            self._children_yang_names.add("users")
 
             self.groups = Aaa.Authentication.Groups()
             self.groups.parent = self
             self._children_name_map["groups"] = "groups"
-            self._children_yang_names.add("groups")
             self._segment_path = lambda: "authentication"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Authentication, [], name, value)
 
 
         class Users(Entity):
@@ -386,8 +381,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("user", ("user", Aaa.Authentication.Users.User))])
+                self._child_classes = OrderedDict([("user", ("user", Aaa.Authentication.Users.User))])
                 self._leafs = OrderedDict()
 
                 self.user = YList(self)
@@ -461,8 +455,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('uid', YLeaf(YType.int32, 'uid')),
@@ -481,7 +474,7 @@ class Aaa(Entity):
                     self._absolute_path = lambda: "tailf-aaa:aaa/authentication/users/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authentication.Users.User, ['name', 'uid', 'gid', 'password', 'ssh_keydir', 'homedir'], name, value)
+                    self._perform_setattr(Aaa.Authentication.Users.User, [u'name', u'uid', u'gid', u'password', u'ssh_keydir', u'homedir'], name, value)
 
 
         class Groups(Entity):
@@ -508,8 +501,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("group", ("group", Aaa.Authentication.Groups.Group))])
+                self._child_classes = OrderedDict([("group", ("group", Aaa.Authentication.Groups.Group))])
                 self._leafs = OrderedDict()
 
                 self.group = YList(self)
@@ -558,8 +550,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('gid', YLeaf(YType.int32, 'gid')),
@@ -572,7 +563,7 @@ class Aaa(Entity):
                     self._absolute_path = lambda: "tailf-aaa:aaa/authentication/groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authentication.Groups.Group, ['name', 'gid', 'users'], name, value)
+                    self._perform_setattr(Aaa.Authentication.Groups.Group, [u'name', u'gid', u'users'], name, value)
 
 
     class Authorization(Entity):
@@ -604,21 +595,21 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("cmdrules", ("cmdrules", Aaa.Authorization.Cmdrules)), ("datarules", ("datarules", Aaa.Authorization.Datarules))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("cmdrules", ("cmdrules", Aaa.Authorization.Cmdrules)), ("datarules", ("datarules", Aaa.Authorization.Datarules))])
             self._leafs = OrderedDict()
 
             self.cmdrules = Aaa.Authorization.Cmdrules()
             self.cmdrules.parent = self
             self._children_name_map["cmdrules"] = "cmdrules"
-            self._children_yang_names.add("cmdrules")
 
             self.datarules = Aaa.Authorization.Datarules()
             self.datarules.parent = self
             self._children_name_map["datarules"] = "datarules"
-            self._children_yang_names.add("datarules")
             self._segment_path = lambda: "authorization"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Authorization, [], name, value)
 
 
         class Cmdrules(Entity):
@@ -645,8 +636,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("cmdrule", ("cmdrule", Aaa.Authorization.Cmdrules.Cmdrule))])
+                self._child_classes = OrderedDict([("cmdrule", ("cmdrule", Aaa.Authorization.Cmdrules.Cmdrule))])
                 self._leafs = OrderedDict()
 
                 self.cmdrule = YList(self)
@@ -692,7 +682,7 @@ class Aaa(Entity):
                 .. attribute:: ops
                 
                 	
-                	**type**\:  :py:class:`Cmdoperationtype <ydk.models.cisco_ios_xr.tailf_aaa.Cmdoperationtype>`
+                	**type**\:  :py:class:`CmdOperationType <ydk.models.cisco_ios_xr.tailf_aaa.CmdOperationType>`
                 
                 	**mandatory**\: True
                 
@@ -718,8 +708,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['index']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.uint32, 'index')),
                         ('context', YLeaf(YType.str, 'context')),
@@ -738,7 +727,7 @@ class Aaa(Entity):
                     self._absolute_path = lambda: "tailf-aaa:aaa/authorization/cmdrules/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authorization.Cmdrules.Cmdrule, ['index', 'context', 'command', 'group', 'ops', 'action'], name, value)
+                    self._perform_setattr(Aaa.Authorization.Cmdrules.Cmdrule, [u'index', u'context', u'command', u'group', u'ops', u'action'], name, value)
 
 
         class Datarules(Entity):
@@ -765,8 +754,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("datarule", ("datarule", Aaa.Authorization.Datarules.Datarule))])
+                self._child_classes = OrderedDict([("datarule", ("datarule", Aaa.Authorization.Datarules.Datarule))])
                 self._leafs = OrderedDict()
 
                 self.datarule = YList(self)
@@ -819,7 +807,7 @@ class Aaa(Entity):
                 .. attribute:: ops
                 
                 	
-                	**type**\:  :py:class:`Dataoperationtype <ydk.models.cisco_ios_xr.tailf_aaa.Dataoperationtype>`
+                	**type**\:  :py:class:`DataOperationType <ydk.models.cisco_ios_xr.tailf_aaa.DataOperationType>`
                 
                 	**mandatory**\: True
                 
@@ -845,8 +833,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['index']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.uint32, 'index')),
                         ('namespace', YLeaf(YType.str, 'namespace')),
@@ -867,7 +854,7 @@ class Aaa(Entity):
                     self._absolute_path = lambda: "tailf-aaa:aaa/authorization/datarules/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authorization.Datarules.Datarule, ['index', 'namespace', 'context', 'keypath', 'group', 'ops', 'action'], name, value)
+                    self._perform_setattr(Aaa.Authorization.Datarules.Datarule, [u'index', u'namespace', u'context', u'keypath', u'group', u'ops', u'action'], name, value)
 
 
     class Ios(Entity):
@@ -901,8 +888,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("level", ("level", Aaa.Ios.Level)), ("privilege", ("privilege", Aaa.Ios.Privilege))])
+            self._child_classes = OrderedDict([("level", ("level", Aaa.Ios.Level)), ("privilege", ("privilege", Aaa.Ios.Privilege))])
             self.is_presence_container = True
             self._leafs = OrderedDict()
 
@@ -958,8 +944,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nr', YLeaf(YType.int32, 'nr')),
                     ('secret', YLeaf(YType.str, 'secret')),
@@ -974,7 +959,7 @@ class Aaa(Entity):
                 self._absolute_path = lambda: "tailf-aaa:aaa/ios/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Ios.Level, ['nr', 'secret', 'password', 'prompt'], name, value)
+                self._perform_setattr(Aaa.Ios.Level, [u'nr', u'secret', u'password', u'prompt'], name, value)
 
 
         class Privilege(Entity):
@@ -988,7 +973,7 @@ class Aaa(Entity):
             
             		**type**\: str
             
-            		**type**\:  :py:class:`Builtinmodes_ <ydk.models.cisco_ios_xr.tailf_aaa.Builtinmodes_>`
+            		**type**\:  :py:class:`BuiltinModes_ <ydk.models.cisco_ios_xr.tailf_aaa.BuiltinModes_>`
             
             .. attribute:: level
             
@@ -1010,8 +995,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mode']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("level", ("level", Aaa.Ios.Privilege.Level))])
+                self._child_classes = OrderedDict([("level", ("level", Aaa.Ios.Privilege.Level))])
                 self._leafs = OrderedDict([
                     ('mode', YLeaf(YType.str, 'mode')),
                 ])
@@ -1022,7 +1006,7 @@ class Aaa(Entity):
                 self._absolute_path = lambda: "tailf-aaa:aaa/ios/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Ios.Privilege, ['mode'], name, value)
+                self._perform_setattr(Aaa.Ios.Privilege, [u'mode'], name, value)
 
 
             class Level(Entity):
@@ -1056,8 +1040,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['nr']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("command", ("command", Aaa.Ios.Privilege.Level.Command))])
+                    self._child_classes = OrderedDict([("command", ("command", Aaa.Ios.Privilege.Level.Command))])
                     self._leafs = OrderedDict([
                         ('nr', YLeaf(YType.int32, 'nr')),
                     ])
@@ -1067,7 +1050,7 @@ class Aaa(Entity):
                     self._segment_path = lambda: "level" + "[nr='" + str(self.nr) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Ios.Privilege.Level, ['nr'], name, value)
+                    self._perform_setattr(Aaa.Ios.Privilege.Level, [u'nr'], name, value)
 
 
                 class Command(Entity):
@@ -1094,8 +1077,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -1103,7 +1085,7 @@ class Aaa(Entity):
                         self._segment_path = lambda: "command" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Ios.Privilege.Level.Command, ['name'], name, value)
+                        self._perform_setattr(Aaa.Ios.Privilege.Level.Command, [u'name'], name, value)
 
 
     class PrivilegedAccess(Entity):
@@ -1145,8 +1127,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('shell_access', YLeaf(YType.str, 'shell-access')),
                 ('first_user', YLeaf(YType.str, 'first-user')),
@@ -1188,8 +1169,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('log_data', YLeaf(YType.str, 'log-data')),
             ])
@@ -1225,8 +1205,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('grp_data', YLeaf(YType.str, 'grp-data')),
             ])
@@ -1269,8 +1248,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('username', YLeaf(YType.str, 'username')),
                 ('password', YLeaf(YType.str, 'password')),
@@ -1319,8 +1297,7 @@ class Alias(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = ['name']
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
             ('name', YLeaf(YType.str, 'name')),
             ('expansion', YLeaf(YType.str, 'expansion')),
@@ -1330,7 +1307,7 @@ class Alias(Entity):
         self._segment_path = lambda: "tailf-aaa:alias" + "[name='" + str(self.name) + "']"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Alias, ['name', 'expansion'], name, value)
+        self._perform_setattr(Alias, [u'name', u'expansion'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Alias()
@@ -1414,8 +1391,7 @@ class Session(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self.is_presence_container = True
         self._leafs = OrderedDict([
             ('complete_on_space', YLeaf(YType.boolean, 'complete-on-space')),
@@ -1442,7 +1418,7 @@ class Session(Entity):
         self._segment_path = lambda: "tailf-aaa:session"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Session, ['complete_on_space', 'ignore_leading_space', 'idle_timeout', 'paginate', 'history', 'autowizard', 'show_defaults', 'display_level', 'prompt1', 'prompt2'], name, value)
+        self._perform_setattr(Session, [u'complete_on_space', u'ignore_leading_space', u'idle_timeout', u'paginate', u'history', u'autowizard', u'show_defaults', u'display_level', u'prompt1', u'prompt2'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Session()
@@ -1488,8 +1464,7 @@ class User(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = ['name']
-        self._child_container_classes = OrderedDict([("session", ("session", User.Session))])
-        self._child_list_classes = OrderedDict([("alias", ("alias", User.Alias))])
+        self._child_classes = OrderedDict([("alias", ("alias", User.Alias)), ("session", ("session", User.Session))])
         self._leafs = OrderedDict([
             ('name', YLeaf(YType.str, 'name')),
             ('description', YLeaf(YType.str, 'description')),
@@ -1500,13 +1475,12 @@ class User(Entity):
         self.session = User.Session()
         self.session.parent = self
         self._children_name_map["session"] = "session"
-        self._children_yang_names.add("session")
 
         self.alias = YList(self)
         self._segment_path = lambda: "tailf-aaa:user" + "[name='" + str(self.name) + "']"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(User, ['name', 'description'], name, value)
+        self._perform_setattr(User, [u'name', u'description'], name, value)
 
 
     class Alias(Entity):
@@ -1540,8 +1514,7 @@ class User(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = True
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('expansion', YLeaf(YType.str, 'expansion')),
@@ -1551,7 +1524,7 @@ class User(Entity):
             self._segment_path = lambda: "alias" + "[name='" + str(self.name) + "']"
 
         def __setattr__(self, name, value):
-            self._perform_setattr(User.Alias, ['name', 'expansion'], name, value)
+            self._perform_setattr(User.Alias, [u'name', u'expansion'], name, value)
 
 
     class Session(Entity):
@@ -1629,8 +1602,7 @@ class User(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = True
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('complete_on_space', YLeaf(YType.boolean, 'complete-on-space')),
                 ('ignore_leading_space', YLeaf(YType.boolean, 'ignore-leading-space')),
@@ -1656,7 +1628,7 @@ class User(Entity):
             self._segment_path = lambda: "session"
 
         def __setattr__(self, name, value):
-            self._perform_setattr(User.Session, ['complete_on_space', 'ignore_leading_space', 'idle_timeout', 'paginate', 'history', 'autowizard', 'show_defaults', 'display_level', 'prompt1', 'prompt2'], name, value)
+            self._perform_setattr(User.Session, [u'complete_on_space', u'ignore_leading_space', u'idle_timeout', u'paginate', u'history', u'autowizard', u'show_defaults', u'display_level', u'prompt1', u'prompt2'], name, value)
 
     def clone_ptr(self):
         self._top_entity = User()

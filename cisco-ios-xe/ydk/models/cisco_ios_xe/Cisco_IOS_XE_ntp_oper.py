@@ -293,14 +293,15 @@ class NtpOperData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ntp-status-info", ("ntp_status_info", NtpOperData.NtpStatusInfo))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ntp-status-info", ("ntp_status_info", NtpOperData.NtpStatusInfo))])
         self._leafs = OrderedDict()
 
         self.ntp_status_info = None
         self._children_name_map["ntp_status_info"] = "ntp-status-info"
-        self._children_yang_names.add("ntp-status-info")
         self._segment_path = lambda: "Cisco-IOS-XE-ntp-oper:ntp-oper-data"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NtpOperData, [], name, value)
 
 
     class NtpStatusInfo(Entity):
@@ -385,8 +386,7 @@ class NtpOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("refid", ("refid", NtpOperData.NtpStatusInfo.Refid))])
-            self._child_list_classes = OrderedDict([("ntp-associations", ("ntp_associations", NtpOperData.NtpStatusInfo.NtpAssociations))])
+            self._child_classes = OrderedDict([("refid", ("refid", NtpOperData.NtpStatusInfo.Refid)), ("ntp-associations", ("ntp_associations", NtpOperData.NtpStatusInfo.NtpAssociations))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('reftime', YLeaf(YType.str, 'reftime')),
@@ -408,7 +408,6 @@ class NtpOperData(Entity):
             self.refid = NtpOperData.NtpStatusInfo.Refid()
             self.refid.parent = self
             self._children_name_map["refid"] = "refid"
-            self._children_yang_names.add("refid")
 
             self.ntp_associations = YList(self)
             self._segment_path = lambda: "ntp-status-info"
@@ -467,8 +466,7 @@ class NtpOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("kod-data", ("kod_data", NtpOperData.NtpStatusInfo.Refid.KodData)), ("ref-clk-src-data", ("ref_clk_src_data", NtpOperData.NtpStatusInfo.Refid.RefClkSrcData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("kod-data", ("kod_data", NtpOperData.NtpStatusInfo.Refid.KodData)), ("ref-clk-src-data", ("ref_clk_src_data", NtpOperData.NtpStatusInfo.Refid.RefClkSrcData))])
                 self._leafs = OrderedDict([
                     ('ip_addr', YLeaf(YType.str, 'ip-addr')),
                     ('exception_code', YLeaf(YType.uint32, 'exception-code')),
@@ -479,12 +477,10 @@ class NtpOperData(Entity):
                 self.kod_data = NtpOperData.NtpStatusInfo.Refid.KodData()
                 self.kod_data.parent = self
                 self._children_name_map["kod_data"] = "kod-data"
-                self._children_yang_names.add("kod-data")
 
                 self.ref_clk_src_data = NtpOperData.NtpStatusInfo.Refid.RefClkSrcData()
                 self.ref_clk_src_data.parent = self
                 self._children_name_map["ref_clk_src_data"] = "ref-clk-src-data"
-                self._children_yang_names.add("ref-clk-src-data")
                 self._segment_path = lambda: "refid"
                 self._absolute_path = lambda: "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/%s" % self._segment_path()
 
@@ -516,8 +512,7 @@ class NtpOperData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('kod_type', YLeaf(YType.enumeration, 'kod-type')),
                     ])
@@ -553,8 +548,7 @@ class NtpOperData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ref_clk_src_type', YLeaf(YType.enumeration, 'ref-clk-src-type')),
                     ])
@@ -653,8 +647,7 @@ class NtpOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['assoc_id']
-                self._child_container_classes = OrderedDict([("refid", ("refid", NtpOperData.NtpStatusInfo.NtpAssociations.Refid))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("refid", ("refid", NtpOperData.NtpStatusInfo.NtpAssociations.Refid))])
                 self._leafs = OrderedDict([
                     ('assoc_id', YLeaf(YType.uint16, 'assoc-id')),
                     ('peer_reach', YLeaf(YType.uint8, 'peer-reach')),
@@ -679,7 +672,6 @@ class NtpOperData(Entity):
                 self.refid = NtpOperData.NtpStatusInfo.NtpAssociations.Refid()
                 self.refid.parent = self
                 self._children_name_map["refid"] = "refid"
-                self._children_yang_names.add("refid")
                 self._segment_path = lambda: "ntp-associations" + "[assoc-id='" + str(self.assoc_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/%s" % self._segment_path()
 
@@ -736,8 +728,7 @@ class NtpOperData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("kod-data", ("kod_data", NtpOperData.NtpStatusInfo.NtpAssociations.Refid.KodData)), ("ref-clk-src-data", ("ref_clk_src_data", NtpOperData.NtpStatusInfo.NtpAssociations.Refid.RefClkSrcData))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("kod-data", ("kod_data", NtpOperData.NtpStatusInfo.NtpAssociations.Refid.KodData)), ("ref-clk-src-data", ("ref_clk_src_data", NtpOperData.NtpStatusInfo.NtpAssociations.Refid.RefClkSrcData))])
                     self._leafs = OrderedDict([
                         ('ip_addr', YLeaf(YType.str, 'ip-addr')),
                         ('exception_code', YLeaf(YType.uint32, 'exception-code')),
@@ -748,12 +739,10 @@ class NtpOperData(Entity):
                     self.kod_data = NtpOperData.NtpStatusInfo.NtpAssociations.Refid.KodData()
                     self.kod_data.parent = self
                     self._children_name_map["kod_data"] = "kod-data"
-                    self._children_yang_names.add("kod-data")
 
                     self.ref_clk_src_data = NtpOperData.NtpStatusInfo.NtpAssociations.Refid.RefClkSrcData()
                     self.ref_clk_src_data.parent = self
                     self._children_name_map["ref_clk_src_data"] = "ref-clk-src-data"
-                    self._children_yang_names.add("ref-clk-src-data")
                     self._segment_path = lambda: "refid"
 
                 def __setattr__(self, name, value):
@@ -784,8 +773,7 @@ class NtpOperData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('kod_type', YLeaf(YType.enumeration, 'kod-type')),
                         ])
@@ -820,8 +808,7 @@ class NtpOperData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ref_clk_src_type', YLeaf(YType.enumeration, 'ref-clk-src-type')),
                         ])

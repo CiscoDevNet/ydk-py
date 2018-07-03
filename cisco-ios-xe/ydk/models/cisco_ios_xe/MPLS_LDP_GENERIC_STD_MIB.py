@@ -28,7 +28,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
     .. attribute:: mplsldpentitygenericlrtable
     
     	The MPLS LDP Entity Generic Label Range (LR) Table.  The purpose of this table is to provide a mechanism for configurating a contiguous range of generic labels, or a 'label range' for LDP Entities.  LDP Entities which use Generic Labels must have at least one entry in this table.  In other words, this table 'extends' the mpldLdpEntityTable for Generic Labels
-    	**type**\:  :py:class:`Mplsldpentitygenericlrtable <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable>`
+    	**type**\:  :py:class:`MplsLdpEntityGenericLRTable <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable>`
     
     
 
@@ -46,18 +46,19 @@ class MPLSLDPGENERICSTDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mplsLdpEntityGenericLRTable", ("mplsldpentitygenericlrtable", MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mplsLdpEntityGenericLRTable", ("mplsldpentitygenericlrtable", MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable))])
         self._leafs = OrderedDict()
 
-        self.mplsldpentitygenericlrtable = MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable()
+        self.mplsldpentitygenericlrtable = MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable()
         self.mplsldpentitygenericlrtable.parent = self
         self._children_name_map["mplsldpentitygenericlrtable"] = "mplsLdpEntityGenericLRTable"
-        self._children_yang_names.add("mplsLdpEntityGenericLRTable")
         self._segment_path = lambda: "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(MPLSLDPGENERICSTDMIB, [], name, value)
 
-    class Mplsldpentitygenericlrtable(Entity):
+
+    class MplsLdpEntityGenericLRTable(Entity):
         """
         The MPLS LDP Entity Generic Label Range (LR)
         Table.
@@ -73,7 +74,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
         .. attribute:: mplsldpentitygenericlrentry
         
         	A row in the LDP Entity Generic Label Range (LR) Table.  One entry in this table contains information on a single range of labels represented by the configured Upper and Lower Bounds pairs.  NOTE\: there is NO corresponding LDP message which relates to the information in this table, however, this table does provide a way for a user to 'reserve' a generic label range.  NOTE\:  The ranges for a specific LDP Entity are UNIQUE and non\-overlapping.  A row will not be created unless a unique and non\-overlapping range is specified
-        	**type**\: list of  		 :py:class:`Mplsldpentitygenericlrentry <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry>`
+        	**type**\: list of  		 :py:class:`MplsLdpEntityGenericLREntry <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry>`
         
         
 
@@ -83,15 +84,14 @@ class MPLSLDPGENERICSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable, self).__init__()
+            super(MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable, self).__init__()
 
             self.yang_name = "mplsLdpEntityGenericLRTable"
             self.yang_parent_name = "MPLS-LDP-GENERIC-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsLdpEntityGenericLREntry", ("mplsldpentitygenericlrentry", MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry))])
+            self._child_classes = OrderedDict([("mplsLdpEntityGenericLREntry", ("mplsldpentitygenericlrentry", MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry))])
             self._leafs = OrderedDict()
 
             self.mplsldpentitygenericlrentry = YList(self)
@@ -99,10 +99,10 @@ class MPLSLDPGENERICSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable, [], name, value)
+            self._perform_setattr(MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable, [], name, value)
 
 
-        class Mplsldpentitygenericlrentry(Entity):
+        class MplsLdpEntityGenericLREntry(Entity):
             """
             A row in the LDP Entity Generic Label
             Range (LR) Table.  One entry in this table contains
@@ -125,7 +125,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldpentityindex  (key)
             
@@ -134,7 +134,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
+            	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
             .. attribute:: mplsldpentitygenericlrmin  (key)
             
@@ -153,7 +153,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
             .. attribute:: mplsldpentitygenericlabelspace
             
             	This value of this object is perPlatform(1), then this means that the label space type is per platform.  If this object is perInterface(2), then this means that the label space type is per Interface
-            	**type**\:  :py:class:`Mplsldpentitygenericlabelspace <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry.Mplsldpentitygenericlabelspace>`
+            	**type**\:  :py:class:`MplsLdpEntityGenericLabelSpace <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry.MplsLdpEntityGenericLabelSpace>`
             
             .. attribute:: mplsldpentitygenericifindexorzero
             
@@ -180,15 +180,14 @@ class MPLSLDPGENERICSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry, self).__init__()
+                super(MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry, self).__init__()
 
                 self.yang_name = "mplsLdpEntityGenericLREntry"
                 self.yang_parent_name = "mplsLdpEntityGenericLRTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldpentitygenericlrmin','mplsldpentitygenericlrmax']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
                     ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
@@ -211,11 +210,11 @@ class MPLSLDPGENERICSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB/mplsLdpEntityGenericLRTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldpentitygenericlrmin', 'mplsldpentitygenericlrmax', 'mplsldpentitygenericlabelspace', 'mplsldpentitygenericifindexorzero', 'mplsldpentitygenericlrstoragetype', 'mplsldpentitygenericlrrowstatus'], name, value)
+                self._perform_setattr(MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldpentitygenericlrmin', 'mplsldpentitygenericlrmax', 'mplsldpentitygenericlabelspace', 'mplsldpentitygenericifindexorzero', 'mplsldpentitygenericlrstoragetype', 'mplsldpentitygenericlrrowstatus'], name, value)
 
-            class Mplsldpentitygenericlabelspace(Enum):
+            class MplsLdpEntityGenericLabelSpace(Enum):
                 """
-                Mplsldpentitygenericlabelspace (Enum Class)
+                MplsLdpEntityGenericLabelSpace (Enum Class)
 
                 This value of this object is perPlatform(1), then
 

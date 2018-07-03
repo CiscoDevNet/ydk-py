@@ -688,7 +688,7 @@ class Fia(Entity):
     """
 
     _prefix = 'dnx-driver-oper'
-    _revision = '2017-08-29'
+    _revision = '2015-11-09'
 
     def __init__(self):
         super(Fia, self).__init__()
@@ -699,15 +699,16 @@ class Fia(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Fia.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Fia.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Fia.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-dnx-driver-oper:fia"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Fia, [], name, value)
 
 
     class Nodes(Entity):
@@ -724,7 +725,7 @@ class Fia(Entity):
         """
 
         _prefix = 'dnx-driver-oper'
-        _revision = '2017-08-29'
+        _revision = '2015-11-09'
 
         def __init__(self):
             super(Fia.Nodes, self).__init__()
@@ -734,8 +735,7 @@ class Fia(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Fia.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Fia.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -797,7 +797,7 @@ class Fia(Entity):
             """
 
             _prefix = 'dnx-driver-oper'
-            _revision = '2017-08-29'
+            _revision = '2015-11-09'
 
             def __init__(self):
                 super(Fia.Nodes.Node, self).__init__()
@@ -807,8 +807,7 @@ class Fia(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("rx-link-information", ("rx_link_information", Fia.Nodes.Node.RxLinkInformation)), ("driver-information", ("driver_information", Fia.Nodes.Node.DriverInformation)), ("clear-statistics", ("clear_statistics", Fia.Nodes.Node.ClearStatistics)), ("tx-link-information", ("tx_link_information", Fia.Nodes.Node.TxLinkInformation)), ("diag-shell", ("diag_shell", Fia.Nodes.Node.DiagShell)), ("oir-history", ("oir_history", Fia.Nodes.Node.OirHistory)), ("asic-statistics", ("asic_statistics", Fia.Nodes.Node.AsicStatistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("rx-link-information", ("rx_link_information", Fia.Nodes.Node.RxLinkInformation)), ("driver-information", ("driver_information", Fia.Nodes.Node.DriverInformation)), ("clear-statistics", ("clear_statistics", Fia.Nodes.Node.ClearStatistics)), ("tx-link-information", ("tx_link_information", Fia.Nodes.Node.TxLinkInformation)), ("diag-shell", ("diag_shell", Fia.Nodes.Node.DiagShell)), ("oir-history", ("oir_history", Fia.Nodes.Node.OirHistory)), ("asic-statistics", ("asic_statistics", Fia.Nodes.Node.AsicStatistics))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -817,37 +816,30 @@ class Fia(Entity):
                 self.rx_link_information = Fia.Nodes.Node.RxLinkInformation()
                 self.rx_link_information.parent = self
                 self._children_name_map["rx_link_information"] = "rx-link-information"
-                self._children_yang_names.add("rx-link-information")
 
                 self.driver_information = Fia.Nodes.Node.DriverInformation()
                 self.driver_information.parent = self
                 self._children_name_map["driver_information"] = "driver-information"
-                self._children_yang_names.add("driver-information")
 
                 self.clear_statistics = Fia.Nodes.Node.ClearStatistics()
                 self.clear_statistics.parent = self
                 self._children_name_map["clear_statistics"] = "clear-statistics"
-                self._children_yang_names.add("clear-statistics")
 
                 self.tx_link_information = Fia.Nodes.Node.TxLinkInformation()
                 self.tx_link_information.parent = self
                 self._children_name_map["tx_link_information"] = "tx-link-information"
-                self._children_yang_names.add("tx-link-information")
 
                 self.diag_shell = Fia.Nodes.Node.DiagShell()
                 self.diag_shell.parent = self
                 self._children_name_map["diag_shell"] = "diag-shell"
-                self._children_yang_names.add("diag-shell")
 
                 self.oir_history = Fia.Nodes.Node.OirHistory()
                 self.oir_history.parent = self
                 self._children_name_map["oir_history"] = "oir-history"
-                self._children_yang_names.add("oir-history")
 
                 self.asic_statistics = Fia.Nodes.Node.AsicStatistics()
                 self.asic_statistics.parent = self
                 self._children_name_map["asic_statistics"] = "asic-statistics"
-                self._children_yang_names.add("asic-statistics")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/%s" % self._segment_path()
 
@@ -869,7 +861,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2017-08-29'
+                _revision = '2015-11-09'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.RxLinkInformation, self).__init__()
@@ -879,15 +871,16 @@ class Fia(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("link-options", ("link_options", Fia.Nodes.Node.RxLinkInformation.LinkOptions))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("link-options", ("link_options", Fia.Nodes.Node.RxLinkInformation.LinkOptions))])
                     self._leafs = OrderedDict()
 
                     self.link_options = Fia.Nodes.Node.RxLinkInformation.LinkOptions()
                     self.link_options.parent = self
                     self._children_name_map["link_options"] = "link-options"
-                    self._children_yang_names.add("link-options")
                     self._segment_path = lambda: "rx-link-information"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation, [], name, value)
 
 
                 class LinkOptions(Entity):
@@ -904,7 +897,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2017-08-29'
+                    _revision = '2015-11-09'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions, self).__init__()
@@ -914,8 +907,7 @@ class Fia(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("link-option", ("link_option", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption))])
+                        self._child_classes = OrderedDict([("link-option", ("link_option", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption))])
                         self._leafs = OrderedDict()
 
                         self.link_option = YList(self)
@@ -946,7 +938,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2017-08-29'
+                        _revision = '2015-11-09'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption, self).__init__()
@@ -956,8 +948,7 @@ class Fia(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['option']
-                            self._child_container_classes = OrderedDict([("rx-asic-instances", ("rx_asic_instances", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("rx-asic-instances", ("rx_asic_instances", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances))])
                             self._leafs = OrderedDict([
                                 ('option', YLeaf(YType.str, 'option')),
                             ])
@@ -966,7 +957,6 @@ class Fia(Entity):
                             self.rx_asic_instances = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances()
                             self.rx_asic_instances.parent = self
                             self._children_name_map["rx_asic_instances"] = "rx-asic-instances"
-                            self._children_yang_names.add("rx-asic-instances")
                             self._segment_path = lambda: "link-option" + "[option='" + str(self.option) + "']"
 
                         def __setattr__(self, name, value):
@@ -987,7 +977,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2017-08-29'
+                            _revision = '2015-11-09'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances, self).__init__()
@@ -997,8 +987,7 @@ class Fia(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("rx-asic-instance", ("rx_asic_instance", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance))])
+                                self._child_classes = OrderedDict([("rx-asic-instance", ("rx_asic_instance", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance))])
                                 self._leafs = OrderedDict()
 
                                 self.rx_asic_instance = YList(self)
@@ -1029,7 +1018,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2017-08-29'
+                                _revision = '2015-11-09'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance, self).__init__()
@@ -1039,8 +1028,7 @@ class Fia(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['instance']
-                                    self._child_container_classes = OrderedDict([("rx-links", ("rx_links", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("rx-links", ("rx_links", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks))])
                                     self._leafs = OrderedDict([
                                         ('instance', YLeaf(YType.uint32, 'instance')),
                                     ])
@@ -1049,7 +1037,6 @@ class Fia(Entity):
                                     self.rx_links = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks()
                                     self.rx_links.parent = self
                                     self._children_name_map["rx_links"] = "rx-links"
-                                    self._children_yang_names.add("rx-links")
                                     self._segment_path = lambda: "rx-asic-instance" + "[instance='" + str(self.instance) + "']"
 
                                 def __setattr__(self, name, value):
@@ -1070,7 +1057,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2017-08-29'
+                                    _revision = '2015-11-09'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks, self).__init__()
@@ -1080,8 +1067,7 @@ class Fia(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("rx-link", ("rx_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink))])
+                                        self._child_classes = OrderedDict([("rx-link", ("rx_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink))])
                                         self._leafs = OrderedDict()
 
                                         self.rx_link = YList(self)
@@ -1126,7 +1112,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2017-08-29'
+                                        _revision = '2015-11-09'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink, self).__init__()
@@ -1136,8 +1122,7 @@ class Fia(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("rx-link", ("rx_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_))])
+                                            self._child_classes = OrderedDict([("rx-link", ("rx_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_))])
                                             self._leafs = OrderedDict([
                                                 ('start_number', YLeaf(YType.uint32, 'start-number')),
                                                 ('end_number', YLeaf(YType.uint32, 'end-number')),
@@ -1260,7 +1245,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2017-08-29'
+                                            _revision = '2015-11-09'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, self).__init__()
@@ -1270,8 +1255,7 @@ class Fia(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['link']
-                                                self._child_container_classes = OrderedDict([("this-link", ("this_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink)), ("far-end-link", ("far_end_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink)), ("far-end-link-in-hw", ("far_end_link_in_hw", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw)), ("history", ("history", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("this-link", ("this_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink)), ("far-end-link", ("far_end_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink)), ("far-end-link-in-hw", ("far_end_link_in_hw", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw)), ("history", ("history", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History))])
                                                 self._leafs = OrderedDict([
                                                     ('link', YLeaf(YType.int32, 'link')),
                                                     ('speed', YLeaf(YType.uint32, 'speed')),
@@ -1304,22 +1288,18 @@ class Fia(Entity):
                                                 self.this_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink()
                                                 self.this_link.parent = self
                                                 self._children_name_map["this_link"] = "this-link"
-                                                self._children_yang_names.add("this-link")
 
                                                 self.far_end_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink()
                                                 self.far_end_link.parent = self
                                                 self._children_name_map["far_end_link"] = "far-end-link"
-                                                self._children_yang_names.add("far-end-link")
 
                                                 self.far_end_link_in_hw = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw()
                                                 self.far_end_link_in_hw.parent = self
                                                 self._children_name_map["far_end_link_in_hw"] = "far-end-link-in-hw"
-                                                self._children_yang_names.add("far-end-link-in-hw")
 
                                                 self.history = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History()
                                                 self.history.parent = self
                                                 self._children_name_map["history"] = "history"
-                                                self._children_yang_names.add("history")
                                                 self._segment_path = lambda: "rx-link" + "[link='" + str(self.link) + "']"
 
                                             def __setattr__(self, name, value):
@@ -1364,7 +1344,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, self).__init__()
@@ -1374,8 +1354,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId))])
                                                     self._leafs = OrderedDict([
                                                         ('link_type', YLeaf(YType.enumeration, 'link-type')),
                                                         ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
@@ -1390,7 +1369,6 @@ class Fia(Entity):
                                                     self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId()
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
-                                                    self._children_yang_names.add("asic-id")
                                                     self._segment_path = lambda: "this-link"
 
                                                 def __setattr__(self, name, value):
@@ -1437,7 +1415,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2017-08-29'
+                                                    _revision = '2015-11-09'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, self).__init__()
@@ -1447,8 +1425,7 @@ class Fia(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
                                                             ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
@@ -1505,7 +1482,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, self).__init__()
@@ -1515,8 +1492,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId))])
                                                     self._leafs = OrderedDict([
                                                         ('link_type', YLeaf(YType.enumeration, 'link-type')),
                                                         ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
@@ -1531,7 +1507,6 @@ class Fia(Entity):
                                                     self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId()
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
-                                                    self._children_yang_names.add("asic-id")
                                                     self._segment_path = lambda: "far-end-link"
 
                                                 def __setattr__(self, name, value):
@@ -1578,7 +1553,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2017-08-29'
+                                                    _revision = '2015-11-09'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, self).__init__()
@@ -1588,8 +1563,7 @@ class Fia(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
                                                             ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
@@ -1646,7 +1620,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, self).__init__()
@@ -1656,8 +1630,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId))])
                                                     self._leafs = OrderedDict([
                                                         ('link_type', YLeaf(YType.enumeration, 'link-type')),
                                                         ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
@@ -1672,7 +1645,6 @@ class Fia(Entity):
                                                     self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId()
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
-                                                    self._children_yang_names.add("asic-id")
                                                     self._segment_path = lambda: "far-end-link-in-hw"
 
                                                 def __setattr__(self, name, value):
@@ -1719,7 +1691,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2017-08-29'
+                                                    _revision = '2015-11-09'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, self).__init__()
@@ -1729,8 +1701,7 @@ class Fia(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
                                                             ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
@@ -1777,7 +1748,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, self).__init__()
@@ -1787,8 +1758,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("hist", ("hist", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist))])
+                                                    self._child_classes = OrderedDict([("hist", ("hist", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist))])
                                                     self._leafs = OrderedDict([
                                                         ('histnum', YLeaf(YType.uint8, 'histnum')),
                                                         ('start_index', YLeaf(YType.uint8, 'start-index')),
@@ -1839,7 +1809,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2017-08-29'
+                                                    _revision = '2015-11-09'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, self).__init__()
@@ -1849,8 +1819,7 @@ class Fia(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
                                                             ('oper_state', YLeaf(YType.enumeration, 'oper-state')),
@@ -2158,7 +2127,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2017-08-29'
+                _revision = '2015-11-09'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.DriverInformation, self).__init__()
@@ -2168,8 +2137,7 @@ class Fia(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("device-info", ("device_info", Fia.Nodes.Node.DriverInformation.DeviceInfo)), ("card-info", ("card_info", Fia.Nodes.Node.DriverInformation.CardInfo))])
+                    self._child_classes = OrderedDict([("device-info", ("device_info", Fia.Nodes.Node.DriverInformation.DeviceInfo)), ("card-info", ("card_info", Fia.Nodes.Node.DriverInformation.CardInfo))])
                     self._leafs = OrderedDict([
                         ('drv_version', YLeaf(YType.uint32, 'drv-version')),
                         ('coeff_major_rev', YLeaf(YType.uint32, 'coeff-major-rev')),
@@ -2346,7 +2314,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2017-08-29'
+                    _revision = '2015-11-09'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.DriverInformation.DeviceInfo, self).__init__()
@@ -2356,8 +2324,7 @@ class Fia(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId))])
                         self._leafs = OrderedDict([
                             ('is_valid', YLeaf(YType.boolean, 'is-valid')),
                             ('fapid', YLeaf(YType.uint32, 'fapid')),
@@ -2386,7 +2353,6 @@ class Fia(Entity):
                         self.asic_id = Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId()
                         self.asic_id.parent = self
                         self._children_name_map["asic_id"] = "asic-id"
-                        self._children_yang_names.add("asic-id")
                         self._segment_path = lambda: "device-info"
 
                     def __setattr__(self, name, value):
@@ -2433,7 +2399,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2017-08-29'
+                        _revision = '2015-11-09'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, self).__init__()
@@ -2443,8 +2409,7 @@ class Fia(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
                                 ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
@@ -2578,7 +2543,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2017-08-29'
+                    _revision = '2015-11-09'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.DriverInformation.CardInfo, self).__init__()
@@ -2588,8 +2553,7 @@ class Fia(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("oir-circular-buffer", ("oir_circular_buffer", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("oir-circular-buffer", ("oir_circular_buffer", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer))])
                         self._leafs = OrderedDict([
                             ('card_type', YLeaf(YType.int32, 'card-type')),
                             ('card_name', YLeaf(YType.str, 'card-name')),
@@ -2626,7 +2590,6 @@ class Fia(Entity):
                         self.oir_circular_buffer = Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer()
                         self.oir_circular_buffer.parent = self
                         self._children_name_map["oir_circular_buffer"] = "oir-circular-buffer"
-                        self._children_yang_names.add("oir-circular-buffer")
                         self._segment_path = lambda: "card-info"
 
                     def __setattr__(self, name, value):
@@ -2668,7 +2631,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2017-08-29'
+                        _revision = '2015-11-09'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, self).__init__()
@@ -2678,8 +2641,7 @@ class Fia(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("fia-oir-info", ("fia_oir_info", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo))])
+                            self._child_classes = OrderedDict([("fia-oir-info", ("fia_oir_info", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo))])
                             self._leafs = OrderedDict([
                                 ('count', YLeaf(YType.int32, 'count')),
                                 ('start', YLeaf(YType.int32, 'start')),
@@ -2754,7 +2716,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2017-08-29'
+                            _revision = '2015-11-09'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, self).__init__()
@@ -2764,8 +2726,7 @@ class Fia(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('card_flag', YLeaf(YType.int32, 'card-flag')),
                                     ('card_type', YLeaf(YType.int32, 'card-type')),
@@ -2802,7 +2763,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2017-08-29'
+                _revision = '2015-11-09'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.ClearStatistics, self).__init__()
@@ -2812,15 +2773,16 @@ class Fia(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("asic-instances", ("asic_instances", Fia.Nodes.Node.ClearStatistics.AsicInstances))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("asic-instances", ("asic_instances", Fia.Nodes.Node.ClearStatistics.AsicInstances))])
                     self._leafs = OrderedDict()
 
                     self.asic_instances = Fia.Nodes.Node.ClearStatistics.AsicInstances()
                     self.asic_instances.parent = self
                     self._children_name_map["asic_instances"] = "asic-instances"
-                    self._children_yang_names.add("asic-instances")
                     self._segment_path = lambda: "clear-statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Fia.Nodes.Node.ClearStatistics, [], name, value)
 
 
                 class AsicInstances(Entity):
@@ -2838,7 +2800,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2017-08-29'
+                    _revision = '2015-11-09'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.ClearStatistics.AsicInstances, self).__init__()
@@ -2848,8 +2810,7 @@ class Fia(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("asic-instance", ("asic_instance", Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance))])
+                        self._child_classes = OrderedDict([("asic-instance", ("asic_instance", Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance))])
                         self._leafs = OrderedDict()
 
                         self.asic_instance = YList(self)
@@ -2884,7 +2845,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2017-08-29'
+                        _revision = '2015-11-09'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance, self).__init__()
@@ -2894,8 +2855,7 @@ class Fia(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['asic_instance']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
                                 ('instance', YLeaf(YType.int32, 'instance')),
@@ -2922,7 +2882,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2017-08-29'
+                _revision = '2015-11-09'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.TxLinkInformation, self).__init__()
@@ -2932,15 +2892,16 @@ class Fia(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("tx-status-option-table", ("tx_status_option_table", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("tx-status-option-table", ("tx_status_option_table", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable))])
                     self._leafs = OrderedDict()
 
                     self.tx_status_option_table = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable()
                     self.tx_status_option_table.parent = self
                     self._children_name_map["tx_status_option_table"] = "tx-status-option-table"
-                    self._children_yang_names.add("tx-status-option-table")
                     self._segment_path = lambda: "tx-link-information"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation, [], name, value)
 
 
                 class TxStatusOptionTable(Entity):
@@ -2957,7 +2918,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2017-08-29'
+                    _revision = '2015-11-09'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable, self).__init__()
@@ -2967,15 +2928,16 @@ class Fia(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("tx-status-option", ("tx_status_option", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("tx-status-option", ("tx_status_option", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption))])
                         self._leafs = OrderedDict()
 
                         self.tx_status_option = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption()
                         self.tx_status_option.parent = self
                         self._children_name_map["tx_status_option"] = "tx-status-option"
-                        self._children_yang_names.add("tx-status-option")
                         self._segment_path = lambda: "tx-status-option-table"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable, [], name, value)
 
 
                     class TxStatusOption(Entity):
@@ -2992,7 +2954,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2017-08-29'
+                        _revision = '2015-11-09'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption, self).__init__()
@@ -3002,15 +2964,16 @@ class Fia(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("tx-asic-instances", ("tx_asic_instances", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("tx-asic-instances", ("tx_asic_instances", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances))])
                             self._leafs = OrderedDict()
 
                             self.tx_asic_instances = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances()
                             self.tx_asic_instances.parent = self
                             self._children_name_map["tx_asic_instances"] = "tx-asic-instances"
-                            self._children_yang_names.add("tx-asic-instances")
                             self._segment_path = lambda: "tx-status-option"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption, [], name, value)
 
 
                         class TxAsicInstances(Entity):
@@ -3027,7 +2990,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2017-08-29'
+                            _revision = '2015-11-09'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances, self).__init__()
@@ -3037,8 +3000,7 @@ class Fia(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("tx-asic-instance", ("tx_asic_instance", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance))])
+                                self._child_classes = OrderedDict([("tx-asic-instance", ("tx_asic_instance", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance))])
                                 self._leafs = OrderedDict()
 
                                 self.tx_asic_instance = YList(self)
@@ -3069,7 +3031,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2017-08-29'
+                                _revision = '2015-11-09'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance, self).__init__()
@@ -3079,8 +3041,7 @@ class Fia(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['instance']
-                                    self._child_container_classes = OrderedDict([("tx-links", ("tx_links", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("tx-links", ("tx_links", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks))])
                                     self._leafs = OrderedDict([
                                         ('instance', YLeaf(YType.uint32, 'instance')),
                                     ])
@@ -3089,7 +3050,6 @@ class Fia(Entity):
                                     self.tx_links = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks()
                                     self.tx_links.parent = self
                                     self._children_name_map["tx_links"] = "tx-links"
-                                    self._children_yang_names.add("tx-links")
                                     self._segment_path = lambda: "tx-asic-instance" + "[instance='" + str(self.instance) + "']"
 
                                 def __setattr__(self, name, value):
@@ -3110,7 +3070,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2017-08-29'
+                                    _revision = '2015-11-09'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks, self).__init__()
@@ -3120,8 +3080,7 @@ class Fia(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("tx-link", ("tx_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink))])
+                                        self._child_classes = OrderedDict([("tx-link", ("tx_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink))])
                                         self._leafs = OrderedDict()
 
                                         self.tx_link = YList(self)
@@ -3159,7 +3118,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2017-08-29'
+                                        _revision = '2015-11-09'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink, self).__init__()
@@ -3169,8 +3128,7 @@ class Fia(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("tx-link", ("tx_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_))])
+                                            self._child_classes = OrderedDict([("tx-link", ("tx_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_))])
                                             self._leafs = OrderedDict([
                                                 ('start_number', YLeaf(YType.uint32, 'start-number')),
                                                 ('end_number', YLeaf(YType.uint32, 'end-number')),
@@ -3286,7 +3244,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2017-08-29'
+                                            _revision = '2015-11-09'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, self).__init__()
@@ -3296,8 +3254,7 @@ class Fia(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['link']
-                                                self._child_container_classes = OrderedDict([("this-link", ("this_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink)), ("far-end-link", ("far_end_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink)), ("stats", ("stats", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats)), ("history", ("history", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("this-link", ("this_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink)), ("far-end-link", ("far_end_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink)), ("stats", ("stats", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats)), ("history", ("history", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History))])
                                                 self._leafs = OrderedDict([
                                                     ('link', YLeaf(YType.int32, 'link')),
                                                     ('speed', YLeaf(YType.uint32, 'speed')),
@@ -3328,22 +3285,18 @@ class Fia(Entity):
                                                 self.this_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink()
                                                 self.this_link.parent = self
                                                 self._children_name_map["this_link"] = "this-link"
-                                                self._children_yang_names.add("this-link")
 
                                                 self.far_end_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink()
                                                 self.far_end_link.parent = self
                                                 self._children_name_map["far_end_link"] = "far-end-link"
-                                                self._children_yang_names.add("far-end-link")
 
                                                 self.stats = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats()
                                                 self.stats.parent = self
                                                 self._children_name_map["stats"] = "stats"
-                                                self._children_yang_names.add("stats")
 
                                                 self.history = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History()
                                                 self.history.parent = self
                                                 self._children_name_map["history"] = "history"
-                                                self._children_yang_names.add("history")
                                                 self._segment_path = lambda: "tx-link" + "[link='" + str(self.link) + "']"
 
                                             def __setattr__(self, name, value):
@@ -3388,7 +3341,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, self).__init__()
@@ -3398,8 +3351,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId))])
                                                     self._leafs = OrderedDict([
                                                         ('link_type', YLeaf(YType.enumeration, 'link-type')),
                                                         ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
@@ -3414,7 +3366,6 @@ class Fia(Entity):
                                                     self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId()
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
-                                                    self._children_yang_names.add("asic-id")
                                                     self._segment_path = lambda: "this-link"
 
                                                 def __setattr__(self, name, value):
@@ -3461,7 +3412,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2017-08-29'
+                                                    _revision = '2015-11-09'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, self).__init__()
@@ -3471,8 +3422,7 @@ class Fia(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
                                                             ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
@@ -3529,7 +3479,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, self).__init__()
@@ -3539,8 +3489,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId))])
                                                     self._leafs = OrderedDict([
                                                         ('link_type', YLeaf(YType.enumeration, 'link-type')),
                                                         ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
@@ -3555,7 +3504,6 @@ class Fia(Entity):
                                                     self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId()
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
-                                                    self._children_yang_names.add("asic-id")
                                                     self._segment_path = lambda: "far-end-link"
 
                                                 def __setattr__(self, name, value):
@@ -3602,7 +3550,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2017-08-29'
+                                                    _revision = '2015-11-09'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, self).__init__()
@@ -3612,8 +3560,7 @@ class Fia(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
                                                             ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
@@ -3648,7 +3595,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, self).__init__()
@@ -3658,8 +3605,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('dummy', YLeaf(YType.uint32, 'dummy')),
                                                     ])
@@ -3698,7 +3644,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, self).__init__()
@@ -3708,8 +3654,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("hist", ("hist", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist))])
+                                                    self._child_classes = OrderedDict([("hist", ("hist", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist))])
                                                     self._leafs = OrderedDict([
                                                         ('histnum', YLeaf(YType.uint8, 'histnum')),
                                                         ('start_index', YLeaf(YType.uint8, 'start-index')),
@@ -3760,7 +3705,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2017-08-29'
+                                                    _revision = '2015-11-09'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, self).__init__()
@@ -3770,8 +3715,7 @@ class Fia(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
                                                             ('oper_state', YLeaf(YType.enumeration, 'oper-state')),
@@ -3804,7 +3748,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2017-08-29'
+                _revision = '2015-11-09'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.DiagShell, self).__init__()
@@ -3814,15 +3758,16 @@ class Fia(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("diag-shell-units", ("diag_shell_units", Fia.Nodes.Node.DiagShell.DiagShellUnits))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("diag-shell-units", ("diag_shell_units", Fia.Nodes.Node.DiagShell.DiagShellUnits))])
                     self._leafs = OrderedDict()
 
                     self.diag_shell_units = Fia.Nodes.Node.DiagShell.DiagShellUnits()
                     self.diag_shell_units.parent = self
                     self._children_name_map["diag_shell_units"] = "diag-shell-units"
-                    self._children_yang_names.add("diag-shell-units")
                     self._segment_path = lambda: "diag-shell"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Fia.Nodes.Node.DiagShell, [], name, value)
 
 
                 class DiagShellUnits(Entity):
@@ -3839,7 +3784,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2017-08-29'
+                    _revision = '2015-11-09'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.DiagShell.DiagShellUnits, self).__init__()
@@ -3849,8 +3794,7 @@ class Fia(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("diag-shell-unit", ("diag_shell_unit", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit))])
+                        self._child_classes = OrderedDict([("diag-shell-unit", ("diag_shell_unit", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit))])
                         self._leafs = OrderedDict()
 
                         self.diag_shell_unit = YList(self)
@@ -3881,7 +3825,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2017-08-29'
+                        _revision = '2015-11-09'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit, self).__init__()
@@ -3891,8 +3835,7 @@ class Fia(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['unit']
-                            self._child_container_classes = OrderedDict([("commands", ("commands", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("commands", ("commands", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands))])
                             self._leafs = OrderedDict([
                                 ('unit', YLeaf(YType.uint32, 'unit')),
                             ])
@@ -3901,7 +3844,6 @@ class Fia(Entity):
                             self.commands = Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands()
                             self.commands.parent = self
                             self._children_name_map["commands"] = "commands"
-                            self._children_yang_names.add("commands")
                             self._segment_path = lambda: "diag-shell-unit" + "[unit='" + str(self.unit) + "']"
 
                         def __setattr__(self, name, value):
@@ -3922,7 +3864,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2017-08-29'
+                            _revision = '2015-11-09'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands, self).__init__()
@@ -3932,8 +3874,7 @@ class Fia(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("command", ("command", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command))])
+                                self._child_classes = OrderedDict([("command", ("command", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command))])
                                 self._leafs = OrderedDict()
 
                                 self.command = YList(self)
@@ -3962,7 +3903,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2017-08-29'
+                                _revision = '2015-11-09'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command, self).__init__()
@@ -3972,8 +3913,7 @@ class Fia(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['cmd']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("output", ("output", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output))])
+                                    self._child_classes = OrderedDict([("output", ("output", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output))])
                                     self._leafs = OrderedDict([
                                         ('cmd', YLeaf(YType.str, 'cmd')),
                                     ])
@@ -4007,7 +3947,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2017-08-29'
+                                    _revision = '2015-11-09'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, self).__init__()
@@ -4017,8 +3957,7 @@ class Fia(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['output']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('output', YLeaf(YType.str, 'output')),
                                             ('output_xr', YLeaf(YType.str, 'output-xr')),
@@ -4045,7 +3984,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2017-08-29'
+                _revision = '2015-11-09'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.OirHistory, self).__init__()
@@ -4055,15 +3994,16 @@ class Fia(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("flags", ("flags", Fia.Nodes.Node.OirHistory.Flags))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("flags", ("flags", Fia.Nodes.Node.OirHistory.Flags))])
                     self._leafs = OrderedDict()
 
                     self.flags = Fia.Nodes.Node.OirHistory.Flags()
                     self.flags.parent = self
                     self._children_name_map["flags"] = "flags"
-                    self._children_yang_names.add("flags")
                     self._segment_path = lambda: "oir-history"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Fia.Nodes.Node.OirHistory, [], name, value)
 
 
                 class Flags(Entity):
@@ -4080,7 +4020,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2017-08-29'
+                    _revision = '2015-11-09'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.OirHistory.Flags, self).__init__()
@@ -4090,8 +4030,7 @@ class Fia(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("flag", ("flag", Fia.Nodes.Node.OirHistory.Flags.Flag))])
+                        self._child_classes = OrderedDict([("flag", ("flag", Fia.Nodes.Node.OirHistory.Flags.Flag))])
                         self._leafs = OrderedDict()
 
                         self.flag = YList(self)
@@ -4122,7 +4061,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2017-08-29'
+                        _revision = '2015-11-09'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.OirHistory.Flags.Flag, self).__init__()
@@ -4132,8 +4071,7 @@ class Fia(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['flag']
-                            self._child_container_classes = OrderedDict([("slots", ("slots", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("slots", ("slots", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots))])
                             self._leafs = OrderedDict([
                                 ('flag', YLeaf(YType.int32, 'flag')),
                             ])
@@ -4142,7 +4080,6 @@ class Fia(Entity):
                             self.slots = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots()
                             self.slots.parent = self
                             self._children_name_map["slots"] = "slots"
-                            self._children_yang_names.add("slots")
                             self._segment_path = lambda: "flag" + "[flag='" + str(self.flag) + "']"
 
                         def __setattr__(self, name, value):
@@ -4163,7 +4100,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2017-08-29'
+                            _revision = '2015-11-09'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots, self).__init__()
@@ -4173,8 +4110,7 @@ class Fia(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("slot", ("slot", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot))])
+                                self._child_classes = OrderedDict([("slot", ("slot", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot))])
                                 self._leafs = OrderedDict()
 
                                 self.slot = YList(self)
@@ -4480,7 +4416,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2017-08-29'
+                                _revision = '2015-11-09'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, self).__init__()
@@ -4490,8 +4426,7 @@ class Fia(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['slot']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("device-info", ("device_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo)), ("card-info", ("card_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo))])
+                                    self._child_classes = OrderedDict([("device-info", ("device_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo)), ("card-info", ("card_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo))])
                                     self._leafs = OrderedDict([
                                         ('slot', YLeaf(YType.int32, 'slot')),
                                         ('drv_version', YLeaf(YType.uint32, 'drv-version')),
@@ -4670,7 +4605,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2017-08-29'
+                                    _revision = '2015-11-09'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, self).__init__()
@@ -4680,8 +4615,7 @@ class Fia(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId))])
                                         self._leafs = OrderedDict([
                                             ('is_valid', YLeaf(YType.boolean, 'is-valid')),
                                             ('fapid', YLeaf(YType.uint32, 'fapid')),
@@ -4710,7 +4644,6 @@ class Fia(Entity):
                                         self.asic_id = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId()
                                         self.asic_id.parent = self
                                         self._children_name_map["asic_id"] = "asic-id"
-                                        self._children_yang_names.add("asic-id")
                                         self._segment_path = lambda: "device-info"
 
                                     def __setattr__(self, name, value):
@@ -4757,7 +4690,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2017-08-29'
+                                        _revision = '2015-11-09'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, self).__init__()
@@ -4767,8 +4700,7 @@ class Fia(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
                                                 ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
@@ -4902,7 +4834,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2017-08-29'
+                                    _revision = '2015-11-09'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, self).__init__()
@@ -4912,8 +4844,7 @@ class Fia(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("oir-circular-buffer", ("oir_circular_buffer", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("oir-circular-buffer", ("oir_circular_buffer", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer))])
                                         self._leafs = OrderedDict([
                                             ('card_type', YLeaf(YType.int32, 'card-type')),
                                             ('card_name', YLeaf(YType.str, 'card-name')),
@@ -4950,7 +4881,6 @@ class Fia(Entity):
                                         self.oir_circular_buffer = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer()
                                         self.oir_circular_buffer.parent = self
                                         self._children_name_map["oir_circular_buffer"] = "oir-circular-buffer"
-                                        self._children_yang_names.add("oir-circular-buffer")
                                         self._segment_path = lambda: "card-info"
 
                                     def __setattr__(self, name, value):
@@ -4992,7 +4922,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2017-08-29'
+                                        _revision = '2015-11-09'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, self).__init__()
@@ -5002,8 +4932,7 @@ class Fia(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("fia-oir-info", ("fia_oir_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo))])
+                                            self._child_classes = OrderedDict([("fia-oir-info", ("fia_oir_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo))])
                                             self._leafs = OrderedDict([
                                                 ('count', YLeaf(YType.int32, 'count')),
                                                 ('start', YLeaf(YType.int32, 'start')),
@@ -5078,7 +5007,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2017-08-29'
+                                            _revision = '2015-11-09'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, self).__init__()
@@ -5088,8 +5017,7 @@ class Fia(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('card_flag', YLeaf(YType.int32, 'card-flag')),
                                                     ('card_type', YLeaf(YType.int32, 'card-type')),
@@ -5126,7 +5054,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2017-08-29'
+                _revision = '2015-11-09'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.AsicStatistics, self).__init__()
@@ -5136,15 +5064,16 @@ class Fia(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("statistics-asic-instances", ("statistics_asic_instances", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("statistics-asic-instances", ("statistics_asic_instances", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances))])
                     self._leafs = OrderedDict()
 
                     self.statistics_asic_instances = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances()
                     self.statistics_asic_instances.parent = self
                     self._children_name_map["statistics_asic_instances"] = "statistics-asic-instances"
-                    self._children_yang_names.add("statistics-asic-instances")
                     self._segment_path = lambda: "asic-statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics, [], name, value)
 
 
                 class StatisticsAsicInstances(Entity):
@@ -5161,7 +5090,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2017-08-29'
+                    _revision = '2015-11-09'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances, self).__init__()
@@ -5171,8 +5100,7 @@ class Fia(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("statistics-asic-instance", ("statistics_asic_instance", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance))])
+                        self._child_classes = OrderedDict([("statistics-asic-instance", ("statistics_asic_instance", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance))])
                         self._leafs = OrderedDict()
 
                         self.statistics_asic_instance = YList(self)
@@ -5208,7 +5136,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2017-08-29'
+                        _revision = '2015-11-09'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance, self).__init__()
@@ -5218,8 +5146,7 @@ class Fia(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['instance']
-                            self._child_container_classes = OrderedDict([("pbc-statistics", ("pbc_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics)), ("fmac-statistics", ("fmac_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("pbc-statistics", ("pbc_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics)), ("fmac-statistics", ("fmac_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics))])
                             self._leafs = OrderedDict([
                                 ('instance', YLeaf(YType.uint32, 'instance')),
                             ])
@@ -5228,12 +5155,10 @@ class Fia(Entity):
                             self.pbc_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics()
                             self.pbc_statistics.parent = self
                             self._children_name_map["pbc_statistics"] = "pbc-statistics"
-                            self._children_yang_names.add("pbc-statistics")
 
                             self.fmac_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics()
                             self.fmac_statistics.parent = self
                             self._children_name_map["fmac_statistics"] = "fmac-statistics"
-                            self._children_yang_names.add("fmac-statistics")
                             self._segment_path = lambda: "statistics-asic-instance" + "[instance='" + str(self.instance) + "']"
 
                         def __setattr__(self, name, value):
@@ -5254,7 +5179,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2017-08-29'
+                            _revision = '2015-11-09'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics, self).__init__()
@@ -5264,15 +5189,16 @@ class Fia(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pbc-stats", ("pbc_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pbc-stats", ("pbc_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats))])
                                 self._leafs = OrderedDict()
 
                                 self.pbc_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats()
                                 self.pbc_stats.parent = self
                                 self._children_name_map["pbc_stats"] = "pbc-stats"
-                                self._children_yang_names.add("pbc-stats")
                                 self._segment_path = lambda: "pbc-statistics"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics, [], name, value)
 
 
                             class PbcStats(Entity):
@@ -5322,7 +5248,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2017-08-29'
+                                _revision = '2015-11-09'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, self).__init__()
@@ -5332,8 +5258,7 @@ class Fia(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("stats-info", ("stats_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("stats-info", ("stats_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo))])
                                     self._leafs = OrderedDict([
                                         ('valid', YLeaf(YType.boolean, 'valid')),
                                         ('rack_no', YLeaf(YType.uint32, 'rack-no')),
@@ -5350,7 +5275,6 @@ class Fia(Entity):
                                     self.stats_info = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo()
                                     self.stats_info.parent = self
                                     self._children_name_map["stats_info"] = "stats-info"
-                                    self._children_yang_names.add("stats-info")
                                     self._segment_path = lambda: "pbc-stats"
 
                                 def __setattr__(self, name, value):
@@ -5378,7 +5302,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2017-08-29'
+                                    _revision = '2015-11-09'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, self).__init__()
@@ -5388,8 +5312,7 @@ class Fia(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("block-info", ("block_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo))])
+                                        self._child_classes = OrderedDict([("block-info", ("block_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo))])
                                         self._leafs = OrderedDict([
                                             ('num_blocks', YLeaf(YType.uint8, 'num-blocks')),
                                         ])
@@ -5430,7 +5353,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2017-08-29'
+                                        _revision = '2015-11-09'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, self).__init__()
@@ -5440,8 +5363,7 @@ class Fia(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("field-info", ("field_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo))])
+                                            self._child_classes = OrderedDict([("field-info", ("field_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo))])
                                             self._leafs = OrderedDict([
                                                 ('block_name', YLeaf(YType.str, 'block-name')),
                                                 ('num_fields', YLeaf(YType.uint8, 'num-fields')),
@@ -5484,7 +5406,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2017-08-29'
+                                            _revision = '2015-11-09'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, self).__init__()
@@ -5494,8 +5416,7 @@ class Fia(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('field_name', YLeaf(YType.str, 'field-name')),
                                                     ('field_value', YLeaf(YType.uint64, 'field-value')),
@@ -5524,7 +5445,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2017-08-29'
+                            _revision = '2015-11-09'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics, self).__init__()
@@ -5534,15 +5455,16 @@ class Fia(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("fmac-links", ("fmac_links", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("fmac-links", ("fmac_links", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks))])
                                 self._leafs = OrderedDict()
 
                                 self.fmac_links = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks()
                                 self.fmac_links.parent = self
                                 self._children_name_map["fmac_links"] = "fmac-links"
-                                self._children_yang_names.add("fmac-links")
                                 self._segment_path = lambda: "fmac-statistics"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics, [], name, value)
 
 
                             class FmacLinks(Entity):
@@ -5559,7 +5481,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2017-08-29'
+                                _revision = '2015-11-09'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks, self).__init__()
@@ -5569,8 +5491,7 @@ class Fia(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("fmac-link", ("fmac_link", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink))])
+                                    self._child_classes = OrderedDict([("fmac-link", ("fmac_link", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink))])
                                     self._leafs = OrderedDict()
 
                                     self.fmac_link = YList(self)
@@ -5601,7 +5522,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2017-08-29'
+                                    _revision = '2015-11-09'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink, self).__init__()
@@ -5611,8 +5532,7 @@ class Fia(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['link']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("fmac-asic", ("fmac_asic", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic))])
+                                        self._child_classes = OrderedDict([("fmac-asic", ("fmac_asic", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic))])
                                         self._leafs = OrderedDict([
                                             ('link', YLeaf(YType.int32, 'link')),
                                         ])
@@ -5689,7 +5609,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2017-08-29'
+                                        _revision = '2015-11-09'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, self).__init__()
@@ -5699,8 +5619,7 @@ class Fia(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['asic']
-                                            self._child_container_classes = OrderedDict([("aggr-stats", ("aggr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats)), ("incr-stats", ("incr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggr-stats", ("aggr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats)), ("incr-stats", ("incr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats))])
                                             self._leafs = OrderedDict([
                                                 ('asic', YLeaf(YType.int32, 'asic')),
                                                 ('valid', YLeaf(YType.boolean, 'valid')),
@@ -5721,12 +5640,10 @@ class Fia(Entity):
                                             self.aggr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats()
                                             self.aggr_stats.parent = self
                                             self._children_name_map["aggr_stats"] = "aggr-stats"
-                                            self._children_yang_names.add("aggr-stats")
 
                                             self.incr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats()
                                             self.incr_stats.parent = self
                                             self._children_name_map["incr_stats"] = "incr-stats"
-                                            self._children_yang_names.add("incr-stats")
                                             self._segment_path = lambda: "fmac-asic" + "[asic='" + str(self.asic) + "']"
 
                                         def __setattr__(self, name, value):
@@ -5757,7 +5674,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2017-08-29'
+                                            _revision = '2015-11-09'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats, self).__init__()
@@ -5767,25 +5684,24 @@ class Fia(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("link-error-status", ("link_error_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus)), ("link-counters", ("link_counters", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters)), ("ovf-status", ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("link-error-status", ("link_error_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus)), ("link-counters", ("link_counters", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters)), ("ovf-status", ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus))])
                                                 self._leafs = OrderedDict()
 
                                                 self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus()
                                                 self.link_error_status.parent = self
                                                 self._children_name_map["link_error_status"] = "link-error-status"
-                                                self._children_yang_names.add("link-error-status")
 
                                                 self.link_counters = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters()
                                                 self.link_counters.parent = self
                                                 self._children_name_map["link_counters"] = "link-counters"
-                                                self._children_yang_names.add("link-counters")
 
                                                 self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus()
                                                 self.ovf_status.parent = self
                                                 self._children_name_map["ovf_status"] = "ovf-status"
-                                                self._children_yang_names.add("ovf-status")
                                                 self._segment_path = lambda: "aggr-stats"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats, [], name, value)
 
 
                                             class LinkErrorStatus(Entity):
@@ -5853,7 +5769,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, self).__init__()
@@ -5863,8 +5779,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('link_crc_error', YLeaf(YType.uint32, 'link-crc-error')),
                                                         ('link_size_error', YLeaf(YType.uint32, 'link-size-error')),
@@ -5996,7 +5911,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, self).__init__()
@@ -6006,8 +5921,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tx_control_cells_counter', YLeaf(YType.uint64, 'tx-control-cells-counter')),
                                                         ('tx_data_cell_counter', YLeaf(YType.uint64, 'tx-data-cell-counter')),
@@ -6151,7 +6065,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, self).__init__()
@@ -6161,8 +6075,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tx_control_cells_counter', YLeaf(YType.str, 'tx-control-cells-counter')),
                                                         ('tx_data_cell_counter', YLeaf(YType.str, 'tx-data-cell-counter')),
@@ -6223,7 +6136,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2017-08-29'
+                                            _revision = '2015-11-09'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats, self).__init__()
@@ -6233,25 +6146,24 @@ class Fia(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("link-error-status", ("link_error_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus)), ("link-counters", ("link_counters", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters)), ("ovf-status", ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("link-error-status", ("link_error_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus)), ("link-counters", ("link_counters", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters)), ("ovf-status", ("ovf_status", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus))])
                                                 self._leafs = OrderedDict()
 
                                                 self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus()
                                                 self.link_error_status.parent = self
                                                 self._children_name_map["link_error_status"] = "link-error-status"
-                                                self._children_yang_names.add("link-error-status")
 
                                                 self.link_counters = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters()
                                                 self.link_counters.parent = self
                                                 self._children_name_map["link_counters"] = "link-counters"
-                                                self._children_yang_names.add("link-counters")
 
                                                 self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus()
                                                 self.ovf_status.parent = self
                                                 self._children_name_map["ovf_status"] = "ovf-status"
-                                                self._children_yang_names.add("ovf-status")
                                                 self._segment_path = lambda: "incr-stats"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats, [], name, value)
 
 
                                             class LinkErrorStatus(Entity):
@@ -6319,7 +6231,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, self).__init__()
@@ -6329,8 +6241,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('link_crc_error', YLeaf(YType.uint32, 'link-crc-error')),
                                                         ('link_size_error', YLeaf(YType.uint32, 'link-size-error')),
@@ -6462,7 +6373,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, self).__init__()
@@ -6472,8 +6383,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tx_control_cells_counter', YLeaf(YType.uint64, 'tx-control-cells-counter')),
                                                         ('tx_data_cell_counter', YLeaf(YType.uint64, 'tx-data-cell-counter')),
@@ -6617,7 +6527,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2017-08-29'
+                                                _revision = '2015-11-09'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, self).__init__()
@@ -6627,8 +6537,7 @@ class Fia(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tx_control_cells_counter', YLeaf(YType.str, 'tx-control-cells-counter')),
                                                         ('tx_data_cell_counter', YLeaf(YType.str, 'tx-data-cell-counter')),

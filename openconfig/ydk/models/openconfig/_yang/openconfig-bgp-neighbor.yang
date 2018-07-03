@@ -15,11 +15,11 @@ submodule openconfig-bgp-neighbor {
   import openconfig-bgp-types {
     prefix oc-bgp-types;
   }
-  import ietf-inet-types {
-    prefix inet;
+  import openconfig-inet-types {
+    prefix oc-inet;
   }
-  import ietf-yang-types {
-    prefix yang;
+  import openconfig-yang-types {
+    prefix oc-yang;
   }
   include openconfig-bgp-common;
   include openconfig-bgp-common-multiprotocol;
@@ -35,6 +35,16 @@ submodule openconfig-bgp-neighbor {
     "This sub-module contains groupings that are specific to the
      neighbor context of the OpenConfig BGP module.";
 
+  revision 2017-02-02 {
+    description
+      "Bugfix to remove remaining global-level policy data";
+    reference "3.0.1";
+  }
+  revision 2017-01-26 {
+    description
+      "Add dynamic neighbor support, migrate to OpenConfig types";
+    reference "3.0.0";
+  }
   revision 2016-06-21 {
     description
       "OpenConfig BGP refactor";
@@ -54,7 +64,7 @@ submodule openconfig-bgp-neighbor {
         "The peer-group with which this neighbor is associated";
     }
     leaf neighbor-address {
-      type inet:ip-address;
+      type oc-inet:ip-address;
       description
         "Address of the BGP peer, either in IPv4 or IPv6";
     }
@@ -156,13 +166,14 @@ submodule openconfig-bgp-neighbor {
          BGP session last transitioned in or out of the Established
          state.  The value is the timestamp in seconds relative to
          the Unix Epoch (Jan 1, 1970 00:00:00 UTC).
+         
          The BGP session uptime can be computed by clients as the
          difference between this value and the current time in UTC
          (assuming the session is in the ESTABLISHED state, per the
          session-state leaf).";
     }
     leaf established-transitions {
-      type yang:counter64;
+      type oc-yang:counter64;
       description
         "Number of transitions to the Established state for
          the neighbor session.  This value is analogous to the
@@ -197,6 +208,14 @@ submodule openconfig-bgp-neighbor {
         "Counters related to queued messages associated with the
          BGP neighbor";
       uses bgp-neighbor-queue-counters-state;
+    }
+    leaf dynamically-configured {
+      type boolean;
+      default "false";
+      description
+        "When this leaf is set to true, the peer was configured dynamically
+         due to an inbound connection request from a specified source prefix
+         within a dynamic-neighbor-prefix.";
     }
   }
 
@@ -240,19 +259,19 @@ submodule openconfig-bgp-neighbor {
       "Operational state parameters relating to the transport session
        used for the BGP session";
     leaf local-port {
-      type inet:port-number;
+      type oc-inet:port-number;
       description
         "Local TCP port being used for the TCP session supporting
          the BGP session";
     }
     leaf remote-address {
-      type inet:ip-address;
+      type oc-inet:ip-address;
       description
         "Remote address to which the BGP session has been
          established";
     }
     leaf remote-port {
-      type inet:port-number;
+      type oc-inet:port-number;
       description
         "Remote port being used by the peer for the TCP session
          supporting the BGP session";
@@ -567,5 +586,5 @@ submodule openconfig-bgp-neighbor {
       uses bgp-neighbor-base;
     }
   }
-  oc-ext:openconfig-version "2.1.1";
+  oc-ext:openconfig-version "3.0.1";
 }

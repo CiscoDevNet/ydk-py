@@ -32,7 +32,7 @@ class Ipv6Configuration(Entity):
     .. attribute:: ipv6icmp
     
     	Configure IPv6 ICMP parameters
-    	**type**\:  :py:class:`Ipv6Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Icmp>`
+    	**type**\:  :py:class:`Ipv6icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6icmp>`
     
     	**presence node**\: True
     
@@ -82,8 +82,7 @@ class Ipv6Configuration(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ipv6-assembler", ("ipv6_assembler", Ipv6Configuration.Ipv6Assembler)), ("ipv6icmp", ("ipv6icmp", Ipv6Configuration.Ipv6Icmp))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ipv6-assembler", ("ipv6_assembler", Ipv6Configuration.Ipv6Assembler)), ("ipv6icmp", ("ipv6icmp", Ipv6Configuration.Ipv6icmp))])
         self._leafs = OrderedDict([
             ('ipv6_pmtu_time_out', YLeaf(YType.uint32, 'ipv6-pmtu-time-out')),
             ('ipv6_source_route', YLeaf(YType.boolean, 'ipv6-source-route')),
@@ -98,11 +97,9 @@ class Ipv6Configuration(Entity):
         self.ipv6_assembler = Ipv6Configuration.Ipv6Assembler()
         self.ipv6_assembler.parent = self
         self._children_name_map["ipv6_assembler"] = "ipv6-assembler"
-        self._children_yang_names.add("ipv6-assembler")
 
         self.ipv6icmp = None
         self._children_name_map["ipv6icmp"] = "ipv6icmp"
-        self._children_yang_names.add("ipv6icmp")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration"
 
     def __setattr__(self, name, value):
@@ -146,8 +143,7 @@ class Ipv6Configuration(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('timeout', YLeaf(YType.uint32, 'timeout')),
                 ('max_packets', YLeaf(YType.uint32, 'max-packets')),
@@ -161,7 +157,7 @@ class Ipv6Configuration(Entity):
             self._perform_setattr(Ipv6Configuration.Ipv6Assembler, ['timeout', 'max_packets'], name, value)
 
 
-    class Ipv6Icmp(Entity):
+    class Ipv6icmp(Entity):
         """
         Configure IPv6 ICMP parameters
         
@@ -195,15 +191,14 @@ class Ipv6Configuration(Entity):
         _revision = '2016-05-10'
 
         def __init__(self):
-            super(Ipv6Configuration.Ipv6Icmp, self).__init__()
+            super(Ipv6Configuration.Ipv6icmp, self).__init__()
 
             self.yang_name = "ipv6icmp"
             self.yang_parent_name = "ipv6-configuration"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('error_interval', YLeaf(YType.uint32, 'error-interval')),
@@ -215,7 +210,7 @@ class Ipv6Configuration(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv6Configuration.Ipv6Icmp, ['error_interval', 'bucket_size'], name, value)
+            self._perform_setattr(Ipv6Configuration.Ipv6icmp, ['error_interval', 'bucket_size'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv6Configuration()

@@ -45,15 +45,16 @@ class Ipv6Io(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ipv6Io.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ipv6Io.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Ipv6Io.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-io-oper:ipv6-io"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ipv6Io, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class Ipv6Io(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Ipv6Io.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Ipv6Io.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -124,8 +124,7 @@ class Ipv6Io(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("statistics", ("statistics", Ipv6Io.Nodes.Node.Statistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("statistics", ("statistics", Ipv6Io.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -134,7 +133,6 @@ class Ipv6Io(Entity):
                 self.statistics = Ipv6Io.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/nodes/%s" % self._segment_path()
 
@@ -167,15 +165,16 @@ class Ipv6Io(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("traffic", ("traffic", Ipv6Io.Nodes.Node.Statistics.Traffic))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("traffic", ("traffic", Ipv6Io.Nodes.Node.Statistics.Traffic))])
                     self._leafs = OrderedDict()
 
                     self.traffic = Ipv6Io.Nodes.Node.Statistics.Traffic()
                     self.traffic.parent = self
                     self._children_name_map["traffic"] = "traffic"
-                    self._children_yang_names.add("traffic")
                     self._segment_path = lambda: "statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv6Io.Nodes.Node.Statistics, [], name, value)
 
 
                 class Traffic(Entity):
@@ -212,25 +211,24 @@ class Ipv6Io(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6)), ("icmp", ("icmp", Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp)), ("ipv6-node-discovery", ("ipv6_node_discovery", Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("ipv6", ("ipv6", Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6)), ("icmp", ("icmp", Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp)), ("ipv6-node-discovery", ("ipv6_node_discovery", Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery))])
                         self._leafs = OrderedDict()
 
                         self.ipv6 = Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6()
                         self.ipv6.parent = self
                         self._children_name_map["ipv6"] = "ipv6"
-                        self._children_yang_names.add("ipv6")
 
                         self.icmp = Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp()
                         self.icmp.parent = self
                         self._children_name_map["icmp"] = "icmp"
-                        self._children_yang_names.add("icmp")
 
                         self.ipv6_node_discovery = Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery()
                         self.ipv6_node_discovery.parent = self
                         self._children_name_map["ipv6_node_discovery"] = "ipv6-node-discovery"
-                        self._children_yang_names.add("ipv6-node-discovery")
                         self._segment_path = lambda: "traffic"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic, [], name, value)
 
 
                     class Ipv6(Entity):
@@ -469,8 +467,7 @@ class Ipv6Io(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('total_packets', YLeaf(YType.uint32, 'total-packets')),
                                 ('local_destination_packets', YLeaf(YType.uint32, 'local-destination-packets')),
@@ -826,8 +823,7 @@ class Ipv6Io(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('total_messages', YLeaf(YType.uint32, 'total-messages')),
                                 ('too_short_error_messages', YLeaf(YType.uint32, 'too-short-error-messages')),
@@ -1001,8 +997,7 @@ class Ipv6Io(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent_router_solicitation_messages', YLeaf(YType.uint32, 'sent-router-solicitation-messages')),
                                 ('sent_router_advertisement_messages', YLeaf(YType.uint32, 'sent-router-advertisement-messages')),

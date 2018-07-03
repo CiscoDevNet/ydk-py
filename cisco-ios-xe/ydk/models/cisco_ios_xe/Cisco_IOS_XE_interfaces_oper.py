@@ -1383,9 +1383,9 @@ class SubrateSpeed(Enum):
     dsx1_subrate_64kbps = Enum.YLeaf(1, "dsx1-subrate-64kbps")
 
 
-class T1E1LoopbackMode(Enum):
+class T1e1LoopbackMode(Enum):
     """
-    T1E1LoopbackMode (Enum Class)
+    T1e1LoopbackMode (Enum Class)
 
     Loopback mode type
 
@@ -1547,8 +1547,7 @@ class Interfaces(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("interface", ("interface", Interfaces.Interface))])
+        self._child_classes = OrderedDict([("interface", ("interface", Interfaces.Interface))])
         self._leafs = OrderedDict()
 
         self.interface = YList(self)
@@ -1740,8 +1739,7 @@ class Interfaces(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("statistics", ("statistics", Interfaces.Interface.Statistics)), ("v4-protocol-stats", ("v4_protocol_stats", Interfaces.Interface.V4ProtocolStats)), ("v6-protocol-stats", ("v6_protocol_stats", Interfaces.Interface.V6ProtocolStats)), ("ether-state", ("ether_state", Interfaces.Interface.EtherState)), ("ether-stats", ("ether_stats", Interfaces.Interface.EtherStats)), ("serial-state", ("serial_state", Interfaces.Interface.SerialState)), ("serial-stats", ("serial_stats", Interfaces.Interface.SerialStats))])
-            self._child_list_classes = OrderedDict([("diffserv-info", ("diffserv_info", Interfaces.Interface.DiffservInfo))])
+            self._child_classes = OrderedDict([("statistics", ("statistics", Interfaces.Interface.Statistics)), ("diffserv-info", ("diffserv_info", Interfaces.Interface.DiffservInfo)), ("v4-protocol-stats", ("v4_protocol_stats", Interfaces.Interface.V4ProtocolStats)), ("v6-protocol-stats", ("v6_protocol_stats", Interfaces.Interface.V6ProtocolStats)), ("ether-state", ("ether_state", Interfaces.Interface.EtherState)), ("ether-stats", ("ether_stats", Interfaces.Interface.EtherStats)), ("serial-state", ("serial_state", Interfaces.Interface.SerialState)), ("serial-stats", ("serial_stats", Interfaces.Interface.SerialStats))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('interface_type', YLeaf(YType.enumeration, 'interface-type')),
@@ -1786,37 +1784,30 @@ class Interfaces(Entity):
             self.statistics = Interfaces.Interface.Statistics()
             self.statistics.parent = self
             self._children_name_map["statistics"] = "statistics"
-            self._children_yang_names.add("statistics")
 
             self.v4_protocol_stats = Interfaces.Interface.V4ProtocolStats()
             self.v4_protocol_stats.parent = self
             self._children_name_map["v4_protocol_stats"] = "v4-protocol-stats"
-            self._children_yang_names.add("v4-protocol-stats")
 
             self.v6_protocol_stats = Interfaces.Interface.V6ProtocolStats()
             self.v6_protocol_stats.parent = self
             self._children_name_map["v6_protocol_stats"] = "v6-protocol-stats"
-            self._children_yang_names.add("v6-protocol-stats")
 
             self.ether_state = Interfaces.Interface.EtherState()
             self.ether_state.parent = self
             self._children_name_map["ether_state"] = "ether-state"
-            self._children_yang_names.add("ether-state")
 
             self.ether_stats = Interfaces.Interface.EtherStats()
             self.ether_stats.parent = self
             self._children_name_map["ether_stats"] = "ether-stats"
-            self._children_yang_names.add("ether-stats")
 
             self.serial_state = Interfaces.Interface.SerialState()
             self.serial_state.parent = self
             self._children_name_map["serial_state"] = "serial-state"
-            self._children_yang_names.add("serial-state")
 
             self.serial_stats = Interfaces.Interface.SerialStats()
             self.serial_stats.parent = self
             self._children_name_map["serial_stats"] = "serial-stats"
-            self._children_yang_names.add("serial-stats")
 
             self.diffserv_info = YList(self)
             self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
@@ -1985,8 +1976,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('discontinuity_time', YLeaf(YType.str, 'discontinuity-time')),
                     ('in_octets', YLeaf(YType.uint64, 'in-octets')),
@@ -2074,8 +2064,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['direction','policy_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("diffserv-target-classifier-stats", ("diffserv_target_classifier_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats)), ("priority-oper-list", ("priority_oper_list", Interfaces.Interface.DiffservInfo.PriorityOperList))])
+                self._child_classes = OrderedDict([("diffserv-target-classifier-stats", ("diffserv_target_classifier_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats)), ("priority-oper-list", ("priority_oper_list", Interfaces.Interface.DiffservInfo.PriorityOperList))])
                 self._leafs = OrderedDict([
                     ('direction', YLeaf(YType.enumeration, 'direction')),
                     ('policy_name', YLeaf(YType.str, 'policy-name')),
@@ -2145,8 +2134,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['classifier_entry_name','parent_path']
-                    self._child_container_classes = OrderedDict([("classifier-entry-stats", ("classifier_entry_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.ClassifierEntryStats)), ("queuing-stats", ("queuing_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats)), ("marking-stats", ("marking_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats))])
-                    self._child_list_classes = OrderedDict([("meter-stats", ("meter_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MeterStats)), ("subclass-list", ("subclass_list", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList))])
+                    self._child_classes = OrderedDict([("classifier-entry-stats", ("classifier_entry_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.ClassifierEntryStats)), ("meter-stats", ("meter_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MeterStats)), ("queuing-stats", ("queuing_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats)), ("subclass-list", ("subclass_list", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList)), ("marking-stats", ("marking_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats))])
                     self._leafs = OrderedDict([
                         ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
                         ('parent_path', YLeaf(YType.str, 'parent-path')),
@@ -2157,17 +2145,14 @@ class Interfaces(Entity):
                     self.classifier_entry_stats = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.ClassifierEntryStats()
                     self.classifier_entry_stats.parent = self
                     self._children_name_map["classifier_entry_stats"] = "classifier-entry-stats"
-                    self._children_yang_names.add("classifier-entry-stats")
 
                     self.queuing_stats = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats()
                     self.queuing_stats.parent = self
                     self._children_name_map["queuing_stats"] = "queuing-stats"
-                    self._children_yang_names.add("queuing-stats")
 
                     self.marking_stats = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats()
                     self.marking_stats.parent = self
                     self._children_name_map["marking_stats"] = "marking-stats"
-                    self._children_yang_names.add("marking-stats")
 
                     self.meter_stats = YList(self)
                     self.subclass_list = YList(self)
@@ -2217,8 +2202,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('classified_pkts', YLeaf(YType.uint64, 'classified-pkts')),
                             ('classified_bytes', YLeaf(YType.uint64, 'classified-bytes')),
@@ -2287,8 +2271,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['meter_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('meter_id', YLeaf(YType.uint16, 'meter-id')),
                             ('meter_succeed_pkts', YLeaf(YType.uint64, 'meter-succeed-pkts')),
@@ -2378,8 +2361,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("wred-stats", ("wred_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.WredStats)), ("cac-stats", ("cac_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.CacStats))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("wred-stats", ("wred_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.WredStats)), ("cac-stats", ("cac_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.CacStats))])
                         self._leafs = OrderedDict([
                             ('output_pkts', YLeaf(YType.uint64, 'output-pkts')),
                             ('output_bytes', YLeaf(YType.uint64, 'output-bytes')),
@@ -2398,12 +2380,10 @@ class Interfaces(Entity):
                         self.wred_stats = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.WredStats()
                         self.wred_stats.parent = self
                         self._children_name_map["wred_stats"] = "wred-stats"
-                        self._children_yang_names.add("wred-stats")
 
                         self.cac_stats = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.CacStats()
                         self.cac_stats.parent = self
                         self._children_name_map["cac_stats"] = "cac-stats"
-                        self._children_yang_names.add("cac-stats")
                         self._segment_path = lambda: "queuing-stats"
 
                     def __setattr__(self, name, value):
@@ -2513,8 +2493,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('early_drop_pkts', YLeaf(YType.uint64, 'early-drop-pkts')),
                                 ('early_drop_bytes', YLeaf(YType.uint64, 'early-drop-bytes')),
@@ -2580,8 +2559,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('num_admitted_flows', YLeaf(YType.uint32, 'num-admitted-flows')),
                                 ('num_non_admitted_flows', YLeaf(YType.uint32, 'num-non-admitted-flows')),
@@ -2692,8 +2670,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['match_type']
-                        self._child_container_classes = OrderedDict([("cos-default", ("cos_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosDefault)), ("dscp-default", ("dscp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpDefault)), ("disc-class-default", ("disc_class_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscClassDefault)), ("prec-default", ("prec_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecDefault)), ("mpls-exp-default", ("mpls_exp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpDefault)), ("dei-counts-default", ("dei_counts_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCountsDefault)), ("clp-default", ("clp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpDefault))])
-                        self._child_list_classes = OrderedDict([("cos-counters", ("cos_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosCounters)), ("dscp-counters", ("dscp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpCounters)), ("discard-class-counters", ("discard_class_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscardClassCounters)), ("precedence-counters", ("precedence_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecedenceCounters)), ("mpls-exp-counters", ("mpls_exp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpCounters)), ("dei-counters", ("dei_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCounters)), ("clp-counters", ("clp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpCounters))])
+                        self._child_classes = OrderedDict([("cos-counters", ("cos_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosCounters)), ("cos-default", ("cos_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosDefault)), ("dscp-counters", ("dscp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpCounters)), ("dscp-default", ("dscp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpDefault)), ("discard-class-counters", ("discard_class_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscardClassCounters)), ("disc-class-default", ("disc_class_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscClassDefault)), ("precedence-counters", ("precedence_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecedenceCounters)), ("prec-default", ("prec_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecDefault)), ("mpls-exp-counters", ("mpls_exp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpCounters)), ("mpls-exp-default", ("mpls_exp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpDefault)), ("dei-counters", ("dei_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCounters)), ("dei-counts-default", ("dei_counts_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCountsDefault)), ("clp-counters", ("clp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpCounters)), ("clp-default", ("clp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpDefault))])
                         self._leafs = OrderedDict([
                             ('match_type', YLeaf(YType.enumeration, 'match-type')),
                         ])
@@ -2702,37 +2679,30 @@ class Interfaces(Entity):
                         self.cos_default = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosDefault()
                         self.cos_default.parent = self
                         self._children_name_map["cos_default"] = "cos-default"
-                        self._children_yang_names.add("cos-default")
 
                         self.dscp_default = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpDefault()
                         self.dscp_default.parent = self
                         self._children_name_map["dscp_default"] = "dscp-default"
-                        self._children_yang_names.add("dscp-default")
 
                         self.disc_class_default = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscClassDefault()
                         self.disc_class_default.parent = self
                         self._children_name_map["disc_class_default"] = "disc-class-default"
-                        self._children_yang_names.add("disc-class-default")
 
                         self.prec_default = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecDefault()
                         self.prec_default.parent = self
                         self._children_name_map["prec_default"] = "prec-default"
-                        self._children_yang_names.add("prec-default")
 
                         self.mpls_exp_default = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpDefault()
                         self.mpls_exp_default.parent = self
                         self._children_name_map["mpls_exp_default"] = "mpls-exp-default"
-                        self._children_yang_names.add("mpls-exp-default")
 
                         self.dei_counts_default = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCountsDefault()
                         self.dei_counts_default.parent = self
                         self._children_name_map["dei_counts_default"] = "dei-counts-default"
-                        self._children_yang_names.add("dei-counts-default")
 
                         self.clp_default = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpDefault()
                         self.clp_default.parent = self
                         self._children_name_map["clp_default"] = "clp-default"
-                        self._children_yang_names.add("clp-default")
 
                         self.cos_counters = YList(self)
                         self.dscp_counters = YList(self)
@@ -2823,8 +2793,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['cos_min','cos_max']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('cos_min', YLeaf(YType.uint32, 'cos-min')),
                                 ('cos_max', YLeaf(YType.uint32, 'cos-max')),
@@ -2910,8 +2879,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
                                 ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
@@ -3007,8 +2975,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['dscp_min','dscp_max']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('dscp_min', YLeaf(YType.uint32, 'dscp-min')),
                                 ('dscp_max', YLeaf(YType.uint32, 'dscp-max')),
@@ -3094,8 +3061,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
                                 ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
@@ -3191,8 +3157,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['disc_class_min','disc_class_max']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('disc_class_min', YLeaf(YType.uint32, 'disc-class-min')),
                                 ('disc_class_max', YLeaf(YType.uint32, 'disc-class-max')),
@@ -3278,8 +3243,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
                                 ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
@@ -3375,8 +3339,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prec_min','prec_max']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prec_min', YLeaf(YType.uint32, 'prec-min')),
                                 ('prec_max', YLeaf(YType.uint32, 'prec-max')),
@@ -3462,8 +3425,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
                                 ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
@@ -3559,8 +3521,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['exp_min','exp_max']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('exp_min', YLeaf(YType.uint32, 'exp-min')),
                                 ('exp_max', YLeaf(YType.uint32, 'exp-max')),
@@ -3646,8 +3607,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
                                 ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
@@ -3743,8 +3703,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['dei_min','dei_max']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('dei_min', YLeaf(YType.uint32, 'dei-min')),
                                 ('dei_max', YLeaf(YType.uint32, 'dei-max')),
@@ -3830,8 +3789,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
                                 ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
@@ -3920,8 +3878,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['clp_val']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('clp_val', YLeaf(YType.uint32, 'clp-val')),
                                 ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
@@ -4005,8 +3962,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
                                 ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
@@ -4136,100 +4092,84 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("marking-dscp-stats-val", ("marking_dscp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpStatsVal)), ("marking-dscp-tunnel-stats-val", ("marking_dscp_tunnel_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpTunnelStatsVal)), ("marking-cos-stats-val", ("marking_cos_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosStatsVal)), ("marking-cos-inner-stats-val", ("marking_cos_inner_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosInnerStatsVal)), ("marking-discard-class-stats-val", ("marking_discard_class_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDiscardClassStatsVal)), ("marking-qos-grp-stats-val", ("marking_qos_grp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingQosGrpStatsVal)), ("marking-prec-stats-val", ("marking_prec_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecStatsVal)), ("marking-prec-tunnel-stats-val", ("marking_prec_tunnel_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecTunnelStatsVal)), ("marking-mpls-exp-imp-stats-val", ("marking_mpls_exp_imp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpImpStatsVal)), ("marking-mpls-exp-top-stats-val", ("marking_mpls_exp_top_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpTopStatsVal)), ("marking-fr-de-stats-val", ("marking_fr_de_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrDeStatsVal)), ("marking-fr-fecn-becn-stats-val", ("marking_fr_fecn_becn_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrFecnBecnStatsVal)), ("marking-atm-clp-stats-val", ("marking_atm_clp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingAtmClpStatsVal)), ("marking-vlan-inner-stats-val", ("marking_vlan_inner_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingVlanInnerStatsVal)), ("marking-dei-stats-val", ("marking_dei_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiStatsVal)), ("marking-dei-imp-stats-val", ("marking_dei_imp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiImpStatsVal)), ("marking-srp-priority-stats-val", ("marking_srp_priority_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingSrpPriorityStatsVal)), ("marking-wlan-user-priority-stats-val", ("marking_wlan_user_priority_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingWlanUserPriorityStatsVal))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("marking-dscp-stats-val", ("marking_dscp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpStatsVal)), ("marking-dscp-tunnel-stats-val", ("marking_dscp_tunnel_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpTunnelStatsVal)), ("marking-cos-stats-val", ("marking_cos_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosStatsVal)), ("marking-cos-inner-stats-val", ("marking_cos_inner_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosInnerStatsVal)), ("marking-discard-class-stats-val", ("marking_discard_class_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDiscardClassStatsVal)), ("marking-qos-grp-stats-val", ("marking_qos_grp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingQosGrpStatsVal)), ("marking-prec-stats-val", ("marking_prec_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecStatsVal)), ("marking-prec-tunnel-stats-val", ("marking_prec_tunnel_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecTunnelStatsVal)), ("marking-mpls-exp-imp-stats-val", ("marking_mpls_exp_imp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpImpStatsVal)), ("marking-mpls-exp-top-stats-val", ("marking_mpls_exp_top_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpTopStatsVal)), ("marking-fr-de-stats-val", ("marking_fr_de_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrDeStatsVal)), ("marking-fr-fecn-becn-stats-val", ("marking_fr_fecn_becn_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrFecnBecnStatsVal)), ("marking-atm-clp-stats-val", ("marking_atm_clp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingAtmClpStatsVal)), ("marking-vlan-inner-stats-val", ("marking_vlan_inner_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingVlanInnerStatsVal)), ("marking-dei-stats-val", ("marking_dei_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiStatsVal)), ("marking-dei-imp-stats-val", ("marking_dei_imp_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiImpStatsVal)), ("marking-srp-priority-stats-val", ("marking_srp_priority_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingSrpPriorityStatsVal)), ("marking-wlan-user-priority-stats-val", ("marking_wlan_user_priority_stats_val", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingWlanUserPriorityStatsVal))])
                         self._leafs = OrderedDict()
 
                         self.marking_dscp_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpStatsVal()
                         self.marking_dscp_stats_val.parent = self
                         self._children_name_map["marking_dscp_stats_val"] = "marking-dscp-stats-val"
-                        self._children_yang_names.add("marking-dscp-stats-val")
 
                         self.marking_dscp_tunnel_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpTunnelStatsVal()
                         self.marking_dscp_tunnel_stats_val.parent = self
                         self._children_name_map["marking_dscp_tunnel_stats_val"] = "marking-dscp-tunnel-stats-val"
-                        self._children_yang_names.add("marking-dscp-tunnel-stats-val")
 
                         self.marking_cos_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosStatsVal()
                         self.marking_cos_stats_val.parent = self
                         self._children_name_map["marking_cos_stats_val"] = "marking-cos-stats-val"
-                        self._children_yang_names.add("marking-cos-stats-val")
 
                         self.marking_cos_inner_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosInnerStatsVal()
                         self.marking_cos_inner_stats_val.parent = self
                         self._children_name_map["marking_cos_inner_stats_val"] = "marking-cos-inner-stats-val"
-                        self._children_yang_names.add("marking-cos-inner-stats-val")
 
                         self.marking_discard_class_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDiscardClassStatsVal()
                         self.marking_discard_class_stats_val.parent = self
                         self._children_name_map["marking_discard_class_stats_val"] = "marking-discard-class-stats-val"
-                        self._children_yang_names.add("marking-discard-class-stats-val")
 
                         self.marking_qos_grp_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingQosGrpStatsVal()
                         self.marking_qos_grp_stats_val.parent = self
                         self._children_name_map["marking_qos_grp_stats_val"] = "marking-qos-grp-stats-val"
-                        self._children_yang_names.add("marking-qos-grp-stats-val")
 
                         self.marking_prec_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecStatsVal()
                         self.marking_prec_stats_val.parent = self
                         self._children_name_map["marking_prec_stats_val"] = "marking-prec-stats-val"
-                        self._children_yang_names.add("marking-prec-stats-val")
 
                         self.marking_prec_tunnel_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecTunnelStatsVal()
                         self.marking_prec_tunnel_stats_val.parent = self
                         self._children_name_map["marking_prec_tunnel_stats_val"] = "marking-prec-tunnel-stats-val"
-                        self._children_yang_names.add("marking-prec-tunnel-stats-val")
 
                         self.marking_mpls_exp_imp_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpImpStatsVal()
                         self.marking_mpls_exp_imp_stats_val.parent = self
                         self._children_name_map["marking_mpls_exp_imp_stats_val"] = "marking-mpls-exp-imp-stats-val"
-                        self._children_yang_names.add("marking-mpls-exp-imp-stats-val")
 
                         self.marking_mpls_exp_top_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpTopStatsVal()
                         self.marking_mpls_exp_top_stats_val.parent = self
                         self._children_name_map["marking_mpls_exp_top_stats_val"] = "marking-mpls-exp-top-stats-val"
-                        self._children_yang_names.add("marking-mpls-exp-top-stats-val")
 
                         self.marking_fr_de_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrDeStatsVal()
                         self.marking_fr_de_stats_val.parent = self
                         self._children_name_map["marking_fr_de_stats_val"] = "marking-fr-de-stats-val"
-                        self._children_yang_names.add("marking-fr-de-stats-val")
 
                         self.marking_fr_fecn_becn_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrFecnBecnStatsVal()
                         self.marking_fr_fecn_becn_stats_val.parent = self
                         self._children_name_map["marking_fr_fecn_becn_stats_val"] = "marking-fr-fecn-becn-stats-val"
-                        self._children_yang_names.add("marking-fr-fecn-becn-stats-val")
 
                         self.marking_atm_clp_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingAtmClpStatsVal()
                         self.marking_atm_clp_stats_val.parent = self
                         self._children_name_map["marking_atm_clp_stats_val"] = "marking-atm-clp-stats-val"
-                        self._children_yang_names.add("marking-atm-clp-stats-val")
 
                         self.marking_vlan_inner_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingVlanInnerStatsVal()
                         self.marking_vlan_inner_stats_val.parent = self
                         self._children_name_map["marking_vlan_inner_stats_val"] = "marking-vlan-inner-stats-val"
-                        self._children_yang_names.add("marking-vlan-inner-stats-val")
 
                         self.marking_dei_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiStatsVal()
                         self.marking_dei_stats_val.parent = self
                         self._children_name_map["marking_dei_stats_val"] = "marking-dei-stats-val"
-                        self._children_yang_names.add("marking-dei-stats-val")
 
                         self.marking_dei_imp_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiImpStatsVal()
                         self.marking_dei_imp_stats_val.parent = self
                         self._children_name_map["marking_dei_imp_stats_val"] = "marking-dei-imp-stats-val"
-                        self._children_yang_names.add("marking-dei-imp-stats-val")
 
                         self.marking_srp_priority_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingSrpPriorityStatsVal()
                         self.marking_srp_priority_stats_val.parent = self
                         self._children_name_map["marking_srp_priority_stats_val"] = "marking-srp-priority-stats-val"
-                        self._children_yang_names.add("marking-srp-priority-stats-val")
 
                         self.marking_wlan_user_priority_stats_val = Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingWlanUserPriorityStatsVal()
                         self.marking_wlan_user_priority_stats_val.parent = self
                         self._children_name_map["marking_wlan_user_priority_stats_val"] = "marking-wlan-user-priority-stats-val"
-                        self._children_yang_names.add("marking-wlan-user-priority-stats-val")
                         self._segment_path = lambda: "marking-stats"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats, [], name, value)
 
 
                     class MarkingDscpStatsVal(Entity):
@@ -4265,8 +4205,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('dscp', YLeaf(YType.uint32, 'dscp')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4312,8 +4251,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('dscp_val', YLeaf(YType.uint32, 'dscp-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4359,8 +4297,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('cos_val', YLeaf(YType.uint32, 'cos-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4406,8 +4343,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('cos_inner_val', YLeaf(YType.uint32, 'cos-inner-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4453,8 +4389,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('disc_class_val', YLeaf(YType.uint32, 'disc-class-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4500,8 +4435,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('qos_grp_val', YLeaf(YType.uint32, 'qos-grp-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4547,8 +4481,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prec_val', YLeaf(YType.uint32, 'prec-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4594,8 +4527,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prec_val', YLeaf(YType.uint32, 'prec-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4641,8 +4573,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mpls_exp_imp_val', YLeaf(YType.uint32, 'mpls-exp-imp-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4688,8 +4619,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mpls_exp_top_val', YLeaf(YType.uint32, 'mpls-exp-top-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4733,8 +4663,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('fr_de', YLeaf(YType.boolean, 'fr-de')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4780,8 +4709,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('fecn_becn_val', YLeaf(YType.uint32, 'fecn-becn-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4827,8 +4755,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('atm_clp_val', YLeaf(YType.uint8, 'atm-clp-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4874,8 +4801,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('vlan_inner_val', YLeaf(YType.uint32, 'vlan-inner-val')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4921,8 +4847,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('dei_imp_value', YLeaf(YType.uint32, 'dei-imp-value')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -4968,8 +4893,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('dei_imp_value', YLeaf(YType.uint32, 'dei-imp-value')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -5015,8 +4939,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('srp_priority_value', YLeaf(YType.uint8, 'srp-priority-value')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -5062,8 +4985,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wlan_user_priority_value', YLeaf(YType.uint8, 'wlan-user-priority-value')),
                                 ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
@@ -5137,8 +5059,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['priority_level']
-                    self._child_container_classes = OrderedDict([("agg-priority-stats", ("agg_priority_stats", Interfaces.Interface.DiffservInfo.PriorityOperList.AggPriorityStats)), ("qlimit-default-thresh", ("qlimit_default_thresh", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDefaultThresh))])
-                    self._child_list_classes = OrderedDict([("qlimit-cos-thresh-list", ("qlimit_cos_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitCosThreshList)), ("qlimit-disc-class-thresh-list", ("qlimit_disc_class_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDiscClassThreshList)), ("qlimit-qos-grp-thresh-list", ("qlimit_qos_grp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitQosGrpThreshList)), ("qlimit-mpls-exp-thresh-list", ("qlimit_mpls_exp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitMplsExpThreshList)), ("qlimit-dscp-thresh-list", ("qlimit_dscp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDscpThreshList))])
+                    self._child_classes = OrderedDict([("agg-priority-stats", ("agg_priority_stats", Interfaces.Interface.DiffservInfo.PriorityOperList.AggPriorityStats)), ("qlimit-default-thresh", ("qlimit_default_thresh", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDefaultThresh)), ("qlimit-cos-thresh-list", ("qlimit_cos_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitCosThreshList)), ("qlimit-disc-class-thresh-list", ("qlimit_disc_class_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDiscClassThreshList)), ("qlimit-qos-grp-thresh-list", ("qlimit_qos_grp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitQosGrpThreshList)), ("qlimit-mpls-exp-thresh-list", ("qlimit_mpls_exp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitMplsExpThreshList)), ("qlimit-dscp-thresh-list", ("qlimit_dscp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDscpThreshList))])
                     self._leafs = OrderedDict([
                         ('priority_level', YLeaf(YType.uint16, 'priority-level')),
                     ])
@@ -5147,12 +5068,10 @@ class Interfaces(Entity):
                     self.agg_priority_stats = Interfaces.Interface.DiffservInfo.PriorityOperList.AggPriorityStats()
                     self.agg_priority_stats.parent = self
                     self._children_name_map["agg_priority_stats"] = "agg-priority-stats"
-                    self._children_yang_names.add("agg-priority-stats")
 
                     self.qlimit_default_thresh = Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDefaultThresh()
                     self.qlimit_default_thresh.parent = self
                     self._children_name_map["qlimit_default_thresh"] = "qlimit-default-thresh"
-                    self._children_yang_names.add("qlimit-default-thresh")
 
                     self.qlimit_cos_thresh_list = YList(self)
                     self.qlimit_disc_class_thresh_list = YList(self)
@@ -5240,8 +5159,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('output_pkts', YLeaf(YType.uint64, 'output-pkts')),
                             ('output_bytes', YLeaf(YType.uint64, 'output-bytes')),
@@ -5323,8 +5241,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('bytes', YLeaf(YType.uint64, 'bytes')),
                             ('thresh_size_metric', YLeaf(YType.uint32, 'thresh-size-metric')),
@@ -5416,8 +5333,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['cos_min','cos_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('cos_min', YLeaf(YType.uint32, 'cos-min')),
                             ('cos_max', YLeaf(YType.uint32, 'cos-max')),
@@ -5513,8 +5429,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['disc_class_min','disc_class_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('disc_class_min', YLeaf(YType.uint32, 'disc-class-min')),
                             ('disc_class_max', YLeaf(YType.uint32, 'disc-class-max')),
@@ -5610,8 +5525,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['qos_group_min','qos_group_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('qos_group_min', YLeaf(YType.uint32, 'qos-group-min')),
                             ('qos_group_max', YLeaf(YType.uint32, 'qos-group-max')),
@@ -5707,8 +5621,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['exp_min','exp_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('exp_min', YLeaf(YType.uint32, 'exp-min')),
                             ('exp_max', YLeaf(YType.uint32, 'exp-max')),
@@ -5804,8 +5717,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['dscp_min','dscp_max']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('dscp_min', YLeaf(YType.uint32, 'dscp-min')),
                             ('dscp_max', YLeaf(YType.uint32, 'dscp-max')),
@@ -5933,8 +5845,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
                     ('in_octets', YLeaf(YType.uint64, 'in-octets')),
@@ -6070,8 +5981,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
                     ('in_octets', YLeaf(YType.uint64, 'in-octets')),
@@ -6143,8 +6053,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('negotiated_duplex_mode', YLeaf(YType.enumeration, 'negotiated-duplex-mode')),
                     ('negotiated_port_speed', YLeaf(YType.enumeration, 'negotiated-port-speed')),
@@ -6243,8 +6152,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('in_mac_control_frames', YLeaf(YType.uint64, 'in-mac-control-frames')),
                     ('in_mac_pause_frames', YLeaf(YType.uint64, 'in-mac-pause-frames')),
@@ -6283,7 +6191,7 @@ class Interfaces(Entity):
             .. attribute:: loopback
             
             	Loopback mode the interface is operating in
-            	**type**\:  :py:class:`T1E1LoopbackMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.T1E1LoopbackMode>`
+            	**type**\:  :py:class:`T1e1LoopbackMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.T1e1LoopbackMode>`
             
             .. attribute:: keeplive
             
@@ -6319,8 +6227,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('crc_type', YLeaf(YType.enumeration, 'crc-type')),
                     ('loopback', YLeaf(YType.enumeration, 'loopback')),
@@ -6365,8 +6272,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('in_abort_clock_error', YLeaf(YType.uint32, 'in-abort-clock-error')),
                 ])

@@ -117,32 +117,32 @@ class CISCOCONFIGMANMIB(Entity):
     .. attribute:: ccmhistory
     
     	
-    	**type**\:  :py:class:`Ccmhistory <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistory>`
+    	**type**\:  :py:class:`CcmHistory <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmHistory>`
     
     .. attribute:: ccmclihistory
     
     	
-    	**type**\:  :py:class:`Ccmclihistory <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistory>`
+    	**type**\:  :py:class:`CcmCLIHistory <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmCLIHistory>`
     
     .. attribute:: ccmclicfg
     
     	
-    	**type**\:  :py:class:`Ccmclicfg <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclicfg>`
+    	**type**\:  :py:class:`CcmCLICfg <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmCLICfg>`
     
     .. attribute:: ccmctidobjects
     
     	
-    	**type**\:  :py:class:`Ccmctidobjects <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmctidobjects>`
+    	**type**\:  :py:class:`CcmCTIDObjects <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmCTIDObjects>`
     
     .. attribute:: ccmhistoryeventtable
     
     	A table of configuration events on this router
-    	**type**\:  :py:class:`Ccmhistoryeventtable <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable>`
+    	**type**\:  :py:class:`CcmHistoryEventTable <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmHistoryEventTable>`
     
     .. attribute:: ccmclihistorycommandtable
     
     	A table of CLI commands that took effect during configuration events
-    	**type**\:  :py:class:`Ccmclihistorycommandtable <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistorycommandtable>`
+    	**type**\:  :py:class:`CcmCLIHistoryCommandTable <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable>`
     
     
 
@@ -160,43 +160,39 @@ class CISCOCONFIGMANMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ccmHistory", ("ccmhistory", CISCOCONFIGMANMIB.Ccmhistory)), ("ccmCLIHistory", ("ccmclihistory", CISCOCONFIGMANMIB.Ccmclihistory)), ("ccmCLICfg", ("ccmclicfg", CISCOCONFIGMANMIB.Ccmclicfg)), ("ccmCTIDObjects", ("ccmctidobjects", CISCOCONFIGMANMIB.Ccmctidobjects)), ("ccmHistoryEventTable", ("ccmhistoryeventtable", CISCOCONFIGMANMIB.Ccmhistoryeventtable)), ("ccmCLIHistoryCommandTable", ("ccmclihistorycommandtable", CISCOCONFIGMANMIB.Ccmclihistorycommandtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ccmHistory", ("ccmhistory", CISCOCONFIGMANMIB.CcmHistory)), ("ccmCLIHistory", ("ccmclihistory", CISCOCONFIGMANMIB.CcmCLIHistory)), ("ccmCLICfg", ("ccmclicfg", CISCOCONFIGMANMIB.CcmCLICfg)), ("ccmCTIDObjects", ("ccmctidobjects", CISCOCONFIGMANMIB.CcmCTIDObjects)), ("ccmHistoryEventTable", ("ccmhistoryeventtable", CISCOCONFIGMANMIB.CcmHistoryEventTable)), ("ccmCLIHistoryCommandTable", ("ccmclihistorycommandtable", CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable))])
         self._leafs = OrderedDict()
 
-        self.ccmhistory = CISCOCONFIGMANMIB.Ccmhistory()
+        self.ccmhistory = CISCOCONFIGMANMIB.CcmHistory()
         self.ccmhistory.parent = self
         self._children_name_map["ccmhistory"] = "ccmHistory"
-        self._children_yang_names.add("ccmHistory")
 
-        self.ccmclihistory = CISCOCONFIGMANMIB.Ccmclihistory()
+        self.ccmclihistory = CISCOCONFIGMANMIB.CcmCLIHistory()
         self.ccmclihistory.parent = self
         self._children_name_map["ccmclihistory"] = "ccmCLIHistory"
-        self._children_yang_names.add("ccmCLIHistory")
 
-        self.ccmclicfg = CISCOCONFIGMANMIB.Ccmclicfg()
+        self.ccmclicfg = CISCOCONFIGMANMIB.CcmCLICfg()
         self.ccmclicfg.parent = self
         self._children_name_map["ccmclicfg"] = "ccmCLICfg"
-        self._children_yang_names.add("ccmCLICfg")
 
-        self.ccmctidobjects = CISCOCONFIGMANMIB.Ccmctidobjects()
+        self.ccmctidobjects = CISCOCONFIGMANMIB.CcmCTIDObjects()
         self.ccmctidobjects.parent = self
         self._children_name_map["ccmctidobjects"] = "ccmCTIDObjects"
-        self._children_yang_names.add("ccmCTIDObjects")
 
-        self.ccmhistoryeventtable = CISCOCONFIGMANMIB.Ccmhistoryeventtable()
+        self.ccmhistoryeventtable = CISCOCONFIGMANMIB.CcmHistoryEventTable()
         self.ccmhistoryeventtable.parent = self
         self._children_name_map["ccmhistoryeventtable"] = "ccmHistoryEventTable"
-        self._children_yang_names.add("ccmHistoryEventTable")
 
-        self.ccmclihistorycommandtable = CISCOCONFIGMANMIB.Ccmclihistorycommandtable()
+        self.ccmclihistorycommandtable = CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable()
         self.ccmclihistorycommandtable.parent = self
         self._children_name_map["ccmclihistorycommandtable"] = "ccmCLIHistoryCommandTable"
-        self._children_yang_names.add("ccmCLIHistoryCommandTable")
         self._segment_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOCONFIGMANMIB, [], name, value)
 
-    class Ccmhistory(Entity):
+
+    class CcmHistory(Entity):
         """
         
         
@@ -243,15 +239,14 @@ class CISCOCONFIGMANMIB(Entity):
         _revision = '2007-04-27'
 
         def __init__(self):
-            super(CISCOCONFIGMANMIB.Ccmhistory, self).__init__()
+            super(CISCOCONFIGMANMIB.CcmHistory, self).__init__()
 
             self.yang_name = "ccmHistory"
             self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ccmhistoryrunninglastchanged', YLeaf(YType.uint32, 'ccmHistoryRunningLastChanged')),
                 ('ccmhistoryrunninglastsaved', YLeaf(YType.uint32, 'ccmHistoryRunningLastSaved')),
@@ -268,10 +263,10 @@ class CISCOCONFIGMANMIB(Entity):
             self._absolute_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGMANMIB.Ccmhistory, ['ccmhistoryrunninglastchanged', 'ccmhistoryrunninglastsaved', 'ccmhistorystartuplastchanged', 'ccmhistorymaxevententries', 'ccmhistoryevententriesbumped'], name, value)
+            self._perform_setattr(CISCOCONFIGMANMIB.CcmHistory, ['ccmhistoryrunninglastchanged', 'ccmhistoryrunninglastsaved', 'ccmhistorystartuplastchanged', 'ccmhistorymaxevententries', 'ccmhistoryevententriesbumped'], name, value)
 
 
-    class Ccmclihistory(Entity):
+    class CcmCLIHistory(Entity):
         """
         
         
@@ -304,15 +299,14 @@ class CISCOCONFIGMANMIB(Entity):
         _revision = '2007-04-27'
 
         def __init__(self):
-            super(CISCOCONFIGMANMIB.Ccmclihistory, self).__init__()
+            super(CISCOCONFIGMANMIB.CcmCLIHistory, self).__init__()
 
             self.yang_name = "ccmCLIHistory"
             self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ccmclihistorymaxcmdentries', YLeaf(YType.uint32, 'ccmCLIHistoryMaxCmdEntries')),
                 ('ccmclihistorycmdentries', YLeaf(YType.uint32, 'ccmCLIHistoryCmdEntries')),
@@ -325,10 +319,10 @@ class CISCOCONFIGMANMIB(Entity):
             self._absolute_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGMANMIB.Ccmclihistory, ['ccmclihistorymaxcmdentries', 'ccmclihistorycmdentries', 'ccmclihistorycmdentriesallowed'], name, value)
+            self._perform_setattr(CISCOCONFIGMANMIB.CcmCLIHistory, ['ccmclihistorymaxcmdentries', 'ccmclihistorycmdentries', 'ccmclihistorycmdentriesallowed'], name, value)
 
 
-    class Ccmclicfg(Entity):
+    class CcmCLICfg(Entity):
         """
         
         
@@ -345,15 +339,14 @@ class CISCOCONFIGMANMIB(Entity):
         _revision = '2007-04-27'
 
         def __init__(self):
-            super(CISCOCONFIGMANMIB.Ccmclicfg, self).__init__()
+            super(CISCOCONFIGMANMIB.CcmCLICfg, self).__init__()
 
             self.yang_name = "ccmCLICfg"
             self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ccmclicfgrunconfnotifenable', YLeaf(YType.boolean, 'ccmCLICfgRunConfNotifEnable')),
             ])
@@ -362,10 +355,10 @@ class CISCOCONFIGMANMIB(Entity):
             self._absolute_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGMANMIB.Ccmclicfg, ['ccmclicfgrunconfnotifenable'], name, value)
+            self._perform_setattr(CISCOCONFIGMANMIB.CcmCLICfg, ['ccmclicfgrunconfnotifenable'], name, value)
 
 
-    class Ccmctidobjects(Entity):
+    class CcmCTIDObjects(Entity):
         """
         
         
@@ -399,15 +392,14 @@ class CISCOCONFIGMANMIB(Entity):
         _revision = '2007-04-27'
 
         def __init__(self):
-            super(CISCOCONFIGMANMIB.Ccmctidobjects, self).__init__()
+            super(CISCOCONFIGMANMIB.CcmCTIDObjects, self).__init__()
 
             self.yang_name = "ccmCTIDObjects"
             self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ccmctid', YLeaf(YType.uint64, 'ccmCTID')),
                 ('ccmctidlastchangetime', YLeaf(YType.str, 'ccmCTIDLastChangeTime')),
@@ -422,17 +414,17 @@ class CISCOCONFIGMANMIB(Entity):
             self._absolute_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGMANMIB.Ccmctidobjects, ['ccmctid', 'ccmctidlastchangetime', 'ccmctidwhochanged', 'ccmctidrolledovernotifenable'], name, value)
+            self._perform_setattr(CISCOCONFIGMANMIB.CcmCTIDObjects, ['ccmctid', 'ccmctidlastchangetime', 'ccmctidwhochanged', 'ccmctidrolledovernotifenable'], name, value)
 
 
-    class Ccmhistoryeventtable(Entity):
+    class CcmHistoryEventTable(Entity):
         """
         A table of configuration events on this router.
         
         .. attribute:: ccmhistoryevententry
         
         	Information about a configuration event on this router
-        	**type**\: list of  		 :py:class:`Ccmhistoryevententry <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry>`
+        	**type**\: list of  		 :py:class:`CcmHistoryEventEntry <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmHistoryEventTable.CcmHistoryEventEntry>`
         
         
 
@@ -442,15 +434,14 @@ class CISCOCONFIGMANMIB(Entity):
         _revision = '2007-04-27'
 
         def __init__(self):
-            super(CISCOCONFIGMANMIB.Ccmhistoryeventtable, self).__init__()
+            super(CISCOCONFIGMANMIB.CcmHistoryEventTable, self).__init__()
 
             self.yang_name = "ccmHistoryEventTable"
             self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ccmHistoryEventEntry", ("ccmhistoryevententry", CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry))])
+            self._child_classes = OrderedDict([("ccmHistoryEventEntry", ("ccmhistoryevententry", CISCOCONFIGMANMIB.CcmHistoryEventTable.CcmHistoryEventEntry))])
             self._leafs = OrderedDict()
 
             self.ccmhistoryevententry = YList(self)
@@ -458,10 +449,10 @@ class CISCOCONFIGMANMIB(Entity):
             self._absolute_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGMANMIB.Ccmhistoryeventtable, [], name, value)
+            self._perform_setattr(CISCOCONFIGMANMIB.CcmHistoryEventTable, [], name, value)
 
 
-        class Ccmhistoryevententry(Entity):
+        class CcmHistoryEventEntry(Entity):
             """
             Information about a configuration event on this
             router.
@@ -483,7 +474,7 @@ class CISCOCONFIGMANMIB(Entity):
             .. attribute:: ccmhistoryeventcommandsource
             
             	The source of the command that instigated the event
-            	**type**\:  :py:class:`Ccmhistoryeventcommandsource <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry.Ccmhistoryeventcommandsource>`
+            	**type**\:  :py:class:`CcmHistoryEventCommandSource <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmHistoryEventTable.CcmHistoryEventEntry.CcmHistoryEventCommandSource>`
             
             .. attribute:: ccmhistoryeventconfigsource
             
@@ -498,7 +489,7 @@ class CISCOCONFIGMANMIB(Entity):
             .. attribute:: ccmhistoryeventterminaltype
             
             	If ccmHistoryEventCommandSource is 'commandLine', the terminal type, otherwise 'notApplicable'
-            	**type**\:  :py:class:`Ccmhistoryeventterminaltype <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry.Ccmhistoryeventterminaltype>`
+            	**type**\:  :py:class:`CcmHistoryEventTerminalType <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmHistoryEventTable.CcmHistoryEventEntry.CcmHistoryEventTerminalType>`
             
             .. attribute:: ccmhistoryeventterminalnumber
             
@@ -599,15 +590,14 @@ class CISCOCONFIGMANMIB(Entity):
             _revision = '2007-04-27'
 
             def __init__(self):
-                super(CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry, self).__init__()
+                super(CISCOCONFIGMANMIB.CcmHistoryEventTable.CcmHistoryEventEntry, self).__init__()
 
                 self.yang_name = "ccmHistoryEventEntry"
                 self.yang_parent_name = "ccmHistoryEventTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ccmhistoryeventindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccmhistoryeventindex', YLeaf(YType.int32, 'ccmHistoryEventIndex')),
                     ('ccmhistoryeventtime', YLeaf(YType.uint32, 'ccmHistoryEventTime')),
@@ -652,11 +642,11 @@ class CISCOCONFIGMANMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/ccmHistoryEventTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry, ['ccmhistoryeventindex', 'ccmhistoryeventtime', 'ccmhistoryeventcommandsource', 'ccmhistoryeventconfigsource', 'ccmhistoryeventconfigdestination', 'ccmhistoryeventterminaltype', 'ccmhistoryeventterminalnumber', 'ccmhistoryeventterminaluser', 'ccmhistoryeventterminallocation', 'ccmhistoryeventcommandsourceaddress', 'ccmhistoryeventvirtualhostname', 'ccmhistoryeventserveraddress', 'ccmhistoryeventfile', 'ccmhistoryeventrcpuser', 'ccmhistoryclicmdentriesbumped', 'ccmhistoryeventcommandsourceaddrtype', 'ccmhistoryeventcommandsourceaddrrev1', 'ccmhistoryeventserveraddrtype', 'ccmhistoryeventserveraddrrev1'], name, value)
+                self._perform_setattr(CISCOCONFIGMANMIB.CcmHistoryEventTable.CcmHistoryEventEntry, ['ccmhistoryeventindex', 'ccmhistoryeventtime', 'ccmhistoryeventcommandsource', 'ccmhistoryeventconfigsource', 'ccmhistoryeventconfigdestination', 'ccmhistoryeventterminaltype', 'ccmhistoryeventterminalnumber', 'ccmhistoryeventterminaluser', 'ccmhistoryeventterminallocation', 'ccmhistoryeventcommandsourceaddress', 'ccmhistoryeventvirtualhostname', 'ccmhistoryeventserveraddress', 'ccmhistoryeventfile', 'ccmhistoryeventrcpuser', 'ccmhistoryclicmdentriesbumped', 'ccmhistoryeventcommandsourceaddrtype', 'ccmhistoryeventcommandsourceaddrrev1', 'ccmhistoryeventserveraddrtype', 'ccmhistoryeventserveraddrrev1'], name, value)
 
-            class Ccmhistoryeventcommandsource(Enum):
+            class CcmHistoryEventCommandSource(Enum):
                 """
-                Ccmhistoryeventcommandsource (Enum Class)
+                CcmHistoryEventCommandSource (Enum Class)
 
                 The source of the command that instigated the event.
 
@@ -671,9 +661,9 @@ class CISCOCONFIGMANMIB(Entity):
                 snmp = Enum.YLeaf(2, "snmp")
 
 
-            class Ccmhistoryeventterminaltype(Enum):
+            class CcmHistoryEventTerminalType(Enum):
                 """
-                Ccmhistoryeventterminaltype (Enum Class)
+                CcmHistoryEventTerminalType (Enum Class)
 
                 If ccmHistoryEventCommandSource is 'commandLine',
 
@@ -707,7 +697,7 @@ class CISCOCONFIGMANMIB(Entity):
 
 
 
-    class Ccmclihistorycommandtable(Entity):
+    class CcmCLIHistoryCommandTable(Entity):
         """
         A table of CLI commands that took effect during
         configuration events.
@@ -715,7 +705,7 @@ class CISCOCONFIGMANMIB(Entity):
         .. attribute:: ccmclihistorycommandentry
         
         	Information about the CLI commands that took effect during the configuration event pointed by  ccmCLIHistoryEventIndex.  A set of rows in this table having the first index as ccmHistoryEventIndex will store the CLI commands entered during the corresponding  configuration event in ccmHistoryEventTable.  An entry will be created in this table only if  the corresponding entry in ccmHistoryEventTable has  a value of 'commandLine' for  ccmHistoryEventCommandSource
-        	**type**\: list of  		 :py:class:`Ccmclihistorycommandentry <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistorycommandtable.Ccmclihistorycommandentry>`
+        	**type**\: list of  		 :py:class:`CcmCLIHistoryCommandEntry <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable.CcmCLIHistoryCommandEntry>`
         
         
 
@@ -725,15 +715,14 @@ class CISCOCONFIGMANMIB(Entity):
         _revision = '2007-04-27'
 
         def __init__(self):
-            super(CISCOCONFIGMANMIB.Ccmclihistorycommandtable, self).__init__()
+            super(CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable, self).__init__()
 
             self.yang_name = "ccmCLIHistoryCommandTable"
             self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ccmCLIHistoryCommandEntry", ("ccmclihistorycommandentry", CISCOCONFIGMANMIB.Ccmclihistorycommandtable.Ccmclihistorycommandentry))])
+            self._child_classes = OrderedDict([("ccmCLIHistoryCommandEntry", ("ccmclihistorycommandentry", CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable.CcmCLIHistoryCommandEntry))])
             self._leafs = OrderedDict()
 
             self.ccmclihistorycommandentry = YList(self)
@@ -741,10 +730,10 @@ class CISCOCONFIGMANMIB(Entity):
             self._absolute_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGMANMIB.Ccmclihistorycommandtable, [], name, value)
+            self._perform_setattr(CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable, [], name, value)
 
 
-        class Ccmclihistorycommandentry(Entity):
+        class CcmCLIHistoryCommandEntry(Entity):
             """
             Information about the CLI commands that took effect
             during the configuration event pointed by 
@@ -767,7 +756,7 @@ class CISCOCONFIGMANMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ccmhistoryeventindex <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry>`
+            	**refers to**\:  :py:class:`ccmhistoryeventindex <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.CcmHistoryEventTable.CcmHistoryEventEntry>`
             
             .. attribute:: ccmclihistorycommandindex  (key)
             
@@ -789,15 +778,14 @@ class CISCOCONFIGMANMIB(Entity):
             _revision = '2007-04-27'
 
             def __init__(self):
-                super(CISCOCONFIGMANMIB.Ccmclihistorycommandtable.Ccmclihistorycommandentry, self).__init__()
+                super(CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable.CcmCLIHistoryCommandEntry, self).__init__()
 
                 self.yang_name = "ccmCLIHistoryCommandEntry"
                 self.yang_parent_name = "ccmCLIHistoryCommandTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ccmhistoryeventindex','ccmclihistorycommandindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccmhistoryeventindex', YLeaf(YType.str, 'ccmHistoryEventIndex')),
                     ('ccmclihistorycommandindex', YLeaf(YType.uint32, 'ccmCLIHistoryCommandIndex')),
@@ -810,7 +798,7 @@ class CISCOCONFIGMANMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/ccmCLIHistoryCommandTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONFIGMANMIB.Ccmclihistorycommandtable.Ccmclihistorycommandentry, ['ccmhistoryeventindex', 'ccmclihistorycommandindex', 'ccmclihistorycommand'], name, value)
+                self._perform_setattr(CISCOCONFIGMANMIB.CcmCLIHistoryCommandTable.CcmCLIHistoryCommandEntry, ['ccmhistoryeventindex', 'ccmclihistorycommandindex', 'ccmclihistorycommand'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOCONFIGMANMIB()

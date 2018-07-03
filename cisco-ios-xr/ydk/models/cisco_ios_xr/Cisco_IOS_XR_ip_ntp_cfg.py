@@ -124,6 +124,11 @@ class Ntp(Entity):
     """
     NTP configuration
     
+    .. attribute:: admin_types
+    
+    	Configure NTP server admin\-plane
+    	**type**\:  :py:class:`AdminTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AdminTypes>`
+    
     .. attribute:: peer_vrfs
     
     	Configures NTP Peers or Servers
@@ -208,12 +213,10 @@ class Ntp(Entity):
     
     
 
-    This class is a :ref:`presence class<presence-class>`
-
     """
 
     _prefix = 'ip-ntp-cfg'
-    _revision = '2017-05-01'
+    _revision = '2017-10-15'
 
     def __init__(self):
         super(Ntp, self).__init__()
@@ -224,9 +227,7 @@ class Ntp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("peer-vrfs", ("peer_vrfs", Ntp.PeerVrfs)), ("dscp-ipv4", ("dscp_ipv4", Ntp.DscpIpv4)), ("dscp-ipv6", ("dscp_ipv6", Ntp.DscpIpv6)), ("sources", ("sources", Ntp.Sources)), ("drift", ("drift", Ntp.Drift)), ("authentication", ("authentication", Ntp.Authentication)), ("passive", ("passive", Ntp.Passive)), ("interface-tables", ("interface_tables", Ntp.InterfaceTables)), ("access-group-tables", ("access_group_tables", Ntp.AccessGroupTables))])
-        self._child_list_classes = OrderedDict([])
-        self.is_presence_container = True
+        self._child_classes = OrderedDict([("admin-types", ("admin_types", Ntp.AdminTypes)), ("peer-vrfs", ("peer_vrfs", Ntp.PeerVrfs)), ("dscp-ipv4", ("dscp_ipv4", Ntp.DscpIpv4)), ("dscp-ipv6", ("dscp_ipv6", Ntp.DscpIpv6)), ("sources", ("sources", Ntp.Sources)), ("drift", ("drift", Ntp.Drift)), ("authentication", ("authentication", Ntp.Authentication)), ("passive", ("passive", Ntp.Passive)), ("interface-tables", ("interface_tables", Ntp.InterfaceTables)), ("access-group-tables", ("access_group_tables", Ntp.AccessGroupTables))])
         self._leafs = OrderedDict([
             ('max_associations', YLeaf(YType.uint32, 'max-associations')),
             ('master', YLeaf(YType.uint32, 'master')),
@@ -240,52 +241,175 @@ class Ntp(Entity):
         self.log_internal_sync = None
         self.update_calendar = None
 
+        self.admin_types = Ntp.AdminTypes()
+        self.admin_types.parent = self
+        self._children_name_map["admin_types"] = "admin-types"
+
         self.peer_vrfs = Ntp.PeerVrfs()
         self.peer_vrfs.parent = self
         self._children_name_map["peer_vrfs"] = "peer-vrfs"
-        self._children_yang_names.add("peer-vrfs")
 
         self.dscp_ipv4 = None
         self._children_name_map["dscp_ipv4"] = "dscp-ipv4"
-        self._children_yang_names.add("dscp-ipv4")
 
         self.dscp_ipv6 = None
         self._children_name_map["dscp_ipv6"] = "dscp-ipv6"
-        self._children_yang_names.add("dscp-ipv6")
 
         self.sources = Ntp.Sources()
         self.sources.parent = self
         self._children_name_map["sources"] = "sources"
-        self._children_yang_names.add("sources")
 
         self.drift = Ntp.Drift()
         self.drift.parent = self
         self._children_name_map["drift"] = "drift"
-        self._children_yang_names.add("drift")
 
         self.authentication = Ntp.Authentication()
         self.authentication.parent = self
         self._children_name_map["authentication"] = "authentication"
-        self._children_yang_names.add("authentication")
 
         self.passive = Ntp.Passive()
         self.passive.parent = self
         self._children_name_map["passive"] = "passive"
-        self._children_yang_names.add("passive")
 
         self.interface_tables = Ntp.InterfaceTables()
         self.interface_tables.parent = self
         self._children_name_map["interface_tables"] = "interface-tables"
-        self._children_yang_names.add("interface-tables")
 
         self.access_group_tables = Ntp.AccessGroupTables()
         self.access_group_tables.parent = self
         self._children_name_map["access_group_tables"] = "access-group-tables"
-        self._children_yang_names.add("access-group-tables")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp"
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ntp, ['max_associations', 'master', 'broadcast_delay', 'log_internal_sync', 'update_calendar'], name, value)
+
+
+    class AdminTypes(Entity):
+        """
+        Configure NTP server admin\-plane
+        
+        .. attribute:: admin_type
+        
+        	Configure NTP server admin plane
+        	**type**\: list of  		 :py:class:`AdminType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AdminTypes.AdminType>`
+        
+        
+
+        """
+
+        _prefix = 'ip-ntp-cfg'
+        _revision = '2017-10-15'
+
+        def __init__(self):
+            super(Ntp.AdminTypes, self).__init__()
+
+            self.yang_name = "admin-types"
+            self.yang_parent_name = "ntp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("admin-type", ("admin_type", Ntp.AdminTypes.AdminType))])
+            self._leafs = OrderedDict()
+
+            self.admin_type = YList(self)
+            self._segment_path = lambda: "admin-types"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ntp.AdminTypes, [], name, value)
+
+
+        class AdminType(Entity):
+            """
+            Configure NTP server admin plane
+            
+            .. attribute:: peer_type  (key)
+            
+            	Peer or Server
+            	**type**\:  :py:class:`NtpPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeer>`
+            
+            .. attribute:: ntp_version
+            
+            	NTP version
+            	**type**\: int
+            
+            	**range:** 2..4
+            
+            .. attribute:: authentication_key
+            
+            	Authentication Key
+            	**type**\: int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: min_poll
+            
+            	Minimum poll interval
+            	**type**\: int
+            
+            	**range:** 4..17
+            
+            .. attribute:: max_poll
+            
+            	Maxinum poll interval
+            	**type**\: int
+            
+            	**range:** 4..17
+            
+            .. attribute:: preferred_peer
+            
+            	Preferred peer
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: burst
+            
+            	Use burst mode
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: iburst
+            
+            	Use iburst mode
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ip-ntp-cfg'
+            _revision = '2017-10-15'
+
+            def __init__(self):
+                super(Ntp.AdminTypes.AdminType, self).__init__()
+
+                self.yang_name = "admin-type"
+                self.yang_parent_name = "admin-types"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['peer_type']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
+                    ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
+                    ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
+                    ('min_poll', YLeaf(YType.uint32, 'min-poll')),
+                    ('max_poll', YLeaf(YType.uint32, 'max-poll')),
+                    ('preferred_peer', YLeaf(YType.empty, 'preferred-peer')),
+                    ('burst', YLeaf(YType.empty, 'burst')),
+                    ('iburst', YLeaf(YType.empty, 'iburst')),
+                ])
+                self.peer_type = None
+                self.ntp_version = None
+                self.authentication_key = None
+                self.min_poll = None
+                self.max_poll = None
+                self.preferred_peer = None
+                self.burst = None
+                self.iburst = None
+                self._segment_path = lambda: "admin-type" + "[peer-type='" + str(self.peer_type) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/admin-types/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ntp.AdminTypes.AdminType, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'burst', 'iburst'], name, value)
 
 
     class PeerVrfs(Entity):
@@ -302,7 +426,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.PeerVrfs, self).__init__()
@@ -312,8 +436,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("peer-vrf", ("peer_vrf", Ntp.PeerVrfs.PeerVrf))])
+            self._child_classes = OrderedDict([("peer-vrf", ("peer_vrf", Ntp.PeerVrfs.PeerVrf))])
             self._leafs = OrderedDict()
 
             self.peer_vrf = YList(self)
@@ -340,19 +463,19 @@ class Ntp(Entity):
             .. attribute:: peer_ipv4s
             
             	Configures IPv4 NTP Peers or Servers
-            	**type**\:  :py:class:`PeerIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S>`
+            	**type**\:  :py:class:`PeerIpv4s <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4s>`
             
             .. attribute:: peer_ipv6s
             
             	Configuration NTP Peers or Servers of IPV6
-            	**type**\:  :py:class:`PeerIpv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S>`
+            	**type**\:  :py:class:`PeerIpv6s <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6s>`
             
             
 
             """
 
             _prefix = 'ip-ntp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Ntp.PeerVrfs.PeerVrf, self).__init__()
@@ -362,22 +485,19 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("peer-ipv4s", ("peer_ipv4s", Ntp.PeerVrfs.PeerVrf.PeerIpv4S)), ("peer-ipv6s", ("peer_ipv6s", Ntp.PeerVrfs.PeerVrf.PeerIpv6S))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("peer-ipv4s", ("peer_ipv4s", Ntp.PeerVrfs.PeerVrf.PeerIpv4s)), ("peer-ipv6s", ("peer_ipv6s", Ntp.PeerVrfs.PeerVrf.PeerIpv6s))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
                 self.vrf_name = None
 
-                self.peer_ipv4s = Ntp.PeerVrfs.PeerVrf.PeerIpv4S()
+                self.peer_ipv4s = Ntp.PeerVrfs.PeerVrf.PeerIpv4s()
                 self.peer_ipv4s.parent = self
                 self._children_name_map["peer_ipv4s"] = "peer-ipv4s"
-                self._children_yang_names.add("peer-ipv4s")
 
-                self.peer_ipv6s = Ntp.PeerVrfs.PeerVrf.PeerIpv6S()
+                self.peer_ipv6s = Ntp.PeerVrfs.PeerVrf.PeerIpv6s()
                 self.peer_ipv6s.parent = self
                 self._children_name_map["peer_ipv6s"] = "peer-ipv6s"
-                self._children_yang_names.add("peer-ipv6s")
                 self._segment_path = lambda: "peer-vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/%s" % self._segment_path()
 
@@ -385,39 +505,38 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.PeerVrfs.PeerVrf, ['vrf_name'], name, value)
 
 
-            class PeerIpv4S(Entity):
+            class PeerIpv4s(Entity):
                 """
                 Configures IPv4 NTP Peers or Servers
                 
                 .. attribute:: peer_ipv4
                 
                 	Configure an IPv4 NTP server or peer
-                	**type**\: list of  		 :py:class:`PeerIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4>`
+                	**type**\: list of  		 :py:class:`PeerIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4>`
                 
                 
 
                 """
 
                 _prefix = 'ip-ntp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.PeerVrfs.PeerVrf.PeerIpv4S, self).__init__()
+                    super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s, self).__init__()
 
                     self.yang_name = "peer-ipv4s"
                     self.yang_parent_name = "peer-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("peer-ipv4", ("peer_ipv4", Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4))])
+                    self._child_classes = OrderedDict([("peer-ipv4", ("peer_ipv4", Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4))])
                     self._leafs = OrderedDict()
 
                     self.peer_ipv4 = YList(self)
                     self._segment_path = lambda: "peer-ipv4s"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4S, [], name, value)
+                    self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s, [], name, value)
 
 
                 class PeerIpv4(Entity):
@@ -434,25 +553,24 @@ class Ntp(Entity):
                     .. attribute:: peer_type_ipv4
                     
                     	Configure an IPv4 NTP server or peer
-                    	**type**\: list of  		 :py:class:`PeerTypeIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4>`
+                    	**type**\: list of  		 :py:class:`PeerTypeIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4>`
                     
                     
 
                     """
 
                     _prefix = 'ip-ntp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4, self).__init__()
+                        super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4, self).__init__()
 
                         self.yang_name = "peer-ipv4"
                         self.yang_parent_name = "peer-ipv4s"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['address_ipv4']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("peer-type-ipv4", ("peer_type_ipv4", Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4))])
+                        self._child_classes = OrderedDict([("peer-type-ipv4", ("peer_type_ipv4", Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4))])
                         self._leafs = OrderedDict([
                             ('address_ipv4', YLeaf(YType.str, 'address-ipv4')),
                         ])
@@ -462,7 +580,7 @@ class Ntp(Entity):
                         self._segment_path = lambda: "peer-ipv4" + "[address-ipv4='" + str(self.address_ipv4) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4, ['address_ipv4'], name, value)
+                        self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4, ['address_ipv4'], name, value)
 
 
                     class PeerTypeIpv4(Entity):
@@ -529,18 +647,17 @@ class Ntp(Entity):
                         """
 
                         _prefix = 'ip-ntp-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4, self).__init__()
+                            super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4, self).__init__()
 
                             self.yang_name = "peer-type-ipv4"
                             self.yang_parent_name = "peer-ipv4"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['peer_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
                                 ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
@@ -564,42 +681,41 @@ class Ntp(Entity):
                             self._segment_path = lambda: "peer-type-ipv4" + "[peer-type='" + str(self.peer_type) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst'], name, value)
+                            self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst'], name, value)
 
 
-            class PeerIpv6S(Entity):
+            class PeerIpv6s(Entity):
                 """
                 Configuration NTP Peers or Servers of IPV6
                 
                 .. attribute:: peer_ipv6
                 
                 	Configure a NTP server or peer
-                	**type**\: list of  		 :py:class:`PeerIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6>`
+                	**type**\: list of  		 :py:class:`PeerIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6>`
                 
                 
 
                 """
 
                 _prefix = 'ip-ntp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.PeerVrfs.PeerVrf.PeerIpv6S, self).__init__()
+                    super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s, self).__init__()
 
                     self.yang_name = "peer-ipv6s"
                     self.yang_parent_name = "peer-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("peer-ipv6", ("peer_ipv6", Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6))])
+                    self._child_classes = OrderedDict([("peer-ipv6", ("peer_ipv6", Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6))])
                     self._leafs = OrderedDict()
 
                     self.peer_ipv6 = YList(self)
                     self._segment_path = lambda: "peer-ipv6s"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6S, [], name, value)
+                    self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s, [], name, value)
 
 
                 class PeerIpv6(Entity):
@@ -616,25 +732,24 @@ class Ntp(Entity):
                     .. attribute:: peer_type_ipv6
                     
                     	Configure a NTP server or peer
-                    	**type**\: list of  		 :py:class:`PeerTypeIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6>`
+                    	**type**\: list of  		 :py:class:`PeerTypeIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6>`
                     
                     
 
                     """
 
                     _prefix = 'ip-ntp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6, self).__init__()
+                        super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6, self).__init__()
 
                         self.yang_name = "peer-ipv6"
                         self.yang_parent_name = "peer-ipv6s"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['address_ipv6']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("peer-type-ipv6", ("peer_type_ipv6", Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6))])
+                        self._child_classes = OrderedDict([("peer-type-ipv6", ("peer_type_ipv6", Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6))])
                         self._leafs = OrderedDict([
                             ('address_ipv6', YLeaf(YType.str, 'address-ipv6')),
                         ])
@@ -644,7 +759,7 @@ class Ntp(Entity):
                         self._segment_path = lambda: "peer-ipv6" + "[address-ipv6='" + str(self.address_ipv6) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6, ['address_ipv6'], name, value)
+                        self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6, ['address_ipv6'], name, value)
 
 
                     class PeerTypeIpv6(Entity):
@@ -718,18 +833,17 @@ class Ntp(Entity):
                         """
 
                         _prefix = 'ip-ntp-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6, self).__init__()
+                            super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6, self).__init__()
 
                             self.yang_name = "peer-type-ipv6"
                             self.yang_parent_name = "peer-ipv6"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['peer_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
                                 ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
@@ -755,7 +869,7 @@ class Ntp(Entity):
                             self._segment_path = lambda: "peer-type-ipv6" + "[peer-type='" + str(self.peer_type) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst', 'address_ipv6'], name, value)
+                            self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst', 'address_ipv6'], name, value)
 
 
     class DscpIpv4(Entity):
@@ -785,7 +899,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.DscpIpv4, self).__init__()
@@ -795,8 +909,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -838,7 +951,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.DscpIpv6, self).__init__()
@@ -848,8 +961,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -878,7 +990,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.Sources, self).__init__()
@@ -888,8 +1000,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("source", ("source", Ntp.Sources.Source))])
+            self._child_classes = OrderedDict([("source", ("source", Ntp.Sources.Source))])
             self._leafs = OrderedDict()
 
             self.source = YList(self)
@@ -925,7 +1036,7 @@ class Ntp(Entity):
             """
 
             _prefix = 'ip-ntp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Ntp.Sources.Source, self).__init__()
@@ -935,8 +1046,7 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ('source_interface', YLeaf(YType.str, 'source-interface')),
@@ -971,7 +1081,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.Drift, self).__init__()
@@ -981,8 +1091,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("file", ("file", Ntp.Drift.File))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("file", ("file", Ntp.Drift.File))])
             self._leafs = OrderedDict([
                 ('aging_time', YLeaf(YType.uint32, 'aging-time')),
             ])
@@ -991,7 +1100,6 @@ class Ntp(Entity):
             self.file = Ntp.Drift.File()
             self.file.parent = self
             self._children_name_map["file"] = "file"
-            self._children_yang_names.add("file")
             self._segment_path = lambda: "drift"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
 
@@ -1005,7 +1113,7 @@ class Ntp(Entity):
             
             .. attribute:: location
             
-            	PWD or disk0 etc
+            	disk0 or apphost or config or ftp or harddisk or rootfs or tftp. Defaults to PWD if none specified
             	**type**\: str
             
             	**default value**\: PWD
@@ -1020,7 +1128,7 @@ class Ntp(Entity):
             """
 
             _prefix = 'ip-ntp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Ntp.Drift.File, self).__init__()
@@ -1030,8 +1138,7 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                     ('filename', YLeaf(YType.str, 'filename')),
@@ -1069,7 +1176,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.Authentication, self).__init__()
@@ -1079,8 +1186,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("keies", ("keies", Ntp.Authentication.Keies)), ("trusted-keies", ("trusted_keies", Ntp.Authentication.TrustedKeies))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("keies", ("keies", Ntp.Authentication.Keies)), ("trusted-keies", ("trusted_keies", Ntp.Authentication.TrustedKeies))])
             self._leafs = OrderedDict([
                 ('enable', YLeaf(YType.empty, 'enable')),
             ])
@@ -1089,12 +1195,10 @@ class Ntp(Entity):
             self.keies = Ntp.Authentication.Keies()
             self.keies.parent = self
             self._children_name_map["keies"] = "keies"
-            self._children_yang_names.add("keies")
 
             self.trusted_keies = Ntp.Authentication.TrustedKeies()
             self.trusted_keies.parent = self
             self._children_name_map["trusted_keies"] = "trusted-keies"
-            self._children_yang_names.add("trusted-keies")
             self._segment_path = lambda: "authentication"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
 
@@ -1116,7 +1220,7 @@ class Ntp(Entity):
             """
 
             _prefix = 'ip-ntp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Ntp.Authentication.Keies, self).__init__()
@@ -1126,8 +1230,7 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("key", ("key", Ntp.Authentication.Keies.Key))])
+                self._child_classes = OrderedDict([("key", ("key", Ntp.Authentication.Keies.Key))])
                 self._leafs = OrderedDict()
 
                 self.key = YList(self)
@@ -1161,7 +1264,7 @@ class Ntp(Entity):
                 """
 
                 _prefix = 'ip-ntp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Ntp.Authentication.Keies.Key, self).__init__()
@@ -1171,8 +1274,7 @@ class Ntp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['key_number']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('key_number', YLeaf(YType.uint32, 'key-number')),
                         ('authentication_key', YLeaf(YType.str, 'authentication-key')),
@@ -1200,7 +1302,7 @@ class Ntp(Entity):
             """
 
             _prefix = 'ip-ntp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Ntp.Authentication.TrustedKeies, self).__init__()
@@ -1210,8 +1312,7 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("trusted-key", ("trusted_key", Ntp.Authentication.TrustedKeies.TrustedKey))])
+                self._child_classes = OrderedDict([("trusted-key", ("trusted_key", Ntp.Authentication.TrustedKeies.TrustedKey))])
                 self._leafs = OrderedDict()
 
                 self.trusted_key = YList(self)
@@ -1238,7 +1339,7 @@ class Ntp(Entity):
                 """
 
                 _prefix = 'ip-ntp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Ntp.Authentication.TrustedKeies.TrustedKey, self).__init__()
@@ -1248,8 +1349,7 @@ class Ntp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['key_number']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('key_number', YLeaf(YType.uint32, 'key-number')),
                     ])
@@ -1275,7 +1375,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.Passive, self).__init__()
@@ -1285,8 +1385,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('enable', YLeaf(YType.empty, 'enable')),
             ])
@@ -1312,7 +1411,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.InterfaceTables, self).__init__()
@@ -1322,8 +1421,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface-table", ("interface_table", Ntp.InterfaceTables.InterfaceTable))])
+            self._child_classes = OrderedDict([("interface-table", ("interface_table", Ntp.InterfaceTables.InterfaceTable))])
             self._leafs = OrderedDict()
 
             self.interface_table = YList(self)
@@ -1355,7 +1453,7 @@ class Ntp(Entity):
             """
 
             _prefix = 'ip-ntp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Ntp.InterfaceTables.InterfaceTable, self).__init__()
@@ -1365,8 +1463,7 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Ntp.InterfaceTables.InterfaceTable.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Ntp.InterfaceTables.InterfaceTable.Interface))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -1411,7 +1508,7 @@ class Ntp(Entity):
                 """
 
                 _prefix = 'ip-ntp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Ntp.InterfaceTables.InterfaceTable.Interface, self).__init__()
@@ -1421,8 +1518,7 @@ class Ntp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['interface']
-                    self._child_container_classes = OrderedDict([("interface-multicast", ("interface_multicast", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast)), ("interface-broadcast", ("interface_broadcast", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-multicast", ("interface_multicast", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast)), ("interface-broadcast", ("interface_broadcast", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast))])
                     self._leafs = OrderedDict([
                         ('interface', YLeaf(YType.str, 'interface')),
                         ('disable', YLeaf(YType.empty, 'disable')),
@@ -1433,12 +1529,10 @@ class Ntp(Entity):
                     self.interface_multicast = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast()
                     self.interface_multicast.parent = self
                     self._children_name_map["interface_multicast"] = "interface-multicast"
-                    self._children_yang_names.add("interface-multicast")
 
                     self.interface_broadcast = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast()
                     self.interface_broadcast.parent = self
                     self._children_name_map["interface_broadcast"] = "interface-broadcast"
-                    self._children_yang_names.add("interface-broadcast")
                     self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
 
                 def __setattr__(self, name, value):
@@ -1464,7 +1558,7 @@ class Ntp(Entity):
                     """
 
                     _prefix = 'ip-ntp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast, self).__init__()
@@ -1474,20 +1568,20 @@ class Ntp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("multicast-clients", ("multicast_clients", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients)), ("multicast-servers", ("multicast_servers", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("multicast-clients", ("multicast_clients", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients)), ("multicast-servers", ("multicast_servers", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers))])
                         self._leafs = OrderedDict()
 
                         self.multicast_clients = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients()
                         self.multicast_clients.parent = self
                         self._children_name_map["multicast_clients"] = "multicast-clients"
-                        self._children_yang_names.add("multicast-clients")
 
                         self.multicast_servers = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers()
                         self.multicast_servers.parent = self
                         self._children_name_map["multicast_servers"] = "multicast-servers"
-                        self._children_yang_names.add("multicast-servers")
                         self._segment_path = lambda: "interface-multicast"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast, [], name, value)
 
 
                     class MulticastClients(Entity):
@@ -1504,7 +1598,7 @@ class Ntp(Entity):
                         """
 
                         _prefix = 'ip-ntp-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients, self).__init__()
@@ -1514,8 +1608,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("multicast-client", ("multicast_client", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient))])
+                            self._child_classes = OrderedDict([("multicast-client", ("multicast_client", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient))])
                             self._leafs = OrderedDict()
 
                             self.multicast_client = YList(self)
@@ -1547,7 +1640,7 @@ class Ntp(Entity):
                             """
 
                             _prefix = 'ip-ntp-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient, self).__init__()
@@ -1557,8 +1650,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['ip_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip_address', YLeaf(YType.str, 'ip-address')),
                                 ])
@@ -1583,7 +1675,7 @@ class Ntp(Entity):
                         """
 
                         _prefix = 'ip-ntp-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers, self).__init__()
@@ -1593,8 +1685,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("multicast-server", ("multicast_server", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer))])
+                            self._child_classes = OrderedDict([("multicast-server", ("multicast_server", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer))])
                             self._leafs = OrderedDict()
 
                             self.multicast_server = YList(self)
@@ -1647,7 +1738,7 @@ class Ntp(Entity):
                             """
 
                             _prefix = 'ip-ntp-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer, self).__init__()
@@ -1657,8 +1748,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['ip_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip_address', YLeaf(YType.str, 'ip-address')),
                                     ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
@@ -1679,10 +1769,10 @@ class Ntp(Entity):
                     """
                     Configure NTP broadcast service
                     
-                    .. attribute:: broadcast
+                    .. attribute:: broadcast_servers
                     
                     	Configure NTP broadcast
-                    	**type**\:  :py:class:`Broadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast>`
+                    	**type**\:  :py:class:`BroadcastServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers>`
                     
                     .. attribute:: broadcast_client
                     
@@ -1694,7 +1784,7 @@ class Ntp(Entity):
                     """
 
                     _prefix = 'ip-ntp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast, self).__init__()
@@ -1704,77 +1794,117 @@ class Ntp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("broadcast", ("broadcast", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("broadcast-servers", ("broadcast_servers", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers))])
                         self._leafs = OrderedDict([
                             ('broadcast_client', YLeaf(YType.empty, 'broadcast-client')),
                         ])
                         self.broadcast_client = None
 
-                        self.broadcast = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast()
-                        self.broadcast.parent = self
-                        self._children_name_map["broadcast"] = "broadcast"
-                        self._children_yang_names.add("broadcast")
+                        self.broadcast_servers = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers()
+                        self.broadcast_servers.parent = self
+                        self._children_name_map["broadcast_servers"] = "broadcast-servers"
                         self._segment_path = lambda: "interface-broadcast"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast, ['broadcast_client'], name, value)
 
 
-                    class Broadcast(Entity):
+                    class BroadcastServers(Entity):
                         """
                         Configure NTP broadcast
                         
-                        .. attribute:: address
+                        .. attribute:: broadcast_server
                         
-                        	Destination broadcast IPv4 address
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: authentication_key
-                        
-                        	Authentication key
-                        	**type**\: int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: ntp_version
-                        
-                        	NTP version
-                        	**type**\: int
-                        
-                        	**range:** 2..4
+                        	Configure NTP broadcast server
+                        	**type**\: list of  		 :py:class:`BroadcastServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer>`
                         
                         
 
                         """
 
                         _prefix = 'ip-ntp-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast, self).__init__()
+                            super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers, self).__init__()
 
-                            self.yang_name = "broadcast"
+                            self.yang_name = "broadcast-servers"
                             self.yang_parent_name = "interface-broadcast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
-                                ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
-                            ])
-                            self.address = None
-                            self.authentication_key = None
-                            self.ntp_version = None
-                            self._segment_path = lambda: "broadcast"
+                            self._child_classes = OrderedDict([("broadcast-server", ("broadcast_server", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer))])
+                            self._leafs = OrderedDict()
+
+                            self.broadcast_server = YList(self)
+                            self._segment_path = lambda: "broadcast-servers"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast, ['address', 'authentication_key', 'ntp_version'], name, value)
+                            self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers, [], name, value)
+
+
+                        class BroadcastServer(Entity):
+                            """
+                            Configure NTP broadcast server
+                            
+                            .. attribute:: broadcast_type  (key)
+                            
+                            	Broadcast Type
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: address
+                            
+                            	Destination broadcast IPv4 address
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: authentication_key
+                            
+                            	Authentication key
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            .. attribute:: ntp_version
+                            
+                            	NTP version
+                            	**type**\: int
+                            
+                            	**range:** 2..4
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-ntp-cfg'
+                            _revision = '2017-10-15'
+
+                            def __init__(self):
+                                super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer, self).__init__()
+
+                                self.yang_name = "broadcast-server"
+                                self.yang_parent_name = "broadcast-servers"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['broadcast_type']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('broadcast_type', YLeaf(YType.str, 'broadcast-type')),
+                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
+                                    ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
+                                ])
+                                self.broadcast_type = None
+                                self.address = None
+                                self.authentication_key = None
+                                self.ntp_version = None
+                                self._segment_path = lambda: "broadcast-server" + "[broadcast-type='" + str(self.broadcast_type) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer, ['broadcast_type', 'address', 'authentication_key', 'ntp_version'], name, value)
 
 
     class AccessGroupTables(Entity):
@@ -1791,7 +1921,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Ntp.AccessGroupTables, self).__init__()
@@ -1801,8 +1931,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("access-group-table", ("access_group_table", Ntp.AccessGroupTables.AccessGroupTable))])
+            self._child_classes = OrderedDict([("access-group-table", ("access_group_table", Ntp.AccessGroupTables.AccessGroupTable))])
             self._leafs = OrderedDict()
 
             self.access_group_table = YList(self)
@@ -1834,7 +1963,7 @@ class Ntp(Entity):
             """
 
             _prefix = 'ip-ntp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Ntp.AccessGroupTables.AccessGroupTable, self).__init__()
@@ -1844,8 +1973,7 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("access-group-af-table", ("access_group_af_table", Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable))])
+                self._child_classes = OrderedDict([("access-group-af-table", ("access_group_af_table", Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -1878,7 +2006,7 @@ class Ntp(Entity):
                 """
 
                 _prefix = 'ip-ntp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable, self).__init__()
@@ -1888,8 +2016,7 @@ class Ntp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['af']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("access-group", ("access_group", Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup))])
+                    self._child_classes = OrderedDict([("access-group", ("access_group", Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup))])
                     self._leafs = OrderedDict([
                         ('af', YLeaf(YType.enumeration, 'af')),
                     ])
@@ -1923,7 +2050,7 @@ class Ntp(Entity):
                     """
 
                     _prefix = 'ip-ntp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup, self).__init__()
@@ -1933,8 +2060,7 @@ class Ntp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['access_group_type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('access_group_type', YLeaf(YType.enumeration, 'access-group-type')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),

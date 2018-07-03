@@ -45,15 +45,16 @@ class Sla(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("protocols", ("protocols", Sla.Protocols))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("protocols", ("protocols", Sla.Protocols))])
         self._leafs = OrderedDict()
 
         self.protocols = Sla.Protocols()
         self.protocols.parent = self
         self._children_name_map["protocols"] = "protocols"
-        self._children_yang_names.add("protocols")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Sla, [], name, value)
 
 
     class Protocols(Entity):
@@ -80,16 +81,17 @@ class Sla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("Cisco-IOS-XR-ethernet-cfm-cfg:ethernet", ("ethernet", Sla.Protocols.Ethernet))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-ethernet-cfm-cfg:ethernet", ("ethernet", Sla.Protocols.Ethernet))])
             self._leafs = OrderedDict()
 
             self.ethernet = Sla.Protocols.Ethernet()
             self.ethernet.parent = self
             self._children_name_map["ethernet"] = "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"
-            self._children_yang_names.add("Cisco-IOS-XR-ethernet-cfm-cfg:ethernet")
             self._segment_path = lambda: "protocols"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Sla.Protocols, [], name, value)
 
 
         class Ethernet(Entity):
@@ -106,7 +108,7 @@ class Sla(Entity):
             """
 
             _prefix = 'ethernet-cfm-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Sla.Protocols.Ethernet, self).__init__()
@@ -116,16 +118,17 @@ class Sla(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("profiles", ("profiles", Sla.Protocols.Ethernet.Profiles))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("profiles", ("profiles", Sla.Protocols.Ethernet.Profiles))])
                 self._leafs = OrderedDict()
 
                 self.profiles = Sla.Protocols.Ethernet.Profiles()
                 self.profiles.parent = self
                 self._children_name_map["profiles"] = "profiles"
-                self._children_yang_names.add("profiles")
                 self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Sla.Protocols.Ethernet, [], name, value)
 
 
             class Profiles(Entity):
@@ -142,7 +145,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.Profiles, self).__init__()
@@ -152,8 +155,7 @@ class Sla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("profile", ("profile", Sla.Protocols.Ethernet.Profiles.Profile))])
+                    self._child_classes = OrderedDict([("profile", ("profile", Sla.Protocols.Ethernet.Profiles.Profile))])
                     self._leafs = OrderedDict()
 
                     self.profile = YList(self)
@@ -202,7 +204,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.Profiles.Profile, self).__init__()
@@ -212,8 +214,7 @@ class Sla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['profile_name']
-                        self._child_container_classes = OrderedDict([("statistics", ("statistics", Sla.Protocols.Ethernet.Profiles.Profile.Statistics)), ("schedule", ("schedule", Sla.Protocols.Ethernet.Profiles.Profile.Schedule)), ("probe", ("probe", Sla.Protocols.Ethernet.Profiles.Profile.Probe))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("statistics", ("statistics", Sla.Protocols.Ethernet.Profiles.Profile.Statistics)), ("schedule", ("schedule", Sla.Protocols.Ethernet.Profiles.Profile.Schedule)), ("probe", ("probe", Sla.Protocols.Ethernet.Profiles.Profile.Probe))])
                         self._leafs = OrderedDict([
                             ('profile_name', YLeaf(YType.str, 'profile-name')),
                             ('packet_type', YLeaf(YType.str, 'packet-type')),
@@ -224,16 +225,13 @@ class Sla(Entity):
                         self.statistics = Sla.Protocols.Ethernet.Profiles.Profile.Statistics()
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
 
                         self.schedule = None
                         self._children_name_map["schedule"] = "schedule"
-                        self._children_yang_names.add("schedule")
 
                         self.probe = Sla.Protocols.Ethernet.Profiles.Profile.Probe()
                         self.probe.parent = self
                         self._children_name_map["probe"] = "probe"
-                        self._children_yang_names.add("probe")
                         self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/%s" % self._segment_path()
 
@@ -255,7 +253,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, self).__init__()
@@ -265,8 +263,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("statistic", ("statistic", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic))])
+                            self._child_classes = OrderedDict([("statistic", ("statistic", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic))])
                             self._leafs = OrderedDict()
 
                             self.statistic = YList(self)
@@ -316,7 +313,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, self).__init__()
@@ -326,8 +323,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['statistic_name']
-                                self._child_container_classes = OrderedDict([("buckets-size", ("buckets_size", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize)), ("aggregation", ("aggregation", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("buckets-size", ("buckets_size", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize)), ("aggregation", ("aggregation", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation))])
                                 self._leafs = OrderedDict([
                                     ('statistic_name', YLeaf(YType.enumeration, 'statistic-name')),
                                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -339,11 +335,9 @@ class Sla(Entity):
 
                                 self.buckets_size = None
                                 self._children_name_map["buckets_size"] = "buckets-size"
-                                self._children_yang_names.add("buckets-size")
 
                                 self.aggregation = None
                                 self._children_name_map["aggregation"] = "aggregation"
-                                self._children_yang_names.add("aggregation")
                                 self._segment_path = lambda: "statistic" + "[statistic-name='" + str(self.statistic_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -378,7 +372,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, self).__init__()
@@ -388,8 +382,7 @@ class Sla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('buckets_size', YLeaf(YType.uint32, 'buckets-size')),
@@ -438,7 +431,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, self).__init__()
@@ -448,8 +441,7 @@ class Sla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('bins_count', YLeaf(YType.uint32, 'bins-count')),
@@ -529,7 +521,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, self).__init__()
@@ -539,8 +531,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('probe_interval', YLeaf(YType.uint32, 'probe-interval')),
@@ -603,7 +594,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Profiles.Profile.Probe, self).__init__()
@@ -613,8 +604,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("send", ("send", Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send)), ("packet-size-and-padding", ("packet_size_and_padding", Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("send", ("send", Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send)), ("packet-size-and-padding", ("packet_size_and_padding", Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding))])
                             self._leafs = OrderedDict([
                                 ('priority', YLeaf(YType.uint32, 'priority')),
                                 ('synthetic_loss_calculation_packets', YLeaf(YType.uint32, 'synthetic-loss-calculation-packets')),
@@ -624,11 +614,9 @@ class Sla(Entity):
 
                             self.send = None
                             self._children_name_map["send"] = "send"
-                            self._children_yang_names.add("send")
 
                             self.packet_size_and_padding = None
                             self._children_name_map["packet_size_and_padding"] = "packet-size-and-padding"
-                            self._children_yang_names.add("packet-size-and-padding")
                             self._segment_path = lambda: "probe"
 
                         def __setattr__(self, name, value):
@@ -688,7 +676,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, self).__init__()
@@ -698,8 +686,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('burst_interval', YLeaf(YType.uint32, 'burst-interval')),
@@ -753,7 +740,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, self).__init__()
@@ -763,8 +750,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('size', YLeaf(YType.uint32, 'size')),

@@ -41,14 +41,12 @@ class ClearIsisProcess(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearIsisProcess.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-process"
 
 
@@ -81,8 +79,7 @@ class ClearIsisProcess(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearIsisProcess.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearIsisProcess.Input.Instance))])
             self._leafs = OrderedDict([
                 ('process', YLeaf(YType.empty, 'process')),
             ])
@@ -91,7 +88,6 @@ class ClearIsisProcess(Entity):
             self.instance = ClearIsisProcess.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-process/%s" % self._segment_path()
 
@@ -123,8 +119,7 @@ class ClearIsisProcess(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -164,14 +159,12 @@ class ClearIsisRoute(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearIsisRoute.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-route"
 
 
@@ -204,8 +197,7 @@ class ClearIsisRoute(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearIsisRoute.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearIsisRoute.Input.Instance))])
             self._leafs = OrderedDict([
                 ('route', YLeaf(YType.empty, 'route')),
             ])
@@ -214,7 +206,6 @@ class ClearIsisRoute(Entity):
             self.instance = ClearIsisRoute.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-route/%s" % self._segment_path()
 
@@ -246,8 +237,7 @@ class ClearIsisRoute(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -287,14 +277,12 @@ class ClearIsisStat(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearIsisStat.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-stat"
 
 
@@ -327,21 +315,21 @@ class ClearIsisStat(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearIsisStat.Input.Instance)), ("statistics", ("statistics", ClearIsisStat.Input.Statistics))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearIsisStat.Input.Instance)), ("statistics", ("statistics", ClearIsisStat.Input.Statistics))])
             self._leafs = OrderedDict()
 
             self.instance = ClearIsisStat.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
 
             self.statistics = ClearIsisStat.Input.Statistics()
             self.statistics.parent = self
             self._children_name_map["statistics"] = "statistics"
-            self._children_yang_names.add("statistics")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-stat/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ClearIsisStat.Input, [], name, value)
 
 
         class Instance(Entity):
@@ -368,8 +356,7 @@ class ClearIsisStat(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -409,8 +396,7 @@ class ClearIsisStat(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
@@ -450,14 +436,12 @@ class ClearIsisDist(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearIsisDist.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-dist"
 
 
@@ -490,8 +474,7 @@ class ClearIsisDist(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearIsisDist.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearIsisDist.Input.Instance))])
             self._leafs = OrderedDict([
                 ('distribution', YLeaf(YType.empty, 'distribution')),
             ])
@@ -500,7 +483,6 @@ class ClearIsisDist(Entity):
             self.instance = ClearIsisDist.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-dist/%s" % self._segment_path()
 
@@ -532,8 +514,7 @@ class ClearIsisDist(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -573,14 +554,12 @@ class ClearIsisLocalLsp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearIsisLocalLsp.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-local-lsp"
 
 
@@ -613,8 +592,7 @@ class ClearIsisLocalLsp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearIsisLocalLsp.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearIsisLocalLsp.Input.Instance))])
             self._leafs = OrderedDict([
                 ('local_lsp', YLeaf(YType.empty, 'local-lsp')),
             ])
@@ -623,7 +601,6 @@ class ClearIsisLocalLsp(Entity):
             self.instance = ClearIsisLocalLsp.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis-local-lsp/%s" % self._segment_path()
 
@@ -655,8 +632,7 @@ class ClearIsisLocalLsp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -696,14 +672,12 @@ class ClearIsis(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearIsis.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis"
 
 
@@ -746,8 +720,7 @@ class ClearIsis(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearIsis.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearIsis.Input.Instance))])
             self._leafs = OrderedDict([
                 ('rt_type', YLeaf(YType.enumeration, 'rt-type')),
                 ('route', YLeaf(YType.empty, 'route')),
@@ -760,7 +733,6 @@ class ClearIsis(Entity):
             self.instance = ClearIsis.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-isis-act:clear-isis/%s" % self._segment_path()
 
@@ -837,8 +809,7 @@ class ClearIsis(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])

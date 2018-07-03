@@ -192,82 +192,82 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
     .. attribute:: cufwconnectionglobals
     
     	
-    	**type**\:  :py:class:`Cufwconnectionglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals>`
+    	**type**\:  :py:class:`CuFwConnectionGlobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CuFwConnectionGlobals>`
     
     .. attribute:: cufwconnectionresources
     
     	
-    	**type**\:  :py:class:`Cufwconnectionresources <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources>`
+    	**type**\:  :py:class:`CuFwConnectionResources <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CuFwConnectionResources>`
     
     .. attribute:: cufwconnectionreportsettings
     
     	
-    	**type**\:  :py:class:`Cufwconnectionreportsettings <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings>`
+    	**type**\:  :py:class:`CuFwConnectionReportSettings <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CuFwConnectionReportSettings>`
     
     .. attribute:: cufwapplinspectiongrp
     
     	
-    	**type**\:  :py:class:`Cufwapplinspectiongrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp>`
+    	**type**\:  :py:class:`CuFwApplInspectionGrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CuFwApplInspectionGrp>`
     
     .. attribute:: cufwurlfilterglobals
     
     	
-    	**type**\:  :py:class:`Cufwurlfilterglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals>`
+    	**type**\:  :py:class:`CufwUrlFilterGlobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterGlobals>`
     
     .. attribute:: cufwurlfilterresourceusage
     
     	
-    	**type**\:  :py:class:`Cufwurlfilterresourceusage <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage>`
+    	**type**\:  :py:class:`CufwUrlFilterResourceUsage <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterResourceUsage>`
     
     .. attribute:: cufwaaicglobals
     
     	
-    	**type**\:  :py:class:`Cufwaaicglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals>`
+    	**type**\:  :py:class:`CufwAaicGlobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwAaicGlobals>`
     
     .. attribute:: cufwaaichttpprotocolstats
     
     	
-    	**type**\:  :py:class:`Cufwaaichttpprotocolstats <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats>`
+    	**type**\:  :py:class:`CufwAaicHttpProtocolStats <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwAaicHttpProtocolStats>`
     
     .. attribute:: cufwl2fwglobals
     
     	
-    	**type**\:  :py:class:`Cufwl2Fwglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals>`
+    	**type**\:  :py:class:`CufwL2FwGlobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwL2FwGlobals>`
     
     .. attribute:: cufwnotifcntlgrp
     
     	
-    	**type**\:  :py:class:`Cufwnotifcntlgrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp>`
+    	**type**\:  :py:class:`CuFwNotifCntlGrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CuFwNotifCntlGrp>`
     
     .. attribute:: cufwconnsummarytable
     
     	This table summarizes the connection activity on the firewall per layer3\-layer 4 protocol instance.  Each entry in the table lists the connection summary of a distinct network protocol.  For instance, the conceptual row corresponding to the index       cufwConnProtocol = fwpTcp  yields the summary of TCP connection activity on the  firewall since its reboot
-    	**type**\:  :py:class:`Cufwconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable>`
+    	**type**\:  :py:class:`CufwConnSummaryTable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable>`
     
     .. attribute:: cufwappconnsummarytable
     
     	This table lists the summary of firewall  connections pertaining to Layer 7 protocols, catalogued by distinct application protocols.  Each entry in the table lists the connection summary corresponding to a distinct application  protocol.  For instance, to obtain the connection summary  for SMTP on the firewall since the last reboot  of the device, use the conceptual row  corresponding to      cufwAppConnProtocol = fwApSmtp
-    	**type**\:  :py:class:`Cufwappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable>`
+    	**type**\:  :py:class:`CufwAppConnSummaryTable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable>`
     
     .. attribute:: cufwpolicyconnsummarytable
     
     	This table lists the summary of firewall  connections for layer3\-layer 4 protocols catalogued  on a per policy basis.  Each entry in the table lists the connection summary of a distinct network protocol, configured on the specified policy on the firewall, and pertaining to a specified  target to which the policy is currently applied.   If a policy is bound to a target, it would have one or more entries in this table. If the policy is  detached from the target, all entries corresponding  to the association between the policy and the target  are elminated from this table.  Although the information is indexed by policy targets as well, one may aggregate the connection summary for a specific policy across all the target to which the  policy is currently applied by setting        cufwConnPolicyTargetType =  'targetAll'
-    	**type**\:  :py:class:`Cufwpolicyconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable>`
+    	**type**\:  :py:class:`CufwPolicyConnSummaryTable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable>`
     
     .. attribute:: cufwpolicyappconnsummarytable
     
     	This table lists the summary of firewall  connections pertaining to Layer 7 protocols, catalogued on a per policy basis  Each entry in the table lists the connection summary of a distinct application protocol,  configured on the specified policy on the firewall,  and pertaining to a specified target to which the policy has been applied.  If a policy is bound to a target, it would have one or more entries in this table. If the policy is detached from the target, all entries corresponding to the association between the policy and the target are elminated from this table.  Although the information is indexed by policy targets as well, one may aggregate the connection summary for a specific policy across all the target to which the policy is currently applied by setting        cufwAppConnPolicyTargetType = 'targetALL'
-    	**type**\:  :py:class:`Cufwpolicyappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable>`
+    	**type**\:  :py:class:`CufwPolicyAppConnSummaryTable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable>`
     
     .. attribute:: cufwinspectiontable
     
     	This table identifies if an application protocol has been configured for inspection and if so, the name of  the firewall policy or the inspection configuration that configures the specified protocol for inspection. The table also identifies if the specified protocol is actively being inspected.  This table may be used by an administrator to quickly identify if a protocol is being subjected to application inspection by the managed firewall
-    	**type**\:  :py:class:`Cufwinspectiontable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable>`
+    	**type**\:  :py:class:`CufwInspectionTable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable>`
     
     .. attribute:: cufwurlfservertable
     
     	This table lists the URL filtering servers configured on the managed device and their performance statistics.  This table is not meant as a device to  configure URL filtering servers
-    	**type**\:  :py:class:`Cufwurlfservertable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable>`
+    	**type**\:  :py:class:`CufwUrlfServerTable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable>`
     
     
 
@@ -285,93 +285,79 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cuFwConnectionGlobals", ("cufwconnectionglobals", CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals)), ("cuFwConnectionResources", ("cufwconnectionresources", CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources)), ("cuFwConnectionReportSettings", ("cufwconnectionreportsettings", CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings)), ("cuFwApplInspectionGrp", ("cufwapplinspectiongrp", CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp)), ("cufwUrlFilterGlobals", ("cufwurlfilterglobals", CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals)), ("cufwUrlFilterResourceUsage", ("cufwurlfilterresourceusage", CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage)), ("cufwAaicGlobals", ("cufwaaicglobals", CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals)), ("cufwAaicHttpProtocolStats", ("cufwaaichttpprotocolstats", CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats)), ("cufwL2FwGlobals", ("cufwl2fwglobals", CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals)), ("cuFwNotifCntlGrp", ("cufwnotifcntlgrp", CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp)), ("cufwConnSummaryTable", ("cufwconnsummarytable", CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable)), ("cufwAppConnSummaryTable", ("cufwappconnsummarytable", CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable)), ("cufwPolicyConnSummaryTable", ("cufwpolicyconnsummarytable", CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable)), ("cufwPolicyAppConnSummaryTable", ("cufwpolicyappconnsummarytable", CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable)), ("cufwInspectionTable", ("cufwinspectiontable", CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable)), ("cufwUrlfServerTable", ("cufwurlfservertable", CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cuFwConnectionGlobals", ("cufwconnectionglobals", CISCOUNIFIEDFIREWALLMIB.CuFwConnectionGlobals)), ("cuFwConnectionResources", ("cufwconnectionresources", CISCOUNIFIEDFIREWALLMIB.CuFwConnectionResources)), ("cuFwConnectionReportSettings", ("cufwconnectionreportsettings", CISCOUNIFIEDFIREWALLMIB.CuFwConnectionReportSettings)), ("cuFwApplInspectionGrp", ("cufwapplinspectiongrp", CISCOUNIFIEDFIREWALLMIB.CuFwApplInspectionGrp)), ("cufwUrlFilterGlobals", ("cufwurlfilterglobals", CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterGlobals)), ("cufwUrlFilterResourceUsage", ("cufwurlfilterresourceusage", CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterResourceUsage)), ("cufwAaicGlobals", ("cufwaaicglobals", CISCOUNIFIEDFIREWALLMIB.CufwAaicGlobals)), ("cufwAaicHttpProtocolStats", ("cufwaaichttpprotocolstats", CISCOUNIFIEDFIREWALLMIB.CufwAaicHttpProtocolStats)), ("cufwL2FwGlobals", ("cufwl2fwglobals", CISCOUNIFIEDFIREWALLMIB.CufwL2FwGlobals)), ("cuFwNotifCntlGrp", ("cufwnotifcntlgrp", CISCOUNIFIEDFIREWALLMIB.CuFwNotifCntlGrp)), ("cufwConnSummaryTable", ("cufwconnsummarytable", CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable)), ("cufwAppConnSummaryTable", ("cufwappconnsummarytable", CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable)), ("cufwPolicyConnSummaryTable", ("cufwpolicyconnsummarytable", CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable)), ("cufwPolicyAppConnSummaryTable", ("cufwpolicyappconnsummarytable", CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable)), ("cufwInspectionTable", ("cufwinspectiontable", CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable)), ("cufwUrlfServerTable", ("cufwurlfservertable", CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable))])
         self._leafs = OrderedDict()
 
-        self.cufwconnectionglobals = CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals()
+        self.cufwconnectionglobals = CISCOUNIFIEDFIREWALLMIB.CuFwConnectionGlobals()
         self.cufwconnectionglobals.parent = self
         self._children_name_map["cufwconnectionglobals"] = "cuFwConnectionGlobals"
-        self._children_yang_names.add("cuFwConnectionGlobals")
 
-        self.cufwconnectionresources = CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources()
+        self.cufwconnectionresources = CISCOUNIFIEDFIREWALLMIB.CuFwConnectionResources()
         self.cufwconnectionresources.parent = self
         self._children_name_map["cufwconnectionresources"] = "cuFwConnectionResources"
-        self._children_yang_names.add("cuFwConnectionResources")
 
-        self.cufwconnectionreportsettings = CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings()
+        self.cufwconnectionreportsettings = CISCOUNIFIEDFIREWALLMIB.CuFwConnectionReportSettings()
         self.cufwconnectionreportsettings.parent = self
         self._children_name_map["cufwconnectionreportsettings"] = "cuFwConnectionReportSettings"
-        self._children_yang_names.add("cuFwConnectionReportSettings")
 
-        self.cufwapplinspectiongrp = CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp()
+        self.cufwapplinspectiongrp = CISCOUNIFIEDFIREWALLMIB.CuFwApplInspectionGrp()
         self.cufwapplinspectiongrp.parent = self
         self._children_name_map["cufwapplinspectiongrp"] = "cuFwApplInspectionGrp"
-        self._children_yang_names.add("cuFwApplInspectionGrp")
 
-        self.cufwurlfilterglobals = CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals()
+        self.cufwurlfilterglobals = CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterGlobals()
         self.cufwurlfilterglobals.parent = self
         self._children_name_map["cufwurlfilterglobals"] = "cufwUrlFilterGlobals"
-        self._children_yang_names.add("cufwUrlFilterGlobals")
 
-        self.cufwurlfilterresourceusage = CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage()
+        self.cufwurlfilterresourceusage = CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterResourceUsage()
         self.cufwurlfilterresourceusage.parent = self
         self._children_name_map["cufwurlfilterresourceusage"] = "cufwUrlFilterResourceUsage"
-        self._children_yang_names.add("cufwUrlFilterResourceUsage")
 
-        self.cufwaaicglobals = CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals()
+        self.cufwaaicglobals = CISCOUNIFIEDFIREWALLMIB.CufwAaicGlobals()
         self.cufwaaicglobals.parent = self
         self._children_name_map["cufwaaicglobals"] = "cufwAaicGlobals"
-        self._children_yang_names.add("cufwAaicGlobals")
 
-        self.cufwaaichttpprotocolstats = CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats()
+        self.cufwaaichttpprotocolstats = CISCOUNIFIEDFIREWALLMIB.CufwAaicHttpProtocolStats()
         self.cufwaaichttpprotocolstats.parent = self
         self._children_name_map["cufwaaichttpprotocolstats"] = "cufwAaicHttpProtocolStats"
-        self._children_yang_names.add("cufwAaicHttpProtocolStats")
 
-        self.cufwl2fwglobals = CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals()
+        self.cufwl2fwglobals = CISCOUNIFIEDFIREWALLMIB.CufwL2FwGlobals()
         self.cufwl2fwglobals.parent = self
         self._children_name_map["cufwl2fwglobals"] = "cufwL2FwGlobals"
-        self._children_yang_names.add("cufwL2FwGlobals")
 
-        self.cufwnotifcntlgrp = CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp()
+        self.cufwnotifcntlgrp = CISCOUNIFIEDFIREWALLMIB.CuFwNotifCntlGrp()
         self.cufwnotifcntlgrp.parent = self
         self._children_name_map["cufwnotifcntlgrp"] = "cuFwNotifCntlGrp"
-        self._children_yang_names.add("cuFwNotifCntlGrp")
 
-        self.cufwconnsummarytable = CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable()
+        self.cufwconnsummarytable = CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable()
         self.cufwconnsummarytable.parent = self
         self._children_name_map["cufwconnsummarytable"] = "cufwConnSummaryTable"
-        self._children_yang_names.add("cufwConnSummaryTable")
 
-        self.cufwappconnsummarytable = CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable()
+        self.cufwappconnsummarytable = CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable()
         self.cufwappconnsummarytable.parent = self
         self._children_name_map["cufwappconnsummarytable"] = "cufwAppConnSummaryTable"
-        self._children_yang_names.add("cufwAppConnSummaryTable")
 
-        self.cufwpolicyconnsummarytable = CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable()
+        self.cufwpolicyconnsummarytable = CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable()
         self.cufwpolicyconnsummarytable.parent = self
         self._children_name_map["cufwpolicyconnsummarytable"] = "cufwPolicyConnSummaryTable"
-        self._children_yang_names.add("cufwPolicyConnSummaryTable")
 
-        self.cufwpolicyappconnsummarytable = CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable()
+        self.cufwpolicyappconnsummarytable = CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable()
         self.cufwpolicyappconnsummarytable.parent = self
         self._children_name_map["cufwpolicyappconnsummarytable"] = "cufwPolicyAppConnSummaryTable"
-        self._children_yang_names.add("cufwPolicyAppConnSummaryTable")
 
-        self.cufwinspectiontable = CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable()
+        self.cufwinspectiontable = CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable()
         self.cufwinspectiontable.parent = self
         self._children_name_map["cufwinspectiontable"] = "cufwInspectionTable"
-        self._children_yang_names.add("cufwInspectionTable")
 
-        self.cufwurlfservertable = CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable()
+        self.cufwurlfservertable = CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable()
         self.cufwurlfservertable.parent = self
         self._children_name_map["cufwurlfservertable"] = "cufwUrlfServerTable"
-        self._children_yang_names.add("cufwUrlfServerTable")
         self._segment_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOUNIFIEDFIREWALLMIB, [], name, value)
 
-    class Cufwconnectionglobals(Entity):
+
+    class CuFwConnectionGlobals(Entity):
         """
         
         
@@ -491,15 +477,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CuFwConnectionGlobals, self).__init__()
 
             self.yang_name = "cuFwConnectionGlobals"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwconnglobalnumattempted', YLeaf(YType.uint64, 'cufwConnGlobalNumAttempted')),
                 ('cufwconnglobalnumsetupsaborted', YLeaf(YType.uint64, 'cufwConnGlobalNumSetupsAborted')),
@@ -530,10 +515,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals, ['cufwconnglobalnumattempted', 'cufwconnglobalnumsetupsaborted', 'cufwconnglobalnumpolicydeclined', 'cufwconnglobalnumresdeclined', 'cufwconnglobalnumhalfopen', 'cufwconnglobalnumactive', 'cufwconnglobalnumexpired', 'cufwconnglobalnumaborted', 'cufwconnglobalnumembryonic', 'cufwconnglobalconnsetuprate1', 'cufwconnglobalconnsetuprate5', 'cufwconnglobalnumremoteaccess'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CuFwConnectionGlobals, ['cufwconnglobalnumattempted', 'cufwconnglobalnumsetupsaborted', 'cufwconnglobalnumpolicydeclined', 'cufwconnglobalnumresdeclined', 'cufwconnglobalnumhalfopen', 'cufwconnglobalnumactive', 'cufwconnglobalnumexpired', 'cufwconnglobalnumaborted', 'cufwconnglobalnumembryonic', 'cufwconnglobalconnsetuprate1', 'cufwconnglobalconnsetuprate5', 'cufwconnglobalnumremoteaccess'], name, value)
 
 
-    class Cufwconnectionresources(Entity):
+    class CuFwConnectionResources(Entity):
         """
         
         
@@ -581,15 +566,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CuFwConnectionResources, self).__init__()
 
             self.yang_name = "cuFwConnectionResources"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwconnresmemoryusage', YLeaf(YType.uint32, 'cufwConnResMemoryUsage')),
                 ('cufwconnresactiveconnmemoryusage', YLeaf(YType.uint32, 'cufwConnResActiveConnMemoryUsage')),
@@ -604,10 +588,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources, ['cufwconnresmemoryusage', 'cufwconnresactiveconnmemoryusage', 'cufwconnreshoconnmemoryusage', 'cufwconnresembrconnmemoryusage'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CuFwConnectionResources, ['cufwconnresmemoryusage', 'cufwconnresactiveconnmemoryusage', 'cufwconnreshoconnmemoryusage', 'cufwconnresembrconnmemoryusage'], name, value)
 
 
-    class Cufwconnectionreportsettings(Entity):
+    class CuFwConnectionReportSettings(Entity):
         """
         
         
@@ -631,15 +615,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CuFwConnectionReportSettings, self).__init__()
 
             self.yang_name = "cuFwConnectionReportSettings"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwconnreptappstats', YLeaf(YType.boolean, 'cufwConnReptAppStats')),
                 ('cufwconnreptappstatslastchanged', YLeaf(YType.uint32, 'cufwConnReptAppStatsLastChanged')),
@@ -650,10 +633,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings, ['cufwconnreptappstats', 'cufwconnreptappstatslastchanged'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CuFwConnectionReportSettings, ['cufwconnreptappstats', 'cufwconnreptappstatslastchanged'], name, value)
 
 
-    class Cufwapplinspectiongrp(Entity):
+    class CuFwApplInspectionGrp(Entity):
         """
         
         
@@ -675,15 +658,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CuFwApplInspectionGrp, self).__init__()
 
             self.yang_name = "cuFwApplInspectionGrp"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwaiaudittrailenabled', YLeaf(YType.boolean, 'cufwAIAuditTrailEnabled')),
                 ('cufwaialertenabled', YLeaf(YType.boolean, 'cufwAIAlertEnabled')),
@@ -694,10 +676,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp, ['cufwaiaudittrailenabled', 'cufwaialertenabled'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CuFwApplInspectionGrp, ['cufwaiaudittrailenabled', 'cufwaialertenabled'], name, value)
 
 
-    class Cufwurlfilterglobals(Entity):
+    class CufwUrlFilterGlobals(Entity):
         """
         
         
@@ -874,15 +856,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterGlobals, self).__init__()
 
             self.yang_name = "cufwUrlFilterGlobals"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwurlffunctionenabled', YLeaf(YType.uint32, 'cufwUrlfFunctionEnabled')),
                 ('cufwurlfrequestsnumprocessed', YLeaf(YType.uint64, 'cufwUrlfRequestsNumProcessed')),
@@ -927,10 +908,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals, ['cufwurlffunctionenabled', 'cufwurlfrequestsnumprocessed', 'cufwurlfrequestsprocrate1', 'cufwurlfrequestsprocrate5', 'cufwurlfrequestsnumallowed', 'cufwurlfrequestsnumdenied', 'cufwurlfrequestsdeniedrate1', 'cufwurlfrequestsdeniedrate5', 'cufwurlfrequestsnumcacheallowed', 'cufwurlfrequestsnumcachedenied', 'cufwurlfallowmodereqnumallowed', 'cufwurlfallowmodereqnumdenied', 'cufwurlfrequestsnumresdropped', 'cufwurlfrequestsresdroprate1', 'cufwurlfrequestsresdroprate5', 'cufwurlfnumservertimeouts', 'cufwurlfnumserverretries', 'cufwurlfresponsesnumlate', 'cufwurlfurlaccrespsnumresdropped'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterGlobals, ['cufwurlffunctionenabled', 'cufwurlfrequestsnumprocessed', 'cufwurlfrequestsprocrate1', 'cufwurlfrequestsprocrate5', 'cufwurlfrequestsnumallowed', 'cufwurlfrequestsnumdenied', 'cufwurlfrequestsdeniedrate1', 'cufwurlfrequestsdeniedrate5', 'cufwurlfrequestsnumcacheallowed', 'cufwurlfrequestsnumcachedenied', 'cufwurlfallowmodereqnumallowed', 'cufwurlfallowmodereqnumdenied', 'cufwurlfrequestsnumresdropped', 'cufwurlfrequestsresdroprate1', 'cufwurlfrequestsresdroprate5', 'cufwurlfnumservertimeouts', 'cufwurlfnumserverretries', 'cufwurlfresponsesnumlate', 'cufwurlfurlaccrespsnumresdropped'], name, value)
 
 
-    class Cufwurlfilterresourceusage(Entity):
+    class CufwUrlFilterResourceUsage(Entity):
         """
         
         
@@ -960,15 +941,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterResourceUsage, self).__init__()
 
             self.yang_name = "cufwUrlFilterResourceUsage"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwurlfrestotalrequestcachesize', YLeaf(YType.uint32, 'cufwUrlfResTotalRequestCacheSize')),
                 ('cufwurlfrestotalrespcachesize', YLeaf(YType.uint32, 'cufwUrlfResTotalRespCacheSize')),
@@ -979,10 +959,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage, ['cufwurlfrestotalrequestcachesize', 'cufwurlfrestotalrespcachesize'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwUrlFilterResourceUsage, ['cufwurlfrestotalrequestcachesize', 'cufwurlfrestotalrespcachesize'], name, value)
 
 
-    class Cufwaaicglobals(Entity):
+    class CufwAaicGlobals(Entity):
         """
         
         
@@ -1021,15 +1001,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwAaicGlobals, self).__init__()
 
             self.yang_name = "cufwAaicGlobals"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwaaicglobalnumbadprotocolops', YLeaf(YType.uint64, 'cufwAaicGlobalNumBadProtocolOps')),
                 ('cufwaaicglobalnumbadpdusize', YLeaf(YType.uint64, 'cufwAaicGlobalNumBadPDUSize')),
@@ -1042,10 +1021,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals, ['cufwaaicglobalnumbadprotocolops', 'cufwaaicglobalnumbadpdusize', 'cufwaaicglobalnumbadportrange'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwAaicGlobals, ['cufwaaicglobalnumbadprotocolops', 'cufwaaicglobalnumbadpdusize', 'cufwaaicglobalnumbadportrange'], name, value)
 
 
-    class Cufwaaichttpprotocolstats(Entity):
+    class CufwAaicHttpProtocolStats(Entity):
         """
         
         
@@ -1120,15 +1099,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwAaicHttpProtocolStats, self).__init__()
 
             self.yang_name = "cufwAaicHttpProtocolStats"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwaaichttpnumbadprotocolops', YLeaf(YType.uint64, 'cufwAaicHttpNumBadProtocolOps')),
                 ('cufwaaichttpnumbadpdusize', YLeaf(YType.uint64, 'cufwAaicHttpNumBadPDUSize')),
@@ -1149,10 +1127,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats, ['cufwaaichttpnumbadprotocolops', 'cufwaaichttpnumbadpdusize', 'cufwaaichttpnumtunneledconns', 'cufwaaichttpnumlargeuris', 'cufwaaichttpnumbadcontent', 'cufwaaichttpnummismatchcontent', 'cufwaaichttpnumdoubleencodedpkts'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwAaicHttpProtocolStats, ['cufwaaichttpnumbadprotocolops', 'cufwaaichttpnumbadpdusize', 'cufwaaichttpnumtunneledconns', 'cufwaaichttpnumlargeuris', 'cufwaaichttpnumbadcontent', 'cufwaaichttpnummismatchcontent', 'cufwaaichttpnumdoubleencodedpkts'], name, value)
 
 
-    class Cufwl2Fwglobals(Entity):
+    class CufwL2FwGlobals(Entity):
         """
         
         
@@ -1240,15 +1218,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwL2FwGlobals, self).__init__()
 
             self.yang_name = "cufwL2FwGlobals"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwl2globalenablestealthmode', YLeaf(YType.boolean, 'cufwL2GlobalEnableStealthMode')),
                 ('cufwl2globalarpcachesize', YLeaf(YType.int32, 'cufwL2GlobalArpCacheSize')),
@@ -1275,10 +1252,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals, ['cufwl2globalenablestealthmode', 'cufwl2globalarpcachesize', 'cufwl2globalenablearpinspection', 'cufwl2globalnumarprequests', 'cufwl2globalnumicmprequests', 'cufwl2globalnumfloods', 'cufwl2globalnumdrops', 'cufwl2globalarpoverflowrate5', 'cufwl2globalnumbadarpresponses', 'cufwl2globalnumspoofedarpresps'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwL2FwGlobals, ['cufwl2globalenablestealthmode', 'cufwl2globalarpcachesize', 'cufwl2globalenablearpinspection', 'cufwl2globalnumarprequests', 'cufwl2globalnumicmprequests', 'cufwl2globalnumfloods', 'cufwl2globalnumdrops', 'cufwl2globalarpoverflowrate5', 'cufwl2globalnumbadarpresponses', 'cufwl2globalnumspoofedarpresps'], name, value)
 
 
-    class Cufwnotifcntlgrp(Entity):
+    class CuFwNotifCntlGrp(Entity):
         """
         
         
@@ -1300,15 +1277,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CuFwNotifCntlGrp, self).__init__()
 
             self.yang_name = "cuFwNotifCntlGrp"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cufwcntlurlfserverstatuschange', YLeaf(YType.boolean, 'cufwCntlUrlfServerStatusChange')),
                 ('cufwcntll2staticmacaddressmoved', YLeaf(YType.boolean, 'cufwCntlL2StaticMacAddressMoved')),
@@ -1319,10 +1295,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp, ['cufwcntlurlfserverstatuschange', 'cufwcntll2staticmacaddressmoved'], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CuFwNotifCntlGrp, ['cufwcntlurlfserverstatuschange', 'cufwcntll2staticmacaddressmoved'], name, value)
 
 
-    class Cufwconnsummarytable(Entity):
+    class CufwConnSummaryTable(Entity):
         """
         This table summarizes the connection activity on
         the firewall per layer3\-layer 4 protocol instance.
@@ -1341,7 +1317,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnsummaryentry
         
         	Each entry contains the summary of connection activity for a layer3\-layer4 network protocol
-        	**type**\: list of  		 :py:class:`Cufwconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry>`
+        	**type**\: list of  		 :py:class:`CufwConnSummaryEntry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable.CufwConnSummaryEntry>`
         
         
 
@@ -1351,15 +1327,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable, self).__init__()
 
             self.yang_name = "cufwConnSummaryTable"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cufwConnSummaryEntry", ("cufwconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry))])
+            self._child_classes = OrderedDict([("cufwConnSummaryEntry", ("cufwconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable.CufwConnSummaryEntry))])
             self._leafs = OrderedDict()
 
             self.cufwconnsummaryentry = YList(self)
@@ -1367,10 +1342,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable, [], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable, [], name, value)
 
 
-        class Cufwconnsummaryentry(Entity):
+        class CufwConnSummaryEntry(Entity):
             """
             Each entry contains the summary of connection
             activity for a layer3\-layer4 network protocol.
@@ -1469,15 +1444,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             _revision = '2005-09-22'
 
             def __init__(self):
-                super(CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry, self).__init__()
+                super(CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable.CufwConnSummaryEntry, self).__init__()
 
                 self.yang_name = "cufwConnSummaryEntry"
                 self.yang_parent_name = "cufwConnSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cufwconnprotocol']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cufwconnprotocol', YLeaf(YType.enumeration, 'cufwConnProtocol')),
                     ('cufwconnnumattempted', YLeaf(YType.uint64, 'cufwConnNumAttempted')),
@@ -1504,10 +1478,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwConnSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry, ['cufwconnprotocol', 'cufwconnnumattempted', 'cufwconnnumsetupsaborted', 'cufwconnnumpolicydeclined', 'cufwconnnumresdeclined', 'cufwconnnumhalfopen', 'cufwconnnumactive', 'cufwconnnumaborted', 'cufwconnsetuprate1', 'cufwconnsetuprate5'], name, value)
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwConnSummaryTable.CufwConnSummaryEntry, ['cufwconnprotocol', 'cufwconnnumattempted', 'cufwconnnumsetupsaborted', 'cufwconnnumpolicydeclined', 'cufwconnnumresdeclined', 'cufwconnnumhalfopen', 'cufwconnnumactive', 'cufwconnnumaborted', 'cufwconnsetuprate1', 'cufwconnsetuprate5'], name, value)
 
 
-    class Cufwappconnsummarytable(Entity):
+    class CufwAppConnSummaryTable(Entity):
         """
         This table lists the summary of firewall 
         connections pertaining to Layer 7 protocols,
@@ -1527,7 +1501,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwappconnsummaryentry
         
         	Each entry contains the summary of connection activity for a distinct layer 7 protocol identified by the index element 'cufwAppConnProtocol'
-        	**type**\: list of  		 :py:class:`Cufwappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry>`
+        	**type**\: list of  		 :py:class:`CufwAppConnSummaryEntry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable.CufwAppConnSummaryEntry>`
         
         
 
@@ -1537,15 +1511,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable, self).__init__()
 
             self.yang_name = "cufwAppConnSummaryTable"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cufwAppConnSummaryEntry", ("cufwappconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry))])
+            self._child_classes = OrderedDict([("cufwAppConnSummaryEntry", ("cufwappconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable.CufwAppConnSummaryEntry))])
             self._leafs = OrderedDict()
 
             self.cufwappconnsummaryentry = YList(self)
@@ -1553,10 +1526,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable, [], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable, [], name, value)
 
 
-        class Cufwappconnsummaryentry(Entity):
+        class CufwAppConnSummaryEntry(Entity):
             """
             Each entry contains the summary of connection
             activity for a distinct layer 7 protocol identified
@@ -1656,15 +1629,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             _revision = '2005-09-22'
 
             def __init__(self):
-                super(CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry, self).__init__()
+                super(CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable.CufwAppConnSummaryEntry, self).__init__()
 
                 self.yang_name = "cufwAppConnSummaryEntry"
                 self.yang_parent_name = "cufwAppConnSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cufwappconnprotocol']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cufwappconnprotocol', YLeaf(YType.enumeration, 'cufwAppConnProtocol')),
                     ('cufwappconnnumattempted', YLeaf(YType.uint64, 'cufwAppConnNumAttempted')),
@@ -1691,10 +1663,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwAppConnSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry, ['cufwappconnprotocol', 'cufwappconnnumattempted', 'cufwappconnnumsetupsaborted', 'cufwappconnnumpolicydeclined', 'cufwappconnnumresdeclined', 'cufwappconnnumhalfopen', 'cufwappconnnumactive', 'cufwappconnnumaborted', 'cufwappconnsetuprate1', 'cufwappconnsetuprate5'], name, value)
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwAppConnSummaryTable.CufwAppConnSummaryEntry, ['cufwappconnprotocol', 'cufwappconnnumattempted', 'cufwappconnnumsetupsaborted', 'cufwappconnnumpolicydeclined', 'cufwappconnnumresdeclined', 'cufwappconnnumhalfopen', 'cufwappconnnumactive', 'cufwappconnnumaborted', 'cufwappconnsetuprate1', 'cufwappconnsetuprate5'], name, value)
 
 
-    class Cufwpolicyconnsummarytable(Entity):
+    class CufwPolicyConnSummaryTable(Entity):
         """
         This table lists the summary of firewall 
         connections for layer3\-layer 4 protocols catalogued 
@@ -1721,7 +1693,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwpolicyconnsummaryentry
         
         	Each entry contains the summary of connection activity for a specific protocol in a specific policy applied to the specified policy target
-        	**type**\: list of  		 :py:class:`Cufwpolicyconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry>`
+        	**type**\: list of  		 :py:class:`CufwPolicyConnSummaryEntry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable.CufwPolicyConnSummaryEntry>`
         
         
 
@@ -1731,15 +1703,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable, self).__init__()
 
             self.yang_name = "cufwPolicyConnSummaryTable"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cufwPolicyConnSummaryEntry", ("cufwpolicyconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry))])
+            self._child_classes = OrderedDict([("cufwPolicyConnSummaryEntry", ("cufwpolicyconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable.CufwPolicyConnSummaryEntry))])
             self._leafs = OrderedDict()
 
             self.cufwpolicyconnsummaryentry = YList(self)
@@ -1747,10 +1718,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable, [], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable, [], name, value)
 
 
-        class Cufwpolicyconnsummaryentry(Entity):
+        class CufwPolicyConnSummaryEntry(Entity):
             """
             Each entry contains the summary of connection
             activity for a specific protocol in a specific
@@ -1851,15 +1822,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             _revision = '2005-09-22'
 
             def __init__(self):
-                super(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry, self).__init__()
+                super(CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable.CufwPolicyConnSummaryEntry, self).__init__()
 
                 self.yang_name = "cufwPolicyConnSummaryEntry"
                 self.yang_parent_name = "cufwPolicyConnSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cufwpolconnpolicy','cufwpolconnpolicytargettype','cufwpolconnpolicytarget','cufwpolconnprotocol']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cufwpolconnpolicy', YLeaf(YType.str, 'cufwPolConnPolicy')),
                     ('cufwpolconnpolicytargettype', YLeaf(YType.enumeration, 'cufwPolConnPolicyTargetType')),
@@ -1888,10 +1858,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwPolicyConnSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry, ['cufwpolconnpolicy', 'cufwpolconnpolicytargettype', 'cufwpolconnpolicytarget', 'cufwpolconnprotocol', 'cufwpolconnnumattempted', 'cufwpolconnnumsetupsaborted', 'cufwpolconnnumpolicydeclined', 'cufwpolconnnumresdeclined', 'cufwpolconnnumhalfopen', 'cufwpolconnnumactive', 'cufwpolconnnumaborted'], name, value)
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwPolicyConnSummaryTable.CufwPolicyConnSummaryEntry, ['cufwpolconnpolicy', 'cufwpolconnpolicytargettype', 'cufwpolconnpolicytarget', 'cufwpolconnprotocol', 'cufwpolconnnumattempted', 'cufwpolconnnumsetupsaborted', 'cufwpolconnnumpolicydeclined', 'cufwpolconnnumresdeclined', 'cufwpolconnnumhalfopen', 'cufwpolconnnumactive', 'cufwpolconnnumaborted'], name, value)
 
 
-    class Cufwpolicyappconnsummarytable(Entity):
+    class CufwPolicyAppConnSummaryTable(Entity):
         """
         This table lists the summary of firewall 
         connections pertaining to Layer 7 protocols,
@@ -1919,7 +1889,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwpolicyappconnsummaryentry
         
         	Each entry contains the summary of connection activity for a specific layer 7 protocol in a specific policy applied to the specified policy  target
-        	**type**\: list of  		 :py:class:`Cufwpolicyappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry>`
+        	**type**\: list of  		 :py:class:`CufwPolicyAppConnSummaryEntry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable.CufwPolicyAppConnSummaryEntry>`
         
         
 
@@ -1929,15 +1899,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable, self).__init__()
 
             self.yang_name = "cufwPolicyAppConnSummaryTable"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cufwPolicyAppConnSummaryEntry", ("cufwpolicyappconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry))])
+            self._child_classes = OrderedDict([("cufwPolicyAppConnSummaryEntry", ("cufwpolicyappconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable.CufwPolicyAppConnSummaryEntry))])
             self._leafs = OrderedDict()
 
             self.cufwpolicyappconnsummaryentry = YList(self)
@@ -1945,10 +1914,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable, [], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable, [], name, value)
 
 
-        class Cufwpolicyappconnsummaryentry(Entity):
+        class CufwPolicyAppConnSummaryEntry(Entity):
             """
             Each entry contains the summary of connection
             activity for a specific layer 7 protocol in a
@@ -2050,15 +2019,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             _revision = '2005-09-22'
 
             def __init__(self):
-                super(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry, self).__init__()
+                super(CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable.CufwPolicyAppConnSummaryEntry, self).__init__()
 
                 self.yang_name = "cufwPolicyAppConnSummaryEntry"
                 self.yang_parent_name = "cufwPolicyAppConnSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cufwpolappconnpolicy','cufwpolappconnpolicytargettype','cufwpolappconnpolicytarget','cufwpolappconnprotocol']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cufwpolappconnpolicy', YLeaf(YType.str, 'cufwPolAppConnPolicy')),
                     ('cufwpolappconnpolicytargettype', YLeaf(YType.enumeration, 'cufwPolAppConnPolicyTargetType')),
@@ -2087,10 +2055,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwPolicyAppConnSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry, ['cufwpolappconnpolicy', 'cufwpolappconnpolicytargettype', 'cufwpolappconnpolicytarget', 'cufwpolappconnprotocol', 'cufwpolappconnnumattempted', 'cufwpolappconnnumsetupsaborted', 'cufwpolappconnnumpolicydeclined', 'cufwpolappconnnumresdeclined', 'cufwpolappconnnumhalfopen', 'cufwpolappconnnumactive', 'cufwpolappconnnumaborted'], name, value)
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwPolicyAppConnSummaryTable.CufwPolicyAppConnSummaryEntry, ['cufwpolappconnpolicy', 'cufwpolappconnpolicytargettype', 'cufwpolappconnpolicytarget', 'cufwpolappconnprotocol', 'cufwpolappconnnumattempted', 'cufwpolappconnnumsetupsaborted', 'cufwpolappconnnumpolicydeclined', 'cufwpolappconnnumresdeclined', 'cufwpolappconnnumhalfopen', 'cufwpolappconnnumactive', 'cufwpolappconnnumaborted'], name, value)
 
 
-    class Cufwinspectiontable(Entity):
+    class CufwInspectionTable(Entity):
         """
         This table identifies if an application protocol has
         been configured for inspection and if so, the name of 
@@ -2106,7 +2074,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwinspectionentry
         
         	Each entry contains the configuration of a specific application inspection element
-        	**type**\: list of  		 :py:class:`Cufwinspectionentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry>`
+        	**type**\: list of  		 :py:class:`CufwInspectionEntry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable.CufwInspectionEntry>`
         
         
 
@@ -2116,15 +2084,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable, self).__init__()
 
             self.yang_name = "cufwInspectionTable"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cufwInspectionEntry", ("cufwinspectionentry", CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry))])
+            self._child_classes = OrderedDict([("cufwInspectionEntry", ("cufwinspectionentry", CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable.CufwInspectionEntry))])
             self._leafs = OrderedDict()
 
             self.cufwinspectionentry = YList(self)
@@ -2132,10 +2099,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable, [], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable, [], name, value)
 
 
-        class Cufwinspectionentry(Entity):
+        class CufwInspectionEntry(Entity):
             """
             Each entry contains the configuration of
             a specific application inspection element.
@@ -2165,15 +2132,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             _revision = '2005-09-22'
 
             def __init__(self):
-                super(CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry, self).__init__()
+                super(CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable.CufwInspectionEntry, self).__init__()
 
                 self.yang_name = "cufwInspectionEntry"
                 self.yang_parent_name = "cufwInspectionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cufwinspectionpolicyname','cufwinspectionprotocol']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cufwinspectionpolicyname', YLeaf(YType.str, 'cufwInspectionPolicyName')),
                     ('cufwinspectionprotocol', YLeaf(YType.enumeration, 'cufwInspectionProtocol')),
@@ -2186,10 +2152,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwInspectionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry, ['cufwinspectionpolicyname', 'cufwinspectionprotocol', 'cufwinspectionstatus'], name, value)
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwInspectionTable.CufwInspectionEntry, ['cufwinspectionpolicyname', 'cufwinspectionprotocol', 'cufwinspectionstatus'], name, value)
 
 
-    class Cufwurlfservertable(Entity):
+    class CufwUrlfServerTable(Entity):
         """
         This table lists the URL filtering servers
         configured on the managed device and their
@@ -2201,7 +2167,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfserverentry
         
         	Each entry contains the configuration of a specific URL filtering server
-        	**type**\: list of  		 :py:class:`Cufwurlfserverentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry>`
+        	**type**\: list of  		 :py:class:`CufwUrlfServerEntry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable.CufwUrlfServerEntry>`
         
         
 
@@ -2211,15 +2177,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable, self).__init__()
 
             self.yang_name = "cufwUrlfServerTable"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cufwUrlfServerEntry", ("cufwurlfserverentry", CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry))])
+            self._child_classes = OrderedDict([("cufwUrlfServerEntry", ("cufwurlfserverentry", CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable.CufwUrlfServerEntry))])
             self._leafs = OrderedDict()
 
             self.cufwurlfserverentry = YList(self)
@@ -2227,10 +2192,10 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable, [], name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable, [], name, value)
 
 
-        class Cufwurlfserverentry(Entity):
+        class CufwUrlfServerEntry(Entity):
             """
             Each entry contains the configuration of
             a specific URL filtering server.
@@ -2339,15 +2304,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             _revision = '2005-09-22'
 
             def __init__(self):
-                super(CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry, self).__init__()
+                super(CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable.CufwUrlfServerEntry, self).__init__()
 
                 self.yang_name = "cufwUrlfServerEntry"
                 self.yang_parent_name = "cufwUrlfServerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cufwurlfserveraddrtype','cufwurlfserveraddress','cufwurlfserverport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cufwurlfserveraddrtype', YLeaf(YType.enumeration, 'cufwUrlfServerAddrType')),
                     ('cufwurlfserveraddress', YLeaf(YType.str, 'cufwUrlfServerAddress')),
@@ -2382,7 +2346,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwUrlfServerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry, ['cufwurlfserveraddrtype', 'cufwurlfserveraddress', 'cufwurlfserverport', 'cufwurlfservervendor', 'cufwurlfserverstatus', 'cufwurlfserverreqsnumprocessed', 'cufwurlfserverreqsnumallowed', 'cufwurlfserverreqsnumdenied', 'cufwurlfservernumtimeouts', 'cufwurlfservernumretries', 'cufwurlfserverrespsnumreceived', 'cufwurlfserverrespsnumlate', 'cufwurlfserveravgresptime1', 'cufwurlfserveravgresptime5'], name, value)
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.CufwUrlfServerTable.CufwUrlfServerEntry, ['cufwurlfserveraddrtype', 'cufwurlfserveraddress', 'cufwurlfserverport', 'cufwurlfservervendor', 'cufwurlfserverstatus', 'cufwurlfserverreqsnumprocessed', 'cufwurlfserverreqsnumallowed', 'cufwurlfserverreqsnumdenied', 'cufwurlfservernumtimeouts', 'cufwurlfservernumretries', 'cufwurlfserverrespsnumreceived', 'cufwurlfserverrespsnumlate', 'cufwurlfserveravgresptime1', 'cufwurlfserveravgresptime5'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOUNIFIEDFIREWALLMIB()

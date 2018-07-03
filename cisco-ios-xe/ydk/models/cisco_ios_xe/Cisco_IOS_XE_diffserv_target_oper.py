@@ -53,8 +53,7 @@ class DiffservInterfacesState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("diffserv-interface", ("diffserv_interface", DiffservInterfacesState.DiffservInterface))])
+        self._child_classes = OrderedDict([("diffserv-interface", ("diffserv_interface", DiffservInterfacesState.DiffservInterface))])
         self._leafs = OrderedDict()
 
         self.diffserv_interface = YList(self)
@@ -93,8 +92,7 @@ class DiffservInterfacesState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("diffserv-target-entry", ("diffserv_target_entry", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry))])
+            self._child_classes = OrderedDict([("diffserv-target-entry", ("diffserv_target_entry", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
             ])
@@ -142,8 +140,7 @@ class DiffservInterfacesState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['direction','policy_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("diffserv-target-classifier-statistics", ("diffserv_target_classifier_statistics", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics))])
+                self._child_classes = OrderedDict([("diffserv-target-classifier-statistics", ("diffserv_target_classifier_statistics", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics))])
                 self._leafs = OrderedDict([
                     ('direction', YLeaf(YType.identityref, 'direction')),
                     ('policy_name', YLeaf(YType.str, 'policy-name')),
@@ -202,8 +199,7 @@ class DiffservInterfacesState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['classifier_entry_name','parent_path']
-                    self._child_container_classes = OrderedDict([("classifier-entry-statistics", ("classifier_entry_statistics", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics)), ("queuing-statistics", ("queuing_statistics", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics))])
-                    self._child_list_classes = OrderedDict([("meter-statistics", ("meter_statistics", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics))])
+                    self._child_classes = OrderedDict([("classifier-entry-statistics", ("classifier_entry_statistics", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics)), ("meter-statistics", ("meter_statistics", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics)), ("queuing-statistics", ("queuing_statistics", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics))])
                     self._leafs = OrderedDict([
                         ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
                         ('parent_path', YLeaf(YType.str, 'parent-path')),
@@ -214,12 +210,10 @@ class DiffservInterfacesState(Entity):
                     self.classifier_entry_statistics = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics()
                     self.classifier_entry_statistics.parent = self
                     self._children_name_map["classifier_entry_statistics"] = "classifier-entry-statistics"
-                    self._children_yang_names.add("classifier-entry-statistics")
 
                     self.queuing_statistics = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics()
                     self.queuing_statistics.parent = self
                     self._children_name_map["queuing_statistics"] = "queuing-statistics"
-                    self._children_yang_names.add("queuing-statistics")
 
                     self.meter_statistics = YList(self)
                     self._segment_path = lambda: "diffserv-target-classifier-statistics" + "[classifier-entry-name='" + str(self.classifier_entry_name) + "']" + "[parent-path='" + str(self.parent_path) + "']"
@@ -274,8 +268,7 @@ class DiffservInterfacesState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('classified_pkts', YLeaf(YType.uint64, 'classified-pkts')),
                             ('classified_bytes', YLeaf(YType.uint64, 'classified-bytes')),
@@ -344,8 +337,7 @@ class DiffservInterfacesState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['meter_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('meter_id', YLeaf(YType.uint16, 'meter-id')),
                             ('meter_succeed_pkts', YLeaf(YType.uint64, 'meter-succeed-pkts')),
@@ -430,8 +422,7 @@ class DiffservInterfacesState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("wred-stats", ("wred_stats", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("wred-stats", ("wred_stats", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats))])
                         self._leafs = OrderedDict([
                             ('output_pkts', YLeaf(YType.uint64, 'output-pkts')),
                             ('output_bytes', YLeaf(YType.uint64, 'output-bytes')),
@@ -450,7 +441,6 @@ class DiffservInterfacesState(Entity):
                         self.wred_stats = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats()
                         self.wred_stats.parent = self
                         self._children_name_map["wred_stats"] = "wred-stats"
-                        self._children_yang_names.add("wred-stats")
                         self._segment_path = lambda: "queuing-statistics"
 
                     def __setattr__(self, name, value):
@@ -490,8 +480,7 @@ class DiffservInterfacesState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('early_drop_pkts', YLeaf(YType.uint64, 'early-drop-pkts')),
                                 ('early_drop_bytes', YLeaf(YType.uint64, 'early-drop-bytes')),

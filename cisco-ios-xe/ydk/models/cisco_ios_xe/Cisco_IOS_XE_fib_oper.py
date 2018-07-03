@@ -170,8 +170,7 @@ class FibOperData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("fib-ni-entry", ("fib_ni_entry", FibOperData.FibNiEntry))])
+        self._child_classes = OrderedDict([("fib-ni-entry", ("fib_ni_entry", FibOperData.FibNiEntry))])
         self._leafs = OrderedDict()
 
         self.fib_ni_entry = YList(self)
@@ -236,8 +235,7 @@ class FibOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['instance_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("fib-entries", ("fib_entries", FibOperData.FibNiEntry.FibEntries))])
+            self._child_classes = OrderedDict([("fib-entries", ("fib_entries", FibOperData.FibNiEntry.FibEntries))])
             self._leafs = OrderedDict([
                 ('instance_name', YLeaf(YType.str, 'instance-name')),
                 ('af', YLeaf(YType.enumeration, 'af')),
@@ -327,8 +325,7 @@ class FibOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['ip_addr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("fib-nexthop-entries", ("fib_nexthop_entries", FibOperData.FibNiEntry.FibEntries.FibNexthopEntries))])
+                self._child_classes = OrderedDict([("fib-nexthop-entries", ("fib_nexthop_entries", FibOperData.FibNiEntry.FibEntries.FibNexthopEntries))])
                 self._leafs = OrderedDict([
                     ('ip_addr', YLeaf(YType.str, 'ip-addr')),
                     ('instance_name', YLeaf(YType.str, 'instance-name')),
@@ -429,8 +426,7 @@ class FibOperData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['nh_addr']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('nh_addr', YLeaf(YType.str, 'nh-addr')),
                         ('index', YLeaf(YType.uint32, 'index')),

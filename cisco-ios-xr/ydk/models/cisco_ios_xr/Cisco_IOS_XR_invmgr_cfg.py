@@ -45,8 +45,7 @@ class InventoryConfigurations(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("entity", ("entity_", InventoryConfigurations.Entity))])
+        self._child_classes = OrderedDict([("entity", ("entity_", InventoryConfigurations.Entity))])
         self._leafs = OrderedDict()
 
         self.entity_ = YList(self)
@@ -87,8 +86,7 @@ class InventoryConfigurations(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('name_xr', YLeaf(YType.str, 'name-xr')),

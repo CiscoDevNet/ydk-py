@@ -128,6 +128,8 @@ class RackId(Enum):
 
     FCC racks are identified by numbers F0..F3
 
+    BSC racks are identified by numbers 128..129
+
     .. data:: L0 = 0
 
     .. data:: L1 = 1
@@ -167,6 +169,10 @@ class RackId(Enum):
     .. data:: F2 = 18
 
     .. data:: F3 = 19
+
+    .. data:: B0 = 20
+
+    .. data:: B1 = 21
 
     """
 
@@ -209,6 +215,10 @@ class RackId(Enum):
     F2 = Enum.YLeaf(18, "F2")
 
     F3 = Enum.YLeaf(19, "F3")
+
+    B0 = Enum.YLeaf(20, "B0")
+
+    B1 = Enum.YLeaf(21, "B1")
 
 
 

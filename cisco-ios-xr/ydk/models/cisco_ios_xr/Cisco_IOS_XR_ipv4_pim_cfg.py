@@ -100,16 +100,12 @@ class Pim(Entity):
     	Default Context
     	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext>`
     
-    	**presence node**\: True
     
-    
-
-    This class is a :ref:`presence class<presence-class>`
 
     """
 
     _prefix = 'ipv4-pim-cfg'
-    _revision = '2017-05-22'
+    _revision = '2017-10-15'
 
     def __init__(self):
         super(Pim, self).__init__()
@@ -120,20 +116,20 @@ class Pim(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Pim.Vrfs)), ("default-context", ("default_context", Pim.DefaultContext))])
-        self._child_list_classes = OrderedDict([])
-        self.is_presence_container = True
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", Pim.Vrfs)), ("default-context", ("default_context", Pim.DefaultContext))])
         self._leafs = OrderedDict()
 
         self.vrfs = Pim.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
 
-        self.default_context = None
+        self.default_context = Pim.DefaultContext()
+        self.default_context.parent = self
         self._children_name_map["default_context"] = "default-context"
-        self._children_yang_names.add("default-context")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Pim, [], name, value)
 
 
     class Vrfs(Entity):
@@ -150,7 +146,7 @@ class Pim(Entity):
         """
 
         _prefix = 'ipv4-pim-cfg'
-        _revision = '2017-05-22'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Pim.Vrfs, self).__init__()
@@ -160,8 +156,7 @@ class Pim(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", Pim.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", Pim.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -198,7 +193,7 @@ class Pim(Entity):
             """
 
             _prefix = 'ipv4-pim-cfg'
-            _revision = '2017-05-22'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Pim.Vrfs.Vrf, self).__init__()
@@ -208,8 +203,7 @@ class Pim(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Pim.Vrfs.Vrf.Ipv4)), ("ipv6", ("ipv6", Pim.Vrfs.Vrf.Ipv6))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv4", ("ipv4", Pim.Vrfs.Vrf.Ipv4)), ("ipv6", ("ipv6", Pim.Vrfs.Vrf.Ipv6))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -218,12 +212,10 @@ class Pim(Entity):
                 self.ipv4 = Pim.Vrfs.Vrf.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
 
                 self.ipv6 = Pim.Vrfs.Vrf.Ipv6()
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/%s" % self._segment_path()
 
@@ -397,7 +389,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.Vrfs.Vrf.Ipv4, self).__init__()
@@ -407,8 +399,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv4.InheritableDefaults)), ("rpf", ("rpf", Pim.Vrfs.Vrf.Ipv4.Rpf)), ("maximum", ("maximum", Pim.Vrfs.Vrf.Ipv4.Maximum)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable)), ("ssm", ("ssm", Pim.Vrfs.Vrf.Ipv4.Ssm)), ("injects", ("injects", Pim.Vrfs.Vrf.Ipv4.Injects)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses)), ("bsr", ("bsr", Pim.Vrfs.Vrf.Ipv4.Bsr)), ("mofrr", ("mofrr", Pim.Vrfs.Vrf.Ipv4.Mofrr)), ("paths", ("paths", Pim.Vrfs.Vrf.Ipv4.Paths)), ("allow-rp", ("allow_rp", Pim.Vrfs.Vrf.Ipv4.AllowRp)), ("convergence", ("convergence", Pim.Vrfs.Vrf.Ipv4.Convergence)), ("interfaces", ("interfaces", Pim.Vrfs.Vrf.Ipv4.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv4.InheritableDefaults)), ("rpf", ("rpf", Pim.Vrfs.Vrf.Ipv4.Rpf)), ("maximum", ("maximum", Pim.Vrfs.Vrf.Ipv4.Maximum)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable)), ("ssm", ("ssm", Pim.Vrfs.Vrf.Ipv4.Ssm)), ("injects", ("injects", Pim.Vrfs.Vrf.Ipv4.Injects)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses)), ("bsr", ("bsr", Pim.Vrfs.Vrf.Ipv4.Bsr)), ("mofrr", ("mofrr", Pim.Vrfs.Vrf.Ipv4.Mofrr)), ("paths", ("paths", Pim.Vrfs.Vrf.Ipv4.Paths)), ("allow-rp", ("allow_rp", Pim.Vrfs.Vrf.Ipv4.AllowRp)), ("convergence", ("convergence", Pim.Vrfs.Vrf.Ipv4.Convergence)), ("interfaces", ("interfaces", Pim.Vrfs.Vrf.Ipv4.Interfaces))])
                     self._leafs = OrderedDict([
                         ('neighbor_check_on_receive', YLeaf(YType.empty, 'neighbor-check-on-receive')),
                         ('old_register_checksum', YLeaf(YType.empty, 'old-register-checksum')),
@@ -443,75 +434,60 @@ class Pim(Entity):
                     self.sparse_mode_rp_addresses = Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses()
                     self.sparse_mode_rp_addresses.parent = self
                     self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
-                    self._children_yang_names.add("sparse-mode-rp-addresses")
 
                     self.inheritable_defaults = Pim.Vrfs.Vrf.Ipv4.InheritableDefaults()
                     self.inheritable_defaults.parent = self
                     self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                    self._children_yang_names.add("inheritable-defaults")
 
                     self.rpf = Pim.Vrfs.Vrf.Ipv4.Rpf()
                     self.rpf.parent = self
                     self._children_name_map["rpf"] = "rpf"
-                    self._children_yang_names.add("rpf")
 
                     self.maximum = Pim.Vrfs.Vrf.Ipv4.Maximum()
                     self.maximum.parent = self
                     self._children_name_map["maximum"] = "maximum"
-                    self._children_yang_names.add("maximum")
 
                     self.sg_expiry_timer = Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer()
                     self.sg_expiry_timer.parent = self
                     self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
-                    self._children_yang_names.add("sg-expiry-timer")
 
                     self.rpf_vector_enable = None
                     self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
-                    self._children_yang_names.add("rpf-vector-enable")
 
                     self.ssm = Pim.Vrfs.Vrf.Ipv4.Ssm()
                     self.ssm.parent = self
                     self._children_name_map["ssm"] = "ssm"
-                    self._children_yang_names.add("ssm")
 
                     self.injects = Pim.Vrfs.Vrf.Ipv4.Injects()
                     self.injects.parent = self
                     self._children_name_map["injects"] = "injects"
-                    self._children_yang_names.add("injects")
 
                     self.bidir_rp_addresses = Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses()
                     self.bidir_rp_addresses.parent = self
                     self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
-                    self._children_yang_names.add("bidir-rp-addresses")
 
                     self.bsr = Pim.Vrfs.Vrf.Ipv4.Bsr()
                     self.bsr.parent = self
                     self._children_name_map["bsr"] = "bsr"
-                    self._children_yang_names.add("bsr")
 
                     self.mofrr = Pim.Vrfs.Vrf.Ipv4.Mofrr()
                     self.mofrr.parent = self
                     self._children_name_map["mofrr"] = "mofrr"
-                    self._children_yang_names.add("mofrr")
 
                     self.paths = Pim.Vrfs.Vrf.Ipv4.Paths()
                     self.paths.parent = self
                     self._children_name_map["paths"] = "paths"
-                    self._children_yang_names.add("paths")
 
                     self.allow_rp = None
                     self._children_name_map["allow_rp"] = "allow-rp"
-                    self._children_yang_names.add("allow-rp")
 
                     self.convergence = Pim.Vrfs.Vrf.Ipv4.Convergence()
                     self.convergence.parent = self
                     self._children_name_map["convergence"] = "convergence"
-                    self._children_yang_names.add("convergence")
 
                     self.interfaces = Pim.Vrfs.Vrf.Ipv4.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "ipv4"
 
                 def __setattr__(self, name, value):
@@ -532,7 +508,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, self).__init__()
@@ -542,8 +518,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sparse-mode-rp-address", ("sparse_mode_rp_address", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress))])
+                        self._child_classes = OrderedDict([("sparse-mode-rp-address", ("sparse_mode_rp_address", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress))])
                         self._leafs = OrderedDict()
 
                         self.sparse_mode_rp_address = YList(self)
@@ -587,7 +562,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
@@ -597,8 +572,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['rp_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rp_address', YLeaf(YType.str, 'rp-address')),
                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -683,7 +657,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, self).__init__()
@@ -693,8 +667,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('convergence_timeout', YLeaf(YType.uint32, 'convergence-timeout')),
                             ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
@@ -733,7 +706,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Rpf, self).__init__()
@@ -743,8 +716,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('route_policy', YLeaf(YType.str, 'route-policy')),
                         ])
@@ -806,7 +778,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Maximum, self).__init__()
@@ -816,34 +788,30 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.Vrfs.Vrf.Ipv4.Maximum.Routes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.Vrfs.Vrf.Ipv4.Maximum.Routes))])
                         self._leafs = OrderedDict()
 
                         self.group_mappings_auto_rp = None
                         self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
-                        self._children_yang_names.add("group-mappings-auto-rp")
 
                         self.bsr_group_mappings = None
                         self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
-                        self._children_yang_names.add("bsr-group-mappings")
 
                         self.register_states = None
                         self._children_name_map["register_states"] = "register-states"
-                        self._children_yang_names.add("register-states")
 
                         self.route_interfaces = None
                         self._children_name_map["route_interfaces"] = "route-interfaces"
-                        self._children_yang_names.add("route-interfaces")
 
                         self.bsr_candidate_rp_cache = None
                         self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
-                        self._children_yang_names.add("bsr-candidate-rp-cache")
 
                         self.routes = None
                         self._children_name_map["routes"] = "routes"
-                        self._children_yang_names.add("routes")
                         self._segment_path = lambda: "maximum"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum, [], name, value)
 
 
                     class GroupMappingsAutoRp(Entity):
@@ -876,7 +844,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
@@ -886,8 +854,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp')),
@@ -931,7 +898,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, self).__init__()
@@ -941,8 +908,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('bsr_maximum_group_ranges', YLeaf(YType.uint32, 'bsr-maximum-group-ranges')),
@@ -986,7 +952,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, self).__init__()
@@ -996,8 +962,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
@@ -1041,7 +1006,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, self).__init__()
@@ -1051,8 +1016,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
@@ -1096,7 +1060,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
@@ -1106,8 +1070,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('bsr_maximum_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache')),
@@ -1150,7 +1113,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, self).__init__()
@@ -1160,8 +1123,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
@@ -1200,7 +1162,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, self).__init__()
@@ -1210,8 +1172,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interval', YLeaf(YType.uint32, 'interval')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -1252,7 +1213,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, self).__init__()
@@ -1262,8 +1223,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -1302,7 +1262,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Ssm, self).__init__()
@@ -1312,8 +1272,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('disable', YLeaf(YType.boolean, 'disable')),
                             ('range', YLeaf(YType.str, 'range')),
@@ -1340,7 +1299,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Injects, self).__init__()
@@ -1350,8 +1309,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("inject", ("inject", Pim.Vrfs.Vrf.Ipv4.Injects.Inject))])
+                        self._child_classes = OrderedDict([("inject", ("inject", Pim.Vrfs.Vrf.Ipv4.Injects.Inject))])
                         self._leafs = OrderedDict()
 
                         self.inject = YList(self)
@@ -1391,7 +1349,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, self).__init__()
@@ -1401,8 +1359,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['source_address','prefix_length']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('source_address', YLeaf(YType.str, 'source-address')),
                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -1431,7 +1388,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, self).__init__()
@@ -1441,8 +1398,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("bidir-rp-address", ("bidir_rp_address", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress))])
+                        self._child_classes = OrderedDict([("bidir-rp-address", ("bidir_rp_address", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress))])
                         self._leafs = OrderedDict()
 
                         self.bidir_rp_address = YList(self)
@@ -1486,7 +1442,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
@@ -1496,8 +1452,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['rp_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rp_address', YLeaf(YType.str, 'rp-address')),
                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -1533,7 +1488,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Bsr, self).__init__()
@@ -1543,19 +1498,19 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("candidate-bsr", ("candidate_bsr", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr)), ("candidate-rps", ("candidate_rps", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("candidate-bsr", ("candidate_bsr", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr)), ("candidate-rps", ("candidate_rps", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps))])
                         self._leafs = OrderedDict()
 
                         self.candidate_bsr = None
                         self._children_name_map["candidate_bsr"] = "candidate-bsr"
-                        self._children_yang_names.add("candidate-bsr")
 
                         self.candidate_rps = Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps()
                         self.candidate_rps.parent = self
                         self._children_name_map["candidate_rps"] = "candidate-rps"
-                        self._children_yang_names.add("candidate-rps")
                         self._segment_path = lambda: "bsr"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr, [], name, value)
 
 
                     class CandidateBsr(Entity):
@@ -1602,7 +1557,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, self).__init__()
@@ -1612,8 +1567,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
@@ -1643,7 +1597,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, self).__init__()
@@ -1653,8 +1607,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("candidate-rp", ("candidate_rp", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp))])
+                            self._child_classes = OrderedDict([("candidate-rp", ("candidate_rp", Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp))])
                             self._leafs = OrderedDict()
 
                             self.candidate_rp = YList(self)
@@ -1716,7 +1669,7 @@ class Pim(Entity):
                             """
 
                             _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
@@ -1726,8 +1679,7 @@ class Pim(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['address','mode']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address', YLeaf(YType.str, 'address')),
                                     ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -1789,7 +1741,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Mofrr, self).__init__()
@@ -1799,8 +1751,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("clone-joins", ("clone_joins", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins)), ("clone-sources", ("clone_sources", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("clone-joins", ("clone_joins", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins)), ("clone-sources", ("clone_sources", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources))])
                         self._leafs = OrderedDict([
                             ('rib', YLeaf(YType.str, 'rib')),
                             ('non_revertive', YLeaf(YType.empty, 'non-revertive')),
@@ -1815,12 +1766,10 @@ class Pim(Entity):
                         self.clone_joins = Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins()
                         self.clone_joins.parent = self
                         self._children_name_map["clone_joins"] = "clone-joins"
-                        self._children_yang_names.add("clone-joins")
 
                         self.clone_sources = Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources()
                         self.clone_sources.parent = self
                         self._children_name_map["clone_sources"] = "clone-sources"
-                        self._children_yang_names.add("clone-sources")
                         self._segment_path = lambda: "mofrr"
 
                     def __setattr__(self, name, value):
@@ -1841,7 +1790,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, self).__init__()
@@ -1851,8 +1800,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("clone-join", ("clone_join", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin))])
+                            self._child_classes = OrderedDict([("clone-join", ("clone_join", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin))])
                             self._leafs = OrderedDict()
 
                             self.clone_join = YList(self)
@@ -1899,7 +1847,7 @@ class Pim(Entity):
                             """
 
                             _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
@@ -1909,8 +1857,7 @@ class Pim(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['source','primary','backup','prefix_length']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('source', YLeaf(YType.str, 'source')),
                                     ('primary', YLeaf(YType.str, 'primary')),
@@ -1941,7 +1888,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, self).__init__()
@@ -1951,8 +1898,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("clone-source", ("clone_source", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource))])
+                            self._child_classes = OrderedDict([("clone-source", ("clone_source", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource))])
                             self._leafs = OrderedDict()
 
                             self.clone_source = YList(self)
@@ -2000,7 +1946,7 @@ class Pim(Entity):
                             """
 
                             _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
@@ -2010,8 +1956,7 @@ class Pim(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['source','primary','backup','prefix_length']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('source', YLeaf(YType.str, 'source')),
                                     ('primary', YLeaf(YType.str, 'primary')),
@@ -2042,7 +1987,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Paths, self).__init__()
@@ -2052,8 +1997,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("path", ("path", Pim.Vrfs.Vrf.Ipv4.Paths.Path))])
+                        self._child_classes = OrderedDict([("path", ("path", Pim.Vrfs.Vrf.Ipv4.Paths.Path))])
                         self._leafs = OrderedDict()
 
                         self.path = YList(self)
@@ -2093,7 +2037,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Paths.Path, self).__init__()
@@ -2103,8 +2047,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['source_address','prefix_length']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('source_address', YLeaf(YType.str, 'source-address')),
                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -2144,7 +2087,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.AllowRp, self).__init__()
@@ -2154,8 +2097,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('rp_list_name', YLeaf(YType.str, 'rp-list-name')),
@@ -2196,7 +2138,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Convergence, self).__init__()
@@ -2206,8 +2148,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rpf_conflict_join_delay', YLeaf(YType.uint32, 'rpf-conflict-join-delay')),
                             ('link_down_prune_delay', YLeaf(YType.uint32, 'link-down-prune-delay')),
@@ -2234,7 +2175,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv4.Interfaces, self).__init__()
@@ -2244,8 +2185,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -2357,7 +2297,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, self).__init__()
@@ -2367,8 +2307,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd))])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('enable', YLeaf(YType.empty, 'enable')),
@@ -2396,12 +2335,10 @@ class Pim(Entity):
 
                             self.maximum_routes = None
                             self._children_name_map["maximum_routes"] = "maximum-routes"
-                            self._children_yang_names.add("maximum-routes")
 
                             self.bfd = Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd()
                             self.bfd.parent = self
                             self._children_name_map["bfd"] = "bfd"
-                            self._children_yang_names.add("bfd")
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -2443,7 +2380,7 @@ class Pim(Entity):
                             """
 
                             _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
@@ -2453,8 +2390,7 @@ class Pim(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('maximum', YLeaf(YType.uint32, 'maximum')),
@@ -2500,7 +2436,7 @@ class Pim(Entity):
                             """
 
                             _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, self).__init__()
@@ -2510,8 +2446,7 @@ class Pim(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
                                     ('interval', YLeaf(YType.uint32, 'interval')),
@@ -2682,7 +2617,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.Vrfs.Vrf.Ipv6, self).__init__()
@@ -2692,8 +2627,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv6.InheritableDefaults)), ("rpf", ("rpf", Pim.Vrfs.Vrf.Ipv6.Rpf)), ("maximum", ("maximum", Pim.Vrfs.Vrf.Ipv6.Maximum)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable)), ("ssm", ("ssm", Pim.Vrfs.Vrf.Ipv6.Ssm)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses)), ("bsr", ("bsr", Pim.Vrfs.Vrf.Ipv6.Bsr)), ("allow-rp", ("allow_rp", Pim.Vrfs.Vrf.Ipv6.AllowRp)), ("embedded-rp-addresses", ("embedded_rp_addresses", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses)), ("convergence", ("convergence", Pim.Vrfs.Vrf.Ipv6.Convergence)), ("interfaces", ("interfaces", Pim.Vrfs.Vrf.Ipv6.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv6.InheritableDefaults)), ("rpf", ("rpf", Pim.Vrfs.Vrf.Ipv6.Rpf)), ("maximum", ("maximum", Pim.Vrfs.Vrf.Ipv6.Maximum)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable)), ("ssm", ("ssm", Pim.Vrfs.Vrf.Ipv6.Ssm)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses)), ("bsr", ("bsr", Pim.Vrfs.Vrf.Ipv6.Bsr)), ("allow-rp", ("allow_rp", Pim.Vrfs.Vrf.Ipv6.AllowRp)), ("embedded-rp-addresses", ("embedded_rp_addresses", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses)), ("convergence", ("convergence", Pim.Vrfs.Vrf.Ipv6.Convergence)), ("interfaces", ("interfaces", Pim.Vrfs.Vrf.Ipv6.Interfaces))])
                     self._leafs = OrderedDict([
                         ('neighbor_check_on_receive', YLeaf(YType.empty, 'neighbor-check-on-receive')),
                         ('old_register_checksum', YLeaf(YType.empty, 'old-register-checksum')),
@@ -2728,65 +2662,52 @@ class Pim(Entity):
                     self.sparse_mode_rp_addresses = Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses()
                     self.sparse_mode_rp_addresses.parent = self
                     self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
-                    self._children_yang_names.add("sparse-mode-rp-addresses")
 
                     self.inheritable_defaults = Pim.Vrfs.Vrf.Ipv6.InheritableDefaults()
                     self.inheritable_defaults.parent = self
                     self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                    self._children_yang_names.add("inheritable-defaults")
 
                     self.rpf = Pim.Vrfs.Vrf.Ipv6.Rpf()
                     self.rpf.parent = self
                     self._children_name_map["rpf"] = "rpf"
-                    self._children_yang_names.add("rpf")
 
                     self.maximum = Pim.Vrfs.Vrf.Ipv6.Maximum()
                     self.maximum.parent = self
                     self._children_name_map["maximum"] = "maximum"
-                    self._children_yang_names.add("maximum")
 
                     self.sg_expiry_timer = Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer()
                     self.sg_expiry_timer.parent = self
                     self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
-                    self._children_yang_names.add("sg-expiry-timer")
 
                     self.rpf_vector_enable = None
                     self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
-                    self._children_yang_names.add("rpf-vector-enable")
 
                     self.ssm = Pim.Vrfs.Vrf.Ipv6.Ssm()
                     self.ssm.parent = self
                     self._children_name_map["ssm"] = "ssm"
-                    self._children_yang_names.add("ssm")
 
                     self.bidir_rp_addresses = Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses()
                     self.bidir_rp_addresses.parent = self
                     self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
-                    self._children_yang_names.add("bidir-rp-addresses")
 
                     self.bsr = Pim.Vrfs.Vrf.Ipv6.Bsr()
                     self.bsr.parent = self
                     self._children_name_map["bsr"] = "bsr"
-                    self._children_yang_names.add("bsr")
 
                     self.allow_rp = None
                     self._children_name_map["allow_rp"] = "allow-rp"
-                    self._children_yang_names.add("allow-rp")
 
                     self.embedded_rp_addresses = Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses()
                     self.embedded_rp_addresses.parent = self
                     self._children_name_map["embedded_rp_addresses"] = "embedded-rp-addresses"
-                    self._children_yang_names.add("embedded-rp-addresses")
 
                     self.convergence = Pim.Vrfs.Vrf.Ipv6.Convergence()
                     self.convergence.parent = self
                     self._children_name_map["convergence"] = "convergence"
-                    self._children_yang_names.add("convergence")
 
                     self.interfaces = Pim.Vrfs.Vrf.Ipv6.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "ipv6"
 
                 def __setattr__(self, name, value):
@@ -2807,7 +2728,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, self).__init__()
@@ -2817,8 +2738,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sparse-mode-rp-address", ("sparse_mode_rp_address", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress))])
+                        self._child_classes = OrderedDict([("sparse-mode-rp-address", ("sparse_mode_rp_address", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress))])
                         self._leafs = OrderedDict()
 
                         self.sparse_mode_rp_address = YList(self)
@@ -2862,7 +2782,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
@@ -2872,8 +2792,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['rp_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rp_address', YLeaf(YType.str, 'rp-address')),
                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -2958,7 +2877,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, self).__init__()
@@ -2968,8 +2887,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('convergence_timeout', YLeaf(YType.uint32, 'convergence-timeout')),
                             ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
@@ -3008,7 +2926,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.Rpf, self).__init__()
@@ -3018,8 +2936,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('route_policy', YLeaf(YType.str, 'route-policy')),
                         ])
@@ -3081,7 +2998,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.Maximum, self).__init__()
@@ -3091,34 +3008,30 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.Vrfs.Vrf.Ipv6.Maximum.Routes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.Vrfs.Vrf.Ipv6.Maximum.Routes))])
                         self._leafs = OrderedDict()
 
                         self.group_mappings_auto_rp = None
                         self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
-                        self._children_yang_names.add("group-mappings-auto-rp")
 
                         self.bsr_group_mappings = None
                         self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
-                        self._children_yang_names.add("bsr-group-mappings")
 
                         self.register_states = None
                         self._children_name_map["register_states"] = "register-states"
-                        self._children_yang_names.add("register-states")
 
                         self.route_interfaces = None
                         self._children_name_map["route_interfaces"] = "route-interfaces"
-                        self._children_yang_names.add("route-interfaces")
 
                         self.bsr_candidate_rp_cache = None
                         self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
-                        self._children_yang_names.add("bsr-candidate-rp-cache")
 
                         self.routes = None
                         self._children_name_map["routes"] = "routes"
-                        self._children_yang_names.add("routes")
                         self._segment_path = lambda: "maximum"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum, [], name, value)
 
 
                     class GroupMappingsAutoRp(Entity):
@@ -3151,7 +3064,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, self).__init__()
@@ -3161,8 +3074,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp')),
@@ -3206,7 +3118,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, self).__init__()
@@ -3216,8 +3128,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('bsr_maximum_group_ranges', YLeaf(YType.uint32, 'bsr-maximum-group-ranges')),
@@ -3261,7 +3172,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, self).__init__()
@@ -3271,8 +3182,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
@@ -3316,7 +3226,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, self).__init__()
@@ -3326,8 +3236,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
@@ -3371,7 +3280,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
@@ -3381,8 +3290,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('bsr_maximum_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache')),
@@ -3425,7 +3333,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, self).__init__()
@@ -3435,8 +3343,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
@@ -3475,7 +3382,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, self).__init__()
@@ -3485,8 +3392,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interval', YLeaf(YType.uint32, 'interval')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -3527,7 +3433,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, self).__init__()
@@ -3537,8 +3443,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -3577,7 +3482,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.Ssm, self).__init__()
@@ -3587,8 +3492,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('disable', YLeaf(YType.boolean, 'disable')),
                             ('range', YLeaf(YType.str, 'range')),
@@ -3615,7 +3519,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, self).__init__()
@@ -3625,8 +3529,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("bidir-rp-address", ("bidir_rp_address", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress))])
+                        self._child_classes = OrderedDict([("bidir-rp-address", ("bidir_rp_address", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress))])
                         self._leafs = OrderedDict()
 
                         self.bidir_rp_address = YList(self)
@@ -3670,7 +3573,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
@@ -3680,8 +3583,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['rp_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rp_address', YLeaf(YType.str, 'rp-address')),
                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -3717,7 +3619,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.Bsr, self).__init__()
@@ -3727,19 +3629,19 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("candidate-bsr", ("candidate_bsr", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr)), ("candidate-rps", ("candidate_rps", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("candidate-bsr", ("candidate_bsr", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr)), ("candidate-rps", ("candidate_rps", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps))])
                         self._leafs = OrderedDict()
 
                         self.candidate_bsr = None
                         self._children_name_map["candidate_bsr"] = "candidate-bsr"
-                        self._children_yang_names.add("candidate-bsr")
 
                         self.candidate_rps = Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps()
                         self.candidate_rps.parent = self
                         self._children_name_map["candidate_rps"] = "candidate-rps"
-                        self._children_yang_names.add("candidate-rps")
                         self._segment_path = lambda: "bsr"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr, [], name, value)
 
 
                     class CandidateBsr(Entity):
@@ -3780,7 +3682,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, self).__init__()
@@ -3790,8 +3692,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
@@ -3821,7 +3722,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, self).__init__()
@@ -3831,8 +3732,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("candidate-rp", ("candidate_rp", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp))])
+                            self._child_classes = OrderedDict([("candidate-rp", ("candidate_rp", Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp))])
                             self._leafs = OrderedDict()
 
                             self.candidate_rp = YList(self)
@@ -3894,7 +3794,7 @@ class Pim(Entity):
                             """
 
                             _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
@@ -3904,8 +3804,7 @@ class Pim(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['address','mode']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address', YLeaf(YType.str, 'address')),
                                     ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -3949,7 +3848,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.AllowRp, self).__init__()
@@ -3959,8 +3858,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('rp_list_name', YLeaf(YType.str, 'rp-list-name')),
@@ -3988,7 +3886,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, self).__init__()
@@ -3998,8 +3896,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("embedded-rp-address", ("embedded_rp_address", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress))])
+                        self._child_classes = OrderedDict([("embedded-rp-address", ("embedded_rp_address", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress))])
                         self._leafs = OrderedDict()
 
                         self.embedded_rp_address = YList(self)
@@ -4040,7 +3937,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
@@ -4050,8 +3947,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['rp_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rp_address', YLeaf(YType.str, 'rp-address')),
                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -4091,7 +3987,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.Convergence, self).__init__()
@@ -4101,8 +3997,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rpf_conflict_join_delay', YLeaf(YType.uint32, 'rpf-conflict-join-delay')),
                             ('link_down_prune_delay', YLeaf(YType.uint32, 'link-down-prune-delay')),
@@ -4129,7 +4024,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.Vrfs.Vrf.Ipv6.Interfaces, self).__init__()
@@ -4139,8 +4034,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -4252,7 +4146,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, self).__init__()
@@ -4262,8 +4156,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd))])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('enable', YLeaf(YType.empty, 'enable')),
@@ -4291,12 +4184,10 @@ class Pim(Entity):
 
                             self.maximum_routes = None
                             self._children_name_map["maximum_routes"] = "maximum-routes"
-                            self._children_yang_names.add("maximum-routes")
 
                             self.bfd = Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd()
                             self.bfd.parent = self
                             self._children_name_map["bfd"] = "bfd"
-                            self._children_yang_names.add("bfd")
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -4338,7 +4229,7 @@ class Pim(Entity):
                             """
 
                             _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, self).__init__()
@@ -4348,8 +4239,7 @@ class Pim(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('maximum', YLeaf(YType.uint32, 'maximum')),
@@ -4395,7 +4285,7 @@ class Pim(Entity):
                             """
 
                             _prefix = 'ipv4-pim-cfg'
-                            _revision = '2017-05-22'
+                            _revision = '2017-10-15'
 
                             def __init__(self):
                                 super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, self).__init__()
@@ -4405,8 +4295,7 @@ class Pim(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
                                     ('interval', YLeaf(YType.uint32, 'interval')),
@@ -4437,12 +4326,10 @@ class Pim(Entity):
         
         
 
-        This class is a :ref:`presence class<presence-class>`
-
         """
 
         _prefix = 'ipv4-pim-cfg'
-        _revision = '2017-05-22'
+        _revision = '2017-10-15'
 
         def __init__(self):
             super(Pim.DefaultContext, self).__init__()
@@ -4452,22 +4339,21 @@ class Pim(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Pim.DefaultContext.Ipv6)), ("ipv4", ("ipv4", Pim.DefaultContext.Ipv4))])
-            self._child_list_classes = OrderedDict([])
-            self.is_presence_container = True
+            self._child_classes = OrderedDict([("ipv6", ("ipv6", Pim.DefaultContext.Ipv6)), ("ipv4", ("ipv4", Pim.DefaultContext.Ipv4))])
             self._leafs = OrderedDict()
 
             self.ipv6 = Pim.DefaultContext.Ipv6()
             self.ipv6.parent = self
             self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
 
             self.ipv4 = Pim.DefaultContext.Ipv4()
             self.ipv4.parent = self
             self._children_name_map["ipv4"] = "ipv4"
-            self._children_yang_names.add("ipv4")
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Pim.DefaultContext, [], name, value)
 
 
         class Ipv6(Entity):
@@ -4631,7 +4517,7 @@ class Pim(Entity):
             """
 
             _prefix = 'ipv4-pim-cfg'
-            _revision = '2017-05-22'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Pim.DefaultContext.Ipv6, self).__init__()
@@ -4641,8 +4527,7 @@ class Pim(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Pim.DefaultContext.Ipv6.Interfaces)), ("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv6.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.DefaultContext.Ipv6.InheritableDefaults)), ("rpf", ("rpf", Pim.DefaultContext.Ipv6.Rpf)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.DefaultContext.Ipv6.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.DefaultContext.Ipv6.RpfVectorEnable)), ("nsf", ("nsf", Pim.DefaultContext.Ipv6.Nsf)), ("maximum", ("maximum", Pim.DefaultContext.Ipv6.Maximum)), ("ssm", ("ssm", Pim.DefaultContext.Ipv6.Ssm)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.DefaultContext.Ipv6.BidirRpAddresses)), ("bsr", ("bsr", Pim.DefaultContext.Ipv6.Bsr)), ("allow-rp", ("allow_rp", Pim.DefaultContext.Ipv6.AllowRp)), ("embedded-rp-addresses", ("embedded_rp_addresses", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses)), ("convergence", ("convergence", Pim.DefaultContext.Ipv6.Convergence))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interfaces", ("interfaces", Pim.DefaultContext.Ipv6.Interfaces)), ("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv6.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.DefaultContext.Ipv6.InheritableDefaults)), ("rpf", ("rpf", Pim.DefaultContext.Ipv6.Rpf)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.DefaultContext.Ipv6.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.DefaultContext.Ipv6.RpfVectorEnable)), ("nsf", ("nsf", Pim.DefaultContext.Ipv6.Nsf)), ("maximum", ("maximum", Pim.DefaultContext.Ipv6.Maximum)), ("ssm", ("ssm", Pim.DefaultContext.Ipv6.Ssm)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.DefaultContext.Ipv6.BidirRpAddresses)), ("bsr", ("bsr", Pim.DefaultContext.Ipv6.Bsr)), ("allow-rp", ("allow_rp", Pim.DefaultContext.Ipv6.AllowRp)), ("embedded-rp-addresses", ("embedded_rp_addresses", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses)), ("convergence", ("convergence", Pim.DefaultContext.Ipv6.Convergence))])
                 self._leafs = OrderedDict([
                     ('neighbor_check_on_receive', YLeaf(YType.empty, 'neighbor-check-on-receive')),
                     ('old_register_checksum', YLeaf(YType.empty, 'old-register-checksum')),
@@ -4677,70 +4562,56 @@ class Pim(Entity):
                 self.interfaces = Pim.DefaultContext.Ipv6.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.sparse_mode_rp_addresses = Pim.DefaultContext.Ipv6.SparseModeRpAddresses()
                 self.sparse_mode_rp_addresses.parent = self
                 self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
-                self._children_yang_names.add("sparse-mode-rp-addresses")
 
                 self.inheritable_defaults = Pim.DefaultContext.Ipv6.InheritableDefaults()
                 self.inheritable_defaults.parent = self
                 self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                self._children_yang_names.add("inheritable-defaults")
 
                 self.rpf = Pim.DefaultContext.Ipv6.Rpf()
                 self.rpf.parent = self
                 self._children_name_map["rpf"] = "rpf"
-                self._children_yang_names.add("rpf")
 
                 self.sg_expiry_timer = Pim.DefaultContext.Ipv6.SgExpiryTimer()
                 self.sg_expiry_timer.parent = self
                 self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
-                self._children_yang_names.add("sg-expiry-timer")
 
                 self.rpf_vector_enable = None
                 self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
-                self._children_yang_names.add("rpf-vector-enable")
 
                 self.nsf = Pim.DefaultContext.Ipv6.Nsf()
                 self.nsf.parent = self
                 self._children_name_map["nsf"] = "nsf"
-                self._children_yang_names.add("nsf")
 
                 self.maximum = Pim.DefaultContext.Ipv6.Maximum()
                 self.maximum.parent = self
                 self._children_name_map["maximum"] = "maximum"
-                self._children_yang_names.add("maximum")
 
                 self.ssm = Pim.DefaultContext.Ipv6.Ssm()
                 self.ssm.parent = self
                 self._children_name_map["ssm"] = "ssm"
-                self._children_yang_names.add("ssm")
 
                 self.bidir_rp_addresses = Pim.DefaultContext.Ipv6.BidirRpAddresses()
                 self.bidir_rp_addresses.parent = self
                 self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
-                self._children_yang_names.add("bidir-rp-addresses")
 
                 self.bsr = Pim.DefaultContext.Ipv6.Bsr()
                 self.bsr.parent = self
                 self._children_name_map["bsr"] = "bsr"
-                self._children_yang_names.add("bsr")
 
                 self.allow_rp = None
                 self._children_name_map["allow_rp"] = "allow-rp"
-                self._children_yang_names.add("allow-rp")
 
                 self.embedded_rp_addresses = Pim.DefaultContext.Ipv6.EmbeddedRpAddresses()
                 self.embedded_rp_addresses.parent = self
                 self._children_name_map["embedded_rp_addresses"] = "embedded-rp-addresses"
-                self._children_yang_names.add("embedded-rp-addresses")
 
                 self.convergence = Pim.DefaultContext.Ipv6.Convergence()
                 self.convergence.parent = self
                 self._children_name_map["convergence"] = "convergence"
-                self._children_yang_names.add("convergence")
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/%s" % self._segment_path()
 
@@ -4762,7 +4633,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.Interfaces, self).__init__()
@@ -4772,8 +4643,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Pim.DefaultContext.Ipv6.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Pim.DefaultContext.Ipv6.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -4886,7 +4756,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Interfaces.Interface, self).__init__()
@@ -4896,8 +4766,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -4925,12 +4794,10 @@ class Pim(Entity):
 
                         self.maximum_routes = None
                         self._children_name_map["maximum_routes"] = "maximum-routes"
-                        self._children_yang_names.add("maximum-routes")
 
                         self.bfd = Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd()
                         self.bfd.parent = self
                         self._children_name_map["bfd"] = "bfd"
-                        self._children_yang_names.add("bfd")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/interfaces/%s" % self._segment_path()
 
@@ -4973,7 +4840,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes, self).__init__()
@@ -4983,8 +4850,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum', YLeaf(YType.uint32, 'maximum')),
@@ -5030,7 +4896,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, self).__init__()
@@ -5040,8 +4906,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
                                 ('interval', YLeaf(YType.uint32, 'interval')),
@@ -5070,7 +4935,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, self).__init__()
@@ -5080,8 +4945,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("sparse-mode-rp-address", ("sparse_mode_rp_address", Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress))])
+                    self._child_classes = OrderedDict([("sparse-mode-rp-address", ("sparse_mode_rp_address", Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress))])
                     self._leafs = OrderedDict()
 
                     self.sparse_mode_rp_address = YList(self)
@@ -5126,7 +4990,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
@@ -5136,8 +5000,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rp_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rp_address', YLeaf(YType.str, 'rp-address')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -5223,7 +5086,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.InheritableDefaults, self).__init__()
@@ -5233,8 +5096,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('convergence_timeout', YLeaf(YType.uint32, 'convergence-timeout')),
                         ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
@@ -5274,7 +5136,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.Rpf, self).__init__()
@@ -5284,8 +5146,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('route_policy', YLeaf(YType.str, 'route-policy')),
                     ])
@@ -5322,7 +5183,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.SgExpiryTimer, self).__init__()
@@ -5332,8 +5193,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interval', YLeaf(YType.uint32, 'interval')),
                         ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -5375,7 +5235,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.RpfVectorEnable, self).__init__()
@@ -5385,8 +5245,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -5421,7 +5280,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.Nsf, self).__init__()
@@ -5431,8 +5290,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lifetime', YLeaf(YType.uint32, 'lifetime')),
                     ])
@@ -5555,7 +5413,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.Maximum, self).__init__()
@@ -5565,8 +5423,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("bsr-global-group-mappings", ("bsr_global_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings)), ("global-routes", ("global_routes", Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes)), ("global-group-mappings-auto-rp", ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp)), ("bsr-global-candidate-rp-cache", ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache)), ("global-register-states", ("global_register_states", Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates)), ("global-route-interfaces", ("global_route_interfaces", Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces)), ("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.DefaultContext.Ipv6.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.DefaultContext.Ipv6.Maximum.Routes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("bsr-global-group-mappings", ("bsr_global_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings)), ("global-routes", ("global_routes", Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes)), ("global-group-mappings-auto-rp", ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp)), ("bsr-global-candidate-rp-cache", ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache)), ("global-register-states", ("global_register_states", Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates)), ("global-route-interfaces", ("global_route_interfaces", Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces)), ("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.DefaultContext.Ipv6.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.DefaultContext.Ipv6.Maximum.Routes))])
                     self._leafs = OrderedDict([
                         ('global_low_priority_packet_queue', YLeaf(YType.uint32, 'global-low-priority-packet-queue')),
                         ('global_high_priority_packet_queue', YLeaf(YType.uint32, 'global-high-priority-packet-queue')),
@@ -5576,51 +5433,39 @@ class Pim(Entity):
 
                     self.bsr_global_group_mappings = None
                     self._children_name_map["bsr_global_group_mappings"] = "bsr-global-group-mappings"
-                    self._children_yang_names.add("bsr-global-group-mappings")
 
                     self.global_routes = None
                     self._children_name_map["global_routes"] = "global-routes"
-                    self._children_yang_names.add("global-routes")
 
                     self.global_group_mappings_auto_rp = None
                     self._children_name_map["global_group_mappings_auto_rp"] = "global-group-mappings-auto-rp"
-                    self._children_yang_names.add("global-group-mappings-auto-rp")
 
                     self.bsr_global_candidate_rp_cache = None
                     self._children_name_map["bsr_global_candidate_rp_cache"] = "bsr-global-candidate-rp-cache"
-                    self._children_yang_names.add("bsr-global-candidate-rp-cache")
 
                     self.global_register_states = None
                     self._children_name_map["global_register_states"] = "global-register-states"
-                    self._children_yang_names.add("global-register-states")
 
                     self.global_route_interfaces = None
                     self._children_name_map["global_route_interfaces"] = "global-route-interfaces"
-                    self._children_yang_names.add("global-route-interfaces")
 
                     self.group_mappings_auto_rp = None
                     self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
-                    self._children_yang_names.add("group-mappings-auto-rp")
 
                     self.bsr_group_mappings = None
                     self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
-                    self._children_yang_names.add("bsr-group-mappings")
 
                     self.register_states = None
                     self._children_name_map["register_states"] = "register-states"
-                    self._children_yang_names.add("register-states")
 
                     self.route_interfaces = None
                     self._children_name_map["route_interfaces"] = "route-interfaces"
-                    self._children_yang_names.add("route-interfaces")
 
                     self.bsr_candidate_rp_cache = None
                     self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
-                    self._children_yang_names.add("bsr-candidate-rp-cache")
 
                     self.routes = None
                     self._children_name_map["routes"] = "routes"
-                    self._children_yang_names.add("routes")
                     self._segment_path = lambda: "maximum"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
 
@@ -5658,7 +5503,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings, self).__init__()
@@ -5668,8 +5513,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('bsr_maximum_global_group_mappings', YLeaf(YType.uint32, 'bsr-maximum-global-group-mappings')),
@@ -5713,7 +5557,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, self).__init__()
@@ -5723,8 +5567,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
@@ -5769,7 +5612,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp, self).__init__()
@@ -5779,8 +5622,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_global_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-global-group-ranges-auto-rp')),
@@ -5825,7 +5667,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, self).__init__()
@@ -5835,8 +5677,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('bsr_maximum_global_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-global-candidate-rp-cache')),
@@ -5881,7 +5722,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates, self).__init__()
@@ -5891,8 +5732,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
@@ -5937,7 +5777,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces, self).__init__()
@@ -5947,8 +5787,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
@@ -5993,7 +5832,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp, self).__init__()
@@ -6003,8 +5842,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp')),
@@ -6049,7 +5887,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, self).__init__()
@@ -6059,8 +5897,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('bsr_maximum_group_ranges', YLeaf(YType.uint32, 'bsr-maximum-group-ranges')),
@@ -6105,7 +5942,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.RegisterStates, self).__init__()
@@ -6115,8 +5952,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
@@ -6161,7 +5997,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces, self).__init__()
@@ -6171,8 +6007,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
@@ -6217,7 +6052,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
@@ -6227,8 +6062,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('bsr_maximum_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache')),
@@ -6272,7 +6106,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Maximum.Routes, self).__init__()
@@ -6282,8 +6116,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
@@ -6321,7 +6154,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.Ssm, self).__init__()
@@ -6331,8 +6164,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('disable', YLeaf(YType.boolean, 'disable')),
                         ('range', YLeaf(YType.str, 'range')),
@@ -6360,7 +6192,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.BidirRpAddresses, self).__init__()
@@ -6370,8 +6202,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bidir-rp-address", ("bidir_rp_address", Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress))])
+                    self._child_classes = OrderedDict([("bidir-rp-address", ("bidir_rp_address", Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress))])
                     self._leafs = OrderedDict()
 
                     self.bidir_rp_address = YList(self)
@@ -6416,7 +6247,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
@@ -6426,8 +6257,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rp_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rp_address', YLeaf(YType.str, 'rp-address')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -6464,7 +6294,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.Bsr, self).__init__()
@@ -6474,20 +6304,20 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("candidate-bsr", ("candidate_bsr", Pim.DefaultContext.Ipv6.Bsr.CandidateBsr)), ("candidate-rps", ("candidate_rps", Pim.DefaultContext.Ipv6.Bsr.CandidateRps))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("candidate-bsr", ("candidate_bsr", Pim.DefaultContext.Ipv6.Bsr.CandidateBsr)), ("candidate-rps", ("candidate_rps", Pim.DefaultContext.Ipv6.Bsr.CandidateRps))])
                     self._leafs = OrderedDict()
 
                     self.candidate_bsr = None
                     self._children_name_map["candidate_bsr"] = "candidate-bsr"
-                    self._children_yang_names.add("candidate-bsr")
 
                     self.candidate_rps = Pim.DefaultContext.Ipv6.Bsr.CandidateRps()
                     self.candidate_rps.parent = self
                     self._children_name_map["candidate_rps"] = "candidate-rps"
-                    self._children_yang_names.add("candidate-rps")
                     self._segment_path = lambda: "bsr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr, [], name, value)
 
 
                 class CandidateBsr(Entity):
@@ -6528,7 +6358,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, self).__init__()
@@ -6538,8 +6368,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('address', YLeaf(YType.str, 'address')),
@@ -6570,7 +6399,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, self).__init__()
@@ -6580,8 +6409,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("candidate-rp", ("candidate_rp", Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp))])
+                        self._child_classes = OrderedDict([("candidate-rp", ("candidate_rp", Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp))])
                         self._leafs = OrderedDict()
 
                         self.candidate_rp = YList(self)
@@ -6644,7 +6472,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
@@ -6654,8 +6482,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['address','mode']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -6700,7 +6527,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.AllowRp, self).__init__()
@@ -6710,8 +6537,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('rp_list_name', YLeaf(YType.str, 'rp-list-name')),
@@ -6740,7 +6566,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, self).__init__()
@@ -6750,8 +6576,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("embedded-rp-address", ("embedded_rp_address", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress))])
+                    self._child_classes = OrderedDict([("embedded-rp-address", ("embedded_rp_address", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress))])
                     self._leafs = OrderedDict()
 
                     self.embedded_rp_address = YList(self)
@@ -6793,7 +6618,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
@@ -6803,8 +6628,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rp_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rp_address', YLeaf(YType.str, 'rp-address')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -6845,7 +6669,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv6.Convergence, self).__init__()
@@ -6855,8 +6679,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('rpf_conflict_join_delay', YLeaf(YType.uint32, 'rpf-conflict-join-delay')),
                         ('link_down_prune_delay', YLeaf(YType.uint32, 'link-down-prune-delay')),
@@ -7056,7 +6879,7 @@ class Pim(Entity):
             """
 
             _prefix = 'ipv4-pim-cfg'
-            _revision = '2017-05-22'
+            _revision = '2017-10-15'
 
             def __init__(self):
                 super(Pim.DefaultContext.Ipv4, self).__init__()
@@ -7066,8 +6889,7 @@ class Pim(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("rpf-redirect", ("rpf_redirect", Pim.DefaultContext.Ipv4.RpfRedirect)), ("interfaces", ("interfaces", Pim.DefaultContext.Ipv4.Interfaces)), ("auto-rp-candidate-rps", ("auto_rp_candidate_rps", Pim.DefaultContext.Ipv4.AutoRpCandidateRps)), ("auto-rp-mapping-agent", ("auto_rp_mapping_agent", Pim.DefaultContext.Ipv4.AutoRpMappingAgent)), ("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv4.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.DefaultContext.Ipv4.InheritableDefaults)), ("rpf", ("rpf", Pim.DefaultContext.Ipv4.Rpf)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.DefaultContext.Ipv4.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.DefaultContext.Ipv4.RpfVectorEnable)), ("nsf", ("nsf", Pim.DefaultContext.Ipv4.Nsf)), ("maximum", ("maximum", Pim.DefaultContext.Ipv4.Maximum)), ("ssm", ("ssm", Pim.DefaultContext.Ipv4.Ssm)), ("injects", ("injects", Pim.DefaultContext.Ipv4.Injects)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.DefaultContext.Ipv4.BidirRpAddresses)), ("bsr", ("bsr", Pim.DefaultContext.Ipv4.Bsr)), ("mofrr", ("mofrr", Pim.DefaultContext.Ipv4.Mofrr)), ("paths", ("paths", Pim.DefaultContext.Ipv4.Paths)), ("allow-rp", ("allow_rp", Pim.DefaultContext.Ipv4.AllowRp)), ("convergence", ("convergence", Pim.DefaultContext.Ipv4.Convergence))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("rpf-redirect", ("rpf_redirect", Pim.DefaultContext.Ipv4.RpfRedirect)), ("interfaces", ("interfaces", Pim.DefaultContext.Ipv4.Interfaces)), ("auto-rp-candidate-rps", ("auto_rp_candidate_rps", Pim.DefaultContext.Ipv4.AutoRpCandidateRps)), ("auto-rp-mapping-agent", ("auto_rp_mapping_agent", Pim.DefaultContext.Ipv4.AutoRpMappingAgent)), ("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv4.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.DefaultContext.Ipv4.InheritableDefaults)), ("rpf", ("rpf", Pim.DefaultContext.Ipv4.Rpf)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.DefaultContext.Ipv4.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.DefaultContext.Ipv4.RpfVectorEnable)), ("nsf", ("nsf", Pim.DefaultContext.Ipv4.Nsf)), ("maximum", ("maximum", Pim.DefaultContext.Ipv4.Maximum)), ("ssm", ("ssm", Pim.DefaultContext.Ipv4.Ssm)), ("injects", ("injects", Pim.DefaultContext.Ipv4.Injects)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.DefaultContext.Ipv4.BidirRpAddresses)), ("bsr", ("bsr", Pim.DefaultContext.Ipv4.Bsr)), ("mofrr", ("mofrr", Pim.DefaultContext.Ipv4.Mofrr)), ("paths", ("paths", Pim.DefaultContext.Ipv4.Paths)), ("allow-rp", ("allow_rp", Pim.DefaultContext.Ipv4.AllowRp)), ("convergence", ("convergence", Pim.DefaultContext.Ipv4.Convergence))])
                 self._leafs = OrderedDict([
                     ('neighbor_check_on_receive', YLeaf(YType.empty, 'neighbor-check-on-receive')),
                     ('old_register_checksum', YLeaf(YType.empty, 'old-register-checksum')),
@@ -7102,95 +6924,76 @@ class Pim(Entity):
                 self.rpf_redirect = Pim.DefaultContext.Ipv4.RpfRedirect()
                 self.rpf_redirect.parent = self
                 self._children_name_map["rpf_redirect"] = "rpf-redirect"
-                self._children_yang_names.add("rpf-redirect")
 
                 self.interfaces = Pim.DefaultContext.Ipv4.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.auto_rp_candidate_rps = Pim.DefaultContext.Ipv4.AutoRpCandidateRps()
                 self.auto_rp_candidate_rps.parent = self
                 self._children_name_map["auto_rp_candidate_rps"] = "auto-rp-candidate-rps"
-                self._children_yang_names.add("auto-rp-candidate-rps")
 
                 self.auto_rp_mapping_agent = Pim.DefaultContext.Ipv4.AutoRpMappingAgent()
                 self.auto_rp_mapping_agent.parent = self
                 self._children_name_map["auto_rp_mapping_agent"] = "auto-rp-mapping-agent"
-                self._children_yang_names.add("auto-rp-mapping-agent")
 
                 self.sparse_mode_rp_addresses = Pim.DefaultContext.Ipv4.SparseModeRpAddresses()
                 self.sparse_mode_rp_addresses.parent = self
                 self._children_name_map["sparse_mode_rp_addresses"] = "sparse-mode-rp-addresses"
-                self._children_yang_names.add("sparse-mode-rp-addresses")
 
                 self.inheritable_defaults = Pim.DefaultContext.Ipv4.InheritableDefaults()
                 self.inheritable_defaults.parent = self
                 self._children_name_map["inheritable_defaults"] = "inheritable-defaults"
-                self._children_yang_names.add("inheritable-defaults")
 
                 self.rpf = Pim.DefaultContext.Ipv4.Rpf()
                 self.rpf.parent = self
                 self._children_name_map["rpf"] = "rpf"
-                self._children_yang_names.add("rpf")
 
                 self.sg_expiry_timer = Pim.DefaultContext.Ipv4.SgExpiryTimer()
                 self.sg_expiry_timer.parent = self
                 self._children_name_map["sg_expiry_timer"] = "sg-expiry-timer"
-                self._children_yang_names.add("sg-expiry-timer")
 
                 self.rpf_vector_enable = None
                 self._children_name_map["rpf_vector_enable"] = "rpf-vector-enable"
-                self._children_yang_names.add("rpf-vector-enable")
 
                 self.nsf = Pim.DefaultContext.Ipv4.Nsf()
                 self.nsf.parent = self
                 self._children_name_map["nsf"] = "nsf"
-                self._children_yang_names.add("nsf")
 
                 self.maximum = Pim.DefaultContext.Ipv4.Maximum()
                 self.maximum.parent = self
                 self._children_name_map["maximum"] = "maximum"
-                self._children_yang_names.add("maximum")
 
                 self.ssm = Pim.DefaultContext.Ipv4.Ssm()
                 self.ssm.parent = self
                 self._children_name_map["ssm"] = "ssm"
-                self._children_yang_names.add("ssm")
 
                 self.injects = Pim.DefaultContext.Ipv4.Injects()
                 self.injects.parent = self
                 self._children_name_map["injects"] = "injects"
-                self._children_yang_names.add("injects")
 
                 self.bidir_rp_addresses = Pim.DefaultContext.Ipv4.BidirRpAddresses()
                 self.bidir_rp_addresses.parent = self
                 self._children_name_map["bidir_rp_addresses"] = "bidir-rp-addresses"
-                self._children_yang_names.add("bidir-rp-addresses")
 
                 self.bsr = Pim.DefaultContext.Ipv4.Bsr()
                 self.bsr.parent = self
                 self._children_name_map["bsr"] = "bsr"
-                self._children_yang_names.add("bsr")
 
                 self.mofrr = Pim.DefaultContext.Ipv4.Mofrr()
                 self.mofrr.parent = self
                 self._children_name_map["mofrr"] = "mofrr"
-                self._children_yang_names.add("mofrr")
 
                 self.paths = Pim.DefaultContext.Ipv4.Paths()
                 self.paths.parent = self
                 self._children_name_map["paths"] = "paths"
-                self._children_yang_names.add("paths")
 
                 self.allow_rp = None
                 self._children_name_map["allow_rp"] = "allow-rp"
-                self._children_yang_names.add("allow-rp")
 
                 self.convergence = Pim.DefaultContext.Ipv4.Convergence()
                 self.convergence.parent = self
                 self._children_name_map["convergence"] = "convergence"
-                self._children_yang_names.add("convergence")
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/%s" % self._segment_path()
 
@@ -7214,7 +7017,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.RpfRedirect, self).__init__()
@@ -7224,8 +7027,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('route_policy', YLeaf(YType.str, 'route-policy')),
                     ])
@@ -7251,7 +7053,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Interfaces, self).__init__()
@@ -7261,8 +7063,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Pim.DefaultContext.Ipv4.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Pim.DefaultContext.Ipv4.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -7380,7 +7181,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Interfaces.Interface, self).__init__()
@@ -7390,8 +7191,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("redirect-bundle", ("redirect_bundle", Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle)), ("maximum-routes", ("maximum_routes", Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("redirect-bundle", ("redirect_bundle", Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle)), ("maximum-routes", ("maximum_routes", Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -7420,16 +7220,13 @@ class Pim(Entity):
                         self.redirect_bundle = Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle()
                         self.redirect_bundle.parent = self
                         self._children_name_map["redirect_bundle"] = "redirect-bundle"
-                        self._children_yang_names.add("redirect-bundle")
 
                         self.maximum_routes = None
                         self._children_name_map["maximum_routes"] = "maximum-routes"
-                        self._children_yang_names.add("maximum-routes")
 
                         self.bfd = Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd()
                         self.bfd.parent = self
                         self._children_name_map["bfd"] = "bfd"
-                        self._children_yang_names.add("bfd")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/interfaces/%s" % self._segment_path()
 
@@ -7472,7 +7269,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, self).__init__()
@@ -7482,8 +7279,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('bundle_name', YLeaf(YType.str, 'bundle-name')),
                                 ('interface_bandwidth', YLeaf(YType.uint32, 'interface-bandwidth')),
@@ -7533,7 +7329,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
@@ -7543,8 +7339,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('maximum', YLeaf(YType.uint32, 'maximum')),
@@ -7590,7 +7385,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, self).__init__()
@@ -7600,8 +7395,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
                                 ('interval', YLeaf(YType.uint32, 'interval')),
@@ -7630,7 +7424,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, self).__init__()
@@ -7640,8 +7434,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("auto-rp-candidate-rp", ("auto_rp_candidate_rp", Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp))])
+                    self._child_classes = OrderedDict([("auto-rp-candidate-rp", ("auto_rp_candidate_rp", Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp))])
                     self._leafs = OrderedDict()
 
                     self.auto_rp_candidate_rp = YList(self)
@@ -7702,7 +7495,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, self).__init__()
@@ -7712,8 +7505,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name','protocol_mode']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
@@ -7756,7 +7548,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent, self).__init__()
@@ -7766,19 +7558,19 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("parameters", ("parameters", Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters)), ("cache-limit", ("cache_limit", Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("parameters", ("parameters", Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters)), ("cache-limit", ("cache_limit", Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit))])
                     self._leafs = OrderedDict()
 
                     self.parameters = None
                     self._children_name_map["parameters"] = "parameters"
-                    self._children_yang_names.add("parameters")
 
                     self.cache_limit = None
                     self._children_name_map["cache_limit"] = "cache-limit"
-                    self._children_yang_names.add("cache-limit")
                     self._segment_path = lambda: "auto-rp-mapping-agent"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent, [], name, value)
 
 
                 class Parameters(Entity):
@@ -7822,7 +7614,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, self).__init__()
@@ -7832,8 +7624,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -7879,7 +7670,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, self).__init__()
@@ -7889,8 +7680,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_cache_entry', YLeaf(YType.uint32, 'maximum-cache-entry')),
@@ -7919,7 +7709,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, self).__init__()
@@ -7929,8 +7719,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("sparse-mode-rp-address", ("sparse_mode_rp_address", Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress))])
+                    self._child_classes = OrderedDict([("sparse-mode-rp-address", ("sparse_mode_rp_address", Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress))])
                     self._leafs = OrderedDict()
 
                     self.sparse_mode_rp_address = YList(self)
@@ -7975,7 +7764,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
@@ -7985,8 +7774,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rp_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rp_address', YLeaf(YType.str, 'rp-address')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -8072,7 +7860,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.InheritableDefaults, self).__init__()
@@ -8082,8 +7870,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('convergence_timeout', YLeaf(YType.uint32, 'convergence-timeout')),
                         ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
@@ -8123,7 +7910,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Rpf, self).__init__()
@@ -8133,8 +7920,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('route_policy', YLeaf(YType.str, 'route-policy')),
                     ])
@@ -8171,7 +7957,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.SgExpiryTimer, self).__init__()
@@ -8181,8 +7967,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interval', YLeaf(YType.uint32, 'interval')),
                         ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -8224,7 +8009,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.RpfVectorEnable, self).__init__()
@@ -8234,8 +8019,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -8270,7 +8054,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Nsf, self).__init__()
@@ -8280,8 +8064,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lifetime', YLeaf(YType.uint32, 'lifetime')),
                     ])
@@ -8404,7 +8187,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Maximum, self).__init__()
@@ -8414,8 +8197,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("bsr-global-group-mappings", ("bsr_global_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings)), ("global-routes", ("global_routes", Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes)), ("global-group-mappings-auto-rp", ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp)), ("bsr-global-candidate-rp-cache", ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache)), ("global-register-states", ("global_register_states", Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates)), ("global-route-interfaces", ("global_route_interfaces", Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces)), ("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.DefaultContext.Ipv4.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.DefaultContext.Ipv4.Maximum.Routes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("bsr-global-group-mappings", ("bsr_global_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings)), ("global-routes", ("global_routes", Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes)), ("global-group-mappings-auto-rp", ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp)), ("bsr-global-candidate-rp-cache", ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache)), ("global-register-states", ("global_register_states", Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates)), ("global-route-interfaces", ("global_route_interfaces", Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces)), ("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.DefaultContext.Ipv4.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.DefaultContext.Ipv4.Maximum.Routes))])
                     self._leafs = OrderedDict([
                         ('global_low_priority_packet_queue', YLeaf(YType.uint32, 'global-low-priority-packet-queue')),
                         ('global_high_priority_packet_queue', YLeaf(YType.uint32, 'global-high-priority-packet-queue')),
@@ -8425,51 +8207,39 @@ class Pim(Entity):
 
                     self.bsr_global_group_mappings = None
                     self._children_name_map["bsr_global_group_mappings"] = "bsr-global-group-mappings"
-                    self._children_yang_names.add("bsr-global-group-mappings")
 
                     self.global_routes = None
                     self._children_name_map["global_routes"] = "global-routes"
-                    self._children_yang_names.add("global-routes")
 
                     self.global_group_mappings_auto_rp = None
                     self._children_name_map["global_group_mappings_auto_rp"] = "global-group-mappings-auto-rp"
-                    self._children_yang_names.add("global-group-mappings-auto-rp")
 
                     self.bsr_global_candidate_rp_cache = None
                     self._children_name_map["bsr_global_candidate_rp_cache"] = "bsr-global-candidate-rp-cache"
-                    self._children_yang_names.add("bsr-global-candidate-rp-cache")
 
                     self.global_register_states = None
                     self._children_name_map["global_register_states"] = "global-register-states"
-                    self._children_yang_names.add("global-register-states")
 
                     self.global_route_interfaces = None
                     self._children_name_map["global_route_interfaces"] = "global-route-interfaces"
-                    self._children_yang_names.add("global-route-interfaces")
 
                     self.group_mappings_auto_rp = None
                     self._children_name_map["group_mappings_auto_rp"] = "group-mappings-auto-rp"
-                    self._children_yang_names.add("group-mappings-auto-rp")
 
                     self.bsr_group_mappings = None
                     self._children_name_map["bsr_group_mappings"] = "bsr-group-mappings"
-                    self._children_yang_names.add("bsr-group-mappings")
 
                     self.register_states = None
                     self._children_name_map["register_states"] = "register-states"
-                    self._children_yang_names.add("register-states")
 
                     self.route_interfaces = None
                     self._children_name_map["route_interfaces"] = "route-interfaces"
-                    self._children_yang_names.add("route-interfaces")
 
                     self.bsr_candidate_rp_cache = None
                     self._children_name_map["bsr_candidate_rp_cache"] = "bsr-candidate-rp-cache"
-                    self._children_yang_names.add("bsr-candidate-rp-cache")
 
                     self.routes = None
                     self._children_name_map["routes"] = "routes"
-                    self._children_yang_names.add("routes")
                     self._segment_path = lambda: "maximum"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
 
@@ -8507,7 +8277,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, self).__init__()
@@ -8517,8 +8287,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('bsr_maximum_global_group_mappings', YLeaf(YType.uint32, 'bsr-maximum-global-group-mappings')),
@@ -8562,7 +8331,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, self).__init__()
@@ -8572,8 +8341,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
@@ -8618,7 +8386,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, self).__init__()
@@ -8628,8 +8396,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_global_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-global-group-ranges-auto-rp')),
@@ -8674,7 +8441,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, self).__init__()
@@ -8684,8 +8451,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('bsr_maximum_global_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-global-candidate-rp-cache')),
@@ -8730,7 +8496,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, self).__init__()
@@ -8740,8 +8506,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
@@ -8786,7 +8551,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, self).__init__()
@@ -8796,8 +8561,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
@@ -8842,7 +8606,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
@@ -8852,8 +8616,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp')),
@@ -8898,7 +8661,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, self).__init__()
@@ -8908,8 +8671,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('bsr_maximum_group_ranges', YLeaf(YType.uint32, 'bsr-maximum-group-ranges')),
@@ -8954,7 +8716,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, self).__init__()
@@ -8964,8 +8726,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
@@ -9010,7 +8771,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, self).__init__()
@@ -9020,8 +8781,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
@@ -9066,7 +8826,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
@@ -9076,8 +8836,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('bsr_maximum_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache')),
@@ -9121,7 +8880,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Maximum.Routes, self).__init__()
@@ -9131,8 +8890,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
@@ -9170,7 +8928,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Ssm, self).__init__()
@@ -9180,8 +8938,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('disable', YLeaf(YType.boolean, 'disable')),
                         ('range', YLeaf(YType.str, 'range')),
@@ -9209,7 +8966,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Injects, self).__init__()
@@ -9219,8 +8976,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("inject", ("inject", Pim.DefaultContext.Ipv4.Injects.Inject))])
+                    self._child_classes = OrderedDict([("inject", ("inject", Pim.DefaultContext.Ipv4.Injects.Inject))])
                     self._leafs = OrderedDict()
 
                     self.inject = YList(self)
@@ -9261,7 +9017,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Injects.Inject, self).__init__()
@@ -9271,8 +9027,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['source_address','prefix_length']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('source_address', YLeaf(YType.str, 'source-address')),
                             ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -9302,7 +9057,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.BidirRpAddresses, self).__init__()
@@ -9312,8 +9067,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bidir-rp-address", ("bidir_rp_address", Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress))])
+                    self._child_classes = OrderedDict([("bidir-rp-address", ("bidir_rp_address", Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress))])
                     self._leafs = OrderedDict()
 
                     self.bidir_rp_address = YList(self)
@@ -9358,7 +9112,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
@@ -9368,8 +9122,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rp_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rp_address', YLeaf(YType.str, 'rp-address')),
                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -9406,7 +9159,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Bsr, self).__init__()
@@ -9416,20 +9169,20 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("candidate-bsr", ("candidate_bsr", Pim.DefaultContext.Ipv4.Bsr.CandidateBsr)), ("candidate-rps", ("candidate_rps", Pim.DefaultContext.Ipv4.Bsr.CandidateRps))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("candidate-bsr", ("candidate_bsr", Pim.DefaultContext.Ipv4.Bsr.CandidateBsr)), ("candidate-rps", ("candidate_rps", Pim.DefaultContext.Ipv4.Bsr.CandidateRps))])
                     self._leafs = OrderedDict()
 
                     self.candidate_bsr = None
                     self._children_name_map["candidate_bsr"] = "candidate-bsr"
-                    self._children_yang_names.add("candidate-bsr")
 
                     self.candidate_rps = Pim.DefaultContext.Ipv4.Bsr.CandidateRps()
                     self.candidate_rps.parent = self
                     self._children_name_map["candidate_rps"] = "candidate-rps"
-                    self._children_yang_names.add("candidate-rps")
                     self._segment_path = lambda: "bsr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr, [], name, value)
 
 
                 class CandidateBsr(Entity):
@@ -9476,7 +9229,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, self).__init__()
@@ -9486,8 +9239,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('address', YLeaf(YType.str, 'address')),
@@ -9518,7 +9270,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, self).__init__()
@@ -9528,8 +9280,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("candidate-rp", ("candidate_rp", Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp))])
+                        self._child_classes = OrderedDict([("candidate-rp", ("candidate_rp", Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp))])
                         self._leafs = OrderedDict()
 
                         self.candidate_rp = YList(self)
@@ -9592,7 +9343,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
@@ -9602,8 +9353,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['address','mode']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -9666,7 +9416,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Mofrr, self).__init__()
@@ -9676,8 +9426,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("clone-joins", ("clone_joins", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins)), ("clone-sources", ("clone_sources", Pim.DefaultContext.Ipv4.Mofrr.CloneSources))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("clone-joins", ("clone_joins", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins)), ("clone-sources", ("clone_sources", Pim.DefaultContext.Ipv4.Mofrr.CloneSources))])
                     self._leafs = OrderedDict([
                         ('rib', YLeaf(YType.str, 'rib')),
                         ('non_revertive', YLeaf(YType.empty, 'non-revertive')),
@@ -9692,12 +9441,10 @@ class Pim(Entity):
                     self.clone_joins = Pim.DefaultContext.Ipv4.Mofrr.CloneJoins()
                     self.clone_joins.parent = self
                     self._children_name_map["clone_joins"] = "clone-joins"
-                    self._children_yang_names.add("clone-joins")
 
                     self.clone_sources = Pim.DefaultContext.Ipv4.Mofrr.CloneSources()
                     self.clone_sources.parent = self
                     self._children_name_map["clone_sources"] = "clone-sources"
-                    self._children_yang_names.add("clone-sources")
                     self._segment_path = lambda: "mofrr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
 
@@ -9719,7 +9466,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, self).__init__()
@@ -9729,8 +9476,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("clone-join", ("clone_join", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin))])
+                        self._child_classes = OrderedDict([("clone-join", ("clone_join", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin))])
                         self._leafs = OrderedDict()
 
                         self.clone_join = YList(self)
@@ -9778,7 +9524,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
@@ -9788,8 +9534,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['source','primary','backup','prefix_length']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('source', YLeaf(YType.str, 'source')),
                                 ('primary', YLeaf(YType.str, 'primary')),
@@ -9821,7 +9566,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, self).__init__()
@@ -9831,8 +9576,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("clone-source", ("clone_source", Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource))])
+                        self._child_classes = OrderedDict([("clone-source", ("clone_source", Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource))])
                         self._leafs = OrderedDict()
 
                         self.clone_source = YList(self)
@@ -9881,7 +9625,7 @@ class Pim(Entity):
                         """
 
                         _prefix = 'ipv4-pim-cfg'
-                        _revision = '2017-05-22'
+                        _revision = '2017-10-15'
 
                         def __init__(self):
                             super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
@@ -9891,8 +9635,7 @@ class Pim(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['source','primary','backup','prefix_length']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('source', YLeaf(YType.str, 'source')),
                                 ('primary', YLeaf(YType.str, 'primary')),
@@ -9924,7 +9667,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Paths, self).__init__()
@@ -9934,8 +9677,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("path", ("path", Pim.DefaultContext.Ipv4.Paths.Path))])
+                    self._child_classes = OrderedDict([("path", ("path", Pim.DefaultContext.Ipv4.Paths.Path))])
                     self._leafs = OrderedDict()
 
                     self.path = YList(self)
@@ -9976,7 +9718,7 @@ class Pim(Entity):
                     """
 
                     _prefix = 'ipv4-pim-cfg'
-                    _revision = '2017-05-22'
+                    _revision = '2017-10-15'
 
                     def __init__(self):
                         super(Pim.DefaultContext.Ipv4.Paths.Path, self).__init__()
@@ -9986,8 +9728,7 @@ class Pim(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['source_address','prefix_length']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('source_address', YLeaf(YType.str, 'source-address')),
                             ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -10028,7 +9769,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.AllowRp, self).__init__()
@@ -10038,8 +9779,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('rp_list_name', YLeaf(YType.str, 'rp-list-name')),
@@ -10081,7 +9821,7 @@ class Pim(Entity):
                 """
 
                 _prefix = 'ipv4-pim-cfg'
-                _revision = '2017-05-22'
+                _revision = '2017-10-15'
 
                 def __init__(self):
                     super(Pim.DefaultContext.Ipv4.Convergence, self).__init__()
@@ -10091,8 +9831,7 @@ class Pim(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('rpf_conflict_join_delay', YLeaf(YType.uint32, 'rpf-conflict-join-delay')),
                         ('link_down_prune_delay', YLeaf(YType.uint32, 'link-down-prune-delay')),

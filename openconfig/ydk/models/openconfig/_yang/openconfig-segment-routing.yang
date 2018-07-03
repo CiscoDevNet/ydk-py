@@ -1,6 +1,6 @@
 module openconfig-segment-routing {
   yang-version 1;
-  namespace "http://openconfig.net/yang/ocsr";
+  namespace "http://openconfig.net/yang/sr";
   prefix oc-sr;
 
   import openconfig-extensions {

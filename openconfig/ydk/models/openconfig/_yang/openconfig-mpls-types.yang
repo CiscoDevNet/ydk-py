@@ -1,7 +1,7 @@
 module openconfig-mpls-types {
   yang-version 1;
   namespace "http://openconfig.net/yang/mpls-types";
-  prefix mplst;
+  prefix oc-mpls-types;
 
   import openconfig-extensions {
     prefix oc-ext;
@@ -15,165 +15,241 @@ module openconfig-mpls-types {
   description
     "General types for MPLS / TE data model";
 
-  revision 2015-11-05 {
+  revision 2017-06-21 {
     description
-      "Initial public release of MPLS models";
-    reference "0.2.1";
+      "Add TC bits typedef.";
+    reference "2.4.0";
   }
-  revision 2015-10-14 {
+  revision 2017-03-22 {
     description
-      "Work in progress";
-    reference "0.2.0";
+      "Add RSVP calculated-absolute-subscription-bw";
+    reference "2.3.0";
   }
-
-  identity path-setup-protocol {
+  revision 2017-01-26 {
     description
-      "base identity for supported MPLS signaling
-       protocols";
+      "Add RSVP Tspec, clarify units for RSVP, remove unused LDP";
+    reference "2.2.0";
   }
-
-  identity path-setup-rsvp {
-    base path-setup-protocol;
+  revision 2016-12-15 {
     description
-      "RSVP-TE signaling protocol";
+      "Add additional MPLS parameters";
+    reference "2.1.0";
   }
-
-  identity path-setup-sr {
-    base path-setup-protocol;
+  revision 2016-09-01 {
     description
-      "Segment routing";
+      "Revisions based on implementation feedback";
+    reference "2.0.0";
   }
-
-  identity path-setup-ldp {
-    base path-setup-protocol;
+  revision 2016-08-08 {
     description
-      "LDP - RFC 5036";
+      "Public release of MPLS models";
+    reference "1.0.1";
   }
 
-  identity protection-type {
+  identity PATH_COMPUTATION_METHOD {
     description
-      "base identity for protection type";
+      "base identity for supported path computation
+       mechanisms";
   }
 
-  identity unprotected {
-    base protection-type;
+  identity LOCALLY_COMPUTED {
+    base PATH_COMPUTATION_METHOD;
     description
-      "no protection is desired";
+      "indicates a constrained-path LSP in which the
+       path is computed by the local LER";
   }
 
-  identity link-protection-requested {
-    base protection-type;
+  identity EXTERNALLY_QUERIED {
+    base PATH_COMPUTATION_METHOD;
     description
-      "link protection is desired";
+      "Constrained-path LSP in which the path is
+       obtained by querying an external source, such as a PCE server.
+       In the case that an LSP is defined to be externally queried, it may
+       also have associated explicit definitions (which are provided to the
+       external source to aid computation); and the path that is returned by
+       the external source is not required to provide a wholly resolved
+       path back to the originating system - that is to say, some local
+       computation may also be required";
   }
 
-  identity link-node-protection-requested {
-    base protection-type;
+  identity EXPLICITLY_DEFINED {
+    base PATH_COMPUTATION_METHOD;
     description
-      "node and link protection are both desired";
-  }
-
-  identity lsp-role {
-    description
-      "Base identity for describing the role of
-       label switched path at the current node";
-  }
-
-  identity INGRESS {
-    base lsp-role;
-    description
-      "Label switched path is an ingress (headend)
-       LSP";
-  }
-
-  identity EGRESS {
-    base lsp-role;
-    description
-      "Label switched path is an egress (tailend)
-       LSP";
-  }
-
-  identity TRANSIT {
-    base lsp-role;
-    description
-      "Label switched path is a transit LSP";
-  }
-
-  identity tunnel-type {
-    description
-      "Base identity from which specific tunnel types are
-       derived.";
-  }
-
-  identity P2P {
-    base tunnel-type;
-    description
-      "TE point-to-point tunnel type.";
-  }
-
-  identity P2MP {
-    base tunnel-type;
-    description
-      "TE point-to-multipoint tunnel type.";
-  }
-
-  identity lsp-oper-status {
-    description
-      "Base identity for LSP operational status";
-  }
-
-  identity DOWN {
-    base lsp-oper-status;
-    description
-      "LSP is operationally down or out of service";
-  }
-
-  identity UP {
-    base lsp-oper-status;
-    description
-      "LSP is operationally active and available
-       for traffic.";
-  }
-
-  identity tunnel-admin-status {
-    description
-      "Base identity for tunnel administrative status";
-  }
-
-  identity ADMIN_DOWN {
-    base tunnel-admin-status;
-    description
-      "LSP is administratively down";
-  }
-
-  identity ADMIN_UP {
-    base tunnel-admin-status;
-    description
-      "LSP is administratively up";
-  }
-
-  identity null-label-type {
-    description
-      "Base identity from which specific null-label types are
-       derived.";
-  }
-
-  identity EXPLICIT {
-    base null-label-type;
-    description
-      "Explicit null label is used.";
-  }
-
-  identity IMPLICIT {
-    base null-label-type;
-    description
-      "Implicit null label is used.";
+      "constrained-path LSP in which the path is
+       explicitly specified as a collection of strict or/and loose
+       hops";
   }
 
   identity PATH_SETUP_PROTOCOL {
     description
       "base identity for supported MPLS signaling
        protocols";
+  }
+
+  identity PATH_SETUP_RSVP {
+    base PATH_SETUP_PROTOCOL;
+    description
+      "RSVP-TE signaling protocol";
+  }
+
+  identity PATH_SETUP_SR {
+    base PATH_SETUP_PROTOCOL;
+    description
+      "Segment routing";
+  }
+
+  identity PATH_SETUP_LDP {
+    base PATH_SETUP_PROTOCOL;
+    description
+      "LDP - RFC 5036";
+  }
+
+  identity PROTECTION_TYPE {
+    description
+      "base identity for protection type";
+  }
+
+  identity UNPROTECTED {
+    base PROTECTION_TYPE;
+    description
+      "no protection is desired";
+  }
+
+  identity LINK_PROTECTION_REQUIRED {
+    base PROTECTION_TYPE;
+    description
+      "link protection is desired";
+  }
+
+  identity LINK_NODE_PROTECTION_REQUESTED {
+    base PROTECTION_TYPE;
+    description
+      "node and link protection are both desired";
+  }
+
+  identity LSP_ROLE {
+    description
+      "Base identity for describing the role of
+       label switched path at the current node";
+  }
+
+  identity INGRESS {
+    base LSP_ROLE;
+    description
+      "Label switched path is an ingress (headend)
+       LSP";
+  }
+
+  identity EGRESS {
+    base LSP_ROLE;
+    description
+      "Label switched path is an egress (tailend)
+       LSP";
+  }
+
+  identity TRANSIT {
+    base LSP_ROLE;
+    description
+      "Label switched path is a transit LSP";
+  }
+
+  identity TUNNEL_TYPE {
+    description
+      "Base identity from which specific tunnel types are
+       derived.";
+  }
+
+  identity P2P {
+    base TUNNEL_TYPE;
+    description
+      "TE point-to-point tunnel type.";
+  }
+
+  identity P2MP {
+    base TUNNEL_TYPE;
+    description
+      "TE point-to-multipoint tunnel type.";
+  }
+
+  identity LSP_OPER_STATUS {
+    description
+      "Base identity for LSP operational status";
+  }
+
+  identity DOWN {
+    base LSP_OPER_STATUS;
+    description
+      "LSP is operationally down or out of service";
+  }
+
+  identity UP {
+    base LSP_OPER_STATUS;
+    description
+      "LSP is operationally active and available
+       for traffic.";
+  }
+
+  identity TUNNEL_ADMIN_STATUS {
+    description
+      "Base identity for tunnel administrative status";
+  }
+
+  identity ADMIN_DOWN {
+    base TUNNEL_ADMIN_STATUS;
+    description
+      "LSP is administratively down";
+  }
+
+  identity ADMIN_UP {
+    base TUNNEL_ADMIN_STATUS;
+    description
+      "LSP is administratively up";
+  }
+
+  identity NULL_LABEL_TYPE {
+    description
+      "Base identity from which specific null-label types are
+       derived.";
+  }
+
+  identity EXPLICIT {
+    base NULL_LABEL_TYPE;
+    description
+      "Explicit null label is used.";
+  }
+
+  identity IMPLICIT {
+    base NULL_LABEL_TYPE;
+    description
+      "Implicit null label is used.";
+  }
+
+  identity LSP_METRIC_TYPE {
+    description
+      "Base identity for types of LSP metric specification";
+  }
+
+  identity LSP_METRIC_RELATIVE {
+    base LSP_METRIC_TYPE;
+    description
+      "The metric specified for the LSPs to which this identity refers
+       is specified as a relative value to the IGP metric cost to the
+       LSP's tail-end.";
+  }
+
+  identity LSP_METRIC_ABSOLUTE {
+    base LSP_METRIC_TYPE;
+    description
+      "The metric specified for the LSPs to which this identity refers
+       is specified as an absolute value";
+  }
+
+  identity LSP_METRIC_INHERITED {
+    base LSP_METRIC_TYPE;
+    description
+      "The metric for for the LSPs to which this identity refers is
+       not specified explicitly - but rather inherited from the IGP
+       cost directly";
   }
 
   typedef mpls-label {
@@ -216,6 +292,13 @@ module openconfig-mpls-types {
              to distinguish between entropy label and applicaiton
              labels RFC 6790";
         }
+        enum "NO_LABEL" {
+          description
+            "This value is utilised to indicate that the packet that
+             is forwarded by the local system does not have an MPLS
+             header applied to it. Typically, this is used at the
+             egress of an LSP";
+        }
       }
     }
     description
@@ -251,23 +334,32 @@ module openconfig-mpls-types {
 
   typedef bandwidth-kbps {
     type uint64;
-    units "kbps";
+    units "Kbps";
     description
       "Bandwidth values expressed in kilobits per second";
   }
 
   typedef bandwidth-mbps {
     type uint64;
-    units "mbps";
+    units "Mbps";
     description
       "Bandwidth values expressed in megabits per second";
   }
 
   typedef bandwidth-gbps {
     type uint64;
-    units "gbps";
+    units "Gbps";
     description
       "Bandwidth values expressed in gigabits per second";
   }
-  oc-ext:openconfig-version "0.2.1";
+
+  typedef mpls-tc {
+    type uint8 {
+      range "0..7";
+    }
+    description
+      "Values of the MPLS Traffic Class (formerly known as
+       Experimental, EXP) bits";
+  }
+  oc-ext:openconfig-version "2.4.0";
 }

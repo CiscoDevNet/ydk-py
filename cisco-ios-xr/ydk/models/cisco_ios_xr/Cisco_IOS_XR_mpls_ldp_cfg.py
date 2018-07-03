@@ -329,12 +329,16 @@ class MplsLdp(Entity):
     	Enable Label Distribution Protocol (LDP) globally.Without creating this object the LDP feature will not be enabled. Deleting this object will stop the LDP feature
     	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
+    	**mandatory**\: True
     
+    
+
+    This class is a :ref:`presence class<presence-class>`
 
     """
 
     _prefix = 'mpls-ldp-cfg'
-    _revision = '2017-06-26'
+    _revision = '2017-09-30'
 
     def __init__(self):
         super(MplsLdp, self).__init__()
@@ -345,8 +349,8 @@ class MplsLdp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("default-vrf", ("default_vrf", MplsLdp.DefaultVrf)), ("vrfs", ("vrfs", MplsLdp.Vrfs)), ("global", ("global_", MplsLdp.Global))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("default-vrf", ("default_vrf", MplsLdp.DefaultVrf)), ("vrfs", ("vrfs", MplsLdp.Vrfs)), ("global", ("global_", MplsLdp.Global))])
+        self.is_presence_container = True
         self._leafs = OrderedDict([
             ('enable', YLeaf(YType.empty, 'enable')),
         ])
@@ -355,17 +359,14 @@ class MplsLdp(Entity):
         self.default_vrf = MplsLdp.DefaultVrf()
         self.default_vrf.parent = self
         self._children_name_map["default_vrf"] = "default-vrf"
-        self._children_yang_names.add("default-vrf")
 
         self.vrfs = MplsLdp.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
 
         self.global_ = MplsLdp.Global()
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
-        self._children_yang_names.add("global")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp"
 
     def __setattr__(self, name, value):
@@ -396,7 +397,7 @@ class MplsLdp(Entity):
         """
 
         _prefix = 'mpls-ldp-cfg'
-        _revision = '2017-06-26'
+        _revision = '2017-09-30'
 
         def __init__(self):
             super(MplsLdp.DefaultVrf, self).__init__()
@@ -406,26 +407,25 @@ class MplsLdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("afs", ("afs", MplsLdp.DefaultVrf.Afs)), ("global", ("global_", MplsLdp.DefaultVrf.Global)), ("interfaces", ("interfaces", MplsLdp.DefaultVrf.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("afs", ("afs", MplsLdp.DefaultVrf.Afs)), ("global", ("global_", MplsLdp.DefaultVrf.Global)), ("interfaces", ("interfaces", MplsLdp.DefaultVrf.Interfaces))])
             self._leafs = OrderedDict()
 
             self.afs = MplsLdp.DefaultVrf.Afs()
             self.afs.parent = self
             self._children_name_map["afs"] = "afs"
-            self._children_yang_names.add("afs")
 
             self.global_ = MplsLdp.DefaultVrf.Global()
             self.global_.parent = self
             self._children_name_map["global_"] = "global"
-            self._children_yang_names.add("global")
 
             self.interfaces = MplsLdp.DefaultVrf.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "default-vrf"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsLdp.DefaultVrf, [], name, value)
 
 
         class Afs(Entity):
@@ -443,7 +443,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.DefaultVrf.Afs, self).__init__()
@@ -453,8 +453,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("af", ("af", MplsLdp.DefaultVrf.Afs.Af))])
+                self._child_classes = OrderedDict([("af", ("af", MplsLdp.DefaultVrf.Afs.Af))])
                 self._leafs = OrderedDict()
 
                 self.af = YList(self)
@@ -509,7 +508,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Afs.Af, self).__init__()
@@ -519,8 +518,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['af_name']
-                    self._child_container_classes = OrderedDict([("label", ("label", MplsLdp.DefaultVrf.Afs.Af.Label)), ("discovery", ("discovery", MplsLdp.DefaultVrf.Afs.Af.Discovery)), ("traffic-engineering", ("traffic_engineering", MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering)), ("neighbor", ("neighbor", MplsLdp.DefaultVrf.Afs.Af.Neighbor)), ("redistribution-protocol", ("redistribution_protocol", MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("label", ("label", MplsLdp.DefaultVrf.Afs.Af.Label)), ("discovery", ("discovery", MplsLdp.DefaultVrf.Afs.Af.Discovery)), ("traffic-engineering", ("traffic_engineering", MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering)), ("neighbor", ("neighbor", MplsLdp.DefaultVrf.Afs.Af.Neighbor)), ("redistribution-protocol", ("redistribution_protocol", MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol))])
                     self._leafs = OrderedDict([
                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -531,27 +529,22 @@ class MplsLdp(Entity):
                     self.label = MplsLdp.DefaultVrf.Afs.Af.Label()
                     self.label.parent = self
                     self._children_name_map["label"] = "label"
-                    self._children_yang_names.add("label")
 
                     self.discovery = MplsLdp.DefaultVrf.Afs.Af.Discovery()
                     self.discovery.parent = self
                     self._children_name_map["discovery"] = "discovery"
-                    self._children_yang_names.add("discovery")
 
                     self.traffic_engineering = MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering()
                     self.traffic_engineering.parent = self
                     self._children_name_map["traffic_engineering"] = "traffic-engineering"
-                    self._children_yang_names.add("traffic-engineering")
 
                     self.neighbor = MplsLdp.DefaultVrf.Afs.Af.Neighbor()
                     self.neighbor.parent = self
                     self._children_name_map["neighbor"] = "neighbor"
-                    self._children_yang_names.add("neighbor")
 
                     self.redistribution_protocol = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol()
                     self.redistribution_protocol.parent = self
                     self._children_name_map["redistribution_protocol"] = "redistribution-protocol"
-                    self._children_yang_names.add("redistribution-protocol")
                     self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/%s" % self._segment_path()
 
@@ -578,7 +571,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.Label, self).__init__()
@@ -588,20 +581,20 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("remote", ("remote", MplsLdp.DefaultVrf.Afs.Af.Label.Remote)), ("local", ("local", MplsLdp.DefaultVrf.Afs.Af.Label.Local))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("remote", ("remote", MplsLdp.DefaultVrf.Afs.Af.Label.Remote)), ("local", ("local", MplsLdp.DefaultVrf.Afs.Af.Label.Local))])
                         self._leafs = OrderedDict()
 
                         self.remote = MplsLdp.DefaultVrf.Afs.Af.Label.Remote()
                         self.remote.parent = self
                         self._children_name_map["remote"] = "remote"
-                        self._children_yang_names.add("remote")
 
                         self.local = MplsLdp.DefaultVrf.Afs.Af.Label.Local()
                         self.local.parent = self
                         self._children_name_map["local"] = "local"
-                        self._children_yang_names.add("local")
                         self._segment_path = lambda: "label"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label, [], name, value)
 
 
                     class Remote(Entity):
@@ -619,7 +612,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote, self).__init__()
@@ -629,15 +622,16 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("accept", ("accept", MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("accept", ("accept", MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept))])
                             self._leafs = OrderedDict()
 
                             self.accept = MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept()
                             self.accept.parent = self
                             self._children_name_map["accept"] = "accept"
-                            self._children_yang_names.add("accept")
                             self._segment_path = lambda: "remote"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Remote, [], name, value)
 
 
                         class Accept(Entity):
@@ -654,7 +648,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept, self).__init__()
@@ -664,15 +658,16 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-accept-policies", ("peer_accept_policies", MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-accept-policies", ("peer_accept_policies", MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_accept_policies = MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies()
                                 self.peer_accept_policies.parent = self
                                 self._children_name_map["peer_accept_policies"] = "peer-accept-policies"
-                                self._children_yang_names.add("peer-accept-policies")
                                 self._segment_path = lambda: "accept"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept, [], name, value)
 
 
                             class PeerAcceptPolicies(Entity):
@@ -690,7 +685,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, self).__init__()
@@ -700,8 +695,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("peer-accept-policy", ("peer_accept_policy", MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy))])
+                                    self._child_classes = OrderedDict([("peer-accept-policy", ("peer_accept_policy", MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy))])
                                     self._leafs = OrderedDict()
 
                                     self.peer_accept_policy = YList(self)
@@ -742,7 +736,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, self).__init__()
@@ -752,8 +746,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['lsr_id','label_space_id']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                             ('label_space_id', YLeaf(YType.uint32, 'label-space-id')),
@@ -797,7 +790,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.Label.Local, self).__init__()
@@ -807,8 +800,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("advertise", ("advertise", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise)), ("allocate", ("allocate", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("advertise", ("advertise", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise)), ("allocate", ("allocate", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate))])
                             self._leafs = OrderedDict([
                                 ('implicit_null_override', YLeaf(YType.str, 'implicit-null-override')),
                                 ('default_route', YLeaf(YType.empty, 'default-route')),
@@ -819,12 +811,10 @@ class MplsLdp(Entity):
                             self.advertise = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise()
                             self.advertise.parent = self
                             self._children_name_map["advertise"] = "advertise"
-                            self._children_yang_names.add("advertise")
 
                             self.allocate = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate()
                             self.allocate.parent = self
                             self._children_name_map["allocate"] = "allocate"
-                            self._children_yang_names.add("allocate")
                             self._segment_path = lambda: "local"
 
                         def __setattr__(self, name, value):
@@ -865,7 +855,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise, self).__init__()
@@ -875,8 +865,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-advertise-policies", ("peer_advertise_policies", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies)), ("prefix-advertise-policies", ("prefix_advertise_policies", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies)), ("explicit-null", ("explicit_null", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull)), ("interfaces", ("interfaces", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-advertise-policies", ("peer_advertise_policies", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies)), ("prefix-advertise-policies", ("prefix_advertise_policies", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies)), ("explicit-null", ("explicit_null", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull)), ("interfaces", ("interfaces", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces))])
                                 self._leafs = OrderedDict([
                                     ('disable', YLeaf(YType.empty, 'disable')),
                                 ])
@@ -885,22 +874,18 @@ class MplsLdp(Entity):
                                 self.peer_advertise_policies = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies()
                                 self.peer_advertise_policies.parent = self
                                 self._children_name_map["peer_advertise_policies"] = "peer-advertise-policies"
-                                self._children_yang_names.add("peer-advertise-policies")
 
                                 self.prefix_advertise_policies = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies()
                                 self.prefix_advertise_policies.parent = self
                                 self._children_name_map["prefix_advertise_policies"] = "prefix-advertise-policies"
-                                self._children_yang_names.add("prefix-advertise-policies")
 
                                 self.explicit_null = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull()
                                 self.explicit_null.parent = self
                                 self._children_name_map["explicit_null"] = "explicit-null"
-                                self._children_yang_names.add("explicit-null")
 
                                 self.interfaces = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces()
                                 self.interfaces.parent = self
                                 self._children_name_map["interfaces"] = "interfaces"
-                                self._children_yang_names.add("interfaces")
                                 self._segment_path = lambda: "advertise"
 
                             def __setattr__(self, name, value):
@@ -922,7 +907,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, self).__init__()
@@ -932,8 +917,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("peer-advertise-policy", ("peer_advertise_policy", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy))])
+                                    self._child_classes = OrderedDict([("peer-advertise-policy", ("peer_advertise_policy", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy))])
                                     self._leafs = OrderedDict()
 
                                     self.peer_advertise_policy = YList(self)
@@ -974,7 +958,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, self).__init__()
@@ -984,8 +968,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['lsr_id','label_space_id']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                             ('label_space_id', YLeaf(YType.uint32, 'label-space-id')),
@@ -1015,7 +998,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies, self).__init__()
@@ -1025,8 +1008,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("prefix-advertise-policy", ("prefix_advertise_policy", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy))])
+                                    self._child_classes = OrderedDict([("prefix-advertise-policy", ("prefix_advertise_policy", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy))])
                                     self._leafs = OrderedDict()
 
                                     self.prefix_advertise_policy = YList(self)
@@ -1063,7 +1045,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy, self).__init__()
@@ -1073,8 +1055,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['prefix_acl_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
                                             ('advertise_type', YLeaf(YType.enumeration, 'advertise-type')),
@@ -1114,7 +1095,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull, self).__init__()
@@ -1124,8 +1105,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('explicit_null_type', YLeaf(YType.enumeration, 'explicit-null-type')),
                                         ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
@@ -1155,7 +1135,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces, self).__init__()
@@ -1165,8 +1145,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("interface", ("interface", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface))])
+                                    self._child_classes = OrderedDict([("interface", ("interface", MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface))])
                                     self._leafs = OrderedDict()
 
                                     self.interface = YList(self)
@@ -1193,7 +1172,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, self).__init__()
@@ -1203,8 +1182,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ])
@@ -1235,7 +1213,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate, self).__init__()
@@ -1245,8 +1223,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('allocation_type', YLeaf(YType.enumeration, 'allocation-type')),
                                     ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
@@ -1286,7 +1263,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.Discovery, self).__init__()
@@ -1296,8 +1273,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("targeted-hello-accept", ("targeted_hello_accept", MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("targeted-hello-accept", ("targeted_hello_accept", MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept))])
                         self._leafs = OrderedDict([
                             ('transport_address', YLeaf(YType.str, 'transport-address')),
                         ])
@@ -1306,7 +1282,6 @@ class MplsLdp(Entity):
                         self.targeted_hello_accept = MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept()
                         self.targeted_hello_accept.parent = self
                         self._children_name_map["targeted_hello_accept"] = "targeted-hello-accept"
-                        self._children_yang_names.add("targeted-hello-accept")
                         self._segment_path = lambda: "discovery"
 
                     def __setattr__(self, name, value):
@@ -1333,7 +1308,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept, self).__init__()
@@ -1343,8 +1318,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('accept_type', YLeaf(YType.enumeration, 'accept-type')),
                                 ('peer_acl_name', YLeaf(YType.str, 'peer-acl-name')),
@@ -1371,7 +1345,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering, self).__init__()
@@ -1381,15 +1355,16 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("auto-tunnel-mesh", ("auto_tunnel_mesh", MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("auto-tunnel-mesh", ("auto_tunnel_mesh", MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh))])
                         self._leafs = OrderedDict()
 
                         self.auto_tunnel_mesh = MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh()
                         self.auto_tunnel_mesh.parent = self
                         self._children_name_map["auto_tunnel_mesh"] = "auto-tunnel-mesh"
-                        self._children_yang_names.add("auto-tunnel-mesh")
                         self._segment_path = lambda: "traffic-engineering"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering, [], name, value)
 
 
                     class AutoTunnelMesh(Entity):
@@ -1412,7 +1387,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh, self).__init__()
@@ -1422,8 +1397,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("group-ids", ("group_ids", MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("group-ids", ("group_ids", MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds))])
                             self._leafs = OrderedDict([
                                 ('group_all', YLeaf(YType.empty, 'group-all')),
                             ])
@@ -1432,7 +1406,6 @@ class MplsLdp(Entity):
                             self.group_ids = MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds()
                             self.group_ids.parent = self
                             self._children_name_map["group_ids"] = "group-ids"
-                            self._children_yang_names.add("group-ids")
                             self._segment_path = lambda: "auto-tunnel-mesh"
 
                         def __setattr__(self, name, value):
@@ -1454,7 +1427,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds, self).__init__()
@@ -1464,8 +1437,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("group-id", ("group_id", MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId))])
+                                self._child_classes = OrderedDict([("group-id", ("group_id", MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId))])
                                 self._leafs = OrderedDict()
 
                                 self.group_id = YList(self)
@@ -1491,7 +1463,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId, self).__init__()
@@ -1501,8 +1473,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['mesh_group_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('mesh_group_id', YLeaf(YType.uint32, 'mesh-group-id')),
                                     ])
@@ -1527,7 +1498,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.Neighbor, self).__init__()
@@ -1537,15 +1508,16 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("addresses", ("addresses", MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("addresses", ("addresses", MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses))])
                         self._leafs = OrderedDict()
 
                         self.addresses = MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses()
                         self.addresses.parent = self
                         self._children_name_map["addresses"] = "addresses"
-                        self._children_yang_names.add("addresses")
                         self._segment_path = lambda: "neighbor"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor, [], name, value)
 
 
                     class Addresses(Entity):
@@ -1563,7 +1535,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses, self).__init__()
@@ -1573,8 +1545,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("address", ("address", MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address))])
+                            self._child_classes = OrderedDict([("address", ("address", MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = YList(self)
@@ -1612,7 +1583,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address, self).__init__()
@@ -1622,8 +1593,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['ip_address']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip_address', YLeaf(YType.str, 'ip-address')),
                                     ('targeted', YLeaf(YType.empty, 'targeted')),
@@ -1651,7 +1621,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol, self).__init__()
@@ -1661,15 +1631,16 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("bgp", ("bgp", MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("bgp", ("bgp", MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp))])
                         self._leafs = OrderedDict()
 
                         self.bgp = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp()
                         self.bgp.parent = self
                         self._children_name_map["bgp"] = "bgp"
-                        self._children_yang_names.add("bgp")
                         self._segment_path = lambda: "redistribution-protocol"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol, [], name, value)
 
 
                     class Bgp(Entity):
@@ -1692,7 +1663,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp, self).__init__()
@@ -1702,20 +1673,20 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("as", ("as_", MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As)), ("advertise-to", ("advertise_to", MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("as", ("as_", MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As)), ("advertise-to", ("advertise_to", MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo))])
                             self._leafs = OrderedDict()
 
                             self.as_ = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As()
                             self.as_.parent = self
                             self._children_name_map["as_"] = "as"
-                            self._children_yang_names.add("as")
 
                             self.advertise_to = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo()
                             self.advertise_to.parent = self
                             self._children_name_map["advertise_to"] = "advertise-to"
-                            self._children_yang_names.add("advertise-to")
                             self._segment_path = lambda: "bgp"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp, [], name, value)
 
 
                         class As(Entity):
@@ -1742,7 +1713,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As, self).__init__()
@@ -1752,8 +1723,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                     ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -1786,7 +1756,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo, self).__init__()
@@ -1796,8 +1766,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.enumeration, 'type')),
                                     ('peer_acl_name', YLeaf(YType.str, 'peer-acl-name')),
@@ -1841,7 +1810,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.DefaultVrf.Global, self).__init__()
@@ -1851,8 +1820,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("session", ("session", MplsLdp.DefaultVrf.Global.Session)), ("neighbor", ("neighbor", MplsLdp.DefaultVrf.Global.Neighbor)), ("graceful-restart", ("graceful_restart", MplsLdp.DefaultVrf.Global.GracefulRestart))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("session", ("session", MplsLdp.DefaultVrf.Global.Session)), ("neighbor", ("neighbor", MplsLdp.DefaultVrf.Global.Neighbor)), ("graceful-restart", ("graceful_restart", MplsLdp.DefaultVrf.Global.GracefulRestart))])
                 self._leafs = OrderedDict([
                     ('router_id', YLeaf(YType.str, 'router-id')),
                 ])
@@ -1861,17 +1829,14 @@ class MplsLdp(Entity):
                 self.session = MplsLdp.DefaultVrf.Global.Session()
                 self.session.parent = self
                 self._children_name_map["session"] = "session"
-                self._children_yang_names.add("session")
 
                 self.neighbor = MplsLdp.DefaultVrf.Global.Neighbor()
                 self.neighbor.parent = self
                 self._children_name_map["neighbor"] = "neighbor"
-                self._children_yang_names.add("neighbor")
 
                 self.graceful_restart = MplsLdp.DefaultVrf.Global.GracefulRestart()
                 self.graceful_restart.parent = self
                 self._children_name_map["graceful_restart"] = "graceful-restart"
-                self._children_yang_names.add("graceful-restart")
                 self._segment_path = lambda: "global"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/%s" % self._segment_path()
 
@@ -1898,7 +1863,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Global.Session, self).__init__()
@@ -1908,21 +1873,21 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("protection", ("protection", MplsLdp.DefaultVrf.Global.Session.Protection)), ("downstream-on-demand", ("downstream_on_demand", MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("protection", ("protection", MplsLdp.DefaultVrf.Global.Session.Protection)), ("downstream-on-demand", ("downstream_on_demand", MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand))])
                     self._leafs = OrderedDict()
 
                     self.protection = MplsLdp.DefaultVrf.Global.Session.Protection()
                     self.protection.parent = self
                     self._children_name_map["protection"] = "protection"
-                    self._children_yang_names.add("protection")
 
                     self.downstream_on_demand = MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand()
                     self.downstream_on_demand.parent = self
                     self._children_name_map["downstream_on_demand"] = "downstream-on-demand"
-                    self._children_yang_names.add("downstream-on-demand")
                     self._segment_path = lambda: "session"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsLdp.DefaultVrf.Global.Session, [], name, value)
 
 
                 class Protection(Entity):
@@ -1951,7 +1916,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.Session.Protection, self).__init__()
@@ -1961,8 +1926,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('protection_type', YLeaf(YType.enumeration, 'protection-type')),
                             ('peer_acl_name', YLeaf(YType.str, 'peer-acl-name')),
@@ -1998,7 +1962,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand, self).__init__()
@@ -2008,8 +1972,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('type', YLeaf(YType.enumeration, 'type')),
                             ('peer_acl_name', YLeaf(YType.str, 'peer-acl-name')),
@@ -2049,7 +2012,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Global.Neighbor, self).__init__()
@@ -2059,8 +2022,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ldp-ids", ("ldp_ids", MplsLdp.DefaultVrf.Global.Neighbor.LdpIds)), ("dual-stack", ("dual_stack", MplsLdp.DefaultVrf.Global.Neighbor.DualStack))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ldp-ids", ("ldp_ids", MplsLdp.DefaultVrf.Global.Neighbor.LdpIds)), ("dual-stack", ("dual_stack", MplsLdp.DefaultVrf.Global.Neighbor.DualStack))])
                     self._leafs = OrderedDict([
                         ('password', YLeaf(YType.str, 'password')),
                     ])
@@ -2069,12 +2031,10 @@ class MplsLdp(Entity):
                     self.ldp_ids = MplsLdp.DefaultVrf.Global.Neighbor.LdpIds()
                     self.ldp_ids.parent = self
                     self._children_name_map["ldp_ids"] = "ldp-ids"
-                    self._children_yang_names.add("ldp-ids")
 
                     self.dual_stack = MplsLdp.DefaultVrf.Global.Neighbor.DualStack()
                     self.dual_stack.parent = self
                     self._children_name_map["dual_stack"] = "dual-stack"
-                    self._children_yang_names.add("dual-stack")
                     self._segment_path = lambda: "neighbor"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/%s" % self._segment_path()
 
@@ -2097,7 +2057,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds, self).__init__()
@@ -2107,8 +2067,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ldp-id", ("ldp_id", MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId))])
+                        self._child_classes = OrderedDict([("ldp-id", ("ldp_id", MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId))])
                         self._leafs = OrderedDict()
 
                         self.ldp_id = YList(self)
@@ -2148,7 +2107,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId, self).__init__()
@@ -2158,8 +2117,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['lsr_id','label_space_id']
-                            self._child_container_classes = OrderedDict([("password", ("password", MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("password", ("password", MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password))])
                             self._leafs = OrderedDict([
                                 ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                 ('label_space_id', YLeaf(YType.uint32, 'label-space-id')),
@@ -2170,7 +2128,6 @@ class MplsLdp(Entity):
                             self.password = MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password()
                             self.password.parent = self
                             self._children_name_map["password"] = "password"
-                            self._children_yang_names.add("password")
                             self._segment_path = lambda: "ldp-id" + "[lsr-id='" + str(self.lsr_id) + "']" + "[label-space-id='" + str(self.label_space_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/ldp-ids/%s" % self._segment_path()
 
@@ -2200,7 +2157,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password, self).__init__()
@@ -2210,8 +2167,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('command_type', YLeaf(YType.enumeration, 'command-type')),
                                     ('password', YLeaf(YType.str, 'password')),
@@ -2243,7 +2199,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack, self).__init__()
@@ -2253,8 +2209,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("transport-connection", ("transport_connection", MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("transport-connection", ("transport_connection", MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection))])
                         self._leafs = OrderedDict([
                             ('tlv_compliance', YLeaf(YType.empty, 'tlv-compliance')),
                         ])
@@ -2263,7 +2218,6 @@ class MplsLdp(Entity):
                         self.transport_connection = MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection()
                         self.transport_connection.parent = self
                         self._children_name_map["transport_connection"] = "transport-connection"
-                        self._children_yang_names.add("transport-connection")
                         self._segment_path = lambda: "dual-stack"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/%s" % self._segment_path()
 
@@ -2294,7 +2248,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection, self).__init__()
@@ -2304,8 +2258,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("prefer", ("prefer", MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("prefer", ("prefer", MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer))])
                             self._leafs = OrderedDict([
                                 ('max_wait', YLeaf(YType.uint32, 'max-wait')),
                             ])
@@ -2314,7 +2267,6 @@ class MplsLdp(Entity):
                             self.prefer = MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer()
                             self.prefer.parent = self
                             self._children_name_map["prefer"] = "prefer"
-                            self._children_yang_names.add("prefer")
                             self._segment_path = lambda: "transport-connection"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/dual-stack/%s" % self._segment_path()
 
@@ -2337,7 +2289,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer, self).__init__()
@@ -2347,8 +2299,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ipv4', YLeaf(YType.empty, 'ipv4')),
                                 ])
@@ -2375,7 +2326,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Global.GracefulRestart, self).__init__()
@@ -2385,16 +2336,17 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("helper-peer", ("helper_peer", MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("helper-peer", ("helper_peer", MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer))])
                     self._leafs = OrderedDict()
 
                     self.helper_peer = MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer()
                     self.helper_peer.parent = self
                     self._children_name_map["helper_peer"] = "helper-peer"
-                    self._children_yang_names.add("helper-peer")
                     self._segment_path = lambda: "graceful-restart"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsLdp.DefaultVrf.Global.GracefulRestart, [], name, value)
 
 
                 class HelperPeer(Entity):
@@ -2412,7 +2364,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer, self).__init__()
@@ -2422,8 +2374,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('maintain_on_local_reset', YLeaf(YType.str, 'maintain-on-local-reset')),
                         ])
@@ -2449,7 +2400,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.DefaultVrf.Interfaces, self).__init__()
@@ -2459,8 +2410,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", MplsLdp.DefaultVrf.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", MplsLdp.DefaultVrf.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -2503,7 +2453,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.DefaultVrf.Interfaces.Interface, self).__init__()
@@ -2513,8 +2463,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([("afs", ("afs", MplsLdp.DefaultVrf.Interfaces.Interface.Afs)), ("global", ("global_", MplsLdp.DefaultVrf.Interfaces.Interface.Global))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("afs", ("afs", MplsLdp.DefaultVrf.Interfaces.Interface.Afs)), ("global", ("global_", MplsLdp.DefaultVrf.Interfaces.Interface.Global))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('enable', YLeaf(YType.empty, 'enable')),
@@ -2525,12 +2474,10 @@ class MplsLdp(Entity):
                     self.afs = MplsLdp.DefaultVrf.Interfaces.Interface.Afs()
                     self.afs.parent = self
                     self._children_name_map["afs"] = "afs"
-                    self._children_yang_names.add("afs")
 
                     self.global_ = MplsLdp.DefaultVrf.Interfaces.Interface.Global()
                     self.global_.parent = self
                     self._children_name_map["global_"] = "global"
-                    self._children_yang_names.add("global")
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/%s" % self._segment_path()
 
@@ -2553,7 +2500,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs, self).__init__()
@@ -2563,8 +2510,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("af", ("af", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af))])
+                        self._child_classes = OrderedDict([("af", ("af", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af))])
                         self._leafs = OrderedDict()
 
                         self.af = YList(self)
@@ -2608,7 +2554,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af, self).__init__()
@@ -2618,8 +2564,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['af_name']
-                            self._child_container_classes = OrderedDict([("discovery", ("discovery", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery)), ("igp", ("igp", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp)), ("mldp", ("mldp", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("discovery", ("discovery", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery)), ("igp", ("igp", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp)), ("mldp", ("mldp", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp))])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('enable', YLeaf(YType.empty, 'enable')),
@@ -2630,17 +2575,14 @@ class MplsLdp(Entity):
                             self.discovery = MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery()
                             self.discovery.parent = self
                             self._children_name_map["discovery"] = "discovery"
-                            self._children_yang_names.add("discovery")
 
                             self.igp = MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp()
                             self.igp.parent = self
                             self._children_name_map["igp"] = "igp"
-                            self._children_yang_names.add("igp")
 
                             self.mldp = MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp()
                             self.mldp.parent = self
                             self._children_name_map["mldp"] = "mldp"
-                            self._children_yang_names.add("mldp")
                             self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -2661,7 +2603,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery, self).__init__()
@@ -2671,15 +2613,16 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("transport-address", ("transport_address", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("transport-address", ("transport_address", MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress))])
                                 self._leafs = OrderedDict()
 
                                 self.transport_address = MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress()
                                 self.transport_address.parent = self
                                 self._children_name_map["transport_address"] = "transport-address"
-                                self._children_yang_names.add("transport-address")
                                 self._segment_path = lambda: "discovery"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery, [], name, value)
 
 
                             class TransportAddress(Entity):
@@ -2710,7 +2653,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, self).__init__()
@@ -2720,8 +2663,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                         ('address', YLeaf(YType.str, 'address')),
@@ -2748,7 +2690,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp, self).__init__()
@@ -2758,8 +2700,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('disable_auto_config', YLeaf(YType.empty, 'disable-auto-config')),
                                 ])
@@ -2784,7 +2725,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp, self).__init__()
@@ -2794,8 +2735,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('disable', YLeaf(YType.empty, 'disable')),
                                 ])
@@ -2826,7 +2766,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.DefaultVrf.Interfaces.Interface.Global, self).__init__()
@@ -2836,20 +2776,20 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("discovery", ("discovery", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery)), ("igp", ("igp", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("discovery", ("discovery", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery)), ("igp", ("igp", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp))])
                         self._leafs = OrderedDict()
 
                         self.discovery = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery()
                         self.discovery.parent = self
                         self._children_name_map["discovery"] = "discovery"
-                        self._children_yang_names.add("discovery")
 
                         self.igp = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp()
                         self.igp.parent = self
                         self._children_name_map["igp"] = "igp"
-                        self._children_yang_names.add("igp")
                         self._segment_path = lambda: "global"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global, [], name, value)
 
 
                     class Discovery(Entity):
@@ -2871,7 +2811,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery, self).__init__()
@@ -2881,8 +2821,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("link-hello", ("link_hello", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("link-hello", ("link_hello", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello))])
                             self._leafs = OrderedDict([
                                 ('disable_quick_start', YLeaf(YType.empty, 'disable-quick-start')),
                             ])
@@ -2891,7 +2830,6 @@ class MplsLdp(Entity):
                             self.link_hello = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello()
                             self.link_hello.parent = self
                             self._children_name_map["link_hello"] = "link-hello"
-                            self._children_yang_names.add("link-hello")
                             self._segment_path = lambda: "discovery"
 
                         def __setattr__(self, name, value):
@@ -2936,7 +2874,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello, self).__init__()
@@ -2946,8 +2884,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interval', YLeaf(YType.uint32, 'interval')),
                                     ('dual_stack', YLeaf(YType.enumeration, 'dual-stack')),
@@ -2976,7 +2913,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp, self).__init__()
@@ -2986,15 +2923,16 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("sync", ("sync", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("sync", ("sync", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync))])
                             self._leafs = OrderedDict()
 
                             self.sync = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync()
                             self.sync.parent = self
                             self._children_name_map["sync"] = "sync"
-                            self._children_yang_names.add("sync")
                             self._segment_path = lambda: "igp"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp, [], name, value)
 
 
                         class Sync(Entity):
@@ -3011,7 +2949,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync, self).__init__()
@@ -3021,15 +2959,16 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("delay", ("delay", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("delay", ("delay", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay))])
                                 self._leafs = OrderedDict()
 
                                 self.delay = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay()
                                 self.delay.parent = self
                                 self._children_name_map["delay"] = "delay"
-                                self._children_yang_names.add("delay")
                                 self._segment_path = lambda: "sync"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync, [], name, value)
 
 
                             class Delay(Entity):
@@ -3046,7 +2985,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay, self).__init__()
@@ -3056,15 +2995,16 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("on-session-up", ("on_session_up", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("on-session-up", ("on_session_up", MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp))])
                                     self._leafs = OrderedDict()
 
                                     self.on_session_up = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp()
                                     self.on_session_up.parent = self
                                     self._children_name_map["on_session_up"] = "on-session-up"
-                                    self._children_yang_names.add("on-session-up")
                                     self._segment_path = lambda: "delay"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay, [], name, value)
 
 
                                 class OnSessionUp(Entity):
@@ -3090,7 +3030,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp, self).__init__()
@@ -3100,8 +3040,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('disable', YLeaf(YType.empty, 'disable')),
                                             ('timeout', YLeaf(YType.uint32, 'timeout')),
@@ -3128,7 +3067,7 @@ class MplsLdp(Entity):
         """
 
         _prefix = 'mpls-ldp-cfg'
-        _revision = '2017-06-26'
+        _revision = '2017-09-30'
 
         def __init__(self):
             super(MplsLdp.Vrfs, self).__init__()
@@ -3138,8 +3077,7 @@ class MplsLdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", MplsLdp.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", MplsLdp.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -3186,7 +3124,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Vrfs.Vrf, self).__init__()
@@ -3196,8 +3134,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("global", ("global_", MplsLdp.Vrfs.Vrf.Global)), ("afs", ("afs", MplsLdp.Vrfs.Vrf.Afs)), ("interfaces", ("interfaces", MplsLdp.Vrfs.Vrf.Interfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("global", ("global_", MplsLdp.Vrfs.Vrf.Global)), ("afs", ("afs", MplsLdp.Vrfs.Vrf.Afs)), ("interfaces", ("interfaces", MplsLdp.Vrfs.Vrf.Interfaces))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -3208,17 +3145,14 @@ class MplsLdp(Entity):
                 self.global_ = MplsLdp.Vrfs.Vrf.Global()
                 self.global_.parent = self
                 self._children_name_map["global_"] = "global"
-                self._children_yang_names.add("global")
 
                 self.afs = MplsLdp.Vrfs.Vrf.Afs()
                 self.afs.parent = self
                 self._children_name_map["afs"] = "afs"
-                self._children_yang_names.add("afs")
 
                 self.interfaces = MplsLdp.Vrfs.Vrf.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/%s" % self._segment_path()
 
@@ -3257,7 +3191,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Vrfs.Vrf.Global, self).__init__()
@@ -3267,8 +3201,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("session", ("session", MplsLdp.Vrfs.Vrf.Global.Session)), ("neighbor", ("neighbor", MplsLdp.Vrfs.Vrf.Global.Neighbor)), ("graceful-restart", ("graceful_restart", MplsLdp.Vrfs.Vrf.Global.GracefulRestart))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("session", ("session", MplsLdp.Vrfs.Vrf.Global.Session)), ("neighbor", ("neighbor", MplsLdp.Vrfs.Vrf.Global.Neighbor)), ("graceful-restart", ("graceful_restart", MplsLdp.Vrfs.Vrf.Global.GracefulRestart))])
                     self._leafs = OrderedDict([
                         ('router_id', YLeaf(YType.str, 'router-id')),
                     ])
@@ -3277,17 +3210,14 @@ class MplsLdp(Entity):
                     self.session = MplsLdp.Vrfs.Vrf.Global.Session()
                     self.session.parent = self
                     self._children_name_map["session"] = "session"
-                    self._children_yang_names.add("session")
 
                     self.neighbor = MplsLdp.Vrfs.Vrf.Global.Neighbor()
                     self.neighbor.parent = self
                     self._children_name_map["neighbor"] = "neighbor"
-                    self._children_yang_names.add("neighbor")
 
                     self.graceful_restart = MplsLdp.Vrfs.Vrf.Global.GracefulRestart()
                     self.graceful_restart.parent = self
                     self._children_name_map["graceful_restart"] = "graceful-restart"
-                    self._children_yang_names.add("graceful-restart")
                     self._segment_path = lambda: "global"
 
                 def __setattr__(self, name, value):
@@ -3308,7 +3238,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Global.Session, self).__init__()
@@ -3318,15 +3248,16 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("downstream-on-demand", ("downstream_on_demand", MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("downstream-on-demand", ("downstream_on_demand", MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand))])
                         self._leafs = OrderedDict()
 
                         self.downstream_on_demand = MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand()
                         self.downstream_on_demand.parent = self
                         self._children_name_map["downstream_on_demand"] = "downstream-on-demand"
-                        self._children_yang_names.add("downstream-on-demand")
                         self._segment_path = lambda: "session"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Session, [], name, value)
 
 
                     class DownstreamOnDemand(Entity):
@@ -3349,7 +3280,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand, self).__init__()
@@ -3359,8 +3290,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('type', YLeaf(YType.enumeration, 'type')),
                                 ('peer_acl_name', YLeaf(YType.str, 'peer-acl-name')),
@@ -3394,7 +3324,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Global.Neighbor, self).__init__()
@@ -3404,8 +3334,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("ldp-ids", ("ldp_ids", MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("ldp-ids", ("ldp_ids", MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds))])
                         self._leafs = OrderedDict([
                             ('password', YLeaf(YType.str, 'password')),
                         ])
@@ -3414,7 +3343,6 @@ class MplsLdp(Entity):
                         self.ldp_ids = MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds()
                         self.ldp_ids.parent = self
                         self._children_name_map["ldp_ids"] = "ldp-ids"
-                        self._children_yang_names.add("ldp-ids")
                         self._segment_path = lambda: "neighbor"
 
                     def __setattr__(self, name, value):
@@ -3436,7 +3364,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds, self).__init__()
@@ -3446,8 +3374,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ldp-id", ("ldp_id", MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId))])
+                            self._child_classes = OrderedDict([("ldp-id", ("ldp_id", MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId))])
                             self._leafs = OrderedDict()
 
                             self.ldp_id = YList(self)
@@ -3486,7 +3413,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId, self).__init__()
@@ -3496,8 +3423,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['lsr_id','label_space_id']
-                                self._child_container_classes = OrderedDict([("password", ("password", MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("password", ("password", MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password))])
                                 self._leafs = OrderedDict([
                                     ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                     ('label_space_id', YLeaf(YType.uint32, 'label-space-id')),
@@ -3508,7 +3434,6 @@ class MplsLdp(Entity):
                                 self.password = MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password()
                                 self.password.parent = self
                                 self._children_name_map["password"] = "password"
-                                self._children_yang_names.add("password")
                                 self._segment_path = lambda: "ldp-id" + "[lsr-id='" + str(self.lsr_id) + "']" + "[label-space-id='" + str(self.label_space_id) + "']"
 
                             def __setattr__(self, name, value):
@@ -3537,7 +3462,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password, self).__init__()
@@ -3547,8 +3472,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('command_type', YLeaf(YType.enumeration, 'command-type')),
                                         ('password', YLeaf(YType.str, 'password')),
@@ -3576,7 +3500,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Global.GracefulRestart, self).__init__()
@@ -3586,15 +3510,16 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("helper-peer", ("helper_peer", MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("helper-peer", ("helper_peer", MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer))])
                         self._leafs = OrderedDict()
 
                         self.helper_peer = MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer()
                         self.helper_peer.parent = self
                         self._children_name_map["helper_peer"] = "helper-peer"
-                        self._children_yang_names.add("helper-peer")
                         self._segment_path = lambda: "graceful-restart"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.GracefulRestart, [], name, value)
 
 
                     class HelperPeer(Entity):
@@ -3612,7 +3537,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer, self).__init__()
@@ -3622,8 +3547,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('maintain_on_local_reset', YLeaf(YType.str, 'maintain-on-local-reset')),
                             ])
@@ -3649,7 +3573,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Vrfs.Vrf.Afs, self).__init__()
@@ -3659,8 +3583,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("af", ("af", MplsLdp.Vrfs.Vrf.Afs.Af))])
+                    self._child_classes = OrderedDict([("af", ("af", MplsLdp.Vrfs.Vrf.Afs.Af))])
                     self._leafs = OrderedDict()
 
                     self.af = YList(self)
@@ -3699,7 +3622,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Afs.Af, self).__init__()
@@ -3709,8 +3632,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['af_name']
-                        self._child_container_classes = OrderedDict([("discovery", ("discovery", MplsLdp.Vrfs.Vrf.Afs.Af.Discovery)), ("label", ("label", MplsLdp.Vrfs.Vrf.Afs.Af.Label))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("discovery", ("discovery", MplsLdp.Vrfs.Vrf.Afs.Af.Discovery)), ("label", ("label", MplsLdp.Vrfs.Vrf.Afs.Af.Label))])
                         self._leafs = OrderedDict([
                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -3721,12 +3643,10 @@ class MplsLdp(Entity):
                         self.discovery = MplsLdp.Vrfs.Vrf.Afs.Af.Discovery()
                         self.discovery.parent = self
                         self._children_name_map["discovery"] = "discovery"
-                        self._children_yang_names.add("discovery")
 
                         self.label = MplsLdp.Vrfs.Vrf.Afs.Af.Label()
                         self.label.parent = self
                         self._children_name_map["label"] = "label"
-                        self._children_yang_names.add("label")
                         self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -3755,7 +3675,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Discovery, self).__init__()
@@ -3765,8 +3685,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('transport_address', YLeaf(YType.str, 'transport-address')),
                             ])
@@ -3796,7 +3715,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Label, self).__init__()
@@ -3806,20 +3725,20 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("remote", ("remote", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote)), ("local", ("local", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("remote", ("remote", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote)), ("local", ("local", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local))])
                             self._leafs = OrderedDict()
 
                             self.remote = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote()
                             self.remote.parent = self
                             self._children_name_map["remote"] = "remote"
-                            self._children_yang_names.add("remote")
 
                             self.local = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local()
                             self.local.parent = self
                             self._children_name_map["local"] = "local"
-                            self._children_yang_names.add("local")
                             self._segment_path = lambda: "label"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label, [], name, value)
 
 
                         class Remote(Entity):
@@ -3837,7 +3756,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote, self).__init__()
@@ -3847,15 +3766,16 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("accept", ("accept", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("accept", ("accept", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept))])
                                 self._leafs = OrderedDict()
 
                                 self.accept = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept()
                                 self.accept.parent = self
                                 self._children_name_map["accept"] = "accept"
-                                self._children_yang_names.add("accept")
                                 self._segment_path = lambda: "remote"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote, [], name, value)
 
 
                             class Accept(Entity):
@@ -3872,7 +3792,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept, self).__init__()
@@ -3882,15 +3802,16 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-accept-policies", ("peer_accept_policies", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-accept-policies", ("peer_accept_policies", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies))])
                                     self._leafs = OrderedDict()
 
                                     self.peer_accept_policies = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies()
                                     self.peer_accept_policies.parent = self
                                     self._children_name_map["peer_accept_policies"] = "peer-accept-policies"
-                                    self._children_yang_names.add("peer-accept-policies")
                                     self._segment_path = lambda: "accept"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept, [], name, value)
 
 
                                 class PeerAcceptPolicies(Entity):
@@ -3908,7 +3829,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, self).__init__()
@@ -3918,8 +3839,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-accept-policy", ("peer_accept_policy", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy))])
+                                        self._child_classes = OrderedDict([("peer-accept-policy", ("peer_accept_policy", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_accept_policy = YList(self)
@@ -3956,7 +3876,7 @@ class MplsLdp(Entity):
                                         """
 
                                         _prefix = 'mpls-ldp-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2017-09-30'
 
                                         def __init__(self):
                                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, self).__init__()
@@ -3966,8 +3886,7 @@ class MplsLdp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['label_space_id']
-                                            self._child_container_classes = OrderedDict([("peer-accept-policy-data", ("peer_accept_policy_data", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData))])
-                                            self._child_list_classes = OrderedDict([("lsr-id", ("lsr_id", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId))])
+                                            self._child_classes = OrderedDict([("peer-accept-policy-data", ("peer_accept_policy_data", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData)), ("lsr-id", ("lsr_id", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId))])
                                             self._leafs = OrderedDict([
                                                 ('label_space_id', YLeaf(YType.uint32, 'label-space-id')),
                                             ])
@@ -3976,7 +3895,6 @@ class MplsLdp(Entity):
                                             self.peer_accept_policy_data = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData()
                                             self.peer_accept_policy_data.parent = self
                                             self._children_name_map["peer_accept_policy_data"] = "peer-accept-policy-data"
-                                            self._children_yang_names.add("peer-accept-policy-data")
 
                                             self.lsr_id = YList(self)
                                             self._segment_path = lambda: "peer-accept-policy" + "[label-space-id='" + str(self.label_space_id) + "']"
@@ -4001,7 +3919,7 @@ class MplsLdp(Entity):
                                             """
 
                                             _prefix = 'mpls-ldp-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2017-09-30'
 
                                             def __init__(self):
                                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData, self).__init__()
@@ -4011,8 +3929,7 @@ class MplsLdp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
                                                 ])
@@ -4046,7 +3963,7 @@ class MplsLdp(Entity):
                                             """
 
                                             _prefix = 'mpls-ldp-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2017-09-30'
 
                                             def __init__(self):
                                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId, self).__init__()
@@ -4056,8 +3973,7 @@ class MplsLdp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['lsr_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                                     ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
@@ -4099,7 +4015,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local, self).__init__()
@@ -4109,8 +4025,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("advertise", ("advertise", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise)), ("allocate", ("allocate", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("advertise", ("advertise", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise)), ("allocate", ("allocate", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate))])
                                 self._leafs = OrderedDict([
                                     ('implicit_null_override', YLeaf(YType.str, 'implicit-null-override')),
                                     ('default_route', YLeaf(YType.empty, 'default-route')),
@@ -4121,12 +4036,10 @@ class MplsLdp(Entity):
                                 self.advertise = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise()
                                 self.advertise.parent = self
                                 self._children_name_map["advertise"] = "advertise"
-                                self._children_yang_names.add("advertise")
 
                                 self.allocate = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate()
                                 self.allocate.parent = self
                                 self._children_name_map["allocate"] = "allocate"
-                                self._children_yang_names.add("allocate")
                                 self._segment_path = lambda: "local"
 
                             def __setattr__(self, name, value):
@@ -4162,7 +4075,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise, self).__init__()
@@ -4172,8 +4085,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-advertise-policies", ("peer_advertise_policies", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies)), ("interfaces", ("interfaces", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces)), ("explicit-null", ("explicit_null", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-advertise-policies", ("peer_advertise_policies", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies)), ("interfaces", ("interfaces", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces)), ("explicit-null", ("explicit_null", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull))])
                                     self._leafs = OrderedDict([
                                         ('disable', YLeaf(YType.empty, 'disable')),
                                     ])
@@ -4182,17 +4094,14 @@ class MplsLdp(Entity):
                                     self.peer_advertise_policies = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies()
                                     self.peer_advertise_policies.parent = self
                                     self._children_name_map["peer_advertise_policies"] = "peer-advertise-policies"
-                                    self._children_yang_names.add("peer-advertise-policies")
 
                                     self.interfaces = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces()
                                     self.interfaces.parent = self
                                     self._children_name_map["interfaces"] = "interfaces"
-                                    self._children_yang_names.add("interfaces")
 
                                     self.explicit_null = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull()
                                     self.explicit_null.parent = self
                                     self._children_name_map["explicit_null"] = "explicit-null"
-                                    self._children_yang_names.add("explicit-null")
                                     self._segment_path = lambda: "advertise"
 
                                 def __setattr__(self, name, value):
@@ -4214,7 +4123,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, self).__init__()
@@ -4224,8 +4133,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-advertise-policy", ("peer_advertise_policy", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy))])
+                                        self._child_classes = OrderedDict([("peer-advertise-policy", ("peer_advertise_policy", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_advertise_policy = YList(self)
@@ -4262,7 +4170,7 @@ class MplsLdp(Entity):
                                         """
 
                                         _prefix = 'mpls-ldp-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2017-09-30'
 
                                         def __init__(self):
                                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, self).__init__()
@@ -4272,8 +4180,7 @@ class MplsLdp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['label_space_id']
-                                            self._child_container_classes = OrderedDict([("peer-advertise-policy-data", ("peer_advertise_policy_data", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData))])
-                                            self._child_list_classes = OrderedDict([("lsr-id", ("lsr_id", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId))])
+                                            self._child_classes = OrderedDict([("peer-advertise-policy-data", ("peer_advertise_policy_data", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData)), ("lsr-id", ("lsr_id", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId))])
                                             self._leafs = OrderedDict([
                                                 ('label_space_id', YLeaf(YType.uint32, 'label-space-id')),
                                             ])
@@ -4282,7 +4189,6 @@ class MplsLdp(Entity):
                                             self.peer_advertise_policy_data = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData()
                                             self.peer_advertise_policy_data.parent = self
                                             self._children_name_map["peer_advertise_policy_data"] = "peer-advertise-policy-data"
-                                            self._children_yang_names.add("peer-advertise-policy-data")
 
                                             self.lsr_id = YList(self)
                                             self._segment_path = lambda: "peer-advertise-policy" + "[label-space-id='" + str(self.label_space_id) + "']"
@@ -4307,7 +4213,7 @@ class MplsLdp(Entity):
                                             """
 
                                             _prefix = 'mpls-ldp-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2017-09-30'
 
                                             def __init__(self):
                                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData, self).__init__()
@@ -4317,8 +4223,7 @@ class MplsLdp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
                                                 ])
@@ -4352,7 +4257,7 @@ class MplsLdp(Entity):
                                             """
 
                                             _prefix = 'mpls-ldp-cfg'
-                                            _revision = '2017-06-26'
+                                            _revision = '2017-09-30'
 
                                             def __init__(self):
                                                 super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId, self).__init__()
@@ -4362,8 +4267,7 @@ class MplsLdp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['lsr_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                                     ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
@@ -4391,7 +4295,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces, self).__init__()
@@ -4401,8 +4305,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("interface", ("interface", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface))])
+                                        self._child_classes = OrderedDict([("interface", ("interface", MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface))])
                                         self._leafs = OrderedDict()
 
                                         self.interface = YList(self)
@@ -4429,7 +4332,7 @@ class MplsLdp(Entity):
                                         """
 
                                         _prefix = 'mpls-ldp-cfg'
-                                        _revision = '2017-06-26'
+                                        _revision = '2017-09-30'
 
                                         def __init__(self):
                                             super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, self).__init__()
@@ -4439,8 +4342,7 @@ class MplsLdp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['interface_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ])
@@ -4476,7 +4378,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull, self).__init__()
@@ -4486,8 +4388,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('explicit_null_type', YLeaf(YType.enumeration, 'explicit-null-type')),
                                             ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
@@ -4522,7 +4423,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate, self).__init__()
@@ -4532,8 +4433,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('allocation_type', YLeaf(YType.enumeration, 'allocation-type')),
                                         ('prefix_acl_name', YLeaf(YType.str, 'prefix-acl-name')),
@@ -4561,7 +4461,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Vrfs.Vrf.Interfaces, self).__init__()
@@ -4571,8 +4471,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", MplsLdp.Vrfs.Vrf.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", MplsLdp.Vrfs.Vrf.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -4609,7 +4508,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Vrfs.Vrf.Interfaces.Interface, self).__init__()
@@ -4619,8 +4518,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("afs", ("afs", MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("afs", ("afs", MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -4631,7 +4529,6 @@ class MplsLdp(Entity):
                         self.afs = MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs()
                         self.afs.parent = self
                         self._children_name_map["afs"] = "afs"
-                        self._children_yang_names.add("afs")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -4653,7 +4550,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs, self).__init__()
@@ -4663,8 +4560,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("af", ("af", MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af))])
+                            self._child_classes = OrderedDict([("af", ("af", MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af))])
                             self._leafs = OrderedDict()
 
                             self.af = YList(self)
@@ -4698,7 +4594,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af, self).__init__()
@@ -4708,8 +4604,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['af_name']
-                                self._child_container_classes = OrderedDict([("discovery", ("discovery", MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("discovery", ("discovery", MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery))])
                                 self._leafs = OrderedDict([
                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -4720,7 +4615,6 @@ class MplsLdp(Entity):
                                 self.discovery = MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery()
                                 self.discovery.parent = self
                                 self._children_name_map["discovery"] = "discovery"
-                                self._children_yang_names.add("discovery")
                                 self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -4741,7 +4635,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery, self).__init__()
@@ -4751,15 +4645,16 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("transport-address", ("transport_address", MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("transport-address", ("transport_address", MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress))])
                                     self._leafs = OrderedDict()
 
                                     self.transport_address = MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress()
                                     self.transport_address.parent = self
                                     self._children_name_map["transport_address"] = "transport-address"
-                                    self._children_yang_names.add("transport-address")
                                     self._segment_path = lambda: "discovery"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery, [], name, value)
 
 
                                 class TransportAddress(Entity):
@@ -4790,7 +4685,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, self).__init__()
@@ -4800,8 +4695,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                             ('address', YLeaf(YType.str, 'address')),
@@ -4882,7 +4776,7 @@ class MplsLdp(Entity):
         """
 
         _prefix = 'mpls-ldp-cfg'
-        _revision = '2017-06-26'
+        _revision = '2017-09-30'
 
         def __init__(self):
             super(MplsLdp.Global, self).__init__()
@@ -4892,8 +4786,7 @@ class MplsLdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("entropy-label", ("entropy_label", MplsLdp.Global.EntropyLabel)), ("session", ("session", MplsLdp.Global.Session)), ("igp", ("igp", MplsLdp.Global.Igp)), ("enable-logging", ("enable_logging", MplsLdp.Global.EnableLogging)), ("signalling", ("signalling", MplsLdp.Global.Signalling)), ("nsr", ("nsr", MplsLdp.Global.Nsr)), ("graceful-restart", ("graceful_restart", MplsLdp.Global.GracefulRestart)), ("discovery", ("discovery", MplsLdp.Global.Discovery)), ("mldp", ("mldp", MplsLdp.Global.Mldp))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("entropy-label", ("entropy_label", MplsLdp.Global.EntropyLabel)), ("session", ("session", MplsLdp.Global.Session)), ("igp", ("igp", MplsLdp.Global.Igp)), ("enable-logging", ("enable_logging", MplsLdp.Global.EnableLogging)), ("signalling", ("signalling", MplsLdp.Global.Signalling)), ("nsr", ("nsr", MplsLdp.Global.Nsr)), ("graceful-restart", ("graceful_restart", MplsLdp.Global.GracefulRestart)), ("discovery", ("discovery", MplsLdp.Global.Discovery)), ("mldp", ("mldp", MplsLdp.Global.Mldp))])
             self._leafs = OrderedDict([
                 ('disable_implicit_ipv4', YLeaf(YType.empty, 'disable-implicit-ipv4')),
                 ('ltrace_buf_multiplier', YLeaf(YType.uint32, 'ltrace-buf-multiplier')),
@@ -4904,47 +4797,38 @@ class MplsLdp(Entity):
             self.entropy_label = MplsLdp.Global.EntropyLabel()
             self.entropy_label.parent = self
             self._children_name_map["entropy_label"] = "entropy-label"
-            self._children_yang_names.add("entropy-label")
 
             self.session = MplsLdp.Global.Session()
             self.session.parent = self
             self._children_name_map["session"] = "session"
-            self._children_yang_names.add("session")
 
             self.igp = MplsLdp.Global.Igp()
             self.igp.parent = self
             self._children_name_map["igp"] = "igp"
-            self._children_yang_names.add("igp")
 
             self.enable_logging = MplsLdp.Global.EnableLogging()
             self.enable_logging.parent = self
             self._children_name_map["enable_logging"] = "enable-logging"
-            self._children_yang_names.add("enable-logging")
 
             self.signalling = MplsLdp.Global.Signalling()
             self.signalling.parent = self
             self._children_name_map["signalling"] = "signalling"
-            self._children_yang_names.add("signalling")
 
             self.nsr = MplsLdp.Global.Nsr()
             self.nsr.parent = self
             self._children_name_map["nsr"] = "nsr"
-            self._children_yang_names.add("nsr")
 
             self.graceful_restart = MplsLdp.Global.GracefulRestart()
             self.graceful_restart.parent = self
             self._children_name_map["graceful_restart"] = "graceful-restart"
-            self._children_yang_names.add("graceful-restart")
 
             self.discovery = MplsLdp.Global.Discovery()
             self.discovery.parent = self
             self._children_name_map["discovery"] = "discovery"
-            self._children_yang_names.add("discovery")
 
             self.mldp = MplsLdp.Global.Mldp()
             self.mldp.parent = self
             self._children_name_map["mldp"] = "mldp"
-            self._children_yang_names.add("mldp")
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/%s" % self._segment_path()
 
@@ -4966,7 +4850,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.EntropyLabel, self).__init__()
@@ -4976,8 +4860,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('enable', YLeaf(YType.empty, 'enable')),
                 ])
@@ -5014,7 +4897,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.Session, self).__init__()
@@ -5024,8 +4907,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("backoff-time", ("backoff_time", MplsLdp.Global.Session.BackoffTime))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("backoff-time", ("backoff_time", MplsLdp.Global.Session.BackoffTime))])
                 self._leafs = OrderedDict([
                     ('hold_time', YLeaf(YType.uint32, 'hold-time')),
                 ])
@@ -5034,7 +4916,6 @@ class MplsLdp(Entity):
                 self.backoff_time = MplsLdp.Global.Session.BackoffTime()
                 self.backoff_time.parent = self
                 self._children_name_map["backoff_time"] = "backoff-time"
-                self._children_yang_names.add("backoff-time")
                 self._segment_path = lambda: "session"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/%s" % self._segment_path()
 
@@ -5073,7 +4954,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Global.Session.BackoffTime, self).__init__()
@@ -5083,8 +4964,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('initial_backoff_time', YLeaf(YType.uint32, 'initial-backoff-time')),
                         ('max_backoff_time', YLeaf(YType.uint32, 'max-backoff-time')),
@@ -5112,7 +4992,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.Igp, self).__init__()
@@ -5122,16 +5002,17 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("sync", ("sync", MplsLdp.Global.Igp.Sync))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("sync", ("sync", MplsLdp.Global.Igp.Sync))])
                 self._leafs = OrderedDict()
 
                 self.sync = MplsLdp.Global.Igp.Sync()
                 self.sync.parent = self
                 self._children_name_map["sync"] = "sync"
-                self._children_yang_names.add("sync")
                 self._segment_path = lambda: "igp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsLdp.Global.Igp, [], name, value)
 
 
             class Sync(Entity):
@@ -5148,7 +5029,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Global.Igp.Sync, self).__init__()
@@ -5158,16 +5039,17 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("delay", ("delay", MplsLdp.Global.Igp.Sync.Delay))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("delay", ("delay", MplsLdp.Global.Igp.Sync.Delay))])
                     self._leafs = OrderedDict()
 
                     self.delay = MplsLdp.Global.Igp.Sync.Delay()
                     self.delay.parent = self
                     self._children_name_map["delay"] = "delay"
-                    self._children_yang_names.add("delay")
                     self._segment_path = lambda: "sync"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/igp/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsLdp.Global.Igp.Sync, [], name, value)
 
 
                 class Delay(Entity):
@@ -5197,7 +5079,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Global.Igp.Sync.Delay, self).__init__()
@@ -5207,8 +5089,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('on_session_up', YLeaf(YType.uint32, 'on-session-up')),
                             ('on_proc_restart', YLeaf(YType.uint32, 'on-proc-restart')),
@@ -5256,7 +5137,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.EnableLogging, self).__init__()
@@ -5266,8 +5147,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nsr', YLeaf(YType.empty, 'nsr')),
                     ('neighbor_changes', YLeaf(YType.empty, 'neighbor-changes')),
@@ -5305,7 +5185,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.Signalling, self).__init__()
@@ -5315,8 +5195,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dscp', YLeaf(YType.uint32, 'dscp')),
                 ])
@@ -5342,7 +5221,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.Nsr, self).__init__()
@@ -5352,8 +5231,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('enable', YLeaf(YType.empty, 'enable')),
                 ])
@@ -5402,7 +5280,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.GracefulRestart, self).__init__()
@@ -5412,8 +5290,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('reconnect_timeout', YLeaf(YType.uint32, 'reconnect-timeout')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -5458,7 +5335,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.Discovery, self).__init__()
@@ -5468,8 +5345,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("link-hello", ("link_hello", MplsLdp.Global.Discovery.LinkHello)), ("targeted-hello", ("targeted_hello", MplsLdp.Global.Discovery.TargetedHello))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("link-hello", ("link_hello", MplsLdp.Global.Discovery.LinkHello)), ("targeted-hello", ("targeted_hello", MplsLdp.Global.Discovery.TargetedHello))])
                 self._leafs = OrderedDict([
                     ('disable_instance_tlv', YLeaf(YType.empty, 'disable-instance-tlv')),
                     ('disable_quick_start', YLeaf(YType.empty, 'disable-quick-start')),
@@ -5480,12 +5356,10 @@ class MplsLdp(Entity):
                 self.link_hello = MplsLdp.Global.Discovery.LinkHello()
                 self.link_hello.parent = self
                 self._children_name_map["link_hello"] = "link-hello"
-                self._children_yang_names.add("link-hello")
 
                 self.targeted_hello = MplsLdp.Global.Discovery.TargetedHello()
                 self.targeted_hello.parent = self
                 self._children_name_map["targeted_hello"] = "targeted-hello"
-                self._children_yang_names.add("targeted-hello")
                 self._segment_path = lambda: "discovery"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/%s" % self._segment_path()
 
@@ -5524,7 +5398,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Global.Discovery.LinkHello, self).__init__()
@@ -5534,8 +5408,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interval', YLeaf(YType.uint32, 'interval')),
                         ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -5580,7 +5453,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Global.Discovery.TargetedHello, self).__init__()
@@ -5590,8 +5463,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interval', YLeaf(YType.uint32, 'interval')),
                         ('hold_time', YLeaf(YType.uint32, 'hold-time')),
@@ -5634,7 +5506,7 @@ class MplsLdp(Entity):
             """
 
             _prefix = 'mpls-ldp-cfg'
-            _revision = '2017-06-26'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(MplsLdp.Global.Mldp, self).__init__()
@@ -5644,8 +5516,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("vrfs", ("vrfs", MplsLdp.Global.Mldp.Vrfs)), ("default-vrf", ("default_vrf", MplsLdp.Global.Mldp.DefaultVrf)), ("mldp-global", ("mldp_global", MplsLdp.Global.Mldp.MldpGlobal))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("vrfs", ("vrfs", MplsLdp.Global.Mldp.Vrfs)), ("default-vrf", ("default_vrf", MplsLdp.Global.Mldp.DefaultVrf)), ("mldp-global", ("mldp_global", MplsLdp.Global.Mldp.MldpGlobal))])
                 self._leafs = OrderedDict([
                     ('enable', YLeaf(YType.empty, 'enable')),
                 ])
@@ -5654,17 +5525,14 @@ class MplsLdp(Entity):
                 self.vrfs = MplsLdp.Global.Mldp.Vrfs()
                 self.vrfs.parent = self
                 self._children_name_map["vrfs"] = "vrfs"
-                self._children_yang_names.add("vrfs")
 
                 self.default_vrf = MplsLdp.Global.Mldp.DefaultVrf()
                 self.default_vrf.parent = self
                 self._children_name_map["default_vrf"] = "default-vrf"
-                self._children_yang_names.add("default-vrf")
 
                 self.mldp_global = MplsLdp.Global.Mldp.MldpGlobal()
                 self.mldp_global.parent = self
                 self._children_name_map["mldp_global"] = "mldp-global"
-                self._children_yang_names.add("mldp-global")
                 self._segment_path = lambda: "mldp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/%s" % self._segment_path()
 
@@ -5686,7 +5554,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Global.Mldp.Vrfs, self).__init__()
@@ -5696,8 +5564,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("vrf", ("vrf", MplsLdp.Global.Mldp.Vrfs.Vrf))])
+                    self._child_classes = OrderedDict([("vrf", ("vrf", MplsLdp.Global.Mldp.Vrfs.Vrf))])
                     self._leafs = OrderedDict()
 
                     self.vrf = YList(self)
@@ -5734,7 +5601,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Global.Mldp.Vrfs.Vrf, self).__init__()
@@ -5744,8 +5611,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['vrf_name']
-                        self._child_container_classes = OrderedDict([("afs", ("afs", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("afs", ("afs", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs))])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('enable', YLeaf(YType.empty, 'enable')),
@@ -5756,7 +5622,6 @@ class MplsLdp(Entity):
                         self.afs = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs()
                         self.afs.parent = self
                         self._children_name_map["afs"] = "afs"
-                        self._children_yang_names.add("afs")
                         self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/%s" % self._segment_path()
 
@@ -5778,7 +5643,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs, self).__init__()
@@ -5788,8 +5653,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("af", ("af", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af))])
+                            self._child_classes = OrderedDict([("af", ("af", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af))])
                             self._leafs = OrderedDict()
 
                             self.af = YList(self)
@@ -5853,7 +5717,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af, self).__init__()
@@ -5863,8 +5727,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['af_name']
-                                self._child_container_classes = OrderedDict([("recursive-forwarding", ("recursive_forwarding", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding)), ("mldp-recursive-fec", ("mldp_recursive_fec", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec)), ("neighbor-policies", ("neighbor_policies", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies)), ("mo-frr", ("mo_frr", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr)), ("make-before-break", ("make_before_break", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak)), ("csc", ("csc", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("recursive-forwarding", ("recursive_forwarding", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding)), ("mldp-recursive-fec", ("mldp_recursive_fec", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec)), ("neighbor-policies", ("neighbor_policies", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies)), ("mo-frr", ("mo_frr", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr)), ("make-before-break", ("make_before_break", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak)), ("csc", ("csc", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc))])
                                 self._leafs = OrderedDict([
                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -5877,32 +5740,26 @@ class MplsLdp(Entity):
                                 self.recursive_forwarding = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding()
                                 self.recursive_forwarding.parent = self
                                 self._children_name_map["recursive_forwarding"] = "recursive-forwarding"
-                                self._children_yang_names.add("recursive-forwarding")
 
                                 self.mldp_recursive_fec = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec()
                                 self.mldp_recursive_fec.parent = self
                                 self._children_name_map["mldp_recursive_fec"] = "mldp-recursive-fec"
-                                self._children_yang_names.add("mldp-recursive-fec")
 
                                 self.neighbor_policies = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies()
                                 self.neighbor_policies.parent = self
                                 self._children_name_map["neighbor_policies"] = "neighbor-policies"
-                                self._children_yang_names.add("neighbor-policies")
 
                                 self.mo_frr = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr()
                                 self.mo_frr.parent = self
                                 self._children_name_map["mo_frr"] = "mo-frr"
-                                self._children_yang_names.add("mo-frr")
 
                                 self.make_before_break = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak()
                                 self.make_before_break.parent = self
                                 self._children_name_map["make_before_break"] = "make-before-break"
-                                self._children_yang_names.add("make-before-break")
 
                                 self.csc = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc()
                                 self.csc.parent = self
                                 self._children_name_map["csc"] = "csc"
-                                self._children_yang_names.add("csc")
                                 self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -5930,7 +5787,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding, self).__init__()
@@ -5940,8 +5797,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('enable', YLeaf(YType.empty, 'enable')),
                                         ('policy', YLeaf(YType.str, 'policy')),
@@ -5975,7 +5831,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec, self).__init__()
@@ -5985,8 +5841,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('enable', YLeaf(YType.empty, 'enable')),
                                         ('policy', YLeaf(YType.str, 'policy')),
@@ -6013,7 +5868,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies, self).__init__()
@@ -6023,8 +5878,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("neighbor-policy", ("neighbor_policy", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy))])
+                                    self._child_classes = OrderedDict([("neighbor-policy", ("neighbor_policy", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy))])
                                     self._leafs = OrderedDict()
 
                                     self.neighbor_policy = YList(self)
@@ -6064,7 +5918,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy, self).__init__()
@@ -6074,8 +5928,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['root_address','policy_mode']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('root_address', YLeaf(YType.str, 'root-address')),
                                             ('policy_mode', YLeaf(YType.enumeration, 'policy-mode')),
@@ -6111,7 +5964,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr, self).__init__()
@@ -6121,8 +5974,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('enable', YLeaf(YType.empty, 'enable')),
                                         ('policy', YLeaf(YType.str, 'policy')),
@@ -6156,7 +6008,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak, self).__init__()
@@ -6166,8 +6018,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("signaling", ("signaling", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("signaling", ("signaling", MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling))])
                                     self._leafs = OrderedDict([
                                         ('policy', YLeaf(YType.str, 'policy')),
                                     ])
@@ -6176,7 +6027,6 @@ class MplsLdp(Entity):
                                     self.signaling = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling()
                                     self.signaling.parent = self
                                     self._children_name_map["signaling"] = "signaling"
-                                    self._children_yang_names.add("signaling")
                                     self._segment_path = lambda: "make-before-break"
 
                                 def __setattr__(self, name, value):
@@ -6210,7 +6060,7 @@ class MplsLdp(Entity):
                                     """
 
                                     _prefix = 'mpls-ldp-cfg'
-                                    _revision = '2017-06-26'
+                                    _revision = '2017-09-30'
 
                                     def __init__(self):
                                         super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling, self).__init__()
@@ -6220,8 +6070,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('forward_delay', YLeaf(YType.uint32, 'forward-delay')),
                                             ('delete_delay', YLeaf(YType.uint32, 'delete-delay')),
@@ -6248,7 +6097,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc, self).__init__()
@@ -6258,8 +6107,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('enable', YLeaf(YType.empty, 'enable')),
                                     ])
@@ -6284,7 +6132,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Global.Mldp.DefaultVrf, self).__init__()
@@ -6294,16 +6142,17 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("afs", ("afs", MplsLdp.Global.Mldp.DefaultVrf.Afs))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("afs", ("afs", MplsLdp.Global.Mldp.DefaultVrf.Afs))])
                     self._leafs = OrderedDict()
 
                     self.afs = MplsLdp.Global.Mldp.DefaultVrf.Afs()
                     self.afs.parent = self
                     self._children_name_map["afs"] = "afs"
-                    self._children_yang_names.add("afs")
                     self._segment_path = lambda: "default-vrf"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf, [], name, value)
 
 
                 class Afs(Entity):
@@ -6320,7 +6169,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Global.Mldp.DefaultVrf.Afs, self).__init__()
@@ -6330,8 +6179,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("af", ("af", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af))])
+                        self._child_classes = OrderedDict([("af", ("af", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af))])
                         self._leafs = OrderedDict()
 
                         self.af = YList(self)
@@ -6396,7 +6244,7 @@ class MplsLdp(Entity):
                         """
 
                         _prefix = 'mpls-ldp-cfg'
-                        _revision = '2017-06-26'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af, self).__init__()
@@ -6406,8 +6254,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['af_name']
-                            self._child_container_classes = OrderedDict([("recursive-forwarding", ("recursive_forwarding", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding)), ("mldp-recursive-fec", ("mldp_recursive_fec", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec)), ("neighbor-policies", ("neighbor_policies", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies)), ("mo-frr", ("mo_frr", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr)), ("make-before-break", ("make_before_break", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak)), ("csc", ("csc", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("recursive-forwarding", ("recursive_forwarding", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding)), ("mldp-recursive-fec", ("mldp_recursive_fec", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec)), ("neighbor-policies", ("neighbor_policies", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies)), ("mo-frr", ("mo_frr", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr)), ("make-before-break", ("make_before_break", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak)), ("csc", ("csc", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc))])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('enable', YLeaf(YType.empty, 'enable')),
@@ -6420,32 +6267,26 @@ class MplsLdp(Entity):
                             self.recursive_forwarding = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding()
                             self.recursive_forwarding.parent = self
                             self._children_name_map["recursive_forwarding"] = "recursive-forwarding"
-                            self._children_yang_names.add("recursive-forwarding")
 
                             self.mldp_recursive_fec = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec()
                             self.mldp_recursive_fec.parent = self
                             self._children_name_map["mldp_recursive_fec"] = "mldp-recursive-fec"
-                            self._children_yang_names.add("mldp-recursive-fec")
 
                             self.neighbor_policies = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies()
                             self.neighbor_policies.parent = self
                             self._children_name_map["neighbor_policies"] = "neighbor-policies"
-                            self._children_yang_names.add("neighbor-policies")
 
                             self.mo_frr = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr()
                             self.mo_frr.parent = self
                             self._children_name_map["mo_frr"] = "mo-frr"
-                            self._children_yang_names.add("mo-frr")
 
                             self.make_before_break = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak()
                             self.make_before_break.parent = self
                             self._children_name_map["make_before_break"] = "make-before-break"
-                            self._children_yang_names.add("make-before-break")
 
                             self.csc = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc()
                             self.csc.parent = self
                             self._children_name_map["csc"] = "csc"
-                            self._children_yang_names.add("csc")
                             self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/%s" % self._segment_path()
 
@@ -6474,7 +6315,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding, self).__init__()
@@ -6484,8 +6325,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.empty, 'enable')),
                                     ('policy', YLeaf(YType.str, 'policy')),
@@ -6519,7 +6359,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec, self).__init__()
@@ -6529,8 +6369,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.empty, 'enable')),
                                     ('policy', YLeaf(YType.str, 'policy')),
@@ -6557,7 +6396,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies, self).__init__()
@@ -6567,8 +6406,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("neighbor-policy", ("neighbor_policy", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy))])
+                                self._child_classes = OrderedDict([("neighbor-policy", ("neighbor_policy", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy))])
                                 self._leafs = OrderedDict()
 
                                 self.neighbor_policy = YList(self)
@@ -6608,7 +6446,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy, self).__init__()
@@ -6618,8 +6456,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['root_address','policy_mode']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('root_address', YLeaf(YType.str, 'root-address')),
                                         ('policy_mode', YLeaf(YType.enumeration, 'policy-mode')),
@@ -6655,7 +6492,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr, self).__init__()
@@ -6665,8 +6502,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.empty, 'enable')),
                                     ('policy', YLeaf(YType.str, 'policy')),
@@ -6700,7 +6536,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak, self).__init__()
@@ -6710,8 +6546,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("signaling", ("signaling", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("signaling", ("signaling", MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling))])
                                 self._leafs = OrderedDict([
                                     ('policy', YLeaf(YType.str, 'policy')),
                                 ])
@@ -6720,7 +6555,6 @@ class MplsLdp(Entity):
                                 self.signaling = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling()
                                 self.signaling.parent = self
                                 self._children_name_map["signaling"] = "signaling"
-                                self._children_yang_names.add("signaling")
                                 self._segment_path = lambda: "make-before-break"
 
                             def __setattr__(self, name, value):
@@ -6754,7 +6588,7 @@ class MplsLdp(Entity):
                                 """
 
                                 _prefix = 'mpls-ldp-cfg'
-                                _revision = '2017-06-26'
+                                _revision = '2017-09-30'
 
                                 def __init__(self):
                                     super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling, self).__init__()
@@ -6764,8 +6598,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('forward_delay', YLeaf(YType.uint32, 'forward-delay')),
                                         ('delete_delay', YLeaf(YType.uint32, 'delete-delay')),
@@ -6792,7 +6625,7 @@ class MplsLdp(Entity):
                             """
 
                             _prefix = 'mpls-ldp-cfg'
-                            _revision = '2017-06-26'
+                            _revision = '2017-09-30'
 
                             def __init__(self):
                                 super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc, self).__init__()
@@ -6802,8 +6635,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.empty, 'enable')),
                                 ])
@@ -6828,7 +6660,7 @@ class MplsLdp(Entity):
                 """
 
                 _prefix = 'mpls-ldp-cfg'
-                _revision = '2017-06-26'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(MplsLdp.Global.Mldp.MldpGlobal, self).__init__()
@@ -6838,16 +6670,17 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("logging", ("logging", MplsLdp.Global.Mldp.MldpGlobal.Logging))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("logging", ("logging", MplsLdp.Global.Mldp.MldpGlobal.Logging))])
                     self._leafs = OrderedDict()
 
                     self.logging = MplsLdp.Global.Mldp.MldpGlobal.Logging()
                     self.logging.parent = self
                     self._children_name_map["logging"] = "logging"
-                    self._children_yang_names.add("logging")
                     self._segment_path = lambda: "mldp-global"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsLdp.Global.Mldp.MldpGlobal, [], name, value)
 
 
                 class Logging(Entity):
@@ -6864,7 +6697,7 @@ class MplsLdp(Entity):
                     """
 
                     _prefix = 'mpls-ldp-cfg'
-                    _revision = '2017-06-26'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(MplsLdp.Global.Mldp.MldpGlobal.Logging, self).__init__()
@@ -6874,8 +6707,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('notifications', YLeaf(YType.empty, 'notifications')),
                         ])

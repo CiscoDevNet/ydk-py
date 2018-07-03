@@ -352,97 +352,97 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
     .. attribute:: cipseclevels
     
     	
-    	**type**\:  :py:class:`Cipseclevels <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipseclevels>`
+    	**type**\:  :py:class:`CipSecLevels <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecLevels>`
     
     .. attribute:: cikeglobalstats
     
     	
-    	**type**\:  :py:class:`Cikeglobalstats <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikeglobalstats>`
+    	**type**\:  :py:class:`CikeGlobalStats <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeGlobalStats>`
     
     .. attribute:: cipsecglobalstats
     
     	
-    	**type**\:  :py:class:`Cipsecglobalstats <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecglobalstats>`
+    	**type**\:  :py:class:`CipSecGlobalStats <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecGlobalStats>`
     
     .. attribute:: cipsechistglobalcntl
     
     	
-    	**type**\:  :py:class:`Cipsechistglobalcntl <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl>`
+    	**type**\:  :py:class:`CipSecHistGlobalCntl <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecHistGlobalCntl>`
     
     .. attribute:: cipsecfailglobalcntl
     
     	
-    	**type**\:  :py:class:`Cipsecfailglobalcntl <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl>`
+    	**type**\:  :py:class:`CipSecFailGlobalCntl <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecFailGlobalCntl>`
     
     .. attribute:: cipsectrapcntl
     
     	
-    	**type**\:  :py:class:`Cipsectrapcntl <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectrapcntl>`
+    	**type**\:  :py:class:`CipSecTrapCntl <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecTrapCntl>`
     
     .. attribute:: cikepeertable
     
     	The IPsec Phase\-1 Internet Key Exchange Peer Table. There is one entry in this table for each IPsec Phase\-1 IKE peer association which is currently associated with an active IPsec Phase\-1 Tunnel. The IPsec Phase\-1 IKE Tunnel associated with this IPsec Phase\-1 IKE peer association may or may not be currently active
-    	**type**\:  :py:class:`Cikepeertable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikepeertable>`
+    	**type**\:  :py:class:`CikePeerTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikePeerTable>`
     
     .. attribute:: ciketunneltable
     
     	The IPsec Phase\-1 Internet Key Exchange Tunnel Table. There is one entry in this table for each active IPsec Phase\-1 IKE Tunnel
-    	**type**\:  :py:class:`Ciketunneltable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Ciketunneltable>`
+    	**type**\:  :py:class:`CikeTunnelTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeTunnelTable>`
     
     .. attribute:: cikepeercorrtable
     
     	The IPsec Phase\-1 Internet Key Exchange Peer Association to IPsec Phase\-2 Tunnel Correlation Table. There is one entry in this table for each active IPsec Phase\-2 Tunnel
-    	**type**\:  :py:class:`Cikepeercorrtable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable>`
+    	**type**\:  :py:class:`CikePeerCorrTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable>`
     
     .. attribute:: cikephase1gwstatstable
     
     	Phase\-1 IKE stats information is included in this table. Each entry is related to a specific gateway which is  identified by 'cmgwIndex'
-    	**type**\:  :py:class:`Cikephase1Gwstatstable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable>`
+    	**type**\:  :py:class:`CikePhase1GWStatsTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable>`
     
     .. attribute:: cipsectunneltable
     
     	The IPsec Phase\-2 Tunnel Table. There is one entry in this table for  each active IPsec Phase\-2 Tunnel
-    	**type**\:  :py:class:`Cipsectunneltable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunneltable>`
+    	**type**\:  :py:class:`CipSecTunnelTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable>`
     
     .. attribute:: cipsecendpttable
     
     	The IPsec Phase\-2 Tunnel Endpoint Table. This table contains an entry for each  active endpoint associated with an IPsec  Phase\-2 Tunnel
-    	**type**\:  :py:class:`Cipsecendpttable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecendpttable>`
+    	**type**\:  :py:class:`CipSecEndPtTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable>`
     
     .. attribute:: cipsecspitable
     
     	The IPsec Phase\-2 Security Protection Index Table. This table contains an entry for each active  and expiring security  association
-    	**type**\:  :py:class:`Cipsecspitable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecspitable>`
+    	**type**\:  :py:class:`CipSecSpiTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecSpiTable>`
     
     .. attribute:: cipsecphase2gwstatstable
     
     	Phase\-2 IPsec stats information is included in this table. Each entry is related to a specific gateway which is  identified by 'cmgwIndex'
-    	**type**\:  :py:class:`Cipsecphase2Gwstatstable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable>`
+    	**type**\:  :py:class:`CipSecPhase2GWStatsTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable>`
     
     .. attribute:: ciketunnelhisttable
     
     	The IPsec Phase\-1 Internet Key Exchange Tunnel History Table.  This table is implemented as a  sliding window in which only the last n entries  are maintained.  The maximum number of entries  is specified by the cipSecHistTableSize object
-    	**type**\:  :py:class:`Ciketunnelhisttable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable>`
+    	**type**\:  :py:class:`CikeTunnelHistTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable>`
     
     .. attribute:: cipsectunnelhisttable
     
     	The IPsec Phase\-2 Tunnel History Table. This table is implemented as a sliding  window in which only the last n entries are maintained.  The maximum number  of entries is specified by the cipSecHistTableSize object
-    	**type**\:  :py:class:`Cipsectunnelhisttable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable>`
+    	**type**\:  :py:class:`CipSecTunnelHistTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable>`
     
     .. attribute:: cipsecendpthisttable
     
     	The IPsec Phase\-2 Tunnel Endpoint History Table. This table is implemented as a  sliding window in which only the last n entries are maintained.   The maximum number of entries is specified by the cipSecHistTableSize object
-    	**type**\:  :py:class:`Cipsecendpthisttable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable>`
+    	**type**\:  :py:class:`CipSecEndPtHistTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable>`
     
     .. attribute:: cikefailtable
     
     	The IPsec Phase\-1 Failure Table. This table is implemented as a sliding  window in which only the last n entries are  maintained.  The maximum number of entries is specified by the cipSecFailTableSize object
-    	**type**\:  :py:class:`Cikefailtable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikefailtable>`
+    	**type**\:  :py:class:`CikeFailTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeFailTable>`
     
     .. attribute:: cipsecfailtable
     
     	The IPsec Phase\-2 Failure Table. This table is implemented as a sliding window  in which only the last n entries are maintained.   The maximum number of entries is specified by the cipSecFailTableSize object
-    	**type**\:  :py:class:`Cipsecfailtable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecfailtable>`
+    	**type**\:  :py:class:`CipSecFailTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecFailTable>`
     
     
 
@@ -460,108 +460,91 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cipSecLevels", ("cipseclevels", CISCOIPSECFLOWMONITORMIB.Cipseclevels)), ("cikeGlobalStats", ("cikeglobalstats", CISCOIPSECFLOWMONITORMIB.Cikeglobalstats)), ("cipSecGlobalStats", ("cipsecglobalstats", CISCOIPSECFLOWMONITORMIB.Cipsecglobalstats)), ("cipSecHistGlobalCntl", ("cipsechistglobalcntl", CISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl)), ("cipSecFailGlobalCntl", ("cipsecfailglobalcntl", CISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl)), ("cipSecTrapCntl", ("cipsectrapcntl", CISCOIPSECFLOWMONITORMIB.Cipsectrapcntl)), ("cikePeerTable", ("cikepeertable", CISCOIPSECFLOWMONITORMIB.Cikepeertable)), ("cikeTunnelTable", ("ciketunneltable", CISCOIPSECFLOWMONITORMIB.Ciketunneltable)), ("cikePeerCorrTable", ("cikepeercorrtable", CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable)), ("cikePhase1GWStatsTable", ("cikephase1gwstatstable", CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable)), ("cipSecTunnelTable", ("cipsectunneltable", CISCOIPSECFLOWMONITORMIB.Cipsectunneltable)), ("cipSecEndPtTable", ("cipsecendpttable", CISCOIPSECFLOWMONITORMIB.Cipsecendpttable)), ("cipSecSpiTable", ("cipsecspitable", CISCOIPSECFLOWMONITORMIB.Cipsecspitable)), ("cipSecPhase2GWStatsTable", ("cipsecphase2gwstatstable", CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable)), ("cikeTunnelHistTable", ("ciketunnelhisttable", CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable)), ("cipSecTunnelHistTable", ("cipsectunnelhisttable", CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable)), ("cipSecEndPtHistTable", ("cipsecendpthisttable", CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable)), ("cikeFailTable", ("cikefailtable", CISCOIPSECFLOWMONITORMIB.Cikefailtable)), ("cipSecFailTable", ("cipsecfailtable", CISCOIPSECFLOWMONITORMIB.Cipsecfailtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cipSecLevels", ("cipseclevels", CISCOIPSECFLOWMONITORMIB.CipSecLevels)), ("cikeGlobalStats", ("cikeglobalstats", CISCOIPSECFLOWMONITORMIB.CikeGlobalStats)), ("cipSecGlobalStats", ("cipsecglobalstats", CISCOIPSECFLOWMONITORMIB.CipSecGlobalStats)), ("cipSecHistGlobalCntl", ("cipsechistglobalcntl", CISCOIPSECFLOWMONITORMIB.CipSecHistGlobalCntl)), ("cipSecFailGlobalCntl", ("cipsecfailglobalcntl", CISCOIPSECFLOWMONITORMIB.CipSecFailGlobalCntl)), ("cipSecTrapCntl", ("cipsectrapcntl", CISCOIPSECFLOWMONITORMIB.CipSecTrapCntl)), ("cikePeerTable", ("cikepeertable", CISCOIPSECFLOWMONITORMIB.CikePeerTable)), ("cikeTunnelTable", ("ciketunneltable", CISCOIPSECFLOWMONITORMIB.CikeTunnelTable)), ("cikePeerCorrTable", ("cikepeercorrtable", CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable)), ("cikePhase1GWStatsTable", ("cikephase1gwstatstable", CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable)), ("cipSecTunnelTable", ("cipsectunneltable", CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable)), ("cipSecEndPtTable", ("cipsecendpttable", CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable)), ("cipSecSpiTable", ("cipsecspitable", CISCOIPSECFLOWMONITORMIB.CipSecSpiTable)), ("cipSecPhase2GWStatsTable", ("cipsecphase2gwstatstable", CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable)), ("cikeTunnelHistTable", ("ciketunnelhisttable", CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable)), ("cipSecTunnelHistTable", ("cipsectunnelhisttable", CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable)), ("cipSecEndPtHistTable", ("cipsecendpthisttable", CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable)), ("cikeFailTable", ("cikefailtable", CISCOIPSECFLOWMONITORMIB.CikeFailTable)), ("cipSecFailTable", ("cipsecfailtable", CISCOIPSECFLOWMONITORMIB.CipSecFailTable))])
         self._leafs = OrderedDict()
 
-        self.cipseclevels = CISCOIPSECFLOWMONITORMIB.Cipseclevels()
+        self.cipseclevels = CISCOIPSECFLOWMONITORMIB.CipSecLevels()
         self.cipseclevels.parent = self
         self._children_name_map["cipseclevels"] = "cipSecLevels"
-        self._children_yang_names.add("cipSecLevels")
 
-        self.cikeglobalstats = CISCOIPSECFLOWMONITORMIB.Cikeglobalstats()
+        self.cikeglobalstats = CISCOIPSECFLOWMONITORMIB.CikeGlobalStats()
         self.cikeglobalstats.parent = self
         self._children_name_map["cikeglobalstats"] = "cikeGlobalStats"
-        self._children_yang_names.add("cikeGlobalStats")
 
-        self.cipsecglobalstats = CISCOIPSECFLOWMONITORMIB.Cipsecglobalstats()
+        self.cipsecglobalstats = CISCOIPSECFLOWMONITORMIB.CipSecGlobalStats()
         self.cipsecglobalstats.parent = self
         self._children_name_map["cipsecglobalstats"] = "cipSecGlobalStats"
-        self._children_yang_names.add("cipSecGlobalStats")
 
-        self.cipsechistglobalcntl = CISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl()
+        self.cipsechistglobalcntl = CISCOIPSECFLOWMONITORMIB.CipSecHistGlobalCntl()
         self.cipsechistglobalcntl.parent = self
         self._children_name_map["cipsechistglobalcntl"] = "cipSecHistGlobalCntl"
-        self._children_yang_names.add("cipSecHistGlobalCntl")
 
-        self.cipsecfailglobalcntl = CISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl()
+        self.cipsecfailglobalcntl = CISCOIPSECFLOWMONITORMIB.CipSecFailGlobalCntl()
         self.cipsecfailglobalcntl.parent = self
         self._children_name_map["cipsecfailglobalcntl"] = "cipSecFailGlobalCntl"
-        self._children_yang_names.add("cipSecFailGlobalCntl")
 
-        self.cipsectrapcntl = CISCOIPSECFLOWMONITORMIB.Cipsectrapcntl()
+        self.cipsectrapcntl = CISCOIPSECFLOWMONITORMIB.CipSecTrapCntl()
         self.cipsectrapcntl.parent = self
         self._children_name_map["cipsectrapcntl"] = "cipSecTrapCntl"
-        self._children_yang_names.add("cipSecTrapCntl")
 
-        self.cikepeertable = CISCOIPSECFLOWMONITORMIB.Cikepeertable()
+        self.cikepeertable = CISCOIPSECFLOWMONITORMIB.CikePeerTable()
         self.cikepeertable.parent = self
         self._children_name_map["cikepeertable"] = "cikePeerTable"
-        self._children_yang_names.add("cikePeerTable")
 
-        self.ciketunneltable = CISCOIPSECFLOWMONITORMIB.Ciketunneltable()
+        self.ciketunneltable = CISCOIPSECFLOWMONITORMIB.CikeTunnelTable()
         self.ciketunneltable.parent = self
         self._children_name_map["ciketunneltable"] = "cikeTunnelTable"
-        self._children_yang_names.add("cikeTunnelTable")
 
-        self.cikepeercorrtable = CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable()
+        self.cikepeercorrtable = CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable()
         self.cikepeercorrtable.parent = self
         self._children_name_map["cikepeercorrtable"] = "cikePeerCorrTable"
-        self._children_yang_names.add("cikePeerCorrTable")
 
-        self.cikephase1gwstatstable = CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable()
+        self.cikephase1gwstatstable = CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable()
         self.cikephase1gwstatstable.parent = self
         self._children_name_map["cikephase1gwstatstable"] = "cikePhase1GWStatsTable"
-        self._children_yang_names.add("cikePhase1GWStatsTable")
 
-        self.cipsectunneltable = CISCOIPSECFLOWMONITORMIB.Cipsectunneltable()
+        self.cipsectunneltable = CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable()
         self.cipsectunneltable.parent = self
         self._children_name_map["cipsectunneltable"] = "cipSecTunnelTable"
-        self._children_yang_names.add("cipSecTunnelTable")
 
-        self.cipsecendpttable = CISCOIPSECFLOWMONITORMIB.Cipsecendpttable()
+        self.cipsecendpttable = CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable()
         self.cipsecendpttable.parent = self
         self._children_name_map["cipsecendpttable"] = "cipSecEndPtTable"
-        self._children_yang_names.add("cipSecEndPtTable")
 
-        self.cipsecspitable = CISCOIPSECFLOWMONITORMIB.Cipsecspitable()
+        self.cipsecspitable = CISCOIPSECFLOWMONITORMIB.CipSecSpiTable()
         self.cipsecspitable.parent = self
         self._children_name_map["cipsecspitable"] = "cipSecSpiTable"
-        self._children_yang_names.add("cipSecSpiTable")
 
-        self.cipsecphase2gwstatstable = CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable()
+        self.cipsecphase2gwstatstable = CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable()
         self.cipsecphase2gwstatstable.parent = self
         self._children_name_map["cipsecphase2gwstatstable"] = "cipSecPhase2GWStatsTable"
-        self._children_yang_names.add("cipSecPhase2GWStatsTable")
 
-        self.ciketunnelhisttable = CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable()
+        self.ciketunnelhisttable = CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable()
         self.ciketunnelhisttable.parent = self
         self._children_name_map["ciketunnelhisttable"] = "cikeTunnelHistTable"
-        self._children_yang_names.add("cikeTunnelHistTable")
 
-        self.cipsectunnelhisttable = CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable()
+        self.cipsectunnelhisttable = CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable()
         self.cipsectunnelhisttable.parent = self
         self._children_name_map["cipsectunnelhisttable"] = "cipSecTunnelHistTable"
-        self._children_yang_names.add("cipSecTunnelHistTable")
 
-        self.cipsecendpthisttable = CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable()
+        self.cipsecendpthisttable = CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable()
         self.cipsecendpthisttable.parent = self
         self._children_name_map["cipsecendpthisttable"] = "cipSecEndPtHistTable"
-        self._children_yang_names.add("cipSecEndPtHistTable")
 
-        self.cikefailtable = CISCOIPSECFLOWMONITORMIB.Cikefailtable()
+        self.cikefailtable = CISCOIPSECFLOWMONITORMIB.CikeFailTable()
         self.cikefailtable.parent = self
         self._children_name_map["cikefailtable"] = "cikeFailTable"
-        self._children_yang_names.add("cikeFailTable")
 
-        self.cipsecfailtable = CISCOIPSECFLOWMONITORMIB.Cipsecfailtable()
+        self.cipsecfailtable = CISCOIPSECFLOWMONITORMIB.CipSecFailTable()
         self.cipsecfailtable.parent = self
         self._children_name_map["cipsecfailtable"] = "cipSecFailTable"
-        self._children_yang_names.add("cipSecFailTable")
         self._segment_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPSECFLOWMONITORMIB, [], name, value)
 
-    class Cipseclevels(Entity):
+
+    class CipSecLevels(Entity):
         """
         
         
@@ -580,15 +563,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipseclevels, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecLevels, self).__init__()
 
             self.yang_name = "cipSecLevels"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cipsecmiblevel', YLeaf(YType.int32, 'cipSecMibLevel')),
             ])
@@ -597,10 +579,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipseclevels, ['cipsecmiblevel'], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecLevels, ['cipsecmiblevel'], name, value)
 
 
-    class Cikeglobalstats(Entity):
+    class CikeGlobalStats(Entity):
         """
         
         
@@ -844,15 +826,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cikeglobalstats, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CikeGlobalStats, self).__init__()
 
             self.yang_name = "cikeGlobalStats"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cikeglobalactivetunnels', YLeaf(YType.uint32, 'cikeGlobalActiveTunnels')),
                 ('cikeglobalprevioustunnels', YLeaf(YType.uint32, 'cikeGlobalPreviousTunnels')),
@@ -911,10 +892,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikeglobalstats, ['cikeglobalactivetunnels', 'cikeglobalprevioustunnels', 'cikeglobalinoctets', 'cikeglobalinpkts', 'cikeglobalindroppkts', 'cikeglobalinnotifys', 'cikeglobalinp2exchgs', 'cikeglobalinp2exchginvalids', 'cikeglobalinp2exchgrejects', 'cikeglobalinp2sadelrequests', 'cikeglobaloutoctets', 'cikeglobaloutpkts', 'cikeglobaloutdroppkts', 'cikeglobaloutnotifys', 'cikeglobaloutp2exchgs', 'cikeglobaloutp2exchginvalids', 'cikeglobaloutp2exchgrejects', 'cikeglobaloutp2sadelrequests', 'cikeglobalinittunnels', 'cikeglobalinittunnelfails', 'cikeglobalresptunnelfails', 'cikeglobalsyscapfails', 'cikeglobalauthfails', 'cikeglobaldecryptfails', 'cikeglobalhashvalidfails', 'cikeglobalnosafails'], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikeGlobalStats, ['cikeglobalactivetunnels', 'cikeglobalprevioustunnels', 'cikeglobalinoctets', 'cikeglobalinpkts', 'cikeglobalindroppkts', 'cikeglobalinnotifys', 'cikeglobalinp2exchgs', 'cikeglobalinp2exchginvalids', 'cikeglobalinp2exchgrejects', 'cikeglobalinp2sadelrequests', 'cikeglobaloutoctets', 'cikeglobaloutpkts', 'cikeglobaloutdroppkts', 'cikeglobaloutnotifys', 'cikeglobaloutp2exchgs', 'cikeglobaloutp2exchginvalids', 'cikeglobaloutp2exchgrejects', 'cikeglobaloutp2sadelrequests', 'cikeglobalinittunnels', 'cikeglobalinittunnelfails', 'cikeglobalresptunnelfails', 'cikeglobalsyscapfails', 'cikeglobalauthfails', 'cikeglobaldecryptfails', 'cikeglobalhashvalidfails', 'cikeglobalnosafails'], name, value)
 
 
-    class Cipsecglobalstats(Entity):
+    class CipSecGlobalStats(Entity):
         """
         
         
@@ -1188,15 +1169,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsecglobalstats, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecGlobalStats, self).__init__()
 
             self.yang_name = "cipSecGlobalStats"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cipsecglobalactivetunnels', YLeaf(YType.uint32, 'cipSecGlobalActiveTunnels')),
                 ('cipsecglobalprevioustunnels', YLeaf(YType.uint32, 'cipSecGlobalPreviousTunnels')),
@@ -1263,10 +1243,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecglobalstats, ['cipsecglobalactivetunnels', 'cipsecglobalprevioustunnels', 'cipsecglobalinoctets', 'cipsecglobalhcinoctets', 'cipsecglobalinoctwraps', 'cipsecglobalindecompoctets', 'cipsecglobalhcindecompoctets', 'cipsecglobalindecompoctwraps', 'cipsecglobalinpkts', 'cipsecglobalindrops', 'cipsecglobalinreplaydrops', 'cipsecglobalinauths', 'cipsecglobalinauthfails', 'cipsecglobalindecrypts', 'cipsecglobalindecryptfails', 'cipsecglobaloutoctets', 'cipsecglobalhcoutoctets', 'cipsecglobaloutoctwraps', 'cipsecglobaloutuncompoctets', 'cipsecglobalhcoutuncompoctets', 'cipsecglobaloutuncompoctwraps', 'cipsecglobaloutpkts', 'cipsecglobaloutdrops', 'cipsecglobaloutauths', 'cipsecglobaloutauthfails', 'cipsecglobaloutencrypts', 'cipsecglobaloutencryptfails', 'cipsecglobalprotocolusefails', 'cipsecglobalnosafails', 'cipsecglobalsyscapfails'], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecGlobalStats, ['cipsecglobalactivetunnels', 'cipsecglobalprevioustunnels', 'cipsecglobalinoctets', 'cipsecglobalhcinoctets', 'cipsecglobalinoctwraps', 'cipsecglobalindecompoctets', 'cipsecglobalhcindecompoctets', 'cipsecglobalindecompoctwraps', 'cipsecglobalinpkts', 'cipsecglobalindrops', 'cipsecglobalinreplaydrops', 'cipsecglobalinauths', 'cipsecglobalinauthfails', 'cipsecglobalindecrypts', 'cipsecglobalindecryptfails', 'cipsecglobaloutoctets', 'cipsecglobalhcoutoctets', 'cipsecglobaloutoctwraps', 'cipsecglobaloutuncompoctets', 'cipsecglobalhcoutuncompoctets', 'cipsecglobaloutuncompoctwraps', 'cipsecglobaloutpkts', 'cipsecglobaloutdrops', 'cipsecglobaloutauths', 'cipsecglobaloutauthfails', 'cipsecglobaloutencrypts', 'cipsecglobaloutencryptfails', 'cipsecglobalprotocolusefails', 'cipsecglobalnosafails', 'cipsecglobalsyscapfails'], name, value)
 
 
-    class Cipsechistglobalcntl(Entity):
+    class CipSecHistGlobalCntl(Entity):
         """
         
         
@@ -1280,7 +1260,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cipsechistcheckpoint
         
         	The current state of check point processing.  This object will return ready when the agent is  ready to create on\-demand history entries for  active IPsec Tunnels or checkPoint when the  agent is currently creating on\-demand history  entries for active IPsec Tunnels.  By setting this value to checkPoint, the agent  will create\: a) an entry in the IPsec Phase\-1 Tunnel History     for each active IPsec Phase\-1 Tunnel and b) an entry in the IPsec Phase\-2 Tunnel History     Table and an entry in the IPsec Phase\-2     Tunnel EndPoint History Table    for each active IPsec Phase\-2 Tunnel
-        	**type**\:  :py:class:`Cipsechistcheckpoint <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl.Cipsechistcheckpoint>`
+        	**type**\:  :py:class:`CipSecHistCheckPoint <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecHistGlobalCntl.CipSecHistCheckPoint>`
         
         
 
@@ -1290,15 +1270,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecHistGlobalCntl, self).__init__()
 
             self.yang_name = "cipSecHistGlobalCntl"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cipsechisttablesize', YLeaf(YType.int32, 'cipSecHistTableSize')),
                 ('cipsechistcheckpoint', YLeaf(YType.enumeration, 'cipSecHistCheckPoint')),
@@ -1309,11 +1288,11 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl, ['cipsechisttablesize', 'cipsechistcheckpoint'], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecHistGlobalCntl, ['cipsechisttablesize', 'cipsechistcheckpoint'], name, value)
 
-        class Cipsechistcheckpoint(Enum):
+        class CipSecHistCheckPoint(Enum):
             """
-            Cipsechistcheckpoint (Enum Class)
+            CipSecHistCheckPoint (Enum Class)
 
             The current state of check point processing.
 
@@ -1355,7 +1334,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
 
 
-    class Cipsecfailglobalcntl(Entity):
+    class CipSecFailGlobalCntl(Entity):
         """
         
         
@@ -1374,15 +1353,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecFailGlobalCntl, self).__init__()
 
             self.yang_name = "cipSecFailGlobalCntl"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cipsecfailtablesize', YLeaf(YType.int32, 'cipSecFailTableSize')),
             ])
@@ -1391,10 +1369,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl, ['cipsecfailtablesize'], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecFailGlobalCntl, ['cipsecfailtablesize'], name, value)
 
 
-    class Cipsectrapcntl(Entity):
+    class CipSecTrapCntl(Entity):
         """
         
         
@@ -1471,15 +1449,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsectrapcntl, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecTrapCntl, self).__init__()
 
             self.yang_name = "cipSecTrapCntl"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cipsectrapcntliketunnelstart', YLeaf(YType.enumeration, 'cipSecTrapCntlIkeTunnelStart')),
                 ('cipsectrapcntliketunnelstop', YLeaf(YType.enumeration, 'cipSecTrapCntlIkeTunnelStop')),
@@ -1512,10 +1489,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsectrapcntl, ['cipsectrapcntliketunnelstart', 'cipsectrapcntliketunnelstop', 'cipsectrapcntlikesysfailure', 'cipsectrapcntlikecertcrlfailure', 'cipsectrapcntlikeprotocolfail', 'cipsectrapcntlikenosa', 'cipsectrapcntlipsectunnelstart', 'cipsectrapcntlipsectunnelstop', 'cipsectrapcntlipsecsysfailure', 'cipsectrapcntlipsecsetupfailure', 'cipsectrapcntlipsecearlytunterm', 'cipsectrapcntlipsecprotocolfail', 'cipsectrapcntlipsecnosa'], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecTrapCntl, ['cipsectrapcntliketunnelstart', 'cipsectrapcntliketunnelstop', 'cipsectrapcntlikesysfailure', 'cipsectrapcntlikecertcrlfailure', 'cipsectrapcntlikeprotocolfail', 'cipsectrapcntlikenosa', 'cipsectrapcntlipsectunnelstart', 'cipsectrapcntlipsectunnelstop', 'cipsectrapcntlipsecsysfailure', 'cipsectrapcntlipsecsetupfailure', 'cipsectrapcntlipsecearlytunterm', 'cipsectrapcntlipsecprotocolfail', 'cipsectrapcntlipsecnosa'], name, value)
 
 
-    class Cikepeertable(Entity):
+    class CikePeerTable(Entity):
         """
         The IPsec Phase\-1 Internet Key Exchange Peer Table.
         There is one entry in this table for each IPsec
@@ -1528,7 +1505,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cikepeerentry
         
         	Each entry contains the attributes associated with an IPsec Phase\-1 IKE peer association
-        	**type**\: list of  		 :py:class:`Cikepeerentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikepeertable.Cikepeerentry>`
+        	**type**\: list of  		 :py:class:`CikePeerEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikePeerTable.CikePeerEntry>`
         
         
 
@@ -1538,15 +1515,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cikepeertable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CikePeerTable, self).__init__()
 
             self.yang_name = "cikePeerTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cikePeerEntry", ("cikepeerentry", CISCOIPSECFLOWMONITORMIB.Cikepeertable.Cikepeerentry))])
+            self._child_classes = OrderedDict([("cikePeerEntry", ("cikepeerentry", CISCOIPSECFLOWMONITORMIB.CikePeerTable.CikePeerEntry))])
             self._leafs = OrderedDict()
 
             self.cikepeerentry = YList(self)
@@ -1554,10 +1530,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikepeertable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikePeerTable, [], name, value)
 
 
-        class Cikepeerentry(Entity):
+        class CikePeerEntry(Entity):
             """
             Each entry contains the attributes associated
             with an IPsec Phase\-1 IKE peer association.
@@ -1625,15 +1601,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cikepeertable.Cikepeerentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CikePeerTable.CikePeerEntry, self).__init__()
 
                 self.yang_name = "cikePeerEntry"
                 self.yang_parent_name = "cikePeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cikepeerlocaltype','cikepeerlocalvalue','cikepeerremotetype','cikepeerremotevalue','cikepeerintindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cikepeerlocaltype', YLeaf(YType.enumeration, 'cikePeerLocalType')),
                     ('cikepeerlocalvalue', YLeaf(YType.str, 'cikePeerLocalValue')),
@@ -1658,10 +1633,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikepeertable.Cikepeerentry, ['cikepeerlocaltype', 'cikepeerlocalvalue', 'cikepeerremotetype', 'cikepeerremotevalue', 'cikepeerintindex', 'cikepeerlocaladdr', 'cikepeerremoteaddr', 'cikepeeractivetime', 'cikepeeractivetunnelindex'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikePeerTable.CikePeerEntry, ['cikepeerlocaltype', 'cikepeerlocalvalue', 'cikepeerremotetype', 'cikepeerremotevalue', 'cikepeerintindex', 'cikepeerlocaladdr', 'cikepeerremoteaddr', 'cikepeeractivetime', 'cikepeeractivetunnelindex'], name, value)
 
 
-    class Ciketunneltable(Entity):
+    class CikeTunnelTable(Entity):
         """
         The IPsec Phase\-1 Internet Key Exchange Tunnel Table.
         There is one entry in this table for each active IPsec
@@ -1670,7 +1645,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: ciketunnelentry
         
         	Each entry contains the attributes associated with an active IPsec Phase\-1 IKE Tunnel
-        	**type**\: list of  		 :py:class:`Ciketunnelentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Ciketunneltable.Ciketunnelentry>`
+        	**type**\: list of  		 :py:class:`CikeTunnelEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeTunnelTable.CikeTunnelEntry>`
         
         
 
@@ -1680,15 +1655,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Ciketunneltable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CikeTunnelTable, self).__init__()
 
             self.yang_name = "cikeTunnelTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cikeTunnelEntry", ("ciketunnelentry", CISCOIPSECFLOWMONITORMIB.Ciketunneltable.Ciketunnelentry))])
+            self._child_classes = OrderedDict([("cikeTunnelEntry", ("ciketunnelentry", CISCOIPSECFLOWMONITORMIB.CikeTunnelTable.CikeTunnelEntry))])
             self._leafs = OrderedDict()
 
             self.ciketunnelentry = YList(self)
@@ -1696,10 +1670,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Ciketunneltable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikeTunnelTable, [], name, value)
 
 
-        class Ciketunnelentry(Entity):
+        class CikeTunnelEntry(Entity):
             """
             Each entry contains the attributes associated with
             an active IPsec Phase\-1 IKE Tunnel.
@@ -1971,15 +1945,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Ciketunneltable.Ciketunnelentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CikeTunnelTable.CikeTunnelEntry, self).__init__()
 
                 self.yang_name = "cikeTunnelEntry"
                 self.yang_parent_name = "cikeTunnelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciketunindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciketunindex', YLeaf(YType.int32, 'cikeTunIndex')),
                     ('ciketunlocaltype', YLeaf(YType.enumeration, 'cikeTunLocalType')),
@@ -2056,10 +2029,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeTunnelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Ciketunneltable.Ciketunnelentry, ['ciketunindex', 'ciketunlocaltype', 'ciketunlocalvalue', 'ciketunlocaladdr', 'ciketunlocalname', 'ciketunremotetype', 'ciketunremotevalue', 'ciketunremoteaddr', 'ciketunremotename', 'ciketunnegomode', 'ciketundiffhellmangrp', 'ciketunencryptalgo', 'ciketunhashalgo', 'ciketunauthmethod', 'ciketunlifetime', 'ciketunactivetime', 'ciketunsarefreshthreshold', 'ciketuntotalrefreshes', 'ciketuninoctets', 'ciketuninpkts', 'ciketunindroppkts', 'ciketuninnotifys', 'ciketuninp2exchgs', 'ciketuninp2exchginvalids', 'ciketuninp2exchgrejects', 'ciketuninp2sadelrequests', 'ciketunoutoctets', 'ciketunoutpkts', 'ciketunoutdroppkts', 'ciketunoutnotifys', 'ciketunoutp2exchgs', 'ciketunoutp2exchginvalids', 'ciketunoutp2exchgrejects', 'ciketunoutp2sadelrequests', 'ciketunstatus'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikeTunnelTable.CikeTunnelEntry, ['ciketunindex', 'ciketunlocaltype', 'ciketunlocalvalue', 'ciketunlocaladdr', 'ciketunlocalname', 'ciketunremotetype', 'ciketunremotevalue', 'ciketunremoteaddr', 'ciketunremotename', 'ciketunnegomode', 'ciketundiffhellmangrp', 'ciketunencryptalgo', 'ciketunhashalgo', 'ciketunauthmethod', 'ciketunlifetime', 'ciketunactivetime', 'ciketunsarefreshthreshold', 'ciketuntotalrefreshes', 'ciketuninoctets', 'ciketuninpkts', 'ciketunindroppkts', 'ciketuninnotifys', 'ciketuninp2exchgs', 'ciketuninp2exchginvalids', 'ciketuninp2exchgrejects', 'ciketuninp2sadelrequests', 'ciketunoutoctets', 'ciketunoutpkts', 'ciketunoutdroppkts', 'ciketunoutnotifys', 'ciketunoutp2exchgs', 'ciketunoutp2exchginvalids', 'ciketunoutp2exchgrejects', 'ciketunoutp2sadelrequests', 'ciketunstatus'], name, value)
 
 
-    class Cikepeercorrtable(Entity):
+    class CikePeerCorrTable(Entity):
         """
         The IPsec Phase\-1 Internet Key Exchange Peer
         Association to IPsec Phase\-2 Tunnel
@@ -2070,7 +2043,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cikepeercorrentry
         
         	Each entry contains the attributes of an IPsec Phase\-1 IKE Peer Association to IPsec Phase\-2 Tunnel Correlation
-        	**type**\: list of  		 :py:class:`Cikepeercorrentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable.Cikepeercorrentry>`
+        	**type**\: list of  		 :py:class:`CikePeerCorrEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable.CikePeerCorrEntry>`
         
         
 
@@ -2080,15 +2053,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable, self).__init__()
 
             self.yang_name = "cikePeerCorrTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cikePeerCorrEntry", ("cikepeercorrentry", CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable.Cikepeercorrentry))])
+            self._child_classes = OrderedDict([("cikePeerCorrEntry", ("cikepeercorrentry", CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable.CikePeerCorrEntry))])
             self._leafs = OrderedDict()
 
             self.cikepeercorrentry = YList(self)
@@ -2096,10 +2068,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable, [], name, value)
 
 
-        class Cikepeercorrentry(Entity):
+        class CikePeerCorrEntry(Entity):
             """
             Each entry contains the attributes of an
             IPsec Phase\-1 IKE Peer Association to IPsec
@@ -2154,15 +2126,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable.Cikepeercorrentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable.CikePeerCorrEntry, self).__init__()
 
                 self.yang_name = "cikePeerCorrEntry"
                 self.yang_parent_name = "cikePeerCorrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cikepeercorrlocaltype','cikepeercorrlocalvalue','cikepeercorrremotetype','cikepeercorrremotevalue','cikepeercorrintindex','cikepeercorrseqnum']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cikepeercorrlocaltype', YLeaf(YType.enumeration, 'cikePeerCorrLocalType')),
                     ('cikepeercorrlocalvalue', YLeaf(YType.str, 'cikePeerCorrLocalValue')),
@@ -2183,10 +2154,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePeerCorrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable.Cikepeercorrentry, ['cikepeercorrlocaltype', 'cikepeercorrlocalvalue', 'cikepeercorrremotetype', 'cikepeercorrremotevalue', 'cikepeercorrintindex', 'cikepeercorrseqnum', 'cikepeercorripsectunindex'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikePeerCorrTable.CikePeerCorrEntry, ['cikepeercorrlocaltype', 'cikepeercorrlocalvalue', 'cikepeercorrremotetype', 'cikepeercorrremotevalue', 'cikepeercorrintindex', 'cikepeercorrseqnum', 'cikepeercorripsectunindex'], name, value)
 
 
-    class Cikephase1Gwstatstable(Entity):
+    class CikePhase1GWStatsTable(Entity):
         """
         Phase\-1 IKE stats information is included in this table.
         Each entry is related to a specific gateway which is 
@@ -2195,7 +2166,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cikephase1gwstatsentry
         
         	Each entry contains the attributes of an Phase\-1 IKE stats information for the related gateway.  There is only one entry for each gateway. The entry  is created when a gateway up and cannot be deleted
-        	**type**\: list of  		 :py:class:`Cikephase1Gwstatsentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable.Cikephase1Gwstatsentry>`
+        	**type**\: list of  		 :py:class:`CikePhase1GWStatsEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable.CikePhase1GWStatsEntry>`
         
         
 
@@ -2205,15 +2176,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable, self).__init__()
 
             self.yang_name = "cikePhase1GWStatsTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cikePhase1GWStatsEntry", ("cikephase1gwstatsentry", CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable.Cikephase1Gwstatsentry))])
+            self._child_classes = OrderedDict([("cikePhase1GWStatsEntry", ("cikephase1gwstatsentry", CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable.CikePhase1GWStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cikephase1gwstatsentry = YList(self)
@@ -2221,10 +2191,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable, [], name, value)
 
 
-        class Cikephase1Gwstatsentry(Entity):
+        class CikePhase1GWStatsEntry(Entity):
             """
             Each entry contains the attributes of an Phase\-1 IKE stats
             information for the related gateway.
@@ -2239,7 +2209,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cikephase1gwactivetunnels
             
@@ -2481,15 +2451,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable.Cikephase1Gwstatsentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable.CikePhase1GWStatsEntry, self).__init__()
 
                 self.yang_name = "cikePhase1GWStatsEntry"
                 self.yang_parent_name = "cikePhase1GWStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cikephase1gwactivetunnels', YLeaf(YType.uint32, 'cikePhase1GWActiveTunnels')),
@@ -2550,10 +2519,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePhase1GWStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable.Cikephase1Gwstatsentry, ['cmgwindex', 'cikephase1gwactivetunnels', 'cikephase1gwprevioustunnels', 'cikephase1gwinoctets', 'cikephase1gwinpkts', 'cikephase1gwindroppkts', 'cikephase1gwinnotifys', 'cikephase1gwinp2exchgs', 'cikephase1gwinp2exchginvalids', 'cikephase1gwinp2exchgrejects', 'cikephase1gwinp2sadelrequests', 'cikephase1gwoutoctets', 'cikephase1gwoutpkts', 'cikephase1gwoutdroppkts', 'cikephase1gwoutnotifys', 'cikephase1gwoutp2exchgs', 'cikephase1gwoutp2exchginvalids', 'cikephase1gwoutp2exchgrejects', 'cikephase1gwoutp2sadelrequests', 'cikephase1gwinittunnels', 'cikephase1gwinittunnelfails', 'cikephase1gwresptunnelfails', 'cikephase1gwsyscapfails', 'cikephase1gwauthfails', 'cikephase1gwdecryptfails', 'cikephase1gwhashvalidfails', 'cikephase1gwnosafails'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikePhase1GWStatsTable.CikePhase1GWStatsEntry, ['cmgwindex', 'cikephase1gwactivetunnels', 'cikephase1gwprevioustunnels', 'cikephase1gwinoctets', 'cikephase1gwinpkts', 'cikephase1gwindroppkts', 'cikephase1gwinnotifys', 'cikephase1gwinp2exchgs', 'cikephase1gwinp2exchginvalids', 'cikephase1gwinp2exchgrejects', 'cikephase1gwinp2sadelrequests', 'cikephase1gwoutoctets', 'cikephase1gwoutpkts', 'cikephase1gwoutdroppkts', 'cikephase1gwoutnotifys', 'cikephase1gwoutp2exchgs', 'cikephase1gwoutp2exchginvalids', 'cikephase1gwoutp2exchgrejects', 'cikephase1gwoutp2sadelrequests', 'cikephase1gwinittunnels', 'cikephase1gwinittunnelfails', 'cikephase1gwresptunnelfails', 'cikephase1gwsyscapfails', 'cikephase1gwauthfails', 'cikephase1gwdecryptfails', 'cikephase1gwhashvalidfails', 'cikephase1gwnosafails'], name, value)
 
 
-    class Cipsectunneltable(Entity):
+    class CipSecTunnelTable(Entity):
         """
         The IPsec Phase\-2 Tunnel Table.
         There is one entry in this table for 
@@ -2562,7 +2531,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cipsectunnelentry
         
         	Each entry contains the attributes associated with an active IPsec Phase\-2 Tunnel
-        	**type**\: list of  		 :py:class:`Cipsectunnelentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry>`
+        	**type**\: list of  		 :py:class:`CipSecTunnelEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable.CipSecTunnelEntry>`
         
         
 
@@ -2572,15 +2541,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsectunneltable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable, self).__init__()
 
             self.yang_name = "cipSecTunnelTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipSecTunnelEntry", ("cipsectunnelentry", CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry))])
+            self._child_classes = OrderedDict([("cipSecTunnelEntry", ("cipsectunnelentry", CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable.CipSecTunnelEntry))])
             self._leafs = OrderedDict()
 
             self.cipsectunnelentry = YList(self)
@@ -2588,10 +2556,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsectunneltable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable, [], name, value)
 
 
-        class Cipsectunnelentry(Entity):
+        class CipSecTunnelEntry(Entity):
             """
             Each entry contains the attributes
             associated with an active IPsec Phase\-2 Tunnel.
@@ -2989,15 +2957,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable.CipSecTunnelEntry, self).__init__()
 
                 self.yang_name = "cipSecTunnelEntry"
                 self.yang_parent_name = "cipSecTunnelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipsectunindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipsectunindex', YLeaf(YType.int32, 'cipSecTunIndex')),
                     ('cipsectuniketunnelindex', YLeaf(YType.int32, 'cipSecTunIkeTunnelIndex')),
@@ -3106,10 +3073,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecTunnelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry, ['cipsectunindex', 'cipsectuniketunnelindex', 'cipsectuniketunnelalive', 'cipsectunlocaladdr', 'cipsectunremoteaddr', 'cipsectunkeytype', 'cipsectunencapmode', 'cipsectunlifesize', 'cipsectunlifetime', 'cipsectunactivetime', 'cipsectunsalifesizethreshold', 'cipsectunsalifetimethreshold', 'cipsectuntotalrefreshes', 'cipsectunexpiredsainstances', 'cipsectuncurrentsainstances', 'cipsectuninsadiffhellmangrp', 'cipsectuninsaencryptalgo', 'cipsectuninsaahauthalgo', 'cipsectuninsaespauthalgo', 'cipsectuninsadecompalgo', 'cipsectunoutsadiffhellmangrp', 'cipsectunoutsaencryptalgo', 'cipsectunoutsaahauthalgo', 'cipsectunoutsaespauthalgo', 'cipsectunoutsacompalgo', 'cipsectuninoctets', 'cipsectunhcinoctets', 'cipsectuninoctwraps', 'cipsectunindecompoctets', 'cipsectunhcindecompoctets', 'cipsectunindecompoctwraps', 'cipsectuninpkts', 'cipsectunindroppkts', 'cipsectuninreplaydroppkts', 'cipsectuninauths', 'cipsectuninauthfails', 'cipsectunindecrypts', 'cipsectunindecryptfails', 'cipsectunoutoctets', 'cipsectunhcoutoctets', 'cipsectunoutoctwraps', 'cipsectunoutuncompoctets', 'cipsectunhcoutuncompoctets', 'cipsectunoutuncompoctwraps', 'cipsectunoutpkts', 'cipsectunoutdroppkts', 'cipsectunoutauths', 'cipsectunoutauthfails', 'cipsectunoutencrypts', 'cipsectunoutencryptfails', 'cipsectunstatus'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable.CipSecTunnelEntry, ['cipsectunindex', 'cipsectuniketunnelindex', 'cipsectuniketunnelalive', 'cipsectunlocaladdr', 'cipsectunremoteaddr', 'cipsectunkeytype', 'cipsectunencapmode', 'cipsectunlifesize', 'cipsectunlifetime', 'cipsectunactivetime', 'cipsectunsalifesizethreshold', 'cipsectunsalifetimethreshold', 'cipsectuntotalrefreshes', 'cipsectunexpiredsainstances', 'cipsectuncurrentsainstances', 'cipsectuninsadiffhellmangrp', 'cipsectuninsaencryptalgo', 'cipsectuninsaahauthalgo', 'cipsectuninsaespauthalgo', 'cipsectuninsadecompalgo', 'cipsectunoutsadiffhellmangrp', 'cipsectunoutsaencryptalgo', 'cipsectunoutsaahauthalgo', 'cipsectunoutsaespauthalgo', 'cipsectunoutsacompalgo', 'cipsectuninoctets', 'cipsectunhcinoctets', 'cipsectuninoctwraps', 'cipsectunindecompoctets', 'cipsectunhcindecompoctets', 'cipsectunindecompoctwraps', 'cipsectuninpkts', 'cipsectunindroppkts', 'cipsectuninreplaydroppkts', 'cipsectuninauths', 'cipsectuninauthfails', 'cipsectunindecrypts', 'cipsectunindecryptfails', 'cipsectunoutoctets', 'cipsectunhcoutoctets', 'cipsectunoutoctwraps', 'cipsectunoutuncompoctets', 'cipsectunhcoutuncompoctets', 'cipsectunoutuncompoctwraps', 'cipsectunoutpkts', 'cipsectunoutdroppkts', 'cipsectunoutauths', 'cipsectunoutauthfails', 'cipsectunoutencrypts', 'cipsectunoutencryptfails', 'cipsectunstatus'], name, value)
 
 
-    class Cipsecendpttable(Entity):
+    class CipSecEndPtTable(Entity):
         """
         The IPsec Phase\-2 Tunnel Endpoint Table.
         This table contains an entry for each 
@@ -3119,7 +3086,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cipsecendptentry
         
         	An IPsec Phase\-2 Tunnel Endpoint entry
-        	**type**\: list of  		 :py:class:`Cipsecendptentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecendpttable.Cipsecendptentry>`
+        	**type**\: list of  		 :py:class:`CipSecEndPtEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable.CipSecEndPtEntry>`
         
         
 
@@ -3129,15 +3096,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsecendpttable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable, self).__init__()
 
             self.yang_name = "cipSecEndPtTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipSecEndPtEntry", ("cipsecendptentry", CISCOIPSECFLOWMONITORMIB.Cipsecendpttable.Cipsecendptentry))])
+            self._child_classes = OrderedDict([("cipSecEndPtEntry", ("cipsecendptentry", CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable.CipSecEndPtEntry))])
             self._leafs = OrderedDict()
 
             self.cipsecendptentry = YList(self)
@@ -3145,10 +3111,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecendpttable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable, [], name, value)
 
 
-        class Cipsecendptentry(Entity):
+        class CipSecEndPtEntry(Entity):
             """
             An IPsec Phase\-2 Tunnel Endpoint entry.
             
@@ -3159,7 +3125,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cipsectunindex <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry>`
+            	**refers to**\:  :py:class:`cipsectunindex <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable.CipSecTunnelEntry>`
             
             .. attribute:: cipsecendptindex  (key)
             
@@ -3252,15 +3218,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cipsecendpttable.Cipsecendptentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable.CipSecEndPtEntry, self).__init__()
 
                 self.yang_name = "cipSecEndPtEntry"
                 self.yang_parent_name = "cipSecEndPtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipsectunindex','cipsecendptindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipsectunindex', YLeaf(YType.str, 'cipSecTunIndex')),
                     ('cipsecendptindex', YLeaf(YType.int32, 'cipSecEndPtIndex')),
@@ -3295,10 +3260,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecEndPtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecendpttable.Cipsecendptentry, ['cipsectunindex', 'cipsecendptindex', 'cipsecendptlocalname', 'cipsecendptlocaltype', 'cipsecendptlocaladdr1', 'cipsecendptlocaladdr2', 'cipsecendptlocalprotocol', 'cipsecendptlocalport', 'cipsecendptremotename', 'cipsecendptremotetype', 'cipsecendptremoteaddr1', 'cipsecendptremoteaddr2', 'cipsecendptremoteprotocol', 'cipsecendptremoteport'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecEndPtTable.CipSecEndPtEntry, ['cipsectunindex', 'cipsecendptindex', 'cipsecendptlocalname', 'cipsecendptlocaltype', 'cipsecendptlocaladdr1', 'cipsecendptlocaladdr2', 'cipsecendptlocalprotocol', 'cipsecendptlocalport', 'cipsecendptremotename', 'cipsecendptremotetype', 'cipsecendptremoteaddr1', 'cipsecendptremoteaddr2', 'cipsecendptremoteprotocol', 'cipsecendptremoteport'], name, value)
 
 
-    class Cipsecspitable(Entity):
+    class CipSecSpiTable(Entity):
         """
         The IPsec Phase\-2 Security Protection Index Table.
         This table contains an entry for each active 
@@ -3308,7 +3273,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cipsecspientry
         
         	Each entry contains the attributes associated with active and expiring IPsec Phase\-2  security associations
-        	**type**\: list of  		 :py:class:`Cipsecspientry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry>`
+        	**type**\: list of  		 :py:class:`CipSecSpiEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecSpiTable.CipSecSpiEntry>`
         
         
 
@@ -3318,15 +3283,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsecspitable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecSpiTable, self).__init__()
 
             self.yang_name = "cipSecSpiTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipSecSpiEntry", ("cipsecspientry", CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry))])
+            self._child_classes = OrderedDict([("cipSecSpiEntry", ("cipsecspientry", CISCOIPSECFLOWMONITORMIB.CipSecSpiTable.CipSecSpiEntry))])
             self._leafs = OrderedDict()
 
             self.cipsecspientry = YList(self)
@@ -3334,10 +3298,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecspitable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecSpiTable, [], name, value)
 
 
-        class Cipsecspientry(Entity):
+        class CipSecSpiEntry(Entity):
             """
             Each entry contains the attributes associated with
             active and expiring IPsec Phase\-2 
@@ -3350,7 +3314,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cipsectunindex <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry>`
+            	**refers to**\:  :py:class:`cipsectunindex <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecTunnelTable.CipSecTunnelEntry>`
             
             .. attribute:: cipsecspiindex  (key)
             
@@ -3362,7 +3326,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             .. attribute:: cipsecspidirection
             
             	The direction of the SPI
-            	**type**\:  :py:class:`Cipsecspidirection <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry.Cipsecspidirection>`
+            	**type**\:  :py:class:`CipSecSpiDirection <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecSpiTable.CipSecSpiEntry.CipSecSpiDirection>`
             
             .. attribute:: cipsecspivalue
             
@@ -3374,12 +3338,12 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             .. attribute:: cipsecspiprotocol
             
             	The protocol of the SPI
-            	**type**\:  :py:class:`Cipsecspiprotocol <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry.Cipsecspiprotocol>`
+            	**type**\:  :py:class:`CipSecSpiProtocol <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecSpiTable.CipSecSpiEntry.CipSecSpiProtocol>`
             
             .. attribute:: cipsecspistatus
             
             	The status of the SPI
-            	**type**\:  :py:class:`Cipsecspistatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry.Cipsecspistatus>`
+            	**type**\:  :py:class:`CipSecSpiStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecSpiTable.CipSecSpiEntry.CipSecSpiStatus>`
             
             
 
@@ -3389,15 +3353,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CipSecSpiTable.CipSecSpiEntry, self).__init__()
 
                 self.yang_name = "cipSecSpiEntry"
                 self.yang_parent_name = "cipSecSpiTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipsectunindex','cipsecspiindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipsectunindex', YLeaf(YType.str, 'cipSecTunIndex')),
                     ('cipsecspiindex', YLeaf(YType.int32, 'cipSecSpiIndex')),
@@ -3416,11 +3379,11 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecSpiTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry, ['cipsectunindex', 'cipsecspiindex', 'cipsecspidirection', 'cipsecspivalue', 'cipsecspiprotocol', 'cipsecspistatus'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecSpiTable.CipSecSpiEntry, ['cipsectunindex', 'cipsecspiindex', 'cipsecspidirection', 'cipsecspivalue', 'cipsecspiprotocol', 'cipsecspistatus'], name, value)
 
-            class Cipsecspidirection(Enum):
+            class CipSecSpiDirection(Enum):
                 """
-                Cipsecspidirection (Enum Class)
+                CipSecSpiDirection (Enum Class)
 
                 The direction of the SPI.
 
@@ -3435,9 +3398,9 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 out = Enum.YLeaf(2, "out")
 
 
-            class Cipsecspiprotocol(Enum):
+            class CipSecSpiProtocol(Enum):
                 """
-                Cipsecspiprotocol (Enum Class)
+                CipSecSpiProtocol (Enum Class)
 
                 The protocol of the SPI.
 
@@ -3456,9 +3419,9 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 ipcomp = Enum.YLeaf(3, "ipcomp")
 
 
-            class Cipsecspistatus(Enum):
+            class CipSecSpiStatus(Enum):
                 """
-                Cipsecspistatus (Enum Class)
+                CipSecSpiStatus (Enum Class)
 
                 The status of the SPI.
 
@@ -3474,7 +3437,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
 
 
-    class Cipsecphase2Gwstatstable(Entity):
+    class CipSecPhase2GWStatsTable(Entity):
         """
         Phase\-2 IPsec stats information is included in this table.
         Each entry is related to a specific gateway which is 
@@ -3483,7 +3446,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cipsecphase2gwstatsentry
         
         	Each entry contains the attributes of an Phase\-2 IPsec stats information for the related gateway.  There is only one entry for each gateway. The entry  is created when a gateway up and cannot be deleted
-        	**type**\: list of  		 :py:class:`Cipsecphase2Gwstatsentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry>`
+        	**type**\: list of  		 :py:class:`CipSecPhase2GWStatsEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable.CipSecPhase2GWStatsEntry>`
         
         
 
@@ -3493,15 +3456,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable, self).__init__()
 
             self.yang_name = "cipSecPhase2GWStatsTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipSecPhase2GWStatsEntry", ("cipsecphase2gwstatsentry", CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry))])
+            self._child_classes = OrderedDict([("cipSecPhase2GWStatsEntry", ("cipsecphase2gwstatsentry", CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable.CipSecPhase2GWStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cipsecphase2gwstatsentry = YList(self)
@@ -3509,10 +3471,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable, [], name, value)
 
 
-        class Cipsecphase2Gwstatsentry(Entity):
+        class CipSecPhase2GWStatsEntry(Entity):
             """
             Each entry contains the attributes of an Phase\-2 IPsec stats
             information for the related gateway.
@@ -3527,7 +3489,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cipsecphase2gwactivetunnels
             
@@ -3769,15 +3731,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable.CipSecPhase2GWStatsEntry, self).__init__()
 
                 self.yang_name = "cipSecPhase2GWStatsEntry"
                 self.yang_parent_name = "cipSecPhase2GWStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cipsecphase2gwactivetunnels', YLeaf(YType.uint32, 'cipSecPhase2GWActiveTunnels')),
@@ -3838,10 +3799,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecPhase2GWStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry, ['cmgwindex', 'cipsecphase2gwactivetunnels', 'cipsecphase2gwprevioustunnels', 'cipsecphase2gwinoctets', 'cipsecphase2gwinoctwraps', 'cipsecphase2gwindecompoctets', 'cipsecphase2gwindecompoctwraps', 'cipsecphase2gwinpkts', 'cipsecphase2gwindrops', 'cipsecphase2gwinreplaydrops', 'cipsecphase2gwinauths', 'cipsecphase2gwinauthfails', 'cipsecphase2gwindecrypts', 'cipsecphase2gwindecryptfails', 'cipsecphase2gwoutoctets', 'cipsecphase2gwoutoctwraps', 'cipsecphase2gwoutuncompoctets', 'cipsecphase2gwoutuncompoctwraps', 'cipsecphase2gwoutpkts', 'cipsecphase2gwoutdrops', 'cipsecphase2gwoutauths', 'cipsecphase2gwoutauthfails', 'cipsecphase2gwoutencrypts', 'cipsecphase2gwoutencryptfails', 'cipsecphase2gwprotocolusefails', 'cipsecphase2gwnosafails', 'cipsecphase2gwsyscapfails'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecPhase2GWStatsTable.CipSecPhase2GWStatsEntry, ['cmgwindex', 'cipsecphase2gwactivetunnels', 'cipsecphase2gwprevioustunnels', 'cipsecphase2gwinoctets', 'cipsecphase2gwinoctwraps', 'cipsecphase2gwindecompoctets', 'cipsecphase2gwindecompoctwraps', 'cipsecphase2gwinpkts', 'cipsecphase2gwindrops', 'cipsecphase2gwinreplaydrops', 'cipsecphase2gwinauths', 'cipsecphase2gwinauthfails', 'cipsecphase2gwindecrypts', 'cipsecphase2gwindecryptfails', 'cipsecphase2gwoutoctets', 'cipsecphase2gwoutoctwraps', 'cipsecphase2gwoutuncompoctets', 'cipsecphase2gwoutuncompoctwraps', 'cipsecphase2gwoutpkts', 'cipsecphase2gwoutdrops', 'cipsecphase2gwoutauths', 'cipsecphase2gwoutauthfails', 'cipsecphase2gwoutencrypts', 'cipsecphase2gwoutencryptfails', 'cipsecphase2gwprotocolusefails', 'cipsecphase2gwnosafails', 'cipsecphase2gwsyscapfails'], name, value)
 
 
-    class Ciketunnelhisttable(Entity):
+    class CikeTunnelHistTable(Entity):
         """
         The IPsec Phase\-1 Internet Key Exchange Tunnel
         History Table.  This table is implemented as a 
@@ -3852,7 +3813,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: ciketunnelhistentry
         
         	Each entry contains the attributes associated with a previously active IPsec  Phase\-1 IKE Tunnel
-        	**type**\: list of  		 :py:class:`Ciketunnelhistentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable.Ciketunnelhistentry>`
+        	**type**\: list of  		 :py:class:`CikeTunnelHistEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable.CikeTunnelHistEntry>`
         
         
 
@@ -3862,15 +3823,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable, self).__init__()
 
             self.yang_name = "cikeTunnelHistTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cikeTunnelHistEntry", ("ciketunnelhistentry", CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable.Ciketunnelhistentry))])
+            self._child_classes = OrderedDict([("cikeTunnelHistEntry", ("ciketunnelhistentry", CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable.CikeTunnelHistEntry))])
             self._leafs = OrderedDict()
 
             self.ciketunnelhistentry = YList(self)
@@ -3878,10 +3838,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable, [], name, value)
 
 
-        class Ciketunnelhistentry(Entity):
+        class CikeTunnelHistEntry(Entity):
             """
             Each entry contains the attributes
             associated with a previously active IPsec 
@@ -3897,7 +3857,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             .. attribute:: ciketunhisttermreason
             
             	The reason the IPsec Phase\-1 IKE Tunnel was terminated. Possible reasons include\: 1 = other 2 = normal termination 3 = operator request 4 = peer delete request was received 5 = contact with peer was lost 6 = local failure occurred. 7 = operator initiated check point request
-            	**type**\:  :py:class:`Ciketunhisttermreason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable.Ciketunnelhistentry.Ciketunhisttermreason>`
+            	**type**\:  :py:class:`CikeTunHistTermReason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable.CikeTunnelHistEntry.CikeTunHistTermReason>`
             
             .. attribute:: ciketunhistactiveindex
             
@@ -4173,15 +4133,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable.Ciketunnelhistentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable.CikeTunnelHistEntry, self).__init__()
 
                 self.yang_name = "cikeTunnelHistEntry"
                 self.yang_parent_name = "cikeTunnelHistTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciketunhistindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciketunhistindex', YLeaf(YType.int32, 'cikeTunHistIndex')),
                     ('ciketunhisttermreason', YLeaf(YType.enumeration, 'cikeTunHistTermReason')),
@@ -4264,11 +4223,11 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeTunnelHistTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable.Ciketunnelhistentry, ['ciketunhistindex', 'ciketunhisttermreason', 'ciketunhistactiveindex', 'ciketunhistpeerlocaltype', 'ciketunhistpeerlocalvalue', 'ciketunhistpeerintindex', 'ciketunhistpeerremotetype', 'ciketunhistpeerremotevalue', 'ciketunhistlocaladdr', 'ciketunhistlocalname', 'ciketunhistremoteaddr', 'ciketunhistremotename', 'ciketunhistnegomode', 'ciketunhistdiffhellmangrp', 'ciketunhistencryptalgo', 'ciketunhisthashalgo', 'ciketunhistauthmethod', 'ciketunhistlifetime', 'ciketunhiststarttime', 'ciketunhistactivetime', 'ciketunhisttotalrefreshes', 'ciketunhisttotalsas', 'ciketunhistinoctets', 'ciketunhistinpkts', 'ciketunhistindroppkts', 'ciketunhistinnotifys', 'ciketunhistinp2exchgs', 'ciketunhistinp2exchginvalids', 'ciketunhistinp2exchgrejects', 'ciketunhistinp2sadelrequests', 'ciketunhistoutoctets', 'ciketunhistoutpkts', 'ciketunhistoutdroppkts', 'ciketunhistoutnotifys', 'ciketunhistoutp2exchgs', 'ciketunhistoutp2exchginvalids', 'ciketunhistoutp2exchgrejects', 'ciketunhistoutp2sadelrequests'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikeTunnelHistTable.CikeTunnelHistEntry, ['ciketunhistindex', 'ciketunhisttermreason', 'ciketunhistactiveindex', 'ciketunhistpeerlocaltype', 'ciketunhistpeerlocalvalue', 'ciketunhistpeerintindex', 'ciketunhistpeerremotetype', 'ciketunhistpeerremotevalue', 'ciketunhistlocaladdr', 'ciketunhistlocalname', 'ciketunhistremoteaddr', 'ciketunhistremotename', 'ciketunhistnegomode', 'ciketunhistdiffhellmangrp', 'ciketunhistencryptalgo', 'ciketunhisthashalgo', 'ciketunhistauthmethod', 'ciketunhistlifetime', 'ciketunhiststarttime', 'ciketunhistactivetime', 'ciketunhisttotalrefreshes', 'ciketunhisttotalsas', 'ciketunhistinoctets', 'ciketunhistinpkts', 'ciketunhistindroppkts', 'ciketunhistinnotifys', 'ciketunhistinp2exchgs', 'ciketunhistinp2exchginvalids', 'ciketunhistinp2exchgrejects', 'ciketunhistinp2sadelrequests', 'ciketunhistoutoctets', 'ciketunhistoutpkts', 'ciketunhistoutdroppkts', 'ciketunhistoutnotifys', 'ciketunhistoutp2exchgs', 'ciketunhistoutp2exchginvalids', 'ciketunhistoutp2exchgrejects', 'ciketunhistoutp2sadelrequests'], name, value)
 
-            class Ciketunhisttermreason(Enum):
+            class CikeTunHistTermReason(Enum):
                 """
-                Ciketunhisttermreason (Enum Class)
+                CikeTunHistTermReason (Enum Class)
 
                 The reason the IPsec Phase\-1 IKE Tunnel was terminated.
 
@@ -4320,7 +4279,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
 
 
-    class Cipsectunnelhisttable(Entity):
+    class CipSecTunnelHistTable(Entity):
         """
         The IPsec Phase\-2 Tunnel History Table.
         This table is implemented as a sliding 
@@ -4332,7 +4291,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cipsectunnelhistentry
         
         	Each entry contains the attributes associated with a previously active IPsec Phase\-2 Tunnel
-        	**type**\: list of  		 :py:class:`Cipsectunnelhistentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable.Cipsectunnelhistentry>`
+        	**type**\: list of  		 :py:class:`CipSecTunnelHistEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable.CipSecTunnelHistEntry>`
         
         
 
@@ -4342,15 +4301,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable, self).__init__()
 
             self.yang_name = "cipSecTunnelHistTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipSecTunnelHistEntry", ("cipsectunnelhistentry", CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable.Cipsectunnelhistentry))])
+            self._child_classes = OrderedDict([("cipSecTunnelHistEntry", ("cipsectunnelhistentry", CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable.CipSecTunnelHistEntry))])
             self._leafs = OrderedDict()
 
             self.cipsectunnelhistentry = YList(self)
@@ -4358,10 +4316,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable, [], name, value)
 
 
-        class Cipsectunnelhistentry(Entity):
+        class CipSecTunnelHistEntry(Entity):
             """
             Each entry contains the attributes associated with
             a previously active IPsec Phase\-2 Tunnel.
@@ -4376,7 +4334,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             .. attribute:: cipsectunhisttermreason
             
             	The reason the IPsec Phase\-2 Tunnel was terminated. Possible reasons include\: 1 = other 2 = normal termination 3 = operator request 4 = peer delete request was received 5 = contact with peer was lost 6 = local failure occurred 7 = operator initiated check point request
-            	**type**\:  :py:class:`Cipsectunhisttermreason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable.Cipsectunnelhistentry.Cipsectunhisttermreason>`
+            	**type**\:  :py:class:`CipSecTunHistTermReason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable.CipSecTunnelHistEntry.CipSecTunHistTermReason>`
             
             .. attribute:: cipsectunhistactiveindex
             
@@ -4743,15 +4701,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable.Cipsectunnelhistentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable.CipSecTunnelHistEntry, self).__init__()
 
                 self.yang_name = "cipSecTunnelHistEntry"
                 self.yang_parent_name = "cipSecTunnelHistTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipsectunhistindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipsectunhistindex', YLeaf(YType.int32, 'cipSecTunHistIndex')),
                     ('cipsectunhisttermreason', YLeaf(YType.enumeration, 'cipSecTunHistTermReason')),
@@ -4856,11 +4813,11 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecTunnelHistTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable.Cipsectunnelhistentry, ['cipsectunhistindex', 'cipsectunhisttermreason', 'cipsectunhistactiveindex', 'cipsectunhistiketunnelindex', 'cipsectunhistlocaladdr', 'cipsectunhistremoteaddr', 'cipsectunhistkeytype', 'cipsectunhistencapmode', 'cipsectunhistlifesize', 'cipsectunhistlifetime', 'cipsectunhiststarttime', 'cipsectunhistactivetime', 'cipsectunhisttotalrefreshes', 'cipsectunhisttotalsas', 'cipsectunhistinsadiffhellmangrp', 'cipsectunhistinsaencryptalgo', 'cipsectunhistinsaahauthalgo', 'cipsectunhistinsaespauthalgo', 'cipsectunhistinsadecompalgo', 'cipsectunhistoutsadiffhellmangrp', 'cipsectunhistoutsaencryptalgo', 'cipsectunhistoutsaahauthalgo', 'cipsectunhistoutsaespauthalgo', 'cipsectunhistoutsacompalgo', 'cipsectunhistinoctets', 'cipsectunhisthcinoctets', 'cipsectunhistinoctwraps', 'cipsectunhistindecompoctets', 'cipsectunhisthcindecompoctets', 'cipsectunhistindecompoctwraps', 'cipsectunhistinpkts', 'cipsectunhistindroppkts', 'cipsectunhistinreplaydroppkts', 'cipsectunhistinauths', 'cipsectunhistinauthfails', 'cipsectunhistindecrypts', 'cipsectunhistindecryptfails', 'cipsectunhistoutoctets', 'cipsectunhisthcoutoctets', 'cipsectunhistoutoctwraps', 'cipsectunhistoutuncompoctets', 'cipsectunhisthcoutuncompoctets', 'cipsectunhistoutuncompoctwraps', 'cipsectunhistoutpkts', 'cipsectunhistoutdroppkts', 'cipsectunhistoutauths', 'cipsectunhistoutauthfails', 'cipsectunhistoutencrypts', 'cipsectunhistoutencryptfails'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecTunnelHistTable.CipSecTunnelHistEntry, ['cipsectunhistindex', 'cipsectunhisttermreason', 'cipsectunhistactiveindex', 'cipsectunhistiketunnelindex', 'cipsectunhistlocaladdr', 'cipsectunhistremoteaddr', 'cipsectunhistkeytype', 'cipsectunhistencapmode', 'cipsectunhistlifesize', 'cipsectunhistlifetime', 'cipsectunhiststarttime', 'cipsectunhistactivetime', 'cipsectunhisttotalrefreshes', 'cipsectunhisttotalsas', 'cipsectunhistinsadiffhellmangrp', 'cipsectunhistinsaencryptalgo', 'cipsectunhistinsaahauthalgo', 'cipsectunhistinsaespauthalgo', 'cipsectunhistinsadecompalgo', 'cipsectunhistoutsadiffhellmangrp', 'cipsectunhistoutsaencryptalgo', 'cipsectunhistoutsaahauthalgo', 'cipsectunhistoutsaespauthalgo', 'cipsectunhistoutsacompalgo', 'cipsectunhistinoctets', 'cipsectunhisthcinoctets', 'cipsectunhistinoctwraps', 'cipsectunhistindecompoctets', 'cipsectunhisthcindecompoctets', 'cipsectunhistindecompoctwraps', 'cipsectunhistinpkts', 'cipsectunhistindroppkts', 'cipsectunhistinreplaydroppkts', 'cipsectunhistinauths', 'cipsectunhistinauthfails', 'cipsectunhistindecrypts', 'cipsectunhistindecryptfails', 'cipsectunhistoutoctets', 'cipsectunhisthcoutoctets', 'cipsectunhistoutoctwraps', 'cipsectunhistoutuncompoctets', 'cipsectunhisthcoutuncompoctets', 'cipsectunhistoutuncompoctwraps', 'cipsectunhistoutpkts', 'cipsectunhistoutdroppkts', 'cipsectunhistoutauths', 'cipsectunhistoutauthfails', 'cipsectunhistoutencrypts', 'cipsectunhistoutencryptfails'], name, value)
 
-            class Cipsectunhisttermreason(Enum):
+            class CipSecTunHistTermReason(Enum):
                 """
-                Cipsectunhisttermreason (Enum Class)
+                CipSecTunHistTermReason (Enum Class)
 
                 The reason the IPsec Phase\-2 Tunnel was terminated.
 
@@ -4912,7 +4869,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
 
 
-    class Cipsecendpthisttable(Entity):
+    class CipSecEndPtHistTable(Entity):
         """
         The IPsec Phase\-2 Tunnel Endpoint History Table.
         This table is implemented as a 
@@ -4924,7 +4881,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cipsecendpthistentry
         
         	Each entry contains the attributes associated with a previously active IPsec Phase\-2 Tunnel Endpoint
-        	**type**\: list of  		 :py:class:`Cipsecendpthistentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable.Cipsecendpthistentry>`
+        	**type**\: list of  		 :py:class:`CipSecEndPtHistEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable.CipSecEndPtHistEntry>`
         
         
 
@@ -4934,15 +4891,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable, self).__init__()
 
             self.yang_name = "cipSecEndPtHistTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipSecEndPtHistEntry", ("cipsecendpthistentry", CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable.Cipsecendpthistentry))])
+            self._child_classes = OrderedDict([("cipSecEndPtHistEntry", ("cipsecendpthistentry", CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable.CipSecEndPtHistEntry))])
             self._leafs = OrderedDict()
 
             self.cipsecendpthistentry = YList(self)
@@ -4950,10 +4906,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable, [], name, value)
 
 
-        class Cipsecendpthistentry(Entity):
+        class CipSecEndPtHistEntry(Entity):
             """
             Each entry contains the attributes associated with
             a previously active IPsec Phase\-2 Tunnel Endpoint.
@@ -5063,15 +5019,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable.Cipsecendpthistentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable.CipSecEndPtHistEntry, self).__init__()
 
                 self.yang_name = "cipSecEndPtHistEntry"
                 self.yang_parent_name = "cipSecEndPtHistTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipsecendpthistindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipsecendpthistindex', YLeaf(YType.int32, 'cipSecEndPtHistIndex')),
                     ('cipsecendpthisttunindex', YLeaf(YType.int32, 'cipSecEndPtHistTunIndex')),
@@ -5108,10 +5063,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecEndPtHistTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable.Cipsecendpthistentry, ['cipsecendpthistindex', 'cipsecendpthisttunindex', 'cipsecendpthistactiveindex', 'cipsecendpthistlocalname', 'cipsecendpthistlocaltype', 'cipsecendpthistlocaladdr1', 'cipsecendpthistlocaladdr2', 'cipsecendpthistlocalprotocol', 'cipsecendpthistlocalport', 'cipsecendpthistremotename', 'cipsecendpthistremotetype', 'cipsecendpthistremoteaddr1', 'cipsecendpthistremoteaddr2', 'cipsecendpthistremoteprotocol', 'cipsecendpthistremoteport'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecEndPtHistTable.CipSecEndPtHistEntry, ['cipsecendpthistindex', 'cipsecendpthisttunindex', 'cipsecendpthistactiveindex', 'cipsecendpthistlocalname', 'cipsecendpthistlocaltype', 'cipsecendpthistlocaladdr1', 'cipsecendpthistlocaladdr2', 'cipsecendpthistlocalprotocol', 'cipsecendpthistlocalport', 'cipsecendpthistremotename', 'cipsecendpthistremotetype', 'cipsecendpthistremoteaddr1', 'cipsecendpthistremoteaddr2', 'cipsecendpthistremoteprotocol', 'cipsecendpthistremoteport'], name, value)
 
 
-    class Cikefailtable(Entity):
+    class CikeFailTable(Entity):
         """
         The IPsec Phase\-1 Failure Table.
         This table is implemented as a sliding 
@@ -5122,7 +5077,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cikefailentry
         
         	Each entry contains the attributes associated with  an IPsec Phase\-1 failure
-        	**type**\: list of  		 :py:class:`Cikefailentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikefailtable.Cikefailentry>`
+        	**type**\: list of  		 :py:class:`CikeFailEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeFailTable.CikeFailEntry>`
         
         
 
@@ -5132,15 +5087,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cikefailtable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CikeFailTable, self).__init__()
 
             self.yang_name = "cikeFailTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cikeFailEntry", ("cikefailentry", CISCOIPSECFLOWMONITORMIB.Cikefailtable.Cikefailentry))])
+            self._child_classes = OrderedDict([("cikeFailEntry", ("cikefailentry", CISCOIPSECFLOWMONITORMIB.CikeFailTable.CikeFailEntry))])
             self._leafs = OrderedDict()
 
             self.cikefailentry = YList(self)
@@ -5148,10 +5102,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikefailtable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikeFailTable, [], name, value)
 
 
-        class Cikefailentry(Entity):
+        class CikeFailEntry(Entity):
             """
             Each entry contains the attributes associated
             with
@@ -5167,7 +5121,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             .. attribute:: cikefailreason
             
             	The reason for the failure.  Possible reasons include\: 1 = other 2 = peer delete request was received 3 = contact with peer was lost 4 = local failure occurred 5 = authentication failure 6 = hash validation failure 7 = encryption failure 8 = internal error occurred 9 = system capacity failure 10 = proposal failure 11 = peer's certificate is unavailable 12 = peer's certificate was found invalid 13 = local certificate expired 14 = certificate revoke list (crl) failure 15 = peer encoding error 16 = non\-existent security association 17 = operator requested termination
-            	**type**\:  :py:class:`Cikefailreason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cikefailtable.Cikefailentry.Cikefailreason>`
+            	**type**\:  :py:class:`CikeFailReason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CikeFailTable.CikeFailEntry.CikeFailReason>`
             
             .. attribute:: cikefailtime
             
@@ -5218,15 +5172,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cikefailtable.Cikefailentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CikeFailTable.CikeFailEntry, self).__init__()
 
                 self.yang_name = "cikeFailEntry"
                 self.yang_parent_name = "cikeFailTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cikefailindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cikefailindex', YLeaf(YType.int32, 'cikeFailIndex')),
                     ('cikefailreason', YLeaf(YType.enumeration, 'cikeFailReason')),
@@ -5251,11 +5204,11 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeFailTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cikefailtable.Cikefailentry, ['cikefailindex', 'cikefailreason', 'cikefailtime', 'cikefaillocaltype', 'cikefaillocalvalue', 'cikefailremotetype', 'cikefailremotevalue', 'cikefaillocaladdr', 'cikefailremoteaddr'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CikeFailTable.CikeFailEntry, ['cikefailindex', 'cikefailreason', 'cikefailtime', 'cikefaillocaltype', 'cikefaillocalvalue', 'cikefailremotetype', 'cikefailremotevalue', 'cikefaillocaladdr', 'cikefailremoteaddr'], name, value)
 
-            class Cikefailreason(Enum):
+            class CikeFailReason(Enum):
                 """
-                Cikefailreason (Enum Class)
+                CikeFailReason (Enum Class)
 
                 The reason for the failure.  Possible reasons include\:
 
@@ -5365,7 +5318,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
 
 
-    class Cipsecfailtable(Entity):
+    class CipSecFailTable(Entity):
         """
         The IPsec Phase\-2 Failure Table.
         This table is implemented as a sliding window 
@@ -5376,7 +5329,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         .. attribute:: cipsecfailentry
         
         	Each entry contains the attributes associated with an IPsec Phase\-1 failure
-        	**type**\: list of  		 :py:class:`Cipsecfailentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecfailtable.Cipsecfailentry>`
+        	**type**\: list of  		 :py:class:`CipSecFailEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecFailTable.CipSecFailEntry>`
         
         
 
@@ -5386,15 +5339,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         _revision = '2007-10-24'
 
         def __init__(self):
-            super(CISCOIPSECFLOWMONITORMIB.Cipsecfailtable, self).__init__()
+            super(CISCOIPSECFLOWMONITORMIB.CipSecFailTable, self).__init__()
 
             self.yang_name = "cipSecFailTable"
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipSecFailEntry", ("cipsecfailentry", CISCOIPSECFLOWMONITORMIB.Cipsecfailtable.Cipsecfailentry))])
+            self._child_classes = OrderedDict([("cipSecFailEntry", ("cipsecfailentry", CISCOIPSECFLOWMONITORMIB.CipSecFailTable.CipSecFailEntry))])
             self._leafs = OrderedDict()
 
             self.cipsecfailentry = YList(self)
@@ -5402,10 +5354,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecfailtable, [], name, value)
+            self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecFailTable, [], name, value)
 
 
-        class Cipsecfailentry(Entity):
+        class CipSecFailEntry(Entity):
             """
             Each entry contains the attributes associated with
             an IPsec Phase\-1 failure.
@@ -5420,7 +5372,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             .. attribute:: cipsecfailreason
             
             	The reason for the failure.  Possible reasons include\:   1 = other   2 = internal error occurred   3 = peer encoding error   4 = proposal failure   5 = protocol use failure   6 = non\-existent security association   7 = decryption failure   8 = encryption failure   9 = inbound authentication failure  10 = outbound authentication failure  11 = compression failure  12 = system capacity failure  13 = peer delete request was received  14 = contact with peer was lost  15 = sequence number rolled over  16 = operator requested termination
-            	**type**\:  :py:class:`Cipsecfailreason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsecfailtable.Cipsecfailentry.Cipsecfailreason>`
+            	**type**\:  :py:class:`CipSecFailReason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.CipSecFailTable.CipSecFailEntry.CipSecFailReason>`
             
             .. attribute:: cipsecfailtime
             
@@ -5465,15 +5417,14 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             _revision = '2007-10-24'
 
             def __init__(self):
-                super(CISCOIPSECFLOWMONITORMIB.Cipsecfailtable.Cipsecfailentry, self).__init__()
+                super(CISCOIPSECFLOWMONITORMIB.CipSecFailTable.CipSecFailEntry, self).__init__()
 
                 self.yang_name = "cipSecFailEntry"
                 self.yang_parent_name = "cipSecFailTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipsecfailindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipsecfailindex', YLeaf(YType.int32, 'cipSecFailIndex')),
                     ('cipsecfailreason', YLeaf(YType.enumeration, 'cipSecFailReason')),
@@ -5494,11 +5445,11 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecFailTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.Cipsecfailtable.Cipsecfailentry, ['cipsecfailindex', 'cipsecfailreason', 'cipsecfailtime', 'cipsecfailtunnelindex', 'cipsecfailsaspi', 'cipsecfailpktsrcaddr', 'cipsecfailpktdstaddr'], name, value)
+                self._perform_setattr(CISCOIPSECFLOWMONITORMIB.CipSecFailTable.CipSecFailEntry, ['cipsecfailindex', 'cipsecfailreason', 'cipsecfailtime', 'cipsecfailtunnelindex', 'cipsecfailsaspi', 'cipsecfailpktsrcaddr', 'cipsecfailpktdstaddr'], name, value)
 
-            class Cipsecfailreason(Enum):
+            class CipSecFailReason(Enum):
                 """
-                Cipsecfailreason (Enum Class)
+                CipSecFailReason (Enum Class)
 
                 The reason for the failure.  Possible reasons
 

@@ -113,32 +113,32 @@ class CISCOENTITYQFPMIB(Entity):
     .. attribute:: ciscoentityqfp
     
     	
-    	**type**\:  :py:class:`Ciscoentityqfp <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp>`
+    	**type**\:  :py:class:`CiscoEntityQfp <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CiscoEntityQfp>`
     
     .. attribute:: ciscoentityqfpnotif
     
     	
-    	**type**\:  :py:class:`Ciscoentityqfpnotif <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfpnotif>`
+    	**type**\:  :py:class:`CiscoEntityQfpNotif <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CiscoEntityQfpNotif>`
     
     .. attribute:: ceqfpsystemtable
     
     	This table maintains the QFP system information for each QFP physical entity.  An agent creates a conceptual row to this table corresponding to a QFP physical entity upon detection of a physical entity supporting the QFP system information.  An agent destroys a conceptual row from this table        corresponding to a QFP physical entity upon removal of the QFP host physical entity
-    	**type**\:  :py:class:`Ceqfpsystemtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable>`
+    	**type**\:  :py:class:`CeqfpSystemTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpSystemTable>`
     
     .. attribute:: ceqfputilizationtable
     
     	This table maintains the utilization statistics collected by each QFP physical entity at various time interval such as last 5 seconds, 1 minute, etc.  An agent creates a conceptual row to this table corresponding to a QFP physical entity for a time interval upon detection of a physical entity supporting the utilization statistics for a time interval.  The agent destroys a conceptual row from this table        corresponding to a QFP physical entity for a time interval upon removal of the QFP host physical entity or it does not receive the utilization statistics update for a certain time period. The time period to wait before deleting an entry from this table would be the discretion of the supporting device
-    	**type**\:  :py:class:`Ceqfputilizationtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfputilizationtable>`
+    	**type**\:  :py:class:`CeqfpUtilizationTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpUtilizationTable>`
     
     .. attribute:: ceqfpmemoryresourcetable
     
     	This table maintains the memory resources statistics for each QFP physical entity.  An agent creates a conceptual row to this table corresponding to a QFP physical entity and its supported memory resource type upon detection of a physical entity supporting the memory  resource statistics for a memory resource type.  An agent destroys a conceptual row from this table        corresponding to a QFP physical entity and its supported memory resource type upon removal of the QFP host physical entity or it does not receive memory resource statistics update for a certain time period. The time period to wait before deleting an entry from this table would be the discretion of the supporting device
-    	**type**\:  :py:class:`Ceqfpmemoryresourcetable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable>`
+    	**type**\:  :py:class:`CeqfpMemoryResourceTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpMemoryResourceTable>`
     
     .. attribute:: ceqfpthroughputtable
     
     	This table maintains the throughput information for each QFP physical entity.          An agent creates a conceptual row to this table corresponding to a QFP physical entity upon detection of a physical entity supporting the QFP throughput information.          An agent destroys a conceptual row from this table       corresponding to a QFP physical entity upon removal of the QFP host physical entity
-    	**type**\:  :py:class:`Ceqfpthroughputtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable>`
+    	**type**\:  :py:class:`CeqfpThroughputTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpThroughputTable>`
     
     
 
@@ -156,65 +156,61 @@ class CISCOENTITYQFPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoEntityQfp", ("ciscoentityqfp", CISCOENTITYQFPMIB.Ciscoentityqfp)), ("ciscoEntityQfpNotif", ("ciscoentityqfpnotif", CISCOENTITYQFPMIB.Ciscoentityqfpnotif)), ("ceqfpSystemTable", ("ceqfpsystemtable", CISCOENTITYQFPMIB.Ceqfpsystemtable)), ("ceqfpUtilizationTable", ("ceqfputilizationtable", CISCOENTITYQFPMIB.Ceqfputilizationtable)), ("ceqfpMemoryResourceTable", ("ceqfpmemoryresourcetable", CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable)), ("ceqfpThroughputTable", ("ceqfpthroughputtable", CISCOENTITYQFPMIB.Ceqfpthroughputtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoEntityQfp", ("ciscoentityqfp", CISCOENTITYQFPMIB.CiscoEntityQfp)), ("ciscoEntityQfpNotif", ("ciscoentityqfpnotif", CISCOENTITYQFPMIB.CiscoEntityQfpNotif)), ("ceqfpSystemTable", ("ceqfpsystemtable", CISCOENTITYQFPMIB.CeqfpSystemTable)), ("ceqfpUtilizationTable", ("ceqfputilizationtable", CISCOENTITYQFPMIB.CeqfpUtilizationTable)), ("ceqfpMemoryResourceTable", ("ceqfpmemoryresourcetable", CISCOENTITYQFPMIB.CeqfpMemoryResourceTable)), ("ceqfpThroughputTable", ("ceqfpthroughputtable", CISCOENTITYQFPMIB.CeqfpThroughputTable))])
         self._leafs = OrderedDict()
 
-        self.ciscoentityqfp = CISCOENTITYQFPMIB.Ciscoentityqfp()
+        self.ciscoentityqfp = CISCOENTITYQFPMIB.CiscoEntityQfp()
         self.ciscoentityqfp.parent = self
         self._children_name_map["ciscoentityqfp"] = "ciscoEntityQfp"
-        self._children_yang_names.add("ciscoEntityQfp")
 
-        self.ciscoentityqfpnotif = CISCOENTITYQFPMIB.Ciscoentityqfpnotif()
+        self.ciscoentityqfpnotif = CISCOENTITYQFPMIB.CiscoEntityQfpNotif()
         self.ciscoentityqfpnotif.parent = self
         self._children_name_map["ciscoentityqfpnotif"] = "ciscoEntityQfpNotif"
-        self._children_yang_names.add("ciscoEntityQfpNotif")
 
-        self.ceqfpsystemtable = CISCOENTITYQFPMIB.Ceqfpsystemtable()
+        self.ceqfpsystemtable = CISCOENTITYQFPMIB.CeqfpSystemTable()
         self.ceqfpsystemtable.parent = self
         self._children_name_map["ceqfpsystemtable"] = "ceqfpSystemTable"
-        self._children_yang_names.add("ceqfpSystemTable")
 
-        self.ceqfputilizationtable = CISCOENTITYQFPMIB.Ceqfputilizationtable()
+        self.ceqfputilizationtable = CISCOENTITYQFPMIB.CeqfpUtilizationTable()
         self.ceqfputilizationtable.parent = self
         self._children_name_map["ceqfputilizationtable"] = "ceqfpUtilizationTable"
-        self._children_yang_names.add("ceqfpUtilizationTable")
 
-        self.ceqfpmemoryresourcetable = CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable()
+        self.ceqfpmemoryresourcetable = CISCOENTITYQFPMIB.CeqfpMemoryResourceTable()
         self.ceqfpmemoryresourcetable.parent = self
         self._children_name_map["ceqfpmemoryresourcetable"] = "ceqfpMemoryResourceTable"
-        self._children_yang_names.add("ceqfpMemoryResourceTable")
 
-        self.ceqfpthroughputtable = CISCOENTITYQFPMIB.Ceqfpthroughputtable()
+        self.ceqfpthroughputtable = CISCOENTITYQFPMIB.CeqfpThroughputTable()
         self.ceqfpthroughputtable.parent = self
         self._children_name_map["ceqfpthroughputtable"] = "ceqfpThroughputTable"
-        self._children_yang_names.add("ceqfpThroughputTable")
         self._segment_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOENTITYQFPMIB, [], name, value)
 
-    class Ciscoentityqfp(Entity):
+
+    class CiscoEntityQfp(Entity):
         """
         
         
         .. attribute:: ceqfpfivesecondutilalgo
         
         	This objects represents the method used to calculate 5 Second interval utilization data. The enumerated values are described below.  unknown       (1) \- The calculation method is unknown fiveSecSample (2) \- The value is calculated based on the last                     5 second sampling period of utilization                     data
-        	**type**\:  :py:class:`Ceqfpfivesecondutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpfivesecondutilalgo>`
+        	**type**\:  :py:class:`CeqfpFiveSecondUtilAlgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CiscoEntityQfp.CeqfpFiveSecondUtilAlgo>`
         
         .. attribute:: ceqfponeminuteutilalgo
         
         	This objects represents the method used to calculate 1 Minute interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (2) \- The value is calculated using Simple Moving                    Average of last 12 five seconds utilization                  data
-        	**type**\:  :py:class:`Ceqfponeminuteutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfponeminuteutilalgo>`
+        	**type**\:  :py:class:`CeqfpOneMinuteUtilAlgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CiscoEntityQfp.CeqfpOneMinuteUtilAlgo>`
         
         .. attribute:: ceqfpfiveminutesutilalgo
         
         	This objects represents the method used to calculate 5 Minutes interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (2) \- The value is calculated using Simple Moving                    Average of last 60 five seconds utilization                  data
-        	**type**\:  :py:class:`Ceqfpfiveminutesutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpfiveminutesutilalgo>`
+        	**type**\:  :py:class:`CeqfpFiveMinutesUtilAlgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CiscoEntityQfp.CeqfpFiveMinutesUtilAlgo>`
         
         .. attribute:: ceqfpsixtyminutesutilalgo
         
         	This objects represents the method used to calculate 60 Minutes interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (1) \- The value is calculated using Simple Moving                    Average of last 720 five seconds utilization                  data
-        	**type**\:  :py:class:`Ceqfpsixtyminutesutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpsixtyminutesutilalgo>`
+        	**type**\:  :py:class:`CeqfpSixtyMinutesUtilAlgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CiscoEntityQfp.CeqfpSixtyMinutesUtilAlgo>`
         
         
 
@@ -224,15 +220,14 @@ class CISCOENTITYQFPMIB(Entity):
         _revision = '2014-06-18'
 
         def __init__(self):
-            super(CISCOENTITYQFPMIB.Ciscoentityqfp, self).__init__()
+            super(CISCOENTITYQFPMIB.CiscoEntityQfp, self).__init__()
 
             self.yang_name = "ciscoEntityQfp"
             self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ceqfpfivesecondutilalgo', YLeaf(YType.enumeration, 'ceqfpFiveSecondUtilAlgo')),
                 ('ceqfponeminuteutilalgo', YLeaf(YType.enumeration, 'ceqfpOneMinuteUtilAlgo')),
@@ -247,11 +242,11 @@ class CISCOENTITYQFPMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYQFPMIB.Ciscoentityqfp, ['ceqfpfivesecondutilalgo', 'ceqfponeminuteutilalgo', 'ceqfpfiveminutesutilalgo', 'ceqfpsixtyminutesutilalgo'], name, value)
+            self._perform_setattr(CISCOENTITYQFPMIB.CiscoEntityQfp, ['ceqfpfivesecondutilalgo', 'ceqfponeminuteutilalgo', 'ceqfpfiveminutesutilalgo', 'ceqfpsixtyminutesutilalgo'], name, value)
 
-        class Ceqfpfiveminutesutilalgo(Enum):
+        class CeqfpFiveMinutesUtilAlgo(Enum):
             """
-            Ceqfpfiveminutesutilalgo (Enum Class)
+            CeqfpFiveMinutesUtilAlgo (Enum Class)
 
             This objects represents the method used to calculate 5 Minutes
 
@@ -278,9 +273,9 @@ class CISCOENTITYQFPMIB(Entity):
             fiveSecSMA = Enum.YLeaf(2, "fiveSecSMA")
 
 
-        class Ceqfpfivesecondutilalgo(Enum):
+        class CeqfpFiveSecondUtilAlgo(Enum):
             """
-            Ceqfpfivesecondutilalgo (Enum Class)
+            CeqfpFiveSecondUtilAlgo (Enum Class)
 
             This objects represents the method used to calculate 5 Second
 
@@ -307,9 +302,9 @@ class CISCOENTITYQFPMIB(Entity):
             fiveSecSample = Enum.YLeaf(2, "fiveSecSample")
 
 
-        class Ceqfponeminuteutilalgo(Enum):
+        class CeqfpOneMinuteUtilAlgo(Enum):
             """
-            Ceqfponeminuteutilalgo (Enum Class)
+            CeqfpOneMinuteUtilAlgo (Enum Class)
 
             This objects represents the method used to calculate 1 Minute
 
@@ -336,9 +331,9 @@ class CISCOENTITYQFPMIB(Entity):
             fiveSecSMA = Enum.YLeaf(2, "fiveSecSMA")
 
 
-        class Ceqfpsixtyminutesutilalgo(Enum):
+        class CeqfpSixtyMinutesUtilAlgo(Enum):
             """
-            Ceqfpsixtyminutesutilalgo (Enum Class)
+            CeqfpSixtyMinutesUtilAlgo (Enum Class)
 
             This objects represents the method used to calculate 60 Minutes
 
@@ -366,7 +361,7 @@ class CISCOENTITYQFPMIB(Entity):
 
 
 
-    class Ciscoentityqfpnotif(Entity):
+    class CiscoEntityQfpNotif(Entity):
         """
         
         
@@ -390,15 +385,14 @@ class CISCOENTITYQFPMIB(Entity):
         _revision = '2014-06-18'
 
         def __init__(self):
-            super(CISCOENTITYQFPMIB.Ciscoentityqfpnotif, self).__init__()
+            super(CISCOENTITYQFPMIB.CiscoEntityQfpNotif, self).__init__()
 
             self.yang_name = "ciscoEntityQfpNotif"
             self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ceqfpmemoryresthreshnotifenabled', YLeaf(YType.boolean, 'ceqfpMemoryResThreshNotifEnabled')),
                 ('ceqfpthroughputnotifenabled', YLeaf(YType.uint32, 'ceqfpThroughputNotifEnabled')),
@@ -409,10 +403,10 @@ class CISCOENTITYQFPMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYQFPMIB.Ciscoentityqfpnotif, ['ceqfpmemoryresthreshnotifenabled', 'ceqfpthroughputnotifenabled'], name, value)
+            self._perform_setattr(CISCOENTITYQFPMIB.CiscoEntityQfpNotif, ['ceqfpmemoryresthreshnotifenabled', 'ceqfpthroughputnotifenabled'], name, value)
 
 
-    class Ceqfpsystemtable(Entity):
+    class CeqfpSystemTable(Entity):
         """
         This table maintains the QFP system information for each QFP
         physical entity.
@@ -428,7 +422,7 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfpsystementry
         
         	A conceptual row in the ceqfpSystemTable. There is an entry in this table for each QFP entity, as defined by a value of entPhysicalIndex
-        	**type**\: list of  		 :py:class:`Ceqfpsystementry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry>`
+        	**type**\: list of  		 :py:class:`CeqfpSystemEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpSystemTable.CeqfpSystemEntry>`
         
         
 
@@ -438,15 +432,14 @@ class CISCOENTITYQFPMIB(Entity):
         _revision = '2014-06-18'
 
         def __init__(self):
-            super(CISCOENTITYQFPMIB.Ceqfpsystemtable, self).__init__()
+            super(CISCOENTITYQFPMIB.CeqfpSystemTable, self).__init__()
 
             self.yang_name = "ceqfpSystemTable"
             self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ceqfpSystemEntry", ("ceqfpsystementry", CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry))])
+            self._child_classes = OrderedDict([("ceqfpSystemEntry", ("ceqfpsystementry", CISCOENTITYQFPMIB.CeqfpSystemTable.CeqfpSystemEntry))])
             self._leafs = OrderedDict()
 
             self.ceqfpsystementry = YList(self)
@@ -454,10 +447,10 @@ class CISCOENTITYQFPMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYQFPMIB.Ceqfpsystemtable, [], name, value)
+            self._perform_setattr(CISCOENTITYQFPMIB.CeqfpSystemTable, [], name, value)
 
 
-        class Ceqfpsystementry(Entity):
+        class CeqfpSystemEntry(Entity):
             """
             A conceptual row in the ceqfpSystemTable. There is an entry
             in this table for each QFP entity, as defined by a value of
@@ -470,17 +463,17 @@ class CISCOENTITYQFPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceqfpsystemtrafficdirection
             
             	This object represents the traffic direction that this QFP is assigned to process. The enumerated values are described below.  none (1)    \- The QFP is not assigned to processes any traffic               yet ingress (2) \- The QFP processes inbound traffic egress (3)  \- The QFP processes outbound traffic both (4)    \- The QFP processes both inbound and outbound               traffic
-            	**type**\:  :py:class:`Ceqfpsystemtrafficdirection <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry.Ceqfpsystemtrafficdirection>`
+            	**type**\:  :py:class:`CeqfpSystemTrafficDirection <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpSystemTable.CeqfpSystemEntry.CeqfpSystemTrafficDirection>`
             
             .. attribute:: ceqfpsystemstate
             
             	This object represents the current QFP state. The enumerated values are described below.  unknown (1)    \- The state of the QFP is unknown reset (2)      \- The QFP is reset init (3)       \- The QFP is being initialized active (4)     \- The QFP is active in a system with redundant                  QFP activeSolo (5) \- The QFP is active and there is no redundant                  QFP in the system standby (6)    \- The QFP is standby in a redundant system. hotStandby (7) \- The QFP is standby and synchronized with                  active, so that a switchover in this state                  will preserve state of the active. Stateful                   datapath features are synchronized between the                  active QFP and standby QFP
-            	**type**\:  :py:class:`Ceqfpsystemstate <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry.Ceqfpsystemstate>`
+            	**type**\:  :py:class:`CeqfpSystemState <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpSystemTable.CeqfpSystemEntry.CeqfpSystemState>`
             
             .. attribute:: ceqfpnumbersystemloads
             
@@ -502,15 +495,14 @@ class CISCOENTITYQFPMIB(Entity):
             _revision = '2014-06-18'
 
             def __init__(self):
-                super(CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry, self).__init__()
+                super(CISCOENTITYQFPMIB.CeqfpSystemTable.CeqfpSystemEntry, self).__init__()
 
                 self.yang_name = "ceqfpSystemEntry"
                 self.yang_parent_name = "ceqfpSystemTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceqfpsystemtrafficdirection', YLeaf(YType.enumeration, 'ceqfpSystemTrafficDirection')),
@@ -527,11 +519,11 @@ class CISCOENTITYQFPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpSystemTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry, ['entphysicalindex', 'ceqfpsystemtrafficdirection', 'ceqfpsystemstate', 'ceqfpnumbersystemloads', 'ceqfpsystemlastloadtime'], name, value)
+                self._perform_setattr(CISCOENTITYQFPMIB.CeqfpSystemTable.CeqfpSystemEntry, ['entphysicalindex', 'ceqfpsystemtrafficdirection', 'ceqfpsystemstate', 'ceqfpnumbersystemloads', 'ceqfpsystemlastloadtime'], name, value)
 
-            class Ceqfpsystemstate(Enum):
+            class CeqfpSystemState(Enum):
                 """
-                Ceqfpsystemstate (Enum Class)
+                CeqfpSystemState (Enum Class)
 
                 This object represents the current QFP state. The enumerated
 
@@ -594,9 +586,9 @@ class CISCOENTITYQFPMIB(Entity):
                 hotStandby = Enum.YLeaf(7, "hotStandby")
 
 
-            class Ceqfpsystemtrafficdirection(Enum):
+            class CeqfpSystemTrafficDirection(Enum):
                 """
-                Ceqfpsystemtrafficdirection (Enum Class)
+                CeqfpSystemTrafficDirection (Enum Class)
 
                 This object represents the traffic direction that this QFP is
 
@@ -634,7 +626,7 @@ class CISCOENTITYQFPMIB(Entity):
 
 
 
-    class Ceqfputilizationtable(Entity):
+    class CeqfpUtilizationTable(Entity):
         """
         This table maintains the utilization statistics collected
         by each QFP physical entity at various time interval such as
@@ -655,7 +647,7 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfputilizationentry
         
         	A conceptual row in the ceqfpUtilizationTable. There is an entry in this table for each QFP entity by a value of entPhysicalIndex and the supported time interval by a value  of ceqfpUtilTimeInterval.  The method of utilization data calculation for each interval period can be identified through the respective interval scalar objects. For example the utilizaiton data calculation method for 'fiveSecond' interval can be identified by ceqfpFiveSecondUtilAlgo
-        	**type**\: list of  		 :py:class:`Ceqfputilizationentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfputilizationtable.Ceqfputilizationentry>`
+        	**type**\: list of  		 :py:class:`CeqfpUtilizationEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpUtilizationTable.CeqfpUtilizationEntry>`
         
         
 
@@ -665,15 +657,14 @@ class CISCOENTITYQFPMIB(Entity):
         _revision = '2014-06-18'
 
         def __init__(self):
-            super(CISCOENTITYQFPMIB.Ceqfputilizationtable, self).__init__()
+            super(CISCOENTITYQFPMIB.CeqfpUtilizationTable, self).__init__()
 
             self.yang_name = "ceqfpUtilizationTable"
             self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ceqfpUtilizationEntry", ("ceqfputilizationentry", CISCOENTITYQFPMIB.Ceqfputilizationtable.Ceqfputilizationentry))])
+            self._child_classes = OrderedDict([("ceqfpUtilizationEntry", ("ceqfputilizationentry", CISCOENTITYQFPMIB.CeqfpUtilizationTable.CeqfpUtilizationEntry))])
             self._leafs = OrderedDict()
 
             self.ceqfputilizationentry = YList(self)
@@ -681,10 +672,10 @@ class CISCOENTITYQFPMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYQFPMIB.Ceqfputilizationtable, [], name, value)
+            self._perform_setattr(CISCOENTITYQFPMIB.CeqfpUtilizationTable, [], name, value)
 
 
-        class Ceqfputilizationentry(Entity):
+        class CeqfpUtilizationEntry(Entity):
             """
             A conceptual row in the ceqfpUtilizationTable. There is
             an entry in this table for each QFP entity by a value of
@@ -704,7 +695,7 @@ class CISCOENTITYQFPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceqfputiltimeinterval  (key)
             
@@ -836,15 +827,14 @@ class CISCOENTITYQFPMIB(Entity):
             _revision = '2014-06-18'
 
             def __init__(self):
-                super(CISCOENTITYQFPMIB.Ceqfputilizationtable.Ceqfputilizationentry, self).__init__()
+                super(CISCOENTITYQFPMIB.CeqfpUtilizationTable.CeqfpUtilizationEntry, self).__init__()
 
                 self.yang_name = "ceqfpUtilizationEntry"
                 self.yang_parent_name = "ceqfpUtilizationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceqfputiltimeinterval']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceqfputiltimeinterval', YLeaf(YType.enumeration, 'ceqfpUtilTimeInterval')),
@@ -881,10 +871,10 @@ class CISCOENTITYQFPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpUtilizationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYQFPMIB.Ceqfputilizationtable.Ceqfputilizationentry, ['entphysicalindex', 'ceqfputiltimeinterval', 'ceqfputilinputprioritypktrate', 'ceqfputilinputprioritybitrate', 'ceqfputilinputnonprioritypktrate', 'ceqfputilinputnonprioritybitrate', 'ceqfputilinputtotalpktrate', 'ceqfputilinputtotalbitrate', 'ceqfputiloutputprioritypktrate', 'ceqfputiloutputprioritybitrate', 'ceqfputiloutputnonprioritypktrate', 'ceqfputiloutputnonprioritybitrate', 'ceqfputiloutputtotalpktrate', 'ceqfputiloutputtotalbitrate', 'ceqfputilprocessingload'], name, value)
+                self._perform_setattr(CISCOENTITYQFPMIB.CeqfpUtilizationTable.CeqfpUtilizationEntry, ['entphysicalindex', 'ceqfputiltimeinterval', 'ceqfputilinputprioritypktrate', 'ceqfputilinputprioritybitrate', 'ceqfputilinputnonprioritypktrate', 'ceqfputilinputnonprioritybitrate', 'ceqfputilinputtotalpktrate', 'ceqfputilinputtotalbitrate', 'ceqfputiloutputprioritypktrate', 'ceqfputiloutputprioritybitrate', 'ceqfputiloutputnonprioritypktrate', 'ceqfputiloutputnonprioritybitrate', 'ceqfputiloutputtotalpktrate', 'ceqfputiloutputtotalbitrate', 'ceqfputilprocessingload'], name, value)
 
 
-    class Ceqfpmemoryresourcetable(Entity):
+    class CeqfpMemoryResourceTable(Entity):
         """
         This table maintains the memory resources statistics for
         each QFP physical entity.
@@ -905,7 +895,7 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfpmemoryresourceentry
         
         	A conceptual row in the ceqfpMemoryResourceTable. There is an entry in this table for each QFP entity by a value  of entPhysicalIndex and the supported memory resource type  by a value of ceqfpMemoryResType
-        	**type**\: list of  		 :py:class:`Ceqfpmemoryresourceentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry>`
+        	**type**\: list of  		 :py:class:`CeqfpMemoryResourceEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpMemoryResourceTable.CeqfpMemoryResourceEntry>`
         
         
 
@@ -915,15 +905,14 @@ class CISCOENTITYQFPMIB(Entity):
         _revision = '2014-06-18'
 
         def __init__(self):
-            super(CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable, self).__init__()
+            super(CISCOENTITYQFPMIB.CeqfpMemoryResourceTable, self).__init__()
 
             self.yang_name = "ceqfpMemoryResourceTable"
             self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ceqfpMemoryResourceEntry", ("ceqfpmemoryresourceentry", CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry))])
+            self._child_classes = OrderedDict([("ceqfpMemoryResourceEntry", ("ceqfpmemoryresourceentry", CISCOENTITYQFPMIB.CeqfpMemoryResourceTable.CeqfpMemoryResourceEntry))])
             self._leafs = OrderedDict()
 
             self.ceqfpmemoryresourceentry = YList(self)
@@ -931,10 +920,10 @@ class CISCOENTITYQFPMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable, [], name, value)
+            self._perform_setattr(CISCOENTITYQFPMIB.CeqfpMemoryResourceTable, [], name, value)
 
 
-        class Ceqfpmemoryresourceentry(Entity):
+        class CeqfpMemoryResourceEntry(Entity):
             """
             A conceptual row in the ceqfpMemoryResourceTable. There
             is an entry in this table for each QFP entity by a value 
@@ -948,7 +937,7 @@ class CISCOENTITYQFPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceqfpmemoryrestype  (key)
             
@@ -1089,15 +1078,14 @@ class CISCOENTITYQFPMIB(Entity):
             _revision = '2014-06-18'
 
             def __init__(self):
-                super(CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry, self).__init__()
+                super(CISCOENTITYQFPMIB.CeqfpMemoryResourceTable.CeqfpMemoryResourceEntry, self).__init__()
 
                 self.yang_name = "ceqfpMemoryResourceEntry"
                 self.yang_parent_name = "ceqfpMemoryResourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceqfpmemoryrestype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceqfpmemoryrestype', YLeaf(YType.enumeration, 'ceqfpMemoryResType')),
@@ -1136,10 +1124,10 @@ class CISCOENTITYQFPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpMemoryResourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry, ['entphysicalindex', 'ceqfpmemoryrestype', 'ceqfpmemoryrestotal', 'ceqfpmemoryresinuse', 'ceqfpmemoryresfree', 'ceqfpmemoryreslowfreewatermark', 'ceqfpmemoryresrisingthreshold', 'ceqfpmemoryresfallingthreshold', 'ceqfpmemoryrestotalovrflw', 'ceqfpmemoryhcrestotal', 'ceqfpmemoryresinuseovrflw', 'ceqfpmemoryhcresinuse', 'ceqfpmemoryresfreeovrflw', 'ceqfpmemoryhcresfree', 'ceqfpmemoryreslowfreewatermarkovrflw', 'ceqfpmemoryhcreslowfreewatermark'], name, value)
+                self._perform_setattr(CISCOENTITYQFPMIB.CeqfpMemoryResourceTable.CeqfpMemoryResourceEntry, ['entphysicalindex', 'ceqfpmemoryrestype', 'ceqfpmemoryrestotal', 'ceqfpmemoryresinuse', 'ceqfpmemoryresfree', 'ceqfpmemoryreslowfreewatermark', 'ceqfpmemoryresrisingthreshold', 'ceqfpmemoryresfallingthreshold', 'ceqfpmemoryrestotalovrflw', 'ceqfpmemoryhcrestotal', 'ceqfpmemoryresinuseovrflw', 'ceqfpmemoryhcresinuse', 'ceqfpmemoryresfreeovrflw', 'ceqfpmemoryhcresfree', 'ceqfpmemoryreslowfreewatermarkovrflw', 'ceqfpmemoryhcreslowfreewatermark'], name, value)
 
 
-    class Ceqfpthroughputtable(Entity):
+    class CeqfpThroughputTable(Entity):
         """
         This table maintains the throughput information for each
         QFP physical entity.
@@ -1156,7 +1144,7 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfpthroughputentry
         
         	A conceptual row in the ceqfpThroughputTable. There is an entry in this table for each QFP entity, as defined by a value of entPhysicalIndex
-        	**type**\: list of  		 :py:class:`Ceqfpthroughputentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry>`
+        	**type**\: list of  		 :py:class:`CeqfpThroughputEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpThroughputTable.CeqfpThroughputEntry>`
         
         
 
@@ -1166,15 +1154,14 @@ class CISCOENTITYQFPMIB(Entity):
         _revision = '2014-06-18'
 
         def __init__(self):
-            super(CISCOENTITYQFPMIB.Ceqfpthroughputtable, self).__init__()
+            super(CISCOENTITYQFPMIB.CeqfpThroughputTable, self).__init__()
 
             self.yang_name = "ceqfpThroughputTable"
             self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ceqfpThroughputEntry", ("ceqfpthroughputentry", CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry))])
+            self._child_classes = OrderedDict([("ceqfpThroughputEntry", ("ceqfpthroughputentry", CISCOENTITYQFPMIB.CeqfpThroughputTable.CeqfpThroughputEntry))])
             self._leafs = OrderedDict()
 
             self.ceqfpthroughputentry = YList(self)
@@ -1182,10 +1169,10 @@ class CISCOENTITYQFPMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYQFPMIB.Ceqfpthroughputtable, [], name, value)
+            self._perform_setattr(CISCOENTITYQFPMIB.CeqfpThroughputTable, [], name, value)
 
 
-        class Ceqfpthroughputentry(Entity):
+        class CeqfpThroughputEntry(Entity):
             """
             A conceptual row in the ceqfpThroughputTable. There is an entry
             in this table for each QFP entity, as defined by a value of
@@ -1198,7 +1185,7 @@ class CISCOENTITYQFPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceqfpthroughputlicensedbw
             
@@ -1212,7 +1199,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpthroughputlevel
             
             	This object represents the current throughput level for installed throughput license.                  normal  (1) \- Throughput usage is normal                 warning (2) \- Throughput usage has crossed the                               configured threshold limit                 exceed  (3) \- Throughput usage has exceeded the                               total licensed bandwidth
-            	**type**\:  :py:class:`Ceqfpthroughputlevel <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry.Ceqfpthroughputlevel>`
+            	**type**\:  :py:class:`CeqfpThroughputLevel <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.CeqfpThroughputTable.CeqfpThroughputEntry.CeqfpThroughputLevel>`
             
             .. attribute:: ceqfpthroughputinterval
             
@@ -1249,15 +1236,14 @@ class CISCOENTITYQFPMIB(Entity):
             _revision = '2014-06-18'
 
             def __init__(self):
-                super(CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry, self).__init__()
+                super(CISCOENTITYQFPMIB.CeqfpThroughputTable.CeqfpThroughputEntry, self).__init__()
 
                 self.yang_name = "ceqfpThroughputEntry"
                 self.yang_parent_name = "ceqfpThroughputTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceqfpthroughputlicensedbw', YLeaf(YType.uint64, 'ceqfpThroughputLicensedBW')),
@@ -1276,11 +1262,11 @@ class CISCOENTITYQFPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpThroughputTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry, ['entphysicalindex', 'ceqfpthroughputlicensedbw', 'ceqfpthroughputlevel', 'ceqfpthroughputinterval', 'ceqfpthroughputthreshold', 'ceqfpthroughputavgrate'], name, value)
+                self._perform_setattr(CISCOENTITYQFPMIB.CeqfpThroughputTable.CeqfpThroughputEntry, ['entphysicalindex', 'ceqfpthroughputlicensedbw', 'ceqfpthroughputlevel', 'ceqfpthroughputinterval', 'ceqfpthroughputthreshold', 'ceqfpthroughputavgrate'], name, value)
 
-            class Ceqfpthroughputlevel(Enum):
+            class CeqfpThroughputLevel(Enum):
                 """
-                Ceqfpthroughputlevel (Enum Class)
+                CeqfpThroughputLevel (Enum Class)
 
                 This object represents the current throughput level for
 

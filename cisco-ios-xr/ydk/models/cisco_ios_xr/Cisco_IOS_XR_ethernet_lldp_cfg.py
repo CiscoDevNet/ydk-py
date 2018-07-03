@@ -56,13 +56,6 @@ class Lldp(Entity):
     
     	**default value**\: false
     
-    .. attribute:: enable_mgmtintf
-    
-    	Enable or disable LLDP on Mgmt interfaces as well globally
-    	**type**\: bool
-    
-    	**default value**\: false
-    
     .. attribute:: timer
     
     	Specify the rate at which LLDP packets are sent (in sec)
@@ -104,13 +97,11 @@ class Lldp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("tlv-select", ("tlv_select", Lldp.TlvSelect))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("tlv-select", ("tlv_select", Lldp.TlvSelect))])
         self._leafs = OrderedDict([
             ('holdtime', YLeaf(YType.uint32, 'holdtime')),
             ('extended_show_width', YLeaf(YType.boolean, 'extended-show-width')),
             ('enable_subintf', YLeaf(YType.boolean, 'enable-subintf')),
-            ('enable_mgmtintf', YLeaf(YType.boolean, 'enable-mgmtintf')),
             ('timer', YLeaf(YType.uint32, 'timer')),
             ('reinit', YLeaf(YType.uint32, 'reinit')),
             ('enable', YLeaf(YType.boolean, 'enable')),
@@ -118,18 +109,16 @@ class Lldp(Entity):
         self.holdtime = None
         self.extended_show_width = None
         self.enable_subintf = None
-        self.enable_mgmtintf = None
         self.timer = None
         self.reinit = None
         self.enable = None
 
         self.tlv_select = None
         self._children_name_map["tlv_select"] = "tlv-select"
-        self._children_yang_names.add("tlv-select")
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Lldp, ['holdtime', 'extended_show_width', 'enable_subintf', 'enable_mgmtintf', 'timer', 'reinit', 'enable'], name, value)
+        self._perform_setattr(Lldp, ['holdtime', 'extended_show_width', 'enable_subintf', 'timer', 'reinit', 'enable'], name, value)
 
 
     class TlvSelect(Entity):
@@ -185,8 +174,7 @@ class Lldp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("system-name", ("system_name", Lldp.TlvSelect.SystemName)), ("port-description", ("port_description", Lldp.TlvSelect.PortDescription)), ("system-description", ("system_description", Lldp.TlvSelect.SystemDescription)), ("system-capabilities", ("system_capabilities", Lldp.TlvSelect.SystemCapabilities)), ("management-address", ("management_address", Lldp.TlvSelect.ManagementAddress))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("system-name", ("system_name", Lldp.TlvSelect.SystemName)), ("port-description", ("port_description", Lldp.TlvSelect.PortDescription)), ("system-description", ("system_description", Lldp.TlvSelect.SystemDescription)), ("system-capabilities", ("system_capabilities", Lldp.TlvSelect.SystemCapabilities)), ("management-address", ("management_address", Lldp.TlvSelect.ManagementAddress))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('tlv_select_enter', YLeaf(YType.boolean, 'tlv-select-enter')),
@@ -196,27 +184,22 @@ class Lldp(Entity):
             self.system_name = Lldp.TlvSelect.SystemName()
             self.system_name.parent = self
             self._children_name_map["system_name"] = "system-name"
-            self._children_yang_names.add("system-name")
 
             self.port_description = Lldp.TlvSelect.PortDescription()
             self.port_description.parent = self
             self._children_name_map["port_description"] = "port-description"
-            self._children_yang_names.add("port-description")
 
             self.system_description = Lldp.TlvSelect.SystemDescription()
             self.system_description.parent = self
             self._children_name_map["system_description"] = "system-description"
-            self._children_yang_names.add("system-description")
 
             self.system_capabilities = Lldp.TlvSelect.SystemCapabilities()
             self.system_capabilities.parent = self
             self._children_name_map["system_capabilities"] = "system-capabilities"
-            self._children_yang_names.add("system-capabilities")
 
             self.management_address = Lldp.TlvSelect.ManagementAddress()
             self.management_address.parent = self
             self._children_name_map["management_address"] = "management-address"
-            self._children_yang_names.add("management-address")
             self._segment_path = lambda: "tlv-select"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/%s" % self._segment_path()
 
@@ -250,8 +233,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('disable', YLeaf(YType.boolean, 'disable')),
                 ])
@@ -289,8 +271,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('disable', YLeaf(YType.boolean, 'disable')),
                 ])
@@ -328,8 +309,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('disable', YLeaf(YType.boolean, 'disable')),
                 ])
@@ -367,8 +347,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('disable', YLeaf(YType.boolean, 'disable')),
                 ])
@@ -406,8 +385,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('disable', YLeaf(YType.boolean, 'disable')),
                 ])

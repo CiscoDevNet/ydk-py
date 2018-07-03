@@ -106,30 +106,28 @@ class NetFlow(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("flow-exporter-maps", ("flow_exporter_maps", NetFlow.FlowExporterMaps)), ("flow-sampler-maps", ("flow_sampler_maps", NetFlow.FlowSamplerMaps)), ("flow-monitor-map-table", ("flow_monitor_map_table", NetFlow.FlowMonitorMapTable)), ("flow-monitor-map-performance-table", ("flow_monitor_map_performance_table", NetFlow.FlowMonitorMapPerformanceTable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("flow-exporter-maps", ("flow_exporter_maps", NetFlow.FlowExporterMaps)), ("flow-sampler-maps", ("flow_sampler_maps", NetFlow.FlowSamplerMaps)), ("flow-monitor-map-table", ("flow_monitor_map_table", NetFlow.FlowMonitorMapTable)), ("flow-monitor-map-performance-table", ("flow_monitor_map_performance_table", NetFlow.FlowMonitorMapPerformanceTable))])
         self._leafs = OrderedDict()
 
         self.flow_exporter_maps = NetFlow.FlowExporterMaps()
         self.flow_exporter_maps.parent = self
         self._children_name_map["flow_exporter_maps"] = "flow-exporter-maps"
-        self._children_yang_names.add("flow-exporter-maps")
 
         self.flow_sampler_maps = NetFlow.FlowSamplerMaps()
         self.flow_sampler_maps.parent = self
         self._children_name_map["flow_sampler_maps"] = "flow-sampler-maps"
-        self._children_yang_names.add("flow-sampler-maps")
 
         self.flow_monitor_map_table = NetFlow.FlowMonitorMapTable()
         self.flow_monitor_map_table.parent = self
         self._children_name_map["flow_monitor_map_table"] = "flow-monitor-map-table"
-        self._children_yang_names.add("flow-monitor-map-table")
 
         self.flow_monitor_map_performance_table = NetFlow.FlowMonitorMapPerformanceTable()
         self.flow_monitor_map_performance_table.parent = self
         self._children_name_map["flow_monitor_map_performance_table"] = "flow-monitor-map-performance-table"
-        self._children_yang_names.add("flow-monitor-map-performance-table")
         self._segment_path = lambda: "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NetFlow, [], name, value)
 
 
     class FlowExporterMaps(Entity):
@@ -156,8 +154,7 @@ class NetFlow(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("flow-exporter-map", ("flow_exporter_map", NetFlow.FlowExporterMaps.FlowExporterMap))])
+            self._child_classes = OrderedDict([("flow-exporter-map", ("flow_exporter_map", NetFlow.FlowExporterMaps.FlowExporterMap))])
             self._leafs = OrderedDict()
 
             self.flow_exporter_map = YList(self)
@@ -230,8 +227,7 @@ class NetFlow(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['exporter_map_name']
-                self._child_container_classes = OrderedDict([("udp", ("udp", NetFlow.FlowExporterMaps.FlowExporterMap.Udp)), ("destination", ("destination", NetFlow.FlowExporterMaps.FlowExporterMap.Destination)), ("version", ("version", NetFlow.FlowExporterMaps.FlowExporterMap.Version))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("udp", ("udp", NetFlow.FlowExporterMaps.FlowExporterMap.Udp)), ("destination", ("destination", NetFlow.FlowExporterMaps.FlowExporterMap.Destination)), ("version", ("version", NetFlow.FlowExporterMaps.FlowExporterMap.Version))])
                 self._leafs = OrderedDict([
                     ('exporter_map_name', YLeaf(YType.str, 'exporter-map-name')),
                     ('source_interface', YLeaf(YType.str, 'source-interface')),
@@ -246,17 +242,14 @@ class NetFlow(Entity):
                 self.udp = NetFlow.FlowExporterMaps.FlowExporterMap.Udp()
                 self.udp.parent = self
                 self._children_name_map["udp"] = "udp"
-                self._children_yang_names.add("udp")
 
                 self.destination = NetFlow.FlowExporterMaps.FlowExporterMap.Destination()
                 self.destination.parent = self
                 self._children_name_map["destination"] = "destination"
-                self._children_yang_names.add("destination")
 
                 self.version = NetFlow.FlowExporterMaps.FlowExporterMap.Version()
                 self.version.parent = self
                 self._children_name_map["version"] = "version"
-                self._children_yang_names.add("version")
                 self._segment_path = lambda: "flow-exporter-map" + "[exporter-map-name='" + str(self.exporter_map_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-exporter-maps/%s" % self._segment_path()
 
@@ -290,8 +283,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('destination_port', YLeaf(YType.uint32, 'destination-port')),
                     ])
@@ -338,8 +330,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip_address', YLeaf(YType.str, 'ip-address')),
                         ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
@@ -418,8 +409,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("options", ("options", NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("options", ("options", NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options))])
                     self._leafs = OrderedDict([
                         ('version_type', YLeaf(YType.uint32, 'version-type')),
                         ('options_template_timeout', YLeaf(YType.uint32, 'options-template-timeout')),
@@ -434,7 +424,6 @@ class NetFlow(Entity):
                     self.options = NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options()
                     self.options.parent = self
                     self._children_name_map["options"] = "options"
-                    self._children_yang_names.add("options")
                     self._segment_path = lambda: "version"
 
                 def __setattr__(self, name, value):
@@ -487,8 +476,7 @@ class NetFlow(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_table_export_timeout', YLeaf(YType.uint32, 'interface-table-export-timeout')),
                             ('sampler_table_export_timeout', YLeaf(YType.uint32, 'sampler-table-export-timeout')),
@@ -527,8 +515,7 @@ class NetFlow(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("flow-sampler-map", ("flow_sampler_map", NetFlow.FlowSamplerMaps.FlowSamplerMap))])
+            self._child_classes = OrderedDict([("flow-sampler-map", ("flow_sampler_map", NetFlow.FlowSamplerMaps.FlowSamplerMap))])
             self._leafs = OrderedDict()
 
             self.flow_sampler_map = YList(self)
@@ -570,8 +557,7 @@ class NetFlow(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['sampler_map_name']
-                self._child_container_classes = OrderedDict([("sampling-modes", ("sampling_modes", NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("sampling-modes", ("sampling_modes", NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes))])
                 self._leafs = OrderedDict([
                     ('sampler_map_name', YLeaf(YType.str, 'sampler-map-name')),
                 ])
@@ -580,7 +566,6 @@ class NetFlow(Entity):
                 self.sampling_modes = NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes()
                 self.sampling_modes.parent = self
                 self._children_name_map["sampling_modes"] = "sampling-modes"
-                self._children_yang_names.add("sampling-modes")
                 self._segment_path = lambda: "flow-sampler-map" + "[sampler-map-name='" + str(self.sampler_map_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-sampler-maps/%s" % self._segment_path()
 
@@ -612,8 +597,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("sampling-mode", ("sampling_mode", NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode))])
+                    self._child_classes = OrderedDict([("sampling-mode", ("sampling_mode", NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode))])
                     self._leafs = OrderedDict()
 
                     self.sampling_mode = YList(self)
@@ -665,8 +649,7 @@ class NetFlow(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['mode']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('mode', YLeaf(YType.enumeration, 'mode')),
                             ('sample_number', YLeaf(YType.uint32, 'sample-number')),
@@ -705,8 +688,7 @@ class NetFlow(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("flow-monitor-map", ("flow_monitor_map", NetFlow.FlowMonitorMapTable.FlowMonitorMap))])
+            self._child_classes = OrderedDict([("flow-monitor-map", ("flow_monitor_map", NetFlow.FlowMonitorMapTable.FlowMonitorMap))])
             self._leafs = OrderedDict()
 
             self.flow_monitor_map = YList(self)
@@ -818,8 +800,7 @@ class NetFlow(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['monitor_map_name']
-                self._child_container_classes = OrderedDict([("option", ("option", NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option)), ("exporters", ("exporters", NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters)), ("record", ("record", NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("option", ("option", NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option)), ("exporters", ("exporters", NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters)), ("record", ("record", NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record))])
                 self._leafs = OrderedDict([
                     ('monitor_map_name', YLeaf(YType.str, 'monitor-map-name')),
                     ('cache_update_aging_timeout', YLeaf(YType.uint32, 'cache-update-aging-timeout')),
@@ -840,16 +821,13 @@ class NetFlow(Entity):
                 self.option = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option()
                 self.option.parent = self
                 self._children_name_map["option"] = "option"
-                self._children_yang_names.add("option")
 
                 self.exporters = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters()
                 self.exporters.parent = self
                 self._children_name_map["exporters"] = "exporters"
-                self._children_yang_names.add("exporters")
 
                 self.record = None
                 self._children_name_map["record"] = "record"
-                self._children_yang_names.add("record")
                 self._segment_path = lambda: "flow-monitor-map" + "[monitor-map-name='" + str(self.monitor_map_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-table/%s" % self._segment_path()
 
@@ -896,8 +874,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('filtered', YLeaf(YType.empty, 'filtered')),
                         ('out_bundle_member', YLeaf(YType.empty, 'out-bundle-member')),
@@ -939,8 +916,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("exporter", ("exporter", NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter))])
+                    self._child_classes = OrderedDict([("exporter", ("exporter", NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter))])
                     self._leafs = OrderedDict()
 
                     self.exporter = YList(self)
@@ -977,8 +953,7 @@ class NetFlow(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['exporter_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('exporter_name', YLeaf(YType.str, 'exporter-name')),
                         ])
@@ -1026,8 +1001,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('record_name', YLeaf(YType.str, 'record-name')),
@@ -1065,8 +1039,7 @@ class NetFlow(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("flow-monitor-map", ("flow_monitor_map", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap))])
+            self._child_classes = OrderedDict([("flow-monitor-map", ("flow_monitor_map", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap))])
             self._leafs = OrderedDict()
 
             self.flow_monitor_map = YList(self)
@@ -1178,8 +1151,7 @@ class NetFlow(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['monitor_map_name']
-                self._child_container_classes = OrderedDict([("option", ("option", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option)), ("exporters", ("exporters", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters)), ("record", ("record", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("option", ("option", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option)), ("exporters", ("exporters", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters)), ("record", ("record", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record))])
                 self._leafs = OrderedDict([
                     ('monitor_map_name', YLeaf(YType.str, 'monitor-map-name')),
                     ('cache_update_aging_timeout', YLeaf(YType.uint32, 'cache-update-aging-timeout')),
@@ -1200,16 +1172,13 @@ class NetFlow(Entity):
                 self.option = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option()
                 self.option.parent = self
                 self._children_name_map["option"] = "option"
-                self._children_yang_names.add("option")
 
                 self.exporters = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters()
                 self.exporters.parent = self
                 self._children_name_map["exporters"] = "exporters"
-                self._children_yang_names.add("exporters")
 
                 self.record = None
                 self._children_name_map["record"] = "record"
-                self._children_yang_names.add("record")
                 self._segment_path = lambda: "flow-monitor-map" + "[monitor-map-name='" + str(self.monitor_map_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-performance-table/%s" % self._segment_path()
 
@@ -1256,8 +1225,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('filtered', YLeaf(YType.empty, 'filtered')),
                         ('out_bundle_member', YLeaf(YType.empty, 'out-bundle-member')),
@@ -1299,8 +1267,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("exporter", ("exporter", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter))])
+                    self._child_classes = OrderedDict([("exporter", ("exporter", NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter))])
                     self._leafs = OrderedDict()
 
                     self.exporter = YList(self)
@@ -1337,8 +1304,7 @@ class NetFlow(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['exporter_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('exporter_name', YLeaf(YType.str, 'exporter-name')),
                         ])
@@ -1386,8 +1352,7 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('record_name', YLeaf(YType.str, 'record-name')),

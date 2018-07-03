@@ -24,19 +24,19 @@ class BGP4MIB(Entity):
     .. attribute:: bgppeertable
     
     	BGP peer table.  This table contains, one entry per BGP peer, information about the connections with BGP peers
-    	**type**\:  :py:class:`Bgppeertable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable>`
+    	**type**\:  :py:class:`BgpPeerTable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.BgpPeerTable>`
     
     .. attribute:: bgprcvdpathattrtable
     
     	The BGP Received Path Attribute Table contains information about paths to destination networks received from all peers running BGP version 3 or less
-    	**type**\:  :py:class:`Bgprcvdpathattrtable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable>`
+    	**type**\:  :py:class:`BgpRcvdPathAttrTable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.BgpRcvdPathAttrTable>`
     
     	**status**\: obsolete
     
     .. attribute:: bgp4pathattrtable
     
     	The BGP\-4 Received Path Attribute Table contains information about paths to destination networks received from all BGP4 peers
-    	**type**\:  :py:class:`Bgp4Pathattrtable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable>`
+    	**type**\:  :py:class:`Bgp4PathAttrTable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4PathAttrTable>`
     
     
 
@@ -54,30 +54,28 @@ class BGP4MIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("bgp", ("bgp", BGP4MIB.Bgp)), ("bgpPeerTable", ("bgppeertable", BGP4MIB.Bgppeertable)), ("bgpRcvdPathAttrTable", ("bgprcvdpathattrtable", BGP4MIB.Bgprcvdpathattrtable)), ("bgp4PathAttrTable", ("bgp4pathattrtable", BGP4MIB.Bgp4Pathattrtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("bgp", ("bgp", BGP4MIB.Bgp)), ("bgpPeerTable", ("bgppeertable", BGP4MIB.BgpPeerTable)), ("bgpRcvdPathAttrTable", ("bgprcvdpathattrtable", BGP4MIB.BgpRcvdPathAttrTable)), ("bgp4PathAttrTable", ("bgp4pathattrtable", BGP4MIB.Bgp4PathAttrTable))])
         self._leafs = OrderedDict()
 
         self.bgp = BGP4MIB.Bgp()
         self.bgp.parent = self
         self._children_name_map["bgp"] = "bgp"
-        self._children_yang_names.add("bgp")
 
-        self.bgppeertable = BGP4MIB.Bgppeertable()
+        self.bgppeertable = BGP4MIB.BgpPeerTable()
         self.bgppeertable.parent = self
         self._children_name_map["bgppeertable"] = "bgpPeerTable"
-        self._children_yang_names.add("bgpPeerTable")
 
-        self.bgprcvdpathattrtable = BGP4MIB.Bgprcvdpathattrtable()
+        self.bgprcvdpathattrtable = BGP4MIB.BgpRcvdPathAttrTable()
         self.bgprcvdpathattrtable.parent = self
         self._children_name_map["bgprcvdpathattrtable"] = "bgpRcvdPathAttrTable"
-        self._children_yang_names.add("bgpRcvdPathAttrTable")
 
-        self.bgp4pathattrtable = BGP4MIB.Bgp4Pathattrtable()
+        self.bgp4pathattrtable = BGP4MIB.Bgp4PathAttrTable()
         self.bgp4pathattrtable.parent = self
         self._children_name_map["bgp4pathattrtable"] = "bgp4PathAttrTable"
-        self._children_yang_names.add("bgp4PathAttrTable")
         self._segment_path = lambda: "BGP4-MIB:BGP4-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(BGP4MIB, [], name, value)
 
 
     class Bgp(Entity):
@@ -120,8 +118,7 @@ class BGP4MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('bgpversion', YLeaf(YType.str, 'bgpVersion')),
                 ('bgplocalas', YLeaf(YType.int32, 'bgpLocalAs')),
@@ -137,7 +134,7 @@ class BGP4MIB(Entity):
             self._perform_setattr(BGP4MIB.Bgp, ['bgpversion', 'bgplocalas', 'bgpidentifier'], name, value)
 
 
-    class Bgppeertable(Entity):
+    class BgpPeerTable(Entity):
         """
         BGP peer table.  This table contains,
         one entry per BGP peer, information about
@@ -146,7 +143,7 @@ class BGP4MIB(Entity):
         .. attribute:: bgppeerentry
         
         	Entry containing information about the connection with a BGP peer
-        	**type**\: list of  		 :py:class:`Bgppeerentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
+        	**type**\: list of  		 :py:class:`BgpPeerEntry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.BgpPeerTable.BgpPeerEntry>`
         
         
 
@@ -156,15 +153,14 @@ class BGP4MIB(Entity):
         _revision = '1994-05-05'
 
         def __init__(self):
-            super(BGP4MIB.Bgppeertable, self).__init__()
+            super(BGP4MIB.BgpPeerTable, self).__init__()
 
             self.yang_name = "bgpPeerTable"
             self.yang_parent_name = "BGP4-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("bgpPeerEntry", ("bgppeerentry", BGP4MIB.Bgppeertable.Bgppeerentry))])
+            self._child_classes = OrderedDict([("bgpPeerEntry", ("bgppeerentry", BGP4MIB.BgpPeerTable.BgpPeerEntry))])
             self._leafs = OrderedDict()
 
             self.bgppeerentry = YList(self)
@@ -172,10 +168,10 @@ class BGP4MIB(Entity):
             self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BGP4MIB.Bgppeertable, [], name, value)
+            self._perform_setattr(BGP4MIB.BgpPeerTable, [], name, value)
 
 
-        class Bgppeerentry(Entity):
+        class BgpPeerEntry(Entity):
             """
             Entry containing information about the
             connection with a BGP peer.
@@ -197,12 +193,12 @@ class BGP4MIB(Entity):
             .. attribute:: bgppeerstate
             
             	The BGP peer connection state
-            	**type**\:  :py:class:`Bgppeerstate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Bgppeerstate>`
+            	**type**\:  :py:class:`BgpPeerState <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.BgpPeerTable.BgpPeerEntry.BgpPeerState>`
             
             .. attribute:: bgppeeradminstatus
             
             	The desired state of the BGP connection. A transition from 'stop' to 'start' will cause the BGP Start Event to be generated. A transition from 'start' to 'stop' will cause the BGP Stop Event to be generated. This parameter can be used to restart BGP peer connections.  Care should be used in providing write access to this object without adequate authentication
-            	**type**\:  :py:class:`Bgppeeradminstatus <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Bgppeeradminstatus>`
+            	**type**\:  :py:class:`BgpPeerAdminStatus <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.BgpPeerTable.BgpPeerEntry.BgpPeerAdminStatus>`
             
             .. attribute:: bgppeernegotiatedversion
             
@@ -406,7 +402,7 @@ class BGP4MIB(Entity):
             .. attribute:: cbgppeerprevstate
             
             	The BGP peer connection previous state
-            	**type**\:  :py:class:`Cbgppeerprevstate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Cbgppeerprevstate>`
+            	**type**\:  :py:class:`CbgpPeerPrevState <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.BgpPeerTable.BgpPeerEntry.CbgpPeerPrevState>`
             
             
 
@@ -416,15 +412,14 @@ class BGP4MIB(Entity):
             _revision = '1994-05-05'
 
             def __init__(self):
-                super(BGP4MIB.Bgppeertable.Bgppeerentry, self).__init__()
+                super(BGP4MIB.BgpPeerTable.BgpPeerEntry, self).__init__()
 
                 self.yang_name = "bgpPeerEntry"
                 self.yang_parent_name = "bgpPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['bgppeerremoteaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('bgppeerremoteaddr', YLeaf(YType.str, 'bgpPeerRemoteAddr')),
                     ('bgppeeridentifier', YLeaf(YType.str, 'bgpPeerIdentifier')),
@@ -495,11 +490,11 @@ class BGP4MIB(Entity):
                 self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/bgpPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.Bgppeertable.Bgppeerentry, ['bgppeerremoteaddr', 'bgppeeridentifier', 'bgppeerstate', 'bgppeeradminstatus', 'bgppeernegotiatedversion', 'bgppeerlocaladdr', 'bgppeerlocalport', 'bgppeerremoteport', 'bgppeerremoteas', 'bgppeerinupdates', 'bgppeeroutupdates', 'bgppeerintotalmessages', 'bgppeerouttotalmessages', 'bgppeerlasterror', 'bgppeerfsmestablishedtransitions', 'bgppeerfsmestablishedtime', 'bgppeerconnectretryinterval', 'bgppeerholdtime', 'bgppeerkeepalive', 'bgppeerholdtimeconfigured', 'bgppeerkeepaliveconfigured', 'bgppeerminasoriginationinterval', 'bgppeerminrouteadvertisementinterval', 'bgppeerinupdateelapsedtime', 'cbgppeerprefixaccepted', 'cbgppeerprefixdenied', 'cbgppeerprefixlimit', 'cbgppeerprefixadvertised', 'cbgppeerprefixsuppressed', 'cbgppeerprefixwithdrawn', 'cbgppeerlasterrortxt', 'cbgppeerprevstate'], name, value)
+                self._perform_setattr(BGP4MIB.BgpPeerTable.BgpPeerEntry, ['bgppeerremoteaddr', 'bgppeeridentifier', 'bgppeerstate', 'bgppeeradminstatus', 'bgppeernegotiatedversion', 'bgppeerlocaladdr', 'bgppeerlocalport', 'bgppeerremoteport', 'bgppeerremoteas', 'bgppeerinupdates', 'bgppeeroutupdates', 'bgppeerintotalmessages', 'bgppeerouttotalmessages', 'bgppeerlasterror', 'bgppeerfsmestablishedtransitions', 'bgppeerfsmestablishedtime', 'bgppeerconnectretryinterval', 'bgppeerholdtime', 'bgppeerkeepalive', 'bgppeerholdtimeconfigured', 'bgppeerkeepaliveconfigured', 'bgppeerminasoriginationinterval', 'bgppeerminrouteadvertisementinterval', 'bgppeerinupdateelapsedtime', 'cbgppeerprefixaccepted', 'cbgppeerprefixdenied', 'cbgppeerprefixlimit', 'cbgppeerprefixadvertised', 'cbgppeerprefixsuppressed', 'cbgppeerprefixwithdrawn', 'cbgppeerlasterrortxt', 'cbgppeerprevstate'], name, value)
 
-            class Bgppeeradminstatus(Enum):
+            class BgpPeerAdminStatus(Enum):
                 """
-                Bgppeeradminstatus (Enum Class)
+                BgpPeerAdminStatus (Enum Class)
 
                 The desired state of the BGP connection.
 
@@ -530,9 +525,9 @@ class BGP4MIB(Entity):
                 start = Enum.YLeaf(2, "start")
 
 
-            class Bgppeerstate(Enum):
+            class BgpPeerState(Enum):
                 """
-                Bgppeerstate (Enum Class)
+                BgpPeerState (Enum Class)
 
                 The BGP peer connection state.
 
@@ -563,9 +558,9 @@ class BGP4MIB(Entity):
                 established = Enum.YLeaf(6, "established")
 
 
-            class Cbgppeerprevstate(Enum):
+            class CbgpPeerPrevState(Enum):
                 """
-                Cbgppeerprevstate (Enum Class)
+                CbgpPeerPrevState (Enum Class)
 
                 The BGP peer connection previous state.
 
@@ -601,7 +596,7 @@ class BGP4MIB(Entity):
 
 
 
-    class Bgprcvdpathattrtable(Entity):
+    class BgpRcvdPathAttrTable(Entity):
         """
         The BGP Received Path Attribute Table
         contains information about paths to
@@ -611,7 +606,7 @@ class BGP4MIB(Entity):
         .. attribute:: bgppathattrentry
         
         	Information about a path to a network
-        	**type**\: list of  		 :py:class:`Bgppathattrentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry>`
+        	**type**\: list of  		 :py:class:`BgpPathAttrEntry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry>`
         
         	**status**\: obsolete
         
@@ -623,15 +618,14 @@ class BGP4MIB(Entity):
         _revision = '1994-05-05'
 
         def __init__(self):
-            super(BGP4MIB.Bgprcvdpathattrtable, self).__init__()
+            super(BGP4MIB.BgpRcvdPathAttrTable, self).__init__()
 
             self.yang_name = "bgpRcvdPathAttrTable"
             self.yang_parent_name = "BGP4-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("bgpPathAttrEntry", ("bgppathattrentry", BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry))])
+            self._child_classes = OrderedDict([("bgpPathAttrEntry", ("bgppathattrentry", BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry))])
             self._leafs = OrderedDict()
 
             self.bgppathattrentry = YList(self)
@@ -639,10 +633,10 @@ class BGP4MIB(Entity):
             self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BGP4MIB.Bgprcvdpathattrtable, [], name, value)
+            self._perform_setattr(BGP4MIB.BgpRcvdPathAttrTable, [], name, value)
 
 
-        class Bgppathattrentry(Entity):
+        class BgpPathAttrEntry(Entity):
             """
             Information about a path to a network.
             
@@ -667,7 +661,7 @@ class BGP4MIB(Entity):
             .. attribute:: bgppathattrorigin
             
             	The ultimate origin of the path information
-            	**type**\:  :py:class:`Bgppathattrorigin <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry.Bgppathattrorigin>`
+            	**type**\:  :py:class:`BgpPathAttrOrigin <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry.BgpPathAttrOrigin>`
             
             	**status**\: obsolete
             
@@ -706,15 +700,14 @@ class BGP4MIB(Entity):
             _revision = '1994-05-05'
 
             def __init__(self):
-                super(BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry, self).__init__()
+                super(BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry, self).__init__()
 
                 self.yang_name = "bgpPathAttrEntry"
                 self.yang_parent_name = "bgpRcvdPathAttrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['bgppathattrdestnetwork','bgppathattrpeer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('bgppathattrdestnetwork', YLeaf(YType.str, 'bgpPathAttrDestNetwork')),
                     ('bgppathattrpeer', YLeaf(YType.str, 'bgpPathAttrPeer')),
@@ -733,11 +726,11 @@ class BGP4MIB(Entity):
                 self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/bgpRcvdPathAttrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry, ['bgppathattrdestnetwork', 'bgppathattrpeer', 'bgppathattrorigin', 'bgppathattraspath', 'bgppathattrnexthop', 'bgppathattrinterasmetric'], name, value)
+                self._perform_setattr(BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry, ['bgppathattrdestnetwork', 'bgppathattrpeer', 'bgppathattrorigin', 'bgppathattraspath', 'bgppathattrnexthop', 'bgppathattrinterasmetric'], name, value)
 
-            class Bgppathattrorigin(Enum):
+            class BgpPathAttrOrigin(Enum):
                 """
-                Bgppathattrorigin (Enum Class)
+                BgpPathAttrOrigin (Enum Class)
 
                 The ultimate origin of the path information.
 
@@ -757,7 +750,7 @@ class BGP4MIB(Entity):
 
 
 
-    class Bgp4Pathattrtable(Entity):
+    class Bgp4PathAttrTable(Entity):
         """
         The BGP\-4 Received Path Attribute Table
         contains information about paths to
@@ -767,7 +760,7 @@ class BGP4MIB(Entity):
         .. attribute:: bgp4pathattrentry
         
         	Information about a path to a network
-        	**type**\: list of  		 :py:class:`Bgp4Pathattrentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry>`
+        	**type**\: list of  		 :py:class:`Bgp4PathAttrEntry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry>`
         
         
 
@@ -777,15 +770,14 @@ class BGP4MIB(Entity):
         _revision = '1994-05-05'
 
         def __init__(self):
-            super(BGP4MIB.Bgp4Pathattrtable, self).__init__()
+            super(BGP4MIB.Bgp4PathAttrTable, self).__init__()
 
             self.yang_name = "bgp4PathAttrTable"
             self.yang_parent_name = "BGP4-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("bgp4PathAttrEntry", ("bgp4pathattrentry", BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry))])
+            self._child_classes = OrderedDict([("bgp4PathAttrEntry", ("bgp4pathattrentry", BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry))])
             self._leafs = OrderedDict()
 
             self.bgp4pathattrentry = YList(self)
@@ -793,10 +785,10 @@ class BGP4MIB(Entity):
             self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BGP4MIB.Bgp4Pathattrtable, [], name, value)
+            self._perform_setattr(BGP4MIB.Bgp4PathAttrTable, [], name, value)
 
 
-        class Bgp4Pathattrentry(Entity):
+        class Bgp4PathAttrEntry(Entity):
             """
             Information about a path to a network.
             
@@ -824,7 +816,7 @@ class BGP4MIB(Entity):
             .. attribute:: bgp4pathattrorigin
             
             	The ultimate origin of the path information
-            	**type**\:  :py:class:`Bgp4Pathattrorigin <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattrorigin>`
+            	**type**\:  :py:class:`Bgp4PathAttrOrigin <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry.Bgp4PathAttrOrigin>`
             
             .. attribute:: bgp4pathattraspathsegment
             
@@ -857,7 +849,7 @@ class BGP4MIB(Entity):
             .. attribute:: bgp4pathattratomicaggregate
             
             	Whether or not the local system has selected a less specific route without selecting a more specific route
-            	**type**\:  :py:class:`Bgp4Pathattratomicaggregate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattratomicaggregate>`
+            	**type**\:  :py:class:`Bgp4PathAttrAtomicAggregate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry.Bgp4PathAttrAtomicAggregate>`
             
             .. attribute:: bgp4pathattraggregatoras
             
@@ -883,7 +875,7 @@ class BGP4MIB(Entity):
             .. attribute:: bgp4pathattrbest
             
             	An indication of whether or not this route was chosen as the best BGP4 route
-            	**type**\:  :py:class:`Bgp4Pathattrbest <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattrbest>`
+            	**type**\:  :py:class:`Bgp4PathAttrBest <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry.Bgp4PathAttrBest>`
             
             .. attribute:: bgp4pathattrunknown
             
@@ -900,15 +892,14 @@ class BGP4MIB(Entity):
             _revision = '1994-05-05'
 
             def __init__(self):
-                super(BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry, self).__init__()
+                super(BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry, self).__init__()
 
                 self.yang_name = "bgp4PathAttrEntry"
                 self.yang_parent_name = "bgp4PathAttrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['bgp4pathattripaddrprefix','bgp4pathattripaddrprefixlen','bgp4pathattrpeer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('bgp4pathattripaddrprefix', YLeaf(YType.str, 'bgp4PathAttrIpAddrPrefix')),
                     ('bgp4pathattripaddrprefixlen', YLeaf(YType.int32, 'bgp4PathAttrIpAddrPrefixLen')),
@@ -943,11 +934,11 @@ class BGP4MIB(Entity):
                 self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/bgp4PathAttrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry, ['bgp4pathattripaddrprefix', 'bgp4pathattripaddrprefixlen', 'bgp4pathattrpeer', 'bgp4pathattrorigin', 'bgp4pathattraspathsegment', 'bgp4pathattrnexthop', 'bgp4pathattrmultiexitdisc', 'bgp4pathattrlocalpref', 'bgp4pathattratomicaggregate', 'bgp4pathattraggregatoras', 'bgp4pathattraggregatoraddr', 'bgp4pathattrcalclocalpref', 'bgp4pathattrbest', 'bgp4pathattrunknown'], name, value)
+                self._perform_setattr(BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry, ['bgp4pathattripaddrprefix', 'bgp4pathattripaddrprefixlen', 'bgp4pathattrpeer', 'bgp4pathattrorigin', 'bgp4pathattraspathsegment', 'bgp4pathattrnexthop', 'bgp4pathattrmultiexitdisc', 'bgp4pathattrlocalpref', 'bgp4pathattratomicaggregate', 'bgp4pathattraggregatoras', 'bgp4pathattraggregatoraddr', 'bgp4pathattrcalclocalpref', 'bgp4pathattrbest', 'bgp4pathattrunknown'], name, value)
 
-            class Bgp4Pathattratomicaggregate(Enum):
+            class Bgp4PathAttrAtomicAggregate(Enum):
                 """
-                Bgp4Pathattratomicaggregate (Enum Class)
+                Bgp4PathAttrAtomicAggregate (Enum Class)
 
                 Whether or not the local system has
 
@@ -966,9 +957,9 @@ class BGP4MIB(Entity):
                 lessSpecificRouteSelected = Enum.YLeaf(2, "lessSpecificRouteSelected")
 
 
-            class Bgp4Pathattrbest(Enum):
+            class Bgp4PathAttrBest(Enum):
                 """
-                Bgp4Pathattrbest (Enum Class)
+                Bgp4PathAttrBest (Enum Class)
 
                 An indication of whether or not this route
 
@@ -985,9 +976,9 @@ class BGP4MIB(Entity):
                 true = Enum.YLeaf(2, "true")
 
 
-            class Bgp4Pathattrorigin(Enum):
+            class Bgp4PathAttrOrigin(Enum):
                 """
-                Bgp4Pathattrorigin (Enum Class)
+                Bgp4PathAttrOrigin (Enum Class)
 
                 The ultimate origin of the path
 

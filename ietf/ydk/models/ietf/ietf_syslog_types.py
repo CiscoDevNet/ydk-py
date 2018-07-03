@@ -85,9 +85,10 @@ class SyslogFacility(Identity):
         super(SyslogFacility, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:syslog-facility")
 
 
-class Kern(Identity):
+class Cron2(Identity):
     """
-    The facility for kernel messages as defined in RFC 5424.
+    The facility for the second clock daemon as defined in 
+    RFC 5424.
     
     
 
@@ -97,12 +98,12 @@ class Kern(Identity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Kern, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:kern")
+        super(Cron2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:cron2")
 
 
-class User(Identity):
+class Cron(Identity):
     """
-    The facility for user\-level messages as defined in RFC 5424.
+    The facility for the clock daemon as defined in RFC 5424.
     
     
 
@@ -112,53 +113,7 @@ class User(Identity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(User, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:user")
-
-
-class Mail(Identity):
-    """
-    The facility for the mail system as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Mail, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:mail")
-
-
-class Daemon(Identity):
-    """
-    The facility for the system daemons as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Daemon, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:daemon")
-
-
-class Auth(Identity):
-    """
-    The facility for security/authorization messages as defined 
-    in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Auth, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:auth")
+        super(Cron, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:cron")
 
 
 class Syslog(Identity):
@@ -177,9 +132,9 @@ class Syslog(Identity):
         super(Syslog, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:syslog")
 
 
-class Lpr(Identity):
+class Local4(Identity):
     """
-    The facility for the line printer subsystem as defined in 
+    The facility for local use 4 messages as defined in 
     RFC 5424.
     
     
@@ -190,13 +145,12 @@ class Lpr(Identity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Lpr, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:lpr")
+        super(Local4, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local4")
 
 
-class News(Identity):
+class Ftp(Identity):
     """
-    The facility for the network news subsystem as defined in 
-    RFC 5424.
+    The facility for the FTP daemon as defined in RFC 5424.
     
     
 
@@ -206,7 +160,7 @@ class News(Identity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(News, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:news")
+        super(Ftp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:ftp")
 
 
 class Uucp(Identity):
@@ -224,9 +178,9 @@ class Uucp(Identity):
         super(Uucp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:uucp")
 
 
-class Cron(Identity):
+class Console(Identity):
     """
-    The facility for the clock daemon as defined in RFC 5424.
+    The facility for log alert messages as defined in RFC 5424.
     
     
 
@@ -236,7 +190,22 @@ class Cron(Identity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Cron, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:cron")
+        super(Console, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:console")
+
+
+class Mail(Identity):
+    """
+    The facility for the mail system as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Mail, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:mail")
 
 
 class Authpriv(Identity):
@@ -255,21 +224,6 @@ class Authpriv(Identity):
         super(Authpriv, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:authpriv")
 
 
-class Ftp(Identity):
-    """
-    The facility for the FTP daemon as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Ftp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:ftp")
-
-
 class Ntp(Identity):
     """
     The facility for the NTP subsystem as defined in RFC 5424.
@@ -285,9 +239,10 @@ class Ntp(Identity):
         super(Ntp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:ntp")
 
 
-class Audit(Identity):
+class Auth(Identity):
     """
-    The facility for log audit messages as defined in RFC 5424.
+    The facility for security/authorization messages as defined 
+    in RFC 5424.
     
     
 
@@ -297,12 +252,12 @@ class Audit(Identity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Audit, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:audit")
+        super(Auth, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:auth")
 
 
-class Console(Identity):
+class User(Identity):
     """
-    The facility for log alert messages as defined in RFC 5424.
+    The facility for user\-level messages as defined in RFC 5424.
     
     
 
@@ -312,103 +267,7 @@ class Console(Identity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Console, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:console")
-
-
-class Cron2(Identity):
-    """
-    The facility for the second clock daemon as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Cron2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:cron2")
-
-
-class Local0(Identity):
-    """
-    The facility for local use 0 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Local0, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local0")
-
-
-class Local1(Identity):
-    """
-    The facility for local use 1 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Local1, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local1")
-
-
-class Local2(Identity):
-    """
-    The facility for local use 2 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Local2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local2")
-
-
-class Local3(Identity):
-    """
-    The facility for local use 3 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Local3, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local3")
-
-
-class Local4(Identity):
-    """
-    The facility for local use 4 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Local4, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local4")
+        super(User, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:user")
 
 
 class Local5(Identity):
@@ -427,9 +286,9 @@ class Local5(Identity):
         super(Local5, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local5")
 
 
-class Local6(Identity):
+class News(Identity):
     """
-    The facility for local use 6 messages as defined in 
+    The facility for the network news subsystem as defined in 
     RFC 5424.
     
     
@@ -440,7 +299,7 @@ class Local6(Identity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Local6, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local6")
+        super(News, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:news")
 
 
 class Local7(Identity):
@@ -457,5 +316,146 @@ class Local7(Identity):
 
     def __init__(self):
         super(Local7, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local7")
+
+
+class Local6(Identity):
+    """
+    The facility for local use 6 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local6, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local6")
+
+
+class Local1(Identity):
+    """
+    The facility for local use 1 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local1, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local1")
+
+
+class Local0(Identity):
+    """
+    The facility for local use 0 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local0, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local0")
+
+
+class Local3(Identity):
+    """
+    The facility for local use 3 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local3, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local3")
+
+
+class Local2(Identity):
+    """
+    The facility for local use 2 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local2")
+
+
+class Audit(Identity):
+    """
+    The facility for log audit messages as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Audit, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:audit")
+
+
+class Daemon(Identity):
+    """
+    The facility for the system daemons as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Daemon, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:daemon")
+
+
+class Lpr(Identity):
+    """
+    The facility for the line printer subsystem as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Lpr, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:lpr")
+
+
+class Kern(Identity):
+    """
+    The facility for kernel messages as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Kern, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:kern")
 
 

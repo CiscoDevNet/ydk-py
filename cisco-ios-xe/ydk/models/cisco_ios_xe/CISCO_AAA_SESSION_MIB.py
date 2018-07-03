@@ -26,17 +26,17 @@ class CISCOAAASESSIONMIB(Entity):
     .. attribute:: casnactive
     
     	
-    	**type**\:  :py:class:`Casnactive <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.Casnactive>`
+    	**type**\:  :py:class:`CasnActive <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.CasnActive>`
     
     .. attribute:: casngeneral
     
     	
-    	**type**\:  :py:class:`Casngeneral <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.Casngeneral>`
+    	**type**\:  :py:class:`CasnGeneral <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.CasnGeneral>`
     
     .. attribute:: casnactivetable
     
     	This table contains entries for active AAA accounting sessions in the system
-    	**type**\:  :py:class:`Casnactivetable <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.Casnactivetable>`
+    	**type**\:  :py:class:`CasnActiveTable <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.CasnActiveTable>`
     
     
 
@@ -54,28 +54,27 @@ class CISCOAAASESSIONMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("casnActive", ("casnactive", CISCOAAASESSIONMIB.Casnactive)), ("casnGeneral", ("casngeneral", CISCOAAASESSIONMIB.Casngeneral)), ("casnActiveTable", ("casnactivetable", CISCOAAASESSIONMIB.Casnactivetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("casnActive", ("casnactive", CISCOAAASESSIONMIB.CasnActive)), ("casnGeneral", ("casngeneral", CISCOAAASESSIONMIB.CasnGeneral)), ("casnActiveTable", ("casnactivetable", CISCOAAASESSIONMIB.CasnActiveTable))])
         self._leafs = OrderedDict()
 
-        self.casnactive = CISCOAAASESSIONMIB.Casnactive()
+        self.casnactive = CISCOAAASESSIONMIB.CasnActive()
         self.casnactive.parent = self
         self._children_name_map["casnactive"] = "casnActive"
-        self._children_yang_names.add("casnActive")
 
-        self.casngeneral = CISCOAAASESSIONMIB.Casngeneral()
+        self.casngeneral = CISCOAAASESSIONMIB.CasnGeneral()
         self.casngeneral.parent = self
         self._children_name_map["casngeneral"] = "casnGeneral"
-        self._children_yang_names.add("casnGeneral")
 
-        self.casnactivetable = CISCOAAASESSIONMIB.Casnactivetable()
+        self.casnactivetable = CISCOAAASESSIONMIB.CasnActiveTable()
         self.casnactivetable.parent = self
         self._children_name_map["casnactivetable"] = "casnActiveTable"
-        self._children_yang_names.add("casnActiveTable")
         self._segment_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOAAASESSIONMIB, [], name, value)
 
-    class Casnactive(Entity):
+
+    class CasnActive(Entity):
         """
         
         
@@ -101,15 +100,14 @@ class CISCOAAASESSIONMIB(Entity):
         _revision = '2006-03-21'
 
         def __init__(self):
-            super(CISCOAAASESSIONMIB.Casnactive, self).__init__()
+            super(CISCOAAASESSIONMIB.CasnActive, self).__init__()
 
             self.yang_name = "casnActive"
             self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('casnactivetableentries', YLeaf(YType.uint32, 'casnActiveTableEntries')),
                 ('casnactivetablehighwatermark', YLeaf(YType.uint32, 'casnActiveTableHighWaterMark')),
@@ -120,10 +118,10 @@ class CISCOAAASESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOAAASESSIONMIB.Casnactive, ['casnactivetableentries', 'casnactivetablehighwatermark'], name, value)
+            self._perform_setattr(CISCOAAASESSIONMIB.CasnActive, ['casnactivetableentries', 'casnactivetablehighwatermark'], name, value)
 
 
-    class Casngeneral(Entity):
+    class CasnGeneral(Entity):
         """
         
         
@@ -149,15 +147,14 @@ class CISCOAAASESSIONMIB(Entity):
         _revision = '2006-03-21'
 
         def __init__(self):
-            super(CISCOAAASESSIONMIB.Casngeneral, self).__init__()
+            super(CISCOAAASESSIONMIB.CasnGeneral, self).__init__()
 
             self.yang_name = "casnGeneral"
             self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('casntotalsessions', YLeaf(YType.uint32, 'casnTotalSessions')),
                 ('casndisconnectedsessions', YLeaf(YType.uint32, 'casnDisconnectedSessions')),
@@ -168,10 +165,10 @@ class CISCOAAASESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOAAASESSIONMIB.Casngeneral, ['casntotalsessions', 'casndisconnectedsessions'], name, value)
+            self._perform_setattr(CISCOAAASESSIONMIB.CasnGeneral, ['casntotalsessions', 'casndisconnectedsessions'], name, value)
 
 
-    class Casnactivetable(Entity):
+    class CasnActiveTable(Entity):
         """
         This table contains entries for active AAA accounting
         sessions in the system.
@@ -179,7 +176,7 @@ class CISCOAAASESSIONMIB(Entity):
         .. attribute:: casnactiveentry
         
         	The information regarding a single accounting session.  Entries are created when a new accounting session is begun.  Entries are removed when the accounting session is ended.  Initiating termination of a session with the object casnDisconnect will cause removal of the entry when the session completes termination
-        	**type**\: list of  		 :py:class:`Casnactiveentry <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.Casnactivetable.Casnactiveentry>`
+        	**type**\: list of  		 :py:class:`CasnActiveEntry <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.CasnActiveTable.CasnActiveEntry>`
         
         
 
@@ -189,15 +186,14 @@ class CISCOAAASESSIONMIB(Entity):
         _revision = '2006-03-21'
 
         def __init__(self):
-            super(CISCOAAASESSIONMIB.Casnactivetable, self).__init__()
+            super(CISCOAAASESSIONMIB.CasnActiveTable, self).__init__()
 
             self.yang_name = "casnActiveTable"
             self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("casnActiveEntry", ("casnactiveentry", CISCOAAASESSIONMIB.Casnactivetable.Casnactiveentry))])
+            self._child_classes = OrderedDict([("casnActiveEntry", ("casnactiveentry", CISCOAAASESSIONMIB.CasnActiveTable.CasnActiveEntry))])
             self._leafs = OrderedDict()
 
             self.casnactiveentry = YList(self)
@@ -205,10 +201,10 @@ class CISCOAAASESSIONMIB(Entity):
             self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOAAASESSIONMIB.Casnactivetable, [], name, value)
+            self._perform_setattr(CISCOAAASESSIONMIB.CasnActiveTable, [], name, value)
 
 
-        class Casnactiveentry(Entity):
+        class CasnActiveEntry(Entity):
             """
             The information regarding a single accounting session.
             
@@ -286,15 +282,14 @@ class CISCOAAASESSIONMIB(Entity):
             _revision = '2006-03-21'
 
             def __init__(self):
-                super(CISCOAAASESSIONMIB.Casnactivetable.Casnactiveentry, self).__init__()
+                super(CISCOAAASESSIONMIB.CasnActiveTable.CasnActiveEntry, self).__init__()
 
                 self.yang_name = "casnActiveEntry"
                 self.yang_parent_name = "casnActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['casnsessionid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('casnsessionid', YLeaf(YType.uint32, 'casnSessionId')),
                     ('casnuserid', YLeaf(YType.str, 'casnUserId')),
@@ -317,7 +312,7 @@ class CISCOAAASESSIONMIB(Entity):
                 self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/casnActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOAAASESSIONMIB.Casnactivetable.Casnactiveentry, ['casnsessionid', 'casnuserid', 'casnipaddr', 'casnidletime', 'casndisconnect', 'casncalltrackerid', 'casnnasport', 'casnvaiifindex'], name, value)
+                self._perform_setattr(CISCOAAASESSIONMIB.CasnActiveTable.CasnActiveEntry, ['casnsessionid', 'casnuserid', 'casnipaddr', 'casnidletime', 'casndisconnect', 'casncalltrackerid', 'casnnasport', 'casnvaiifindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOAAASESSIONMIB()

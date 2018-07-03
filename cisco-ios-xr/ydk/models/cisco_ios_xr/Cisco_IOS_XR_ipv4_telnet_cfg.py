@@ -46,15 +46,16 @@ class Ipv6Telnet(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("client", ("client", Ipv6Telnet.Client))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("client", ("client", Ipv6Telnet.Client))])
         self._leafs = OrderedDict()
 
         self.client = Ipv6Telnet.Client()
         self.client.parent = self
         self._children_name_map["client"] = "client"
-        self._children_yang_names.add("client")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ipv6Telnet, [], name, value)
 
 
     class Client(Entity):
@@ -83,8 +84,7 @@ class Ipv6Telnet(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('source_interface', YLeaf(YType.str, 'source-interface')),
             ])
@@ -124,15 +124,16 @@ class Ipv4Telnet(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("client", ("client", Ipv4Telnet.Client))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("client", ("client", Ipv4Telnet.Client))])
         self._leafs = OrderedDict()
 
         self.client = Ipv4Telnet.Client()
         self.client.parent = self
         self._children_name_map["client"] = "client"
-        self._children_yang_names.add("client")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ipv4Telnet, [], name, value)
 
 
     class Client(Entity):
@@ -161,8 +162,7 @@ class Ipv4Telnet(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('source_interface', YLeaf(YType.str, 'source-interface')),
             ])

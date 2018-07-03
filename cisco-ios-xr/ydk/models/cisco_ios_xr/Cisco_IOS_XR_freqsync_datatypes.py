@@ -29,11 +29,17 @@ class FsyncClock(Enum):
 
     	Internal clock
 
+    .. data:: gnss = 8
+
+    	GNSS receiver
+
     """
 
     sync = Enum.YLeaf(3, "sync")
 
     internal = Enum.YLeaf(4, "internal")
+
+    gnss = Enum.YLeaf(8, "gnss")
 
 
 class FsyncQlOption(Enum):
@@ -200,6 +206,66 @@ class FsyncQlValue(Enum):
     o2_g2_smc = Enum.YLeaf(36, "o2-g2-smc")
 
     o2_g2_st4 = Enum.YLeaf(37, "o2-g2-st4")
+
+
+class Gnss1ppsPolarity(Enum):
+    """
+    Gnss1ppsPolarity (Enum Class)
+
+    Gnss1pps polarity
+
+    .. data:: positive = 0
+
+    	Positive 1PPS polarity
+
+    .. data:: negative = 1
+
+    	Negative 1PPS polarity
+
+    """
+
+    positive = Enum.YLeaf(0, "positive")
+
+    negative = Enum.YLeaf(1, "negative")
+
+
+class GnssConstellation(Enum):
+    """
+    GnssConstellation (Enum Class)
+
+    Gnss constellation
+
+    .. data:: auto = 0
+
+    	Unicast communication
+
+    .. data:: gps = 1
+
+    	GPS constellation
+
+    .. data:: galileo = 2
+
+    	Galileo constellation
+
+    .. data:: bei_dou = 3
+
+    	BeiDou constellation
+
+    .. data:: qzss = 4
+
+    	QZSS constellation
+
+    """
+
+    auto = Enum.YLeaf(0, "auto")
+
+    gps = Enum.YLeaf(1, "gps")
+
+    galileo = Enum.YLeaf(2, "galileo")
+
+    bei_dou = Enum.YLeaf(3, "bei-dou")
+
+    qzss = Enum.YLeaf(4, "qzss")
 
 
 

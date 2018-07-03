@@ -94,14 +94,12 @@ class StartTransaction(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = StartTransaction.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "tailf-netconf-transactions:start-transaction"
 
 
@@ -133,8 +131,7 @@ class StartTransaction(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("target", ("target", StartTransaction.Input.Target))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("target", ("target", StartTransaction.Input.Target))])
             self._leafs = OrderedDict([
                 ('with_inactive', YLeaf(YType.empty, 'tailf-netconf-inactive:with-inactive')),
             ])
@@ -143,7 +140,6 @@ class StartTransaction(Entity):
             self.target = StartTransaction.Input.Target()
             self.target.parent = self
             self._children_name_map["target"] = "target"
-            self._children_yang_names.add("target")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "tailf-netconf-transactions:start-transaction/%s" % self._segment_path()
 
@@ -185,8 +181,7 @@ class StartTransaction(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('startup', YLeaf(YType.empty, 'startup')),
                     ('running', YLeaf(YType.empty, 'running')),
@@ -199,7 +194,7 @@ class StartTransaction(Entity):
                 self._absolute_path = lambda: "tailf-netconf-transactions:start-transaction/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(StartTransaction.Input.Target, ['startup', 'running', 'candidate'], name, value)
+                self._perform_setattr(StartTransaction.Input.Target, [u'startup', u'running', u'candidate'], name, value)
 
     def clone_ptr(self):
         self._top_entity = StartTransaction()
@@ -243,8 +238,7 @@ class PrepareTransaction(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:prepare-transaction"
 
@@ -276,8 +270,7 @@ class CommitTransaction(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:commit-transaction"
 
@@ -309,8 +302,7 @@ class AbortTransaction(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:abort-transaction"
 

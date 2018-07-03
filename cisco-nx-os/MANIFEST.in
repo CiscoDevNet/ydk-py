@@ -1,0 +1,4 @@
+include README.md
+include setup.py
+include ydk/models/cisco_nx_os/_yang/*.yang
+

@@ -45,8 +45,7 @@ class NodePath(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("node", ("node", NodePath.Node))])
+        self._child_classes = OrderedDict([("node", ("node", NodePath.Node))])
         self._leafs = OrderedDict()
 
         self.node = YList(self)
@@ -86,8 +85,7 @@ class NodePath(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_container_classes = OrderedDict([("slice-ids", ("slice_ids", NodePath.Node.SliceIds))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("slice-ids", ("slice_ids", NodePath.Node.SliceIds))])
             self._leafs = OrderedDict([
                 ('node_name', YLeaf(YType.str, 'node-name')),
             ])
@@ -96,7 +94,6 @@ class NodePath(Entity):
             self.slice_ids = NodePath.Node.SliceIds()
             self.slice_ids.parent = self
             self._children_name_map["slice_ids"] = "slice-ids"
-            self._children_yang_names.add("slice-ids")
             self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-slice-mgr-proxy-cfg:node-path/%s" % self._segment_path()
 
@@ -128,8 +125,7 @@ class NodePath(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("slice-id", ("slice_id", NodePath.Node.SliceIds.SliceId))])
+                self._child_classes = OrderedDict([("slice-id", ("slice_id", NodePath.Node.SliceIds.SliceId))])
                 self._leafs = OrderedDict()
 
                 self.slice_id = YList(self)
@@ -156,21 +152,21 @@ class NodePath(Entity):
                 	set val 0 to shutdown
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: breakout
                 
                 	10G Breakout Config
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: mode
                 
                 	set val 4 for OTU4 
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 
 
@@ -187,13 +183,12 @@ class NodePath(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['slice_id']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('slice_id', YLeaf(YType.uint32, 'slice-id')),
-                        ('state', YLeaf(YType.int32, 'state')),
-                        ('breakout', YLeaf(YType.int32, 'breakout')),
-                        ('mode', YLeaf(YType.int32, 'mode')),
+                        ('state', YLeaf(YType.uint32, 'state')),
+                        ('breakout', YLeaf(YType.uint32, 'breakout')),
+                        ('mode', YLeaf(YType.uint32, 'mode')),
                     ])
                     self.slice_id = None
                     self.state = None

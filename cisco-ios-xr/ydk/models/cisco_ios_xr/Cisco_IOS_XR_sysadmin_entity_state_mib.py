@@ -23,7 +23,7 @@ class ENTITYSTATEMIB(Entity):
     .. attribute:: entstatetable
     
     	
-    	**type**\:  :py:class:`Entstatetable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_mib.ENTITYSTATEMIB.Entstatetable>`
+    	**type**\:  :py:class:`EntStateTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_mib.ENTITYSTATEMIB.EntStateTable>`
     
     
 
@@ -41,25 +41,26 @@ class ENTITYSTATEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("entStateTable", ("entstatetable", ENTITYSTATEMIB.Entstatetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("entStateTable", ("entstatetable", ENTITYSTATEMIB.EntStateTable))])
         self._leafs = OrderedDict()
 
-        self.entstatetable = ENTITYSTATEMIB.Entstatetable()
+        self.entstatetable = ENTITYSTATEMIB.EntStateTable()
         self.entstatetable.parent = self
         self._children_name_map["entstatetable"] = "entStateTable"
-        self._children_yang_names.add("entStateTable")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-entity-state-mib:ENTITY-STATE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(ENTITYSTATEMIB, [], name, value)
 
-    class Entstatetable(Entity):
+
+    class EntStateTable(Entity):
         """
         
         
         .. attribute:: entstateentry
         
         	
-        	**type**\: list of  		 :py:class:`Entstateentry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_mib.ENTITYSTATEMIB.Entstatetable.Entstateentry>`
+        	**type**\: list of  		 :py:class:`EntStateEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_mib.ENTITYSTATEMIB.EntStateTable.EntStateEntry>`
         
         
 
@@ -69,15 +70,14 @@ class ENTITYSTATEMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYSTATEMIB.Entstatetable, self).__init__()
+            super(ENTITYSTATEMIB.EntStateTable, self).__init__()
 
             self.yang_name = "entStateTable"
             self.yang_parent_name = "ENTITY-STATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entStateEntry", ("entstateentry", ENTITYSTATEMIB.Entstatetable.Entstateentry))])
+            self._child_classes = OrderedDict([("entStateEntry", ("entstateentry", ENTITYSTATEMIB.EntStateTable.EntStateEntry))])
             self._leafs = OrderedDict()
 
             self.entstateentry = YList(self)
@@ -85,10 +85,10 @@ class ENTITYSTATEMIB(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-state-mib:ENTITY-STATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYSTATEMIB.Entstatetable, [], name, value)
+            self._perform_setattr(ENTITYSTATEMIB.EntStateTable, [], name, value)
 
 
-        class Entstateentry(Entity):
+        class EntStateEntry(Entity):
             """
             
             
@@ -139,15 +139,14 @@ class ENTITYSTATEMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYSTATEMIB.Entstatetable.Entstateentry, self).__init__()
+                super(ENTITYSTATEMIB.EntStateTable.EntStateEntry, self).__init__()
 
                 self.yang_name = "entStateEntry"
                 self.yang_parent_name = "entStateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.int32, 'entPhysicalIndex')),
                     ('entstatelastchanged', YLeaf(YType.str, 'entStateLastChanged')),
@@ -168,7 +167,7 @@ class ENTITYSTATEMIB(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-entity-state-mib:ENTITY-STATE-MIB/entStateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYSTATEMIB.Entstatetable.Entstateentry, ['entphysicalindex', 'entstatelastchanged', 'entstateadmin', 'entstateoper', 'entstateusage', 'entstatealarm', 'entstatestandby'], name, value)
+                self._perform_setattr(ENTITYSTATEMIB.EntStateTable.EntStateEntry, ['entphysicalindex', 'entstatelastchanged', 'entstateadmin', 'entstateoper', 'entstateusage', 'entstatealarm', 'entstatestandby'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ENTITYSTATEMIB()

@@ -29,6 +29,7 @@ from ydk.types import Config, EncodingFormat
 from ydk.errors import YModelError, YServiceError
 
 _ENTITY_ERROR_MSG = "No YDK bundle installed for node path '{}'"
+_PATH_ERROR_MSG   = "A string value '{}' does not represent valid node path"
 
 def _read_entities(provider, get_config=True, source=Datastore.running):
     session = provider.get_session()
@@ -60,7 +61,11 @@ def _read_entities(provider, get_config=True, source=Datastore.running):
 
 def _datanode_to_entity(data_node):
     node_path = data_node.get_path()
+    if ':' not in node_path:
+        raise YModelError(_PATH_ERROR_MSG.format(node_path))
     module, container = tuple(node_path[1:].split(':', 1))
+    if '[' in container:
+        container = container.split('[', 1)[0]
     ydk_models = importlib.import_module('ydk.models')
     for (_, name, ispkg) in pkgutil.iter_modules(ydk_models.__path__):
         if ispkg:

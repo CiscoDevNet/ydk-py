@@ -79,45 +79,40 @@ class Diag(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("default", ("default", Diag.Default)), ("fans", ("fans", Diag.Fans)), ("power-supply", ("power_supply", Diag.PowerSupply)), ("chassis", ("chassis", Diag.Chassis)), ("summary", ("summary", Diag.Summary)), ("eeprom", ("eeprom", Diag.Eeprom)), ("detail", ("detail", Diag.Detail))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("default", ("default", Diag.Default)), ("fans", ("fans", Diag.Fans)), ("power-supply", ("power_supply", Diag.PowerSupply)), ("chassis", ("chassis", Diag.Chassis)), ("summary", ("summary", Diag.Summary)), ("eeprom", ("eeprom", Diag.Eeprom)), ("detail", ("detail", Diag.Detail))])
         self._leafs = OrderedDict()
 
         self.default = Diag.Default()
         self.default.parent = self
         self._children_name_map["default"] = "default"
-        self._children_yang_names.add("default")
 
         self.fans = Diag.Fans()
         self.fans.parent = self
         self._children_name_map["fans"] = "fans"
-        self._children_yang_names.add("fans")
 
         self.power_supply = Diag.PowerSupply()
         self.power_supply.parent = self
         self._children_name_map["power_supply"] = "power-supply"
-        self._children_yang_names.add("power-supply")
 
         self.chassis = Diag.Chassis()
         self.chassis.parent = self
         self._children_name_map["chassis"] = "chassis"
-        self._children_yang_names.add("chassis")
 
         self.summary = Diag.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
 
         self.eeprom = Diag.Eeprom()
         self.eeprom.parent = self
         self._children_name_map["eeprom"] = "eeprom"
-        self._children_yang_names.add("eeprom")
 
         self.detail = Diag.Detail()
         self.detail.parent = self
         self._children_name_map["detail"] = "detail"
-        self._children_yang_names.add("detail")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Diag, [], name, value)
 
 
     class Default(Entity):
@@ -144,8 +139,7 @@ class Diag(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("default_list", ("default_list", Diag.Default.DefaultList))])
+            self._child_classes = OrderedDict([("default_list", ("default_list", Diag.Default.DefaultList))])
             self._leafs = OrderedDict()
 
             self.default_list = YList(self)
@@ -185,8 +179,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location']
-                self._child_container_classes = OrderedDict([("default-data", ("default_data", Diag.Default.DefaultList.DefaultData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("default-data", ("default_data", Diag.Default.DefaultList.DefaultData))])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                 ])
@@ -195,7 +188,6 @@ class Diag(Entity):
                 self.default_data = Diag.Default.DefaultList.DefaultData()
                 self.default_data.parent = self
                 self._children_name_map["default_data"] = "default-data"
-                self._children_yang_names.add("default-data")
                 self._segment_path = lambda: "default_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/default/%s" % self._segment_path()
 
@@ -227,8 +219,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('default_out_list', YLeafList(YType.str, 'default_out_list')),
                     ])
@@ -263,8 +254,7 @@ class Diag(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("fans_list", ("fans_list", Diag.Fans.FansList))])
+            self._child_classes = OrderedDict([("fans_list", ("fans_list", Diag.Fans.FansList))])
             self._leafs = OrderedDict()
 
             self.fans_list = YList(self)
@@ -304,8 +294,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location']
-                self._child_container_classes = OrderedDict([("default-data", ("default_data", Diag.Fans.FansList.DefaultData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("default-data", ("default_data", Diag.Fans.FansList.DefaultData))])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                 ])
@@ -314,7 +303,6 @@ class Diag(Entity):
                 self.default_data = Diag.Fans.FansList.DefaultData()
                 self.default_data.parent = self
                 self._children_name_map["default_data"] = "default-data"
-                self._children_yang_names.add("default-data")
                 self._segment_path = lambda: "fans_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/fans/%s" % self._segment_path()
 
@@ -346,8 +334,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('default_out_list', YLeafList(YType.str, 'default_out_list')),
                     ])
@@ -382,8 +369,7 @@ class Diag(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pwr_list", ("pwr_list", Diag.PowerSupply.PwrList))])
+            self._child_classes = OrderedDict([("pwr_list", ("pwr_list", Diag.PowerSupply.PwrList))])
             self._leafs = OrderedDict()
 
             self.pwr_list = YList(self)
@@ -423,8 +409,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location']
-                self._child_container_classes = OrderedDict([("default-data", ("default_data", Diag.PowerSupply.PwrList.DefaultData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("default-data", ("default_data", Diag.PowerSupply.PwrList.DefaultData))])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                 ])
@@ -433,7 +418,6 @@ class Diag(Entity):
                 self.default_data = Diag.PowerSupply.PwrList.DefaultData()
                 self.default_data.parent = self
                 self._children_name_map["default_data"] = "default-data"
-                self._children_yang_names.add("default-data")
                 self._segment_path = lambda: "pwr_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/power-supply/%s" % self._segment_path()
 
@@ -465,8 +449,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('default_out_list', YLeafList(YType.str, 'default_out_list')),
                     ])
@@ -506,21 +489,21 @@ class Diag(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("chassis_cnt", ("chassis_cnt", Diag.Chassis.ChassisCnt)), ("chassis_eeprom_cnt", ("chassis_eeprom_cnt", Diag.Chassis.ChassisEepromCnt))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("chassis_cnt", ("chassis_cnt", Diag.Chassis.ChassisCnt)), ("chassis_eeprom_cnt", ("chassis_eeprom_cnt", Diag.Chassis.ChassisEepromCnt))])
             self._leafs = OrderedDict()
 
             self.chassis_cnt = Diag.Chassis.ChassisCnt()
             self.chassis_cnt.parent = self
             self._children_name_map["chassis_cnt"] = "chassis_cnt"
-            self._children_yang_names.add("chassis_cnt")
 
             self.chassis_eeprom_cnt = Diag.Chassis.ChassisEepromCnt()
             self.chassis_eeprom_cnt.parent = self
             self._children_name_map["chassis_eeprom_cnt"] = "chassis_eeprom_cnt"
-            self._children_yang_names.add("chassis_eeprom_cnt")
             self._segment_path = lambda: "chassis"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Diag.Chassis, [], name, value)
 
 
         class ChassisCnt(Entity):
@@ -547,8 +530,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("chassis_list", ("chassis_list", Diag.Chassis.ChassisCnt.ChassisList))])
+                self._child_classes = OrderedDict([("chassis_list", ("chassis_list", Diag.Chassis.ChassisCnt.ChassisList))])
                 self._leafs = OrderedDict()
 
                 self.chassis_list = YList(self)
@@ -588,8 +570,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['location']
-                    self._child_container_classes = OrderedDict([("default-data", ("default_data", Diag.Chassis.ChassisCnt.ChassisList.DefaultData))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("default-data", ("default_data", Diag.Chassis.ChassisCnt.ChassisList.DefaultData))])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                     ])
@@ -598,7 +579,6 @@ class Diag(Entity):
                     self.default_data = Diag.Chassis.ChassisCnt.ChassisList.DefaultData()
                     self.default_data.parent = self
                     self._children_name_map["default_data"] = "default-data"
-                    self._children_yang_names.add("default-data")
                     self._segment_path = lambda: "chassis_list" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/chassis_cnt/%s" % self._segment_path()
 
@@ -630,8 +610,7 @@ class Diag(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('default_out_list', YLeafList(YType.str, 'default_out_list')),
                         ])
@@ -666,8 +645,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("chassis_eeprom_list", ("chassis_eeprom_list", Diag.Chassis.ChassisEepromCnt.ChassisEepromList))])
+                self._child_classes = OrderedDict([("chassis_eeprom_list", ("chassis_eeprom_list", Diag.Chassis.ChassisEepromCnt.ChassisEepromList))])
                 self._leafs = OrderedDict()
 
                 self.chassis_eeprom_list = YList(self)
@@ -707,8 +685,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['location']
-                    self._child_container_classes = OrderedDict([("eeprom-data", ("eeprom_data", Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("eeprom-data", ("eeprom_data", Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData))])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                     ])
@@ -717,7 +694,6 @@ class Diag(Entity):
                     self.eeprom_data = Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData()
                     self.eeprom_data.parent = self
                     self._children_name_map["eeprom_data"] = "eeprom-data"
-                    self._children_yang_names.add("eeprom-data")
                     self._segment_path = lambda: "chassis_eeprom_list" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/chassis_eeprom_cnt/%s" % self._segment_path()
 
@@ -749,8 +725,7 @@ class Diag(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('raw_list', YLeafList(YType.str, 'raw_list')),
                         ])
@@ -785,8 +760,7 @@ class Diag(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("summary_list", ("summary_list", Diag.Summary.SummaryList))])
+            self._child_classes = OrderedDict([("summary_list", ("summary_list", Diag.Summary.SummaryList))])
             self._leafs = OrderedDict()
 
             self.summary_list = YList(self)
@@ -826,8 +800,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location']
-                self._child_container_classes = OrderedDict([("summary-data", ("summary_data", Diag.Summary.SummaryList.SummaryData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("summary-data", ("summary_data", Diag.Summary.SummaryList.SummaryData))])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                 ])
@@ -836,7 +809,6 @@ class Diag(Entity):
                 self.summary_data = Diag.Summary.SummaryList.SummaryData()
                 self.summary_data.parent = self
                 self._children_name_map["summary_data"] = "summary-data"
-                self._children_yang_names.add("summary-data")
                 self._segment_path = lambda: "summary_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/summary/%s" % self._segment_path()
 
@@ -868,8 +840,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('summary_out_list', YLeafList(YType.str, 'summary_out_list')),
                     ])
@@ -904,8 +875,7 @@ class Diag(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("eeprom_list", ("eeprom_list", Diag.Eeprom.EepromList))])
+            self._child_classes = OrderedDict([("eeprom_list", ("eeprom_list", Diag.Eeprom.EepromList))])
             self._leafs = OrderedDict()
 
             self.eeprom_list = YList(self)
@@ -945,8 +915,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location']
-                self._child_container_classes = OrderedDict([("eeprom-data", ("eeprom_data", Diag.Eeprom.EepromList.EepromData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("eeprom-data", ("eeprom_data", Diag.Eeprom.EepromList.EepromData))])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                 ])
@@ -955,7 +924,6 @@ class Diag(Entity):
                 self.eeprom_data = Diag.Eeprom.EepromList.EepromData()
                 self.eeprom_data.parent = self
                 self._children_name_map["eeprom_data"] = "eeprom-data"
-                self._children_yang_names.add("eeprom-data")
                 self._segment_path = lambda: "eeprom_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/eeprom/%s" % self._segment_path()
 
@@ -987,8 +955,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('raw_list', YLeafList(YType.str, 'raw_list')),
                     ])
@@ -1023,8 +990,7 @@ class Diag(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("detail_list", ("detail_list", Diag.Detail.DetailList))])
+            self._child_classes = OrderedDict([("detail_list", ("detail_list", Diag.Detail.DetailList))])
             self._leafs = OrderedDict()
 
             self.detail_list = YList(self)
@@ -1064,8 +1030,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location']
-                self._child_container_classes = OrderedDict([("detail-data", ("detail_data", Diag.Detail.DetailList.DetailData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("detail-data", ("detail_data", Diag.Detail.DetailList.DetailData))])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                 ])
@@ -1074,7 +1039,6 @@ class Diag(Entity):
                 self.detail_data = Diag.Detail.DetailList.DetailData()
                 self.detail_data.parent = self
                 self._children_name_map["detail_data"] = "detail-data"
-                self._children_yang_names.add("detail-data")
                 self._segment_path = lambda: "detail_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/detail/%s" % self._segment_path()
 
@@ -1106,8 +1070,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('detail_out_list', YLeafList(YType.str, 'detail_out_list')),
                     ])

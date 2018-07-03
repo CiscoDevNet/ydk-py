@@ -23,7 +23,7 @@ class CISCOOSPFTRAPMIB(Entity):
     .. attribute:: cospftrapcontrol
     
     	
-    	**type**\:  :py:class:`Cospftrapcontrol <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.Cospftrapcontrol>`
+    	**type**\:  :py:class:`CospfTrapControl <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.CospfTrapControl>`
     
     
 
@@ -41,35 +41,36 @@ class CISCOOSPFTRAPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cospfTrapControl", ("cospftrapcontrol", CISCOOSPFTRAPMIB.Cospftrapcontrol))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cospfTrapControl", ("cospftrapcontrol", CISCOOSPFTRAPMIB.CospfTrapControl))])
         self._leafs = OrderedDict()
 
-        self.cospftrapcontrol = CISCOOSPFTRAPMIB.Cospftrapcontrol()
+        self.cospftrapcontrol = CISCOOSPFTRAPMIB.CospfTrapControl()
         self.cospftrapcontrol.parent = self
         self._children_name_map["cospftrapcontrol"] = "cospfTrapControl"
-        self._children_yang_names.add("cospfTrapControl")
         self._segment_path = lambda: "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOOSPFTRAPMIB, [], name, value)
 
-    class Cospftrapcontrol(Entity):
+
+    class CospfTrapControl(Entity):
         """
         
         
         .. attribute:: cospfsettrap
         
         	An octet string serving as a bit  map  for the trap events defined by the OSPF traps in  this MIB. This object is used to enable and   disable  specific OSPF   traps   where  a  1   in  the  corresponding bit  field represents  enabled
-        	**type**\:  :py:class:`Cospfsettrap <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.Cospftrapcontrol.Cospfsettrap>`
+        	**type**\:  :py:class:`CospfSetTrap <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.CospfTrapControl.CospfSetTrap>`
         
         .. attribute:: cospfconfigerrortype
         
         	Potential types of configuration conflicts. Used  by the cospfConfigError and cospfConfigVirtError traps. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
-        	**type**\:  :py:class:`Cospfconfigerrortype <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.Cospftrapcontrol.Cospfconfigerrortype>`
+        	**type**\:  :py:class:`CospfConfigErrorType <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.CospfTrapControl.CospfConfigErrorType>`
         
         .. attribute:: cospfpackettype
         
         	OSPF packet types. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
-        	**type**\:  :py:class:`Cospfpackettype <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.Cospftrapcontrol.Cospfpackettype>`
+        	**type**\:  :py:class:`CospfPacketType <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.CospfTrapControl.CospfPacketType>`
         
         .. attribute:: cospfpacketsrc
         
@@ -86,15 +87,14 @@ class CISCOOSPFTRAPMIB(Entity):
         _revision = '2003-07-18'
 
         def __init__(self):
-            super(CISCOOSPFTRAPMIB.Cospftrapcontrol, self).__init__()
+            super(CISCOOSPFTRAPMIB.CospfTrapControl, self).__init__()
 
             self.yang_name = "cospfTrapControl"
             self.yang_parent_name = "CISCO-OSPF-TRAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cospfsettrap', YLeaf(YType.bits, 'cospfSetTrap')),
                 ('cospfconfigerrortype', YLeaf(YType.enumeration, 'cospfConfigErrorType')),
@@ -109,11 +109,11 @@ class CISCOOSPFTRAPMIB(Entity):
             self._absolute_path = lambda: "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFTRAPMIB.Cospftrapcontrol, ['cospfsettrap', 'cospfconfigerrortype', 'cospfpackettype', 'cospfpacketsrc'], name, value)
+            self._perform_setattr(CISCOOSPFTRAPMIB.CospfTrapControl, ['cospfsettrap', 'cospfconfigerrortype', 'cospfpackettype', 'cospfpacketsrc'], name, value)
 
-        class Cospfconfigerrortype(Enum):
+        class CospfConfigErrorType(Enum):
             """
-            Cospfconfigerrortype (Enum Class)
+            CospfConfigErrorType (Enum Class)
 
             Potential types of configuration conflicts.
 
@@ -182,9 +182,9 @@ class CISCOOSPFTRAPMIB(Entity):
             unknownShamLinkNbr = Enum.YLeaf(13, "unknownShamLinkNbr")
 
 
-        class Cospfpackettype(Enum):
+        class CospfPacketType(Enum):
             """
-            Cospfpackettype (Enum Class)
+            CospfPacketType (Enum Class)
 
             OSPF packet types. When the last value of a trap
 

@@ -1,10 +1,16 @@
 """ Cisco_IOS_XR_sysadmin_dumper 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin dumper to
 configure file path options to copy the core files to.
 
 Copyright(c) 2015\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -42,8 +48,7 @@ class Exception(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("choice", ("choice", Exception.Choice))])
+        self._child_classes = OrderedDict([("choice", ("choice", Exception.Choice))])
         self._leafs = OrderedDict()
 
         self.choice = YList(self)
@@ -86,8 +91,7 @@ class Exception(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['order']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('order', YLeaf(YType.int32, 'order')),
                 ('filepath', YLeaf(YType.str, 'filepath')),

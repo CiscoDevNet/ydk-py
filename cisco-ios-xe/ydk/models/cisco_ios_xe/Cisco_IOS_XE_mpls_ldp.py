@@ -524,10 +524,9 @@ class SessionState(Enum):
 
 
 
-class NsrSyncNackRsn(Identity):
+class RoutePathLblOwner(Identity):
     """
-    Base identity from which LDP Non\-Stop Routing peer LDP
-    synchronization nack reason identities are derived.
+    Base Route path label owner type.
     
     
 
@@ -537,12 +536,12 @@ class NsrSyncNackRsn(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(NsrSyncNackRsn, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn")
+        super(RoutePathLblOwner, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner")
 
 
-class NsrPeerSyncErr(Identity):
+class IgpSyncDownReason(Identity):
     """
-    Base for MPLS LDP NSR peer synchronization error types.
+    Base identity reason IGP Sync was not achieved.
     
     
 
@@ -552,7 +551,37 @@ class NsrPeerSyncErr(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(NsrPeerSyncErr, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err")
+        super(IgpSyncDownReason, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason")
+
+
+class DownNbrReason(Identity):
+    """
+    Base identity for the reason a neighbor is down.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(DownNbrReason, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:down-nbr-reason")
+
+
+class RoutePathType(Identity):
+    """
+    Base type for Route path type.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(RoutePathType, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-type")
 
 
 class IcpmType(Identity):
@@ -571,10 +600,9 @@ class IcpmType(Identity):
         super(IcpmType, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:icpm-type")
 
 
-class IccpType(Identity):
+class NsrPeerSyncErr(Identity):
     """
-    Base identity from which ICCP types can be derived. As this is
-    an extensible protocol, new types are expected.
+    Base for MPLS LDP NSR peer synchronization error types.
     
     
 
@@ -584,7 +612,7 @@ class IccpType(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(IccpType, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:iccp-type")
+        super(NsrPeerSyncErr, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err")
 
 
 class NsrPeerSyncState(Identity):
@@ -602,9 +630,10 @@ class NsrPeerSyncState(Identity):
         super(NsrPeerSyncState, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-state")
 
 
-class NsrStatus(Identity):
+class IccpType(Identity):
     """
-    Base identity for Non\-Stop Routing State Type.
+    Base identity from which ICCP types can be derived. As this is
+    an extensible protocol, new types are expected.
     
     
 
@@ -614,37 +643,7 @@ class NsrStatus(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(NsrStatus, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-status")
-
-
-class DownNbrReason(Identity):
-    """
-    Base identity for the reason a neighbor is down.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(DownNbrReason, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:down-nbr-reason")
-
-
-class RoutePathLblOwner(Identity):
-    """
-    Base Route path label owner type.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(RoutePathLblOwner, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner")
+        super(IccpType, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:iccp-type")
 
 
 class LabelType(Identity):
@@ -662,9 +661,9 @@ class LabelType(Identity):
         super(LabelType, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:label-type")
 
 
-class RoutePathType(Identity):
+class NsrStatus(Identity):
     """
-    Base type for Route path type.
+    Base identity for Non\-Stop Routing State Type.
     
     
 
@@ -674,12 +673,13 @@ class RoutePathType(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(RoutePathType, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-type")
+        super(NsrStatus, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-status")
 
 
-class IgpSyncDownReason(Identity):
+class NsrSyncNackRsn(Identity):
     """
-    Base identity reason IGP Sync was not achieved.
+    Base identity from which LDP Non\-Stop Routing peer LDP
+    synchronization nack reason identities are derived.
     
     
 
@@ -689,7 +689,7 @@ class IgpSyncDownReason(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(IgpSyncDownReason, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason")
+        super(NsrSyncNackRsn, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn")
 
 
 class MplsLdp(Entity):
@@ -722,20 +722,20 @@ class MplsLdp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mpls-ldp-state", ("mpls_ldp_state", MplsLdp.MplsLdpState)), ("mpls-ldp-config", ("mpls_ldp_config", MplsLdp.MplsLdpConfig))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mpls-ldp-state", ("mpls_ldp_state", MplsLdp.MplsLdpState)), ("mpls-ldp-config", ("mpls_ldp_config", MplsLdp.MplsLdpConfig))])
         self._leafs = OrderedDict()
 
         self.mpls_ldp_state = MplsLdp.MplsLdpState()
         self.mpls_ldp_state.parent = self
         self._children_name_map["mpls_ldp_state"] = "mpls-ldp-state"
-        self._children_yang_names.add("mpls-ldp-state")
 
         self.mpls_ldp_config = MplsLdp.MplsLdpConfig()
         self.mpls_ldp_config.parent = self
         self._children_name_map["mpls_ldp_config"] = "mpls-ldp-config"
-        self._children_yang_names.add("mpls-ldp-config")
         self._segment_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(MplsLdp, [], name, value)
 
 
     class MplsLdpState(Entity):
@@ -832,86 +832,73 @@ class MplsLdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("oper-summary", ("oper_summary", MplsLdp.MplsLdpState.OperSummary)), ("forwarding-summary", ("forwarding_summary", MplsLdp.MplsLdpState.ForwardingSummary)), ("bindings-summary", ("bindings_summary", MplsLdp.MplsLdpState.BindingsSummary)), ("nsr-summary-all", ("nsr_summary_all", MplsLdp.MplsLdpState.NsrSummaryAll)), ("icpm-summary-all", ("icpm_summary_all", MplsLdp.MplsLdpState.IcpmSummaryAll)), ("parameters", ("parameters", MplsLdp.MplsLdpState.Parameters)), ("capabilities", ("capabilities", MplsLdp.MplsLdpState.Capabilities)), ("backoff-parameters", ("backoff_parameters", MplsLdp.MplsLdpState.BackoffParameters)), ("graceful-restart", ("graceful_restart", MplsLdp.MplsLdpState.GracefulRestart)), ("vrfs", ("vrfs", MplsLdp.MplsLdpState.Vrfs)), ("discovery", ("discovery", MplsLdp.MplsLdpState.Discovery)), ("forwarding", ("forwarding", MplsLdp.MplsLdpState.Forwarding)), ("bindings", ("bindings", MplsLdp.MplsLdpState.Bindings)), ("neighbors", ("neighbors", MplsLdp.MplsLdpState.Neighbors)), ("label-ranges", ("label_ranges", MplsLdp.MplsLdpState.LabelRanges))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("oper-summary", ("oper_summary", MplsLdp.MplsLdpState.OperSummary)), ("forwarding-summary", ("forwarding_summary", MplsLdp.MplsLdpState.ForwardingSummary)), ("bindings-summary", ("bindings_summary", MplsLdp.MplsLdpState.BindingsSummary)), ("nsr-summary-all", ("nsr_summary_all", MplsLdp.MplsLdpState.NsrSummaryAll)), ("icpm-summary-all", ("icpm_summary_all", MplsLdp.MplsLdpState.IcpmSummaryAll)), ("parameters", ("parameters", MplsLdp.MplsLdpState.Parameters)), ("capabilities", ("capabilities", MplsLdp.MplsLdpState.Capabilities)), ("backoff-parameters", ("backoff_parameters", MplsLdp.MplsLdpState.BackoffParameters)), ("graceful-restart", ("graceful_restart", MplsLdp.MplsLdpState.GracefulRestart)), ("vrfs", ("vrfs", MplsLdp.MplsLdpState.Vrfs)), ("discovery", ("discovery", MplsLdp.MplsLdpState.Discovery)), ("forwarding", ("forwarding", MplsLdp.MplsLdpState.Forwarding)), ("bindings", ("bindings", MplsLdp.MplsLdpState.Bindings)), ("neighbors", ("neighbors", MplsLdp.MplsLdpState.Neighbors)), ("label-ranges", ("label_ranges", MplsLdp.MplsLdpState.LabelRanges))])
             self._leafs = OrderedDict()
 
             self.oper_summary = MplsLdp.MplsLdpState.OperSummary()
             self.oper_summary.parent = self
             self._children_name_map["oper_summary"] = "oper-summary"
-            self._children_yang_names.add("oper-summary")
 
             self.forwarding_summary = MplsLdp.MplsLdpState.ForwardingSummary()
             self.forwarding_summary.parent = self
             self._children_name_map["forwarding_summary"] = "forwarding-summary"
-            self._children_yang_names.add("forwarding-summary")
 
             self.bindings_summary = MplsLdp.MplsLdpState.BindingsSummary()
             self.bindings_summary.parent = self
             self._children_name_map["bindings_summary"] = "bindings-summary"
-            self._children_yang_names.add("bindings-summary")
 
             self.nsr_summary_all = MplsLdp.MplsLdpState.NsrSummaryAll()
             self.nsr_summary_all.parent = self
             self._children_name_map["nsr_summary_all"] = "nsr-summary-all"
-            self._children_yang_names.add("nsr-summary-all")
 
             self.icpm_summary_all = MplsLdp.MplsLdpState.IcpmSummaryAll()
             self.icpm_summary_all.parent = self
             self._children_name_map["icpm_summary_all"] = "icpm-summary-all"
-            self._children_yang_names.add("icpm-summary-all")
 
             self.parameters = MplsLdp.MplsLdpState.Parameters()
             self.parameters.parent = self
             self._children_name_map["parameters"] = "parameters"
-            self._children_yang_names.add("parameters")
 
             self.capabilities = MplsLdp.MplsLdpState.Capabilities()
             self.capabilities.parent = self
             self._children_name_map["capabilities"] = "capabilities"
-            self._children_yang_names.add("capabilities")
 
             self.backoff_parameters = MplsLdp.MplsLdpState.BackoffParameters()
             self.backoff_parameters.parent = self
             self._children_name_map["backoff_parameters"] = "backoff-parameters"
-            self._children_yang_names.add("backoff-parameters")
 
             self.graceful_restart = MplsLdp.MplsLdpState.GracefulRestart()
             self.graceful_restart.parent = self
             self._children_name_map["graceful_restart"] = "graceful-restart"
-            self._children_yang_names.add("graceful-restart")
 
             self.vrfs = MplsLdp.MplsLdpState.Vrfs()
             self.vrfs.parent = self
             self._children_name_map["vrfs"] = "vrfs"
-            self._children_yang_names.add("vrfs")
 
             self.discovery = MplsLdp.MplsLdpState.Discovery()
             self.discovery.parent = self
             self._children_name_map["discovery"] = "discovery"
-            self._children_yang_names.add("discovery")
 
             self.forwarding = MplsLdp.MplsLdpState.Forwarding()
             self.forwarding.parent = self
             self._children_name_map["forwarding"] = "forwarding"
-            self._children_yang_names.add("forwarding")
 
             self.bindings = MplsLdp.MplsLdpState.Bindings()
             self.bindings.parent = self
             self._children_name_map["bindings"] = "bindings"
-            self._children_yang_names.add("bindings")
 
             self.neighbors = MplsLdp.MplsLdpState.Neighbors()
             self.neighbors.parent = self
             self._children_name_map["neighbors"] = "neighbors"
-            self._children_yang_names.add("neighbors")
 
             self.label_ranges = MplsLdp.MplsLdpState.LabelRanges()
             self.label_ranges.parent = self
             self._children_name_map["label_ranges"] = "label-ranges"
-            self._children_yang_names.add("label-ranges")
             self._segment_path = lambda: "mpls-ldp-state"
             self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsLdp.MplsLdpState, [], name, value)
 
 
         class OperSummary(Entity):
@@ -987,8 +974,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("common", ("common", MplsLdp.MplsLdpState.OperSummary.Common))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("common", ("common", MplsLdp.MplsLdpState.OperSummary.Common))])
                 self._leafs = OrderedDict([
                     ('number_of_vrf', YLeaf(YType.uint32, 'number-of-vrf')),
                     ('number_of_vrf_oper', YLeaf(YType.uint32, 'number-of-vrf-oper')),
@@ -1009,7 +995,6 @@ class MplsLdp(Entity):
                 self.common = MplsLdp.MplsLdpState.OperSummary.Common()
                 self.common.parent = self
                 self._children_name_map["common"] = "common"
-                self._children_yang_names.add("common")
                 self._segment_path = lambda: "oper-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/%s" % self._segment_path()
 
@@ -1097,8 +1082,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address_families', YLeaf(YType.enumeration, 'address-families')),
                         ('number_of_neighbors', YLeaf(YType.uint32, 'number-of-neighbors')),
@@ -1170,8 +1154,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("pfxs", ("pfxs", MplsLdp.MplsLdpState.ForwardingSummary.Pfxs)), ("nhs", ("nhs", MplsLdp.MplsLdpState.ForwardingSummary.Nhs))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("pfxs", ("pfxs", MplsLdp.MplsLdpState.ForwardingSummary.Pfxs)), ("nhs", ("nhs", MplsLdp.MplsLdpState.ForwardingSummary.Nhs))])
                 self._leafs = OrderedDict([
                     ('intfs_fwd_count', YLeaf(YType.uint16, 'intfs-fwd-count')),
                     ('local_lbls', YLeaf(YType.uint16, 'local-lbls')),
@@ -1182,12 +1165,10 @@ class MplsLdp(Entity):
                 self.pfxs = MplsLdp.MplsLdpState.ForwardingSummary.Pfxs()
                 self.pfxs.parent = self
                 self._children_name_map["pfxs"] = "pfxs"
-                self._children_yang_names.add("pfxs")
 
                 self.nhs = MplsLdp.MplsLdpState.ForwardingSummary.Nhs()
                 self.nhs.parent = self
                 self._children_name_map["nhs"] = "nhs"
-                self._children_yang_names.add("nhs")
                 self._segment_path = lambda: "forwarding-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/%s" % self._segment_path()
 
@@ -1250,8 +1231,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("labeled-pfxs-aggr", ("labeled_pfxs_aggr", MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsAggr)), ("labeled-pfxs-primary", ("labeled_pfxs_primary", MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsPrimary)), ("labeled-pfxs-backup", ("labeled_pfxs_backup", MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsBackup))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("labeled-pfxs-aggr", ("labeled_pfxs_aggr", MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsAggr)), ("labeled-pfxs-primary", ("labeled_pfxs_primary", MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsPrimary)), ("labeled-pfxs-backup", ("labeled_pfxs_backup", MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsBackup))])
                     self._leafs = OrderedDict([
                         ('total_pfxs', YLeaf(YType.uint16, 'total-pfxs')),
                         ('ecmp_pfxs', YLeaf(YType.uint16, 'ecmp-pfxs')),
@@ -1264,17 +1244,14 @@ class MplsLdp(Entity):
                     self.labeled_pfxs_aggr = MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsAggr()
                     self.labeled_pfxs_aggr.parent = self
                     self._children_name_map["labeled_pfxs_aggr"] = "labeled-pfxs-aggr"
-                    self._children_yang_names.add("labeled-pfxs-aggr")
 
                     self.labeled_pfxs_primary = MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsPrimary()
                     self.labeled_pfxs_primary.parent = self
                     self._children_name_map["labeled_pfxs_primary"] = "labeled-pfxs-primary"
-                    self._children_yang_names.add("labeled-pfxs-primary")
 
                     self.labeled_pfxs_backup = MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsBackup()
                     self.labeled_pfxs_backup.parent = self
                     self._children_name_map["labeled_pfxs_backup"] = "labeled-pfxs-backup"
-                    self._children_yang_names.add("labeled-pfxs-backup")
                     self._segment_path = lambda: "pfxs"
                     self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/forwarding-summary/%s" % self._segment_path()
 
@@ -1322,8 +1299,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('labeled_pfxs', YLeaf(YType.uint16, 'labeled-pfxs')),
                             ('labeled_pfxs_partial', YLeaf(YType.uint16, 'labeled-pfxs-partial')),
@@ -1380,8 +1356,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('labeled_pfxs', YLeaf(YType.uint16, 'labeled-pfxs')),
                             ('labeled_pfxs_partial', YLeaf(YType.uint16, 'labeled-pfxs-partial')),
@@ -1438,8 +1413,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('labeled_pfxs', YLeaf(YType.uint16, 'labeled-pfxs')),
                             ('labeled_pfxs_partial', YLeaf(YType.uint16, 'labeled-pfxs-partial')),
@@ -1516,8 +1490,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('total_paths', YLeaf(YType.uint32, 'total-paths')),
                         ('protected_paths', YLeaf(YType.uint32, 'protected-paths')),
@@ -1642,8 +1615,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('binding_total', YLeaf(YType.uint32, 'binding-total')),
                     ('binding_no_route', YLeaf(YType.uint32, 'binding-no-route')),
@@ -1738,8 +1710,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nsr_sum_in_label_reqs_created', YLeaf(YType.uint32, 'nsr-sum-in-label-reqs-created')),
                     ('nsr_sum_in_label_reqs_freed', YLeaf(YType.uint32, 'nsr-sum-in-label-reqs-freed')),
@@ -1818,8 +1789,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("icpm-rgid-table-info", ("icpm_rgid_table_info", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo)), ("icpm-session-table", ("icpm_session_table", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("icpm-rgid-table-info", ("icpm_rgid_table_info", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo)), ("icpm-session-table", ("icpm_session_table", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable))])
                 self._leafs = OrderedDict([
                     ('iccp_rg_conn_count', YLeaf(YType.uint32, 'iccp-rg-conn-count')),
                     ('iccp_rg_disconn_count', YLeaf(YType.uint32, 'iccp-rg-disconn-count')),
@@ -1834,12 +1804,10 @@ class MplsLdp(Entity):
                 self.icpm_rgid_table_info = MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo()
                 self.icpm_rgid_table_info.parent = self
                 self._children_name_map["icpm_rgid_table_info"] = "icpm-rgid-table-info"
-                self._children_yang_names.add("icpm-rgid-table-info")
 
                 self.icpm_session_table = MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable()
                 self.icpm_session_table.parent = self
                 self._children_name_map["icpm_session_table"] = "icpm-session-table"
-                self._children_yang_names.add("icpm-session-table")
                 self._segment_path = lambda: "icpm-summary-all"
                 self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/%s" % self._segment_path()
 
@@ -1871,8 +1839,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("red-group", ("red_group", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup))])
+                    self._child_classes = OrderedDict([("red-group", ("red_group", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup))])
                     self._leafs = OrderedDict()
 
                     self.red_group = YList(self)
@@ -1915,8 +1882,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rg_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("icpm-protocols", ("icpm_protocols", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols))])
+                        self._child_classes = OrderedDict([("icpm-protocols", ("icpm_protocols", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols))])
                         self._leafs = OrderedDict([
                             ('rg_id', YLeaf(YType.uint32, 'rg-id')),
                         ])
@@ -1959,8 +1925,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['icpm_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("redun-groups", ("redun_groups", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols.RedunGroups))])
+                            self._child_classes = OrderedDict([("redun-groups", ("redun_groups", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols.RedunGroups))])
                             self._leafs = OrderedDict([
                                 ('icpm_type', YLeaf(YType.identityref, 'icpm-type')),
                             ])
@@ -2029,8 +1994,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['rg_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("iccp-apps", ("iccp_apps", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols.RedunGroups.IccpApps))])
+                                self._child_classes = OrderedDict([("iccp-apps", ("iccp_apps", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols.RedunGroups.IccpApps))])
                                 self._leafs = OrderedDict([
                                     ('rg_id', YLeaf(YType.uint32, 'rg-id')),
                                     ('peer_id', YLeaf(YType.str, 'peer-id')),
@@ -2085,8 +2049,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['iccp_app']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('iccp_app', YLeaf(YType.identityref, 'iccp-app')),
                                         ('app_state', YLeaf(YType.enumeration, 'app-state')),
@@ -2125,8 +2088,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("session-table", ("session_table", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable))])
+                    self._child_classes = OrderedDict([("session-table", ("session_table", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable))])
                     self._leafs = OrderedDict()
 
                     self.session_table = YList(self)
@@ -2168,8 +2130,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['session_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("icpm-protocols", ("icpm_protocols", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols))])
+                        self._child_classes = OrderedDict([("icpm-protocols", ("icpm_protocols", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols))])
                         self._leafs = OrderedDict([
                             ('session_id', YLeaf(YType.uint32, 'session-id')),
                         ])
@@ -2212,8 +2173,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['icpm_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("redun-groups", ("redun_groups", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols.RedunGroups))])
+                            self._child_classes = OrderedDict([("redun-groups", ("redun_groups", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols.RedunGroups))])
                             self._leafs = OrderedDict([
                                 ('icpm_type', YLeaf(YType.identityref, 'icpm-type')),
                             ])
@@ -2282,8 +2242,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['rg_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("iccp-apps", ("iccp_apps", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols.RedunGroups.IccpApps))])
+                                self._child_classes = OrderedDict([("iccp-apps", ("iccp_apps", MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols.RedunGroups.IccpApps))])
                                 self._leafs = OrderedDict([
                                     ('rg_id', YLeaf(YType.uint32, 'rg-id')),
                                     ('peer_id', YLeaf(YType.str, 'peer-id')),
@@ -2338,8 +2297,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['iccp_app']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('iccp_app', YLeaf(YType.identityref, 'iccp-app')),
                                         ('app_state', YLeaf(YType.enumeration, 'app-state')),
@@ -2476,8 +2434,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("address-family-parameter", ("address_family_parameter", MplsLdp.MplsLdpState.Parameters.AddressFamilyParameter))])
+                self._child_classes = OrderedDict([("address-family-parameter", ("address_family_parameter", MplsLdp.MplsLdpState.Parameters.AddressFamilyParameter))])
                 self._leafs = OrderedDict([
                     ('global_md5_password_enabled', YLeaf(YType.boolean, 'global-md5-password-enabled')),
                     ('protocol_version', YLeaf(YType.uint32, 'protocol-version')),
@@ -2564,8 +2521,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['address_family']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address_family', YLeaf(YType.enumeration, 'address-family')),
                         ('discovery_transport_address', YLeaf(YType.str, 'discovery-transport-address')),
@@ -2607,8 +2563,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("capability", ("capability", MplsLdp.MplsLdpState.Capabilities.Capability))])
+                self._child_classes = OrderedDict([("capability", ("capability", MplsLdp.MplsLdpState.Capabilities.Capability))])
                 self._leafs = OrderedDict()
 
                 self.capability = YList(self)
@@ -2669,8 +2624,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['cap_type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('cap_type', YLeaf(YType.uint16, 'cap-type')),
                         ('capability_owner', YLeaf(YType.str, 'capability-owner')),
@@ -2745,8 +2699,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('initial_seconds', YLeaf(YType.uint32, 'initial-seconds')),
                     ('maximum_seconds', YLeaf(YType.uint32, 'maximum-seconds')),
@@ -2820,8 +2773,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('is_graceful_restart_configured', YLeaf(YType.boolean, 'is-graceful-restart-configured')),
                     ('graceful_restart_reconnect_timeout', YLeaf(YType.uint32, 'graceful-restart-reconnect-timeout')),
@@ -2865,8 +2817,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("vrf", ("vrf", MplsLdp.MplsLdpState.Vrfs.Vrf))])
+                self._child_classes = OrderedDict([("vrf", ("vrf", MplsLdp.MplsLdpState.Vrfs.Vrf))])
                 self._leafs = OrderedDict()
 
                 self.vrf = YList(self)
@@ -2911,8 +2862,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([("vrf-summary", ("vrf_summary", MplsLdp.MplsLdpState.Vrfs.Vrf.VrfSummary)), ("afs", ("afs", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("vrf-summary", ("vrf_summary", MplsLdp.MplsLdpState.Vrfs.Vrf.VrfSummary)), ("afs", ("afs", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                     ])
@@ -2921,12 +2871,10 @@ class MplsLdp(Entity):
                     self.vrf_summary = MplsLdp.MplsLdpState.Vrfs.Vrf.VrfSummary()
                     self.vrf_summary.parent = self
                     self._children_name_map["vrf_summary"] = "vrf-summary"
-                    self._children_yang_names.add("vrf-summary")
 
                     self.afs = MplsLdp.MplsLdpState.Vrfs.Vrf.Afs()
                     self.afs.parent = self
                     self._children_name_map["afs"] = "afs"
-                    self._children_yang_names.add("afs")
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/vrfs/%s" % self._segment_path()
 
@@ -3014,8 +2962,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address_families', YLeaf(YType.enumeration, 'address-families')),
                             ('number_of_neighbors', YLeaf(YType.uint32, 'number-of-neighbors')),
@@ -3066,8 +3013,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("af", ("af", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af))])
+                        self._child_classes = OrderedDict([("af", ("af", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af))])
                         self._leafs = OrderedDict()
 
                         self.af = YList(self)
@@ -3111,8 +3057,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['af_name']
-                            self._child_container_classes = OrderedDict([("interface-summary", ("interface_summary", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.InterfaceSummary)), ("igp", ("igp", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("interface-summary", ("interface_summary", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.InterfaceSummary)), ("igp", ("igp", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp))])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                             ])
@@ -3121,12 +3066,10 @@ class MplsLdp(Entity):
                             self.interface_summary = MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.InterfaceSummary()
                             self.interface_summary.parent = self
                             self._children_name_map["interface_summary"] = "interface-summary"
-                            self._children_yang_names.add("interface-summary")
 
                             self.igp = MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp()
                             self.igp.parent = self
                             self._children_name_map["igp"] = "igp"
-                            self._children_yang_names.add("igp")
                             self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -3209,8 +3152,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('known_ip_interface_count', YLeaf(YType.uint32, 'known-ip-interface-count')),
                                     ('known_ip_interface_ldp_enabled', YLeaf(YType.uint32, 'known-ip-interface-ldp-enabled')),
@@ -3259,8 +3201,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sync", ("sync", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp.Sync))])
+                                self._child_classes = OrderedDict([("sync", ("sync", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp.Sync))])
                                 self._leafs = OrderedDict()
 
                                 self.sync = YList(self)
@@ -3326,8 +3267,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("peers", ("peers", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp.Sync.Peers))])
+                                    self._child_classes = OrderedDict([("peers", ("peers", MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp.Sync.Peers))])
                                     self._leafs = OrderedDict([
                                         ('interface', YLeaf(YType.str, 'interface')),
                                         ('igp_sync_state', YLeaf(YType.enumeration, 'igp-sync-state')),
@@ -3382,8 +3322,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('peer_id', YLeaf(YType.str, 'peer-id')),
                                             ('is_gr_enabled', YLeaf(YType.boolean, 'is-gr-enabled')),
@@ -3432,26 +3371,25 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("discovery-stats", ("discovery_stats", MplsLdp.MplsLdpState.Discovery.DiscoveryStats)), ("link-hello-state", ("link_hello_state", MplsLdp.MplsLdpState.Discovery.LinkHelloState)), ("targeted-hellos", ("targeted_hellos", MplsLdp.MplsLdpState.Discovery.TargetedHellos))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("discovery-stats", ("discovery_stats", MplsLdp.MplsLdpState.Discovery.DiscoveryStats)), ("link-hello-state", ("link_hello_state", MplsLdp.MplsLdpState.Discovery.LinkHelloState)), ("targeted-hellos", ("targeted_hellos", MplsLdp.MplsLdpState.Discovery.TargetedHellos))])
                 self._leafs = OrderedDict()
 
                 self.discovery_stats = MplsLdp.MplsLdpState.Discovery.DiscoveryStats()
                 self.discovery_stats.parent = self
                 self._children_name_map["discovery_stats"] = "discovery-stats"
-                self._children_yang_names.add("discovery-stats")
 
                 self.link_hello_state = MplsLdp.MplsLdpState.Discovery.LinkHelloState()
                 self.link_hello_state.parent = self
                 self._children_name_map["link_hello_state"] = "link-hello-state"
-                self._children_yang_names.add("link-hello-state")
 
                 self.targeted_hellos = MplsLdp.MplsLdpState.Discovery.TargetedHellos()
                 self.targeted_hellos.parent = self
                 self._children_name_map["targeted_hellos"] = "targeted-hellos"
-                self._children_yang_names.add("targeted-hellos")
                 self._segment_path = lambda: "discovery"
                 self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsLdp.MplsLdpState.Discovery, [], name, value)
 
 
             class DiscoveryStats(Entity):
@@ -3515,8 +3453,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('num_of_ldp_interfaces', YLeaf(YType.uint32, 'num-of-ldp-interfaces')),
                         ('num_of_active_ldp_interfaces', YLeaf(YType.uint32, 'num-of-active-ldp-interfaces')),
@@ -3567,8 +3504,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("link-hellos", ("link_hellos", MplsLdp.MplsLdpState.Discovery.LinkHelloState.LinkHellos))])
+                    self._child_classes = OrderedDict([("link-hellos", ("link_hellos", MplsLdp.MplsLdpState.Discovery.LinkHelloState.LinkHellos))])
                     self._leafs = OrderedDict()
 
                     self.link_hellos = YList(self)
@@ -3703,8 +3639,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface','nbr_transport_addr']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('nbr_transport_addr', YLeaf(YType.str, 'nbr-transport-addr')),
@@ -3778,8 +3713,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("targeted-hello", ("targeted_hello", MplsLdp.MplsLdpState.Discovery.TargetedHellos.TargetedHello))])
+                    self._child_classes = OrderedDict([("targeted-hello", ("targeted_hello", MplsLdp.MplsLdpState.Discovery.TargetedHellos.TargetedHello))])
                     self._leafs = OrderedDict([
                         ('targeted_hello_interval', YLeaf(YType.uint32, 'targeted-hello-interval')),
                         ('targeted_hello_hold_time', YLeaf(YType.uint32, 'targeted-hello-hold-time')),
@@ -3883,8 +3817,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['vrf_name','target_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('target_address', YLeaf(YType.str, 'target-address')),
@@ -3940,14 +3873,12 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("forwarding-vrf-summs", ("forwarding_vrf_summs", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms))])
-                self._child_list_classes = OrderedDict([("forwarding-detail", ("forwarding_detail", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail))])
+                self._child_classes = OrderedDict([("forwarding-vrf-summs", ("forwarding_vrf_summs", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms)), ("forwarding-detail", ("forwarding_detail", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail))])
                 self._leafs = OrderedDict()
 
                 self.forwarding_vrf_summs = MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms()
                 self.forwarding_vrf_summs.parent = self
                 self._children_name_map["forwarding_vrf_summs"] = "forwarding-vrf-summs"
-                self._children_yang_names.add("forwarding-vrf-summs")
 
                 self.forwarding_detail = YList(self)
                 self._segment_path = lambda: "forwarding"
@@ -3981,8 +3912,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("forwarding-vrf-summ", ("forwarding_vrf_summ", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm))])
+                    self._child_classes = OrderedDict([("forwarding-vrf-summ", ("forwarding_vrf_summ", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm))])
                     self._leafs = OrderedDict()
 
                     self.forwarding_vrf_summ = YList(self)
@@ -4041,8 +3971,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['vrf_name']
-                        self._child_container_classes = OrderedDict([("pfxs", ("pfxs", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs)), ("nhs", ("nhs", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Nhs))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("pfxs", ("pfxs", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs)), ("nhs", ("nhs", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Nhs))])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('intfs_fwd_count', YLeaf(YType.uint16, 'intfs-fwd-count')),
@@ -4055,12 +3984,10 @@ class MplsLdp(Entity):
                         self.pfxs = MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs()
                         self.pfxs.parent = self
                         self._children_name_map["pfxs"] = "pfxs"
-                        self._children_yang_names.add("pfxs")
 
                         self.nhs = MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Nhs()
                         self.nhs.parent = self
                         self._children_name_map["nhs"] = "nhs"
-                        self._children_yang_names.add("nhs")
                         self._segment_path = lambda: "forwarding-vrf-summ" + "[vrf-name='" + str(self.vrf_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/forwarding/forwarding-vrf-summs/%s" % self._segment_path()
 
@@ -4123,8 +4050,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("labeled-pfxs-aggr", ("labeled_pfxs_aggr", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsAggr)), ("labeled-pfxs-primary", ("labeled_pfxs_primary", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsPrimary)), ("labeled-pfxs-backup", ("labeled_pfxs_backup", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsBackup))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("labeled-pfxs-aggr", ("labeled_pfxs_aggr", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsAggr)), ("labeled-pfxs-primary", ("labeled_pfxs_primary", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsPrimary)), ("labeled-pfxs-backup", ("labeled_pfxs_backup", MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsBackup))])
                             self._leafs = OrderedDict([
                                 ('total_pfxs', YLeaf(YType.uint16, 'total-pfxs')),
                                 ('ecmp_pfxs', YLeaf(YType.uint16, 'ecmp-pfxs')),
@@ -4137,17 +4063,14 @@ class MplsLdp(Entity):
                             self.labeled_pfxs_aggr = MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsAggr()
                             self.labeled_pfxs_aggr.parent = self
                             self._children_name_map["labeled_pfxs_aggr"] = "labeled-pfxs-aggr"
-                            self._children_yang_names.add("labeled-pfxs-aggr")
 
                             self.labeled_pfxs_primary = MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsPrimary()
                             self.labeled_pfxs_primary.parent = self
                             self._children_name_map["labeled_pfxs_primary"] = "labeled-pfxs-primary"
-                            self._children_yang_names.add("labeled-pfxs-primary")
 
                             self.labeled_pfxs_backup = MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsBackup()
                             self.labeled_pfxs_backup.parent = self
                             self._children_name_map["labeled_pfxs_backup"] = "labeled-pfxs-backup"
-                            self._children_yang_names.add("labeled-pfxs-backup")
                             self._segment_path = lambda: "pfxs"
 
                         def __setattr__(self, name, value):
@@ -4194,8 +4117,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('labeled_pfxs', YLeaf(YType.uint16, 'labeled-pfxs')),
                                     ('labeled_pfxs_partial', YLeaf(YType.uint16, 'labeled-pfxs-partial')),
@@ -4251,8 +4173,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('labeled_pfxs', YLeaf(YType.uint16, 'labeled-pfxs')),
                                     ('labeled_pfxs_partial', YLeaf(YType.uint16, 'labeled-pfxs-partial')),
@@ -4308,8 +4229,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('labeled_pfxs', YLeaf(YType.uint16, 'labeled-pfxs')),
                                     ('labeled_pfxs_partial', YLeaf(YType.uint16, 'labeled-pfxs-partial')),
@@ -4385,8 +4305,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('total_paths', YLeaf(YType.uint32, 'total-paths')),
                                 ('protected_paths', YLeaf(YType.uint32, 'protected-paths')),
@@ -4482,8 +4401,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name','prefix']
-                    self._child_container_classes = OrderedDict([("route", ("route", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Route))])
-                    self._child_list_classes = OrderedDict([("paths", ("paths", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths))])
+                    self._child_classes = OrderedDict([("route", ("route", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Route)), ("paths", ("paths", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('prefix', YLeaf(YType.str, 'prefix')),
@@ -4500,7 +4418,6 @@ class MplsLdp(Entity):
                     self.route = MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Route()
                     self.route.parent = self
                     self._children_name_map["route"] = "route"
-                    self._children_yang_names.add("route")
 
                     self.paths = YList(self)
                     self._segment_path = lambda: "forwarding-detail" + "[vrf-name='" + str(self.vrf_name) + "']" + "[prefix='" + str(self.prefix) + "']"
@@ -4626,8 +4543,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('version', YLeaf(YType.uint32, 'version')),
                             ('priority', YLeaf(YType.uint8, 'priority')),
@@ -4691,20 +4607,20 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("routing", ("routing", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Routing)), ("mpls", ("mpls", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("routing", ("routing", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Routing)), ("mpls", ("mpls", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls))])
                         self._leafs = OrderedDict()
 
                         self.routing = MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Routing()
                         self.routing.parent = self
                         self._children_name_map["routing"] = "routing"
-                        self._children_yang_names.add("routing")
 
                         self.mpls = MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls()
                         self.mpls.parent = self
                         self._children_name_map["mpls"] = "mpls"
-                        self._children_yang_names.add("mpls")
                         self._segment_path = lambda: "paths"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths, [], name, value)
 
 
                     class Routing(Entity):
@@ -4809,8 +4725,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', YLeaf(YType.str, 'next-hop')),
                                 ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
@@ -4870,20 +4785,20 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("mpls-outgoing-info", ("mpls_outgoing_info", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo)), ("remote-lfa", ("remote_lfa", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("mpls-outgoing-info", ("mpls_outgoing_info", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo)), ("remote-lfa", ("remote_lfa", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa))])
                             self._leafs = OrderedDict()
 
                             self.mpls_outgoing_info = MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo()
                             self.mpls_outgoing_info.parent = self
                             self._children_name_map["mpls_outgoing_info"] = "mpls-outgoing-info"
-                            self._children_yang_names.add("mpls-outgoing-info")
 
                             self.remote_lfa = MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa()
                             self.remote_lfa.parent = self
                             self._children_name_map["remote_lfa"] = "remote-lfa"
-                            self._children_yang_names.add("remote-lfa")
                             self._segment_path = lambda: "mpls"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls, [], name, value)
 
 
                         class MplsOutgoingInfo(Entity):
@@ -4937,8 +4852,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("nexthop-peer-ldp-ident", ("nexthop_peer_ldp_ident", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo.NexthopPeerLdpIdent))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("nexthop-peer-ldp-ident", ("nexthop_peer_ldp_ident", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo.NexthopPeerLdpIdent))])
                                 self._leafs = OrderedDict([
                                     ('out_label', YLeaf(YType.uint32, 'out-label')),
                                     ('out_label_type', YLeaf(YType.identityref, 'out-label-type')),
@@ -4955,7 +4869,6 @@ class MplsLdp(Entity):
                                 self.nexthop_peer_ldp_ident = MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo.NexthopPeerLdpIdent()
                                 self.nexthop_peer_ldp_ident.parent = self
                                 self._children_name_map["nexthop_peer_ldp_ident"] = "nexthop-peer-ldp-ident"
-                                self._children_yang_names.add("nexthop-peer-ldp-ident")
                                 self._segment_path = lambda: "mpls-outgoing-info"
 
                             def __setattr__(self, name, value):
@@ -5001,8 +4914,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                         ('label_space_id', YLeaf(YType.uint16, 'label-space-id')),
@@ -5045,8 +4957,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("mpls-outgoing-info", ("mpls_outgoing_info", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("mpls-outgoing-info", ("mpls_outgoing_info", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo))])
                                 self._leafs = OrderedDict([
                                     ('has_remote_lfa_bkup', YLeaf(YType.boolean, 'has-remote-lfa-bkup')),
                                 ])
@@ -5055,7 +4966,6 @@ class MplsLdp(Entity):
                                 self.mpls_outgoing_info = MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo()
                                 self.mpls_outgoing_info.parent = self
                                 self._children_name_map["mpls_outgoing_info"] = "mpls-outgoing-info"
-                                self._children_yang_names.add("mpls-outgoing-info")
                                 self._segment_path = lambda: "remote-lfa"
 
                             def __setattr__(self, name, value):
@@ -5113,8 +5023,7 @@ class MplsLdp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("nexthop-peer-ldp-ident", ("nexthop_peer_ldp_ident", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo.NexthopPeerLdpIdent))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("nexthop-peer-ldp-ident", ("nexthop_peer_ldp_ident", MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo.NexthopPeerLdpIdent))])
                                     self._leafs = OrderedDict([
                                         ('out_label', YLeaf(YType.uint32, 'out-label')),
                                         ('out_label_type', YLeaf(YType.identityref, 'out-label-type')),
@@ -5131,7 +5040,6 @@ class MplsLdp(Entity):
                                     self.nexthop_peer_ldp_ident = MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo.NexthopPeerLdpIdent()
                                     self.nexthop_peer_ldp_ident.parent = self
                                     self._children_name_map["nexthop_peer_ldp_ident"] = "nexthop-peer-ldp-ident"
-                                    self._children_yang_names.add("nexthop-peer-ldp-ident")
                                     self._segment_path = lambda: "mpls-outgoing-info"
 
                                 def __setattr__(self, name, value):
@@ -5177,8 +5085,7 @@ class MplsLdp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                             ('label_space_id', YLeaf(YType.uint16, 'label-space-id')),
@@ -5220,14 +5127,12 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("bindings-sum-afs", ("bindings_sum_afs", MplsLdp.MplsLdpState.Bindings.BindingsSumAfs))])
-                self._child_list_classes = OrderedDict([("binding", ("binding", MplsLdp.MplsLdpState.Bindings.Binding))])
+                self._child_classes = OrderedDict([("bindings-sum-afs", ("bindings_sum_afs", MplsLdp.MplsLdpState.Bindings.BindingsSumAfs)), ("binding", ("binding", MplsLdp.MplsLdpState.Bindings.Binding))])
                 self._leafs = OrderedDict()
 
                 self.bindings_sum_afs = MplsLdp.MplsLdpState.Bindings.BindingsSumAfs()
                 self.bindings_sum_afs.parent = self
                 self._children_name_map["bindings_sum_afs"] = "bindings-sum-afs"
-                self._children_yang_names.add("bindings-sum-afs")
 
                 self.binding = YList(self)
                 self._segment_path = lambda: "bindings"
@@ -5262,8 +5167,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("binding-sum-af", ("binding_sum_af", MplsLdp.MplsLdpState.Bindings.BindingsSumAfs.BindingSumAf))])
+                    self._child_classes = OrderedDict([("binding-sum-af", ("binding_sum_af", MplsLdp.MplsLdpState.Bindings.BindingsSumAfs.BindingSumAf))])
                     self._leafs = OrderedDict()
 
                     self.binding_sum_af = YList(self)
@@ -5388,8 +5292,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['vrf_name','af_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
@@ -5542,8 +5445,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name','prefix']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("remote-binding", ("remote_binding", MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding)), ("peers-advertised-to", ("peers_advertised_to", MplsLdp.MplsLdpState.Bindings.Binding.PeersAdvertisedTo))])
+                    self._child_classes = OrderedDict([("remote-binding", ("remote_binding", MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding)), ("peers-advertised-to", ("peers_advertised_to", MplsLdp.MplsLdpState.Bindings.Binding.PeersAdvertisedTo))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('prefix', YLeaf(YType.str, 'prefix')),
@@ -5616,8 +5518,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("assigning-peer-ldp-ident", ("assigning_peer_ldp_ident", MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding.AssigningPeerLdpIdent))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("assigning-peer-ldp-ident", ("assigning_peer_ldp_ident", MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding.AssigningPeerLdpIdent))])
                         self._leafs = OrderedDict([
                             ('remote_label', YLeaf(YType.uint32, 'remote-label')),
                             ('is_stale', YLeaf(YType.boolean, 'is-stale')),
@@ -5628,7 +5529,6 @@ class MplsLdp(Entity):
                         self.assigning_peer_ldp_ident = MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding.AssigningPeerLdpIdent()
                         self.assigning_peer_ldp_ident.parent = self
                         self._children_name_map["assigning_peer_ldp_ident"] = "assigning-peer-ldp-ident"
-                        self._children_yang_names.add("assigning-peer-ldp-ident")
                         self._segment_path = lambda: "remote-binding"
 
                     def __setattr__(self, name, value):
@@ -5674,8 +5574,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                                 ('label_space_id', YLeaf(YType.uint16, 'label-space-id')),
@@ -5727,8 +5626,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('lsr_id', YLeaf(YType.str, 'lsr-id')),
                             ('label_space_id', YLeaf(YType.uint16, 'label-space-id')),
@@ -5785,24 +5683,20 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("stats-info", ("stats_info", MplsLdp.MplsLdpState.Neighbors.StatsInfo)), ("backoffs", ("backoffs", MplsLdp.MplsLdpState.Neighbors.Backoffs)), ("nsr-nbr-detail", ("nsr_nbr_detail", MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail))])
-                self._child_list_classes = OrderedDict([("neighbor", ("neighbor", MplsLdp.MplsLdpState.Neighbors.Neighbor)), ("nbr-adjs", ("nbr_adjs", MplsLdp.MplsLdpState.Neighbors.NbrAdjs))])
+                self._child_classes = OrderedDict([("neighbor", ("neighbor", MplsLdp.MplsLdpState.Neighbors.Neighbor)), ("nbr-adjs", ("nbr_adjs", MplsLdp.MplsLdpState.Neighbors.NbrAdjs)), ("stats-info", ("stats_info", MplsLdp.MplsLdpState.Neighbors.StatsInfo)), ("backoffs", ("backoffs", MplsLdp.MplsLdpState.Neighbors.Backoffs)), ("nsr-nbr-detail", ("nsr_nbr_detail", MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail))])
                 self._leafs = OrderedDict()
 
                 self.stats_info = MplsLdp.MplsLdpState.Neighbors.StatsInfo()
                 self.stats_info.parent = self
                 self._children_name_map["stats_info"] = "stats-info"
-                self._children_yang_names.add("stats-info")
 
                 self.backoffs = MplsLdp.MplsLdpState.Neighbors.Backoffs()
                 self.backoffs.parent = self
                 self._children_name_map["backoffs"] = "backoffs"
-                self._children_yang_names.add("backoffs")
 
                 self.nsr_nbr_detail = MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail()
                 self.nsr_nbr_detail.parent = self
                 self._children_name_map["nsr_nbr_detail"] = "nsr-nbr-detail"
-                self._children_yang_names.add("nsr-nbr-detail")
 
                 self.neighbor = YList(self)
                 self.nbr_adjs = YList(self)
@@ -6049,8 +5943,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name','lsr_id']
-                    self._child_container_classes = OrderedDict([("nbr-stats", ("nbr_stats", MplsLdp.MplsLdpState.Neighbors.Neighbor.NbrStats)), ("graceful-restart-adjacency", ("graceful_restart_adjacency", MplsLdp.MplsLdpState.Neighbors.Neighbor.GracefulRestartAdjacency)), ("tcp-information", ("tcp_information", MplsLdp.MplsLdpState.Neighbors.Neighbor.TcpInformation)), ("capabilities", ("capabilities", MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nbr-stats", ("nbr_stats", MplsLdp.MplsLdpState.Neighbors.Neighbor.NbrStats)), ("graceful-restart-adjacency", ("graceful_restart_adjacency", MplsLdp.MplsLdpState.Neighbors.Neighbor.GracefulRestartAdjacency)), ("tcp-information", ("tcp_information", MplsLdp.MplsLdpState.Neighbors.Neighbor.TcpInformation)), ("capabilities", ("capabilities", MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('lsr_id', YLeaf(YType.str, 'lsr-id')),
@@ -6111,22 +6004,18 @@ class MplsLdp(Entity):
                     self.nbr_stats = MplsLdp.MplsLdpState.Neighbors.Neighbor.NbrStats()
                     self.nbr_stats.parent = self
                     self._children_name_map["nbr_stats"] = "nbr-stats"
-                    self._children_yang_names.add("nbr-stats")
 
                     self.graceful_restart_adjacency = MplsLdp.MplsLdpState.Neighbors.Neighbor.GracefulRestartAdjacency()
                     self.graceful_restart_adjacency.parent = self
                     self._children_name_map["graceful_restart_adjacency"] = "graceful-restart-adjacency"
-                    self._children_yang_names.add("graceful-restart-adjacency")
 
                     self.tcp_information = MplsLdp.MplsLdpState.Neighbors.Neighbor.TcpInformation()
                     self.tcp_information.parent = self
                     self._children_name_map["tcp_information"] = "tcp-information"
-                    self._children_yang_names.add("tcp-information")
 
                     self.capabilities = MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities()
                     self.capabilities.parent = self
                     self._children_name_map["capabilities"] = "capabilities"
-                    self._children_yang_names.add("capabilities")
                     self._segment_path = lambda: "neighbor" + "[vrf-name='" + str(self.vrf_name) + "']" + "[lsr-id='" + str(self.lsr_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/neighbors/%s" % self._segment_path()
 
@@ -6248,8 +6137,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ta_pies_sent', YLeaf(YType.uint32, 'ta-pies-sent')),
                             ('ta_pies_rcvd', YLeaf(YType.uint32, 'ta-pies-rcvd')),
@@ -6357,8 +6245,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('is_graceful_restartable', YLeaf(YType.boolean, 'is-graceful-restartable')),
                             ('reconnect_timeout', YLeaf(YType.uint32, 'reconnect-timeout')),
@@ -6454,8 +6341,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('foreign_host', YLeaf(YType.str, 'foreign-host')),
                             ('local_host', YLeaf(YType.str, 'local-host')),
@@ -6505,8 +6391,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sent-caps", ("sent_caps", MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities.SentCaps)), ("received-caps", ("received_caps", MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities.ReceivedCaps))])
+                        self._child_classes = OrderedDict([("sent-caps", ("sent_caps", MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities.SentCaps)), ("received-caps", ("received_caps", MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities.ReceivedCaps))])
                         self._leafs = OrderedDict()
 
                         self.sent_caps = YList(self)
@@ -6562,8 +6447,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['cap_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('cap_type', YLeaf(YType.uint16, 'cap-type')),
                                 ('cap_des', YLeaf(YType.str, 'cap-des')),
@@ -6625,8 +6509,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['cap_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('cap_type', YLeaf(YType.uint16, 'cap-type')),
                                 ('cap_des', YLeaf(YType.str, 'cap-des')),
@@ -6701,8 +6584,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface', YLeaf(YType.str, 'interface')),
                         ('local_address', YLeaf(YType.str, 'local-address')),
@@ -6847,8 +6729,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("message-out", ("message_out", MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageOut)), ("message-in", ("message_in", MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageIn))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("message-out", ("message_out", MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageOut)), ("message-in", ("message_in", MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageIn))])
                     self._leafs = OrderedDict([
                         ('discon_time', YLeaf(YType.uint32, 'discon-time')),
                         ('session_attempts', YLeaf(YType.uint32, 'session-attempts')),
@@ -6883,12 +6764,10 @@ class MplsLdp(Entity):
                     self.message_out = MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageOut()
                     self.message_out.parent = self
                     self._children_name_map["message_out"] = "message-out"
-                    self._children_yang_names.add("message-out")
 
                     self.message_in = MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageIn()
                     self.message_in.parent = self
                     self._children_name_map["message_in"] = "message-in"
-                    self._children_yang_names.add("message-in")
                     self._segment_path = lambda: "stats-info"
                     self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/neighbors/%s" % self._segment_path()
 
@@ -7020,8 +6899,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('total_count', YLeaf(YType.uint32, 'total-count')),
                             ('init_count', YLeaf(YType.uint32, 'init-count')),
@@ -7186,8 +7064,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('total_count', YLeaf(YType.uint32, 'total-count')),
                             ('init_count', YLeaf(YType.uint32, 'init-count')),
@@ -7264,8 +7141,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('backoff_seconds', YLeaf(YType.uint32, 'backoff-seconds')),
                         ('waiting_seconds', YLeaf(YType.uint32, 'waiting-seconds')),
@@ -7407,8 +7283,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("nbr-sess", ("nbr_sess", MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail.NbrSess))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nbr-sess", ("nbr_sess", MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail.NbrSess))])
                     self._leafs = OrderedDict([
                         ('nsr_state', YLeaf(YType.identityref, 'nsr-state')),
                         ('nsr_nbr_sync_state', YLeaf(YType.identityref, 'nsr-nbr-sync-state')),
@@ -7447,7 +7322,6 @@ class MplsLdp(Entity):
                     self.nbr_sess = MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail.NbrSess()
                     self.nbr_sess.parent = self
                     self._children_name_map["nbr_sess"] = "nbr-sess"
-                    self._children_yang_names.add("nbr-sess")
                     self._segment_path = lambda: "nsr-nbr-detail"
                     self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-state/neighbors/%s" % self._segment_path()
 
@@ -7535,8 +7409,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('last_stat_change', YLeaf(YType.uint32, 'last-stat-change')),
                             ('state', YLeaf(YType.enumeration, 'state')),
@@ -7630,8 +7503,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("label-range", ("label_range", MplsLdp.MplsLdpState.LabelRanges.LabelRange))])
+                self._child_classes = OrderedDict([("label-range", ("label_range", MplsLdp.MplsLdpState.LabelRanges.LabelRange))])
                 self._leafs = OrderedDict()
 
                 self.label_range = YList(self)
@@ -7684,8 +7556,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['lr_min','lr_max']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lr_min', YLeaf(YType.uint32, 'lr-min')),
                         ('lr_max', YLeaf(YType.uint32, 'lr-max')),
@@ -7773,66 +7644,57 @@ class MplsLdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("global-cfg", ("global_cfg", MplsLdp.MplsLdpConfig.GlobalCfg)), ("nbr-table", ("nbr_table", MplsLdp.MplsLdpConfig.NbrTable)), ("passwords", ("passwords", MplsLdp.MplsLdpConfig.Passwords)), ("session", ("session", MplsLdp.MplsLdpConfig.Session)), ("label-cfg", ("label_cfg", MplsLdp.MplsLdpConfig.LabelCfg)), ("discovery", ("discovery", MplsLdp.MplsLdpConfig.Discovery)), ("graceful-restart", ("graceful_restart", MplsLdp.MplsLdpConfig.GracefulRestart)), ("logging", ("logging", MplsLdp.MplsLdpConfig.Logging)), ("interfaces", ("interfaces", MplsLdp.MplsLdpConfig.Interfaces)), ("routing", ("routing", MplsLdp.MplsLdpConfig.Routing)), ("dual-stack", ("dual_stack", MplsLdp.MplsLdpConfig.DualStack))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("global-cfg", ("global_cfg", MplsLdp.MplsLdpConfig.GlobalCfg)), ("nbr-table", ("nbr_table", MplsLdp.MplsLdpConfig.NbrTable)), ("passwords", ("passwords", MplsLdp.MplsLdpConfig.Passwords)), ("session", ("session", MplsLdp.MplsLdpConfig.Session)), ("label-cfg", ("label_cfg", MplsLdp.MplsLdpConfig.LabelCfg)), ("discovery", ("discovery", MplsLdp.MplsLdpConfig.Discovery)), ("graceful-restart", ("graceful_restart", MplsLdp.MplsLdpConfig.GracefulRestart)), ("logging", ("logging", MplsLdp.MplsLdpConfig.Logging)), ("interfaces", ("interfaces", MplsLdp.MplsLdpConfig.Interfaces)), ("routing", ("routing", MplsLdp.MplsLdpConfig.Routing)), ("dual-stack", ("dual_stack", MplsLdp.MplsLdpConfig.DualStack))])
             self._leafs = OrderedDict()
 
             self.global_cfg = MplsLdp.MplsLdpConfig.GlobalCfg()
             self.global_cfg.parent = self
             self._children_name_map["global_cfg"] = "global-cfg"
-            self._children_yang_names.add("global-cfg")
 
             self.nbr_table = MplsLdp.MplsLdpConfig.NbrTable()
             self.nbr_table.parent = self
             self._children_name_map["nbr_table"] = "nbr-table"
-            self._children_yang_names.add("nbr-table")
 
             self.passwords = MplsLdp.MplsLdpConfig.Passwords()
             self.passwords.parent = self
             self._children_name_map["passwords"] = "passwords"
-            self._children_yang_names.add("passwords")
 
             self.session = MplsLdp.MplsLdpConfig.Session()
             self.session.parent = self
             self._children_name_map["session"] = "session"
-            self._children_yang_names.add("session")
 
             self.label_cfg = MplsLdp.MplsLdpConfig.LabelCfg()
             self.label_cfg.parent = self
             self._children_name_map["label_cfg"] = "label-cfg"
-            self._children_yang_names.add("label-cfg")
 
             self.discovery = MplsLdp.MplsLdpConfig.Discovery()
             self.discovery.parent = self
             self._children_name_map["discovery"] = "discovery"
-            self._children_yang_names.add("discovery")
 
             self.graceful_restart = MplsLdp.MplsLdpConfig.GracefulRestart()
             self.graceful_restart.parent = self
             self._children_name_map["graceful_restart"] = "graceful-restart"
-            self._children_yang_names.add("graceful-restart")
 
             self.logging = MplsLdp.MplsLdpConfig.Logging()
             self.logging.parent = self
             self._children_name_map["logging"] = "logging"
-            self._children_yang_names.add("logging")
 
             self.interfaces = MplsLdp.MplsLdpConfig.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
 
             self.routing = MplsLdp.MplsLdpConfig.Routing()
             self.routing.parent = self
             self._children_name_map["routing"] = "routing"
-            self._children_yang_names.add("routing")
 
             self.dual_stack = MplsLdp.MplsLdpConfig.DualStack()
             self.dual_stack.parent = self
             self._children_name_map["dual_stack"] = "dual-stack"
-            self._children_yang_names.add("dual-stack")
             self._segment_path = lambda: "mpls-ldp-config"
             self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsLdp.MplsLdpConfig, [], name, value)
 
 
         class GlobalCfg(Entity):
@@ -7948,8 +7810,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("session", ("session", MplsLdp.MplsLdpConfig.GlobalCfg.Session)), ("per-af", ("per_af", MplsLdp.MplsLdpConfig.GlobalCfg.PerAf))])
-                self._child_list_classes = OrderedDict([("router-id", ("router_id", MplsLdp.MplsLdpConfig.GlobalCfg.RouterId))])
+                self._child_classes = OrderedDict([("router-id", ("router_id", MplsLdp.MplsLdpConfig.GlobalCfg.RouterId)), ("session", ("session", MplsLdp.MplsLdpConfig.GlobalCfg.Session)), ("per-af", ("per_af", MplsLdp.MplsLdpConfig.GlobalCfg.PerAf))])
                 self._leafs = OrderedDict([
                     ('shutdown', YLeaf(YType.empty, 'shutdown')),
                     ('enable_nsr', YLeaf(YType.boolean, 'enable-nsr')),
@@ -7982,12 +7843,10 @@ class MplsLdp(Entity):
                 self.session = MplsLdp.MplsLdpConfig.GlobalCfg.Session()
                 self.session.parent = self
                 self._children_name_map["session"] = "session"
-                self._children_yang_names.add("session")
 
                 self.per_af = MplsLdp.MplsLdpConfig.GlobalCfg.PerAf()
                 self.per_af.parent = self
                 self._children_name_map["per_af"] = "per-af"
-                self._children_yang_names.add("per-af")
 
                 self.router_id = YList(self)
                 self._segment_path = lambda: "global-cfg"
@@ -8110,8 +7969,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('lsr_id_if', YLeaf(YType.str, 'lsr-id-if')),
@@ -8194,8 +8052,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("protection", ("protection", MplsLdp.MplsLdpConfig.GlobalCfg.Session.Protection))])
-                    self._child_list_classes = OrderedDict([("downstream-on-demand", ("downstream_on_demand", MplsLdp.MplsLdpConfig.GlobalCfg.Session.DownstreamOnDemand))])
+                    self._child_classes = OrderedDict([("downstream-on-demand", ("downstream_on_demand", MplsLdp.MplsLdpConfig.GlobalCfg.Session.DownstreamOnDemand)), ("protection", ("protection", MplsLdp.MplsLdpConfig.GlobalCfg.Session.Protection))])
                     self._leafs = OrderedDict([
                         ('backoff_init', YLeaf(YType.uint32, 'backoff-init')),
                         ('backoff_max', YLeaf(YType.uint32, 'backoff-max')),
@@ -8210,7 +8067,6 @@ class MplsLdp(Entity):
                     self.protection = MplsLdp.MplsLdpConfig.GlobalCfg.Session.Protection()
                     self.protection.parent = self
                     self._children_name_map["protection"] = "protection"
-                    self._children_yang_names.add("protection")
 
                     self.downstream_on_demand = YList(self)
                     self._segment_path = lambda: "session"
@@ -8265,8 +8121,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['vrf_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -8323,8 +8178,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enable_prot', YLeaf(YType.boolean, 'enable-prot')),
                             ('peer_filter', YLeaf(YType.str, 'peer-filter')),
@@ -8367,8 +8221,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("af-cfg", ("af_cfg", MplsLdp.MplsLdpConfig.GlobalCfg.PerAf.AfCfg))])
+                    self._child_classes = OrderedDict([("af-cfg", ("af_cfg", MplsLdp.MplsLdpConfig.GlobalCfg.PerAf.AfCfg))])
                     self._leafs = OrderedDict()
 
                     self.af_cfg = YList(self)
@@ -8439,8 +8292,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['vrf_name','af_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
@@ -8487,8 +8339,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("nbr-cfg", ("nbr_cfg", MplsLdp.MplsLdpConfig.NbrTable.NbrCfg))])
+                self._child_classes = OrderedDict([("nbr-cfg", ("nbr_cfg", MplsLdp.MplsLdpConfig.NbrTable.NbrCfg))])
                 self._leafs = OrderedDict()
 
                 self.nbr_cfg = YList(self)
@@ -8567,8 +8418,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['nbr_vrf','nbr_ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('nbr_vrf', YLeaf(YType.str, 'nbr-vrf')),
                         ('nbr_ip', YLeaf(YType.str, 'nbr-ip')),
@@ -8683,8 +8533,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("password", ("password", MplsLdp.MplsLdpConfig.Passwords.Password))])
+                self._child_classes = OrderedDict([("password", ("password", MplsLdp.MplsLdpConfig.Passwords.Password))])
                 self._leafs = OrderedDict()
 
                 self.password = YList(self)
@@ -8762,8 +8611,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['nbr_vrf','nbr_id','password_num']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('nbr_vrf', YLeaf(YType.str, 'nbr-vrf')),
                         ('nbr_id', YLeaf(YType.str, 'nbr-id')),
@@ -8827,8 +8675,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('backoff', YLeaf(YType.uint32, 'backoff')),
                     ('seconds', YLeaf(YType.uint16, 'seconds')),
@@ -8871,8 +8718,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("label-af-cfg", ("label_af_cfg", MplsLdp.MplsLdpConfig.LabelCfg.LabelAfCfg))])
+                self._child_classes = OrderedDict([("label-af-cfg", ("label_af_cfg", MplsLdp.MplsLdpConfig.LabelCfg.LabelAfCfg))])
                 self._leafs = OrderedDict()
 
                 self.label_af_cfg = YList(self)
@@ -8930,8 +8776,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name','af_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("advt-filter", ("advt_filter", MplsLdp.MplsLdpConfig.LabelCfg.LabelAfCfg.AdvtFilter))])
+                    self._child_classes = OrderedDict([("advt-filter", ("advt_filter", MplsLdp.MplsLdpConfig.LabelCfg.LabelAfCfg.AdvtFilter))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
@@ -8996,8 +8841,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['prefix_filter','peer_filter','interface']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('prefix_filter', YLeaf(YType.str, 'prefix-filter')),
                             ('peer_filter', YLeaf(YType.str, 'peer-filter')),
@@ -9053,8 +8897,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("link-hello", ("link_hello", MplsLdp.MplsLdpConfig.Discovery.LinkHello)), ("targeted-hello", ("targeted_hello", MplsLdp.MplsLdpConfig.Discovery.TargetedHello)), ("int-trans-addrs", ("int_trans_addrs", MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("link-hello", ("link_hello", MplsLdp.MplsLdpConfig.Discovery.LinkHello)), ("targeted-hello", ("targeted_hello", MplsLdp.MplsLdpConfig.Discovery.TargetedHello)), ("int-trans-addrs", ("int_trans_addrs", MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs))])
                 self._leafs = OrderedDict([
                     ('instance_tlv', YLeaf(YType.boolean, 'instance-tlv')),
                 ])
@@ -9063,17 +8906,14 @@ class MplsLdp(Entity):
                 self.link_hello = MplsLdp.MplsLdpConfig.Discovery.LinkHello()
                 self.link_hello.parent = self
                 self._children_name_map["link_hello"] = "link-hello"
-                self._children_yang_names.add("link-hello")
 
                 self.targeted_hello = MplsLdp.MplsLdpConfig.Discovery.TargetedHello()
                 self.targeted_hello.parent = self
                 self._children_name_map["targeted_hello"] = "targeted-hello"
-                self._children_yang_names.add("targeted-hello")
 
                 self.int_trans_addrs = MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs()
                 self.int_trans_addrs.parent = self
                 self._children_name_map["int_trans_addrs"] = "int-trans-addrs"
-                self._children_yang_names.add("int-trans-addrs")
                 self._segment_path = lambda: "discovery"
                 self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-config/%s" % self._segment_path()
 
@@ -9115,8 +8955,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('holdtime', YLeaf(YType.uint16, 'holdtime')),
                         ('interval', YLeaf(YType.uint16, 'interval')),
@@ -9174,8 +9013,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("accept", ("accept", MplsLdp.MplsLdpConfig.Discovery.TargetedHello.Accept))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("accept", ("accept", MplsLdp.MplsLdpConfig.Discovery.TargetedHello.Accept))])
                     self._leafs = OrderedDict([
                         ('holdtime', YLeaf(YType.uint16, 'holdtime')),
                         ('interval', YLeaf(YType.uint16, 'interval')),
@@ -9188,7 +9026,6 @@ class MplsLdp(Entity):
                     self.accept = MplsLdp.MplsLdpConfig.Discovery.TargetedHello.Accept()
                     self.accept.parent = self
                     self._children_name_map["accept"] = "accept"
-                    self._children_yang_names.add("accept")
                     self._segment_path = lambda: "targeted-hello"
                     self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-config/discovery/%s" % self._segment_path()
 
@@ -9226,8 +9063,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.boolean, 'enable')),
                             ('src_filter', YLeaf(YType.str, 'src-filter')),
@@ -9267,8 +9103,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("int-trans-addr", ("int_trans_addr", MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs.IntTransAddr))])
+                    self._child_classes = OrderedDict([("int-trans-addr", ("int_trans_addr", MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs.IntTransAddr))])
                     self._leafs = OrderedDict()
 
                     self.int_trans_addr = YList(self)
@@ -9332,8 +9167,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['af_name','int_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
                             ('int_name', YLeaf(YType.str, 'int-name')),
@@ -9407,8 +9241,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("helper", ("helper", MplsLdp.MplsLdpConfig.GracefulRestart.Helper))])
+                self._child_classes = OrderedDict([("helper", ("helper", MplsLdp.MplsLdpConfig.GracefulRestart.Helper))])
                 self._leafs = OrderedDict([
                     ('is_graceful_restartable', YLeaf(YType.boolean, 'is-graceful-restartable')),
                     ('forwarding_holding', YLeaf(YType.uint32, 'forwarding-holding')),
@@ -9460,8 +9293,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['helper_vrf','helper_filter']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('helper_vrf', YLeaf(YType.str, 'helper-vrf')),
                         ('helper_filter', YLeaf(YType.str, 'helper-filter')),
@@ -9524,8 +9356,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("password", ("password", MplsLdp.MplsLdpConfig.Logging.Password))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("password", ("password", MplsLdp.MplsLdpConfig.Logging.Password))])
                 self._leafs = OrderedDict([
                     ('graceful_restart', YLeaf(YType.boolean, 'graceful-restart')),
                     ('neighbor', YLeaf(YType.boolean, 'neighbor')),
@@ -9542,7 +9373,6 @@ class MplsLdp(Entity):
                 self.password = MplsLdp.MplsLdpConfig.Logging.Password()
                 self.password.parent = self
                 self._children_name_map["password"] = "password"
-                self._children_yang_names.add("password")
                 self._segment_path = lambda: "logging"
                 self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-config/%s" % self._segment_path()
 
@@ -9579,21 +9409,21 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("config-msg", ("config_msg", MplsLdp.MplsLdpConfig.Logging.Password.ConfigMsg)), ("rollover-msg", ("rollover_msg", MplsLdp.MplsLdpConfig.Logging.Password.RolloverMsg))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config-msg", ("config_msg", MplsLdp.MplsLdpConfig.Logging.Password.ConfigMsg)), ("rollover-msg", ("rollover_msg", MplsLdp.MplsLdpConfig.Logging.Password.RolloverMsg))])
                     self._leafs = OrderedDict()
 
                     self.config_msg = MplsLdp.MplsLdpConfig.Logging.Password.ConfigMsg()
                     self.config_msg.parent = self
                     self._children_name_map["config_msg"] = "config-msg"
-                    self._children_yang_names.add("config-msg")
 
                     self.rollover_msg = MplsLdp.MplsLdpConfig.Logging.Password.RolloverMsg()
                     self.rollover_msg.parent = self
                     self._children_name_map["rollover_msg"] = "rollover-msg"
-                    self._children_yang_names.add("rollover-msg")
                     self._segment_path = lambda: "password"
                     self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-config/logging/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsLdp.MplsLdpConfig.Logging.Password, [], name, value)
 
 
                 class ConfigMsg(Entity):
@@ -9627,8 +9457,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.boolean, 'enable')),
                             ('rate_limit', YLeaf(YType.uint32, 'rate-limit')),
@@ -9673,8 +9502,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.boolean, 'enable')),
                             ('rate_limit', YLeaf(YType.uint32, 'rate-limit')),
@@ -9712,8 +9540,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", MplsLdp.MplsLdpConfig.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", MplsLdp.MplsLdpConfig.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -9804,8 +9631,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf','interface']
-                    self._child_container_classes = OrderedDict([("afs", ("afs", MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("afs", ("afs", MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs))])
                     self._leafs = OrderedDict([
                         ('vrf', YLeaf(YType.str, 'vrf')),
                         ('interface', YLeaf(YType.str, 'interface')),
@@ -9826,7 +9652,6 @@ class MplsLdp(Entity):
                     self.afs = MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs()
                     self.afs.parent = self
                     self._children_name_map["afs"] = "afs"
-                    self._children_yang_names.add("afs")
                     self._segment_path = lambda: "interface" + "[vrf='" + str(self.vrf) + "']" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XE-mpls-ldp:mpls-ldp/mpls-ldp-config/interfaces/%s" % self._segment_path()
 
@@ -9858,8 +9683,7 @@ class MplsLdp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("af", ("af", MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af))])
+                        self._child_classes = OrderedDict([("af", ("af", MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af))])
                         self._leafs = OrderedDict()
 
                         self.af = YList(self)
@@ -9908,8 +9732,7 @@ class MplsLdp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['af_name']
-                            self._child_container_classes = OrderedDict([("bgp-redist", ("bgp_redist", MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af.BgpRedist))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("bgp-redist", ("bgp_redist", MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af.BgpRedist))])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('enable', YLeaf(YType.boolean, 'enable')),
@@ -9922,7 +9745,6 @@ class MplsLdp(Entity):
                             self.bgp_redist = MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af.BgpRedist()
                             self.bgp_redist.parent = self
                             self._children_name_map["bgp_redist"] = "bgp-redist"
-                            self._children_yang_names.add("bgp-redist")
                             self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -9977,8 +9799,7 @@ class MplsLdp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('as_xx', YLeaf(YType.uint32, 'as-xx')),
                                     ('as_yy', YLeaf(YType.uint32, 'as-yy')),
@@ -10021,8 +9842,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("routing-inst", ("routing_inst", MplsLdp.MplsLdpConfig.Routing.RoutingInst))])
+                self._child_classes = OrderedDict([("routing-inst", ("routing_inst", MplsLdp.MplsLdpConfig.Routing.RoutingInst))])
                 self._leafs = OrderedDict()
 
                 self.routing_inst = YList(self)
@@ -10080,8 +9900,7 @@ class MplsLdp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['routing_inst_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('routing_inst_name', YLeaf(YType.str, 'routing-inst-name')),
                         ('autoconfig_enable', YLeaf(YType.boolean, 'autoconfig-enable')),
@@ -10200,8 +10019,7 @@ class MplsLdp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('max_wait', YLeaf(YType.uint32, 'max-wait')),
                     ('prefer_ipv4_peers', YLeaf(YType.str, 'prefer-ipv4-peers')),
@@ -10249,19 +10067,16 @@ class ClearMsgCounters(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearMsgCounters.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = ClearMsgCounters.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-mpls-ldp:clear-msg-counters"
 
 
@@ -10307,8 +10122,7 @@ class ClearMsgCounters(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ('nbr_ip', YLeaf(YType.str, 'nbr-ip')),
@@ -10348,8 +10162,7 @@ class ClearMsgCounters(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('status', YLeaf(YType.str, 'status')),
             ])
@@ -10396,19 +10209,16 @@ class RestartNeighbor(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = RestartNeighbor.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = RestartNeighbor.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-mpls-ldp:restart-neighbor"
 
 
@@ -10454,8 +10264,7 @@ class RestartNeighbor(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ('nbr_ip', YLeaf(YType.str, 'nbr-ip')),
@@ -10495,8 +10304,7 @@ class RestartNeighbor(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('status', YLeaf(YType.str, 'status')),
             ])
@@ -10544,19 +10352,16 @@ class ClearForwarding(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearForwarding.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = ClearForwarding.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-mpls-ldp:clear-forwarding"
 
 
@@ -10602,8 +10407,7 @@ class ClearForwarding(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ('prefix_ip', YLeaf(YType.str, 'prefix-ip')),
@@ -10643,8 +10447,7 @@ class ClearForwarding(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('status', YLeaf(YType.str, 'status')),
             ])
@@ -10659,9 +10462,9 @@ class ClearForwarding(Entity):
         self._top_entity = ClearForwarding()
         return self._top_entity
 
-class NsrSyncNackRsnNone(Identity):
+class DownNbrReasonDiscHello(Identity):
     """
-    None
+    The local discovery hello timer expired..
     
     
 
@@ -10671,12 +10474,12 @@ class NsrSyncNackRsnNone(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(NsrSyncNackRsnNone, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-none")
+        super(DownNbrReasonDiscHello, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-disc-hello")
 
 
-class NsrSyncNackRsnTblIdMismatch(Identity):
+class NsrPeerSyncErrAppFail(Identity):
     """
-    NSR failed with a table ID mismatch.
+    LDP Peer Sync failed, app fail
     
     
 
@@ -10686,12 +10489,12 @@ class NsrSyncNackRsnTblIdMismatch(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(NsrSyncNackRsnTblIdMismatch, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-tbl-id-mismatch")
+        super(NsrPeerSyncErrAppFail, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-app-fail")
 
 
-class NsrSyncNackRsnPpExists(Identity):
+class RoutePathLblOwnerBgp(Identity):
     """
-    NSR failed with because pp already exists.
+    Path outgoing label owned by BGP.
     
     
 
@@ -10701,12 +10504,12 @@ class NsrSyncNackRsnPpExists(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(NsrSyncNackRsnPpExists, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-pp-exists")
+        super(RoutePathLblOwnerBgp, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-bgp")
 
 
-class NsrSyncNackRsnMissingElem(Identity):
+class NsrSyncNackRsnErrAppNotFound(Identity):
     """
-    NSR failed due to a Missing Element.
+    NSR failed due to app not found.
     
     
 
@@ -10716,7 +10519,37 @@ class NsrSyncNackRsnMissingElem(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(NsrSyncNackRsnMissingElem, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-missing-elem")
+        super(NsrSyncNackRsnErrAppNotFound, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-app-not-found")
+
+
+class LdpNsrPeerSyncStOper(Identity):
+    """
+    LDP NSR peer synchronization is operational.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(LdpNsrPeerSyncStOper, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-oper")
+
+
+class IgpSyncDownReasonNa(Identity):
+    """
+    Not Applicable.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(IgpSyncDownReasonNa, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-na")
 
 
 class NsrSyncNackRsnNoPEndSock(Identity):
@@ -10734,9 +10567,9 @@ class NsrSyncNackRsnNoPEndSock(Identity):
         super(NsrSyncNackRsnNoPEndSock, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-no-p-end-sock")
 
 
-class NsrSyncNackRsnPEndSockNotSynced(Identity):
+class NsrPeerSyncErrLdpGbl(Identity):
     """
-    NSR failed because the P end sock was not synced.
+    LDP Peer Sync failed, ldp gbl
     
     
 
@@ -10746,7 +10579,82 @@ class NsrSyncNackRsnPEndSockNotSynced(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(NsrSyncNackRsnPEndSockNotSynced, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-p-end-sock-not-synced")
+        super(NsrPeerSyncErrLdpGbl, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-gbl")
+
+
+class DownNbrReasonNbrHold(Identity):
+    """
+    The neighbor sent error, hold time expired..
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(DownNbrReasonNbrHold, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-nbr-hold")
+
+
+class NsrPeerSyncErrTcpGbl(Identity):
+    """
+    LDP Peer Sync failed, tcp gbl
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrPeerSyncErrTcpGbl, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-tcp-gbl")
+
+
+class IgpSyncDownReasonPeerUpdateNotReceived(Identity):
+    """
+    Initial update from peer not received yet.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(IgpSyncDownReasonPeerUpdateNotReceived, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-peer-update-not-received")
+
+
+class IcpmTypeIccp(Identity):
+    """
+    ICCP Interchassis Communication Protocol.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(IcpmTypeIccp, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:icpm-type-iccp")
+
+
+class NsrStatusReady(Identity):
+    """
+    Device is NSR Ready.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrStatusReady, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-status-ready")
 
 
 class NsrSyncNackRsnErrAdjAdd(Identity):
@@ -10762,6 +10670,336 @@ class NsrSyncNackRsnErrAdjAdd(Identity):
 
     def __init__(self):
         super(NsrSyncNackRsnErrAdjAdd, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-adj-add")
+
+
+class NsrSyncNackRsnErrUnexpPeerDown(Identity):
+    """
+    NSR failed due to unexpected peer down.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnErrUnexpPeerDown, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-unexp-peer-down")
+
+
+class NsrSyncNackRsnNone(Identity):
+    """
+    None
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnNone, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-none")
+
+
+class NsrSyncNackRsnNoCtx(Identity):
+    """
+    NSR failed with a no context error.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnNoCtx, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-no-ctx")
+
+
+class NsrSyncNackRsnMissingElem(Identity):
+    """
+    NSR failed due to a Missing Element.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnMissingElem, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-missing-elem")
+
+
+class NsrPeerSyncErrLdpPeer(Identity):
+    """
+    LDP Peer Sync failed, ldp peer
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrPeerSyncErrLdpPeer, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-peer")
+
+
+class NsrSyncNackRsnErrAppInvalid(Identity):
+    """
+    NSR failed due to an app invalid error.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnErrAppInvalid, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-app-invalid")
+
+
+class NsrStatusDisabled(Identity):
+    """
+    NSR is not enabled.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrStatusDisabled, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-status-disabled")
+
+
+class RoutePathIpNoFlag(Identity):
+    """
+    A primary path with no special flag/attribute
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(RoutePathIpNoFlag, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-no-flag")
+
+
+class NsrPeerSyncErrTcpPeer(Identity):
+    """
+    LDP Peer Sync failed, tcp peer
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrPeerSyncErrTcpPeer, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-tcp-peer")
+
+
+class NsrPeerSyncErrNone(Identity):
+    """
+    No error.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrPeerSyncErrNone, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-none")
+
+
+class LdpNsrPeerSyncStNone(Identity):
+    """
+    LDP NSR peer synchronization none.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(LdpNsrPeerSyncStNone, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-none")
+
+
+class NsrSyncNackRsnErrPpCreate(Identity):
+    """
+    NSR failed creating the pp.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnErrPpCreate, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-pp-create")
+
+
+class NsrSyncNackRsnErrRxUnexpOpen(Identity):
+    """
+    NSR failed due to an unexpected open.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnErrRxUnexpOpen, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-unexp-open")
+
+
+class LabelTypeUnknown(Identity):
+    """
+    The label is unknown.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(LabelTypeUnknown, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:label-type-unknown")
+
+
+class IgpSyncDownReasonNoPeerSess(Identity):
+    """
+    No peer session.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(IgpSyncDownReasonNoPeerSess, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-no-peer-sess")
+
+
+class LdpNsrPeerSyncStPrep(Identity):
+    """
+    LDP NSR peer synchronization is prep.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(LdpNsrPeerSyncStPrep, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-prep")
+
+
+class RoutePathLblOwnerStatic(Identity):
+    """
+    Path outgoing label statically configured.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(RoutePathLblOwnerStatic, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-static")
+
+
+class NsrPeerSyncErrLdpSyncNack(Identity):
+    """
+    LDP Peer Sync failed, received sync nack.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrPeerSyncErrLdpSyncNack, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-sync-nack")
+
+
+class NsrSyncNackRsnTblIdMismatch(Identity):
+    """
+    NSR failed with a table ID mismatch.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnTblIdMismatch, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-tbl-id-mismatch")
+
+
+class NsrSyncNackRsnErrAddrBind(Identity):
+    """
+    NSR failed to bind address.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnErrAddrBind, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-addr-bind")
+
+
+class RoutePathIpBackup(Identity):
+    """
+    A non\-primary local LFA FRR (pure) backup path
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(RoutePathIpBackup, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-backup")
+
+
+class LabelTypeMpls(Identity):
+    """
+    The is an MPLS Label.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(LabelTypeMpls, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:label-type-mpls")
 
 
 class NsrSyncNackRsnErrDhcAdd(Identity):
@@ -10780,81 +11018,6 @@ class NsrSyncNackRsnErrDhcAdd(Identity):
         super(NsrSyncNackRsnErrDhcAdd, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-dhc-add")
 
 
-class NsrSyncNackRsnEnomem(Identity):
-    """
-    NSR failed due to an out of memory error.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnEnomem, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-enomem")
-
-
-class NsrSyncNackRsnErrTpCreate(Identity):
-    """
-    NSR failed creating the tp.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnErrTpCreate, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-tp-create")
-
-
-class NsrSyncNackRsnErrPpCreate(Identity):
-    """
-    NSR failed creating the pp.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnErrPpCreate, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-pp-create")
-
-
-class NsrSyncNackRsnErrAddrBind(Identity):
-    """
-    NSR failed to bind address.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnErrAddrBind, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-addr-bind")
-
-
-class NsrSyncNackRsnErrRxBadPie(Identity):
-    """
-    NSR failed, received a bad PIE.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnErrRxBadPie, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-bad-pie")
-
-
 class NsrSyncNackRsnErrRxNotif(Identity):
     """
     NSR failed with a received notification error.
@@ -10868,411 +11031,6 @@ class NsrSyncNackRsnErrRxNotif(Identity):
 
     def __init__(self):
         super(NsrSyncNackRsnErrRxNotif, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-notif")
-
-
-class NsrSyncNackRsnErrRxUnexpOpen(Identity):
-    """
-    NSR failed due to an unexpected open.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnErrRxUnexpOpen, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-unexp-open")
-
-
-class NsrSyncNackRsnErrUnexpPeerDown(Identity):
-    """
-    NSR failed due to unexpected peer down.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnErrUnexpPeerDown, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-unexp-peer-down")
-
-
-class NsrSyncNackRsnErrAppNotFound(Identity):
-    """
-    NSR failed due to app not found.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnErrAppNotFound, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-app-not-found")
-
-
-class NsrSyncNackRsnErrAppInvalid(Identity):
-    """
-    NSR failed due to an app invalid error.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnErrAppInvalid, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-app-invalid")
-
-
-class NsrSyncNackRsnNoCtx(Identity):
-    """
-    NSR failed with a no context error.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrSyncNackRsnNoCtx, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-no-ctx")
-
-
-class NsrPeerSyncErrNone(Identity):
-    """
-    No error.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrPeerSyncErrNone, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-none")
-
-
-class NsrPeerSyncErrLdpSyncNack(Identity):
-    """
-    LDP Peer Sync failed, received sync nack.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrPeerSyncErrLdpSyncNack, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-sync-nack")
-
-
-class NsrPeerSyncErrSyncPrep(Identity):
-    """
-    LDP Peer Sync failed, synch prep.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrPeerSyncErrSyncPrep, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-sync-prep")
-
-
-class NsrPeerSyncErrTcpPeer(Identity):
-    """
-    LDP Peer Sync failed, tcp peer
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrPeerSyncErrTcpPeer, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-tcp-peer")
-
-
-class NsrPeerSyncErrTcpGbl(Identity):
-    """
-    LDP Peer Sync failed, tcp gbl
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrPeerSyncErrTcpGbl, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-tcp-gbl")
-
-
-class NsrPeerSyncErrLdpPeer(Identity):
-    """
-    LDP Peer Sync failed, ldp peer
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrPeerSyncErrLdpPeer, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-peer")
-
-
-class NsrPeerSyncErrLdpGbl(Identity):
-    """
-    LDP Peer Sync failed, ldp gbl
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrPeerSyncErrLdpGbl, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-gbl")
-
-
-class NsrPeerSyncErrAppFail(Identity):
-    """
-    LDP Peer Sync failed, app fail
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrPeerSyncErrAppFail, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-app-fail")
-
-
-class IcpmTypeIccp(Identity):
-    """
-    ICCP Interchassis Communication Protocol.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(IcpmTypeIccp, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:icpm-type-iccp")
-
-
-class IccpTypeMlacp(Identity):
-    """
-    MLACP Multi\-chassic Link Aggregation Control Protocol.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(IccpTypeMlacp, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:iccp-type-mlacp")
-
-
-class LdpNsrPeerSyncStNone(Identity):
-    """
-    LDP NSR peer synchronization none.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(LdpNsrPeerSyncStNone, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-none")
-
-
-class LdpNsrPeerSyncStWait(Identity):
-    """
-    LDP NSR peer synchronization is wait.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(LdpNsrPeerSyncStWait, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-wait")
-
-
-class LdpNsrPeerSyncStReady(Identity):
-    """
-    LDP NSR peer synchronization is ready.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(LdpNsrPeerSyncStReady, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-ready")
-
-
-class LdpNsrPeerSyncStPrep(Identity):
-    """
-    LDP NSR peer synchronization is prep.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(LdpNsrPeerSyncStPrep, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-prep")
-
-
-class LdpNsrPeerSyncStAppWait(Identity):
-    """
-    LDP NSR peer synchronization is app wait.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(LdpNsrPeerSyncStAppWait, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-app-wait")
-
-
-class LdpNsrPeerSyncStOper(Identity):
-    """
-    LDP NSR peer synchronization is operational.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(LdpNsrPeerSyncStOper, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-oper")
-
-
-class NsrStatusReady(Identity):
-    """
-    Device is NSR Ready.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrStatusReady, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-status-ready")
-
-
-class NsrStatusNotReady(Identity):
-    """
-    Device is not NSR Ready.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrStatusNotReady, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-status-not-ready")
-
-
-class NsrStatusDisabled(Identity):
-    """
-    NSR is not enabled.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(NsrStatusDisabled, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-status-disabled")
-
-
-class DownNbrReasonNa(Identity):
-    """
-    Not applicable, the neighbor is up..
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(DownNbrReasonNa, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-na")
-
-
-class DownNbrReasonNbrHold(Identity):
-    """
-    The neighbor sent error, hold time expired..
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(DownNbrReasonNbrHold, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-nbr-hold")
-
-
-class DownNbrReasonDiscHello(Identity):
-    """
-    The local discovery hello timer expired..
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(DownNbrReasonDiscHello, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-disc-hello")
 
 
 class RoutePathLblOwnerNone(Identity):
@@ -11290,9 +11048,9 @@ class RoutePathLblOwnerNone(Identity):
         super(RoutePathLblOwnerNone, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-none")
 
 
-class RoutePathLblOwnerLdp(Identity):
+class LdpNsrPeerSyncStWait(Identity):
     """
-    Path outgoing label owned by LDP.
+    LDP NSR peer synchronization is wait.
     
     
 
@@ -11302,12 +11060,12 @@ class RoutePathLblOwnerLdp(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(RoutePathLblOwnerLdp, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-ldp")
+        super(LdpNsrPeerSyncStWait, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-wait")
 
 
-class RoutePathLblOwnerBgp(Identity):
+class NsrSyncNackRsnErrTpCreate(Identity):
     """
-    Path outgoing label owned by BGP.
+    NSR failed creating the tp.
     
     
 
@@ -11317,12 +11075,12 @@ class RoutePathLblOwnerBgp(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(RoutePathLblOwnerBgp, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-bgp")
+        super(NsrSyncNackRsnErrTpCreate, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-tp-create")
 
 
-class RoutePathLblOwnerStatic(Identity):
+class NsrStatusNotReady(Identity):
     """
-    Path outgoing label statically configured.
+    Device is not NSR Ready.
     
     
 
@@ -11332,12 +11090,12 @@ class RoutePathLblOwnerStatic(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(RoutePathLblOwnerStatic, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-static")
+        super(NsrStatusNotReady, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-status-not-ready")
 
 
-class LabelTypeMpls(Identity):
+class NsrSyncNackRsnPEndSockNotSynced(Identity):
     """
-    The is an MPLS Label.
+    NSR failed because the P end sock was not synced.
     
     
 
@@ -11347,12 +11105,12 @@ class LabelTypeMpls(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(LabelTypeMpls, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:label-type-mpls")
+        super(NsrSyncNackRsnPEndSockNotSynced, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-p-end-sock-not-synced")
 
 
-class LabelTypeUnLabeled(Identity):
+class IgpSyncDownReasonInternal(Identity):
     """
-    This is unlabeled
+    Internal reason.
     
     
 
@@ -11362,12 +11120,12 @@ class LabelTypeUnLabeled(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(LabelTypeUnLabeled, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:label-type-un-labeled")
+        super(IgpSyncDownReasonInternal, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-internal")
 
 
-class LabelTypeUnknown(Identity):
+class NsrSyncNackRsnPpExists(Identity):
     """
-    The label is unknown.
+    NSR failed with because pp already exists.
     
     
 
@@ -11377,12 +11135,12 @@ class LabelTypeUnknown(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(LabelTypeUnknown, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:label-type-unknown")
+        super(NsrSyncNackRsnPpExists, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-pp-exists")
 
 
-class RoutePathIpNoFlag(Identity):
+class LdpNsrPeerSyncStReady(Identity):
     """
-    A primary path with no special flag/attribute
+    LDP NSR peer synchronization is ready.
     
     
 
@@ -11392,82 +11150,7 @@ class RoutePathIpNoFlag(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(RoutePathIpNoFlag, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-no-flag")
-
-
-class RoutePathIpProtected(Identity):
-    """
-    A primary path with LFA FRR protection
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(RoutePathIpProtected, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-protected")
-
-
-class RoutePathIpBackup(Identity):
-    """
-    A non\-primary local LFA FRR (pure) backup path
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(RoutePathIpBackup, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-backup")
-
-
-class RoutePathIpBackupRemote(Identity):
-    """
-    A non\-primary remote LFA FRR (pure) backup path
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(RoutePathIpBackupRemote, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-backup-remote")
-
-
-class RoutePathIpBgpBackup(Identity):
-    """
-    A non\-primary BGP backup path
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(RoutePathIpBgpBackup, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-bgp-backup")
-
-
-class IgpSyncDownReasonNa(Identity):
-    """
-    Not Applicable.
-    
-    
-
-    """
-
-    _prefix = 'mpls-ldp-ios-xe-oper'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(IgpSyncDownReasonNa, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-na")
+        super(LdpNsrPeerSyncStReady, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-ready")
 
 
 class IgpSyncDownReasonNoHelloAdj(Identity):
@@ -11485,9 +11168,9 @@ class IgpSyncDownReasonNoHelloAdj(Identity):
         super(IgpSyncDownReasonNoHelloAdj, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-no-hello-adj")
 
 
-class IgpSyncDownReasonNoPeerSess(Identity):
+class LabelTypeUnLabeled(Identity):
     """
-    No peer session.
+    This is unlabeled
     
     
 
@@ -11497,7 +11180,97 @@ class IgpSyncDownReasonNoPeerSess(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(IgpSyncDownReasonNoPeerSess, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-no-peer-sess")
+        super(LabelTypeUnLabeled, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:label-type-un-labeled")
+
+
+class IccpTypeMlacp(Identity):
+    """
+    MLACP Multi\-chassic Link Aggregation Control Protocol.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(IccpTypeMlacp, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:iccp-type-mlacp")
+
+
+class NsrPeerSyncErrSyncPrep(Identity):
+    """
+    LDP Peer Sync failed, synch prep.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrPeerSyncErrSyncPrep, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-sync-prep")
+
+
+class LdpNsrPeerSyncStAppWait(Identity):
+    """
+    LDP NSR peer synchronization is app wait.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(LdpNsrPeerSyncStAppWait, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-app-wait")
+
+
+class RoutePathIpBgpBackup(Identity):
+    """
+    A non\-primary BGP backup path
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(RoutePathIpBgpBackup, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-bgp-backup")
+
+
+class DownNbrReasonNa(Identity):
+    """
+    Not applicable, the neighbor is up..
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(DownNbrReasonNa, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-na")
+
+
+class NsrSyncNackRsnErrRxBadPie(Identity):
+    """
+    NSR failed, received a bad PIE.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(NsrSyncNackRsnErrRxBadPie, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-bad-pie")
 
 
 class IgpSyncDownReasonPeerUpdateNotDone(Identity):
@@ -11515,9 +11288,9 @@ class IgpSyncDownReasonPeerUpdateNotDone(Identity):
         super(IgpSyncDownReasonPeerUpdateNotDone, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-peer-update-not-done")
 
 
-class IgpSyncDownReasonPeerUpdateNotReceived(Identity):
+class NsrSyncNackRsnEnomem(Identity):
     """
-    Initial update from peer not received yet.
+    NSR failed due to an out of memory error.
     
     
 
@@ -11527,12 +11300,12 @@ class IgpSyncDownReasonPeerUpdateNotReceived(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(IgpSyncDownReasonPeerUpdateNotReceived, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-peer-update-not-received")
+        super(NsrSyncNackRsnEnomem, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-enomem")
 
 
-class IgpSyncDownReasonInternal(Identity):
+class RoutePathIpProtected(Identity):
     """
-    Internal reason.
+    A primary path with LFA FRR protection
     
     
 
@@ -11542,6 +11315,36 @@ class IgpSyncDownReasonInternal(Identity):
     _revision = '2017-02-07'
 
     def __init__(self):
-        super(IgpSyncDownReasonInternal, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-internal")
+        super(RoutePathIpProtected, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-protected")
+
+
+class RoutePathIpBackupRemote(Identity):
+    """
+    A non\-primary remote LFA FRR (pure) backup path
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(RoutePathIpBackupRemote, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-ip-backup-remote")
+
+
+class RoutePathLblOwnerLdp(Identity):
+    """
+    Path outgoing label owned by LDP.
+    
+    
+
+    """
+
+    _prefix = 'mpls-ldp-ios-xe-oper'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(RoutePathLblOwnerLdp, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp", "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-ldp")
 
 

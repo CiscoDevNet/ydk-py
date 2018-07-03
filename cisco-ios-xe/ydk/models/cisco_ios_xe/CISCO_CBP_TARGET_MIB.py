@@ -22,12 +22,12 @@ class CISCOCBPTARGETMIB(Entity):
     .. attribute:: ccbpttargetattachcfg
     
     	
-    	**type**\:  :py:class:`Ccbpttargetattachcfg <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_MIB.CISCOCBPTARGETMIB.Ccbpttargetattachcfg>`
+    	**type**\:  :py:class:`CcbptTargetAttachCfg <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_MIB.CISCOCBPTARGETMIB.CcbptTargetAttachCfg>`
     
     .. attribute:: ccbpttargettable
     
     	This table describes the class\-based policy attachments to to specific targets
-    	**type**\:  :py:class:`Ccbpttargettable <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_MIB.CISCOCBPTARGETMIB.Ccbpttargettable>`
+    	**type**\:  :py:class:`CcbptTargetTable <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_MIB.CISCOCBPTARGETMIB.CcbptTargetTable>`
     
     
 
@@ -45,23 +45,23 @@ class CISCOCBPTARGETMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ccbptTargetAttachCfg", ("ccbpttargetattachcfg", CISCOCBPTARGETMIB.Ccbpttargetattachcfg)), ("ccbptTargetTable", ("ccbpttargettable", CISCOCBPTARGETMIB.Ccbpttargettable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ccbptTargetAttachCfg", ("ccbpttargetattachcfg", CISCOCBPTARGETMIB.CcbptTargetAttachCfg)), ("ccbptTargetTable", ("ccbpttargettable", CISCOCBPTARGETMIB.CcbptTargetTable))])
         self._leafs = OrderedDict()
 
-        self.ccbpttargetattachcfg = CISCOCBPTARGETMIB.Ccbpttargetattachcfg()
+        self.ccbpttargetattachcfg = CISCOCBPTARGETMIB.CcbptTargetAttachCfg()
         self.ccbpttargetattachcfg.parent = self
         self._children_name_map["ccbpttargetattachcfg"] = "ccbptTargetAttachCfg"
-        self._children_yang_names.add("ccbptTargetAttachCfg")
 
-        self.ccbpttargettable = CISCOCBPTARGETMIB.Ccbpttargettable()
+        self.ccbpttargettable = CISCOCBPTARGETMIB.CcbptTargetTable()
         self.ccbpttargettable.parent = self
         self._children_name_map["ccbpttargettable"] = "ccbptTargetTable"
-        self._children_yang_names.add("ccbptTargetTable")
         self._segment_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOCBPTARGETMIB, [], name, value)
 
-    class Ccbpttargetattachcfg(Entity):
+
+    class CcbptTargetAttachCfg(Entity):
         """
         
         
@@ -87,15 +87,14 @@ class CISCOCBPTARGETMIB(Entity):
         _revision = '2006-05-24'
 
         def __init__(self):
-            super(CISCOCBPTARGETMIB.Ccbpttargetattachcfg, self).__init__()
+            super(CISCOCBPTARGETMIB.CcbptTargetAttachCfg, self).__init__()
 
             self.yang_name = "ccbptTargetAttachCfg"
             self.yang_parent_name = "CISCO-CBP-TARGET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ccbptpolicyidnext', YLeaf(YType.uint32, 'ccbptPolicyIdNext')),
                 ('ccbpttargettablelastchange', YLeaf(YType.uint32, 'ccbptTargetTableLastChange')),
@@ -106,10 +105,10 @@ class CISCOCBPTARGETMIB(Entity):
             self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCBPTARGETMIB.Ccbpttargetattachcfg, ['ccbptpolicyidnext', 'ccbpttargettablelastchange'], name, value)
+            self._perform_setattr(CISCOCBPTARGETMIB.CcbptTargetAttachCfg, ['ccbptpolicyidnext', 'ccbpttargettablelastchange'], name, value)
 
 
-    class Ccbpttargettable(Entity):
+    class CcbptTargetTable(Entity):
         """
         This table describes the class\-based policy attachments to
         to specific targets.
@@ -117,7 +116,7 @@ class CISCOCBPTARGETMIB(Entity):
         .. attribute:: ccbpttargetentry
         
         	Each entry describes a class\-based policy attachment to a  particular target.    The ccbptTargetType uniquely identifies the type of target in the attachment.  Additionally, the ccbptTargetId uniquely identifies the target in attachment and is of the format indicated by the ccbptTargetType.  The ccbptTargetDir  identifies the direction, relative to the ccbptTargetId,  to which the policy is attached.  The ccbptPolicySourceType identifies the source\-type of the policy attached.  The  ccbptPolicyId uniquely identifies the policy within the scope of ccbptTargetType, ccbptTargetId, ccbptTargetDir, and  ccbptPolicySourceType.  A class\-based policy attachment to a target can be created  through other network management interfaces (e.g., the local console), in which case the SNMP entity will automatically  create an entry in this table.  A class\-based policy attachment to a target can be destroyed through other network management interfaces, in which case the SNMP entity will automatically destroy the corresponding entry in this table.  A class\-based policy attachment to a target can be created, destroyed, and modified through the SNMP using  ccbptTargetStatus using the semantics described by the  RowStatus Textual Convention.  However, when creating a new class\-based policy attachment to a target, the value of ccbptPolicyIdNext should be used to identify the new policy within the scope of the target type, identifier, direction, and policy\-source type
-        	**type**\: list of  		 :py:class:`Ccbpttargetentry <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_MIB.CISCOCBPTARGETMIB.Ccbpttargettable.Ccbpttargetentry>`
+        	**type**\: list of  		 :py:class:`CcbptTargetEntry <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_MIB.CISCOCBPTARGETMIB.CcbptTargetTable.CcbptTargetEntry>`
         
         
 
@@ -127,15 +126,14 @@ class CISCOCBPTARGETMIB(Entity):
         _revision = '2006-05-24'
 
         def __init__(self):
-            super(CISCOCBPTARGETMIB.Ccbpttargettable, self).__init__()
+            super(CISCOCBPTARGETMIB.CcbptTargetTable, self).__init__()
 
             self.yang_name = "ccbptTargetTable"
             self.yang_parent_name = "CISCO-CBP-TARGET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ccbptTargetEntry", ("ccbpttargetentry", CISCOCBPTARGETMIB.Ccbpttargettable.Ccbpttargetentry))])
+            self._child_classes = OrderedDict([("ccbptTargetEntry", ("ccbpttargetentry", CISCOCBPTARGETMIB.CcbptTargetTable.CcbptTargetEntry))])
             self._leafs = OrderedDict()
 
             self.ccbpttargetentry = YList(self)
@@ -143,10 +141,10 @@ class CISCOCBPTARGETMIB(Entity):
             self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCBPTARGETMIB.Ccbpttargettable, [], name, value)
+            self._perform_setattr(CISCOCBPTARGETMIB.CcbptTargetTable, [], name, value)
 
 
-        class Ccbpttargetentry(Entity):
+        class CcbptTargetEntry(Entity):
             """
             Each entry describes a class\-based policy attachment to a 
             particular target. 
@@ -249,15 +247,14 @@ class CISCOCBPTARGETMIB(Entity):
             _revision = '2006-05-24'
 
             def __init__(self):
-                super(CISCOCBPTARGETMIB.Ccbpttargettable.Ccbpttargetentry, self).__init__()
+                super(CISCOCBPTARGETMIB.CcbptTargetTable.CcbptTargetEntry, self).__init__()
 
                 self.yang_name = "ccbptTargetEntry"
                 self.yang_parent_name = "ccbptTargetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ccbpttargettype','ccbpttargetid','ccbpttargetdir','ccbptpolicysourcetype','ccbptpolicyid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccbpttargettype', YLeaf(YType.enumeration, 'ccbptTargetType')),
                     ('ccbpttargetid', YLeaf(YType.str, 'ccbptTargetId')),
@@ -284,7 +281,7 @@ class CISCOCBPTARGETMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/ccbptTargetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCBPTARGETMIB.Ccbpttargettable.Ccbpttargetentry, ['ccbpttargettype', 'ccbpttargetid', 'ccbpttargetdir', 'ccbptpolicysourcetype', 'ccbptpolicyid', 'ccbpttargetstatus', 'ccbpttargetstoragetype', 'ccbptpolicymap', 'ccbptpolicyinstance', 'ccbptpolicyattachtime'], name, value)
+                self._perform_setattr(CISCOCBPTARGETMIB.CcbptTargetTable.CcbptTargetEntry, ['ccbpttargettype', 'ccbpttargetid', 'ccbpttargetdir', 'ccbptpolicysourcetype', 'ccbptpolicyid', 'ccbpttargetstatus', 'ccbpttargetstoragetype', 'ccbptpolicymap', 'ccbptpolicyinstance', 'ccbptpolicyattachtime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOCBPTARGETMIB()

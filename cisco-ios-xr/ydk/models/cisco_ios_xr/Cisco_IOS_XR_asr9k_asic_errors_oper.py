@@ -45,15 +45,16 @@ class AsicErrorStats(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("racks", ("racks", AsicErrorStats.Racks))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("racks", ("racks", AsicErrorStats.Racks))])
         self._leafs = OrderedDict()
 
         self.racks = AsicErrorStats.Racks()
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
-        self._children_yang_names.add("racks")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-asic-errors-oper:asic-error-stats"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(AsicErrorStats, [], name, value)
 
 
     class Racks(Entity):
@@ -80,8 +81,7 @@ class AsicErrorStats(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rack", ("rack", AsicErrorStats.Racks.Rack))])
+            self._child_classes = OrderedDict([("rack", ("rack", AsicErrorStats.Racks.Rack))])
             self._leafs = OrderedDict()
 
             self.rack = YList(self)
@@ -101,7 +101,7 @@ class AsicErrorStats(Entity):
             	Rack number
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: nodes
             
@@ -123,17 +123,15 @@ class AsicErrorStats(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rack']
-                self._child_container_classes = OrderedDict([("nodes", ("nodes", AsicErrorStats.Racks.Rack.Nodes))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("nodes", ("nodes", AsicErrorStats.Racks.Rack.Nodes))])
                 self._leafs = OrderedDict([
-                    ('rack', YLeaf(YType.int32, 'rack')),
+                    ('rack', YLeaf(YType.uint32, 'rack')),
                 ])
                 self.rack = None
 
                 self.nodes = AsicErrorStats.Racks.Rack.Nodes()
                 self.nodes.parent = self
                 self._children_name_map["nodes"] = "nodes"
-                self._children_yang_names.add("nodes")
                 self._segment_path = lambda: "rack" + "[rack='" + str(self.rack) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-asic-errors-oper:asic-error-stats/racks/%s" % self._segment_path()
 
@@ -165,8 +163,7 @@ class AsicErrorStats(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node", ("node", AsicErrorStats.Racks.Rack.Nodes.Node))])
+                    self._child_classes = OrderedDict([("node", ("node", AsicErrorStats.Racks.Rack.Nodes.Node))])
                     self._leafs = OrderedDict()
 
                     self.node = YList(self)
@@ -207,8 +204,7 @@ class AsicErrorStats(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['node_name']
-                        self._child_container_classes = OrderedDict([("counts", ("counts", AsicErrorStats.Racks.Rack.Nodes.Node.Counts))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("counts", ("counts", AsicErrorStats.Racks.Rack.Nodes.Node.Counts))])
                         self._leafs = OrderedDict([
                             ('node_name', YLeaf(YType.str, 'node-name')),
                         ])
@@ -217,7 +213,6 @@ class AsicErrorStats(Entity):
                         self.counts = AsicErrorStats.Racks.Rack.Nodes.Node.Counts()
                         self.counts.parent = self
                         self._children_name_map["counts"] = "counts"
-                        self._children_yang_names.add("counts")
                         self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -249,8 +244,7 @@ class AsicErrorStats(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("count", ("count", AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count))])
+                            self._child_classes = OrderedDict([("count", ("count", AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count))])
                             self._leafs = OrderedDict()
 
                             self.count = YList(self)
@@ -291,8 +285,7 @@ class AsicErrorStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sum-data", ("sum_data", AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count.SumData))])
+                                self._child_classes = OrderedDict([("sum-data", ("sum_data", AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count.SumData))])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.str, 'type')),
                                 ])
@@ -387,8 +380,7 @@ class AsicErrorStats(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('instance', YLeaf(YType.uint32, 'instance')),
                                         ('num_nodes', YLeaf(YType.uint32, 'num-nodes')),
@@ -412,7 +404,7 @@ class AsicErrorStats(Entity):
                                     self._segment_path = lambda: "sum-data"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count.SumData, ['instance', 'num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'node_key'], name, value)
+                                    self._perform_setattr(AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count.SumData, [u'instance', u'num_nodes', u'crc_err_count', u'sbe_err_count', u'mbe_err_count', u'par_err_count', u'gen_err_count', u'reset_err_count', u'node_key'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AsicErrorStats()

@@ -55,8 +55,7 @@ class MplsOam(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("reply-mode", ("reply_mode", MplsOam.ReplyMode))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("reply-mode", ("reply_mode", MplsOam.ReplyMode))])
         self._leafs = OrderedDict([
             ('enable_oam', YLeaf(YType.empty, 'enable-oam')),
             ('disable_vendor_extension', YLeaf(YType.empty, 'disable-vendor-extension')),
@@ -67,7 +66,6 @@ class MplsOam(Entity):
         self.reply_mode = MplsOam.ReplyMode()
         self.reply_mode.parent = self
         self._children_name_map["reply_mode"] = "reply-mode"
-        self._children_yang_names.add("reply-mode")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam"
 
     def __setattr__(self, name, value):
@@ -98,16 +96,17 @@ class MplsOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("control-channel", ("control_channel", MplsOam.ReplyMode.ControlChannel))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("control-channel", ("control_channel", MplsOam.ReplyMode.ControlChannel))])
             self._leafs = OrderedDict()
 
             self.control_channel = MplsOam.ReplyMode.ControlChannel()
             self.control_channel.parent = self
             self._children_name_map["control_channel"] = "control-channel"
-            self._children_yang_names.add("control-channel")
             self._segment_path = lambda: "reply-mode"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsOam.ReplyMode, [], name, value)
 
 
         class ControlChannel(Entity):
@@ -134,8 +133,7 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('allow_reverse_lsp', YLeaf(YType.empty, 'allow-reverse-lsp')),
                 ])

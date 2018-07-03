@@ -572,7 +572,7 @@ class AtmVcm(Entity):
     """
 
     _prefix = 'atm-vcm-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(AtmVcm, self).__init__()
@@ -583,15 +583,16 @@ class AtmVcm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", AtmVcm.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", AtmVcm.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = AtmVcm.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-atm-vcm-oper:atm-vcm"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(AtmVcm, [], name, value)
 
 
     class Nodes(Entity):
@@ -608,7 +609,7 @@ class AtmVcm(Entity):
         """
 
         _prefix = 'atm-vcm-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(AtmVcm.Nodes, self).__init__()
@@ -618,8 +619,7 @@ class AtmVcm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", AtmVcm.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", AtmVcm.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -677,7 +677,7 @@ class AtmVcm(Entity):
             """
 
             _prefix = 'atm-vcm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(AtmVcm.Nodes.Node, self).__init__()
@@ -687,8 +687,7 @@ class AtmVcm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("vcs", ("vcs", AtmVcm.Nodes.Node.Vcs)), ("cell-packs", ("cell_packs", AtmVcm.Nodes.Node.CellPacks)), ("pvps", ("pvps", AtmVcm.Nodes.Node.Pvps)), ("class-links", ("class_links", AtmVcm.Nodes.Node.ClassLinks)), ("interfaces", ("interfaces", AtmVcm.Nodes.Node.Interfaces)), ("vp-tunnels", ("vp_tunnels", AtmVcm.Nodes.Node.VpTunnels))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("vcs", ("vcs", AtmVcm.Nodes.Node.Vcs)), ("cell-packs", ("cell_packs", AtmVcm.Nodes.Node.CellPacks)), ("pvps", ("pvps", AtmVcm.Nodes.Node.Pvps)), ("class-links", ("class_links", AtmVcm.Nodes.Node.ClassLinks)), ("interfaces", ("interfaces", AtmVcm.Nodes.Node.Interfaces)), ("vp-tunnels", ("vp_tunnels", AtmVcm.Nodes.Node.VpTunnels))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -697,32 +696,26 @@ class AtmVcm(Entity):
                 self.vcs = AtmVcm.Nodes.Node.Vcs()
                 self.vcs.parent = self
                 self._children_name_map["vcs"] = "vcs"
-                self._children_yang_names.add("vcs")
 
                 self.cell_packs = AtmVcm.Nodes.Node.CellPacks()
                 self.cell_packs.parent = self
                 self._children_name_map["cell_packs"] = "cell-packs"
-                self._children_yang_names.add("cell-packs")
 
                 self.pvps = AtmVcm.Nodes.Node.Pvps()
                 self.pvps.parent = self
                 self._children_name_map["pvps"] = "pvps"
-                self._children_yang_names.add("pvps")
 
                 self.class_links = AtmVcm.Nodes.Node.ClassLinks()
                 self.class_links.parent = self
                 self._children_name_map["class_links"] = "class-links"
-                self._children_yang_names.add("class-links")
 
                 self.interfaces = AtmVcm.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.vp_tunnels = AtmVcm.Nodes.Node.VpTunnels()
                 self.vp_tunnels.parent = self
                 self._children_name_map["vp_tunnels"] = "vp-tunnels"
-                self._children_yang_names.add("vp-tunnels")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-atm-vcm-oper:atm-vcm/nodes/%s" % self._segment_path()
 
@@ -744,7 +737,7 @@ class AtmVcm(Entity):
                 """
 
                 _prefix = 'atm-vcm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AtmVcm.Nodes.Node.Vcs, self).__init__()
@@ -754,8 +747,7 @@ class AtmVcm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("vc", ("vc", AtmVcm.Nodes.Node.Vcs.Vc))])
+                    self._child_classes = OrderedDict([("vc", ("vc", AtmVcm.Nodes.Node.Vcs.Vc))])
                     self._leafs = OrderedDict()
 
                     self.vc = YList(self)
@@ -936,7 +928,7 @@ class AtmVcm(Entity):
                     """
 
                     _prefix = 'atm-vcm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AtmVcm.Nodes.Node.Vcs.Vc, self).__init__()
@@ -946,8 +938,7 @@ class AtmVcm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('vpi', YLeaf(YType.uint32, 'vpi')),
@@ -1004,11 +995,10 @@ class AtmVcm(Entity):
                         self.cell_packing_data = AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData()
                         self.cell_packing_data.parent = self
                         self._children_name_map["cell_packing_data"] = "cell-packing-data"
-                        self._children_yang_names.add("cell-packing-data")
                         self._segment_path = lambda: "vc" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc, ['interface_name', 'vpi', 'vci', 'main_interface', 'sub_interface', 'vc_interface', 'vpi_xr', 'vci_xr', 'type', 'encapsulation', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'encaps_inherit_level', 'qos_inherit_level', 'transmit_mtu', 'receive_mtu', 'vc_onvp_tunnel', 'vc_on_p2p_sub_interface', 'oper_status', 'amin_status', 'internal_state', 'last_state_change_time', 'test_mode'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc, ['interface_name', 'vpi', 'vci', u'main_interface', u'sub_interface', u'vc_interface', u'vpi_xr', u'vci_xr', u'type', u'encapsulation', u'shape', u'peak_cell_rate', u'sustained_cell_rate', u'burst_rate', u'encaps_inherit_level', u'qos_inherit_level', u'transmit_mtu', u'receive_mtu', u'vc_onvp_tunnel', u'vc_on_p2p_sub_interface', u'oper_status', u'amin_status', u'internal_state', u'last_state_change_time', u'test_mode'], name, value)
 
 
                     class CellPackingData(Entity):
@@ -1043,7 +1033,7 @@ class AtmVcm(Entity):
                         """
 
                         _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, self).__init__()
@@ -1053,8 +1043,7 @@ class AtmVcm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('local_max_cells_packed_per_packet', YLeaf(YType.uint16, 'local-max-cells-packed-per-packet')),
                                 ('negotiated_max_cells_packed_per_packet', YLeaf(YType.uint16, 'negotiated-max-cells-packed-per-packet')),
@@ -1066,7 +1055,7 @@ class AtmVcm(Entity):
                             self._segment_path = lambda: "cell-packing-data"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
+                            self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, [u'local_max_cells_packed_per_packet', u'negotiated_max_cells_packed_per_packet', u'max_cell_packed_timeout'], name, value)
 
 
             class CellPacks(Entity):
@@ -1083,7 +1072,7 @@ class AtmVcm(Entity):
                 """
 
                 _prefix = 'atm-vcm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AtmVcm.Nodes.Node.CellPacks, self).__init__()
@@ -1093,8 +1082,7 @@ class AtmVcm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("cell-pack", ("cell_pack", AtmVcm.Nodes.Node.CellPacks.CellPack))])
+                    self._child_classes = OrderedDict([("cell-pack", ("cell_pack", AtmVcm.Nodes.Node.CellPacks.CellPack))])
                     self._leafs = OrderedDict()
 
                     self.cell_pack = YList(self)
@@ -1120,7 +1108,7 @@ class AtmVcm(Entity):
                     	PCI
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: cell_packing
                     
@@ -1172,7 +1160,7 @@ class AtmVcm(Entity):
                     """
 
                     _prefix = 'atm-vcm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AtmVcm.Nodes.Node.CellPacks.CellPack, self).__init__()
@@ -1182,11 +1170,10 @@ class AtmVcm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("cell-packing", ("cell_packing", AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("cell-packing", ("cell_packing", AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('pci', YLeaf(YType.int32, 'pci')),
+                            ('pci', YLeaf(YType.uint32, 'pci')),
                             ('sub_interface_name', YLeaf(YType.str, 'sub-interface-name')),
                             ('cell_packing_mode', YLeaf(YType.enumeration, 'cell-packing-mode')),
                             ('vpi', YLeaf(YType.uint32, 'vpi')),
@@ -1206,11 +1193,10 @@ class AtmVcm(Entity):
                         self.cell_packing = AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking()
                         self.cell_packing.parent = self
                         self._children_name_map["cell_packing"] = "cell-packing"
-                        self._children_yang_names.add("cell-packing")
                         self._segment_path = lambda: "cell-pack"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack, ['interface_name', 'pci', 'sub_interface_name', 'cell_packing_mode', 'vpi', 'vci', 'received_average_cells_packets', 'sent_cells_packets'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack, ['interface_name', 'pci', u'sub_interface_name', u'cell_packing_mode', u'vpi', u'vci', u'received_average_cells_packets', u'sent_cells_packets'], name, value)
 
 
                     class CellPacking(Entity):
@@ -1245,7 +1231,7 @@ class AtmVcm(Entity):
                         """
 
                         _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking, self).__init__()
@@ -1255,8 +1241,7 @@ class AtmVcm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('local_max_cells_packed_per_packet', YLeaf(YType.uint16, 'local-max-cells-packed-per-packet')),
                                 ('negotiated_max_cells_packed_per_packet', YLeaf(YType.uint16, 'negotiated-max-cells-packed-per-packet')),
@@ -1268,7 +1253,7 @@ class AtmVcm(Entity):
                             self._segment_path = lambda: "cell-packing"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
+                            self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking, [u'local_max_cells_packed_per_packet', u'negotiated_max_cells_packed_per_packet', u'max_cell_packed_timeout'], name, value)
 
 
             class Pvps(Entity):
@@ -1285,7 +1270,7 @@ class AtmVcm(Entity):
                 """
 
                 _prefix = 'atm-vcm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AtmVcm.Nodes.Node.Pvps, self).__init__()
@@ -1295,8 +1280,7 @@ class AtmVcm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("pvp", ("pvp", AtmVcm.Nodes.Node.Pvps.Pvp))])
+                    self._child_classes = OrderedDict([("pvp", ("pvp", AtmVcm.Nodes.Node.Pvps.Pvp))])
                     self._leafs = OrderedDict()
 
                     self.pvp = YList(self)
@@ -1322,7 +1306,7 @@ class AtmVcm(Entity):
                     	VPI
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: cell_packing_data
                     
@@ -1470,7 +1454,7 @@ class AtmVcm(Entity):
                     """
 
                     _prefix = 'atm-vcm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AtmVcm.Nodes.Node.Pvps.Pvp, self).__init__()
@@ -1480,11 +1464,10 @@ class AtmVcm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('vpi', YLeaf(YType.int32, 'vpi')),
+                            ('vpi', YLeaf(YType.uint32, 'vpi')),
                             ('main_interface', YLeaf(YType.str, 'main-interface')),
                             ('sub_interface', YLeaf(YType.str, 'sub-interface')),
                             ('vc_interface', YLeaf(YType.str, 'vc-interface')),
@@ -1536,11 +1519,10 @@ class AtmVcm(Entity):
                         self.cell_packing_data = AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData()
                         self.cell_packing_data.parent = self
                         self._children_name_map["cell_packing_data"] = "cell-packing-data"
-                        self._children_yang_names.add("cell-packing-data")
                         self._segment_path = lambda: "pvp" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp, ['interface_name', 'vpi', 'main_interface', 'sub_interface', 'vc_interface', 'vpi_xr', 'vci_xr', 'type', 'encapsulation', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'encaps_inherit_level', 'qos_inherit_level', 'transmit_mtu', 'receive_mtu', 'vc_onvp_tunnel', 'vc_on_p2p_sub_interface', 'oper_status', 'amin_status', 'internal_state', 'last_state_change_time', 'test_mode'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp, ['interface_name', 'vpi', u'main_interface', u'sub_interface', u'vc_interface', u'vpi_xr', u'vci_xr', u'type', u'encapsulation', u'shape', u'peak_cell_rate', u'sustained_cell_rate', u'burst_rate', u'encaps_inherit_level', u'qos_inherit_level', u'transmit_mtu', u'receive_mtu', u'vc_onvp_tunnel', u'vc_on_p2p_sub_interface', u'oper_status', u'amin_status', u'internal_state', u'last_state_change_time', u'test_mode'], name, value)
 
 
                     class CellPackingData(Entity):
@@ -1575,7 +1557,7 @@ class AtmVcm(Entity):
                         """
 
                         _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, self).__init__()
@@ -1585,8 +1567,7 @@ class AtmVcm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('local_max_cells_packed_per_packet', YLeaf(YType.uint16, 'local-max-cells-packed-per-packet')),
                                 ('negotiated_max_cells_packed_per_packet', YLeaf(YType.uint16, 'negotiated-max-cells-packed-per-packet')),
@@ -1598,7 +1579,7 @@ class AtmVcm(Entity):
                             self._segment_path = lambda: "cell-packing-data"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
+                            self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, [u'local_max_cells_packed_per_packet', u'negotiated_max_cells_packed_per_packet', u'max_cell_packed_timeout'], name, value)
 
 
             class ClassLinks(Entity):
@@ -1615,7 +1596,7 @@ class AtmVcm(Entity):
                 """
 
                 _prefix = 'atm-vcm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AtmVcm.Nodes.Node.ClassLinks, self).__init__()
@@ -1625,8 +1606,7 @@ class AtmVcm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("class-link", ("class_link", AtmVcm.Nodes.Node.ClassLinks.ClassLink))])
+                    self._child_classes = OrderedDict([("class-link", ("class_link", AtmVcm.Nodes.Node.ClassLinks.ClassLink))])
                     self._leafs = OrderedDict()
 
                     self.class_link = YList(self)
@@ -1645,14 +1625,14 @@ class AtmVcm(Entity):
                     	VPI
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: vci
                     
                     	VCI
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: vc_class_not_supported
                     
@@ -1676,7 +1656,7 @@ class AtmVcm(Entity):
                     """
 
                     _prefix = 'atm-vcm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AtmVcm.Nodes.Node.ClassLinks.ClassLink, self).__init__()
@@ -1686,11 +1666,10 @@ class AtmVcm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['vpi']
-                        self._child_container_classes = OrderedDict([("vc-class-not-supported", ("vc_class_not_supported", AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported)), ("oam-config", ("oam_config", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("vc-class-not-supported", ("vc_class_not_supported", AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported)), ("oam-config", ("oam_config", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig))])
                         self._leafs = OrderedDict([
-                            ('vpi', YLeaf(YType.int32, 'vpi')),
-                            ('vci', YLeaf(YType.int32, 'vci')),
+                            ('vpi', YLeaf(YType.uint32, 'vpi')),
+                            ('vci', YLeaf(YType.uint32, 'vci')),
                             ('sub_interface_name', YLeaf(YType.str, 'sub-interface-name')),
                         ])
                         self.vpi = None
@@ -1700,16 +1679,14 @@ class AtmVcm(Entity):
                         self.vc_class_not_supported = AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported()
                         self.vc_class_not_supported.parent = self
                         self._children_name_map["vc_class_not_supported"] = "vc-class-not-supported"
-                        self._children_yang_names.add("vc-class-not-supported")
 
                         self.oam_config = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig()
                         self.oam_config.parent = self
                         self._children_name_map["oam_config"] = "oam-config"
-                        self._children_yang_names.add("oam-config")
                         self._segment_path = lambda: "class-link" + "[vpi='" + str(self.vpi) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink, ['vpi', 'vci', 'sub_interface_name'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink, ['vpi', 'vci', u'sub_interface_name'], name, value)
 
 
                     class VcClassNotSupported(Entity):
@@ -1731,7 +1708,7 @@ class AtmVcm(Entity):
                         """
 
                         _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, self).__init__()
@@ -1741,8 +1718,7 @@ class AtmVcm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('encapsulation_not_supported', YLeaf(YType.enumeration, 'encapsulation-not-supported')),
                                 ('not_supported_inherit_level', YLeaf(YType.enumeration, 'not-supported-inherit-level')),
@@ -1752,7 +1728,7 @@ class AtmVcm(Entity):
                             self._segment_path = lambda: "vc-class-not-supported"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, ['encapsulation_not_supported', 'not_supported_inherit_level'], name, value)
+                            self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, [u'encapsulation_not_supported', u'not_supported_inherit_level'], name, value)
 
 
                     class OamConfig(Entity):
@@ -1789,7 +1765,7 @@ class AtmVcm(Entity):
                         """
 
                         _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig, self).__init__()
@@ -1799,35 +1775,32 @@ class AtmVcm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("class-link-shaping", ("class_link_shaping", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping)), ("class-link-encapsulation", ("class_link_encapsulation", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation)), ("oam-pvc", ("oam_pvc", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc)), ("oam-retry", ("oam_retry", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry)), ("ais-rdi", ("ais_rdi", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("class-link-shaping", ("class_link_shaping", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping)), ("class-link-encapsulation", ("class_link_encapsulation", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation)), ("oam-pvc", ("oam_pvc", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc)), ("oam-retry", ("oam_retry", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry)), ("ais-rdi", ("ais_rdi", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi))])
                             self._leafs = OrderedDict()
 
                             self.class_link_shaping = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping()
                             self.class_link_shaping.parent = self
                             self._children_name_map["class_link_shaping"] = "class-link-shaping"
-                            self._children_yang_names.add("class-link-shaping")
 
                             self.class_link_encapsulation = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation()
                             self.class_link_encapsulation.parent = self
                             self._children_name_map["class_link_encapsulation"] = "class-link-encapsulation"
-                            self._children_yang_names.add("class-link-encapsulation")
 
                             self.oam_pvc = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc()
                             self.oam_pvc.parent = self
                             self._children_name_map["oam_pvc"] = "oam-pvc"
-                            self._children_yang_names.add("oam-pvc")
 
                             self.oam_retry = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry()
                             self.oam_retry.parent = self
                             self._children_name_map["oam_retry"] = "oam-retry"
-                            self._children_yang_names.add("oam-retry")
 
                             self.ais_rdi = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi()
                             self.ais_rdi.parent = self
                             self._children_name_map["ais_rdi"] = "ais-rdi"
-                            self._children_yang_names.add("ais-rdi")
                             self._segment_path = lambda: "oam-config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig, [], name, value)
 
 
                         class ClassLinkShaping(Entity):
@@ -1872,7 +1845,7 @@ class AtmVcm(Entity):
                             """
 
                             _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, self).__init__()
@@ -1882,8 +1855,7 @@ class AtmVcm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('shaping_type', YLeaf(YType.enumeration, 'shaping-type')),
                                     ('peak_output_rate', YLeaf(YType.uint32, 'peak-output-rate')),
@@ -1899,7 +1871,7 @@ class AtmVcm(Entity):
                                 self._segment_path = lambda: "class-link-shaping"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, ['shaping_type', 'peak_output_rate', 'average_output_rate', 'burst_output_rate', 'shaping_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, [u'shaping_type', u'peak_output_rate', u'average_output_rate', u'burst_output_rate', u'shaping_inherit_level'], name, value)
 
 
                         class ClassLinkEncapsulation(Entity):
@@ -1921,7 +1893,7 @@ class AtmVcm(Entity):
                             """
 
                             _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, self).__init__()
@@ -1931,8 +1903,7 @@ class AtmVcm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
                                     ('encapsulation_inherit_level', YLeaf(YType.enumeration, 'encapsulation-inherit-level')),
@@ -1942,7 +1913,7 @@ class AtmVcm(Entity):
                                 self._segment_path = lambda: "class-link-encapsulation"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, ['encapsulation_type', 'encapsulation_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, [u'encapsulation_type', u'encapsulation_inherit_level'], name, value)
 
 
                         class OamPvc(Entity):
@@ -1981,7 +1952,7 @@ class AtmVcm(Entity):
                             """
 
                             _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, self).__init__()
@@ -1991,8 +1962,7 @@ class AtmVcm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('manage_level', YLeaf(YType.enumeration, 'manage-level')),
                                     ('pvc_frequency', YLeaf(YType.uint32, 'pvc-frequency')),
@@ -2008,7 +1978,7 @@ class AtmVcm(Entity):
                                 self._segment_path = lambda: "oam-pvc"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, ['manage_level', 'pvc_frequency', 'keep_vc_up', 'ais_rdi_failure', 'manage_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, [u'manage_level', u'pvc_frequency', u'keep_vc_up', u'ais_rdi_failure', u'manage_inherit_level'], name, value)
 
 
                         class OamRetry(Entity):
@@ -2046,7 +2016,7 @@ class AtmVcm(Entity):
                             """
 
                             _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, self).__init__()
@@ -2056,8 +2026,7 @@ class AtmVcm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('retry_up_count', YLeaf(YType.uint32, 'retry-up-count')),
                                     ('down_count', YLeaf(YType.uint32, 'down-count')),
@@ -2071,7 +2040,7 @@ class AtmVcm(Entity):
                                 self._segment_path = lambda: "oam-retry"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, ['retry_up_count', 'down_count', 'retry_frequency', 'retry_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, [u'retry_up_count', u'down_count', u'retry_frequency', u'retry_inherit_level'], name, value)
 
 
                         class AisRdi(Entity):
@@ -2104,7 +2073,7 @@ class AtmVcm(Entity):
                             """
 
                             _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, self).__init__()
@@ -2114,8 +2083,7 @@ class AtmVcm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ais_rdi_up_count', YLeaf(YType.uint32, 'ais-rdi-up-count')),
                                     ('ais_rdi_up_time', YLeaf(YType.uint32, 'ais-rdi-up-time')),
@@ -2127,7 +2095,7 @@ class AtmVcm(Entity):
                                 self._segment_path = lambda: "ais-rdi"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, ['ais_rdi_up_count', 'ais_rdi_up_time', 'ais_rdi_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, [u'ais_rdi_up_count', u'ais_rdi_up_time', u'ais_rdi_inherit_level'], name, value)
 
 
             class Interfaces(Entity):
@@ -2144,7 +2112,7 @@ class AtmVcm(Entity):
                 """
 
                 _prefix = 'atm-vcm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AtmVcm.Nodes.Node.Interfaces, self).__init__()
@@ -2154,8 +2122,7 @@ class AtmVcm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", AtmVcm.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", AtmVcm.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -2294,7 +2261,7 @@ class AtmVcm(Entity):
                     """
 
                     _prefix = 'atm-vcm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AtmVcm.Nodes.Node.Interfaces.Interface, self).__init__()
@@ -2304,8 +2271,7 @@ class AtmVcm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('ilmi_vpi', YLeaf(YType.uint32, 'ilmi-vpi')),
@@ -2346,11 +2312,10 @@ class AtmVcm(Entity):
                         self.cell_packing_data = AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData()
                         self.cell_packing_data.parent = self
                         self._children_name_map["cell_packing_data"] = "cell-packing-data"
-                        self._children_yang_names.add("cell-packing-data")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface, ['interface_name', 'ilmi_vpi', 'ilmi_vci', 'pvc_failures', 'currently_failing_layer2pv_ps', 'currently_failing_layer2pv_cs', 'currently_failing_layer3vp_tunnels', 'currently_failing_layer3pv_cs', 'pvc_failures_trap_enable', 'pvc_notification_interval', 'configured_layer2pv_ps', 'configured_layer2pv_cs', 'configured_layer3vp_tunnels', 'configured_layer3pv_cs', 'port_type', 'main_interface', 'l2_cell_packing_count'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface, ['interface_name', u'ilmi_vpi', u'ilmi_vci', u'pvc_failures', u'currently_failing_layer2pv_ps', u'currently_failing_layer2pv_cs', u'currently_failing_layer3vp_tunnels', u'currently_failing_layer3pv_cs', u'pvc_failures_trap_enable', u'pvc_notification_interval', u'configured_layer2pv_ps', u'configured_layer2pv_cs', u'configured_layer3vp_tunnels', u'configured_layer3pv_cs', u'port_type', u'main_interface', u'l2_cell_packing_count'], name, value)
 
 
                     class CellPackingData(Entity):
@@ -2385,7 +2350,7 @@ class AtmVcm(Entity):
                         """
 
                         _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData, self).__init__()
@@ -2395,8 +2360,7 @@ class AtmVcm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('local_max_cells_packed_per_packet', YLeaf(YType.uint16, 'local-max-cells-packed-per-packet')),
                                 ('negotiated_max_cells_packed_per_packet', YLeaf(YType.uint16, 'negotiated-max-cells-packed-per-packet')),
@@ -2408,7 +2372,7 @@ class AtmVcm(Entity):
                             self._segment_path = lambda: "cell-packing-data"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
+                            self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData, [u'local_max_cells_packed_per_packet', u'negotiated_max_cells_packed_per_packet', u'max_cell_packed_timeout'], name, value)
 
 
             class VpTunnels(Entity):
@@ -2425,7 +2389,7 @@ class AtmVcm(Entity):
                 """
 
                 _prefix = 'atm-vcm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AtmVcm.Nodes.Node.VpTunnels, self).__init__()
@@ -2435,8 +2399,7 @@ class AtmVcm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("vp-tunnel", ("vp_tunnel", AtmVcm.Nodes.Node.VpTunnels.VpTunnel))])
+                    self._child_classes = OrderedDict([("vp-tunnel", ("vp_tunnel", AtmVcm.Nodes.Node.VpTunnels.VpTunnel))])
                     self._leafs = OrderedDict()
 
                     self.vp_tunnel = YList(self)
@@ -2462,7 +2425,7 @@ class AtmVcm(Entity):
                     	VPI
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: main_interface
                     
@@ -2554,7 +2517,7 @@ class AtmVcm(Entity):
                     """
 
                     _prefix = 'atm-vcm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, self).__init__()
@@ -2564,11 +2527,10 @@ class AtmVcm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('vpi', YLeaf(YType.int32, 'vpi')),
+                            ('vpi', YLeaf(YType.uint32, 'vpi')),
                             ('main_interface', YLeaf(YType.str, 'main-interface')),
                             ('vp_interface', YLeaf(YType.str, 'vp-interface')),
                             ('vpi_xr', YLeaf(YType.uint16, 'vpi-xr')),
@@ -2601,7 +2563,7 @@ class AtmVcm(Entity):
                         self._segment_path = lambda: "vp-tunnel" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, ['interface_name', 'vpi', 'main_interface', 'vp_interface', 'vpi_xr', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'f4oam_enabled', 'data_vc_count', 'oper_status', 'amin_status', 'internal_state', 'last_vp_state_change_time'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, ['interface_name', 'vpi', u'main_interface', u'vp_interface', u'vpi_xr', u'shape', u'peak_cell_rate', u'sustained_cell_rate', u'burst_rate', u'f4oam_enabled', u'data_vc_count', u'oper_status', u'amin_status', u'internal_state', u'last_vp_state_change_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AtmVcm()

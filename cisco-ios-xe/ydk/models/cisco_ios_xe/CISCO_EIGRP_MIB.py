@@ -60,27 +60,27 @@ class CISCOEIGRPMIB(Entity):
     .. attribute:: ceigrpvpntable
     
     	This table contains information on those VPN's configured to run EIGRP.  The VPN creation on a router is independent of the routing protocol to be used over it.   A VPN is given a name and has a dedicated routing table associated with it.  This routing table is identified internally by a unique integer value
-    	**type**\:  :py:class:`Ceigrpvpntable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable>`
+    	**type**\:  :py:class:`CEigrpVpnTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable>`
     
     .. attribute:: ceigrptraffstatstable
     
     	Table of EIGRP traffic statistics and information associated with all EIGRP autonomous systems
-    	**type**\:  :py:class:`Ceigrptraffstatstable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptraffstatstable>`
+    	**type**\:  :py:class:`CEigrpTraffStatsTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable>`
     
     .. attribute:: ceigrptopotable
     
     	The table of EIGRP routes and their associated attributes for an Autonomous System (AS) configured in a VPN is called a topology table.  All route entries in the topology table will be indexed by IP network type, IP network number and network mask (prefix) size
-    	**type**\:  :py:class:`Ceigrptopotable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptopotable>`
+    	**type**\:  :py:class:`CEigrpTopoTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTopoTable>`
     
     .. attribute:: ceigrppeertable
     
     	The table of established EIGRP peers (neighbors) in the selected autonomous system.   Peers are indexed by their unique internal handle id, as well as the AS number and VPN id.   The peer entry is removed from the table if the peer is declared down
-    	**type**\:  :py:class:`Ceigrppeertable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrppeertable>`
+    	**type**\:  :py:class:`CEigrpPeerTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpPeerTable>`
     
     .. attribute:: ceigrpinterfacetable
     
     	The table of interfaces over which EIGRP is running, and their associated statistics.   This table is independent of whether any peer adjacencies have been formed over the interfaces or not.   Interfaces running EIGRP are determined by whether their assigned IP addresses fall within configured EIGRP network statements
-    	**type**\:  :py:class:`Ceigrpinterfacetable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpinterfacetable>`
+    	**type**\:  :py:class:`CEigrpInterfaceTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpInterfaceTable>`
     
     
 
@@ -98,38 +98,35 @@ class CISCOEIGRPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cEigrpVpnTable", ("ceigrpvpntable", CISCOEIGRPMIB.Ceigrpvpntable)), ("cEigrpTraffStatsTable", ("ceigrptraffstatstable", CISCOEIGRPMIB.Ceigrptraffstatstable)), ("cEigrpTopoTable", ("ceigrptopotable", CISCOEIGRPMIB.Ceigrptopotable)), ("cEigrpPeerTable", ("ceigrppeertable", CISCOEIGRPMIB.Ceigrppeertable)), ("cEigrpInterfaceTable", ("ceigrpinterfacetable", CISCOEIGRPMIB.Ceigrpinterfacetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cEigrpVpnTable", ("ceigrpvpntable", CISCOEIGRPMIB.CEigrpVpnTable)), ("cEigrpTraffStatsTable", ("ceigrptraffstatstable", CISCOEIGRPMIB.CEigrpTraffStatsTable)), ("cEigrpTopoTable", ("ceigrptopotable", CISCOEIGRPMIB.CEigrpTopoTable)), ("cEigrpPeerTable", ("ceigrppeertable", CISCOEIGRPMIB.CEigrpPeerTable)), ("cEigrpInterfaceTable", ("ceigrpinterfacetable", CISCOEIGRPMIB.CEigrpInterfaceTable))])
         self._leafs = OrderedDict()
 
-        self.ceigrpvpntable = CISCOEIGRPMIB.Ceigrpvpntable()
+        self.ceigrpvpntable = CISCOEIGRPMIB.CEigrpVpnTable()
         self.ceigrpvpntable.parent = self
         self._children_name_map["ceigrpvpntable"] = "cEigrpVpnTable"
-        self._children_yang_names.add("cEigrpVpnTable")
 
-        self.ceigrptraffstatstable = CISCOEIGRPMIB.Ceigrptraffstatstable()
+        self.ceigrptraffstatstable = CISCOEIGRPMIB.CEigrpTraffStatsTable()
         self.ceigrptraffstatstable.parent = self
         self._children_name_map["ceigrptraffstatstable"] = "cEigrpTraffStatsTable"
-        self._children_yang_names.add("cEigrpTraffStatsTable")
 
-        self.ceigrptopotable = CISCOEIGRPMIB.Ceigrptopotable()
+        self.ceigrptopotable = CISCOEIGRPMIB.CEigrpTopoTable()
         self.ceigrptopotable.parent = self
         self._children_name_map["ceigrptopotable"] = "cEigrpTopoTable"
-        self._children_yang_names.add("cEigrpTopoTable")
 
-        self.ceigrppeertable = CISCOEIGRPMIB.Ceigrppeertable()
+        self.ceigrppeertable = CISCOEIGRPMIB.CEigrpPeerTable()
         self.ceigrppeertable.parent = self
         self._children_name_map["ceigrppeertable"] = "cEigrpPeerTable"
-        self._children_yang_names.add("cEigrpPeerTable")
 
-        self.ceigrpinterfacetable = CISCOEIGRPMIB.Ceigrpinterfacetable()
+        self.ceigrpinterfacetable = CISCOEIGRPMIB.CEigrpInterfaceTable()
         self.ceigrpinterfacetable.parent = self
         self._children_name_map["ceigrpinterfacetable"] = "cEigrpInterfaceTable"
-        self._children_yang_names.add("cEigrpInterfaceTable")
         self._segment_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOEIGRPMIB, [], name, value)
 
-    class Ceigrpvpntable(Entity):
+
+    class CEigrpVpnTable(Entity):
         """
         This table contains information on those VPN's configured
         to run EIGRP.  The VPN creation on a router is independent
@@ -141,7 +138,7 @@ class CISCOEIGRPMIB(Entity):
         .. attribute:: ceigrpvpnentry
         
         	Information relating to a single VPN which is configured to run EIGRP
-        	**type**\: list of  		 :py:class:`Ceigrpvpnentry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
+        	**type**\: list of  		 :py:class:`CEigrpVpnEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
         
         
 
@@ -151,15 +148,14 @@ class CISCOEIGRPMIB(Entity):
         _revision = '2004-11-16'
 
         def __init__(self):
-            super(CISCOEIGRPMIB.Ceigrpvpntable, self).__init__()
+            super(CISCOEIGRPMIB.CEigrpVpnTable, self).__init__()
 
             self.yang_name = "cEigrpVpnTable"
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cEigrpVpnEntry", ("ceigrpvpnentry", CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry))])
+            self._child_classes = OrderedDict([("cEigrpVpnEntry", ("ceigrpvpnentry", CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry))])
             self._leafs = OrderedDict()
 
             self.ceigrpvpnentry = YList(self)
@@ -167,10 +163,10 @@ class CISCOEIGRPMIB(Entity):
             self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOEIGRPMIB.Ceigrpvpntable, [], name, value)
+            self._perform_setattr(CISCOEIGRPMIB.CEigrpVpnTable, [], name, value)
 
 
-        class Ceigrpvpnentry(Entity):
+        class CEigrpVpnEntry(Entity):
             """
             Information relating to a single VPN which is configured
             to run EIGRP.
@@ -195,15 +191,14 @@ class CISCOEIGRPMIB(Entity):
             _revision = '2004-11-16'
 
             def __init__(self):
-                super(CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry, self).__init__()
+                super(CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry, self).__init__()
 
                 self.yang_name = "cEigrpVpnEntry"
                 self.yang_parent_name = "cEigrpVpnTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ceigrpvpnid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ceigrpvpnid', YLeaf(YType.uint32, 'cEigrpVpnId')),
                     ('ceigrpvpnname', YLeaf(YType.str, 'cEigrpVpnName')),
@@ -214,10 +209,10 @@ class CISCOEIGRPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpVpnTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry, ['ceigrpvpnid', 'ceigrpvpnname'], name, value)
+                self._perform_setattr(CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry, ['ceigrpvpnid', 'ceigrpvpnname'], name, value)
 
 
-    class Ceigrptraffstatstable(Entity):
+    class CEigrpTraffStatsTable(Entity):
         """
         Table of EIGRP traffic statistics and information
         associated with all EIGRP autonomous systems.
@@ -225,7 +220,7 @@ class CISCOEIGRPMIB(Entity):
         .. attribute:: ceigrptraffstatsentry
         
         	The set of statistics and information for a single EIGRP Autonomous System
-        	**type**\: list of  		 :py:class:`Ceigrptraffstatsentry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry>`
+        	**type**\: list of  		 :py:class:`CEigrpTraffStatsEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry>`
         
         
 
@@ -235,15 +230,14 @@ class CISCOEIGRPMIB(Entity):
         _revision = '2004-11-16'
 
         def __init__(self):
-            super(CISCOEIGRPMIB.Ceigrptraffstatstable, self).__init__()
+            super(CISCOEIGRPMIB.CEigrpTraffStatsTable, self).__init__()
 
             self.yang_name = "cEigrpTraffStatsTable"
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cEigrpTraffStatsEntry", ("ceigrptraffstatsentry", CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry))])
+            self._child_classes = OrderedDict([("cEigrpTraffStatsEntry", ("ceigrptraffstatsentry", CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry))])
             self._leafs = OrderedDict()
 
             self.ceigrptraffstatsentry = YList(self)
@@ -251,10 +245,10 @@ class CISCOEIGRPMIB(Entity):
             self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOEIGRPMIB.Ceigrptraffstatstable, [], name, value)
+            self._perform_setattr(CISCOEIGRPMIB.CEigrpTraffStatsTable, [], name, value)
 
 
-        class Ceigrptraffstatsentry(Entity):
+        class CEigrpTraffStatsEntry(Entity):
             """
             The set of statistics and information for a single EIGRP
             Autonomous System.
@@ -266,7 +260,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
+            	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
             
             .. attribute:: ceigrpasnumber  (key)
             
@@ -435,15 +429,14 @@ class CISCOEIGRPMIB(Entity):
             _revision = '2004-11-16'
 
             def __init__(self):
-                super(CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry, self).__init__()
+                super(CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry, self).__init__()
 
                 self.yang_name = "cEigrpTraffStatsEntry"
                 self.yang_parent_name = "cEigrpTraffStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ceigrpvpnid','ceigrpasnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ceigrpvpnid', YLeaf(YType.str, 'cEigrpVpnId')),
                     ('ceigrpasnumber', YLeaf(YType.uint32, 'cEigrpAsNumber')),
@@ -498,10 +491,10 @@ class CISCOEIGRPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpTraffStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrpnbrcount', 'ceigrphellossent', 'ceigrphellosrcvd', 'ceigrpupdatessent', 'ceigrpupdatesrcvd', 'ceigrpqueriessent', 'ceigrpqueriesrcvd', 'ceigrprepliessent', 'ceigrprepliesrcvd', 'ceigrpackssent', 'ceigrpacksrcvd', 'ceigrpinputqhighmark', 'ceigrpinputqdrops', 'ceigrpsiaqueriessent', 'ceigrpsiaqueriesrcvd', 'ceigrpasrouteridtype', 'ceigrpasrouterid', 'ceigrptoporoutes', 'ceigrpheadserial', 'ceigrpnextserial', 'ceigrpxmitpendreplies', 'ceigrpxmitdummies'], name, value)
+                self._perform_setattr(CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrpnbrcount', 'ceigrphellossent', 'ceigrphellosrcvd', 'ceigrpupdatessent', 'ceigrpupdatesrcvd', 'ceigrpqueriessent', 'ceigrpqueriesrcvd', 'ceigrprepliessent', 'ceigrprepliesrcvd', 'ceigrpackssent', 'ceigrpacksrcvd', 'ceigrpinputqhighmark', 'ceigrpinputqdrops', 'ceigrpsiaqueriessent', 'ceigrpsiaqueriesrcvd', 'ceigrpasrouteridtype', 'ceigrpasrouterid', 'ceigrptoporoutes', 'ceigrpheadserial', 'ceigrpnextserial', 'ceigrpxmitpendreplies', 'ceigrpxmitdummies'], name, value)
 
 
-    class Ceigrptopotable(Entity):
+    class CEigrpTopoTable(Entity):
         """
         The table of EIGRP routes and their associated
         attributes for an Autonomous System (AS) configured
@@ -512,7 +505,7 @@ class CISCOEIGRPMIB(Entity):
         .. attribute:: ceigrptopoentry
         
         	The entry for a single EIGRP topology table in the given AS
-        	**type**\: list of  		 :py:class:`Ceigrptopoentry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptopotable.Ceigrptopoentry>`
+        	**type**\: list of  		 :py:class:`CEigrpTopoEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTopoTable.CEigrpTopoEntry>`
         
         
 
@@ -522,15 +515,14 @@ class CISCOEIGRPMIB(Entity):
         _revision = '2004-11-16'
 
         def __init__(self):
-            super(CISCOEIGRPMIB.Ceigrptopotable, self).__init__()
+            super(CISCOEIGRPMIB.CEigrpTopoTable, self).__init__()
 
             self.yang_name = "cEigrpTopoTable"
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cEigrpTopoEntry", ("ceigrptopoentry", CISCOEIGRPMIB.Ceigrptopotable.Ceigrptopoentry))])
+            self._child_classes = OrderedDict([("cEigrpTopoEntry", ("ceigrptopoentry", CISCOEIGRPMIB.CEigrpTopoTable.CEigrpTopoEntry))])
             self._leafs = OrderedDict()
 
             self.ceigrptopoentry = YList(self)
@@ -538,10 +530,10 @@ class CISCOEIGRPMIB(Entity):
             self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOEIGRPMIB.Ceigrptopotable, [], name, value)
+            self._perform_setattr(CISCOEIGRPMIB.CEigrpTopoTable, [], name, value)
 
 
-        class Ceigrptopoentry(Entity):
+        class CEigrpTopoEntry(Entity):
             """
             The entry for a single EIGRP topology table in the given
             AS.
@@ -553,7 +545,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
+            	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
             
             .. attribute:: ceigrpasnumber  (key)
             
@@ -562,7 +554,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry>`
+            	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry>`
             
             .. attribute:: ceigrpdestnettype  (key)
             
@@ -663,15 +655,14 @@ class CISCOEIGRPMIB(Entity):
             _revision = '2004-11-16'
 
             def __init__(self):
-                super(CISCOEIGRPMIB.Ceigrptopotable.Ceigrptopoentry, self).__init__()
+                super(CISCOEIGRPMIB.CEigrpTopoTable.CEigrpTopoEntry, self).__init__()
 
                 self.yang_name = "cEigrpTopoEntry"
                 self.yang_parent_name = "cEigrpTopoTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ceigrpvpnid','ceigrpasnumber','ceigrpdestnettype','ceigrpdestnet','ceigrpdestnetprefixlen']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ceigrpvpnid', YLeaf(YType.str, 'cEigrpVpnId')),
                     ('ceigrpasnumber', YLeaf(YType.str, 'cEigrpAsNumber')),
@@ -712,10 +703,10 @@ class CISCOEIGRPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpTopoTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOEIGRPMIB.Ceigrptopotable.Ceigrptopoentry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrpdestnettype', 'ceigrpdestnet', 'ceigrpdestnetprefixlen', 'ceigrpactive', 'ceigrpstuckinactive', 'ceigrpdestsuccessors', 'ceigrpfdistance', 'ceigrprouteorigintype', 'ceigrprouteoriginaddrtype', 'ceigrprouteoriginaddr', 'ceigrpnexthopaddresstype', 'ceigrpnexthopaddress', 'ceigrpnexthopinterface', 'ceigrpdistance', 'ceigrpreportdistance'], name, value)
+                self._perform_setattr(CISCOEIGRPMIB.CEigrpTopoTable.CEigrpTopoEntry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrpdestnettype', 'ceigrpdestnet', 'ceigrpdestnetprefixlen', 'ceigrpactive', 'ceigrpstuckinactive', 'ceigrpdestsuccessors', 'ceigrpfdistance', 'ceigrprouteorigintype', 'ceigrprouteoriginaddrtype', 'ceigrprouteoriginaddr', 'ceigrpnexthopaddresstype', 'ceigrpnexthopaddress', 'ceigrpnexthopinterface', 'ceigrpdistance', 'ceigrpreportdistance'], name, value)
 
 
-    class Ceigrppeertable(Entity):
+    class CEigrpPeerTable(Entity):
         """
         The table of established EIGRP peers (neighbors) in the
         selected autonomous system.   Peers are indexed by their
@@ -726,7 +717,7 @@ class CISCOEIGRPMIB(Entity):
         .. attribute:: ceigrppeerentry
         
         	Statistics and operational parameters for a single peer in the AS
-        	**type**\: list of  		 :py:class:`Ceigrppeerentry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrppeertable.Ceigrppeerentry>`
+        	**type**\: list of  		 :py:class:`CEigrpPeerEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpPeerTable.CEigrpPeerEntry>`
         
         
 
@@ -736,15 +727,14 @@ class CISCOEIGRPMIB(Entity):
         _revision = '2004-11-16'
 
         def __init__(self):
-            super(CISCOEIGRPMIB.Ceigrppeertable, self).__init__()
+            super(CISCOEIGRPMIB.CEigrpPeerTable, self).__init__()
 
             self.yang_name = "cEigrpPeerTable"
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cEigrpPeerEntry", ("ceigrppeerentry", CISCOEIGRPMIB.Ceigrppeertable.Ceigrppeerentry))])
+            self._child_classes = OrderedDict([("cEigrpPeerEntry", ("ceigrppeerentry", CISCOEIGRPMIB.CEigrpPeerTable.CEigrpPeerEntry))])
             self._leafs = OrderedDict()
 
             self.ceigrppeerentry = YList(self)
@@ -752,10 +742,10 @@ class CISCOEIGRPMIB(Entity):
             self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOEIGRPMIB.Ceigrppeertable, [], name, value)
+            self._perform_setattr(CISCOEIGRPMIB.CEigrpPeerTable, [], name, value)
 
 
-        class Ceigrppeerentry(Entity):
+        class CEigrpPeerEntry(Entity):
             """
             Statistics and operational parameters for a single peer
             in the AS.
@@ -767,7 +757,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
+            	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
             
             .. attribute:: ceigrpasnumber  (key)
             
@@ -776,7 +766,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry>`
+            	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry>`
             
             .. attribute:: ceigrphandle  (key)
             
@@ -877,15 +867,14 @@ class CISCOEIGRPMIB(Entity):
             _revision = '2004-11-16'
 
             def __init__(self):
-                super(CISCOEIGRPMIB.Ceigrppeertable.Ceigrppeerentry, self).__init__()
+                super(CISCOEIGRPMIB.CEigrpPeerTable.CEigrpPeerEntry, self).__init__()
 
                 self.yang_name = "cEigrpPeerEntry"
                 self.yang_parent_name = "cEigrpPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ceigrpvpnid','ceigrpasnumber','ceigrphandle']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ceigrpvpnid', YLeaf(YType.str, 'cEigrpVpnId')),
                     ('ceigrpasnumber', YLeaf(YType.str, 'cEigrpAsNumber')),
@@ -922,10 +911,10 @@ class CISCOEIGRPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOEIGRPMIB.Ceigrppeertable.Ceigrppeerentry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrphandle', 'ceigrppeeraddrtype', 'ceigrppeeraddr', 'ceigrppeerifindex', 'ceigrpholdtime', 'ceigrpuptime', 'ceigrpsrtt', 'ceigrprto', 'ceigrppktsenqueued', 'ceigrplastseq', 'ceigrpversion', 'ceigrpretrans', 'ceigrpretries'], name, value)
+                self._perform_setattr(CISCOEIGRPMIB.CEigrpPeerTable.CEigrpPeerEntry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrphandle', 'ceigrppeeraddrtype', 'ceigrppeeraddr', 'ceigrppeerifindex', 'ceigrpholdtime', 'ceigrpuptime', 'ceigrpsrtt', 'ceigrprto', 'ceigrppktsenqueued', 'ceigrplastseq', 'ceigrpversion', 'ceigrpretrans', 'ceigrpretries'], name, value)
 
 
-    class Ceigrpinterfacetable(Entity):
+    class CEigrpInterfaceTable(Entity):
         """
         The table of interfaces over which EIGRP is running, and
         their associated statistics.   This table is independent
@@ -937,7 +926,7 @@ class CISCOEIGRPMIB(Entity):
         .. attribute:: ceigrpinterfaceentry
         
         	Information for a single interface running EIGRP in the AS and VPN
-        	**type**\: list of  		 :py:class:`Ceigrpinterfaceentry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpinterfacetable.Ceigrpinterfaceentry>`
+        	**type**\: list of  		 :py:class:`CEigrpInterfaceEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpInterfaceTable.CEigrpInterfaceEntry>`
         
         
 
@@ -947,15 +936,14 @@ class CISCOEIGRPMIB(Entity):
         _revision = '2004-11-16'
 
         def __init__(self):
-            super(CISCOEIGRPMIB.Ceigrpinterfacetable, self).__init__()
+            super(CISCOEIGRPMIB.CEigrpInterfaceTable, self).__init__()
 
             self.yang_name = "cEigrpInterfaceTable"
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cEigrpInterfaceEntry", ("ceigrpinterfaceentry", CISCOEIGRPMIB.Ceigrpinterfacetable.Ceigrpinterfaceentry))])
+            self._child_classes = OrderedDict([("cEigrpInterfaceEntry", ("ceigrpinterfaceentry", CISCOEIGRPMIB.CEigrpInterfaceTable.CEigrpInterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.ceigrpinterfaceentry = YList(self)
@@ -963,10 +951,10 @@ class CISCOEIGRPMIB(Entity):
             self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOEIGRPMIB.Ceigrpinterfacetable, [], name, value)
+            self._perform_setattr(CISCOEIGRPMIB.CEigrpInterfaceTable, [], name, value)
 
 
-        class Ceigrpinterfaceentry(Entity):
+        class CEigrpInterfaceEntry(Entity):
             """
             Information for a single interface running EIGRP in the
             AS and VPN.
@@ -978,7 +966,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
+            	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
             
             .. attribute:: ceigrpasnumber  (key)
             
@@ -987,7 +975,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry>`
+            	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry>`
             
             .. attribute:: ifindex  (key)
             
@@ -996,7 +984,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: ceigrppeercount
             
@@ -1144,7 +1132,7 @@ class CISCOEIGRPMIB(Entity):
             .. attribute:: ceigrpauthmode
             
             	The EIGRP authentication mode of the interface. none  \:  no authentication enabled on the interface md5   \:  MD5 authentication enabled on the interface
-            	**type**\:  :py:class:`Ceigrpauthmode <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpinterfacetable.Ceigrpinterfaceentry.Ceigrpauthmode>`
+            	**type**\:  :py:class:`CEigrpAuthMode <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpInterfaceTable.CEigrpInterfaceEntry.CEigrpAuthMode>`
             
             .. attribute:: ceigrpauthkeychain
             
@@ -1159,15 +1147,14 @@ class CISCOEIGRPMIB(Entity):
             _revision = '2004-11-16'
 
             def __init__(self):
-                super(CISCOEIGRPMIB.Ceigrpinterfacetable.Ceigrpinterfaceentry, self).__init__()
+                super(CISCOEIGRPMIB.CEigrpInterfaceTable.CEigrpInterfaceEntry, self).__init__()
 
                 self.yang_name = "cEigrpInterfaceEntry"
                 self.yang_parent_name = "cEigrpInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ceigrpvpnid','ceigrpasnumber','ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ceigrpvpnid', YLeaf(YType.str, 'cEigrpVpnId')),
                     ('ceigrpasnumber', YLeaf(YType.str, 'cEigrpAsNumber')),
@@ -1222,11 +1209,11 @@ class CISCOEIGRPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOEIGRPMIB.Ceigrpinterfacetable.Ceigrpinterfaceentry, ['ceigrpvpnid', 'ceigrpasnumber', 'ifindex', 'ceigrppeercount', 'ceigrpxmitreliableq', 'ceigrpxmitunreliableq', 'ceigrpmeansrtt', 'ceigrppacingreliable', 'ceigrppacingunreliable', 'ceigrpmflowtimer', 'ceigrppendingroutes', 'ceigrphellointerval', 'ceigrpxmitnextserial', 'ceigrpumcasts', 'ceigrprmcasts', 'ceigrpuucasts', 'ceigrprucasts', 'ceigrpmcastexcepts', 'ceigrpcrpkts', 'ceigrpackssuppressed', 'ceigrpretranssent', 'ceigrpoosrvcd', 'ceigrpauthmode', 'ceigrpauthkeychain'], name, value)
+                self._perform_setattr(CISCOEIGRPMIB.CEigrpInterfaceTable.CEigrpInterfaceEntry, ['ceigrpvpnid', 'ceigrpasnumber', 'ifindex', 'ceigrppeercount', 'ceigrpxmitreliableq', 'ceigrpxmitunreliableq', 'ceigrpmeansrtt', 'ceigrppacingreliable', 'ceigrppacingunreliable', 'ceigrpmflowtimer', 'ceigrppendingroutes', 'ceigrphellointerval', 'ceigrpxmitnextserial', 'ceigrpumcasts', 'ceigrprmcasts', 'ceigrpuucasts', 'ceigrprucasts', 'ceigrpmcastexcepts', 'ceigrpcrpkts', 'ceigrpackssuppressed', 'ceigrpretranssent', 'ceigrpoosrvcd', 'ceigrpauthmode', 'ceigrpauthkeychain'], name, value)
 
-            class Ceigrpauthmode(Enum):
+            class CEigrpAuthMode(Enum):
                 """
-                Ceigrpauthmode (Enum Class)
+                CEigrpAuthMode (Enum Class)
 
                 The EIGRP authentication mode of the interface.
 

@@ -28,19 +28,19 @@ class TCPMIB(Entity):
     .. attribute:: tcpconntable
     
     	A table containing information about existing IPv4\-specific TCP connections or listeners.  This table has been deprecated in favor of the version neutral tcpConnectionTable
-    	**type**\:  :py:class:`Tcpconntable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcpconntable>`
+    	**type**\:  :py:class:`TcpConnTable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnTable>`
     
     	**status**\: deprecated
     
     .. attribute:: tcpconnectiontable
     
     	A table containing information about existing TCP connections.  Note that unlike earlier TCP MIBs, there is a separate table for connections in the LISTEN state
-    	**type**\:  :py:class:`Tcpconnectiontable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcpconnectiontable>`
+    	**type**\:  :py:class:`TcpConnectionTable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnectionTable>`
     
     .. attribute:: tcplistenertable
     
     	A table containing information about TCP listeners.  A listening application can be represented in three possible ways\:  1. An application that is willing to accept both IPv4 and    IPv6 datagrams is represented by     a tcpListenerLocalAddressType of unknown (0) and    a tcpListenerLocalAddress of ''h (a zero\-length    octet\-string).  2. An application that is willing to accept only IPv4 or    IPv6 datagrams is represented by a    tcpListenerLocalAddressType of the appropriate address    type and a tcpListenerLocalAddress of '0.0.0.0' or '\:\:'    respectively.  3. An application that is listening for data destined    only to a specific IP address, but from any remote    system, is represented by a tcpListenerLocalAddressType    of an appropriate address type, with    tcpListenerLocalAddress as the specific local address.  NOTE\: The address type in this table represents the address type used for the communication, irrespective of the higher\-layer abstraction.  For example, an application using IPv6 'sockets' to communicate via IPv4 between \:\:ffff\:10.0.0.1 and \:\:ffff\:10.0.0.2 would use InetAddressType ipv4(1))
-    	**type**\:  :py:class:`Tcplistenertable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcplistenertable>`
+    	**type**\:  :py:class:`TcpListenerTable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpListenerTable>`
     
     
 
@@ -58,30 +58,28 @@ class TCPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("tcp", ("tcp", TCPMIB.Tcp)), ("tcpConnTable", ("tcpconntable", TCPMIB.Tcpconntable)), ("tcpConnectionTable", ("tcpconnectiontable", TCPMIB.Tcpconnectiontable)), ("tcpListenerTable", ("tcplistenertable", TCPMIB.Tcplistenertable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("tcp", ("tcp", TCPMIB.Tcp)), ("tcpConnTable", ("tcpconntable", TCPMIB.TcpConnTable)), ("tcpConnectionTable", ("tcpconnectiontable", TCPMIB.TcpConnectionTable)), ("tcpListenerTable", ("tcplistenertable", TCPMIB.TcpListenerTable))])
         self._leafs = OrderedDict()
 
         self.tcp = TCPMIB.Tcp()
         self.tcp.parent = self
         self._children_name_map["tcp"] = "tcp"
-        self._children_yang_names.add("tcp")
 
-        self.tcpconntable = TCPMIB.Tcpconntable()
+        self.tcpconntable = TCPMIB.TcpConnTable()
         self.tcpconntable.parent = self
         self._children_name_map["tcpconntable"] = "tcpConnTable"
-        self._children_yang_names.add("tcpConnTable")
 
-        self.tcpconnectiontable = TCPMIB.Tcpconnectiontable()
+        self.tcpconnectiontable = TCPMIB.TcpConnectionTable()
         self.tcpconnectiontable.parent = self
         self._children_name_map["tcpconnectiontable"] = "tcpConnectionTable"
-        self._children_yang_names.add("tcpConnectionTable")
 
-        self.tcplistenertable = TCPMIB.Tcplistenertable()
+        self.tcplistenertable = TCPMIB.TcpListenerTable()
         self.tcplistenertable.parent = self
         self._children_name_map["tcplistenertable"] = "tcpListenerTable"
-        self._children_yang_names.add("tcpListenerTable")
         self._segment_path = lambda: "TCP-MIB:TCP-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(TCPMIB, [], name, value)
 
 
     class Tcp(Entity):
@@ -91,7 +89,7 @@ class TCPMIB(Entity):
         .. attribute:: tcprtoalgorithm
         
         	The algorithm used to determine the timeout value used for retransmitting unacknowledged octets
-        	**type**\:  :py:class:`Tcprtoalgorithm <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcp.Tcprtoalgorithm>`
+        	**type**\:  :py:class:`TcpRtoAlgorithm <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcp.TcpRtoAlgorithm>`
         
         .. attribute:: tcprtomin
         
@@ -217,8 +215,7 @@ class TCPMIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('tcprtoalgorithm', YLeaf(YType.enumeration, 'tcpRtoAlgorithm')),
                 ('tcprtomin', YLeaf(YType.int32, 'tcpRtoMin')),
@@ -259,9 +256,9 @@ class TCPMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(TCPMIB.Tcp, ['tcprtoalgorithm', 'tcprtomin', 'tcprtomax', 'tcpmaxconn', 'tcpactiveopens', 'tcppassiveopens', 'tcpattemptfails', 'tcpestabresets', 'tcpcurrestab', 'tcpinsegs', 'tcpoutsegs', 'tcpretranssegs', 'tcpinerrs', 'tcpoutrsts', 'tcphcinsegs', 'tcphcoutsegs'], name, value)
 
-        class Tcprtoalgorithm(Enum):
+        class TcpRtoAlgorithm(Enum):
             """
-            Tcprtoalgorithm (Enum Class)
+            TcpRtoAlgorithm (Enum Class)
 
             The algorithm used to determine the timeout value used for
 
@@ -291,7 +288,7 @@ class TCPMIB(Entity):
 
 
 
-    class Tcpconntable(Entity):
+    class TcpConnTable(Entity):
         """
         A table containing information about existing IPv4\-specific
         TCP connections or listeners.  This table has been
@@ -301,7 +298,7 @@ class TCPMIB(Entity):
         .. attribute:: tcpconnentry
         
         	A conceptual row of the tcpConnTable containing information about a particular current IPv4 TCP connection.  Each row of this table is transient in that it ceases to exist when (or soon after) the connection makes the transition to the CLOSED state
-        	**type**\: list of  		 :py:class:`Tcpconnentry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcpconntable.Tcpconnentry>`
+        	**type**\: list of  		 :py:class:`TcpConnEntry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnTable.TcpConnEntry>`
         
         	**status**\: deprecated
         
@@ -313,15 +310,14 @@ class TCPMIB(Entity):
         _revision = '2005-02-18'
 
         def __init__(self):
-            super(TCPMIB.Tcpconntable, self).__init__()
+            super(TCPMIB.TcpConnTable, self).__init__()
 
             self.yang_name = "tcpConnTable"
             self.yang_parent_name = "TCP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tcpConnEntry", ("tcpconnentry", TCPMIB.Tcpconntable.Tcpconnentry))])
+            self._child_classes = OrderedDict([("tcpConnEntry", ("tcpconnentry", TCPMIB.TcpConnTable.TcpConnEntry))])
             self._leafs = OrderedDict()
 
             self.tcpconnentry = YList(self)
@@ -329,10 +325,10 @@ class TCPMIB(Entity):
             self._absolute_path = lambda: "TCP-MIB:TCP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TCPMIB.Tcpconntable, [], name, value)
+            self._perform_setattr(TCPMIB.TcpConnTable, [], name, value)
 
 
-        class Tcpconnentry(Entity):
+        class TcpConnEntry(Entity):
             """
             A conceptual row of the tcpConnTable containing information
             about a particular current IPv4 TCP connection.  Each row
@@ -379,7 +375,7 @@ class TCPMIB(Entity):
             .. attribute:: tcpconnstate
             
             	The state of this TCP connection.  The only value that may be set by a management station is deleteTCB(12).  Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to set this object to any other value.  If a management station sets this object to the value deleteTCB(12), then the TCB (as defined in [RFC793]) of the corresponding connection on the managed node is deleted, resulting in immediate termination of the connection.  As an implementation\-specific option, a RST segment may be sent from the managed node to the other TCP endpoint (note, however, that RST segments are not sent reliably)
-            	**type**\:  :py:class:`Tcpconnstate <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcpconntable.Tcpconnentry.Tcpconnstate>`
+            	**type**\:  :py:class:`TcpConnState <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnTable.TcpConnEntry.TcpConnState>`
             
             	**status**\: deprecated
             
@@ -391,15 +387,14 @@ class TCPMIB(Entity):
             _revision = '2005-02-18'
 
             def __init__(self):
-                super(TCPMIB.Tcpconntable.Tcpconnentry, self).__init__()
+                super(TCPMIB.TcpConnTable.TcpConnEntry, self).__init__()
 
                 self.yang_name = "tcpConnEntry"
                 self.yang_parent_name = "tcpConnTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tcpconnlocaladdress','tcpconnlocalport','tcpconnremaddress','tcpconnremport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tcpconnlocaladdress', YLeaf(YType.str, 'tcpConnLocalAddress')),
                     ('tcpconnlocalport', YLeaf(YType.int32, 'tcpConnLocalPort')),
@@ -416,11 +411,11 @@ class TCPMIB(Entity):
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpConnTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TCPMIB.Tcpconntable.Tcpconnentry, ['tcpconnlocaladdress', 'tcpconnlocalport', 'tcpconnremaddress', 'tcpconnremport', 'tcpconnstate'], name, value)
+                self._perform_setattr(TCPMIB.TcpConnTable.TcpConnEntry, ['tcpconnlocaladdress', 'tcpconnlocalport', 'tcpconnremaddress', 'tcpconnremport', 'tcpconnstate'], name, value)
 
-            class Tcpconnstate(Enum):
+            class TcpConnState(Enum):
                 """
-                Tcpconnstate (Enum Class)
+                TcpConnState (Enum Class)
 
                 The state of this TCP connection.
 
@@ -500,7 +495,7 @@ class TCPMIB(Entity):
 
 
 
-    class Tcpconnectiontable(Entity):
+    class TcpConnectionTable(Entity):
         """
         A table containing information about existing TCP
         connections.  Note that unlike earlier TCP MIBs, there
@@ -509,7 +504,7 @@ class TCPMIB(Entity):
         .. attribute:: tcpconnectionentry
         
         	A conceptual row of the tcpConnectionTable containing information about a particular current TCP connection. Each row of this table is transient in that it ceases to exist when (or soon after) the connection makes the transition to the CLOSED state
-        	**type**\: list of  		 :py:class:`Tcpconnectionentry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcpconnectiontable.Tcpconnectionentry>`
+        	**type**\: list of  		 :py:class:`TcpConnectionEntry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnectionTable.TcpConnectionEntry>`
         
         
 
@@ -519,15 +514,14 @@ class TCPMIB(Entity):
         _revision = '2005-02-18'
 
         def __init__(self):
-            super(TCPMIB.Tcpconnectiontable, self).__init__()
+            super(TCPMIB.TcpConnectionTable, self).__init__()
 
             self.yang_name = "tcpConnectionTable"
             self.yang_parent_name = "TCP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tcpConnectionEntry", ("tcpconnectionentry", TCPMIB.Tcpconnectiontable.Tcpconnectionentry))])
+            self._child_classes = OrderedDict([("tcpConnectionEntry", ("tcpconnectionentry", TCPMIB.TcpConnectionTable.TcpConnectionEntry))])
             self._leafs = OrderedDict()
 
             self.tcpconnectionentry = YList(self)
@@ -535,10 +529,10 @@ class TCPMIB(Entity):
             self._absolute_path = lambda: "TCP-MIB:TCP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TCPMIB.Tcpconnectiontable, [], name, value)
+            self._perform_setattr(TCPMIB.TcpConnectionTable, [], name, value)
 
 
-        class Tcpconnectionentry(Entity):
+        class TcpConnectionEntry(Entity):
             """
             A conceptual row of the tcpConnectionTable containing
             information about a particular current TCP connection.
@@ -587,7 +581,7 @@ class TCPMIB(Entity):
             .. attribute:: tcpconnectionstate
             
             	The state of this TCP connection.  The value listen(2) is included only for parallelism to the old tcpConnTable and should not be used.  A connection in LISTEN state should be present in the tcpListenerTable.  The only value that may be set by a management station is deleteTCB(12).  Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to set this object to any other value.  If a management station sets this object to the value deleteTCB(12), then the TCB (as defined in [RFC793]) of the corresponding connection on the managed node is deleted, resulting in immediate termination of the connection.  As an implementation\-specific option, a RST segment may be sent from the managed node to the other TCP endpoint (note, however, that RST segments are not sent reliably)
-            	**type**\:  :py:class:`Tcpconnectionstate <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcpconnectiontable.Tcpconnectionentry.Tcpconnectionstate>`
+            	**type**\:  :py:class:`TcpConnectionState <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnectionTable.TcpConnectionEntry.TcpConnectionState>`
             
             .. attribute:: tcpconnectionprocess
             
@@ -604,15 +598,14 @@ class TCPMIB(Entity):
             _revision = '2005-02-18'
 
             def __init__(self):
-                super(TCPMIB.Tcpconnectiontable.Tcpconnectionentry, self).__init__()
+                super(TCPMIB.TcpConnectionTable.TcpConnectionEntry, self).__init__()
 
                 self.yang_name = "tcpConnectionEntry"
                 self.yang_parent_name = "tcpConnectionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tcpconnectionlocaladdresstype','tcpconnectionlocaladdress','tcpconnectionlocalport','tcpconnectionremaddresstype','tcpconnectionremaddress','tcpconnectionremport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tcpconnectionlocaladdresstype', YLeaf(YType.enumeration, 'tcpConnectionLocalAddressType')),
                     ('tcpconnectionlocaladdress', YLeaf(YType.str, 'tcpConnectionLocalAddress')),
@@ -635,11 +628,11 @@ class TCPMIB(Entity):
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpConnectionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TCPMIB.Tcpconnectiontable.Tcpconnectionentry, ['tcpconnectionlocaladdresstype', 'tcpconnectionlocaladdress', 'tcpconnectionlocalport', 'tcpconnectionremaddresstype', 'tcpconnectionremaddress', 'tcpconnectionremport', 'tcpconnectionstate', 'tcpconnectionprocess'], name, value)
+                self._perform_setattr(TCPMIB.TcpConnectionTable.TcpConnectionEntry, ['tcpconnectionlocaladdresstype', 'tcpconnectionlocaladdress', 'tcpconnectionlocalport', 'tcpconnectionremaddresstype', 'tcpconnectionremaddress', 'tcpconnectionremport', 'tcpconnectionstate', 'tcpconnectionprocess'], name, value)
 
-            class Tcpconnectionstate(Enum):
+            class TcpConnectionState(Enum):
                 """
-                Tcpconnectionstate (Enum Class)
+                TcpConnectionState (Enum Class)
 
                 The state of this TCP connection.
 
@@ -725,7 +718,7 @@ class TCPMIB(Entity):
 
 
 
-    class Tcplistenertable(Entity):
+    class TcpListenerTable(Entity):
         """
         A table containing information about TCP listeners.  A
         listening application can be represented in three
@@ -760,7 +753,7 @@ class TCPMIB(Entity):
         .. attribute:: tcplistenerentry
         
         	A conceptual row of the tcpListenerTable containing information about a particular TCP listener
-        	**type**\: list of  		 :py:class:`Tcplistenerentry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcplistenertable.Tcplistenerentry>`
+        	**type**\: list of  		 :py:class:`TcpListenerEntry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpListenerTable.TcpListenerEntry>`
         
         
 
@@ -770,15 +763,14 @@ class TCPMIB(Entity):
         _revision = '2005-02-18'
 
         def __init__(self):
-            super(TCPMIB.Tcplistenertable, self).__init__()
+            super(TCPMIB.TcpListenerTable, self).__init__()
 
             self.yang_name = "tcpListenerTable"
             self.yang_parent_name = "TCP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tcpListenerEntry", ("tcplistenerentry", TCPMIB.Tcplistenertable.Tcplistenerentry))])
+            self._child_classes = OrderedDict([("tcpListenerEntry", ("tcplistenerentry", TCPMIB.TcpListenerTable.TcpListenerEntry))])
             self._leafs = OrderedDict()
 
             self.tcplistenerentry = YList(self)
@@ -786,10 +778,10 @@ class TCPMIB(Entity):
             self._absolute_path = lambda: "TCP-MIB:TCP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TCPMIB.Tcplistenertable, [], name, value)
+            self._perform_setattr(TCPMIB.TcpListenerTable, [], name, value)
 
 
-        class Tcplistenerentry(Entity):
+        class TcpListenerEntry(Entity):
             """
             A conceptual row of the tcpListenerTable containing
             information about a particular TCP listener.
@@ -828,15 +820,14 @@ class TCPMIB(Entity):
             _revision = '2005-02-18'
 
             def __init__(self):
-                super(TCPMIB.Tcplistenertable.Tcplistenerentry, self).__init__()
+                super(TCPMIB.TcpListenerTable.TcpListenerEntry, self).__init__()
 
                 self.yang_name = "tcpListenerEntry"
                 self.yang_parent_name = "tcpListenerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tcplistenerlocaladdresstype','tcplistenerlocaladdress','tcplistenerlocalport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tcplistenerlocaladdresstype', YLeaf(YType.enumeration, 'tcpListenerLocalAddressType')),
                     ('tcplistenerlocaladdress', YLeaf(YType.str, 'tcpListenerLocalAddress')),
@@ -851,7 +842,7 @@ class TCPMIB(Entity):
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpListenerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TCPMIB.Tcplistenertable.Tcplistenerentry, ['tcplistenerlocaladdresstype', 'tcplistenerlocaladdress', 'tcplistenerlocalport', 'tcplistenerprocess'], name, value)
+                self._perform_setattr(TCPMIB.TcpListenerTable.TcpListenerEntry, ['tcplistenerlocaladdresstype', 'tcplistenerlocaladdress', 'tcplistenerlocalport', 'tcplistenerprocess'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TCPMIB()

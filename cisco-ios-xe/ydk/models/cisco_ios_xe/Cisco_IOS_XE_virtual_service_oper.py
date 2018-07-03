@@ -40,8 +40,7 @@ class VirtualServices(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("virtual-service", ("virtual_service", VirtualServices.VirtualService))])
+        self._child_classes = OrderedDict([("virtual-service", ("virtual_service", VirtualServices.VirtualService))])
         self._leafs = OrderedDict()
 
         self.virtual_service = YList(self)
@@ -115,8 +114,7 @@ class VirtualServices(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("details", ("details", VirtualServices.VirtualService.Details)), ("utilization", ("utilization", VirtualServices.VirtualService.Utilization)), ("network-utils", ("network_utils", VirtualServices.VirtualService.NetworkUtils)), ("storage-utils", ("storage_utils", VirtualServices.VirtualService.StorageUtils)), ("processes", ("processes", VirtualServices.VirtualService.Processes)), ("attached-devices", ("attached_devices", VirtualServices.VirtualService.AttachedDevices)), ("network-interfaces", ("network_interfaces", VirtualServices.VirtualService.NetworkInterfaces)), ("guest-routes", ("guest_routes", VirtualServices.VirtualService.GuestRoutes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("details", ("details", VirtualServices.VirtualService.Details)), ("utilization", ("utilization", VirtualServices.VirtualService.Utilization)), ("network-utils", ("network_utils", VirtualServices.VirtualService.NetworkUtils)), ("storage-utils", ("storage_utils", VirtualServices.VirtualService.StorageUtils)), ("processes", ("processes", VirtualServices.VirtualService.Processes)), ("attached-devices", ("attached_devices", VirtualServices.VirtualService.AttachedDevices)), ("network-interfaces", ("network_interfaces", VirtualServices.VirtualService.NetworkInterfaces)), ("guest-routes", ("guest_routes", VirtualServices.VirtualService.GuestRoutes))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
             ])
@@ -125,42 +123,34 @@ class VirtualServices(Entity):
             self.details = VirtualServices.VirtualService.Details()
             self.details.parent = self
             self._children_name_map["details"] = "details"
-            self._children_yang_names.add("details")
 
             self.utilization = VirtualServices.VirtualService.Utilization()
             self.utilization.parent = self
             self._children_name_map["utilization"] = "utilization"
-            self._children_yang_names.add("utilization")
 
             self.network_utils = VirtualServices.VirtualService.NetworkUtils()
             self.network_utils.parent = self
             self._children_name_map["network_utils"] = "network-utils"
-            self._children_yang_names.add("network-utils")
 
             self.storage_utils = VirtualServices.VirtualService.StorageUtils()
             self.storage_utils.parent = self
             self._children_name_map["storage_utils"] = "storage-utils"
-            self._children_yang_names.add("storage-utils")
 
             self.processes = VirtualServices.VirtualService.Processes()
             self.processes.parent = self
             self._children_name_map["processes"] = "processes"
-            self._children_yang_names.add("processes")
 
             self.attached_devices = VirtualServices.VirtualService.AttachedDevices()
             self.attached_devices.parent = self
             self._children_name_map["attached_devices"] = "attached-devices"
-            self._children_yang_names.add("attached-devices")
 
             self.network_interfaces = VirtualServices.VirtualService.NetworkInterfaces()
             self.network_interfaces.parent = self
             self._children_name_map["network_interfaces"] = "network-interfaces"
-            self._children_yang_names.add("network-interfaces")
 
             self.guest_routes = VirtualServices.VirtualService.GuestRoutes()
             self.guest_routes.parent = self
             self._children_name_map["guest_routes"] = "guest-routes"
-            self._children_yang_names.add("guest-routes")
             self._segment_path = lambda: "virtual-service" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-virtual-service-oper:virtual-services/%s" % self._segment_path()
 
@@ -222,8 +212,7 @@ class VirtualServices(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("package-information", ("package_information", VirtualServices.VirtualService.Details.PackageInformation)), ("detailed-guest-status", ("detailed_guest_status", VirtualServices.VirtualService.Details.DetailedGuestStatus)), ("resource-reservation", ("resource_reservation", VirtualServices.VirtualService.Details.ResourceReservation)), ("resource-admission", ("resource_admission", VirtualServices.VirtualService.Details.ResourceAdmission))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("package-information", ("package_information", VirtualServices.VirtualService.Details.PackageInformation)), ("detailed-guest-status", ("detailed_guest_status", VirtualServices.VirtualService.Details.DetailedGuestStatus)), ("resource-reservation", ("resource_reservation", VirtualServices.VirtualService.Details.ResourceReservation)), ("resource-admission", ("resource_admission", VirtualServices.VirtualService.Details.ResourceAdmission))])
                 self._leafs = OrderedDict([
                     ('state', YLeaf(YType.str, 'state')),
                     ('activated_profile_name', YLeaf(YType.str, 'activated-profile-name')),
@@ -236,22 +225,18 @@ class VirtualServices(Entity):
                 self.package_information = VirtualServices.VirtualService.Details.PackageInformation()
                 self.package_information.parent = self
                 self._children_name_map["package_information"] = "package-information"
-                self._children_yang_names.add("package-information")
 
                 self.detailed_guest_status = VirtualServices.VirtualService.Details.DetailedGuestStatus()
                 self.detailed_guest_status.parent = self
                 self._children_name_map["detailed_guest_status"] = "detailed-guest-status"
-                self._children_yang_names.add("detailed-guest-status")
 
                 self.resource_reservation = VirtualServices.VirtualService.Details.ResourceReservation()
                 self.resource_reservation.parent = self
                 self._children_name_map["resource_reservation"] = "resource-reservation"
-                self._children_yang_names.add("resource-reservation")
 
                 self.resource_admission = VirtualServices.VirtualService.Details.ResourceAdmission()
                 self.resource_admission.parent = self
                 self._children_name_map["resource_admission"] = "resource-admission"
-                self._children_yang_names.add("resource-admission")
                 self._segment_path = lambda: "details"
 
             def __setattr__(self, name, value):
@@ -302,8 +287,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("application", ("application", VirtualServices.VirtualService.Details.PackageInformation.Application)), ("signing", ("signing", VirtualServices.VirtualService.Details.PackageInformation.Signing)), ("licensing", ("licensing", VirtualServices.VirtualService.Details.PackageInformation.Licensing))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("application", ("application", VirtualServices.VirtualService.Details.PackageInformation.Application)), ("signing", ("signing", VirtualServices.VirtualService.Details.PackageInformation.Signing)), ("licensing", ("licensing", VirtualServices.VirtualService.Details.PackageInformation.Licensing))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('path', YLeaf(YType.str, 'path')),
@@ -314,17 +298,14 @@ class VirtualServices(Entity):
                     self.application = VirtualServices.VirtualService.Details.PackageInformation.Application()
                     self.application.parent = self
                     self._children_name_map["application"] = "application"
-                    self._children_yang_names.add("application")
 
                     self.signing = VirtualServices.VirtualService.Details.PackageInformation.Signing()
                     self.signing.parent = self
                     self._children_name_map["signing"] = "signing"
-                    self._children_yang_names.add("signing")
 
                     self.licensing = VirtualServices.VirtualService.Details.PackageInformation.Licensing()
                     self.licensing.parent = self
                     self._children_name_map["licensing"] = "licensing"
-                    self._children_yang_names.add("licensing")
                     self._segment_path = lambda: "package-information"
 
                 def __setattr__(self, name, value):
@@ -370,8 +351,7 @@ class VirtualServices(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('installed_version', YLeaf(YType.str, 'installed-version')),
@@ -417,8 +397,7 @@ class VirtualServices(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('key_type', YLeaf(YType.str, 'key-type')),
                             ('method', YLeaf(YType.str, 'method')),
@@ -460,8 +439,7 @@ class VirtualServices(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('version', YLeaf(YType.str, 'version')),
@@ -498,15 +476,16 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("processes", ("processes", VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("processes", ("processes", VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes))])
                     self._leafs = OrderedDict()
 
                     self.processes = VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes()
                     self.processes.parent = self
                     self._children_name_map["processes"] = "processes"
-                    self._children_yang_names.add("processes")
                     self._segment_path = lambda: "detailed-guest-status"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(VirtualServices.VirtualService.Details.DetailedGuestStatus, [], name, value)
 
 
                 class Processes(Entity):
@@ -553,8 +532,7 @@ class VirtualServices(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('status', YLeaf(YType.str, 'status')),
@@ -613,8 +591,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('disk', YLeaf(YType.uint64, 'disk')),
                         ('memory', YLeaf(YType.uint64, 'memory')),
@@ -675,8 +652,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('state', YLeaf(YType.str, 'state')),
                         ('disk_space', YLeaf(YType.str, 'disk-space')),
@@ -729,8 +705,7 @@ class VirtualServices(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("cpu-util", ("cpu_util", VirtualServices.VirtualService.Utilization.CpuUtil)), ("memory-util", ("memory_util", VirtualServices.VirtualService.Utilization.MemoryUtil))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("cpu-util", ("cpu_util", VirtualServices.VirtualService.Utilization.CpuUtil)), ("memory-util", ("memory_util", VirtualServices.VirtualService.Utilization.MemoryUtil))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -739,12 +714,10 @@ class VirtualServices(Entity):
                 self.cpu_util = VirtualServices.VirtualService.Utilization.CpuUtil()
                 self.cpu_util.parent = self
                 self._children_name_map["cpu_util"] = "cpu-util"
-                self._children_yang_names.add("cpu-util")
 
                 self.memory_util = VirtualServices.VirtualService.Utilization.MemoryUtil()
                 self.memory_util.parent = self
                 self._children_name_map["memory_util"] = "memory-util"
-                self._children_yang_names.add("memory-util")
                 self._segment_path = lambda: "utilization"
 
             def __setattr__(self, name, value):
@@ -789,8 +762,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('requested_application_util', YLeaf(YType.uint64, 'requested-application-util')),
                         ('actual_application_util', YLeaf(YType.uint64, 'actual-application-util')),
@@ -834,8 +806,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('memory_allocation', YLeaf(YType.str, 'memory-allocation')),
                         ('memory_used', YLeaf(YType.str, 'memory-used')),
@@ -872,8 +843,7 @@ class VirtualServices(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("network-util", ("network_util", VirtualServices.VirtualService.NetworkUtils.NetworkUtil))])
+                self._child_classes = OrderedDict([("network-util", ("network_util", VirtualServices.VirtualService.NetworkUtils.NetworkUtil))])
                 self._leafs = OrderedDict()
 
                 self.network_util = YList(self)
@@ -954,8 +924,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('alias', YLeaf(YType.str, 'alias')),
@@ -1004,8 +973,7 @@ class VirtualServices(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("storage-util", ("storage_util", VirtualServices.VirtualService.StorageUtils.StorageUtil))])
+                self._child_classes = OrderedDict([("storage-util", ("storage_util", VirtualServices.VirtualService.StorageUtils.StorageUtil))])
                 self._leafs = OrderedDict()
 
                 self.storage_util = YList(self)
@@ -1103,8 +1071,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('alias', YLeaf(YType.str, 'alias')),
@@ -1159,8 +1126,7 @@ class VirtualServices(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("process", ("process", VirtualServices.VirtualService.Processes.Process))])
+                self._child_classes = OrderedDict([("process", ("process", VirtualServices.VirtualService.Processes.Process))])
                 self._leafs = OrderedDict()
 
                 self.process = YList(self)
@@ -1214,8 +1180,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('status', YLeaf(YType.str, 'status')),
@@ -1258,8 +1223,7 @@ class VirtualServices(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("attached-device", ("attached_device", VirtualServices.VirtualService.AttachedDevices.AttachedDevice))])
+                self._child_classes = OrderedDict([("attached-device", ("attached_device", VirtualServices.VirtualService.AttachedDevices.AttachedDevice))])
                 self._leafs = OrderedDict()
 
                 self.attached_device = YList(self)
@@ -1303,8 +1267,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('type', YLeaf(YType.str, 'type')),
@@ -1343,8 +1306,7 @@ class VirtualServices(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("network-interface", ("network_interface", VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface))])
+                self._child_classes = OrderedDict([("network-interface", ("network_interface", VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface))])
                 self._leafs = OrderedDict()
 
                 self.network_interface = YList(self)
@@ -1392,8 +1354,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['mac_address']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('mac_address', YLeaf(YType.str, 'mac-address')),
                         ('attached_interface', YLeaf(YType.str, 'attached-interface')),
@@ -1432,8 +1393,7 @@ class VirtualServices(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("guest-route", ("guest_route", VirtualServices.VirtualService.GuestRoutes.GuestRoute))])
+                self._child_classes = OrderedDict([("guest-route", ("guest_route", VirtualServices.VirtualService.GuestRoutes.GuestRoute))])
                 self._leafs = OrderedDict()
 
                 self.guest_route = YList(self)
@@ -1467,8 +1427,7 @@ class VirtualServices(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['route']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('route', YLeaf(YType.str, 'route')),
                     ])

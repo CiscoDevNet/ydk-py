@@ -24,17 +24,17 @@ class DRAFTMSDPMIB(Entity):
     .. attribute:: msdprequeststable
     
     	The (conceptual) table listing group ranges and MSDP peers used when deciding where to send an SA Request message when required.  If SA Caching is enabled, this table may be empty
-    	**type**\:  :py:class:`Msdprequeststable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdprequeststable>`
+    	**type**\:  :py:class:`MsdpRequestsTable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpRequestsTable>`
     
     .. attribute:: msdppeertable
     
     	The (conceptual) table listing the MSDP speaker's peers
-    	**type**\:  :py:class:`Msdppeertable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdppeertable>`
+    	**type**\:  :py:class:`MsdpPeerTable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable>`
     
     .. attribute:: msdpsacachetable
     
     	The (conceptual) table listing the MSDP SA advertisements currently in the MSDP speaker's cache
-    	**type**\:  :py:class:`Msdpsacachetable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdpsacachetable>`
+    	**type**\:  :py:class:`MsdpSACacheTable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpSACacheTable>`
     
     
 
@@ -52,30 +52,28 @@ class DRAFTMSDPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("msdp", ("msdp", DRAFTMSDPMIB.Msdp)), ("msdpRequestsTable", ("msdprequeststable", DRAFTMSDPMIB.Msdprequeststable)), ("msdpPeerTable", ("msdppeertable", DRAFTMSDPMIB.Msdppeertable)), ("msdpSACacheTable", ("msdpsacachetable", DRAFTMSDPMIB.Msdpsacachetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("msdp", ("msdp", DRAFTMSDPMIB.Msdp)), ("msdpRequestsTable", ("msdprequeststable", DRAFTMSDPMIB.MsdpRequestsTable)), ("msdpPeerTable", ("msdppeertable", DRAFTMSDPMIB.MsdpPeerTable)), ("msdpSACacheTable", ("msdpsacachetable", DRAFTMSDPMIB.MsdpSACacheTable))])
         self._leafs = OrderedDict()
 
         self.msdp = DRAFTMSDPMIB.Msdp()
         self.msdp.parent = self
         self._children_name_map["msdp"] = "msdp"
-        self._children_yang_names.add("msdp")
 
-        self.msdprequeststable = DRAFTMSDPMIB.Msdprequeststable()
+        self.msdprequeststable = DRAFTMSDPMIB.MsdpRequestsTable()
         self.msdprequeststable.parent = self
         self._children_name_map["msdprequeststable"] = "msdpRequestsTable"
-        self._children_yang_names.add("msdpRequestsTable")
 
-        self.msdppeertable = DRAFTMSDPMIB.Msdppeertable()
+        self.msdppeertable = DRAFTMSDPMIB.MsdpPeerTable()
         self.msdppeertable.parent = self
         self._children_name_map["msdppeertable"] = "msdpPeerTable"
-        self._children_yang_names.add("msdpPeerTable")
 
-        self.msdpsacachetable = DRAFTMSDPMIB.Msdpsacachetable()
+        self.msdpsacachetable = DRAFTMSDPMIB.MsdpSACacheTable()
         self.msdpsacachetable.parent = self
         self._children_name_map["msdpsacachetable"] = "msdpSACacheTable"
-        self._children_yang_names.add("msdpSACacheTable")
         self._segment_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(DRAFTMSDPMIB, [], name, value)
 
 
     class Msdp(Entity):
@@ -125,8 +123,7 @@ class DRAFTMSDPMIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('msdpenabled', YLeaf(YType.boolean, 'msdpEnabled')),
                 ('msdpcachelifetime', YLeaf(YType.uint32, 'msdpCacheLifetime')),
@@ -144,7 +141,7 @@ class DRAFTMSDPMIB(Entity):
             self._perform_setattr(DRAFTMSDPMIB.Msdp, ['msdpenabled', 'msdpcachelifetime', 'msdpnumsacacheentries', 'msdpsaholddownperiod'], name, value)
 
 
-    class Msdprequeststable(Entity):
+    class MsdpRequestsTable(Entity):
         """
         The (conceptual) table listing group ranges and MSDP
         peers used when deciding where to send an SA Request
@@ -154,7 +151,7 @@ class DRAFTMSDPMIB(Entity):
         .. attribute:: msdprequestsentry
         
         	An entry (conceptual row) representing a group range used when deciding where to send an SA Request message
-        	**type**\: list of  		 :py:class:`Msdprequestsentry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdprequeststable.Msdprequestsentry>`
+        	**type**\: list of  		 :py:class:`MsdpRequestsEntry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpRequestsTable.MsdpRequestsEntry>`
         
         
 
@@ -164,15 +161,14 @@ class DRAFTMSDPMIB(Entity):
         _revision = '1999-12-16'
 
         def __init__(self):
-            super(DRAFTMSDPMIB.Msdprequeststable, self).__init__()
+            super(DRAFTMSDPMIB.MsdpRequestsTable, self).__init__()
 
             self.yang_name = "msdpRequestsTable"
             self.yang_parent_name = "DRAFT-MSDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("msdpRequestsEntry", ("msdprequestsentry", DRAFTMSDPMIB.Msdprequeststable.Msdprequestsentry))])
+            self._child_classes = OrderedDict([("msdpRequestsEntry", ("msdprequestsentry", DRAFTMSDPMIB.MsdpRequestsTable.MsdpRequestsEntry))])
             self._leafs = OrderedDict()
 
             self.msdprequestsentry = YList(self)
@@ -180,10 +176,10 @@ class DRAFTMSDPMIB(Entity):
             self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DRAFTMSDPMIB.Msdprequeststable, [], name, value)
+            self._perform_setattr(DRAFTMSDPMIB.MsdpRequestsTable, [], name, value)
 
 
-        class Msdprequestsentry(Entity):
+        class MsdpRequestsEntry(Entity):
             """
             An entry (conceptual row) representing a group range
             used when deciding where to send an SA Request
@@ -223,15 +219,14 @@ class DRAFTMSDPMIB(Entity):
             _revision = '1999-12-16'
 
             def __init__(self):
-                super(DRAFTMSDPMIB.Msdprequeststable.Msdprequestsentry, self).__init__()
+                super(DRAFTMSDPMIB.MsdpRequestsTable.MsdpRequestsEntry, self).__init__()
 
                 self.yang_name = "msdpRequestsEntry"
                 self.yang_parent_name = "msdpRequestsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['msdprequestsgroupaddress','msdprequestsgroupmask']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('msdprequestsgroupaddress', YLeaf(YType.str, 'msdpRequestsGroupAddress')),
                     ('msdprequestsgroupmask', YLeaf(YType.str, 'msdpRequestsGroupMask')),
@@ -246,10 +241,10 @@ class DRAFTMSDPMIB(Entity):
                 self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpRequestsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DRAFTMSDPMIB.Msdprequeststable.Msdprequestsentry, ['msdprequestsgroupaddress', 'msdprequestsgroupmask', 'msdprequestspeer', 'msdprequestsstatus'], name, value)
+                self._perform_setattr(DRAFTMSDPMIB.MsdpRequestsTable.MsdpRequestsEntry, ['msdprequestsgroupaddress', 'msdprequestsgroupmask', 'msdprequestspeer', 'msdprequestsstatus'], name, value)
 
 
-    class Msdppeertable(Entity):
+    class MsdpPeerTable(Entity):
         """
         The (conceptual) table listing the MSDP speaker's
         peers.
@@ -257,7 +252,7 @@ class DRAFTMSDPMIB(Entity):
         .. attribute:: msdppeerentry
         
         	An entry (conceptual row) representing an MSDP peer
-        	**type**\: list of  		 :py:class:`Msdppeerentry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdppeertable.Msdppeerentry>`
+        	**type**\: list of  		 :py:class:`MsdpPeerEntry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry>`
         
         
 
@@ -267,15 +262,14 @@ class DRAFTMSDPMIB(Entity):
         _revision = '1999-12-16'
 
         def __init__(self):
-            super(DRAFTMSDPMIB.Msdppeertable, self).__init__()
+            super(DRAFTMSDPMIB.MsdpPeerTable, self).__init__()
 
             self.yang_name = "msdpPeerTable"
             self.yang_parent_name = "DRAFT-MSDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("msdpPeerEntry", ("msdppeerentry", DRAFTMSDPMIB.Msdppeertable.Msdppeerentry))])
+            self._child_classes = OrderedDict([("msdpPeerEntry", ("msdppeerentry", DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry))])
             self._leafs = OrderedDict()
 
             self.msdppeerentry = YList(self)
@@ -283,10 +277,10 @@ class DRAFTMSDPMIB(Entity):
             self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DRAFTMSDPMIB.Msdppeertable, [], name, value)
+            self._perform_setattr(DRAFTMSDPMIB.MsdpPeerTable, [], name, value)
 
 
-        class Msdppeerentry(Entity):
+        class MsdpPeerEntry(Entity):
             """
             An entry (conceptual row) representing an MSDP peer.
             
@@ -300,7 +294,7 @@ class DRAFTMSDPMIB(Entity):
             .. attribute:: msdppeerstate
             
             	The state of the MSDP TCP connection with this peer
-            	**type**\:  :py:class:`Msdppeerstate <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdppeertable.Msdppeerentry.Msdppeerstate>`
+            	**type**\:  :py:class:`MsdpPeerState <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry.MsdpPeerState>`
             
             .. attribute:: msdppeerrpffailures
             
@@ -481,12 +475,12 @@ class DRAFTMSDPMIB(Entity):
             .. attribute:: msdppeerencapsulationstate
             
             	The status of the encapsulation negotiation state machine
-            	**type**\:  :py:class:`Msdppeerencapsulationstate <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdppeertable.Msdppeerentry.Msdppeerencapsulationstate>`
+            	**type**\:  :py:class:`MsdpPeerEncapsulationState <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry.MsdpPeerEncapsulationState>`
             
             .. attribute:: msdppeerencapsulationtype
             
             	The encapsulation in use when encapsulating data in SA messages to this peer
-            	**type**\:  :py:class:`Msdppeerencapsulationtype <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdppeertable.Msdppeerentry.Msdppeerencapsulationtype>`
+            	**type**\:  :py:class:`MsdpPeerEncapsulationType <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry.MsdpPeerEncapsulationType>`
             
             .. attribute:: msdppeerconnectionattempts
             
@@ -524,15 +518,14 @@ class DRAFTMSDPMIB(Entity):
             _revision = '1999-12-16'
 
             def __init__(self):
-                super(DRAFTMSDPMIB.Msdppeertable.Msdppeerentry, self).__init__()
+                super(DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry, self).__init__()
 
                 self.yang_name = "msdpPeerEntry"
                 self.yang_parent_name = "msdpPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['msdppeerremoteaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('msdppeerremoteaddress', YLeaf(YType.str, 'msdpPeerRemoteAddress')),
                     ('msdppeerstate', YLeaf(YType.enumeration, 'msdpPeerState')),
@@ -603,11 +596,11 @@ class DRAFTMSDPMIB(Entity):
                 self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DRAFTMSDPMIB.Msdppeertable.Msdppeerentry, ['msdppeerremoteaddress', 'msdppeerstate', 'msdppeerrpffailures', 'msdppeerinsas', 'msdppeeroutsas', 'msdppeerinsarequests', 'msdppeeroutsarequests', 'msdppeerinsaresponses', 'msdppeeroutsaresponses', 'msdppeerincontrolmessages', 'msdppeeroutcontrolmessages', 'msdppeerindatapackets', 'msdppeeroutdatapackets', 'msdppeerfsmestablishedtransitions', 'msdppeerfsmestablishedtime', 'msdppeerinmessageelapsedtime', 'msdppeerlocaladdress', 'msdppeersaadvperiod', 'msdppeerconnectretryinterval', 'msdppeerholdtimeconfigured', 'msdppeerkeepaliveconfigured', 'msdppeerdatattl', 'msdppeerprocessrequestsfrom', 'msdppeerstatus', 'msdppeerremoteport', 'msdppeerlocalport', 'msdppeerencapsulationstate', 'msdppeerencapsulationtype', 'msdppeerconnectionattempts', 'msdppeerinnotifications', 'msdppeeroutnotifications', 'msdppeerlasterror'], name, value)
+                self._perform_setattr(DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry, ['msdppeerremoteaddress', 'msdppeerstate', 'msdppeerrpffailures', 'msdppeerinsas', 'msdppeeroutsas', 'msdppeerinsarequests', 'msdppeeroutsarequests', 'msdppeerinsaresponses', 'msdppeeroutsaresponses', 'msdppeerincontrolmessages', 'msdppeeroutcontrolmessages', 'msdppeerindatapackets', 'msdppeeroutdatapackets', 'msdppeerfsmestablishedtransitions', 'msdppeerfsmestablishedtime', 'msdppeerinmessageelapsedtime', 'msdppeerlocaladdress', 'msdppeersaadvperiod', 'msdppeerconnectretryinterval', 'msdppeerholdtimeconfigured', 'msdppeerkeepaliveconfigured', 'msdppeerdatattl', 'msdppeerprocessrequestsfrom', 'msdppeerstatus', 'msdppeerremoteport', 'msdppeerlocalport', 'msdppeerencapsulationstate', 'msdppeerencapsulationtype', 'msdppeerconnectionattempts', 'msdppeerinnotifications', 'msdppeeroutnotifications', 'msdppeerlasterror'], name, value)
 
-            class Msdppeerencapsulationstate(Enum):
+            class MsdpPeerEncapsulationState(Enum):
                 """
-                Msdppeerencapsulationstate (Enum Class)
+                MsdpPeerEncapsulationState (Enum Class)
 
                 The status of the encapsulation negotiation state
 
@@ -640,9 +633,9 @@ class DRAFTMSDPMIB(Entity):
                 failed = Enum.YLeaf(6, "failed")
 
 
-            class Msdppeerencapsulationtype(Enum):
+            class MsdpPeerEncapsulationType(Enum):
                 """
-                Msdppeerencapsulationtype (Enum Class)
+                MsdpPeerEncapsulationType (Enum Class)
 
                 The encapsulation in use when encapsulating data in
 
@@ -663,9 +656,9 @@ class DRAFTMSDPMIB(Entity):
                 gre = Enum.YLeaf(3, "gre")
 
 
-            class Msdppeerstate(Enum):
+            class MsdpPeerState(Enum):
                 """
-                Msdppeerstate (Enum Class)
+                MsdpPeerState (Enum Class)
 
                 The state of the MSDP TCP connection with this peer.
 
@@ -693,7 +686,7 @@ class DRAFTMSDPMIB(Entity):
 
 
 
-    class Msdpsacachetable(Entity):
+    class MsdpSACacheTable(Entity):
         """
         The (conceptual) table listing the MSDP SA
         advertisements currently in the MSDP speaker's cache.
@@ -701,7 +694,7 @@ class DRAFTMSDPMIB(Entity):
         .. attribute:: msdpsacacheentry
         
         	An entry (conceptual row) representing an MSDP SA advert
-        	**type**\: list of  		 :py:class:`Msdpsacacheentry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdpsacachetable.Msdpsacacheentry>`
+        	**type**\: list of  		 :py:class:`MsdpSACacheEntry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpSACacheTable.MsdpSACacheEntry>`
         
         
 
@@ -711,15 +704,14 @@ class DRAFTMSDPMIB(Entity):
         _revision = '1999-12-16'
 
         def __init__(self):
-            super(DRAFTMSDPMIB.Msdpsacachetable, self).__init__()
+            super(DRAFTMSDPMIB.MsdpSACacheTable, self).__init__()
 
             self.yang_name = "msdpSACacheTable"
             self.yang_parent_name = "DRAFT-MSDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("msdpSACacheEntry", ("msdpsacacheentry", DRAFTMSDPMIB.Msdpsacachetable.Msdpsacacheentry))])
+            self._child_classes = OrderedDict([("msdpSACacheEntry", ("msdpsacacheentry", DRAFTMSDPMIB.MsdpSACacheTable.MsdpSACacheEntry))])
             self._leafs = OrderedDict()
 
             self.msdpsacacheentry = YList(self)
@@ -727,10 +719,10 @@ class DRAFTMSDPMIB(Entity):
             self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DRAFTMSDPMIB.Msdpsacachetable, [], name, value)
+            self._perform_setattr(DRAFTMSDPMIB.MsdpSACacheTable, [], name, value)
 
 
-        class Msdpsacacheentry(Entity):
+        class MsdpSACacheEntry(Entity):
             """
             An entry (conceptual row) representing an MSDP SA
             advert.
@@ -811,15 +803,14 @@ class DRAFTMSDPMIB(Entity):
             _revision = '1999-12-16'
 
             def __init__(self):
-                super(DRAFTMSDPMIB.Msdpsacachetable.Msdpsacacheentry, self).__init__()
+                super(DRAFTMSDPMIB.MsdpSACacheTable.MsdpSACacheEntry, self).__init__()
 
                 self.yang_name = "msdpSACacheEntry"
                 self.yang_parent_name = "msdpSACacheTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['msdpsacachegroupaddr','msdpsacachesourceaddr','msdpsacacheoriginrp']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('msdpsacachegroupaddr', YLeaf(YType.str, 'msdpSACacheGroupAddr')),
                     ('msdpsacachesourceaddr', YLeaf(YType.str, 'msdpSACacheSourceAddr')),
@@ -846,7 +837,7 @@ class DRAFTMSDPMIB(Entity):
                 self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpSACacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DRAFTMSDPMIB.Msdpsacachetable.Msdpsacacheentry, ['msdpsacachegroupaddr', 'msdpsacachesourceaddr', 'msdpsacacheoriginrp', 'msdpsacachepeerlearnedfrom', 'msdpsacacherpfpeer', 'msdpsacacheinsas', 'msdpsacacheindatapackets', 'msdpsacacheuptime', 'msdpsacacheexpirytime', 'msdpsacachestatus'], name, value)
+                self._perform_setattr(DRAFTMSDPMIB.MsdpSACacheTable.MsdpSACacheEntry, ['msdpsacachegroupaddr', 'msdpsacachesourceaddr', 'msdpsacacheoriginrp', 'msdpsacachepeerlearnedfrom', 'msdpsacacherpfpeer', 'msdpsacacheinsas', 'msdpsacacheindatapackets', 'msdpsacacheuptime', 'msdpsacacheexpirytime', 'msdpsacachestatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DRAFTMSDPMIB()

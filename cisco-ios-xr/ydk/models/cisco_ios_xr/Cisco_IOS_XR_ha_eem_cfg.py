@@ -165,8 +165,7 @@ class EventManager(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("policies", ("policies", EventManager.Policies)), ("scheduler-script", ("scheduler_script", EventManager.SchedulerScript)), ("environments", ("environments", EventManager.Environments))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("policies", ("policies", EventManager.Policies)), ("scheduler-script", ("scheduler_script", EventManager.SchedulerScript)), ("environments", ("environments", EventManager.Environments))])
         self._leafs = OrderedDict([
             ('refresh_time', YLeaf(YType.uint32, 'refresh-time')),
             ('schedule_suspend', YLeaf(YType.boolean, 'schedule-suspend')),
@@ -181,17 +180,14 @@ class EventManager(Entity):
         self.policies = EventManager.Policies()
         self.policies.parent = self
         self._children_name_map["policies"] = "policies"
-        self._children_yang_names.add("policies")
 
         self.scheduler_script = EventManager.SchedulerScript()
         self.scheduler_script.parent = self
         self._children_name_map["scheduler_script"] = "scheduler-script"
-        self._children_yang_names.add("scheduler-script")
 
         self.environments = EventManager.Environments()
         self.environments.parent = self
         self._children_name_map["environments"] = "environments"
-        self._children_yang_names.add("environments")
         self._segment_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager"
 
     def __setattr__(self, name, value):
@@ -222,8 +218,7 @@ class EventManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("policy", ("policy", EventManager.Policies.Policy))])
+            self._child_classes = OrderedDict([("policy", ("policy", EventManager.Policies.Policy))])
             self._leafs = OrderedDict()
 
             self.policy = YList(self)
@@ -303,8 +298,7 @@ class EventManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['policy_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('policy_name', YLeaf(YType.str, 'policy-name')),
                     ('username', YLeaf(YType.str, 'username')),
@@ -354,16 +348,17 @@ class EventManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("thread-classes", ("thread_classes", EventManager.SchedulerScript.ThreadClasses))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("thread-classes", ("thread_classes", EventManager.SchedulerScript.ThreadClasses))])
             self._leafs = OrderedDict()
 
             self.thread_classes = EventManager.SchedulerScript.ThreadClasses()
             self.thread_classes.parent = self
             self._children_name_map["thread_classes"] = "thread-classes"
-            self._children_yang_names.add("thread-classes")
             self._segment_path = lambda: "scheduler-script"
             self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EventManager.SchedulerScript, [], name, value)
 
 
         class ThreadClasses(Entity):
@@ -390,8 +385,7 @@ class EventManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("thread-class", ("thread_class", EventManager.SchedulerScript.ThreadClasses.ThreadClass))])
+                self._child_classes = OrderedDict([("thread-class", ("thread_class", EventManager.SchedulerScript.ThreadClasses.ThreadClass))])
                 self._leafs = OrderedDict()
 
                 self.thread_class = YList(self)
@@ -437,8 +431,7 @@ class EventManager(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['thread_class_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('thread_class_name', YLeaf(YType.str, 'thread-class-name')),
                         ('num_threads', YLeaf(YType.uint32, 'num-threads')),
@@ -477,8 +470,7 @@ class EventManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("environment", ("environment", EventManager.Environments.Environment))])
+            self._child_classes = OrderedDict([("environment", ("environment", EventManager.Environments.Environment))])
             self._leafs = OrderedDict()
 
             self.environment = YList(self)
@@ -522,8 +514,7 @@ class EventManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['environment_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('environment_name', YLeaf(YType.str, 'environment-name')),
                     ('environment_value', YLeaf(YType.str, 'environment-value')),

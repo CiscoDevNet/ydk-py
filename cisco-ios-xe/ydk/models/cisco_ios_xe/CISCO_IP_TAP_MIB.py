@@ -31,12 +31,12 @@ class CISCOIPTAPMIB(Entity):
     .. attribute:: citapstreamencodepacket
     
     	
-    	**type**\:  :py:class:`Citapstreamencodepacket <ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB.CISCOIPTAPMIB.Citapstreamencodepacket>`
+    	**type**\:  :py:class:`CitapStreamEncodePacket <ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB.CISCOIPTAPMIB.CitapStreamEncodePacket>`
     
     .. attribute:: citapstreamtable
     
     	The Intercept Stream IP Table lists the IPv4 and IPv6 streams to be intercepted.  The same data stream may be required by multiple taps, and one might assume that often the intercepted stream is a small subset of the traffic that could be intercepted.   This essentially provides options for packet selection, only some of which might be used. For example, if all traffic to or from a given interface is to be intercepted, one would configure an entry which lists the interface, and wild\-card everything else.  If all traffic to or from a given IP Address is to be intercepted, one would configure two such entries listing the IP Address as source and destination respectively, and wild\-card everything else.  If a particular voice on a teleconference is to be intercepted, on the other hand, one would extract the multicast (destination) IP address, the source IP Address, the protocol (UDP), and the source and destination ports from the call control exchange and list all necessary information.   The first index indicates which Mediation Device the intercepted traffic will be diverted to. The second index permits multiple classifiers to be used together, such as having an IP address as source or destination. The value of the second index is that of the stream's counter entry in the  cTap2StreamTable.  Entries are added to this table via citapStreamStatus in  accordance with the RowStatus convention
-    	**type**\:  :py:class:`Citapstreamtable <ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB.CISCOIPTAPMIB.Citapstreamtable>`
+    	**type**\:  :py:class:`CitapStreamTable <ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB.CISCOIPTAPMIB.CitapStreamTable>`
     
     
 
@@ -54,30 +54,30 @@ class CISCOIPTAPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("citapStreamEncodePacket", ("citapstreamencodepacket", CISCOIPTAPMIB.Citapstreamencodepacket)), ("citapStreamTable", ("citapstreamtable", CISCOIPTAPMIB.Citapstreamtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("citapStreamEncodePacket", ("citapstreamencodepacket", CISCOIPTAPMIB.CitapStreamEncodePacket)), ("citapStreamTable", ("citapstreamtable", CISCOIPTAPMIB.CitapStreamTable))])
         self._leafs = OrderedDict()
 
-        self.citapstreamencodepacket = CISCOIPTAPMIB.Citapstreamencodepacket()
+        self.citapstreamencodepacket = CISCOIPTAPMIB.CitapStreamEncodePacket()
         self.citapstreamencodepacket.parent = self
         self._children_name_map["citapstreamencodepacket"] = "citapStreamEncodePacket"
-        self._children_yang_names.add("citapStreamEncodePacket")
 
-        self.citapstreamtable = CISCOIPTAPMIB.Citapstreamtable()
+        self.citapstreamtable = CISCOIPTAPMIB.CitapStreamTable()
         self.citapstreamtable.parent = self
         self._children_name_map["citapstreamtable"] = "citapStreamTable"
-        self._children_yang_names.add("citapStreamTable")
         self._segment_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPTAPMIB, [], name, value)
 
-    class Citapstreamencodepacket(Entity):
+
+    class CitapStreamEncodePacket(Entity):
         """
         
         
         .. attribute:: citapstreamcapabilities
         
         	This object displays what types of intercept streams can be configured on this type of device. This may be dependent on hardware capabilities, software capabilities. The following fields may be supported\:     tapEnable\:   set if table entries with                  cTap2StreamInterceptEnable set to 'false'                  are used to pre\-screen packets for intercept;                  otherwise these entries are ignored.     interface\:   SNMP ifIndex Value may be used to select                  interception of all data crossing an                  interface or set of interfaces.     ipV4\:        IPv4 Address or prefix may be used to select                  traffic to be intercepted.     ipV6\:        IPv6 Address or prefix may be used to select                  traffic to be intercepted.     l4Port\:      TCP/UDP Ports may be used to select traffic                  to be intercepted.     dscp\:        DSCP (Differentiated Services Code Point) may                  be used to select traffic to be intercepted.     voip\:        packets belonging to a voice session may                  be intercepted using source IPv4 address and                  source UDP port
-        	**type**\:  :py:class:`Citapstreamcapabilities <ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB.CISCOIPTAPMIB.Citapstreamencodepacket.Citapstreamcapabilities>`
+        	**type**\:  :py:class:`CitapStreamCapabilities <ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB.CISCOIPTAPMIB.CitapStreamEncodePacket.CitapStreamCapabilities>`
         
         
 
@@ -87,15 +87,14 @@ class CISCOIPTAPMIB(Entity):
         _revision = '2004-03-11'
 
         def __init__(self):
-            super(CISCOIPTAPMIB.Citapstreamencodepacket, self).__init__()
+            super(CISCOIPTAPMIB.CitapStreamEncodePacket, self).__init__()
 
             self.yang_name = "citapStreamEncodePacket"
             self.yang_parent_name = "CISCO-IP-TAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('citapstreamcapabilities', YLeaf(YType.bits, 'citapStreamCapabilities')),
             ])
@@ -104,10 +103,10 @@ class CISCOIPTAPMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPTAPMIB.Citapstreamencodepacket, ['citapstreamcapabilities'], name, value)
+            self._perform_setattr(CISCOIPTAPMIB.CitapStreamEncodePacket, ['citapstreamcapabilities'], name, value)
 
 
-    class Citapstreamtable(Entity):
+    class CitapStreamTable(Entity):
         """
         The Intercept Stream IP Table lists the IPv4 and IPv6 streams
         to be intercepted.  The same data stream may be required by
@@ -144,7 +143,7 @@ class CISCOIPTAPMIB(Entity):
         .. attribute:: citapstreamentry
         
         	A stream entry indicates a single data stream to be intercepted to a Mediation Device. Many selected data streams may go to the same application interface, and many application interfaces are supported
-        	**type**\: list of  		 :py:class:`Citapstreamentry <ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB.CISCOIPTAPMIB.Citapstreamtable.Citapstreamentry>`
+        	**type**\: list of  		 :py:class:`CitapStreamEntry <ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB.CISCOIPTAPMIB.CitapStreamTable.CitapStreamEntry>`
         
         
 
@@ -154,15 +153,14 @@ class CISCOIPTAPMIB(Entity):
         _revision = '2004-03-11'
 
         def __init__(self):
-            super(CISCOIPTAPMIB.Citapstreamtable, self).__init__()
+            super(CISCOIPTAPMIB.CitapStreamTable, self).__init__()
 
             self.yang_name = "citapStreamTable"
             self.yang_parent_name = "CISCO-IP-TAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("citapStreamEntry", ("citapstreamentry", CISCOIPTAPMIB.Citapstreamtable.Citapstreamentry))])
+            self._child_classes = OrderedDict([("citapStreamEntry", ("citapstreamentry", CISCOIPTAPMIB.CitapStreamTable.CitapStreamEntry))])
             self._leafs = OrderedDict()
 
             self.citapstreamentry = YList(self)
@@ -170,10 +168,10 @@ class CISCOIPTAPMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPTAPMIB.Citapstreamtable, [], name, value)
+            self._perform_setattr(CISCOIPTAPMIB.CitapStreamTable, [], name, value)
 
 
-        class Citapstreamentry(Entity):
+        class CitapStreamEntry(Entity):
             """
             A stream entry indicates a single data stream to be
             intercepted to a Mediation Device. Many selected data
@@ -187,7 +185,7 @@ class CISCOIPTAPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ctap2mediationcontentid <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CISCOTAP2MIB.Ctap2Mediationtable.Ctap2Mediationentry>`
+            	**refers to**\:  :py:class:`ctap2mediationcontentid <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CISCOTAP2MIB.CTap2MediationTable.CTap2MediationEntry>`
             
             .. attribute:: ctap2streamindex  (key)
             
@@ -196,7 +194,7 @@ class CISCOIPTAPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ctap2streamindex <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CISCOTAP2MIB.Ctap2Streamtable.Ctap2Streamentry>`
+            	**refers to**\:  :py:class:`ctap2streamindex <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CISCOTAP2MIB.CTap2StreamTable.CTap2StreamEntry>`
             
             .. attribute:: citapstreaminterface
             
@@ -312,15 +310,14 @@ class CISCOIPTAPMIB(Entity):
             _revision = '2004-03-11'
 
             def __init__(self):
-                super(CISCOIPTAPMIB.Citapstreamtable.Citapstreamentry, self).__init__()
+                super(CISCOIPTAPMIB.CitapStreamTable.CitapStreamEntry, self).__init__()
 
                 self.yang_name = "citapStreamEntry"
                 self.yang_parent_name = "citapStreamTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ctap2mediationcontentid','ctap2streamindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ctap2mediationcontentid', YLeaf(YType.str, 'cTap2MediationContentId')),
                     ('ctap2streamindex', YLeaf(YType.str, 'cTap2StreamIndex')),
@@ -363,7 +360,7 @@ class CISCOIPTAPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/citapStreamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPTAPMIB.Citapstreamtable.Citapstreamentry, ['ctap2mediationcontentid', 'ctap2streamindex', 'citapstreaminterface', 'citapstreamaddrtype', 'citapstreamdestinationaddress', 'citapstreamdestinationlength', 'citapstreamsourceaddress', 'citapstreamsourcelength', 'citapstreamtosbyte', 'citapstreamtosbytemask', 'citapstreamflowid', 'citapstreamprotocol', 'citapstreamdestl4portmin', 'citapstreamdestl4portmax', 'citapstreamsourcel4portmin', 'citapstreamsourcel4portmax', 'citapstreamvrf', 'citapstreamstatus'], name, value)
+                self._perform_setattr(CISCOIPTAPMIB.CitapStreamTable.CitapStreamEntry, ['ctap2mediationcontentid', 'ctap2streamindex', 'citapstreaminterface', 'citapstreamaddrtype', 'citapstreamdestinationaddress', 'citapstreamdestinationlength', 'citapstreamsourceaddress', 'citapstreamsourcelength', 'citapstreamtosbyte', 'citapstreamtosbytemask', 'citapstreamflowid', 'citapstreamprotocol', 'citapstreamdestl4portmin', 'citapstreamdestl4portmax', 'citapstreamsourcel4portmin', 'citapstreamsourcel4portmax', 'citapstreamvrf', 'citapstreamstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPTAPMIB()

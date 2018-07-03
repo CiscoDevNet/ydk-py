@@ -99,6 +99,8 @@ class EsdmaCpu(Enum):
 
     .. data:: FC5 = 30
 
+    .. data:: CB0 = 31
+
     """
 
     Unknown = Enum.YLeaf(0, "Unknown")
@@ -162,6 +164,8 @@ class EsdmaCpu(Enum):
     FC4 = Enum.YLeaf(29, "FC4")
 
     FC5 = Enum.YLeaf(30, "FC5")
+
+    CB0 = Enum.YLeaf(31, "CB0")
 
 
 class EsdmaQsfpTransceiverEnum(Enum):
@@ -237,6 +241,10 @@ class EsdmaRackNumEnum(Enum):
 
     .. data:: F3 = 19
 
+    .. data:: B0 = 20
+
+    .. data:: B1 = 21
+
     """
 
     Y_0 = Enum.YLeaf(0, "0")
@@ -279,6 +287,10 @@ class EsdmaRackNumEnum(Enum):
 
     F3 = Enum.YLeaf(19, "F3")
 
+    B0 = Enum.YLeaf(20, "B0")
+
+    B1 = Enum.YLeaf(21, "B1")
+
 
 class EsdmaRackTypeEnum(Enum):
     """
@@ -294,6 +306,8 @@ class EsdmaRackTypeEnum(Enum):
 
     .. data:: BSC = 3
 
+    .. data:: COMPUTE = 4
+
     """
 
     Unknown = Enum.YLeaf(0, "Unknown")
@@ -303,6 +317,8 @@ class EsdmaRackTypeEnum(Enum):
     LCC = Enum.YLeaf(2, "LCC")
 
     BSC = Enum.YLeaf(3, "BSC")
+
+    COMPUTE = Enum.YLeaf(4, "COMPUTE")
 
 
 class EsdmaSdrTrafficType(Enum):
@@ -530,7 +546,9 @@ class EsdmaSwitchTypeEnum(Enum):
 
     .. data:: EPC_SW = 7
 
-    .. data:: Unknown = 8
+    .. data:: CB_SW = 8
+
+    .. data:: Unknown = 9
 
     """
 
@@ -550,7 +568,9 @@ class EsdmaSwitchTypeEnum(Enum):
 
     EPC_SW = Enum.YLeaf(7, "EPC-SW")
 
-    Unknown = Enum.YLeaf(8, "Unknown")
+    CB_SW = Enum.YLeaf(8, "CB-SW")
+
+    Unknown = Enum.YLeaf(9, "Unknown")
 
 
 class EsdmaSwitchYesNoEnum(Enum):
@@ -603,6 +623,8 @@ class MlapEpType(Enum):
 
     .. data:: F_SW = 5
 
+    .. data:: CB = 6
+
     """
 
     Unknown = Enum.YLeaf(0, "Unknown")
@@ -616,6 +638,8 @@ class MlapEpType(Enum):
     LC = Enum.YLeaf(4, "LC")
 
     F_SW = Enum.YLeaf(5, "F-SW")
+
+    CB = Enum.YLeaf(6, "CB")
 
 
 class MlapProtocolEnum(Enum):

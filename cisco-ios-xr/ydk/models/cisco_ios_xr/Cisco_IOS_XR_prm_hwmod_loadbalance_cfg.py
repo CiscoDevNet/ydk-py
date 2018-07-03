@@ -45,15 +45,16 @@ class HardwareModule(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("loadbalancing", ("loadbalancing", HardwareModule.Loadbalancing))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("loadbalancing", ("loadbalancing", HardwareModule.Loadbalancing))])
         self._leafs = OrderedDict()
 
         self.loadbalancing = HardwareModule.Loadbalancing()
         self.loadbalancing.parent = self
         self._children_name_map["loadbalancing"] = "loadbalancing"
-        self._children_yang_names.add("loadbalancing")
         self._segment_path = lambda: "Cisco-IOS-XR-prm-hwmod-loadbalance-cfg:hardware-module"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModule, [], name, value)
 
 
     class Loadbalancing(Entity):
@@ -80,16 +81,17 @@ class HardwareModule(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("bgp3107", ("bgp3107", HardwareModule.Loadbalancing.Bgp3107))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("bgp3107", ("bgp3107", HardwareModule.Loadbalancing.Bgp3107))])
             self._leafs = OrderedDict()
 
             self.bgp3107 = HardwareModule.Loadbalancing.Bgp3107()
             self.bgp3107.parent = self
             self._children_name_map["bgp3107"] = "bgp3107"
-            self._children_yang_names.add("bgp3107")
             self._segment_path = lambda: "loadbalancing"
             self._absolute_path = lambda: "Cisco-IOS-XR-prm-hwmod-loadbalance-cfg:hardware-module/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(HardwareModule.Loadbalancing, [], name, value)
 
 
         class Bgp3107(Entity):
@@ -116,16 +118,17 @@ class HardwareModule(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ecmp", ("ecmp", HardwareModule.Loadbalancing.Bgp3107.Ecmp))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ecmp", ("ecmp", HardwareModule.Loadbalancing.Bgp3107.Ecmp))])
                 self._leafs = OrderedDict()
 
                 self.ecmp = HardwareModule.Loadbalancing.Bgp3107.Ecmp()
                 self.ecmp.parent = self
                 self._children_name_map["ecmp"] = "ecmp"
-                self._children_yang_names.add("ecmp")
                 self._segment_path = lambda: "bgp3107"
                 self._absolute_path = lambda: "Cisco-IOS-XR-prm-hwmod-loadbalance-cfg:hardware-module/loadbalancing/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(HardwareModule.Loadbalancing.Bgp3107, [], name, value)
 
 
             class Ecmp(Entity):
@@ -152,8 +155,7 @@ class HardwareModule(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.empty, 'enable')),
                     ])

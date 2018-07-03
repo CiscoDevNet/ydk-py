@@ -45,15 +45,16 @@ class SessionMon(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", SessionMon.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", SessionMon.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = SessionMon.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SessionMon, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class SessionMon(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", SessionMon.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", SessionMon.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -134,8 +134,7 @@ class SessionMon(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_id']
-                self._child_container_classes = OrderedDict([("session-mon-statistics", ("session_mon_statistics", SessionMon.Nodes.Node.SessionMonStatistics)), ("interface-all-statistics", ("interface_all_statistics", SessionMon.Nodes.Node.InterfaceAllStatistics)), ("license-statistics", ("license_statistics", SessionMon.Nodes.Node.LicenseStatistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("session-mon-statistics", ("session_mon_statistics", SessionMon.Nodes.Node.SessionMonStatistics)), ("interface-all-statistics", ("interface_all_statistics", SessionMon.Nodes.Node.InterfaceAllStatistics)), ("license-statistics", ("license_statistics", SessionMon.Nodes.Node.LicenseStatistics))])
                 self._leafs = OrderedDict([
                     ('node_id', YLeaf(YType.str, 'node-id')),
                 ])
@@ -144,17 +143,14 @@ class SessionMon(Entity):
                 self.session_mon_statistics = SessionMon.Nodes.Node.SessionMonStatistics()
                 self.session_mon_statistics.parent = self
                 self._children_name_map["session_mon_statistics"] = "session-mon-statistics"
-                self._children_yang_names.add("session-mon-statistics")
 
                 self.interface_all_statistics = SessionMon.Nodes.Node.InterfaceAllStatistics()
                 self.interface_all_statistics.parent = self
                 self._children_name_map["interface_all_statistics"] = "interface-all-statistics"
-                self._children_yang_names.add("interface-all-statistics")
 
                 self.license_statistics = SessionMon.Nodes.Node.LicenseStatistics()
                 self.license_statistics.parent = self
                 self._children_name_map["license_statistics"] = "license-statistics"
-                self._children_yang_names.add("license-statistics")
                 self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/nodes/%s" % self._segment_path()
 
@@ -272,8 +268,7 @@ class SessionMon(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('total', YLeaf(YType.uint32, 'total')),
                         ('pppoe', YLeaf(YType.uint32, 'pppoe')),
@@ -305,7 +300,7 @@ class SessionMon(Entity):
                     self._segment_path = lambda: "session-mon-statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
+                    self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, [u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
 
 
             class InterfaceAllStatistics(Entity):
@@ -332,8 +327,7 @@ class SessionMon(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface-all-statistic", ("interface_all_statistic", SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic))])
+                    self._child_classes = OrderedDict([("interface-all-statistic", ("interface_all_statistic", SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic))])
                     self._leafs = OrderedDict()
 
                     self.interface_all_statistic = YList(self)
@@ -460,8 +454,7 @@ class SessionMon(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('total', YLeaf(YType.uint32, 'total')),
@@ -495,7 +488,7 @@ class SessionMon(Entity):
                         self._segment_path = lambda: "interface-all-statistic" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', 'total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
+                        self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
 
 
             class LicenseStatistics(Entity):
@@ -608,8 +601,7 @@ class SessionMon(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('total', YLeaf(YType.uint32, 'total')),
                         ('pppoe', YLeaf(YType.uint32, 'pppoe')),
@@ -641,7 +633,7 @@ class SessionMon(Entity):
                     self._segment_path = lambda: "license-statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
+                    self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, [u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SessionMon()

@@ -416,6 +416,10 @@ class OpticsFec(Enum):
 
     	FEC DISABLED
 
+    .. data:: fec_cl91 = 64
+
+    	FEC CL91 
+
     """
 
     fec_none = Enum.YLeaf(0, "fec-none")
@@ -431,6 +435,8 @@ class OpticsFec(Enum):
     fec_enabled = Enum.YLeaf(16, "fec-enabled")
 
     fec_not_set = Enum.YLeaf(32, "fec-not-set")
+
+    fec_cl91 = Enum.YLeaf(64, "fec-cl91")
 
 
 class OpticsFormFactor(Enum):
@@ -856,6 +862,42 @@ class OpticsPhy(Enum):
 
     	1G BX optics
 
+    .. data:: ten_x_ten_gig_e_long_reach_one_lane = 57
+
+    	Long Reach 1 Lane
+
+    .. data:: ten_x_ten_gig_e_extended_reach_one_lane = 58
+
+    	Extended Reach 1 Lane
+
+    .. data:: passive_copper_one_lane = 59
+
+    	Passive Copper One Lane
+
+    .. data:: ten_gig_ecwdm = 60
+
+    	TenGigE CWDM One Lane
+
+    .. data:: one_gig_ecwdm = 61
+
+    	One GigE CWDM One Lane
+
+    .. data:: one_gig_edwdm = 62
+
+    	One GigE DWDM One Lane
+
+    .. data:: fx_one_lane = 63
+
+    	FX One Lane
+
+    .. data:: ten_gig_emrdwdm = 64
+
+    	TenGigE Multi Rate DWDM 1 Lane
+
+    .. data:: ten_gig_e_edge_performance = 65
+
+    	TenGigE Edge Performance 1 Lane
+
     """
 
     not_set = Enum.YLeaf(0, "not-set")
@@ -971,6 +1013,24 @@ class OpticsPhy(Enum):
     ten_gig_bx = Enum.YLeaf(55, "ten-gig-bx")
 
     one_geige = Enum.YLeaf(56, "one-geige")
+
+    ten_x_ten_gig_e_long_reach_one_lane = Enum.YLeaf(57, "ten-x-ten-gig-e-long-reach-one-lane")
+
+    ten_x_ten_gig_e_extended_reach_one_lane = Enum.YLeaf(58, "ten-x-ten-gig-e-extended-reach-one-lane")
+
+    passive_copper_one_lane = Enum.YLeaf(59, "passive-copper-one-lane")
+
+    ten_gig_ecwdm = Enum.YLeaf(60, "ten-gig-ecwdm")
+
+    one_gig_ecwdm = Enum.YLeaf(61, "one-gig-ecwdm")
+
+    one_gig_edwdm = Enum.YLeaf(62, "one-gig-edwdm")
+
+    fx_one_lane = Enum.YLeaf(63, "fx-one-lane")
+
+    ten_gig_emrdwdm = Enum.YLeaf(64, "ten-gig-emrdwdm")
+
+    ten_gig_e_edge_performance = Enum.YLeaf(65, "ten-gig-e-edge-performance")
 
 
 class OpticsPort(Enum):
@@ -1204,7 +1264,7 @@ class OpticsOper(Entity):
     """
 
     _prefix = 'controller-optics-oper'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(OpticsOper, self).__init__()
@@ -1215,15 +1275,16 @@ class OpticsOper(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("optics-ports", ("optics_ports", OpticsOper.OpticsPorts))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("optics-ports", ("optics_ports", OpticsOper.OpticsPorts))])
         self._leafs = OrderedDict()
 
         self.optics_ports = OpticsOper.OpticsPorts()
         self.optics_ports.parent = self
         self._children_name_map["optics_ports"] = "optics-ports"
-        self._children_yang_names.add("optics-ports")
         self._segment_path = lambda: "Cisco-IOS-XR-controller-optics-oper:optics-oper"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(OpticsOper, [], name, value)
 
 
     class OpticsPorts(Entity):
@@ -1240,7 +1301,7 @@ class OpticsOper(Entity):
         """
 
         _prefix = 'controller-optics-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(OpticsOper.OpticsPorts, self).__init__()
@@ -1250,8 +1311,7 @@ class OpticsOper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("optics-port", ("optics_port", OpticsOper.OpticsPorts.OpticsPort))])
+            self._child_classes = OrderedDict([("optics-port", ("optics_port", OpticsOper.OpticsPorts.OpticsPort))])
             self._leafs = OrderedDict()
 
             self.optics_port = YList(self)
@@ -1273,20 +1333,15 @@ class OpticsOper(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9./\-]+
             
-            .. attribute:: optics_dwdm_carrier_channel_map
+            .. attribute:: optics_dwdm_carrrier_channel_map
             
             	Optics operational data
-            	**type**\:  :py:class:`OpticsDwdmCarrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap>`
+            	**type**\:  :py:class:`OpticsDwdmCarrrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap>`
             
             .. attribute:: ots_spectrum_info
             
             	Ots Spectrum Operational data
             	**type**\:  :py:class:`OtsSpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo>`
-            
-            .. attribute:: optics_dwdm_carrier_channel_map_flexi
-            
-            	Optics operational data
-            	**type**\:  :py:class:`OpticsDwdmCarrierChannelMapFlexi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi>`
             
             .. attribute:: optics_info
             
@@ -1298,6 +1353,11 @@ class OpticsOper(Entity):
             	All Optics Port operational data
             	**type**\:  :py:class:`OpticsLanes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes>`
             
+            .. attribute:: optics_dwdm_carrrier_channel_map_flexi
+            
+            	Optics operational data
+            	**type**\:  :py:class:`OpticsDwdmCarrrierChannelMapFlexi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi>`
+            
             .. attribute:: optics_db_info
             
             	Optics operational data
@@ -1308,7 +1368,7 @@ class OpticsOper(Entity):
             """
 
             _prefix = 'controller-optics-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(OpticsOper.OpticsPorts.OpticsPort, self).__init__()
@@ -1318,42 +1378,35 @@ class OpticsOper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("optics-dwdm-carrier-channel-map", ("optics_dwdm_carrier_channel_map", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap)), ("ots-spectrum-info", ("ots_spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo)), ("optics-dwdm-carrier-channel-map-flexi", ("optics_dwdm_carrier_channel_map_flexi", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi)), ("optics-info", ("optics_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo)), ("optics-lanes", ("optics_lanes", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes)), ("optics-db-info", ("optics_db_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("optics-dwdm-carrrier-channel-map", ("optics_dwdm_carrrier_channel_map", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap)), ("ots-spectrum-info", ("ots_spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo)), ("optics-info", ("optics_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo)), ("optics-lanes", ("optics_lanes", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes)), ("optics-dwdm-carrrier-channel-map-flexi", ("optics_dwdm_carrrier_channel_map_flexi", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi)), ("optics-db-info", ("optics_db_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
                 self.name = None
 
-                self.optics_dwdm_carrier_channel_map = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap()
-                self.optics_dwdm_carrier_channel_map.parent = self
-                self._children_name_map["optics_dwdm_carrier_channel_map"] = "optics-dwdm-carrier-channel-map"
-                self._children_yang_names.add("optics-dwdm-carrier-channel-map")
+                self.optics_dwdm_carrrier_channel_map = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap()
+                self.optics_dwdm_carrrier_channel_map.parent = self
+                self._children_name_map["optics_dwdm_carrrier_channel_map"] = "optics-dwdm-carrrier-channel-map"
 
                 self.ots_spectrum_info = OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo()
                 self.ots_spectrum_info.parent = self
                 self._children_name_map["ots_spectrum_info"] = "ots-spectrum-info"
-                self._children_yang_names.add("ots-spectrum-info")
-
-                self.optics_dwdm_carrier_channel_map_flexi = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi()
-                self.optics_dwdm_carrier_channel_map_flexi.parent = self
-                self._children_name_map["optics_dwdm_carrier_channel_map_flexi"] = "optics-dwdm-carrier-channel-map-flexi"
-                self._children_yang_names.add("optics-dwdm-carrier-channel-map-flexi")
 
                 self.optics_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo()
                 self.optics_info.parent = self
                 self._children_name_map["optics_info"] = "optics-info"
-                self._children_yang_names.add("optics-info")
 
                 self.optics_lanes = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes()
                 self.optics_lanes.parent = self
                 self._children_name_map["optics_lanes"] = "optics-lanes"
-                self._children_yang_names.add("optics-lanes")
+
+                self.optics_dwdm_carrrier_channel_map_flexi = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi()
+                self.optics_dwdm_carrrier_channel_map_flexi.parent = self
+                self._children_name_map["optics_dwdm_carrrier_channel_map_flexi"] = "optics-dwdm-carrrier-channel-map-flexi"
 
                 self.optics_db_info = OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo()
                 self.optics_db_info.parent = self
                 self._children_name_map["optics_db_info"] = "optics-db-info"
-                self._children_yang_names.add("optics-db-info")
                 self._segment_path = lambda: "optics-port" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/%s" % self._segment_path()
 
@@ -1361,7 +1414,7 @@ class OpticsOper(Entity):
                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort, ['name'], name, value)
 
 
-            class OpticsDwdmCarrierChannelMap(Entity):
+            class OpticsDwdmCarrrierChannelMap(Entity):
                 """
                 Optics operational data
                 
@@ -1387,25 +1440,24 @@ class OpticsOper(Entity):
                 .. attribute:: dwdm_carrier_map_info
                 
                 	DWDM carrier mapping info
-                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo>`
+                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo>`
                 
                 
 
                 """
 
                 _prefix = 'controller-optics-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, self).__init__()
+                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap, self).__init__()
 
-                    self.yang_name = "optics-dwdm-carrier-channel-map"
+                    self.yang_name = "optics-dwdm-carrrier-channel-map"
                     self.yang_parent_name = "optics-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo))])
+                    self._child_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo))])
                     self._leafs = OrderedDict([
                         ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
                         ('dwdm_carrier_min', YLeaf(YType.uint32, 'dwdm-carrier-min')),
@@ -1416,10 +1468,10 @@ class OpticsOper(Entity):
                     self.dwdm_carrier_max = None
 
                     self.dwdm_carrier_map_info = YList(self)
-                    self._segment_path = lambda: "optics-dwdm-carrier-channel-map"
+                    self._segment_path = lambda: "optics-dwdm-carrrier-channel-map"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
 
 
                 class DwdmCarrierMapInfo(Entity):
@@ -1459,18 +1511,17 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, self).__init__()
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo, self).__init__()
 
                         self.yang_name = "dwdm-carrier-map-info"
-                        self.yang_parent_name = "optics-dwdm-carrier-channel-map"
+                        self.yang_parent_name = "optics-dwdm-carrrier-channel-map"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('itu_chan_num', YLeaf(YType.uint32, 'itu-chan-num')),
                             ('g694_chan_num', YLeaf(YType.int32, 'g694-chan-num')),
@@ -1484,7 +1535,7 @@ class OpticsOper(Entity):
                         self._segment_path = lambda: "dwdm-carrier-map-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
             class OtsSpectrumInfo(Entity):
@@ -1501,7 +1552,7 @@ class OpticsOper(Entity):
                 """
 
                 _prefix = 'controller-optics-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo, self).__init__()
@@ -1511,15 +1562,16 @@ class OpticsOper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("spectrum-info", ("spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("spectrum-info", ("spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo))])
                     self._leafs = OrderedDict()
 
                     self.spectrum_info = OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo()
                     self.spectrum_info.parent = self
                     self._children_name_map["spectrum_info"] = "spectrum-info"
-                    self._children_yang_names.add("spectrum-info")
                     self._segment_path = lambda: "ots-spectrum-info"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo, [], name, value)
 
 
                 class SpectrumInfo(Entity):
@@ -1557,7 +1609,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, self).__init__()
@@ -1567,8 +1619,7 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("spectrum-slice-power-info", ("spectrum_slice_power_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo))])
+                        self._child_classes = OrderedDict([("spectrum-slice-power-info", ("spectrum_slice_power_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo))])
                         self._leafs = OrderedDict([
                             ('total_spectrum_slice_count', YLeaf(YType.uint32, 'total-spectrum-slice-count')),
                             ('spectrum_slice_spacing', YLeaf(YType.uint32, 'spectrum-slice-spacing')),
@@ -1643,7 +1694,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, self).__init__()
@@ -1653,8 +1704,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('slice_num', YLeaf(YType.uint32, 'slice-num')),
                                 ('lower_frequency', YLeaf(YType.uint64, 'lower-frequency')),
@@ -1675,132 +1725,6 @@ class OpticsOper(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, ['slice_num', 'lower_frequency', 'upper_frequency', 'rx_power', 'tx_power', 'rx_psd', 'tx_psd'], name, value)
-
-
-            class OpticsDwdmCarrierChannelMapFlexi(Entity):
-                """
-                Optics operational data
-                
-                .. attribute:: dwdm_carrier_band
-                
-                	DWDM carrier band
-                	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
-                
-                .. attribute:: dwdm_carrier_min
-                
-                	Lowest DWDM carrier supported
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: dwdm_carrier_max
-                
-                	Highest DWDM carrier supported
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: dwdm_carrier_map_info
-                
-                	DWDM carrier mapping info
-                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo>`
-                
-                
-
-                """
-
-                _prefix = 'controller-optics-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, self).__init__()
-
-                    self.yang_name = "optics-dwdm-carrier-channel-map-flexi"
-                    self.yang_parent_name = "optics-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo))])
-                    self._leafs = OrderedDict([
-                        ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
-                        ('dwdm_carrier_min', YLeaf(YType.uint32, 'dwdm-carrier-min')),
-                        ('dwdm_carrier_max', YLeaf(YType.uint32, 'dwdm-carrier-max')),
-                    ])
-                    self.dwdm_carrier_band = None
-                    self.dwdm_carrier_min = None
-                    self.dwdm_carrier_max = None
-
-                    self.dwdm_carrier_map_info = YList(self)
-                    self._segment_path = lambda: "optics-dwdm-carrier-channel-map-flexi"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
-
-
-                class DwdmCarrierMapInfo(Entity):
-                    """
-                    DWDM carrier mapping info
-                    
-                    .. attribute:: itu_chan_num
-                    
-                    	ITU channel number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: g694_chan_num
-                    
-                    	G694 channel number
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: frequency
-                    
-                    	Frequency
-                    	**type**\: str
-                    
-                    	**length:** 0..32
-                    
-                    .. attribute:: wavelength
-                    
-                    	Wavelength
-                    	**type**\: str
-                    
-                    	**length:** 0..32
-                    
-                    
-
-                    """
-
-                    _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, self).__init__()
-
-                        self.yang_name = "dwdm-carrier-map-info"
-                        self.yang_parent_name = "optics-dwdm-carrier-channel-map-flexi"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('itu_chan_num', YLeaf(YType.uint32, 'itu-chan-num')),
-                            ('g694_chan_num', YLeaf(YType.int32, 'g694-chan-num')),
-                            ('frequency', YLeaf(YType.str, 'frequency')),
-                            ('wavelength', YLeaf(YType.str, 'wavelength')),
-                        ])
-                        self.itu_chan_num = None
-                        self.g694_chan_num = None
-                        self.frequency = None
-                        self.wavelength = None
-                        self._segment_path = lambda: "dwdm-carrier-map-info"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
             class OpticsInfo(Entity):
@@ -2126,13 +2050,6 @@ class OpticsOper(Entity):
                 	Optics FEC
                 	**type**\:  :py:class:`OpticsFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFec>`
                 
-                .. attribute:: skip_snmp_pm_table
-                
-                	PM enabled or not
-                	**type**\: int
-                
-                	**range:** \-2147483648..2147483647
-                
                 .. attribute:: port_type
                 
                 	Showing port type
@@ -2366,6 +2283,11 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: description
+                
+                	Controller description string
+                	**type**\: str
+                
                 .. attribute:: ampli_gain_range
                 
                 	Ampli gain range
@@ -2381,10 +2303,15 @@ class OpticsOper(Entity):
                 	OSRI
                 	**type**\: bool
                 
-                .. attribute:: description
+                .. attribute:: tx_enable
                 
-                	Controller description string
-                	**type**\: str
+                	TX Enable
+                	**type**\: bool
+                
+                .. attribute:: rx_enable
+                
+                	RX Enable
+                	**type**\: bool
                 
                 .. attribute:: is_optics_type_string_valid
                 
@@ -2395,16 +2322,6 @@ class OpticsOper(Entity):
                 
                 	optics type String
                 	**type**\: str
-                
-                .. attribute:: tx_enable
-                
-                	TX Enable
-                	**type**\: bool
-                
-                .. attribute:: rx_enable
-                
-                	RX Enable
-                	**type**\: bool
                 
                 .. attribute:: rx_low_threshold_current
                 
@@ -2423,7 +2340,7 @@ class OpticsOper(Entity):
                 """
 
                 _prefix = 'controller-optics-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, self).__init__()
@@ -2433,8 +2350,7 @@ class OpticsOper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo)), ("optics-alarm-info", ("optics_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo)), ("ots-alarm-info", ("ots_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo)), ("transceiver-info", ("transceiver_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo)), ("ext-param-val", ("ext_param_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal)), ("ext-param-threshold-val", ("ext_param_threshold_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal)), ("extended-alarm-alarm-info", ("extended_alarm_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo))])
-                    self._child_list_classes = OrderedDict([("lane-data", ("lane_data", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData))])
+                    self._child_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo)), ("optics-alarm-info", ("optics_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo)), ("ots-alarm-info", ("ots_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo)), ("transceiver-info", ("transceiver_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo)), ("ext-param-val", ("ext_param_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal)), ("ext-param-threshold-val", ("ext_param_threshold_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal)), ("extended-alarm-alarm-info", ("extended_alarm_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo)), ("lane-data", ("lane_data", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData))])
                     self._leafs = OrderedDict([
                         ('transport_admin_state', YLeaf(YType.enumeration, 'transport-admin-state')),
                         ('optics_present', YLeaf(YType.boolean, 'optics-present')),
@@ -2484,7 +2400,6 @@ class OpticsOper(Entity):
                         ('display_volt_temp', YLeaf(YType.boolean, 'display-volt-temp')),
                         ('cd_configurable', YLeaf(YType.boolean, 'cd-configurable')),
                         ('optics_fec', YLeaf(YType.enumeration, 'optics-fec')),
-                        ('skip_snmp_pm_table', YLeaf(YType.int32, 'skip-snmp-pm-table')),
                         ('port_type', YLeaf(YType.enumeration, 'port-type')),
                         ('port_status', YLeaf(YType.enumeration, 'port-status')),
                         ('rx_voa_attenuation', YLeaf(YType.int32, 'rx-voa-attenuation')),
@@ -2522,14 +2437,14 @@ class OpticsOper(Entity):
                         ('temp_high_warning_threshold', YLeaf(YType.int32, 'temp-high-warning-threshold')),
                         ('volt_low_warning_threshold', YLeaf(YType.int32, 'volt-low-warning-threshold')),
                         ('volt_high_warning_threshold', YLeaf(YType.int32, 'volt-high-warning-threshold')),
+                        ('description', YLeaf(YType.str, 'description')),
                         ('ampli_gain_range', YLeaf(YType.enumeration, 'ampli-gain-range')),
                         ('safety_control_mode', YLeaf(YType.enumeration, 'safety-control-mode')),
                         ('osri', YLeaf(YType.boolean, 'osri')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('is_optics_type_string_valid', YLeaf(YType.boolean, 'is-optics-type-string-valid')),
-                        ('optics_type_str', YLeaf(YType.str, 'optics-type-str')),
                         ('tx_enable', YLeaf(YType.boolean, 'tx-enable')),
                         ('rx_enable', YLeaf(YType.boolean, 'rx-enable')),
+                        ('is_optics_type_string_valid', YLeaf(YType.boolean, 'is-optics-type-string-valid')),
+                        ('optics_type_str', YLeaf(YType.str, 'optics-type-str')),
                         ('rx_low_threshold_current', YLeaf(YType.int32, 'rx-low-threshold-current')),
                     ])
                     self.transport_admin_state = None
@@ -2580,7 +2495,6 @@ class OpticsOper(Entity):
                     self.display_volt_temp = None
                     self.cd_configurable = None
                     self.optics_fec = None
-                    self.skip_snmp_pm_table = None
                     self.port_type = None
                     self.port_status = None
                     self.rx_voa_attenuation = None
@@ -2618,56 +2532,49 @@ class OpticsOper(Entity):
                     self.temp_high_warning_threshold = None
                     self.volt_low_warning_threshold = None
                     self.volt_high_warning_threshold = None
+                    self.description = None
                     self.ampli_gain_range = None
                     self.safety_control_mode = None
                     self.osri = None
-                    self.description = None
-                    self.is_optics_type_string_valid = None
-                    self.optics_type_str = None
                     self.tx_enable = None
                     self.rx_enable = None
+                    self.is_optics_type_string_valid = None
+                    self.optics_type_str = None
                     self.rx_low_threshold_current = None
 
                     self.network_srlg_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo()
                     self.network_srlg_info.parent = self
                     self._children_name_map["network_srlg_info"] = "network-srlg-info"
-                    self._children_yang_names.add("network-srlg-info")
 
                     self.optics_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo()
                     self.optics_alarm_info.parent = self
                     self._children_name_map["optics_alarm_info"] = "optics-alarm-info"
-                    self._children_yang_names.add("optics-alarm-info")
 
                     self.ots_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo()
                     self.ots_alarm_info.parent = self
                     self._children_name_map["ots_alarm_info"] = "ots-alarm-info"
-                    self._children_yang_names.add("ots-alarm-info")
 
                     self.transceiver_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo()
                     self.transceiver_info.parent = self
                     self._children_name_map["transceiver_info"] = "transceiver-info"
-                    self._children_yang_names.add("transceiver-info")
 
                     self.ext_param_val = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal()
                     self.ext_param_val.parent = self
                     self._children_name_map["ext_param_val"] = "ext-param-val"
-                    self._children_yang_names.add("ext-param-val")
 
                     self.ext_param_threshold_val = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal()
                     self.ext_param_threshold_val.parent = self
                     self._children_name_map["ext_param_threshold_val"] = "ext-param-threshold-val"
-                    self._children_yang_names.add("ext-param-threshold-val")
 
                     self.extended_alarm_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo()
                     self.extended_alarm_alarm_info.parent = self
                     self._children_name_map["extended_alarm_alarm_info"] = "extended-alarm-alarm-info"
-                    self._children_yang_names.add("extended-alarm-alarm-info")
 
                     self.lane_data = YList(self)
                     self._segment_path = lambda: "optics-info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'skip_snmp_pm_table', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'tx_config_val', 'rx_config_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'ampli_gain_range', 'safety_control_mode', 'osri', 'description', 'is_optics_type_string_valid', 'optics_type_str', 'tx_enable', 'rx_enable', 'rx_low_threshold_current'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'tx_config_val', 'rx_config_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'description', 'ampli_gain_range', 'safety_control_mode', 'osri', 'tx_enable', 'rx_enable', 'is_optics_type_string_valid', 'optics_type_str', 'rx_low_threshold_current'], name, value)
 
 
                 class NetworkSrlgInfo(Entity):
@@ -2684,7 +2591,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo, self).__init__()
@@ -2694,8 +2601,7 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("network-srlg-array", ("network_srlg_array", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray))])
+                        self._child_classes = OrderedDict([("network-srlg-array", ("network_srlg_array", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray))])
                         self._leafs = OrderedDict()
 
                         self.network_srlg_array = YList(self)
@@ -2728,7 +2634,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, self).__init__()
@@ -2738,8 +2644,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('set_number', YLeaf(YType.uint32, 'set-number')),
                                 ('network_srlg', YLeafList(YType.uint32, 'network-srlg')),
@@ -2884,42 +2789,42 @@ class OpticsOper(Entity):
                     .. attribute:: high_tx1lbc
                     
                     	High Tx1 laser bias current in units of percentage
-                    	**type**\:  :py:class:`HighTx1Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc>`
+                    	**type**\:  :py:class:`HighTx1lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc>`
                     
                     .. attribute:: high_tx2lbc
                     
                     	High Tx2 laser bias current in units of percentage
-                    	**type**\:  :py:class:`HighTx2Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc>`
+                    	**type**\:  :py:class:`HighTx2lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc>`
                     
                     .. attribute:: high_tx3lbc
                     
                     	High Tx3 laser bias current in units of percentage
-                    	**type**\:  :py:class:`HighTx3Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc>`
+                    	**type**\:  :py:class:`HighTx3lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc>`
                     
                     .. attribute:: high_tx4lbc
                     
                     	High Tx4 laser bias current in units of percentage
-                    	**type**\:  :py:class:`HighTx4Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc>`
+                    	**type**\:  :py:class:`HighTx4lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc>`
                     
                     .. attribute:: low_tx1lbc
                     
                     	Low Tx1 laser bias current in units of percentage
-                    	**type**\:  :py:class:`LowTx1Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc>`
+                    	**type**\:  :py:class:`LowTx1lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc>`
                     
                     .. attribute:: low_tx2lbc
                     
                     	Low Tx2 laser bias current in units of percentage
-                    	**type**\:  :py:class:`LowTx2Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc>`
+                    	**type**\:  :py:class:`LowTx2lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc>`
                     
                     .. attribute:: low_tx3lbc
                     
                     	Low Tx3 laser bias current in units of percentage
-                    	**type**\:  :py:class:`LowTx3Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc>`
+                    	**type**\:  :py:class:`LowTx3lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc>`
                     
                     .. attribute:: low_tx4lbc
                     
                     	Low Tx4 laser bias current in units of percentage
-                    	**type**\:  :py:class:`LowTx4Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc>`
+                    	**type**\:  :py:class:`LowTx4lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc>`
                     
                     .. attribute:: rx_los
                     
@@ -3001,7 +2906,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo, self).__init__()
@@ -3011,250 +2916,204 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc)), ("low-temperature", ("low_temperature", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature)), ("high-temperature", ("high_temperature", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature)), ("low-voltage", ("low_voltage", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage)), ("high-voltage", ("high_voltage", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage)), ("high-rx1-power", ("high_rx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power)), ("high-rx2-power", ("high_rx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power)), ("high-rx3-power", ("high_rx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power)), ("high-rx4-power", ("high_rx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power)), ("low-rx1-power", ("low_rx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power)), ("low-rx2-power", ("low_rx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power)), ("low-rx3-power", ("low_rx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power)), ("low-rx4-power", ("low_rx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power)), ("high-tx1-power", ("high_tx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power)), ("high-tx2-power", ("high_tx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power)), ("high-tx3-power", ("high_tx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power)), ("high-tx4-power", ("high_tx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power)), ("low-tx1-power", ("low_tx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power)), ("low-tx2-power", ("low_tx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power)), ("low-tx3-power", ("low_tx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power)), ("low-tx4-power", ("low_tx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power)), ("high-tx1lbc", ("high_tx1lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc)), ("high-tx2lbc", ("high_tx2lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc)), ("high-tx3lbc", ("high_tx3lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc)), ("high-tx4lbc", ("high_tx4lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc)), ("low-tx1lbc", ("low_tx1lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc)), ("low-tx2lbc", ("low_tx2lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc)), ("low-tx3lbc", ("low_tx3lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc)), ("low-tx4lbc", ("low_tx4lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc)), ("rx-los", ("rx_los", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos)), ("tx-los", ("tx_los", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos)), ("rx-lol", ("rx_lol", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol)), ("tx-lol", ("tx_lol", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol)), ("tx-fault", ("tx_fault", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault)), ("hidgd", ("hidgd", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd)), ("oorcd", ("oorcd", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd)), ("osnr", ("osnr", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr)), ("wvlool", ("wvlool", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool)), ("mea", ("mea", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea)), ("imp-removal", ("imp_removal", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval)), ("rx-loc", ("rx_loc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc)), ("amp-gain-deg-low", ("amp_gain_deg_low", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow)), ("amp-gain-deg-high", ("amp_gain_deg_high", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh)), ("txpwr-mismatch", ("txpwr_mismatch", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc)), ("low-temperature", ("low_temperature", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature)), ("high-temperature", ("high_temperature", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature)), ("low-voltage", ("low_voltage", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage)), ("high-voltage", ("high_voltage", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage)), ("high-rx1-power", ("high_rx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power)), ("high-rx2-power", ("high_rx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power)), ("high-rx3-power", ("high_rx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power)), ("high-rx4-power", ("high_rx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power)), ("low-rx1-power", ("low_rx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power)), ("low-rx2-power", ("low_rx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power)), ("low-rx3-power", ("low_rx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power)), ("low-rx4-power", ("low_rx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power)), ("high-tx1-power", ("high_tx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power)), ("high-tx2-power", ("high_tx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power)), ("high-tx3-power", ("high_tx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power)), ("high-tx4-power", ("high_tx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power)), ("low-tx1-power", ("low_tx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power)), ("low-tx2-power", ("low_tx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power)), ("low-tx3-power", ("low_tx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power)), ("low-tx4-power", ("low_tx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power)), ("high-tx1lbc", ("high_tx1lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc)), ("high-tx2lbc", ("high_tx2lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc)), ("high-tx3lbc", ("high_tx3lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc)), ("high-tx4lbc", ("high_tx4lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc)), ("low-tx1lbc", ("low_tx1lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc)), ("low-tx2lbc", ("low_tx2lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc)), ("low-tx3lbc", ("low_tx3lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc)), ("low-tx4lbc", ("low_tx4lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc)), ("rx-los", ("rx_los", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos)), ("tx-los", ("tx_los", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos)), ("rx-lol", ("rx_lol", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol)), ("tx-lol", ("tx_lol", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol)), ("tx-fault", ("tx_fault", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault)), ("hidgd", ("hidgd", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd)), ("oorcd", ("oorcd", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd)), ("osnr", ("osnr", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr)), ("wvlool", ("wvlool", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool)), ("mea", ("mea", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea)), ("imp-removal", ("imp_removal", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval)), ("rx-loc", ("rx_loc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc)), ("amp-gain-deg-low", ("amp_gain_deg_low", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow)), ("amp-gain-deg-high", ("amp_gain_deg_high", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh)), ("txpwr-mismatch", ("txpwr_mismatch", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch))])
                         self._leafs = OrderedDict()
 
                         self.high_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower()
                         self.high_rx_power.parent = self
                         self._children_name_map["high_rx_power"] = "high-rx-power"
-                        self._children_yang_names.add("high-rx-power")
 
                         self.low_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower()
                         self.low_rx_power.parent = self
                         self._children_name_map["low_rx_power"] = "low-rx-power"
-                        self._children_yang_names.add("low-rx-power")
 
                         self.high_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower()
                         self.high_tx_power.parent = self
                         self._children_name_map["high_tx_power"] = "high-tx-power"
-                        self._children_yang_names.add("high-tx-power")
 
                         self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower()
                         self.low_tx_power.parent = self
                         self._children_name_map["low_tx_power"] = "low-tx-power"
-                        self._children_yang_names.add("low-tx-power")
 
                         self.high_lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc()
                         self.high_lbc.parent = self
                         self._children_name_map["high_lbc"] = "high-lbc"
-                        self._children_yang_names.add("high-lbc")
 
                         self.low_temperature = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature()
                         self.low_temperature.parent = self
                         self._children_name_map["low_temperature"] = "low-temperature"
-                        self._children_yang_names.add("low-temperature")
 
                         self.high_temperature = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature()
                         self.high_temperature.parent = self
                         self._children_name_map["high_temperature"] = "high-temperature"
-                        self._children_yang_names.add("high-temperature")
 
                         self.low_voltage = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage()
                         self.low_voltage.parent = self
                         self._children_name_map["low_voltage"] = "low-voltage"
-                        self._children_yang_names.add("low-voltage")
 
                         self.high_voltage = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage()
                         self.high_voltage.parent = self
                         self._children_name_map["high_voltage"] = "high-voltage"
-                        self._children_yang_names.add("high-voltage")
 
                         self.high_rx1_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power()
                         self.high_rx1_power.parent = self
                         self._children_name_map["high_rx1_power"] = "high-rx1-power"
-                        self._children_yang_names.add("high-rx1-power")
 
                         self.high_rx2_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power()
                         self.high_rx2_power.parent = self
                         self._children_name_map["high_rx2_power"] = "high-rx2-power"
-                        self._children_yang_names.add("high-rx2-power")
 
                         self.high_rx3_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power()
                         self.high_rx3_power.parent = self
                         self._children_name_map["high_rx3_power"] = "high-rx3-power"
-                        self._children_yang_names.add("high-rx3-power")
 
                         self.high_rx4_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power()
                         self.high_rx4_power.parent = self
                         self._children_name_map["high_rx4_power"] = "high-rx4-power"
-                        self._children_yang_names.add("high-rx4-power")
 
                         self.low_rx1_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power()
                         self.low_rx1_power.parent = self
                         self._children_name_map["low_rx1_power"] = "low-rx1-power"
-                        self._children_yang_names.add("low-rx1-power")
 
                         self.low_rx2_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power()
                         self.low_rx2_power.parent = self
                         self._children_name_map["low_rx2_power"] = "low-rx2-power"
-                        self._children_yang_names.add("low-rx2-power")
 
                         self.low_rx3_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power()
                         self.low_rx3_power.parent = self
                         self._children_name_map["low_rx3_power"] = "low-rx3-power"
-                        self._children_yang_names.add("low-rx3-power")
 
                         self.low_rx4_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power()
                         self.low_rx4_power.parent = self
                         self._children_name_map["low_rx4_power"] = "low-rx4-power"
-                        self._children_yang_names.add("low-rx4-power")
 
                         self.high_tx1_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power()
                         self.high_tx1_power.parent = self
                         self._children_name_map["high_tx1_power"] = "high-tx1-power"
-                        self._children_yang_names.add("high-tx1-power")
 
                         self.high_tx2_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power()
                         self.high_tx2_power.parent = self
                         self._children_name_map["high_tx2_power"] = "high-tx2-power"
-                        self._children_yang_names.add("high-tx2-power")
 
                         self.high_tx3_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power()
                         self.high_tx3_power.parent = self
                         self._children_name_map["high_tx3_power"] = "high-tx3-power"
-                        self._children_yang_names.add("high-tx3-power")
 
                         self.high_tx4_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power()
                         self.high_tx4_power.parent = self
                         self._children_name_map["high_tx4_power"] = "high-tx4-power"
-                        self._children_yang_names.add("high-tx4-power")
 
                         self.low_tx1_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power()
                         self.low_tx1_power.parent = self
                         self._children_name_map["low_tx1_power"] = "low-tx1-power"
-                        self._children_yang_names.add("low-tx1-power")
 
                         self.low_tx2_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power()
                         self.low_tx2_power.parent = self
                         self._children_name_map["low_tx2_power"] = "low-tx2-power"
-                        self._children_yang_names.add("low-tx2-power")
 
                         self.low_tx3_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power()
                         self.low_tx3_power.parent = self
                         self._children_name_map["low_tx3_power"] = "low-tx3-power"
-                        self._children_yang_names.add("low-tx3-power")
 
                         self.low_tx4_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power()
                         self.low_tx4_power.parent = self
                         self._children_name_map["low_tx4_power"] = "low-tx4-power"
-                        self._children_yang_names.add("low-tx4-power")
 
-                        self.high_tx1lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc()
+                        self.high_tx1lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc()
                         self.high_tx1lbc.parent = self
                         self._children_name_map["high_tx1lbc"] = "high-tx1lbc"
-                        self._children_yang_names.add("high-tx1lbc")
 
-                        self.high_tx2lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc()
+                        self.high_tx2lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc()
                         self.high_tx2lbc.parent = self
                         self._children_name_map["high_tx2lbc"] = "high-tx2lbc"
-                        self._children_yang_names.add("high-tx2lbc")
 
-                        self.high_tx3lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc()
+                        self.high_tx3lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc()
                         self.high_tx3lbc.parent = self
                         self._children_name_map["high_tx3lbc"] = "high-tx3lbc"
-                        self._children_yang_names.add("high-tx3lbc")
 
-                        self.high_tx4lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc()
+                        self.high_tx4lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc()
                         self.high_tx4lbc.parent = self
                         self._children_name_map["high_tx4lbc"] = "high-tx4lbc"
-                        self._children_yang_names.add("high-tx4lbc")
 
-                        self.low_tx1lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc()
+                        self.low_tx1lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc()
                         self.low_tx1lbc.parent = self
                         self._children_name_map["low_tx1lbc"] = "low-tx1lbc"
-                        self._children_yang_names.add("low-tx1lbc")
 
-                        self.low_tx2lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc()
+                        self.low_tx2lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc()
                         self.low_tx2lbc.parent = self
                         self._children_name_map["low_tx2lbc"] = "low-tx2lbc"
-                        self._children_yang_names.add("low-tx2lbc")
 
-                        self.low_tx3lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc()
+                        self.low_tx3lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc()
                         self.low_tx3lbc.parent = self
                         self._children_name_map["low_tx3lbc"] = "low-tx3lbc"
-                        self._children_yang_names.add("low-tx3lbc")
 
-                        self.low_tx4lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc()
+                        self.low_tx4lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc()
                         self.low_tx4lbc.parent = self
                         self._children_name_map["low_tx4lbc"] = "low-tx4lbc"
-                        self._children_yang_names.add("low-tx4lbc")
 
                         self.rx_los = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos()
                         self.rx_los.parent = self
                         self._children_name_map["rx_los"] = "rx-los"
-                        self._children_yang_names.add("rx-los")
 
                         self.tx_los = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos()
                         self.tx_los.parent = self
                         self._children_name_map["tx_los"] = "tx-los"
-                        self._children_yang_names.add("tx-los")
 
                         self.rx_lol = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol()
                         self.rx_lol.parent = self
                         self._children_name_map["rx_lol"] = "rx-lol"
-                        self._children_yang_names.add("rx-lol")
 
                         self.tx_lol = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol()
                         self.tx_lol.parent = self
                         self._children_name_map["tx_lol"] = "tx-lol"
-                        self._children_yang_names.add("tx-lol")
 
                         self.tx_fault = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault()
                         self.tx_fault.parent = self
                         self._children_name_map["tx_fault"] = "tx-fault"
-                        self._children_yang_names.add("tx-fault")
 
                         self.hidgd = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd()
                         self.hidgd.parent = self
                         self._children_name_map["hidgd"] = "hidgd"
-                        self._children_yang_names.add("hidgd")
 
                         self.oorcd = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd()
                         self.oorcd.parent = self
                         self._children_name_map["oorcd"] = "oorcd"
-                        self._children_yang_names.add("oorcd")
 
                         self.osnr = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr()
                         self.osnr.parent = self
                         self._children_name_map["osnr"] = "osnr"
-                        self._children_yang_names.add("osnr")
 
                         self.wvlool = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool()
                         self.wvlool.parent = self
                         self._children_name_map["wvlool"] = "wvlool"
-                        self._children_yang_names.add("wvlool")
 
                         self.mea = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea()
                         self.mea.parent = self
                         self._children_name_map["mea"] = "mea"
-                        self._children_yang_names.add("mea")
 
                         self.imp_removal = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval()
                         self.imp_removal.parent = self
                         self._children_name_map["imp_removal"] = "imp-removal"
-                        self._children_yang_names.add("imp-removal")
 
                         self.rx_loc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc()
                         self.rx_loc.parent = self
                         self._children_name_map["rx_loc"] = "rx-loc"
-                        self._children_yang_names.add("rx-loc")
 
                         self.amp_gain_deg_low = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow()
                         self.amp_gain_deg_low.parent = self
                         self._children_name_map["amp_gain_deg_low"] = "amp-gain-deg-low"
-                        self._children_yang_names.add("amp-gain-deg-low")
 
                         self.amp_gain_deg_high = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh()
                         self.amp_gain_deg_high.parent = self
                         self._children_name_map["amp_gain_deg_high"] = "amp-gain-deg-high"
-                        self._children_yang_names.add("amp-gain-deg-high")
 
                         self.txpwr_mismatch = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch()
                         self.txpwr_mismatch.parent = self
                         self._children_name_map["txpwr_mismatch"] = "txpwr-mismatch"
-                        self._children_yang_names.add("txpwr-mismatch")
                         self._segment_path = lambda: "optics-alarm-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo, [], name, value)
 
 
                     class HighRxPower(Entity):
@@ -3278,7 +3137,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, self).__init__()
@@ -3288,8 +3147,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3323,7 +3181,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, self).__init__()
@@ -3333,8 +3191,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3368,7 +3225,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, self).__init__()
@@ -3378,8 +3235,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3413,7 +3269,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, self).__init__()
@@ -3423,8 +3279,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3458,7 +3313,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, self).__init__()
@@ -3468,8 +3323,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3503,7 +3357,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, self).__init__()
@@ -3513,8 +3367,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3548,7 +3401,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, self).__init__()
@@ -3558,8 +3411,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3593,7 +3445,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, self).__init__()
@@ -3603,8 +3455,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3638,7 +3489,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, self).__init__()
@@ -3648,8 +3499,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3683,7 +3533,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, self).__init__()
@@ -3693,8 +3543,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3728,7 +3577,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, self).__init__()
@@ -3738,8 +3587,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3773,7 +3621,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, self).__init__()
@@ -3783,8 +3631,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3818,7 +3665,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, self).__init__()
@@ -3828,8 +3675,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3863,7 +3709,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, self).__init__()
@@ -3873,8 +3719,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3908,7 +3753,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, self).__init__()
@@ -3918,8 +3763,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3953,7 +3797,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, self).__init__()
@@ -3963,8 +3807,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -3998,7 +3841,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, self).__init__()
@@ -4008,8 +3851,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4043,7 +3885,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, self).__init__()
@@ -4053,8 +3895,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4088,7 +3929,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, self).__init__()
@@ -4098,8 +3939,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4133,7 +3973,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, self).__init__()
@@ -4143,8 +3983,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4178,7 +4017,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, self).__init__()
@@ -4188,8 +4027,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4223,7 +4061,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, self).__init__()
@@ -4233,8 +4071,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4268,7 +4105,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, self).__init__()
@@ -4278,8 +4115,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4313,7 +4149,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, self).__init__()
@@ -4323,8 +4159,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4358,7 +4193,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, self).__init__()
@@ -4368,8 +4203,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4382,7 +4216,7 @@ class OpticsOper(Entity):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, ['is_detected', 'counter'], name, value)
 
 
-                    class HighTx1Lbc(Entity):
+                    class HighTx1lbc(Entity):
                         """
                         High Tx1 laser bias current in units of
                         percentage
@@ -4404,18 +4238,17 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, self).__init__()
 
                             self.yang_name = "high-tx1lbc"
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4425,10 +4258,10 @@ class OpticsOper(Entity):
                             self._segment_path = lambda: "high-tx1lbc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, ['is_detected', 'counter'], name, value)
 
 
-                    class HighTx2Lbc(Entity):
+                    class HighTx2lbc(Entity):
                         """
                         High Tx2 laser bias current in units of
                         percentage
@@ -4450,18 +4283,17 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, self).__init__()
 
                             self.yang_name = "high-tx2lbc"
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4471,10 +4303,10 @@ class OpticsOper(Entity):
                             self._segment_path = lambda: "high-tx2lbc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, ['is_detected', 'counter'], name, value)
 
 
-                    class HighTx3Lbc(Entity):
+                    class HighTx3lbc(Entity):
                         """
                         High Tx3 laser bias current in units of
                         percentage
@@ -4496,18 +4328,17 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, self).__init__()
 
                             self.yang_name = "high-tx3lbc"
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4517,10 +4348,10 @@ class OpticsOper(Entity):
                             self._segment_path = lambda: "high-tx3lbc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, ['is_detected', 'counter'], name, value)
 
 
-                    class HighTx4Lbc(Entity):
+                    class HighTx4lbc(Entity):
                         """
                         High Tx4 laser bias current in units of
                         percentage
@@ -4542,18 +4373,17 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, self).__init__()
 
                             self.yang_name = "high-tx4lbc"
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4563,10 +4393,10 @@ class OpticsOper(Entity):
                             self._segment_path = lambda: "high-tx4lbc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, ['is_detected', 'counter'], name, value)
 
 
-                    class LowTx1Lbc(Entity):
+                    class LowTx1lbc(Entity):
                         """
                         Low Tx1 laser bias current in units of
                         percentage
@@ -4588,18 +4418,17 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, self).__init__()
 
                             self.yang_name = "low-tx1lbc"
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4609,10 +4438,10 @@ class OpticsOper(Entity):
                             self._segment_path = lambda: "low-tx1lbc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, ['is_detected', 'counter'], name, value)
 
 
-                    class LowTx2Lbc(Entity):
+                    class LowTx2lbc(Entity):
                         """
                         Low Tx2 laser bias current in units of
                         percentage
@@ -4634,18 +4463,17 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, self).__init__()
 
                             self.yang_name = "low-tx2lbc"
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4655,10 +4483,10 @@ class OpticsOper(Entity):
                             self._segment_path = lambda: "low-tx2lbc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, ['is_detected', 'counter'], name, value)
 
 
-                    class LowTx3Lbc(Entity):
+                    class LowTx3lbc(Entity):
                         """
                         Low Tx3 laser bias current in units of
                         percentage
@@ -4680,18 +4508,17 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, self).__init__()
 
                             self.yang_name = "low-tx3lbc"
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4701,10 +4528,10 @@ class OpticsOper(Entity):
                             self._segment_path = lambda: "low-tx3lbc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, ['is_detected', 'counter'], name, value)
 
 
-                    class LowTx4Lbc(Entity):
+                    class LowTx4lbc(Entity):
                         """
                         Low Tx4 laser bias current in units of
                         percentage
@@ -4726,18 +4553,17 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, self).__init__()
 
                             self.yang_name = "low-tx4lbc"
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4747,7 +4573,7 @@ class OpticsOper(Entity):
                             self._segment_path = lambda: "low-tx4lbc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, ['is_detected', 'counter'], name, value)
 
 
                     class RxLos(Entity):
@@ -4771,7 +4597,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, self).__init__()
@@ -4781,8 +4607,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4816,7 +4641,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, self).__init__()
@@ -4826,8 +4651,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4861,7 +4685,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, self).__init__()
@@ -4871,8 +4695,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4906,7 +4729,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, self).__init__()
@@ -4916,8 +4739,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4951,7 +4773,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, self).__init__()
@@ -4961,8 +4783,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -4996,7 +4817,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, self).__init__()
@@ -5006,8 +4827,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5041,7 +4861,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, self).__init__()
@@ -5051,8 +4871,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5086,7 +4905,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, self).__init__()
@@ -5096,8 +4915,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5131,7 +4949,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, self).__init__()
@@ -5141,8 +4959,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5176,7 +4993,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, self).__init__()
@@ -5186,8 +5003,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5221,7 +5037,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, self).__init__()
@@ -5231,8 +5047,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5266,7 +5081,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, self).__init__()
@@ -5276,8 +5091,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5311,7 +5125,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, self).__init__()
@@ -5321,8 +5135,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5356,7 +5169,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, self).__init__()
@@ -5366,8 +5179,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5401,7 +5213,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, self).__init__()
@@ -5411,8 +5223,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5494,7 +5305,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo, self).__init__()
@@ -5504,70 +5315,60 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower)), ("rx-los-p", ("rx_los_p", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP)), ("rx-loc", ("rx_loc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc)), ("amp-gain-deg-low", ("amp_gain_deg_low", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow)), ("amp-gain-deg-high", ("amp_gain_deg_high", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh)), ("auto-laser-shut", ("auto_laser_shut", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut)), ("auto-power-red", ("auto_power_red", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed)), ("auto-ampli-ctrl-disabled", ("auto_ampli_ctrl_disabled", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled)), ("auto-ampli-ctrl-config-mismatch", ("auto_ampli_ctrl_config_mismatch", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch)), ("switch-to-protect", ("switch_to_protect", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect)), ("auto-ampli-ctrl-running", ("auto_ampli_ctrl_running", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower)), ("rx-los-p", ("rx_los_p", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP)), ("rx-loc", ("rx_loc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc)), ("amp-gain-deg-low", ("amp_gain_deg_low", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow)), ("amp-gain-deg-high", ("amp_gain_deg_high", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh)), ("auto-laser-shut", ("auto_laser_shut", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut)), ("auto-power-red", ("auto_power_red", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed)), ("auto-ampli-ctrl-disabled", ("auto_ampli_ctrl_disabled", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled)), ("auto-ampli-ctrl-config-mismatch", ("auto_ampli_ctrl_config_mismatch", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch)), ("switch-to-protect", ("switch_to_protect", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect)), ("auto-ampli-ctrl-running", ("auto_ampli_ctrl_running", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning))])
                         self._leafs = OrderedDict()
 
                         self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower()
                         self.low_tx_power.parent = self
                         self._children_name_map["low_tx_power"] = "low-tx-power"
-                        self._children_yang_names.add("low-tx-power")
 
                         self.low_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower()
                         self.low_rx_power.parent = self
                         self._children_name_map["low_rx_power"] = "low-rx-power"
-                        self._children_yang_names.add("low-rx-power")
 
                         self.rx_los_p = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP()
                         self.rx_los_p.parent = self
                         self._children_name_map["rx_los_p"] = "rx-los-p"
-                        self._children_yang_names.add("rx-los-p")
 
                         self.rx_loc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc()
                         self.rx_loc.parent = self
                         self._children_name_map["rx_loc"] = "rx-loc"
-                        self._children_yang_names.add("rx-loc")
 
                         self.amp_gain_deg_low = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow()
                         self.amp_gain_deg_low.parent = self
                         self._children_name_map["amp_gain_deg_low"] = "amp-gain-deg-low"
-                        self._children_yang_names.add("amp-gain-deg-low")
 
                         self.amp_gain_deg_high = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh()
                         self.amp_gain_deg_high.parent = self
                         self._children_name_map["amp_gain_deg_high"] = "amp-gain-deg-high"
-                        self._children_yang_names.add("amp-gain-deg-high")
 
                         self.auto_laser_shut = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut()
                         self.auto_laser_shut.parent = self
                         self._children_name_map["auto_laser_shut"] = "auto-laser-shut"
-                        self._children_yang_names.add("auto-laser-shut")
 
                         self.auto_power_red = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed()
                         self.auto_power_red.parent = self
                         self._children_name_map["auto_power_red"] = "auto-power-red"
-                        self._children_yang_names.add("auto-power-red")
 
                         self.auto_ampli_ctrl_disabled = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled()
                         self.auto_ampli_ctrl_disabled.parent = self
                         self._children_name_map["auto_ampli_ctrl_disabled"] = "auto-ampli-ctrl-disabled"
-                        self._children_yang_names.add("auto-ampli-ctrl-disabled")
 
                         self.auto_ampli_ctrl_config_mismatch = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch()
                         self.auto_ampli_ctrl_config_mismatch.parent = self
                         self._children_name_map["auto_ampli_ctrl_config_mismatch"] = "auto-ampli-ctrl-config-mismatch"
-                        self._children_yang_names.add("auto-ampli-ctrl-config-mismatch")
 
                         self.switch_to_protect = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect()
                         self.switch_to_protect.parent = self
                         self._children_name_map["switch_to_protect"] = "switch-to-protect"
-                        self._children_yang_names.add("switch-to-protect")
 
                         self.auto_ampli_ctrl_running = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning()
                         self.auto_ampli_ctrl_running.parent = self
                         self._children_name_map["auto_ampli_ctrl_running"] = "auto-ampli-ctrl-running"
-                        self._children_yang_names.add("auto-ampli-ctrl-running")
                         self._segment_path = lambda: "ots-alarm-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo, [], name, value)
 
 
                     class LowTxPower(Entity):
@@ -5591,7 +5392,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, self).__init__()
@@ -5601,8 +5402,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5636,7 +5436,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, self).__init__()
@@ -5646,8 +5446,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5681,7 +5480,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, self).__init__()
@@ -5691,8 +5490,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5726,7 +5524,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, self).__init__()
@@ -5736,8 +5534,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5771,7 +5568,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, self).__init__()
@@ -5781,8 +5578,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5816,7 +5612,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, self).__init__()
@@ -5826,8 +5622,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5861,7 +5656,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, self).__init__()
@@ -5871,8 +5666,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5906,7 +5700,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, self).__init__()
@@ -5916,8 +5710,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5951,7 +5744,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, self).__init__()
@@ -5961,8 +5754,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -5996,7 +5788,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, self).__init__()
@@ -6006,8 +5798,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -6041,7 +5832,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, self).__init__()
@@ -6051,8 +5842,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -6086,7 +5876,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, self).__init__()
@@ -6096,8 +5886,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -6201,7 +5990,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, self).__init__()
@@ -6211,8 +6000,7 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vendor_info', YLeaf(YType.str, 'vendor-info')),
                             ('adapter_vendor_info', YLeaf(YType.str, 'adapter-vendor-info')),
@@ -6416,7 +6204,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, self).__init__()
@@ -6426,8 +6214,7 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('snr_lane1', YLeaf(YType.int32, 'snr-lane1')),
                             ('snr_lane2', YLeaf(YType.int32, 'snr-lane2')),
@@ -6937,7 +6724,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, self).__init__()
@@ -6947,8 +6734,7 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('snr_alarm_high_threshold', YLeaf(YType.int32, 'snr-alarm-high-threshold')),
                             ('snr_alarm_low_threshold', YLeaf(YType.int32, 'snr-alarm-low-threshold')),
@@ -7244,7 +7030,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo, self).__init__()
@@ -7254,160 +7040,132 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("lo-snr", ("lo_snr", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr)), ("hi-snr1", ("hi_snr1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1)), ("lo-snr1", ("lo_snr1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1)), ("hi-snr2", ("hi_snr2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2)), ("lo-isi1", ("lo_isi1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1)), ("hi-isi1", ("hi_isi1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1)), ("lo-isi2", ("lo_isi2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2)), ("hi-isi2", ("hi_isi2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2)), ("lo-pam1", ("lo_pam1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1)), ("hi-pam1", ("hi_pam1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1)), ("lo-pam2", ("lo_pam2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2)), ("hi-pam2", ("hi_pam2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2)), ("lo-tec1", ("lo_tec1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1)), ("hi-tec1", ("hi_tec1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1)), ("lo-tec2", ("lo_tec2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2)), ("hi-tec2", ("hi_tec2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2)), ("lo-laser-freq1", ("lo_laser_freq1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1)), ("hi-laser-freq1", ("hi_laser_freq1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1)), ("lo-laser-freq2", ("lo_laser_freq2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2)), ("hi-laser-freq2", ("hi_laser_freq2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2)), ("hi-pre-fecber-cur-acc", ("hi_pre_fecber_cur_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc)), ("hi-pre-fecber-min", ("hi_pre_fecber_min", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin)), ("hi-pre-fecber-max", ("hi_pre_fecber_max", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax)), ("hi-pre-fecber-prior-acc", ("hi_pre_fecber_prior_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc)), ("hi-pre-fecber-cur", ("hi_pre_fecber_cur", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur)), ("hi-uncorrected-ber-cur-acc", ("hi_uncorrected_ber_cur_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc)), ("hi-uncorrected-ber-min", ("hi_uncorrected_ber_min", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin)), ("hi-uncorrected-ber-max", ("hi_uncorrected_ber_max", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax)), ("hi-uncorrected-ber-prior-acc", ("hi_uncorrected_ber_prior_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc)), ("hi-uncorrected-ber-cur", ("hi_uncorrected_ber_cur", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("lo-snr", ("lo_snr", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr)), ("hi-snr1", ("hi_snr1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1)), ("lo-snr1", ("lo_snr1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1)), ("hi-snr2", ("hi_snr2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2)), ("lo-isi1", ("lo_isi1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1)), ("hi-isi1", ("hi_isi1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1)), ("lo-isi2", ("lo_isi2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2)), ("hi-isi2", ("hi_isi2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2)), ("lo-pam1", ("lo_pam1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1)), ("hi-pam1", ("hi_pam1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1)), ("lo-pam2", ("lo_pam2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2)), ("hi-pam2", ("hi_pam2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2)), ("lo-tec1", ("lo_tec1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1)), ("hi-tec1", ("hi_tec1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1)), ("lo-tec2", ("lo_tec2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2)), ("hi-tec2", ("hi_tec2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2)), ("lo-laser-freq1", ("lo_laser_freq1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1)), ("hi-laser-freq1", ("hi_laser_freq1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1)), ("lo-laser-freq2", ("lo_laser_freq2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2)), ("hi-laser-freq2", ("hi_laser_freq2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2)), ("hi-pre-fecber-cur-acc", ("hi_pre_fecber_cur_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc)), ("hi-pre-fecber-min", ("hi_pre_fecber_min", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin)), ("hi-pre-fecber-max", ("hi_pre_fecber_max", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax)), ("hi-pre-fecber-prior-acc", ("hi_pre_fecber_prior_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc)), ("hi-pre-fecber-cur", ("hi_pre_fecber_cur", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur)), ("hi-uncorrected-ber-cur-acc", ("hi_uncorrected_ber_cur_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc)), ("hi-uncorrected-ber-min", ("hi_uncorrected_ber_min", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin)), ("hi-uncorrected-ber-max", ("hi_uncorrected_ber_max", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax)), ("hi-uncorrected-ber-prior-acc", ("hi_uncorrected_ber_prior_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc)), ("hi-uncorrected-ber-cur", ("hi_uncorrected_ber_cur", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur))])
                         self._leafs = OrderedDict()
 
                         self.lo_snr = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr()
                         self.lo_snr.parent = self
                         self._children_name_map["lo_snr"] = "lo-snr"
-                        self._children_yang_names.add("lo-snr")
 
                         self.hi_snr1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1()
                         self.hi_snr1.parent = self
                         self._children_name_map["hi_snr1"] = "hi-snr1"
-                        self._children_yang_names.add("hi-snr1")
 
                         self.lo_snr1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1()
                         self.lo_snr1.parent = self
                         self._children_name_map["lo_snr1"] = "lo-snr1"
-                        self._children_yang_names.add("lo-snr1")
 
                         self.hi_snr2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2()
                         self.hi_snr2.parent = self
                         self._children_name_map["hi_snr2"] = "hi-snr2"
-                        self._children_yang_names.add("hi-snr2")
 
                         self.lo_isi1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1()
                         self.lo_isi1.parent = self
                         self._children_name_map["lo_isi1"] = "lo-isi1"
-                        self._children_yang_names.add("lo-isi1")
 
                         self.hi_isi1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1()
                         self.hi_isi1.parent = self
                         self._children_name_map["hi_isi1"] = "hi-isi1"
-                        self._children_yang_names.add("hi-isi1")
 
                         self.lo_isi2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2()
                         self.lo_isi2.parent = self
                         self._children_name_map["lo_isi2"] = "lo-isi2"
-                        self._children_yang_names.add("lo-isi2")
 
                         self.hi_isi2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2()
                         self.hi_isi2.parent = self
                         self._children_name_map["hi_isi2"] = "hi-isi2"
-                        self._children_yang_names.add("hi-isi2")
 
                         self.lo_pam1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1()
                         self.lo_pam1.parent = self
                         self._children_name_map["lo_pam1"] = "lo-pam1"
-                        self._children_yang_names.add("lo-pam1")
 
                         self.hi_pam1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1()
                         self.hi_pam1.parent = self
                         self._children_name_map["hi_pam1"] = "hi-pam1"
-                        self._children_yang_names.add("hi-pam1")
 
                         self.lo_pam2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2()
                         self.lo_pam2.parent = self
                         self._children_name_map["lo_pam2"] = "lo-pam2"
-                        self._children_yang_names.add("lo-pam2")
 
                         self.hi_pam2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2()
                         self.hi_pam2.parent = self
                         self._children_name_map["hi_pam2"] = "hi-pam2"
-                        self._children_yang_names.add("hi-pam2")
 
                         self.lo_tec1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1()
                         self.lo_tec1.parent = self
                         self._children_name_map["lo_tec1"] = "lo-tec1"
-                        self._children_yang_names.add("lo-tec1")
 
                         self.hi_tec1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1()
                         self.hi_tec1.parent = self
                         self._children_name_map["hi_tec1"] = "hi-tec1"
-                        self._children_yang_names.add("hi-tec1")
 
                         self.lo_tec2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2()
                         self.lo_tec2.parent = self
                         self._children_name_map["lo_tec2"] = "lo-tec2"
-                        self._children_yang_names.add("lo-tec2")
 
                         self.hi_tec2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2()
                         self.hi_tec2.parent = self
                         self._children_name_map["hi_tec2"] = "hi-tec2"
-                        self._children_yang_names.add("hi-tec2")
 
                         self.lo_laser_freq1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1()
                         self.lo_laser_freq1.parent = self
                         self._children_name_map["lo_laser_freq1"] = "lo-laser-freq1"
-                        self._children_yang_names.add("lo-laser-freq1")
 
                         self.hi_laser_freq1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1()
                         self.hi_laser_freq1.parent = self
                         self._children_name_map["hi_laser_freq1"] = "hi-laser-freq1"
-                        self._children_yang_names.add("hi-laser-freq1")
 
                         self.lo_laser_freq2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2()
                         self.lo_laser_freq2.parent = self
                         self._children_name_map["lo_laser_freq2"] = "lo-laser-freq2"
-                        self._children_yang_names.add("lo-laser-freq2")
 
                         self.hi_laser_freq2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2()
                         self.hi_laser_freq2.parent = self
                         self._children_name_map["hi_laser_freq2"] = "hi-laser-freq2"
-                        self._children_yang_names.add("hi-laser-freq2")
 
                         self.hi_pre_fecber_cur_acc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc()
                         self.hi_pre_fecber_cur_acc.parent = self
                         self._children_name_map["hi_pre_fecber_cur_acc"] = "hi-pre-fecber-cur-acc"
-                        self._children_yang_names.add("hi-pre-fecber-cur-acc")
 
                         self.hi_pre_fecber_min = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin()
                         self.hi_pre_fecber_min.parent = self
                         self._children_name_map["hi_pre_fecber_min"] = "hi-pre-fecber-min"
-                        self._children_yang_names.add("hi-pre-fecber-min")
 
                         self.hi_pre_fecber_max = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax()
                         self.hi_pre_fecber_max.parent = self
                         self._children_name_map["hi_pre_fecber_max"] = "hi-pre-fecber-max"
-                        self._children_yang_names.add("hi-pre-fecber-max")
 
                         self.hi_pre_fecber_prior_acc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc()
                         self.hi_pre_fecber_prior_acc.parent = self
                         self._children_name_map["hi_pre_fecber_prior_acc"] = "hi-pre-fecber-prior-acc"
-                        self._children_yang_names.add("hi-pre-fecber-prior-acc")
 
                         self.hi_pre_fecber_cur = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur()
                         self.hi_pre_fecber_cur.parent = self
                         self._children_name_map["hi_pre_fecber_cur"] = "hi-pre-fecber-cur"
-                        self._children_yang_names.add("hi-pre-fecber-cur")
 
                         self.hi_uncorrected_ber_cur_acc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc()
                         self.hi_uncorrected_ber_cur_acc.parent = self
                         self._children_name_map["hi_uncorrected_ber_cur_acc"] = "hi-uncorrected-ber-cur-acc"
-                        self._children_yang_names.add("hi-uncorrected-ber-cur-acc")
 
                         self.hi_uncorrected_ber_min = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin()
                         self.hi_uncorrected_ber_min.parent = self
                         self._children_name_map["hi_uncorrected_ber_min"] = "hi-uncorrected-ber-min"
-                        self._children_yang_names.add("hi-uncorrected-ber-min")
 
                         self.hi_uncorrected_ber_max = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax()
                         self.hi_uncorrected_ber_max.parent = self
                         self._children_name_map["hi_uncorrected_ber_max"] = "hi-uncorrected-ber-max"
-                        self._children_yang_names.add("hi-uncorrected-ber-max")
 
                         self.hi_uncorrected_ber_prior_acc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc()
                         self.hi_uncorrected_ber_prior_acc.parent = self
                         self._children_name_map["hi_uncorrected_ber_prior_acc"] = "hi-uncorrected-ber-prior-acc"
-                        self._children_yang_names.add("hi-uncorrected-ber-prior-acc")
 
                         self.hi_uncorrected_ber_cur = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur()
                         self.hi_uncorrected_ber_cur.parent = self
                         self._children_name_map["hi_uncorrected_ber_cur"] = "hi-uncorrected-ber-cur"
-                        self._children_yang_names.add("hi-uncorrected-ber-cur")
                         self._segment_path = lambda: "extended-alarm-alarm-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo, [], name, value)
 
 
                     class LoSnr(Entity):
@@ -7431,7 +7189,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, self).__init__()
@@ -7441,8 +7199,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7476,7 +7233,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, self).__init__()
@@ -7486,8 +7243,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7521,7 +7277,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, self).__init__()
@@ -7531,8 +7287,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7566,7 +7321,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, self).__init__()
@@ -7576,8 +7331,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7611,7 +7365,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, self).__init__()
@@ -7621,8 +7375,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7656,7 +7409,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, self).__init__()
@@ -7666,8 +7419,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7701,7 +7453,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, self).__init__()
@@ -7711,8 +7463,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7746,7 +7497,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, self).__init__()
@@ -7756,8 +7507,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7791,7 +7541,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, self).__init__()
@@ -7801,8 +7551,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7836,7 +7585,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, self).__init__()
@@ -7846,8 +7595,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7881,7 +7629,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, self).__init__()
@@ -7891,8 +7639,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7926,7 +7673,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, self).__init__()
@@ -7936,8 +7683,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -7971,7 +7717,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, self).__init__()
@@ -7981,8 +7727,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8016,7 +7761,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, self).__init__()
@@ -8026,8 +7771,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8061,7 +7805,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, self).__init__()
@@ -8071,8 +7815,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8106,7 +7849,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, self).__init__()
@@ -8116,8 +7859,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8151,7 +7893,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, self).__init__()
@@ -8161,8 +7903,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8197,7 +7938,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, self).__init__()
@@ -8207,8 +7948,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8242,7 +7982,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, self).__init__()
@@ -8252,8 +7992,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8288,7 +8027,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, self).__init__()
@@ -8298,8 +8037,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8333,7 +8071,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, self).__init__()
@@ -8343,8 +8081,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8378,7 +8115,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, self).__init__()
@@ -8388,8 +8125,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8423,7 +8159,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, self).__init__()
@@ -8433,8 +8169,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8468,7 +8203,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, self).__init__()
@@ -8478,8 +8213,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8513,7 +8247,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, self).__init__()
@@ -8523,8 +8257,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8558,7 +8291,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, self).__init__()
@@ -8568,8 +8301,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8603,7 +8335,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, self).__init__()
@@ -8613,8 +8345,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8648,7 +8379,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, self).__init__()
@@ -8658,8 +8389,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8693,7 +8423,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, self).__init__()
@@ -8703,8 +8433,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8738,7 +8467,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, self).__init__()
@@ -8748,8 +8477,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                 ('counter', YLeaf(YType.uint32, 'counter')),
@@ -8841,7 +8569,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, self).__init__()
@@ -8851,8 +8579,7 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("lane-alarm-info", ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("lane-alarm-info", ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo))])
                         self._leafs = OrderedDict([
                             ('lane_index', YLeaf(YType.uint32, 'lane-index')),
                             ('laser_bias_current_percent', YLeaf(YType.uint32, 'laser-bias-current-percent')),
@@ -8877,7 +8604,6 @@ class OpticsOper(Entity):
                         self.lane_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo()
                         self.lane_alarm_info.parent = self
                         self._children_name_map["lane_alarm_info"] = "lane-alarm-info"
-                        self._children_yang_names.add("lane-alarm-info")
                         self._segment_path = lambda: "lane-data"
 
                     def __setattr__(self, name, value):
@@ -8918,7 +8644,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo, self).__init__()
@@ -8928,35 +8654,32 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc))])
                             self._leafs = OrderedDict()
 
                             self.high_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower()
                             self.high_rx_power.parent = self
                             self._children_name_map["high_rx_power"] = "high-rx-power"
-                            self._children_yang_names.add("high-rx-power")
 
                             self.low_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower()
                             self.low_rx_power.parent = self
                             self._children_name_map["low_rx_power"] = "low-rx-power"
-                            self._children_yang_names.add("low-rx-power")
 
                             self.high_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower()
                             self.high_tx_power.parent = self
                             self._children_name_map["high_tx_power"] = "high-tx-power"
-                            self._children_yang_names.add("high-tx-power")
 
                             self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower()
                             self.low_tx_power.parent = self
                             self._children_name_map["low_tx_power"] = "low-tx-power"
-                            self._children_yang_names.add("low-tx-power")
 
                             self.high_lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc()
                             self.high_lbc.parent = self
                             self._children_name_map["high_lbc"] = "high-lbc"
-                            self._children_yang_names.add("high-lbc")
                             self._segment_path = lambda: "lane-alarm-info"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo, [], name, value)
 
 
                         class HighRxPower(Entity):
@@ -8980,7 +8703,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, self).__init__()
@@ -8990,8 +8713,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9025,7 +8747,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, self).__init__()
@@ -9035,8 +8757,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9070,7 +8791,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, self).__init__()
@@ -9080,8 +8801,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9115,7 +8835,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, self).__init__()
@@ -9125,8 +8845,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9160,7 +8879,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, self).__init__()
@@ -9170,8 +8889,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9198,7 +8916,7 @@ class OpticsOper(Entity):
                 """
 
                 _prefix = 'controller-optics-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes, self).__init__()
@@ -9208,8 +8926,7 @@ class OpticsOper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("optics-lane", ("optics_lane", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane))])
+                    self._child_classes = OrderedDict([("optics-lane", ("optics_lane", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane))])
                     self._leafs = OrderedDict()
 
                     self.optics_lane = YList(self)
@@ -9228,7 +8945,7 @@ class OpticsOper(Entity):
                     	Lane Index
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: lane_alarm_info
                     
@@ -9305,7 +9022,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, self).__init__()
@@ -9315,10 +9032,9 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['number']
-                        self._child_container_classes = OrderedDict([("lane-alarm-info", ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("lane-alarm-info", ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo))])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.int32, 'number')),
+                            ('number', YLeaf(YType.uint32, 'number')),
                             ('lane_index', YLeaf(YType.uint32, 'lane-index')),
                             ('laser_bias_current_percent', YLeaf(YType.uint32, 'laser-bias-current-percent')),
                             ('laser_bias_current_milli_amps', YLeaf(YType.uint32, 'laser-bias-current-milli-amps')),
@@ -9343,7 +9059,6 @@ class OpticsOper(Entity):
                         self.lane_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo()
                         self.lane_alarm_info.parent = self
                         self._children_name_map["lane_alarm_info"] = "lane-alarm-info"
-                        self._children_yang_names.add("lane-alarm-info")
                         self._segment_path = lambda: "optics-lane" + "[number='" + str(self.number) + "']"
 
                     def __setattr__(self, name, value):
@@ -9384,7 +9099,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo, self).__init__()
@@ -9394,35 +9109,32 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc))])
                             self._leafs = OrderedDict()
 
                             self.high_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower()
                             self.high_rx_power.parent = self
                             self._children_name_map["high_rx_power"] = "high-rx-power"
-                            self._children_yang_names.add("high-rx-power")
 
                             self.low_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower()
                             self.low_rx_power.parent = self
                             self._children_name_map["low_rx_power"] = "low-rx-power"
-                            self._children_yang_names.add("low-rx-power")
 
                             self.high_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower()
                             self.high_tx_power.parent = self
                             self._children_name_map["high_tx_power"] = "high-tx-power"
-                            self._children_yang_names.add("high-tx-power")
 
                             self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower()
                             self.low_tx_power.parent = self
                             self._children_name_map["low_tx_power"] = "low-tx-power"
-                            self._children_yang_names.add("low-tx-power")
 
                             self.high_lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc()
                             self.high_lbc.parent = self
                             self._children_name_map["high_lbc"] = "high-lbc"
-                            self._children_yang_names.add("high-lbc")
                             self._segment_path = lambda: "lane-alarm-info"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo, [], name, value)
 
 
                         class HighRxPower(Entity):
@@ -9446,7 +9158,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, self).__init__()
@@ -9456,8 +9168,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9491,7 +9202,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, self).__init__()
@@ -9501,8 +9212,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9536,7 +9246,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, self).__init__()
@@ -9546,8 +9256,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9581,7 +9290,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, self).__init__()
@@ -9591,8 +9300,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9626,7 +9334,7 @@ class OpticsOper(Entity):
                             """
 
                             _prefix = 'controller-optics-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, self).__init__()
@@ -9636,8 +9344,7 @@ class OpticsOper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
                                     ('counter', YLeaf(YType.uint32, 'counter')),
@@ -9648,6 +9355,130 @@ class OpticsOper(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
+
+
+            class OpticsDwdmCarrrierChannelMapFlexi(Entity):
+                """
+                Optics operational data
+                
+                .. attribute:: dwdm_carrier_band
+                
+                	DWDM carrier band
+                	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
+                
+                .. attribute:: dwdm_carrier_min
+                
+                	Lowest DWDM carrier supported
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dwdm_carrier_max
+                
+                	Highest DWDM carrier supported
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dwdm_carrier_map_info
+                
+                	DWDM carrier mapping info
+                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo>`
+                
+                
+
+                """
+
+                _prefix = 'controller-optics-oper'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi, self).__init__()
+
+                    self.yang_name = "optics-dwdm-carrrier-channel-map-flexi"
+                    self.yang_parent_name = "optics-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo))])
+                    self._leafs = OrderedDict([
+                        ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
+                        ('dwdm_carrier_min', YLeaf(YType.uint32, 'dwdm-carrier-min')),
+                        ('dwdm_carrier_max', YLeaf(YType.uint32, 'dwdm-carrier-max')),
+                    ])
+                    self.dwdm_carrier_band = None
+                    self.dwdm_carrier_min = None
+                    self.dwdm_carrier_max = None
+
+                    self.dwdm_carrier_map_info = YList(self)
+                    self._segment_path = lambda: "optics-dwdm-carrrier-channel-map-flexi"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
+
+
+                class DwdmCarrierMapInfo(Entity):
+                    """
+                    DWDM carrier mapping info
+                    
+                    .. attribute:: itu_chan_num
+                    
+                    	ITU channel number
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: g694_chan_num
+                    
+                    	G694 channel number
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: frequency
+                    
+                    	Frequency
+                    	**type**\: str
+                    
+                    	**length:** 0..32
+                    
+                    .. attribute:: wavelength
+                    
+                    	Wavelength
+                    	**type**\: str
+                    
+                    	**length:** 0..32
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-optics-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo, self).__init__()
+
+                        self.yang_name = "dwdm-carrier-map-info"
+                        self.yang_parent_name = "optics-dwdm-carrrier-channel-map-flexi"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('itu_chan_num', YLeaf(YType.uint32, 'itu-chan-num')),
+                            ('g694_chan_num', YLeaf(YType.int32, 'g694-chan-num')),
+                            ('frequency', YLeaf(YType.str, 'frequency')),
+                            ('wavelength', YLeaf(YType.str, 'wavelength')),
+                        ])
+                        self.itu_chan_num = None
+                        self.g694_chan_num = None
+                        self.frequency = None
+                        self.wavelength = None
+                        self._segment_path = lambda: "dwdm-carrier-map-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
             class OpticsDbInfo(Entity):
@@ -9674,7 +9505,7 @@ class OpticsOper(Entity):
                 """
 
                 _prefix = 'controller-optics-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, self).__init__()
@@ -9684,8 +9515,7 @@ class OpticsOper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo))])
                     self._leafs = OrderedDict([
                         ('transport_admin_state', YLeaf(YType.enumeration, 'transport-admin-state')),
                         ('controller_state', YLeaf(YType.enumeration, 'controller-state')),
@@ -9696,7 +9526,6 @@ class OpticsOper(Entity):
                     self.network_srlg_info = OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo()
                     self.network_srlg_info.parent = self
                     self._children_name_map["network_srlg_info"] = "network-srlg-info"
-                    self._children_yang_names.add("network-srlg-info")
                     self._segment_path = lambda: "optics-db-info"
 
                 def __setattr__(self, name, value):
@@ -9717,7 +9546,7 @@ class OpticsOper(Entity):
                     """
 
                     _prefix = 'controller-optics-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo, self).__init__()
@@ -9727,8 +9556,7 @@ class OpticsOper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("network-srlg-array", ("network_srlg_array", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray))])
+                        self._child_classes = OrderedDict([("network-srlg-array", ("network_srlg_array", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray))])
                         self._leafs = OrderedDict()
 
                         self.network_srlg_array = YList(self)
@@ -9761,7 +9589,7 @@ class OpticsOper(Entity):
                         """
 
                         _prefix = 'controller-optics-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, self).__init__()
@@ -9771,8 +9599,7 @@ class OpticsOper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('set_number', YLeaf(YType.uint32, 'set-number')),
                                 ('network_srlg', YLeafList(YType.uint32, 'network-srlg')),

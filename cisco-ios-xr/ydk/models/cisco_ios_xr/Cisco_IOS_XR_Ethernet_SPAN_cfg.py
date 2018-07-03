@@ -149,15 +149,16 @@ class SpanMonitorSession(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("sessions", ("sessions", SpanMonitorSession.Sessions))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("sessions", ("sessions", SpanMonitorSession.Sessions))])
         self._leafs = OrderedDict()
 
         self.sessions = SpanMonitorSession.Sessions()
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
-        self._children_yang_names.add("sessions")
         self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SpanMonitorSession, [], name, value)
 
 
     class Sessions(Entity):
@@ -184,8 +185,7 @@ class SpanMonitorSession(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("session", ("session", SpanMonitorSession.Sessions.Session))])
+            self._child_classes = OrderedDict([("session", ("session", SpanMonitorSession.Sessions.Session))])
             self._leafs = OrderedDict()
 
             self.session = YList(self)
@@ -219,6 +219,13 @@ class SpanMonitorSession(Entity):
             
             	**default value**\: ethernet
             
+            .. attribute:: inject_interface
+            
+            	Specify the inject interface name
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            
             
 
             """
@@ -234,24 +241,24 @@ class SpanMonitorSession(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['session']
-                self._child_container_classes = OrderedDict([("destination", ("destination", SpanMonitorSession.Sessions.Session.Destination))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("destination", ("destination", SpanMonitorSession.Sessions.Session.Destination))])
                 self._leafs = OrderedDict([
                     ('session', YLeaf(YType.str, 'session')),
                     ('class_', YLeaf(YType.enumeration, 'class')),
+                    ('inject_interface', YLeaf(YType.str, 'inject-interface')),
                 ])
                 self.session = None
                 self.class_ = None
+                self.inject_interface = None
 
                 self.destination = SpanMonitorSession.Sessions.Session.Destination()
                 self.destination.parent = self
                 self._children_name_map["destination"] = "destination"
-                self._children_yang_names.add("destination")
                 self._segment_path = lambda: "session" + "[session='" + str(self.session) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SpanMonitorSession.Sessions.Session, ['session', 'class_'], name, value)
+                self._perform_setattr(SpanMonitorSession.Sessions.Session, ['session', 'class_', 'inject_interface'], name, value)
 
 
             class Destination(Entity):
@@ -299,8 +306,7 @@ class SpanMonitorSession(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('destination_type', YLeaf(YType.enumeration, 'destination-type')),
                         ('destination_interface_name', YLeaf(YType.str, 'destination-interface-name')),

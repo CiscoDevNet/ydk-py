@@ -45,15 +45,16 @@ class SubscriberAccounting(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", SubscriberAccounting.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", SubscriberAccounting.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = SubscriberAccounting.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SubscriberAccounting, [], name, value)
 
 
     class Nodes(Entity):
@@ -81,8 +82,7 @@ class SubscriberAccounting(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", SubscriberAccounting.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", SubscriberAccounting.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -134,8 +134,7 @@ class SubscriberAccounting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_id']
-                self._child_container_classes = OrderedDict([("subscriber-accounting-session-features", ("subscriber_accounting_session_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures)), ("subscriber-accounting-summary", ("subscriber_accounting_summary", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary)), ("subscriber-accounting-flow-features", ("subscriber_accounting_flow_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("subscriber-accounting-session-features", ("subscriber_accounting_session_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures)), ("subscriber-accounting-summary", ("subscriber_accounting_summary", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary)), ("subscriber-accounting-flow-features", ("subscriber_accounting_flow_features", SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures))])
                 self._leafs = OrderedDict([
                     ('node_id', YLeaf(YType.str, 'node-id')),
                 ])
@@ -144,17 +143,14 @@ class SubscriberAccounting(Entity):
                 self.subscriber_accounting_session_features = SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures()
                 self.subscriber_accounting_session_features.parent = self
                 self._children_name_map["subscriber_accounting_session_features"] = "subscriber-accounting-session-features"
-                self._children_yang_names.add("subscriber-accounting-session-features")
 
                 self.subscriber_accounting_summary = SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary()
                 self.subscriber_accounting_summary.parent = self
                 self._children_name_map["subscriber_accounting_summary"] = "subscriber-accounting-summary"
-                self._children_yang_names.add("subscriber-accounting-summary")
 
                 self.subscriber_accounting_flow_features = SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures()
                 self.subscriber_accounting_flow_features.parent = self
                 self._children_name_map["subscriber_accounting_flow_features"] = "subscriber-accounting-flow-features"
-                self._children_yang_names.add("subscriber-accounting-flow-features")
                 self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/%s" % self._segment_path()
 
@@ -186,8 +182,7 @@ class SubscriberAccounting(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("subscriber-accounting-session-feature", ("subscriber_accounting_session_feature", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature))])
+                    self._child_classes = OrderedDict([("subscriber-accounting-session-feature", ("subscriber_accounting_session_feature", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature))])
                     self._leafs = OrderedDict()
 
                     self.subscriber_accounting_session_feature = YList(self)
@@ -229,8 +224,7 @@ class SubscriberAccounting(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['sub_label']
-                        self._child_container_classes = OrderedDict([("session-feature-data", ("session_feature_data", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("session-feature-data", ("session_feature_data", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData))])
                         self._leafs = OrderedDict([
                             ('sub_label', YLeaf(YType.int32, 'sub-label')),
                         ])
@@ -239,7 +233,6 @@ class SubscriberAccounting(Entity):
                         self.session_feature_data = SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData()
                         self.session_feature_data.parent = self
                         self._children_name_map["session_feature_data"] = "session-feature-data"
-                        self._children_yang_names.add("session-feature-data")
                         self._segment_path = lambda: "subscriber-accounting-session-feature" + "[sub-label='" + str(self.sub_label) + "']"
 
                     def __setattr__(self, name, value):
@@ -427,8 +420,7 @@ class SubscriberAccounting(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("service-accounting-feature", ("service_accounting_feature", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature))])
+                            self._child_classes = OrderedDict([("service-accounting-feature", ("service_accounting_feature", SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature))])
                             self._leafs = OrderedDict([
                                 ('unique_subscriber_label', YLeaf(YType.uint32, 'unique-subscriber-label')),
                                 ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
@@ -482,7 +474,7 @@ class SubscriberAccounting(Entity):
                             self._segment_path = lambda: "session-feature-data"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData, ['unique_subscriber_label', 'interface_handle', 'session_disconnected', 'session_accounting_enabled_flag', 'session_accounting_method_list', 'session_accounting_periodic_interval', 'session_accounting_aaa_trans_pending', 'session_accounting_aaa_request_failed', 'session_accounting_started', 'session_idle_timeout_enabled_flag', 'idle_timeout_value', 'idle_timeout_threshold', 'idle_timeout_direction', 'session_is_idle', 'session_stats_changed_time', 'session_total_idle_time', 'session_to_idle_count', 'session_to_awake_count', 'session_idle_to_aaa_trans_pending', 'session_idle_to_aaa_request_failed', 'session_timeout_enabled_flag', 'session_timeout_value', 'session_timeout_time_remaining'], name, value)
+                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData, [u'unique_subscriber_label', u'interface_handle', u'session_disconnected', u'session_accounting_enabled_flag', u'session_accounting_method_list', u'session_accounting_periodic_interval', u'session_accounting_aaa_trans_pending', u'session_accounting_aaa_request_failed', u'session_accounting_started', u'session_idle_timeout_enabled_flag', u'idle_timeout_value', u'idle_timeout_threshold', u'idle_timeout_direction', u'session_is_idle', u'session_stats_changed_time', u'session_total_idle_time', u'session_to_idle_count', u'session_to_awake_count', u'session_idle_to_aaa_trans_pending', u'session_idle_to_aaa_request_failed', u'session_timeout_enabled_flag', u'session_timeout_value', u'session_timeout_time_remaining'], name, value)
 
 
                         class ServiceAccountingFeature(Entity):
@@ -549,8 +541,7 @@ class SubscriberAccounting(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('service_accounting_enabled_flag', YLeaf(YType.boolean, 'service-accounting-enabled-flag')),
                                     ('service_accounting_service_id', YLeaf(YType.uint32, 'service-accounting-service-id')),
@@ -570,7 +561,7 @@ class SubscriberAccounting(Entity):
                                 self._segment_path = lambda: "service-accounting-feature"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature, ['service_accounting_enabled_flag', 'service_accounting_service_id', 'service_accounting_method_list', 'service_accounting_periodic_interval', 'session_accounting_aaa_trans_pending', 'session_accounting_aaa_request_failed', 'session_accounting_started'], name, value)
+                                self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature, [u'service_accounting_enabled_flag', u'service_accounting_service_id', u'service_accounting_method_list', u'service_accounting_periodic_interval', u'session_accounting_aaa_trans_pending', u'session_accounting_aaa_request_failed', u'session_accounting_started'], name, value)
 
 
             class SubscriberAccountingSummary(Entity):
@@ -612,30 +603,28 @@ class SubscriberAccounting(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("aaa-counters", ("aaa_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters)), ("idle-timeout-counters", ("idle_timeout_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters)), ("session-timeout-counters", ("session_timeout_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters)), ("session-flow-counters", ("session_flow_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("aaa-counters", ("aaa_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters)), ("idle-timeout-counters", ("idle_timeout_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters)), ("session-timeout-counters", ("session_timeout_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters)), ("session-flow-counters", ("session_flow_counters", SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters))])
                     self._leafs = OrderedDict()
 
                     self.aaa_counters = SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters()
                     self.aaa_counters.parent = self
                     self._children_name_map["aaa_counters"] = "aaa-counters"
-                    self._children_yang_names.add("aaa-counters")
 
                     self.idle_timeout_counters = SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters()
                     self.idle_timeout_counters.parent = self
                     self._children_name_map["idle_timeout_counters"] = "idle-timeout-counters"
-                    self._children_yang_names.add("idle-timeout-counters")
 
                     self.session_timeout_counters = SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters()
                     self.session_timeout_counters.parent = self
                     self._children_name_map["session_timeout_counters"] = "session-timeout-counters"
-                    self._children_yang_names.add("session-timeout-counters")
 
                     self.session_flow_counters = SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters()
                     self.session_flow_counters.parent = self
                     self._children_name_map["session_flow_counters"] = "session-flow-counters"
-                    self._children_yang_names.add("session-flow-counters")
                     self._segment_path = lambda: "subscriber-accounting-summary"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary, [], name, value)
 
 
                 class AaaCounters(Entity):
@@ -902,8 +891,7 @@ class SubscriberAccounting(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('flow_start', YLeaf(YType.uint32, 'flow-start')),
                             ('flow_disconnect', YLeaf(YType.uint32, 'flow-disconnect')),
@@ -979,7 +967,7 @@ class SubscriberAccounting(Entity):
                         self._segment_path = lambda: "aaa-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters, ['flow_start', 'flow_disconnect', 'session_accounting_start', 'session_accounting_stop', 'session_accounting_update', 'service_accounting_start', 'service_accounting_stop', 'service_accounting_update', 'flow_accounting_start', 'flow_accounting_stop', 'flow_accounting_update', 'accounting_callback', 'session_acct_trans_pending', 'session_acct_reqs_failed', 'session_acct_out_of_sync', 'session_idle_to_trans_pending', 'session_idle_to_reqs_failed', 'session_idle_to_out_of_sync', 'service_acct_trans_pending', 'service_acct_reqs_failed', 'service_acct_out_of_sync', 'service_idle_to_trans_pending', 'service_idle_to_reqs_failed', 'service_idle_to_out_of_sync', 'prepaid_start', 'prepaid_stop', 'prepaid_accounting_start', 'prepaid_accounting_stop', 'prepaid_volume_threshold_reached', 'prepaid_time_threshold_reached', 'prepaid_quota_depleted', 'prepaid_reauthorization', 'idle_timeout', 'idle_timeout_response_callback', 'owned_resource_start'], name, value)
+                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters, [u'flow_start', u'flow_disconnect', u'session_accounting_start', u'session_accounting_stop', u'session_accounting_update', u'service_accounting_start', u'service_accounting_stop', u'service_accounting_update', u'flow_accounting_start', u'flow_accounting_stop', u'flow_accounting_update', u'accounting_callback', u'session_acct_trans_pending', u'session_acct_reqs_failed', u'session_acct_out_of_sync', u'session_idle_to_trans_pending', u'session_idle_to_reqs_failed', u'session_idle_to_out_of_sync', u'service_acct_trans_pending', u'service_acct_reqs_failed', u'service_acct_out_of_sync', u'service_idle_to_trans_pending', u'service_idle_to_reqs_failed', u'service_idle_to_out_of_sync', u'prepaid_start', u'prepaid_stop', u'prepaid_accounting_start', u'prepaid_accounting_stop', u'prepaid_volume_threshold_reached', u'prepaid_time_threshold_reached', u'prepaid_quota_depleted', u'prepaid_reauthorization', u'idle_timeout', u'idle_timeout_response_callback', u'owned_resource_start'], name, value)
 
 
                 class IdleTimeoutCounters(Entity):
@@ -1057,8 +1045,7 @@ class SubscriberAccounting(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('active_session_idle_timers', YLeaf(YType.uint32, 'active-session-idle-timers')),
                             ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
@@ -1080,7 +1067,7 @@ class SubscriberAccounting(Entity):
                         self._segment_path = lambda: "idle-timeout-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters, ['active_session_idle_timers', 'idle_sessions', 'transitions_to_idle', 'transitions_to_awake', 'active_flow_idle_timers', 'expired_flow_idle_timers', 'active_prepaid_idle_timers', 'expired_prepaid_idle_timers'], name, value)
+                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters, [u'active_session_idle_timers', u'idle_sessions', u'transitions_to_idle', u'transitions_to_awake', u'active_flow_idle_timers', u'expired_flow_idle_timers', u'active_prepaid_idle_timers', u'expired_prepaid_idle_timers'], name, value)
 
 
                 class SessionTimeoutCounters(Entity):
@@ -1117,8 +1104,7 @@ class SubscriberAccounting(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('active_session_timers', YLeaf(YType.uint32, 'active-session-timers')),
                             ('expired_session_timers', YLeaf(YType.uint32, 'expired-session-timers')),
@@ -1128,7 +1114,7 @@ class SubscriberAccounting(Entity):
                         self._segment_path = lambda: "session-timeout-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters, ['active_session_timers', 'expired_session_timers'], name, value)
+                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters, [u'active_session_timers', u'expired_session_timers'], name, value)
 
 
                 class SessionFlowCounters(Entity):
@@ -1186,8 +1172,7 @@ class SubscriberAccounting(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
                             ('disconnected_sessions', YLeaf(YType.uint32, 'disconnected-sessions')),
@@ -1203,7 +1188,7 @@ class SubscriberAccounting(Entity):
                         self._segment_path = lambda: "session-flow-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters, ['active_sessions', 'disconnected_sessions', 'active_session_accounting_sessions', 'active_flows', 'quota_received'], name, value)
+                        self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters, [u'active_sessions', u'disconnected_sessions', u'active_session_accounting_sessions', u'active_flows', u'quota_received'], name, value)
 
 
             class SubscriberAccountingFlowFeatures(Entity):
@@ -1230,8 +1215,7 @@ class SubscriberAccounting(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("subscriber-accounting-flow-feature", ("subscriber_accounting_flow_feature", SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature))])
+                    self._child_classes = OrderedDict([("subscriber-accounting-flow-feature", ("subscriber_accounting_flow_feature", SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature))])
                     self._leafs = OrderedDict()
 
                     self.subscriber_accounting_flow_feature = YList(self)
@@ -1273,8 +1257,7 @@ class SubscriberAccounting(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['class_label']
-                        self._child_container_classes = OrderedDict([("flow-feature-data", ("flow_feature_data", SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("flow-feature-data", ("flow_feature_data", SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData))])
                         self._leafs = OrderedDict([
                             ('class_label', YLeaf(YType.int32, 'class-label')),
                         ])
@@ -1283,7 +1266,6 @@ class SubscriberAccounting(Entity):
                         self.flow_feature_data = SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData()
                         self.flow_feature_data.parent = self
                         self._children_name_map["flow_feature_data"] = "flow-feature-data"
-                        self._children_yang_names.add("flow-feature-data")
                         self._segment_path = lambda: "subscriber-accounting-flow-feature" + "[class-label='" + str(self.class_label) + "']"
 
                     def __setattr__(self, name, value):
@@ -1663,8 +1645,7 @@ class SubscriberAccounting(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('flow_accounting_enabled_flag', YLeaf(YType.boolean, 'flow-accounting-enabled-flag')),
                                 ('flow_idle_timeout_enabled_flag', YLeaf(YType.boolean, 'flow-idle-timeout-enabled-flag')),
@@ -1762,7 +1743,7 @@ class SubscriberAccounting(Entity):
                             self._segment_path = lambda: "flow-feature-data"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData, ['flow_accounting_enabled_flag', 'flow_idle_timeout_enabled_flag', 'prepaid_enabled_flag', 'prepaid_reauth_timer_enabled', 'prepaid_idle_timeout_enabled', 'prepaid_final_unit', 'unique_class_label', 'flow_direction', 'flow_accounting_periodic_interval', 'flow_idle_timeout_value', 'prepaid_time_quota', 'prepaid_time_threshold', 'prepaid_total_time_quota', 'prepaid_volume_threshold', 'prepaid_remaining_qt', 'prepaid_remaining_qat', 'prepaid_remaining_qit', 'prepaid_remaining_qtt', 'prepaid_remaining_wheel', 'prepaid_tariff_time', 'prepaid_idle_timeout_value', 'prepaid_reauth_timeout_value', 'prepaid_ccfh', 'prepaid_result_code', 'prepaid_volumei_quota', 'prepaid_volumeo_quota', 'prepaid_volumeb_quota', 'prepaid_total_volumei_quota', 'prepaid_total_volumeo_quota', 'prepaid_total_volumeb_quota', 'prepaid_volume_usedi_quota', 'prepaid_volume_usedo_quota', 'prepaid_volume_refi_quota', 'prepaid_volume_refo_quota', 'prepaid_volume_refb_quota', 'prepaid_volume_newi_quota', 'prepaid_volume_newo_quota', 'prepaid_volume_newb_quota', 'prepaid_tariff_volumei_quota', 'prepaid_tariff_volumeo_quota', 'prepaid_tariff_volumeb_quota', 'flow_accounting_method_list_name', 'prepaid_cfg', 'prepaid_time_state', 'prepaid_volume_state', 'prepaid_charging_rule'], name, value)
+                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData, [u'flow_accounting_enabled_flag', u'flow_idle_timeout_enabled_flag', u'prepaid_enabled_flag', u'prepaid_reauth_timer_enabled', u'prepaid_idle_timeout_enabled', u'prepaid_final_unit', u'unique_class_label', u'flow_direction', u'flow_accounting_periodic_interval', u'flow_idle_timeout_value', u'prepaid_time_quota', u'prepaid_time_threshold', u'prepaid_total_time_quota', u'prepaid_volume_threshold', u'prepaid_remaining_qt', u'prepaid_remaining_qat', u'prepaid_remaining_qit', u'prepaid_remaining_qtt', u'prepaid_remaining_wheel', u'prepaid_tariff_time', u'prepaid_idle_timeout_value', u'prepaid_reauth_timeout_value', u'prepaid_ccfh', u'prepaid_result_code', u'prepaid_volumei_quota', u'prepaid_volumeo_quota', u'prepaid_volumeb_quota', u'prepaid_total_volumei_quota', u'prepaid_total_volumeo_quota', u'prepaid_total_volumeb_quota', u'prepaid_volume_usedi_quota', u'prepaid_volume_usedo_quota', u'prepaid_volume_refi_quota', u'prepaid_volume_refo_quota', u'prepaid_volume_refb_quota', u'prepaid_volume_newi_quota', u'prepaid_volume_newo_quota', u'prepaid_volume_newb_quota', u'prepaid_tariff_volumei_quota', u'prepaid_tariff_volumeo_quota', u'prepaid_tariff_volumeb_quota', u'flow_accounting_method_list_name', u'prepaid_cfg', u'prepaid_time_state', u'prepaid_volume_state', u'prepaid_charging_rule'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberAccounting()

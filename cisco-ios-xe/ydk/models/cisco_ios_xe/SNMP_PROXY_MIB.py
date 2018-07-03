@@ -25,7 +25,7 @@ class SNMPPROXYMIB(Entity):
     .. attribute:: snmpproxytable
     
     	The table of translation parameters used by proxy forwarder applications for forwarding SNMP messages
-    	**type**\:  :py:class:`Snmpproxytable <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.Snmpproxytable>`
+    	**type**\:  :py:class:`SnmpProxyTable <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.SnmpProxyTable>`
     
     
 
@@ -43,18 +43,19 @@ class SNMPPROXYMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("snmpProxyTable", ("snmpproxytable", SNMPPROXYMIB.Snmpproxytable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("snmpProxyTable", ("snmpproxytable", SNMPPROXYMIB.SnmpProxyTable))])
         self._leafs = OrderedDict()
 
-        self.snmpproxytable = SNMPPROXYMIB.Snmpproxytable()
+        self.snmpproxytable = SNMPPROXYMIB.SnmpProxyTable()
         self.snmpproxytable.parent = self
         self._children_name_map["snmpproxytable"] = "snmpProxyTable"
-        self._children_yang_names.add("snmpProxyTable")
         self._segment_path = lambda: "SNMP-PROXY-MIB:SNMP-PROXY-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(SNMPPROXYMIB, [], name, value)
 
-    class Snmpproxytable(Entity):
+
+    class SnmpProxyTable(Entity):
         """
         The table of translation parameters used by proxy forwarder
         applications for forwarding SNMP messages.
@@ -62,7 +63,7 @@ class SNMPPROXYMIB(Entity):
         .. attribute:: snmpproxyentry
         
         	A set of translation parameters used by a proxy forwarder application for forwarding SNMP messages.  Entries in the snmpProxyTable are created and deleted using the snmpProxyRowStatus object
-        	**type**\: list of  		 :py:class:`Snmpproxyentry <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry>`
+        	**type**\: list of  		 :py:class:`SnmpProxyEntry <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.SnmpProxyTable.SnmpProxyEntry>`
         
         
 
@@ -72,15 +73,14 @@ class SNMPPROXYMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPPROXYMIB.Snmpproxytable, self).__init__()
+            super(SNMPPROXYMIB.SnmpProxyTable, self).__init__()
 
             self.yang_name = "snmpProxyTable"
             self.yang_parent_name = "SNMP-PROXY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("snmpProxyEntry", ("snmpproxyentry", SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry))])
+            self._child_classes = OrderedDict([("snmpProxyEntry", ("snmpproxyentry", SNMPPROXYMIB.SnmpProxyTable.SnmpProxyEntry))])
             self._leafs = OrderedDict()
 
             self.snmpproxyentry = YList(self)
@@ -88,10 +88,10 @@ class SNMPPROXYMIB(Entity):
             self._absolute_path = lambda: "SNMP-PROXY-MIB:SNMP-PROXY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPPROXYMIB.Snmpproxytable, [], name, value)
+            self._perform_setattr(SNMPPROXYMIB.SnmpProxyTable, [], name, value)
 
 
-        class Snmpproxyentry(Entity):
+        class SnmpProxyEntry(Entity):
             """
             A set of translation parameters used by a proxy forwarder
             application for forwarding SNMP messages.
@@ -109,7 +109,7 @@ class SNMPPROXYMIB(Entity):
             .. attribute:: snmpproxytype
             
             	The type of message that may be forwarded using the translation parameters defined by this entry
-            	**type**\:  :py:class:`Snmpproxytype <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry.Snmpproxytype>`
+            	**type**\:  :py:class:`SnmpProxyType <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.SnmpProxyTable.SnmpProxyEntry.SnmpProxyType>`
             
             .. attribute:: snmpproxycontextengineid
             
@@ -156,15 +156,14 @@ class SNMPPROXYMIB(Entity):
             _revision = '2002-10-14'
 
             def __init__(self):
-                super(SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry, self).__init__()
+                super(SNMPPROXYMIB.SnmpProxyTable.SnmpProxyEntry, self).__init__()
 
                 self.yang_name = "snmpProxyEntry"
                 self.yang_parent_name = "snmpProxyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['snmpproxyname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('snmpproxyname', YLeaf(YType.str, 'snmpProxyName')),
                     ('snmpproxytype', YLeaf(YType.enumeration, 'snmpProxyType')),
@@ -189,11 +188,11 @@ class SNMPPROXYMIB(Entity):
                 self._absolute_path = lambda: "SNMP-PROXY-MIB:SNMP-PROXY-MIB/snmpProxyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry, ['snmpproxyname', 'snmpproxytype', 'snmpproxycontextengineid', 'snmpproxycontextname', 'snmpproxytargetparamsin', 'snmpproxysingletargetout', 'snmpproxymultipletargetout', 'snmpproxystoragetype', 'snmpproxyrowstatus'], name, value)
+                self._perform_setattr(SNMPPROXYMIB.SnmpProxyTable.SnmpProxyEntry, ['snmpproxyname', 'snmpproxytype', 'snmpproxycontextengineid', 'snmpproxycontextname', 'snmpproxytargetparamsin', 'snmpproxysingletargetout', 'snmpproxymultipletargetout', 'snmpproxystoragetype', 'snmpproxyrowstatus'], name, value)
 
-            class Snmpproxytype(Enum):
+            class SnmpProxyType(Enum):
                 """
-                Snmpproxytype (Enum Class)
+                SnmpProxyType (Enum Class)
 
                 The type of message that may be forwarded using
 

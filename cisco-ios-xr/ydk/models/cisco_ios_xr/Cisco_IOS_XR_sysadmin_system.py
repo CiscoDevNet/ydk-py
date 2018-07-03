@@ -45,7 +45,7 @@ class Mgmt(Entity):
     """
 
     _prefix = 'calvados_system'
-    _revision = '2017-01-31'
+    _revision = '2017-10-31'
 
     def __init__(self):
         super(Mgmt, self).__init__()
@@ -56,20 +56,20 @@ class Mgmt(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Mgmt.Ipv4)), ("ipv6", ("ipv6", Mgmt.Ipv6))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ipv4", ("ipv4", Mgmt.Ipv4)), ("ipv6", ("ipv6", Mgmt.Ipv6))])
         self._leafs = OrderedDict()
 
         self.ipv4 = Mgmt.Ipv4()
         self.ipv4.parent = self
         self._children_name_map["ipv4"] = "ipv4"
-        self._children_yang_names.add("ipv4")
 
         self.ipv6 = Mgmt.Ipv6()
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
-        self._children_yang_names.add("ipv6")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-system:mgmt"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Mgmt, [], name, value)
 
 
     class Ipv4(Entity):
@@ -101,7 +101,7 @@ class Mgmt(Entity):
         """
 
         _prefix = 'calvados_system'
-        _revision = '2017-01-31'
+        _revision = '2017-10-31'
 
         def __init__(self):
             super(Mgmt.Ipv4, self).__init__()
@@ -111,8 +111,7 @@ class Mgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('address', YLeaf(YType.str, 'address')),
                 ('subnet_mask_ip', YLeaf(YType.str, 'subnet-mask-ip')),
@@ -123,7 +122,7 @@ class Mgmt(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-system:mgmt/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Mgmt.Ipv4, ['address', 'subnet_mask_ip'], name, value)
+            self._perform_setattr(Mgmt.Ipv4, [u'address', u'subnet_mask_ip'], name, value)
 
 
     class Ipv6(Entity):
@@ -149,7 +148,7 @@ class Mgmt(Entity):
         """
 
         _prefix = 'calvados_system'
-        _revision = '2017-01-31'
+        _revision = '2017-10-31'
 
         def __init__(self):
             super(Mgmt.Ipv6, self).__init__()
@@ -159,8 +158,7 @@ class Mgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('address', YLeaf(YType.str, 'address')),
                 ('prefix', YLeaf(YType.uint8, 'prefix')),
@@ -171,7 +169,7 @@ class Mgmt(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-system:mgmt/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Mgmt.Ipv6, ['address', 'prefix'], name, value)
+            self._perform_setattr(Mgmt.Ipv6, [u'address', u'prefix'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Mgmt()

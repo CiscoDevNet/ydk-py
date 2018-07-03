@@ -59,30 +59,28 @@ class Clear(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("controller", ("controller", Clear.Controller)), ("clear-asic-errors-grp", ("clear_asic_errors_grp", Clear.ClearAsicErrorsGrp)), ("logging", ("logging", Clear.Logging)), ("configuration", ("configuration", Clear.Configuration))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("controller", ("controller", Clear.Controller)), ("clear-asic-errors-grp", ("clear_asic_errors_grp", Clear.ClearAsicErrorsGrp)), ("logging", ("logging", Clear.Logging)), ("configuration", ("configuration", Clear.Configuration))])
         self._leafs = OrderedDict()
 
         self.controller = Clear.Controller()
         self.controller.parent = self
         self._children_name_map["controller"] = "controller"
-        self._children_yang_names.add("controller")
 
         self.clear_asic_errors_grp = Clear.ClearAsicErrorsGrp()
         self.clear_asic_errors_grp.parent = self
         self._children_name_map["clear_asic_errors_grp"] = "clear-asic-errors-grp"
-        self._children_yang_names.add("clear-asic-errors-grp")
 
         self.logging = Clear.Logging()
         self.logging.parent = self
         self._children_name_map["logging"] = "logging"
-        self._children_yang_names.add("logging")
 
         self.configuration = Clear.Configuration()
         self.configuration.parent = self
         self._children_name_map["configuration"] = "configuration"
-        self._children_yang_names.add("configuration")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Clear, [], name, value)
 
 
     class Controller(Entity):
@@ -114,21 +112,21 @@ class Clear(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("switch", ("switch", Clear.Controller.Switch)), ("fabric", ("fabric", Clear.Controller.Fabric))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("switch", ("switch", Clear.Controller.Switch)), ("fabric", ("fabric", Clear.Controller.Fabric))])
             self._leafs = OrderedDict()
 
             self.switch = Clear.Controller.Switch()
             self.switch.parent = self
             self._children_name_map["switch"] = "switch"
-            self._children_yang_names.add("switch")
 
             self.fabric = Clear.Controller.Fabric()
             self.fabric.parent = self
             self._children_name_map["fabric"] = "fabric"
-            self._children_yang_names.add("fabric")
             self._segment_path = lambda: "controller"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Clear.Controller, [], name, value)
 
 
         class Switch(Entity):
@@ -155,16 +153,17 @@ class Clear(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("oper", ("oper", Clear.Controller.Switch.Oper))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("oper", ("oper", Clear.Controller.Switch.Oper))])
                 self._leafs = OrderedDict()
 
                 self.oper = Clear.Controller.Switch.Oper()
                 self.oper.parent = self
                 self._children_name_map["oper"] = "oper"
-                self._children_yang_names.add("oper")
                 self._segment_path = lambda: "switch"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Clear.Controller.Switch, [], name, value)
 
 
             class Oper(Entity):
@@ -206,31 +205,29 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("fdb", ("fdb", Clear.Controller.Switch.Oper.Fdb)), ("mlap", ("mlap", Clear.Controller.Switch.Oper.Mlap)), ("sdr", ("sdr", Clear.Controller.Switch.Oper.Sdr)), ("statistics", ("statistics", Clear.Controller.Switch.Oper.Statistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("fdb", ("fdb", Clear.Controller.Switch.Oper.Fdb)), ("mlap", ("mlap", Clear.Controller.Switch.Oper.Mlap)), ("sdr", ("sdr", Clear.Controller.Switch.Oper.Sdr)), ("statistics", ("statistics", Clear.Controller.Switch.Oper.Statistics))])
                     self._leafs = OrderedDict()
 
                     self.fdb = Clear.Controller.Switch.Oper.Fdb()
                     self.fdb.parent = self
                     self._children_name_map["fdb"] = "fdb"
-                    self._children_yang_names.add("fdb")
 
                     self.mlap = Clear.Controller.Switch.Oper.Mlap()
                     self.mlap.parent = self
                     self._children_name_map["mlap"] = "mlap"
-                    self._children_yang_names.add("mlap")
 
                     self.sdr = Clear.Controller.Switch.Oper.Sdr()
                     self.sdr.parent = self
                     self._children_name_map["sdr"] = "sdr"
-                    self._children_yang_names.add("sdr")
 
                     self.statistics = Clear.Controller.Switch.Oper.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
                     self._segment_path = lambda: "oper"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/switch/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Clear.Controller.Switch.Oper, [], name, value)
 
 
                 class Fdb(Entity):
@@ -257,8 +254,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.Controller.Switch.Oper.Fdb.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.Controller.Switch.Oper.Fdb.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -303,8 +299,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -317,7 +312,7 @@ class Clear(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/switch/oper/fdb/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Clear.Controller.Switch.Oper.Fdb.Location, ['rack', 'card', 'switch_id'], name, value)
+                            self._perform_setattr(Clear.Controller.Switch.Oper.Fdb.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                 class Mlap(Entity):
@@ -344,16 +339,17 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("statistics", ("statistics", Clear.Controller.Switch.Oper.Mlap.Statistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("statistics", ("statistics", Clear.Controller.Switch.Oper.Mlap.Statistics))])
                         self._leafs = OrderedDict()
 
                         self.statistics = Clear.Controller.Switch.Oper.Mlap.Statistics()
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
                         self._segment_path = lambda: "mlap"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/switch/oper/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Clear.Controller.Switch.Oper.Mlap, [], name, value)
 
 
                     class Statistics(Entity):
@@ -380,8 +376,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("location", ("location", Clear.Controller.Switch.Oper.Mlap.Statistics.Location))])
+                            self._child_classes = OrderedDict([("location", ("location", Clear.Controller.Switch.Oper.Mlap.Statistics.Location))])
                             self._leafs = OrderedDict()
 
                             self.location = YList(self)
@@ -426,8 +421,7 @@ class Clear(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = ['rack','card','switch_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('rack', YLeaf(YType.enumeration, 'rack')),
                                     ('card', YLeaf(YType.enumeration, 'card')),
@@ -440,7 +434,7 @@ class Clear(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/switch/oper/mlap/statistics/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Clear.Controller.Switch.Oper.Mlap.Statistics.Location, ['rack', 'card', 'switch_id'], name, value)
+                                self._perform_setattr(Clear.Controller.Switch.Oper.Mlap.Statistics.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                 class Sdr(Entity):
@@ -467,16 +461,17 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("statistics", ("statistics", Clear.Controller.Switch.Oper.Sdr.Statistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("statistics", ("statistics", Clear.Controller.Switch.Oper.Sdr.Statistics))])
                         self._leafs = OrderedDict()
 
                         self.statistics = Clear.Controller.Switch.Oper.Sdr.Statistics()
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
                         self._segment_path = lambda: "sdr"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/switch/oper/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Clear.Controller.Switch.Oper.Sdr, [], name, value)
 
 
                     class Statistics(Entity):
@@ -503,8 +498,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("location", ("location", Clear.Controller.Switch.Oper.Sdr.Statistics.Location))])
+                            self._child_classes = OrderedDict([("location", ("location", Clear.Controller.Switch.Oper.Sdr.Statistics.Location))])
                             self._leafs = OrderedDict()
 
                             self.location = YList(self)
@@ -549,8 +543,7 @@ class Clear(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = ['rack','card','switch_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('rack', YLeaf(YType.enumeration, 'rack')),
                                     ('card', YLeaf(YType.enumeration, 'card')),
@@ -563,7 +556,7 @@ class Clear(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/switch/oper/sdr/statistics/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Clear.Controller.Switch.Oper.Sdr.Statistics.Location, ['rack', 'card', 'switch_id'], name, value)
+                                self._perform_setattr(Clear.Controller.Switch.Oper.Sdr.Statistics.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                 class Statistics(Entity):
@@ -590,8 +583,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.Controller.Switch.Oper.Statistics.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.Controller.Switch.Oper.Statistics.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -636,8 +628,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -650,7 +641,7 @@ class Clear(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/switch/oper/statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Clear.Controller.Switch.Oper.Statistics.Location, ['rack', 'card', 'switch_id'], name, value)
+                            self._perform_setattr(Clear.Controller.Switch.Oper.Statistics.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
         class Fabric(Entity):
@@ -687,26 +678,25 @@ class Clear(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("counter", ("counter", Clear.Controller.Fabric.Counter)), ("clear_statistics", ("clear_statistics", Clear.Controller.Fabric.ClearStatistics)), ("link", ("link", Clear.Controller.Fabric.Link))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("counter", ("counter", Clear.Controller.Fabric.Counter)), ("clear_statistics", ("clear_statistics", Clear.Controller.Fabric.ClearStatistics)), ("link", ("link", Clear.Controller.Fabric.Link))])
                 self._leafs = OrderedDict()
 
                 self.counter = Clear.Controller.Fabric.Counter()
                 self.counter.parent = self
                 self._children_name_map["counter"] = "counter"
-                self._children_yang_names.add("counter")
 
                 self.clear_statistics = Clear.Controller.Fabric.ClearStatistics()
                 self.clear_statistics.parent = self
                 self._children_name_map["clear_statistics"] = "clear_statistics"
-                self._children_yang_names.add("clear_statistics")
 
                 self.link = Clear.Controller.Fabric.Link()
                 self.link.parent = self
                 self._children_name_map["link"] = "link"
-                self._children_yang_names.add("link")
                 self._segment_path = lambda: "fabric"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Clear.Controller.Fabric, [], name, value)
 
 
             class Counter(Entity):
@@ -733,8 +723,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("plane", ("plane", Clear.Controller.Fabric.Counter.Plane))])
+                    self._child_classes = OrderedDict([("plane", ("plane", Clear.Controller.Fabric.Counter.Plane))])
                     self._leafs = OrderedDict()
 
                     self.plane = YList(self)
@@ -771,8 +760,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['planeid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('planeid', YLeaf(YType.str, 'planeid')),
                         ])
@@ -781,7 +769,7 @@ class Clear(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/fabric/counter/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Clear.Controller.Fabric.Counter.Plane, ['planeid'], name, value)
+                        self._perform_setattr(Clear.Controller.Fabric.Counter.Plane, [u'planeid'], name, value)
 
 
             class ClearStatistics(Entity):
@@ -808,8 +796,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("plane", ("plane", Clear.Controller.Fabric.ClearStatistics.Plane))])
+                    self._child_classes = OrderedDict([("plane", ("plane", Clear.Controller.Fabric.ClearStatistics.Plane))])
                     self._leafs = OrderedDict()
 
                     self.plane = YList(self)
@@ -846,8 +833,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['planeid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('planeid', YLeaf(YType.str, 'planeid')),
                         ])
@@ -856,7 +842,7 @@ class Clear(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/fabric/clear_statistics/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Clear.Controller.Fabric.ClearStatistics.Plane, ['planeid'], name, value)
+                        self._perform_setattr(Clear.Controller.Fabric.ClearStatistics.Plane, [u'planeid'], name, value)
 
 
             class Link(Entity):
@@ -883,8 +869,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("rack", ("rack", Clear.Controller.Fabric.Link.Rack))])
+                    self._child_classes = OrderedDict([("rack", ("rack", Clear.Controller.Fabric.Link.Rack))])
                     self._leafs = OrderedDict()
 
                     self.rack = YList(self)
@@ -926,8 +911,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rack_number']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("port", ("port", Clear.Controller.Fabric.Link.Rack.Port))])
+                        self._child_classes = OrderedDict([("port", ("port", Clear.Controller.Fabric.Link.Rack.Port))])
                         self._leafs = OrderedDict([
                             ('rack_number', YLeaf(YType.int32, 'rack_number')),
                         ])
@@ -938,7 +922,7 @@ class Clear(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/controller/fabric/link/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Clear.Controller.Fabric.Link.Rack, ['rack_number'], name, value)
+                        self._perform_setattr(Clear.Controller.Fabric.Link.Rack, [u'rack_number'], name, value)
 
 
                     class Port(Entity):
@@ -984,8 +968,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['portname']
-                            self._child_container_classes = OrderedDict([("statistics", ("statistics", Clear.Controller.Fabric.Link.Rack.Port.Statistics))])
-                            self._child_list_classes = OrderedDict([("location", ("location", Clear.Controller.Fabric.Link.Rack.Port.Location))])
+                            self._child_classes = OrderedDict([("location", ("location", Clear.Controller.Fabric.Link.Rack.Port.Location)), ("statistics", ("statistics", Clear.Controller.Fabric.Link.Rack.Port.Statistics))])
                             self._leafs = OrderedDict([
                                 ('portname', YLeaf(YType.str, 'portname')),
                                 ('description', YLeaf(YType.str, 'description')),
@@ -996,13 +979,12 @@ class Clear(Entity):
                             self.statistics = Clear.Controller.Fabric.Link.Rack.Port.Statistics()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
-                            self._children_yang_names.add("statistics")
 
                             self.location = YList(self)
                             self._segment_path = lambda: "port" + "[portname='" + str(self.portname) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Clear.Controller.Fabric.Link.Rack.Port, ['portname', 'description'], name, value)
+                            self._perform_setattr(Clear.Controller.Fabric.Link.Rack.Port, [u'portname', u'description'], name, value)
 
 
                         class Location(Entity):
@@ -1014,7 +996,7 @@ class Clear(Entity):
                             	
                             	**type**\: str
                             
-                            	**pattern:** ((0)/([F\|f][C\|c](0?[0\-5]))/(0?[0\-5])/(0?[0\-9]\|[1\-9][0\-9]\|1[0\-3][0\-9]\|14[0\-3]))\|((0?[0\-9]\|1[0\-5])/(0?[0\-9]\|1[0\-5])/(0?[0\-5])/(0?[0\-9]\|[1\-3][0\-9]\|4[0\-7]))
+                            	**pattern:** ((0?[0\-9]\|1[0\-5])/([F\|f][C\|c](0?[0\-5]))/(0?[0\-5])/(0?[0\-9]\|[1\-9][0\-9]\|1[0\-3][0\-9]\|14[0\-3]))\|((0?[0\-9]\|1[0\-5])/(0?[0\-7])/(0?[0\-5])/(0?[0\-9]\|[1\-2][0\-9]\|3[0\-5]))\|(([F\|f][0\-3])/([F\|f][C\|c](0?[0\-9]\|1[0\-1]))/(0?[0\-2])/(0?[0\-9]\|[1\-9][0\-9]\|1[0\-3][0\-9]\|14[0\-3]))
                             
                             .. attribute:: statistics
                             
@@ -1036,8 +1018,7 @@ class Clear(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['loc_str']
-                                self._child_container_classes = OrderedDict([("statistics", ("statistics", Clear.Controller.Fabric.Link.Rack.Port.Location.Statistics))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("statistics", ("statistics", Clear.Controller.Fabric.Link.Rack.Port.Location.Statistics))])
                                 self._leafs = OrderedDict([
                                     ('loc_str', YLeaf(YType.str, 'loc_str')),
                                 ])
@@ -1046,11 +1027,10 @@ class Clear(Entity):
                                 self.statistics = Clear.Controller.Fabric.Link.Rack.Port.Location.Statistics()
                                 self.statistics.parent = self
                                 self._children_name_map["statistics"] = "statistics"
-                                self._children_yang_names.add("statistics")
                                 self._segment_path = lambda: "location" + "[loc_str='" + str(self.loc_str) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Clear.Controller.Fabric.Link.Rack.Port.Location, ['loc_str'], name, value)
+                                self._perform_setattr(Clear.Controller.Fabric.Link.Rack.Port.Location, [u'loc_str'], name, value)
 
 
                             class Statistics(Entity):
@@ -1072,8 +1052,7 @@ class Clear(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "statistics"
 
@@ -1097,8 +1076,7 @@ class Clear(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "statistics"
 
@@ -1127,8 +1105,7 @@ class Clear(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("clear-device", ("clear_device", Clear.ClearAsicErrorsGrp.ClearDevice))])
+            self._child_classes = OrderedDict([("clear-device", ("clear_device", Clear.ClearAsicErrorsGrp.ClearDevice))])
             self._leafs = OrderedDict()
 
             self.clear_device = YList(self)
@@ -1173,8 +1150,7 @@ class Clear(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['device_name']
-                self._child_container_classes = OrderedDict([("all-instances", ("all_instances", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances))])
-                self._child_list_classes = OrderedDict([("instance", ("instance", Clear.ClearAsicErrorsGrp.ClearDevice.Instance))])
+                self._child_classes = OrderedDict([("instance", ("instance", Clear.ClearAsicErrorsGrp.ClearDevice.Instance)), ("all-instances", ("all_instances", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances))])
                 self._leafs = OrderedDict([
                     ('device_name', YLeaf(YType.str, 'device-name')),
                 ])
@@ -1183,7 +1159,6 @@ class Clear(Entity):
                 self.all_instances = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances()
                 self.all_instances.parent = self
                 self._children_name_map["all_instances"] = "all-instances"
-                self._children_yang_names.add("all-instances")
 
                 self.instance = YList(self)
                 self._segment_path = lambda: "clear-device" + "[device-name='" + str(self.device_name) + "']"
@@ -1309,8 +1284,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['instance_num']
-                    self._child_container_classes = OrderedDict([("sbe", ("sbe", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Sbe)), ("mbe", ("mbe", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Mbe)), ("parity", ("parity", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Parity)), ("generic", ("generic", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Generic)), ("crc", ("crc", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Crc)), ("reset", ("reset", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Reset)), ("barrier", ("barrier", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Barrier)), ("unexpected", ("unexpected", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Unexpected)), ("link", ("link", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Link)), ("oor-thresh", ("oor_thresh", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.OorThresh)), ("bp", ("bp", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Bp)), ("io", ("io", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Io)), ("ucode", ("ucode", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Ucode)), ("config", ("config", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Config)), ("indirect", ("indirect", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Indirect)), ("nonerr", ("nonerr", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Nonerr)), ("summary", ("summary", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Summary)), ("all", ("all", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sbe", ("sbe", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Sbe)), ("mbe", ("mbe", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Mbe)), ("parity", ("parity", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Parity)), ("generic", ("generic", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Generic)), ("crc", ("crc", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Crc)), ("reset", ("reset", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Reset)), ("barrier", ("barrier", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Barrier)), ("unexpected", ("unexpected", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Unexpected)), ("link", ("link", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Link)), ("oor-thresh", ("oor_thresh", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.OorThresh)), ("bp", ("bp", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Bp)), ("io", ("io", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Io)), ("ucode", ("ucode", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Ucode)), ("config", ("config", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Config)), ("indirect", ("indirect", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Indirect)), ("nonerr", ("nonerr", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Nonerr)), ("summary", ("summary", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Summary)), ("all", ("all", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All))])
                     self._leafs = OrderedDict([
                         ('instance_num', YLeaf(YType.uint32, 'instance-num')),
                     ])
@@ -1319,92 +1293,74 @@ class Clear(Entity):
                     self.sbe = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Sbe()
                     self.sbe.parent = self
                     self._children_name_map["sbe"] = "sbe"
-                    self._children_yang_names.add("sbe")
 
                     self.mbe = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Mbe()
                     self.mbe.parent = self
                     self._children_name_map["mbe"] = "mbe"
-                    self._children_yang_names.add("mbe")
 
                     self.parity = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Parity()
                     self.parity.parent = self
                     self._children_name_map["parity"] = "parity"
-                    self._children_yang_names.add("parity")
 
                     self.generic = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Generic()
                     self.generic.parent = self
                     self._children_name_map["generic"] = "generic"
-                    self._children_yang_names.add("generic")
 
                     self.crc = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Crc()
                     self.crc.parent = self
                     self._children_name_map["crc"] = "crc"
-                    self._children_yang_names.add("crc")
 
                     self.reset = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Reset()
                     self.reset.parent = self
                     self._children_name_map["reset"] = "reset"
-                    self._children_yang_names.add("reset")
 
                     self.barrier = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Barrier()
                     self.barrier.parent = self
                     self._children_name_map["barrier"] = "barrier"
-                    self._children_yang_names.add("barrier")
 
                     self.unexpected = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Unexpected()
                     self.unexpected.parent = self
                     self._children_name_map["unexpected"] = "unexpected"
-                    self._children_yang_names.add("unexpected")
 
                     self.link = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Link()
                     self.link.parent = self
                     self._children_name_map["link"] = "link"
-                    self._children_yang_names.add("link")
 
                     self.oor_thresh = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.OorThresh()
                     self.oor_thresh.parent = self
                     self._children_name_map["oor_thresh"] = "oor-thresh"
-                    self._children_yang_names.add("oor-thresh")
 
                     self.bp = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Bp()
                     self.bp.parent = self
                     self._children_name_map["bp"] = "bp"
-                    self._children_yang_names.add("bp")
 
                     self.io = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Io()
                     self.io.parent = self
                     self._children_name_map["io"] = "io"
-                    self._children_yang_names.add("io")
 
                     self.ucode = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Ucode()
                     self.ucode.parent = self
                     self._children_name_map["ucode"] = "ucode"
-                    self._children_yang_names.add("ucode")
 
                     self.config = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.indirect = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Indirect()
                     self.indirect.parent = self
                     self._children_name_map["indirect"] = "indirect"
-                    self._children_yang_names.add("indirect")
 
                     self.nonerr = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Nonerr()
                     self.nonerr.parent = self
                     self._children_name_map["nonerr"] = "nonerr"
-                    self._children_yang_names.add("nonerr")
 
                     self.summary = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Summary()
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
 
                     self.all = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All()
                     self.all.parent = self
                     self._children_name_map["all"] = "all"
-                    self._children_yang_names.add("all")
                     self._segment_path = lambda: "instance" + "[instance-num='" + str(self.instance_num) + "']"
 
                 def __setattr__(self, name, value):
@@ -1435,8 +1391,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Sbe.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Sbe.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1455,7 +1410,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -1472,8 +1427,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -1508,8 +1462,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Mbe.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Mbe.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1528,7 +1481,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -1545,8 +1498,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -1581,8 +1533,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Parity.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Parity.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1601,7 +1552,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -1618,8 +1569,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -1654,8 +1604,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Generic.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Generic.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1674,7 +1623,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -1691,8 +1640,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -1727,8 +1675,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Crc.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Crc.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1747,7 +1694,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -1764,8 +1711,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -1800,8 +1746,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Reset.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Reset.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1820,7 +1765,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -1837,8 +1782,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -1873,8 +1817,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Barrier.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Barrier.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1893,7 +1836,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -1910,8 +1853,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -1946,8 +1888,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Unexpected.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Unexpected.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1966,7 +1907,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -1983,8 +1924,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2019,8 +1959,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Link.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Link.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2039,7 +1978,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2056,8 +1995,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2092,8 +2030,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.OorThresh.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.OorThresh.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2112,7 +2049,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2129,8 +2066,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2165,8 +2101,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Bp.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Bp.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2185,7 +2120,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2202,8 +2137,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2238,8 +2172,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Io.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Io.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2258,7 +2191,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2275,8 +2208,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2311,8 +2243,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Ucode.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Ucode.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2331,7 +2262,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2348,8 +2279,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2384,8 +2314,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Config.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Config.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2404,7 +2333,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2421,8 +2350,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2457,8 +2385,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Indirect.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Indirect.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2477,7 +2404,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2494,8 +2421,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2530,8 +2456,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Nonerr.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Nonerr.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2550,7 +2475,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2567,8 +2492,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2603,8 +2527,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Summary.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.Summary.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2623,7 +2546,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2640,8 +2563,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2681,14 +2603,12 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("history", ("history", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All.History))])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All.Location))])
+                        self._child_classes = OrderedDict([("history", ("history", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All.History)), ("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All.Location))])
                         self._leafs = OrderedDict()
 
                         self.history = Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All.History()
                         self.history.parent = self
                         self._children_name_map["history"] = "history"
-                        self._children_yang_names.add("history")
 
                         self.location = YList(self)
                         self._segment_path = lambda: "all"
@@ -2721,8 +2641,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All.History.Location))])
+                            self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.Instance.All.History.Location))])
                             self._leafs = OrderedDict()
 
                             self.location = YList(self)
@@ -2741,7 +2660,7 @@ class Clear(Entity):
                             	
                             	**type**\: str
                             
-                            	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                             
                             
 
@@ -2758,8 +2677,7 @@ class Clear(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['location_name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('location_name', YLeaf(YType.str, 'location-name')),
                                 ])
@@ -2779,7 +2697,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -2796,8 +2714,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -2917,100 +2834,84 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sbe", ("sbe", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Sbe)), ("mbe", ("mbe", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Mbe)), ("parity", ("parity", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Parity)), ("generic", ("generic", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Generic)), ("crc", ("crc", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Crc)), ("reset", ("reset", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Reset)), ("barrier", ("barrier", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Barrier)), ("unexpected", ("unexpected", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Unexpected)), ("link", ("link", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Link)), ("oor-thresh", ("oor_thresh", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.OorThresh)), ("bp", ("bp", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Bp)), ("io", ("io", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Io)), ("ucode", ("ucode", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Ucode)), ("config", ("config", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Config)), ("indirect", ("indirect", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Indirect)), ("nonerr", ("nonerr", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Nonerr)), ("summary", ("summary", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Summary)), ("all", ("all", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sbe", ("sbe", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Sbe)), ("mbe", ("mbe", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Mbe)), ("parity", ("parity", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Parity)), ("generic", ("generic", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Generic)), ("crc", ("crc", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Crc)), ("reset", ("reset", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Reset)), ("barrier", ("barrier", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Barrier)), ("unexpected", ("unexpected", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Unexpected)), ("link", ("link", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Link)), ("oor-thresh", ("oor_thresh", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.OorThresh)), ("bp", ("bp", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Bp)), ("io", ("io", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Io)), ("ucode", ("ucode", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Ucode)), ("config", ("config", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Config)), ("indirect", ("indirect", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Indirect)), ("nonerr", ("nonerr", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Nonerr)), ("summary", ("summary", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Summary)), ("all", ("all", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All))])
                     self._leafs = OrderedDict()
 
                     self.sbe = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Sbe()
                     self.sbe.parent = self
                     self._children_name_map["sbe"] = "sbe"
-                    self._children_yang_names.add("sbe")
 
                     self.mbe = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Mbe()
                     self.mbe.parent = self
                     self._children_name_map["mbe"] = "mbe"
-                    self._children_yang_names.add("mbe")
 
                     self.parity = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Parity()
                     self.parity.parent = self
                     self._children_name_map["parity"] = "parity"
-                    self._children_yang_names.add("parity")
 
                     self.generic = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Generic()
                     self.generic.parent = self
                     self._children_name_map["generic"] = "generic"
-                    self._children_yang_names.add("generic")
 
                     self.crc = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Crc()
                     self.crc.parent = self
                     self._children_name_map["crc"] = "crc"
-                    self._children_yang_names.add("crc")
 
                     self.reset = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Reset()
                     self.reset.parent = self
                     self._children_name_map["reset"] = "reset"
-                    self._children_yang_names.add("reset")
 
                     self.barrier = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Barrier()
                     self.barrier.parent = self
                     self._children_name_map["barrier"] = "barrier"
-                    self._children_yang_names.add("barrier")
 
                     self.unexpected = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Unexpected()
                     self.unexpected.parent = self
                     self._children_name_map["unexpected"] = "unexpected"
-                    self._children_yang_names.add("unexpected")
 
                     self.link = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Link()
                     self.link.parent = self
                     self._children_name_map["link"] = "link"
-                    self._children_yang_names.add("link")
 
                     self.oor_thresh = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.OorThresh()
                     self.oor_thresh.parent = self
                     self._children_name_map["oor_thresh"] = "oor-thresh"
-                    self._children_yang_names.add("oor-thresh")
 
                     self.bp = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Bp()
                     self.bp.parent = self
                     self._children_name_map["bp"] = "bp"
-                    self._children_yang_names.add("bp")
 
                     self.io = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Io()
                     self.io.parent = self
                     self._children_name_map["io"] = "io"
-                    self._children_yang_names.add("io")
 
                     self.ucode = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Ucode()
                     self.ucode.parent = self
                     self._children_name_map["ucode"] = "ucode"
-                    self._children_yang_names.add("ucode")
 
                     self.config = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.indirect = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Indirect()
                     self.indirect.parent = self
                     self._children_name_map["indirect"] = "indirect"
-                    self._children_yang_names.add("indirect")
 
                     self.nonerr = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Nonerr()
                     self.nonerr.parent = self
                     self._children_name_map["nonerr"] = "nonerr"
-                    self._children_yang_names.add("nonerr")
 
                     self.summary = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Summary()
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
 
                     self.all = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All()
                     self.all.parent = self
                     self._children_name_map["all"] = "all"
-                    self._children_yang_names.add("all")
                     self._segment_path = lambda: "all-instances"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances, [], name, value)
 
 
                 class Sbe(Entity):
@@ -3037,8 +2938,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Sbe.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Sbe.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3057,7 +2957,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3074,8 +2974,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3110,8 +3009,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Mbe.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Mbe.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3130,7 +3028,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3147,8 +3045,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3183,8 +3080,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Parity.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Parity.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3203,7 +3099,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3220,8 +3116,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3256,8 +3151,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Generic.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Generic.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3276,7 +3170,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3293,8 +3187,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3329,8 +3222,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Crc.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Crc.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3349,7 +3241,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3366,8 +3258,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3402,8 +3293,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Reset.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Reset.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3422,7 +3312,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3439,8 +3329,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3475,8 +3364,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Barrier.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Barrier.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3495,7 +3383,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3512,8 +3400,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3548,8 +3435,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Unexpected.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Unexpected.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3568,7 +3454,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3585,8 +3471,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3621,8 +3506,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Link.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Link.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3641,7 +3525,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3658,8 +3542,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3694,8 +3577,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.OorThresh.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.OorThresh.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3714,7 +3596,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3731,8 +3613,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3767,8 +3648,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Bp.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Bp.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3787,7 +3667,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3804,8 +3684,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3840,8 +3719,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Io.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Io.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3860,7 +3738,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3877,8 +3755,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3913,8 +3790,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Ucode.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Ucode.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3933,7 +3809,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -3950,8 +3826,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -3986,8 +3861,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Config.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Config.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -4006,7 +3880,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -4023,8 +3897,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -4059,8 +3932,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Indirect.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Indirect.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -4079,7 +3951,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -4096,8 +3968,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -4132,8 +4003,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Nonerr.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Nonerr.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -4152,7 +4022,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -4169,8 +4039,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -4205,8 +4074,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Summary.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.Summary.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -4225,7 +4093,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -4242,8 +4110,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -4283,14 +4150,12 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("history", ("history", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All.History))])
-                        self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All.Location))])
+                        self._child_classes = OrderedDict([("history", ("history", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All.History)), ("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All.Location))])
                         self._leafs = OrderedDict()
 
                         self.history = Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All.History()
                         self.history.parent = self
                         self._children_name_map["history"] = "history"
-                        self._children_yang_names.add("history")
 
                         self.location = YList(self)
                         self._segment_path = lambda: "all"
@@ -4323,8 +4188,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All.History.Location))])
+                            self._child_classes = OrderedDict([("location", ("location", Clear.ClearAsicErrorsGrp.ClearDevice.AllInstances.All.History.Location))])
                             self._leafs = OrderedDict()
 
                             self.location = YList(self)
@@ -4343,7 +4207,7 @@ class Clear(Entity):
                             	
                             	**type**\: str
                             
-                            	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                             
                             
 
@@ -4360,8 +4224,7 @@ class Clear(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['location_name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('location_name', YLeaf(YType.str, 'location-name')),
                                 ])
@@ -4381,7 +4244,7 @@ class Clear(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         
 
@@ -4398,8 +4261,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['location_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('location_name', YLeaf(YType.str, 'location-name')),
                             ])
@@ -4434,16 +4296,17 @@ class Clear(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("onboard", ("onboard", Clear.Logging.Onboard))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("onboard", ("onboard", Clear.Logging.Onboard))])
             self._leafs = OrderedDict()
 
             self.onboard = Clear.Logging.Onboard()
             self.onboard.parent = self
             self._children_name_map["onboard"] = "onboard"
-            self._children_yang_names.add("onboard")
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Clear.Logging, [], name, value)
 
 
         class Onboard(Entity):
@@ -4470,8 +4333,7 @@ class Clear(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Clear.Logging.Onboard.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Clear.Logging.Onboard.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -4506,8 +4368,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['location']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                     ])
@@ -4516,7 +4377,7 @@ class Clear(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/logging/onboard/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Logging.Onboard.Location, ['location'], name, value)
+                    self._perform_setattr(Clear.Logging.Onboard.Location, [u'location'], name, value)
 
 
     class Configuration(Entity):
@@ -4538,8 +4399,7 @@ class Clear(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict()
             self._segment_path = lambda: "configuration"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-clear:clear/%s" % self._segment_path()

@@ -81,8 +81,7 @@ class Classifiers(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("classifier-entry", ("classifier_entry", Classifiers.ClassifierEntry))])
+        self._child_classes = OrderedDict([("classifier-entry", ("classifier_entry", Classifiers.ClassifierEntry))])
         self._leafs = OrderedDict()
 
         self.classifier_entry = YList(self)
@@ -133,8 +132,7 @@ class Classifiers(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['classifier_entry_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("filter-entry", ("filter_entry", Classifiers.ClassifierEntry.FilterEntry))])
+            self._child_classes = OrderedDict([("filter-entry", ("filter_entry", Classifiers.ClassifierEntry.FilterEntry))])
             self._leafs = OrderedDict([
                 ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
                 ('classifier_entry_descr', YLeaf(YType.str, 'classifier-entry-descr')),
@@ -149,7 +147,7 @@ class Classifiers(Entity):
             self._absolute_path = lambda: "ietf-diffserv-classifier:classifiers/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Classifiers.ClassifierEntry, ['classifier_entry_name', 'classifier_entry_descr', 'classifier_entry_filter_operation'], name, value)
+            self._perform_setattr(Classifiers.ClassifierEntry, [u'classifier_entry_name', u'classifier_entry_descr', u'classifier_entry_filter_operation'], name, value)
 
 
         class FilterEntry(Entity):
@@ -211,8 +209,7 @@ class Classifiers(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['filter_type','filter_logical_not']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("dscp-cfg", ("dscp_cfg", Classifiers.ClassifierEntry.FilterEntry.DscpCfg)), ("source-ip-address-cfg", ("source_ip_address_cfg", Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg)), ("destination-ip-address-cfg", ("destination_ip_address_cfg", Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg)), ("source-port-cfg", ("source_port_cfg", Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg)), ("destination-port-cfg", ("destination_port_cfg", Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg)), ("protocol-cfg", ("protocol_cfg", Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg))])
+                self._child_classes = OrderedDict([("dscp-cfg", ("dscp_cfg", Classifiers.ClassifierEntry.FilterEntry.DscpCfg)), ("source-ip-address-cfg", ("source_ip_address_cfg", Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg)), ("destination-ip-address-cfg", ("destination_ip_address_cfg", Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg)), ("source-port-cfg", ("source_port_cfg", Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg)), ("destination-port-cfg", ("destination_port_cfg", Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg)), ("protocol-cfg", ("protocol_cfg", Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg))])
                 self._leafs = OrderedDict([
                     ('filter_type', YLeaf(YType.identityref, 'filter-type')),
                     ('filter_logical_not', YLeaf(YType.boolean, 'filter-logical-not')),
@@ -229,7 +226,7 @@ class Classifiers(Entity):
                 self._segment_path = lambda: "filter-entry" + "[filter-type='" + str(self.filter_type) + "']" + "[filter-logical-not='" + str(self.filter_logical_not) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry, ['filter_type', 'filter_logical_not'], name, value)
+                self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry, [u'filter_type', u'filter_logical_not'], name, value)
 
 
             class DscpCfg(Entity):
@@ -265,8 +262,7 @@ class Classifiers(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['dscp_min','dscp_max']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('dscp_min', YLeaf(YType.uint8, 'dscp-min')),
                         ('dscp_max', YLeaf(YType.uint8, 'dscp-max')),
@@ -276,7 +272,7 @@ class Classifiers(Entity):
                     self._segment_path = lambda: "dscp-cfg" + "[dscp-min='" + str(self.dscp_min) + "']" + "[dscp-max='" + str(self.dscp_max) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, ['dscp_min', 'dscp_max'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, [u'dscp_min', u'dscp_max'], name, value)
 
 
             class SourceIpAddressCfg(Entity):
@@ -311,8 +307,7 @@ class Classifiers(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['source_ip_addr']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('source_ip_addr', YLeaf(YType.str, 'source-ip-addr')),
                     ])
@@ -320,7 +315,7 @@ class Classifiers(Entity):
                     self._segment_path = lambda: "source-ip-address-cfg" + "[source-ip-addr='" + str(self.source_ip_addr) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, ['source_ip_addr'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, [u'source_ip_addr'], name, value)
 
 
             class DestinationIpAddressCfg(Entity):
@@ -355,8 +350,7 @@ class Classifiers(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['destination_ip_addr']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('destination_ip_addr', YLeaf(YType.str, 'destination-ip-addr')),
                     ])
@@ -364,7 +358,7 @@ class Classifiers(Entity):
                     self._segment_path = lambda: "destination-ip-address-cfg" + "[destination-ip-addr='" + str(self.destination_ip_addr) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, ['destination_ip_addr'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, [u'destination_ip_addr'], name, value)
 
 
             class SourcePortCfg(Entity):
@@ -400,8 +394,7 @@ class Classifiers(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['source_port_min','source_port_max']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('source_port_min', YLeaf(YType.uint16, 'source-port-min')),
                         ('source_port_max', YLeaf(YType.uint16, 'source-port-max')),
@@ -411,7 +404,7 @@ class Classifiers(Entity):
                     self._segment_path = lambda: "source-port-cfg" + "[source-port-min='" + str(self.source_port_min) + "']" + "[source-port-max='" + str(self.source_port_max) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, ['source_port_min', 'source_port_max'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, [u'source_port_min', u'source_port_max'], name, value)
 
 
             class DestinationPortCfg(Entity):
@@ -447,8 +440,7 @@ class Classifiers(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['destination_port_min','destination_port_max']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('destination_port_min', YLeaf(YType.uint16, 'destination-port-min')),
                         ('destination_port_max', YLeaf(YType.uint16, 'destination-port-max')),
@@ -458,7 +450,7 @@ class Classifiers(Entity):
                     self._segment_path = lambda: "destination-port-cfg" + "[destination-port-min='" + str(self.destination_port_min) + "']" + "[destination-port-max='" + str(self.destination_port_max) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, ['destination_port_min', 'destination_port_max'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, [u'destination_port_min', u'destination_port_max'], name, value)
 
 
             class ProtocolCfg(Entity):
@@ -494,8 +486,7 @@ class Classifiers(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['protocol_min','protocol_max']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('protocol_min', YLeaf(YType.uint8, 'protocol-min')),
                         ('protocol_max', YLeaf(YType.uint8, 'protocol-max')),
@@ -505,71 +496,11 @@ class Classifiers(Entity):
                     self._segment_path = lambda: "protocol-cfg" + "[protocol-min='" + str(self.protocol_min) + "']" + "[protocol-max='" + str(self.protocol_max) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, ['protocol_min', 'protocol_max'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, [u'protocol_min', u'protocol_max'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Classifiers()
         return self._top_entity
-
-class Dscp(Identity):
-    """
-    DSCP filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self):
-        super(Dscp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:dscp")
-
-
-class SourceIpAddress(Identity):
-    """
-    source\-ip\-address filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self):
-        super(SourceIpAddress, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:source-ip-address")
-
-
-class DestinationIpAddress(Identity):
-    """
-    destination\-ip\-address filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self):
-        super(DestinationIpAddress, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:destination-ip-address")
-
-
-class SourcePort(Identity):
-    """
-    source\-port filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self):
-        super(SourcePort, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:source-port")
-
 
 class DestinationPort(Identity):
     """
@@ -601,9 +532,9 @@ class Protocol(Identity):
         super(Protocol, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:protocol")
 
 
-class MatchAnyFilter(Identity):
+class DestinationIpAddress(Identity):
     """
-    Classifier entry filter logical OR operation
+    destination\-ip\-address filter\-type
     
     
 
@@ -613,7 +544,22 @@ class MatchAnyFilter(Identity):
     _revision = '2015-04-07'
 
     def __init__(self):
-        super(MatchAnyFilter, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:match-any-filter")
+        super(DestinationIpAddress, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:destination-ip-address")
+
+
+class Dscp(Identity):
+    """
+    DSCP filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(Dscp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:dscp")
 
 
 class MatchAllFilter(Identity):
@@ -629,5 +575,50 @@ class MatchAllFilter(Identity):
 
     def __init__(self):
         super(MatchAllFilter, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:match-all-filter")
+
+
+class SourceIpAddress(Identity):
+    """
+    source\-ip\-address filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(SourceIpAddress, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:source-ip-address")
+
+
+class MatchAnyFilter(Identity):
+    """
+    Classifier entry filter logical OR operation
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(MatchAnyFilter, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:match-any-filter")
+
+
+class SourcePort(Identity):
+    """
+    source\-port filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(SourcePort, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:source-port")
 
 

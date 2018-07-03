@@ -222,13 +222,11 @@ class StpDetails(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("stp-global", ("stp_global", StpDetails.StpGlobal))])
-        self._child_list_classes = OrderedDict([("stp-detail", ("stp_detail", StpDetails.StpDetail))])
+        self._child_classes = OrderedDict([("stp-detail", ("stp_detail", StpDetails.StpDetail)), ("stp-global", ("stp_global", StpDetails.StpGlobal))])
         self._leafs = OrderedDict()
 
         self.stp_global = None
         self._children_name_map["stp_global"] = "stp-global"
-        self._children_yang_names.add("stp-global")
 
         self.stp_detail = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-spanning-tree-oper:stp-details"
@@ -357,8 +355,7 @@ class StpDetails(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['instance']
-            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", StpDetails.StpDetail.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("interfaces", ("interfaces", StpDetails.StpDetail.Interfaces))])
             self._leafs = OrderedDict([
                 ('instance', YLeaf(YType.str, 'instance')),
                 ('hello_time', YLeaf(YType.int32, 'hello-time')),
@@ -393,7 +390,6 @@ class StpDetails(Entity):
             self.interfaces = StpDetails.StpDetail.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "stp-detail" + "[instance='" + str(self.instance) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-spanning-tree-oper:stp-details/%s" % self._segment_path()
 
@@ -425,8 +421,7 @@ class StpDetails(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", StpDetails.StpDetail.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", StpDetails.StpDetail.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -581,8 +576,7 @@ class StpDetails(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('cost', YLeaf(YType.uint64, 'cost')),
@@ -687,8 +681,7 @@ class StpDetails(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("mst-only", ("mst_only", StpDetails.StpGlobal.MstOnly))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("mst-only", ("mst_only", StpDetails.StpGlobal.MstOnly))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -708,7 +701,6 @@ class StpDetails(Entity):
             self.mst_only = StpDetails.StpGlobal.MstOnly()
             self.mst_only.parent = self
             self._children_name_map["mst_only"] = "mst-only"
-            self._children_yang_names.add("mst-only")
             self._segment_path = lambda: "stp-global"
             self._absolute_path = lambda: "Cisco-IOS-XE-spanning-tree-oper:stp-details/%s" % self._segment_path()
 
@@ -754,8 +746,7 @@ class StpDetails(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mst_config_revision', YLeaf(YType.uint16, 'mst-config-revision')),
                     ('mst_config_name', YLeaf(YType.str, 'mst-config-name')),

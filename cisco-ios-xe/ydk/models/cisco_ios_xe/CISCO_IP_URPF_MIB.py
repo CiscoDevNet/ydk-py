@@ -78,27 +78,27 @@ class CISCOIPURPFMIB(Entity):
     .. attribute:: cipurpfscalar
     
     	
-    	**type**\:  :py:class:`Cipurpfscalar <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfscalar>`
+    	**type**\:  :py:class:`CipUrpfScalar <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfScalar>`
     
     .. attribute:: cipurpftable
     
     	This table contains summary information for the managed device on URPF dropping
-    	**type**\:  :py:class:`Cipurpftable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpftable>`
+    	**type**\:  :py:class:`CipUrpfTable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfTable>`
     
     .. attribute:: cipurpfifmontable
     
     	This table contains information on URPF dropping on an interface
-    	**type**\:  :py:class:`Cipurpfifmontable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable>`
+    	**type**\:  :py:class:`CipUrpfIfMonTable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable>`
     
     .. attribute:: cipurpfvrfiftable
     
     	This table contains statistics information for interfaces performing URPF using VRF table to determine reachability
-    	**type**\:  :py:class:`Cipurpfvrfiftable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfvrfiftable>`
+    	**type**\:  :py:class:`CipUrpfVrfIfTable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfIfTable>`
     
     .. attribute:: cipurpfvrftable
     
     	This table enables indexing URPF drop statistics by Virtual Routing and Forwarding instances
-    	**type**\:  :py:class:`Cipurpfvrftable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfvrftable>`
+    	**type**\:  :py:class:`CipUrpfVrfTable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfTable>`
     
     
 
@@ -116,38 +116,35 @@ class CISCOIPURPFMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cipUrpfScalar", ("cipurpfscalar", CISCOIPURPFMIB.Cipurpfscalar)), ("cipUrpfTable", ("cipurpftable", CISCOIPURPFMIB.Cipurpftable)), ("cipUrpfIfMonTable", ("cipurpfifmontable", CISCOIPURPFMIB.Cipurpfifmontable)), ("cipUrpfVrfIfTable", ("cipurpfvrfiftable", CISCOIPURPFMIB.Cipurpfvrfiftable)), ("cipUrpfVrfTable", ("cipurpfvrftable", CISCOIPURPFMIB.Cipurpfvrftable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cipUrpfScalar", ("cipurpfscalar", CISCOIPURPFMIB.CipUrpfScalar)), ("cipUrpfTable", ("cipurpftable", CISCOIPURPFMIB.CipUrpfTable)), ("cipUrpfIfMonTable", ("cipurpfifmontable", CISCOIPURPFMIB.CipUrpfIfMonTable)), ("cipUrpfVrfIfTable", ("cipurpfvrfiftable", CISCOIPURPFMIB.CipUrpfVrfIfTable)), ("cipUrpfVrfTable", ("cipurpfvrftable", CISCOIPURPFMIB.CipUrpfVrfTable))])
         self._leafs = OrderedDict()
 
-        self.cipurpfscalar = CISCOIPURPFMIB.Cipurpfscalar()
+        self.cipurpfscalar = CISCOIPURPFMIB.CipUrpfScalar()
         self.cipurpfscalar.parent = self
         self._children_name_map["cipurpfscalar"] = "cipUrpfScalar"
-        self._children_yang_names.add("cipUrpfScalar")
 
-        self.cipurpftable = CISCOIPURPFMIB.Cipurpftable()
+        self.cipurpftable = CISCOIPURPFMIB.CipUrpfTable()
         self.cipurpftable.parent = self
         self._children_name_map["cipurpftable"] = "cipUrpfTable"
-        self._children_yang_names.add("cipUrpfTable")
 
-        self.cipurpfifmontable = CISCOIPURPFMIB.Cipurpfifmontable()
+        self.cipurpfifmontable = CISCOIPURPFMIB.CipUrpfIfMonTable()
         self.cipurpfifmontable.parent = self
         self._children_name_map["cipurpfifmontable"] = "cipUrpfIfMonTable"
-        self._children_yang_names.add("cipUrpfIfMonTable")
 
-        self.cipurpfvrfiftable = CISCOIPURPFMIB.Cipurpfvrfiftable()
+        self.cipurpfvrfiftable = CISCOIPURPFMIB.CipUrpfVrfIfTable()
         self.cipurpfvrfiftable.parent = self
         self._children_name_map["cipurpfvrfiftable"] = "cipUrpfVrfIfTable"
-        self._children_yang_names.add("cipUrpfVrfIfTable")
 
-        self.cipurpfvrftable = CISCOIPURPFMIB.Cipurpfvrftable()
+        self.cipurpfvrftable = CISCOIPURPFMIB.CipUrpfVrfTable()
         self.cipurpfvrftable.parent = self
         self._children_name_map["cipurpfvrftable"] = "cipUrpfVrfTable"
-        self._children_yang_names.add("cipUrpfVrfTable")
         self._segment_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPURPFMIB, [], name, value)
 
-    class Cipurpfscalar(Entity):
+
+    class CipUrpfScalar(Entity):
         """
         
         
@@ -186,15 +183,14 @@ class CISCOIPURPFMIB(Entity):
         _revision = '2011-12-29'
 
         def __init__(self):
-            super(CISCOIPURPFMIB.Cipurpfscalar, self).__init__()
+            super(CISCOIPURPFMIB.CipUrpfScalar, self).__init__()
 
             self.yang_name = "cipUrpfScalar"
             self.yang_parent_name = "CISCO-IP-URPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cipurpfdropratewindow', YLeaf(YType.int32, 'cipUrpfDropRateWindow')),
                 ('cipurpfcomputeinterval', YLeaf(YType.int32, 'cipUrpfComputeInterval')),
@@ -207,10 +203,10 @@ class CISCOIPURPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.Cipurpfscalar, ['cipurpfdropratewindow', 'cipurpfcomputeinterval', 'cipurpfdropnotifyholddowntime'], name, value)
+            self._perform_setattr(CISCOIPURPFMIB.CipUrpfScalar, [u'cipurpfdropratewindow', u'cipurpfcomputeinterval', u'cipurpfdropnotifyholddowntime'], name, value)
 
 
-    class Cipurpftable(Entity):
+    class CipUrpfTable(Entity):
         """
         This table contains summary information for the
         managed device on URPF dropping.
@@ -218,7 +214,7 @@ class CISCOIPURPFMIB(Entity):
         .. attribute:: cipurpfentry
         
         	If the managed device supports URPF dropping, a row exists for each IP version type (v4 and v6). A row contains summary information on URPF dropping over the entire managed device
-        	**type**\: list of  		 :py:class:`Cipurpfentry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpftable.Cipurpfentry>`
+        	**type**\: list of  		 :py:class:`CipUrpfEntry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry>`
         
         
 
@@ -228,15 +224,14 @@ class CISCOIPURPFMIB(Entity):
         _revision = '2011-12-29'
 
         def __init__(self):
-            super(CISCOIPURPFMIB.Cipurpftable, self).__init__()
+            super(CISCOIPURPFMIB.CipUrpfTable, self).__init__()
 
             self.yang_name = "cipUrpfTable"
             self.yang_parent_name = "CISCO-IP-URPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipUrpfEntry", ("cipurpfentry", CISCOIPURPFMIB.Cipurpftable.Cipurpfentry))])
+            self._child_classes = OrderedDict([("cipUrpfEntry", ("cipurpfentry", CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry))])
             self._leafs = OrderedDict()
 
             self.cipurpfentry = YList(self)
@@ -244,10 +239,10 @@ class CISCOIPURPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.Cipurpftable, [], name, value)
+            self._perform_setattr(CISCOIPURPFMIB.CipUrpfTable, [], name, value)
 
 
-        class Cipurpfentry(Entity):
+        class CipUrpfEntry(Entity):
             """
             If the managed device supports URPF dropping,
             a row exists for each IP version type (v4 and v6).
@@ -257,7 +252,7 @@ class CISCOIPURPFMIB(Entity):
             .. attribute:: cipurpfipversion  (key)
             
             	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and configuration apply
-            	**type**\:  :py:class:`Cipurpfipversion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpftable.Cipurpfentry.Cipurpfipversion>`
+            	**type**\:  :py:class:`CipUrpfIpVersion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry.CipUrpfIpVersion>`
             
             .. attribute:: cipurpfdrops
             
@@ -285,15 +280,14 @@ class CISCOIPURPFMIB(Entity):
             _revision = '2011-12-29'
 
             def __init__(self):
-                super(CISCOIPURPFMIB.Cipurpftable.Cipurpfentry, self).__init__()
+                super(CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry, self).__init__()
 
                 self.yang_name = "cipUrpfEntry"
                 self.yang_parent_name = "cipUrpfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipurpfipversion']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipurpfipversion', YLeaf(YType.enumeration, 'cipUrpfIpVersion')),
                     ('cipurpfdrops', YLeaf(YType.uint32, 'cipUrpfDrops')),
@@ -306,11 +300,11 @@ class CISCOIPURPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.Cipurpftable.Cipurpfentry, ['cipurpfipversion', 'cipurpfdrops', 'cipurpfdroprate'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry, [u'cipurpfipversion', u'cipurpfdrops', u'cipurpfdroprate'], name, value)
 
-            class Cipurpfipversion(Enum):
+            class CipUrpfIpVersion(Enum):
                 """
-                Cipurpfipversion (Enum Class)
+                CipUrpfIpVersion (Enum Class)
 
                 Specifies the version of IP forwarding on an interface
 
@@ -330,7 +324,7 @@ class CISCOIPURPFMIB(Entity):
 
 
 
-    class Cipurpfifmontable(Entity):
+    class CipUrpfIfMonTable(Entity):
         """
         This table contains information on URPF dropping on
         an interface.
@@ -338,7 +332,7 @@ class CISCOIPURPFMIB(Entity):
         .. attribute:: cipurpfifmonentry
         
         	If IPv4 packet forwarding is configured on an interface, and is configured to perform URPF checking, a row appears in this table with indices [ifIndex][ipv4]. If IPv4 packet forwarding is deconfigured, or URPF checking is deconfigured, the row disappears.  If IPv6 packet forwarding is configured on an interface, and is configured to perform URPF checking, a row appears in the table with indices [ifIndex][ipv6].  If IPv6 packet forwarding is deconfigured, or URPF checking is deconfigured, the row disappears
-        	**type**\: list of  		 :py:class:`Cipurpfifmonentry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry>`
+        	**type**\: list of  		 :py:class:`CipUrpfIfMonEntry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry>`
         
         
 
@@ -348,15 +342,14 @@ class CISCOIPURPFMIB(Entity):
         _revision = '2011-12-29'
 
         def __init__(self):
-            super(CISCOIPURPFMIB.Cipurpfifmontable, self).__init__()
+            super(CISCOIPURPFMIB.CipUrpfIfMonTable, self).__init__()
 
             self.yang_name = "cipUrpfIfMonTable"
             self.yang_parent_name = "CISCO-IP-URPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipUrpfIfMonEntry", ("cipurpfifmonentry", CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry))])
+            self._child_classes = OrderedDict([("cipUrpfIfMonEntry", ("cipurpfifmonentry", CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry))])
             self._leafs = OrderedDict()
 
             self.cipurpfifmonentry = YList(self)
@@ -364,10 +357,10 @@ class CISCOIPURPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.Cipurpfifmontable, [], name, value)
+            self._perform_setattr(CISCOIPURPFMIB.CipUrpfIfMonTable, [], name, value)
 
 
-        class Cipurpfifmonentry(Entity):
+        class CipUrpfIfMonEntry(Entity):
             """
             If IPv4 packet forwarding is configured on an interface,
             and is configured to perform URPF checking, a row appears
@@ -388,12 +381,12 @@ class CISCOIPURPFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cipurpfifipversion  (key)
             
             	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and  configuration apply
-            	**type**\:  :py:class:`Cipurpfifipversion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifipversion>`
+            	**type**\:  :py:class:`CipUrpfIfIpVersion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry.CipUrpfIfIpVersion>`
             
             .. attribute:: cipurpfifdrops
             
@@ -451,12 +444,12 @@ class CISCOIPURPFMIB(Entity):
             .. attribute:: cipurpfifcheckstrict
             
             	Interface configuration indicating the strictness of the reachability check performed  on the interface. \- strict\: check that source addr is reachable via            the interface it came in on. \- loose \: check that source addr is reachable via            some interface on the device
-            	**type**\:  :py:class:`Cipurpfifcheckstrict <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifcheckstrict>`
+            	**type**\:  :py:class:`CipUrpfIfCheckStrict <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry.CipUrpfIfCheckStrict>`
             
             .. attribute:: cipurpfifwhichroutetableid
             
             	Interface configuration indicating the routing table consulted for the reachability check\: \- default\: the non\-private routing table for of the             managed system. \- vrf   \: a particular VPN routing table
-            	**type**\:  :py:class:`Cipurpfifwhichroutetableid <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifwhichroutetableid>`
+            	**type**\:  :py:class:`CipUrpfIfWhichRouteTableID <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry.CipUrpfIfWhichRouteTableID>`
             
             .. attribute:: cipurpfifvrfname
             
@@ -473,15 +466,14 @@ class CISCOIPURPFMIB(Entity):
             _revision = '2011-12-29'
 
             def __init__(self):
-                super(CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry, self).__init__()
+                super(CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry, self).__init__()
 
                 self.yang_name = "cipUrpfIfMonEntry"
                 self.yang_parent_name = "cipUrpfIfMonTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','cipurpfifipversion']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cipurpfifipversion', YLeaf(YType.enumeration, 'cipUrpfIfIpVersion')),
@@ -512,11 +504,11 @@ class CISCOIPURPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfIfMonTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.Cipurpfifmontable.Cipurpfifmonentry, ['ifindex', 'cipurpfifipversion', 'cipurpfifdrops', 'cipurpfifsuppresseddrops', 'cipurpfifdroprate', 'cipurpfifdiscontinuitytime', 'cipurpfifdropratenotifyenable', 'cipurpfifnotifydropratethreshold', 'cipurpfifnotifydrholddownreset', 'cipurpfifcheckstrict', 'cipurpfifwhichroutetableid', 'cipurpfifvrfname'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry, [u'ifindex', u'cipurpfifipversion', u'cipurpfifdrops', u'cipurpfifsuppresseddrops', u'cipurpfifdroprate', u'cipurpfifdiscontinuitytime', u'cipurpfifdropratenotifyenable', u'cipurpfifnotifydropratethreshold', u'cipurpfifnotifydrholddownreset', u'cipurpfifcheckstrict', u'cipurpfifwhichroutetableid', u'cipurpfifvrfname'], name, value)
 
-            class Cipurpfifcheckstrict(Enum):
+            class CipUrpfIfCheckStrict(Enum):
                 """
-                Cipurpfifcheckstrict (Enum Class)
+                CipUrpfIfCheckStrict (Enum Class)
 
                 Interface configuration indicating the strictness of
 
@@ -543,9 +535,9 @@ class CISCOIPURPFMIB(Entity):
                 loose = Enum.YLeaf(2, "loose")
 
 
-            class Cipurpfifipversion(Enum):
+            class CipUrpfIfIpVersion(Enum):
                 """
-                Cipurpfifipversion (Enum Class)
+                CipUrpfIfIpVersion (Enum Class)
 
                 Specifies the version of IP forwarding on an interface
 
@@ -564,9 +556,9 @@ class CISCOIPURPFMIB(Entity):
                 ipv6 = Enum.YLeaf(2, "ipv6")
 
 
-            class Cipurpfifwhichroutetableid(Enum):
+            class CipUrpfIfWhichRouteTableID(Enum):
                 """
-                Cipurpfifwhichroutetableid (Enum Class)
+                CipUrpfIfWhichRouteTableID (Enum Class)
 
                 Interface configuration indicating the routing table
 
@@ -590,7 +582,7 @@ class CISCOIPURPFMIB(Entity):
 
 
 
-    class Cipurpfvrfiftable(Entity):
+    class CipUrpfVrfIfTable(Entity):
         """
         This table contains statistics information for interfaces
         performing URPF using VRF table to determine reachability.
@@ -598,7 +590,7 @@ class CISCOIPURPFMIB(Entity):
         .. attribute:: cipurpfvrfifentry
         
         	An entry exists for a VRF and interface if and only if the VRF associated with the interface is configured  to perform IP URPF checking using the routing  table for the VRF
-        	**type**\: list of  		 :py:class:`Cipurpfvrfifentry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfvrfiftable.Cipurpfvrfifentry>`
+        	**type**\: list of  		 :py:class:`CipUrpfVrfIfEntry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry>`
         
         
 
@@ -608,15 +600,14 @@ class CISCOIPURPFMIB(Entity):
         _revision = '2011-12-29'
 
         def __init__(self):
-            super(CISCOIPURPFMIB.Cipurpfvrfiftable, self).__init__()
+            super(CISCOIPURPFMIB.CipUrpfVrfIfTable, self).__init__()
 
             self.yang_name = "cipUrpfVrfIfTable"
             self.yang_parent_name = "CISCO-IP-URPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipUrpfVrfIfEntry", ("cipurpfvrfifentry", CISCOIPURPFMIB.Cipurpfvrfiftable.Cipurpfvrfifentry))])
+            self._child_classes = OrderedDict([("cipUrpfVrfIfEntry", ("cipurpfvrfifentry", CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry))])
             self._leafs = OrderedDict()
 
             self.cipurpfvrfifentry = YList(self)
@@ -624,10 +615,10 @@ class CISCOIPURPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.Cipurpfvrfiftable, [], name, value)
+            self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfIfTable, [], name, value)
 
 
-        class Cipurpfvrfifentry(Entity):
+        class CipUrpfVrfIfEntry(Entity):
             """
             An entry exists for a VRF and interface if and only
             if the VRF associated with the interface is configured 
@@ -641,7 +632,7 @@ class CISCOIPURPFMIB(Entity):
             
             	**length:** 0..32
             
-            	**refers to**\:  :py:class:`cipurpfvrfname <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfvrftable.Cipurpfvrfentry>`
+            	**refers to**\:  :py:class:`cipurpfvrfname <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry>`
             
             .. attribute:: ifindex  (key)
             
@@ -650,7 +641,7 @@ class CISCOIPURPFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cipurpfvrfifdrops
             
@@ -676,15 +667,14 @@ class CISCOIPURPFMIB(Entity):
             _revision = '2011-12-29'
 
             def __init__(self):
-                super(CISCOIPURPFMIB.Cipurpfvrfiftable.Cipurpfvrfifentry, self).__init__()
+                super(CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry, self).__init__()
 
                 self.yang_name = "cipUrpfVrfIfEntry"
                 self.yang_parent_name = "cipUrpfVrfIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipurpfvrfname','ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipurpfvrfname', YLeaf(YType.str, 'cipUrpfVrfName')),
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
@@ -699,10 +689,10 @@ class CISCOIPURPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfVrfIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.Cipurpfvrfiftable.Cipurpfvrfifentry, ['cipurpfvrfname', 'ifindex', 'cipurpfvrfifdrops', 'cipurpfvrfifdiscontinuitytime'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry, [u'cipurpfvrfname', u'ifindex', u'cipurpfvrfifdrops', u'cipurpfvrfifdiscontinuitytime'], name, value)
 
 
-    class Cipurpfvrftable(Entity):
+    class CipUrpfVrfTable(Entity):
         """
         This table enables indexing URPF drop statistics
         by Virtual Routing and Forwarding instances.
@@ -710,7 +700,7 @@ class CISCOIPURPFMIB(Entity):
         .. attribute:: cipurpfvrfentry
         
         	An entry exists for a VRF if and only if the VRF is associated with an interface that is configured to perform IP URPF checking using the routing table  for that VRF
-        	**type**\: list of  		 :py:class:`Cipurpfvrfentry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.Cipurpfvrftable.Cipurpfvrfentry>`
+        	**type**\: list of  		 :py:class:`CipUrpfVrfEntry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry>`
         
         
 
@@ -720,15 +710,14 @@ class CISCOIPURPFMIB(Entity):
         _revision = '2011-12-29'
 
         def __init__(self):
-            super(CISCOIPURPFMIB.Cipurpfvrftable, self).__init__()
+            super(CISCOIPURPFMIB.CipUrpfVrfTable, self).__init__()
 
             self.yang_name = "cipUrpfVrfTable"
             self.yang_parent_name = "CISCO-IP-URPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipUrpfVrfEntry", ("cipurpfvrfentry", CISCOIPURPFMIB.Cipurpfvrftable.Cipurpfvrfentry))])
+            self._child_classes = OrderedDict([("cipUrpfVrfEntry", ("cipurpfvrfentry", CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry))])
             self._leafs = OrderedDict()
 
             self.cipurpfvrfentry = YList(self)
@@ -736,10 +725,10 @@ class CISCOIPURPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.Cipurpfvrftable, [], name, value)
+            self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfTable, [], name, value)
 
 
-        class Cipurpfvrfentry(Entity):
+        class CipUrpfVrfEntry(Entity):
             """
             An entry exists for a VRF if and only if the VRF
             is associated with an interface that is configured
@@ -761,15 +750,14 @@ class CISCOIPURPFMIB(Entity):
             _revision = '2011-12-29'
 
             def __init__(self):
-                super(CISCOIPURPFMIB.Cipurpfvrftable.Cipurpfvrfentry, self).__init__()
+                super(CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry, self).__init__()
 
                 self.yang_name = "cipUrpfVrfEntry"
                 self.yang_parent_name = "cipUrpfVrfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipurpfvrfname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipurpfvrfname', YLeaf(YType.str, 'cipUrpfVrfName')),
                 ])
@@ -778,7 +766,7 @@ class CISCOIPURPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfVrfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.Cipurpfvrftable.Cipurpfvrfentry, ['cipurpfvrfname'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry, [u'cipurpfvrfname'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPURPFMIB()

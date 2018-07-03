@@ -40,8 +40,7 @@ class MemoryUsageProcesses(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("memory-usage-process", ("memory_usage_process", MemoryUsageProcesses.MemoryUsageProcess))])
+        self._child_classes = OrderedDict([("memory-usage-process", ("memory_usage_process", MemoryUsageProcesses.MemoryUsageProcess))])
         self._leafs = OrderedDict()
 
         self.memory_usage_process = YList(self)
@@ -130,8 +129,7 @@ class MemoryUsageProcesses(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['pid','name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('pid', YLeaf(YType.uint32, 'pid')),
                 ('name', YLeaf(YType.str, 'name')),

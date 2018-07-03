@@ -41,8 +41,7 @@ class Set(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("asic", ("asic", Set.Asic))])
+        self._child_classes = OrderedDict([("asic", ("asic", Set.Asic))])
         self._leafs = OrderedDict()
 
         self.asic = YList(self)
@@ -81,8 +80,7 @@ class Set(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['asic_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("instance", ("instance", Set.Asic.Instance))])
+            self._child_classes = OrderedDict([("instance", ("instance", Set.Asic.Instance))])
             self._leafs = OrderedDict([
                 ('asic_name', YLeaf(YType.str, 'asic-name')),
             ])
@@ -127,8 +125,7 @@ class Set(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['instance_ids']
-                self._child_container_classes = OrderedDict([("fault-injection", ("fault_injection", Set.Asic.Instance.FaultInjection))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("fault-injection", ("fault_injection", Set.Asic.Instance.FaultInjection))])
                 self._leafs = OrderedDict([
                     ('instance_ids', YLeaf(YType.uint32, 'instance-ids')),
                 ])
@@ -137,7 +134,6 @@ class Set(Entity):
                 self.fault_injection = Set.Asic.Instance.FaultInjection()
                 self.fault_injection.parent = self
                 self._children_name_map["fault_injection"] = "fault-injection"
-                self._children_yang_names.add("fault-injection")
                 self._segment_path = lambda: "instance" + "[instance-ids='" + str(self.instance_ids) + "']"
 
             def __setattr__(self, name, value):
@@ -168,8 +164,7 @@ class Set(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("module", ("module", Set.Asic.Instance.FaultInjection.Module))])
+                    self._child_classes = OrderedDict([("module", ("module", Set.Asic.Instance.FaultInjection.Module))])
                     self._leafs = OrderedDict()
 
                     self.module = YList(self)
@@ -208,8 +203,7 @@ class Set(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['module_name']
-                        self._child_container_classes = OrderedDict([("fault-type", ("fault_type", Set.Asic.Instance.FaultInjection.Module.FaultType))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("fault-type", ("fault_type", Set.Asic.Instance.FaultInjection.Module.FaultType))])
                         self._leafs = OrderedDict([
                             ('module_name', YLeaf(YType.str, 'module-name')),
                         ])
@@ -218,7 +212,6 @@ class Set(Entity):
                         self.fault_type = Set.Asic.Instance.FaultInjection.Module.FaultType()
                         self.fault_type.parent = self
                         self._children_name_map["fault_type"] = "fault-type"
-                        self._children_yang_names.add("fault-type")
                         self._segment_path = lambda: "module" + "[module-name='" + str(self.module_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -259,25 +252,24 @@ class Set(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ecc", ("ecc", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc)), ("parity", ("parity", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity)), ("other", ("other", Set.Asic.Instance.FaultInjection.Module.FaultType.Other))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ecc", ("ecc", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc)), ("parity", ("parity", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity)), ("other", ("other", Set.Asic.Instance.FaultInjection.Module.FaultType.Other))])
                             self._leafs = OrderedDict()
 
                             self.ecc = Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc()
                             self.ecc.parent = self
                             self._children_name_map["ecc"] = "ecc"
-                            self._children_yang_names.add("ecc")
 
                             self.parity = Set.Asic.Instance.FaultInjection.Module.FaultType.Parity()
                             self.parity.parent = self
                             self._children_name_map["parity"] = "parity"
-                            self._children_yang_names.add("parity")
 
                             self.other = Set.Asic.Instance.FaultInjection.Module.FaultType.Other()
                             self.other.parent = self
                             self._children_name_map["other"] = "other"
-                            self._children_yang_names.add("other")
                             self._segment_path = lambda: "fault-type"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Set.Asic.Instance.FaultInjection.Module.FaultType, [], name, value)
 
 
                         class Ecc(Entity):
@@ -309,14 +301,12 @@ class Set(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("all", ("all", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All))])
-                                self._child_list_classes = OrderedDict([("block-name-lst", ("block_name_lst", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst))])
+                                self._child_classes = OrderedDict([("all", ("all", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All)), ("block-name-lst", ("block_name_lst", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst))])
                                 self._leafs = OrderedDict()
 
                                 self.all = Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All()
                                 self.all.parent = self
                                 self._children_name_map["all"] = "all"
-                                self._children_yang_names.add("all")
 
                                 self.block_name_lst = YList(self)
                                 self._segment_path = lambda: "ecc"
@@ -354,8 +344,7 @@ class Set(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("threshold", ("threshold", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All.Threshold)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All.Location))])
+                                    self._child_classes = OrderedDict([("threshold", ("threshold", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All.Threshold)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All.Location))])
                                     self._leafs = OrderedDict()
 
                                     self.threshold = YList(self)
@@ -399,8 +388,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['num_seconds']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All.Threshold.Location))])
+                                        self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.All.Threshold.Location))])
                                         self._leafs = OrderedDict([
                                             ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                         ])
@@ -422,7 +410,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -439,8 +427,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -460,7 +447,7 @@ class Set(Entity):
                                     	
                                     	**type**\: str
                                     
-                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                     
                                     
 
@@ -477,8 +464,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['fit_location_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                         ])
@@ -528,8 +514,7 @@ class Set(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['block_name']
-                                    self._child_container_classes = OrderedDict([("one", ("one", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One)), ("continuous", ("continuous", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous)), ("stop", ("stop", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Stop))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("one", ("one", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One)), ("continuous", ("continuous", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous)), ("stop", ("stop", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Stop))])
                                     self._leafs = OrderedDict([
                                         ('block_name', YLeaf(YType.str, 'block-name')),
                                     ])
@@ -538,17 +523,14 @@ class Set(Entity):
                                     self.one = Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One()
                                     self.one.parent = self
                                     self._children_name_map["one"] = "one"
-                                    self._children_yang_names.add("one")
 
                                     self.continuous = Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous()
                                     self.continuous.parent = self
                                     self._children_name_map["continuous"] = "continuous"
-                                    self._children_yang_names.add("continuous")
 
                                     self.stop = Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Stop()
                                     self.stop.parent = self
                                     self._children_name_map["stop"] = "stop"
-                                    self._children_yang_names.add("stop")
                                     self._segment_path = lambda: "block-name-lst" + "[block-name='" + str(self.block_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -584,14 +566,12 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate))])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Location))])
+                                        self._child_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.rate = Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate()
                                         self.rate.parent = self
                                         self._children_name_map["rate"] = "rate"
-                                        self._children_yang_names.add("rate")
 
                                         self.location = YList(self)
                                         self._segment_path = lambda: "one"
@@ -624,8 +604,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate.ErrorNumber))])
+                                            self._child_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate.ErrorNumber))])
                                             self._leafs = OrderedDict()
 
                                             self.error_number = YList(self)
@@ -666,8 +645,7 @@ class Set(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['num_errs']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate.ErrorNumber.Duration))])
+                                                self._child_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate.ErrorNumber.Duration))])
                                                 self._leafs = OrderedDict([
                                                     ('num_errs', YLeaf(YType.uint32, 'num-errs')),
                                                 ])
@@ -711,8 +689,7 @@ class Set(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['num_seconds']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate.ErrorNumber.Duration.Location))])
+                                                    self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.One.Rate.ErrorNumber.Duration.Location))])
                                                     self._leafs = OrderedDict([
                                                         ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                                     ])
@@ -734,7 +711,7 @@ class Set(Entity):
                                                     	
                                                     	**type**\: str
                                                     
-                                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                                     
                                                     
 
@@ -751,8 +728,7 @@ class Set(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['fit_location_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                                         ])
@@ -772,7 +748,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -789,8 +765,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -830,14 +805,12 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate))])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Location))])
+                                        self._child_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.rate = Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate()
                                         self.rate.parent = self
                                         self._children_name_map["rate"] = "rate"
-                                        self._children_yang_names.add("rate")
 
                                         self.location = YList(self)
                                         self._segment_path = lambda: "continuous"
@@ -870,8 +843,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate.ErrorNumber))])
+                                            self._child_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate.ErrorNumber))])
                                             self._leafs = OrderedDict()
 
                                             self.error_number = YList(self)
@@ -912,8 +884,7 @@ class Set(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['num_errs']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate.ErrorNumber.Duration))])
+                                                self._child_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate.ErrorNumber.Duration))])
                                                 self._leafs = OrderedDict([
                                                     ('num_errs', YLeaf(YType.uint32, 'num-errs')),
                                                 ])
@@ -957,8 +928,7 @@ class Set(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['num_seconds']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate.ErrorNumber.Duration.Location))])
+                                                    self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Continuous.Rate.ErrorNumber.Duration.Location))])
                                                     self._leafs = OrderedDict([
                                                         ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                                     ])
@@ -980,7 +950,7 @@ class Set(Entity):
                                                     	
                                                     	**type**\: str
                                                     
-                                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                                     
                                                     
 
@@ -997,8 +967,7 @@ class Set(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['fit_location_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                                         ])
@@ -1018,7 +987,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -1035,8 +1004,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -1071,8 +1039,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Stop.Location))])
+                                        self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Ecc.BlockNameLst.Stop.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.location = YList(self)
@@ -1091,7 +1058,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -1108,8 +1075,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -1149,14 +1115,12 @@ class Set(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("all", ("all", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All))])
-                                self._child_list_classes = OrderedDict([("block-name-lst", ("block_name_lst", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst))])
+                                self._child_classes = OrderedDict([("all", ("all", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All)), ("block-name-lst", ("block_name_lst", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst))])
                                 self._leafs = OrderedDict()
 
                                 self.all = Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All()
                                 self.all.parent = self
                                 self._children_name_map["all"] = "all"
-                                self._children_yang_names.add("all")
 
                                 self.block_name_lst = YList(self)
                                 self._segment_path = lambda: "parity"
@@ -1194,8 +1158,7 @@ class Set(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("threshold", ("threshold", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All.Threshold)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All.Location))])
+                                    self._child_classes = OrderedDict([("threshold", ("threshold", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All.Threshold)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All.Location))])
                                     self._leafs = OrderedDict()
 
                                     self.threshold = YList(self)
@@ -1239,8 +1202,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['num_seconds']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All.Threshold.Location))])
+                                        self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.All.Threshold.Location))])
                                         self._leafs = OrderedDict([
                                             ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                         ])
@@ -1262,7 +1224,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -1279,8 +1241,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -1300,7 +1261,7 @@ class Set(Entity):
                                     	
                                     	**type**\: str
                                     
-                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                     
                                     
 
@@ -1317,8 +1278,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['fit_location_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                         ])
@@ -1368,8 +1328,7 @@ class Set(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['block_name']
-                                    self._child_container_classes = OrderedDict([("one", ("one", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One)), ("continuous", ("continuous", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous)), ("stop", ("stop", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Stop))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("one", ("one", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One)), ("continuous", ("continuous", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous)), ("stop", ("stop", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Stop))])
                                     self._leafs = OrderedDict([
                                         ('block_name', YLeaf(YType.str, 'block-name')),
                                     ])
@@ -1378,17 +1337,14 @@ class Set(Entity):
                                     self.one = Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One()
                                     self.one.parent = self
                                     self._children_name_map["one"] = "one"
-                                    self._children_yang_names.add("one")
 
                                     self.continuous = Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous()
                                     self.continuous.parent = self
                                     self._children_name_map["continuous"] = "continuous"
-                                    self._children_yang_names.add("continuous")
 
                                     self.stop = Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Stop()
                                     self.stop.parent = self
                                     self._children_name_map["stop"] = "stop"
-                                    self._children_yang_names.add("stop")
                                     self._segment_path = lambda: "block-name-lst" + "[block-name='" + str(self.block_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -1424,14 +1380,12 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate))])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Location))])
+                                        self._child_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.rate = Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate()
                                         self.rate.parent = self
                                         self._children_name_map["rate"] = "rate"
-                                        self._children_yang_names.add("rate")
 
                                         self.location = YList(self)
                                         self._segment_path = lambda: "one"
@@ -1464,8 +1418,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate.ErrorNumber))])
+                                            self._child_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate.ErrorNumber))])
                                             self._leafs = OrderedDict()
 
                                             self.error_number = YList(self)
@@ -1506,8 +1459,7 @@ class Set(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['num_errs']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate.ErrorNumber.Duration))])
+                                                self._child_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate.ErrorNumber.Duration))])
                                                 self._leafs = OrderedDict([
                                                     ('num_errs', YLeaf(YType.uint32, 'num-errs')),
                                                 ])
@@ -1551,8 +1503,7 @@ class Set(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['num_seconds']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate.ErrorNumber.Duration.Location))])
+                                                    self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.One.Rate.ErrorNumber.Duration.Location))])
                                                     self._leafs = OrderedDict([
                                                         ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                                     ])
@@ -1574,7 +1525,7 @@ class Set(Entity):
                                                     	
                                                     	**type**\: str
                                                     
-                                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                                     
                                                     
 
@@ -1591,8 +1542,7 @@ class Set(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['fit_location_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                                         ])
@@ -1612,7 +1562,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -1629,8 +1579,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -1670,14 +1619,12 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate))])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Location))])
+                                        self._child_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.rate = Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate()
                                         self.rate.parent = self
                                         self._children_name_map["rate"] = "rate"
-                                        self._children_yang_names.add("rate")
 
                                         self.location = YList(self)
                                         self._segment_path = lambda: "continuous"
@@ -1710,8 +1657,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate.ErrorNumber))])
+                                            self._child_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate.ErrorNumber))])
                                             self._leafs = OrderedDict()
 
                                             self.error_number = YList(self)
@@ -1752,8 +1698,7 @@ class Set(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['num_errs']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate.ErrorNumber.Duration))])
+                                                self._child_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate.ErrorNumber.Duration))])
                                                 self._leafs = OrderedDict([
                                                     ('num_errs', YLeaf(YType.uint32, 'num-errs')),
                                                 ])
@@ -1797,8 +1742,7 @@ class Set(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['num_seconds']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate.ErrorNumber.Duration.Location))])
+                                                    self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Continuous.Rate.ErrorNumber.Duration.Location))])
                                                     self._leafs = OrderedDict([
                                                         ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                                     ])
@@ -1820,7 +1764,7 @@ class Set(Entity):
                                                     	
                                                     	**type**\: str
                                                     
-                                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                                     
                                                     
 
@@ -1837,8 +1781,7 @@ class Set(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['fit_location_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                                         ])
@@ -1858,7 +1801,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -1875,8 +1818,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -1911,8 +1853,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Stop.Location))])
+                                        self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Parity.BlockNameLst.Stop.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.location = YList(self)
@@ -1931,7 +1872,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -1948,8 +1889,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -1989,14 +1929,12 @@ class Set(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("all", ("all", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All))])
-                                self._child_list_classes = OrderedDict([("block-name-lst", ("block_name_lst", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst))])
+                                self._child_classes = OrderedDict([("all", ("all", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All)), ("block-name-lst", ("block_name_lst", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst))])
                                 self._leafs = OrderedDict()
 
                                 self.all = Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All()
                                 self.all.parent = self
                                 self._children_name_map["all"] = "all"
-                                self._children_yang_names.add("all")
 
                                 self.block_name_lst = YList(self)
                                 self._segment_path = lambda: "other"
@@ -2034,8 +1972,7 @@ class Set(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("threshold", ("threshold", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All.Threshold)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All.Location))])
+                                    self._child_classes = OrderedDict([("threshold", ("threshold", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All.Threshold)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All.Location))])
                                     self._leafs = OrderedDict()
 
                                     self.threshold = YList(self)
@@ -2079,8 +2016,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['num_seconds']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All.Threshold.Location))])
+                                        self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.All.Threshold.Location))])
                                         self._leafs = OrderedDict([
                                             ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                         ])
@@ -2102,7 +2038,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -2119,8 +2055,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -2140,7 +2075,7 @@ class Set(Entity):
                                     	
                                     	**type**\: str
                                     
-                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                     
                                     
 
@@ -2157,8 +2092,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['fit_location_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                         ])
@@ -2208,8 +2142,7 @@ class Set(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['block_name']
-                                    self._child_container_classes = OrderedDict([("one", ("one", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One)), ("continuous", ("continuous", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous)), ("stop", ("stop", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Stop))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("one", ("one", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One)), ("continuous", ("continuous", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous)), ("stop", ("stop", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Stop))])
                                     self._leafs = OrderedDict([
                                         ('block_name', YLeaf(YType.str, 'block-name')),
                                     ])
@@ -2218,17 +2151,14 @@ class Set(Entity):
                                     self.one = Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One()
                                     self.one.parent = self
                                     self._children_name_map["one"] = "one"
-                                    self._children_yang_names.add("one")
 
                                     self.continuous = Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous()
                                     self.continuous.parent = self
                                     self._children_name_map["continuous"] = "continuous"
-                                    self._children_yang_names.add("continuous")
 
                                     self.stop = Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Stop()
                                     self.stop.parent = self
                                     self._children_name_map["stop"] = "stop"
-                                    self._children_yang_names.add("stop")
                                     self._segment_path = lambda: "block-name-lst" + "[block-name='" + str(self.block_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -2264,14 +2194,12 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate))])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Location))])
+                                        self._child_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.rate = Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate()
                                         self.rate.parent = self
                                         self._children_name_map["rate"] = "rate"
-                                        self._children_yang_names.add("rate")
 
                                         self.location = YList(self)
                                         self._segment_path = lambda: "one"
@@ -2304,8 +2232,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate.ErrorNumber))])
+                                            self._child_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate.ErrorNumber))])
                                             self._leafs = OrderedDict()
 
                                             self.error_number = YList(self)
@@ -2346,8 +2273,7 @@ class Set(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['num_errs']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate.ErrorNumber.Duration))])
+                                                self._child_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate.ErrorNumber.Duration))])
                                                 self._leafs = OrderedDict([
                                                     ('num_errs', YLeaf(YType.uint32, 'num-errs')),
                                                 ])
@@ -2391,8 +2317,7 @@ class Set(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['num_seconds']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate.ErrorNumber.Duration.Location))])
+                                                    self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.One.Rate.ErrorNumber.Duration.Location))])
                                                     self._leafs = OrderedDict([
                                                         ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                                     ])
@@ -2414,7 +2339,7 @@ class Set(Entity):
                                                     	
                                                     	**type**\: str
                                                     
-                                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                                     
                                                     
 
@@ -2431,8 +2356,7 @@ class Set(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['fit_location_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                                         ])
@@ -2452,7 +2376,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -2469,8 +2393,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -2510,14 +2433,12 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate))])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Location))])
+                                        self._child_classes = OrderedDict([("rate", ("rate", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate)), ("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.rate = Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate()
                                         self.rate.parent = self
                                         self._children_name_map["rate"] = "rate"
-                                        self._children_yang_names.add("rate")
 
                                         self.location = YList(self)
                                         self._segment_path = lambda: "continuous"
@@ -2550,8 +2471,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate.ErrorNumber))])
+                                            self._child_classes = OrderedDict([("error-number", ("error_number", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate.ErrorNumber))])
                                             self._leafs = OrderedDict()
 
                                             self.error_number = YList(self)
@@ -2592,8 +2512,7 @@ class Set(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['num_errs']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate.ErrorNumber.Duration))])
+                                                self._child_classes = OrderedDict([("duration", ("duration", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate.ErrorNumber.Duration))])
                                                 self._leafs = OrderedDict([
                                                     ('num_errs', YLeaf(YType.uint32, 'num-errs')),
                                                 ])
@@ -2637,8 +2556,7 @@ class Set(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['num_seconds']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate.ErrorNumber.Duration.Location))])
+                                                    self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Continuous.Rate.ErrorNumber.Duration.Location))])
                                                     self._leafs = OrderedDict([
                                                         ('num_seconds', YLeaf(YType.uint32, 'num-seconds')),
                                                     ])
@@ -2660,7 +2578,7 @@ class Set(Entity):
                                                     	
                                                     	**type**\: str
                                                     
-                                                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                                     
                                                     
 
@@ -2677,8 +2595,7 @@ class Set(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['fit_location_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                                         ])
@@ -2698,7 +2615,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -2715,8 +2632,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])
@@ -2751,8 +2667,7 @@ class Set(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Stop.Location))])
+                                        self._child_classes = OrderedDict([("location", ("location", Set.Asic.Instance.FaultInjection.Module.FaultType.Other.BlockNameLst.Stop.Location))])
                                         self._leafs = OrderedDict()
 
                                         self.location = YList(self)
@@ -2771,7 +2686,7 @@ class Set(Entity):
                                         	
                                         	**type**\: str
                                         
-                                        	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                                         
                                         
 
@@ -2788,8 +2703,7 @@ class Set(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fit_location_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fit_location_name', YLeaf(YType.str, 'fit-location-name')),
                                             ])

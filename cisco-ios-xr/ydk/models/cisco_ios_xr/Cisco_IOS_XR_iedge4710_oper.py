@@ -918,20 +918,20 @@ class Subscriber(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("manager", ("manager", Subscriber.Manager)), ("session", ("session", Subscriber.Session))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("manager", ("manager", Subscriber.Manager)), ("session", ("session", Subscriber.Session))])
         self._leafs = OrderedDict()
 
         self.manager = Subscriber.Manager()
         self.manager.parent = self
         self._children_name_map["manager"] = "manager"
-        self._children_yang_names.add("manager")
 
         self.session = Subscriber.Session()
         self.session.parent = self
         self._children_name_map["session"] = "session"
-        self._children_yang_names.add("session")
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Subscriber, [], name, value)
 
 
     class Manager(Entity):
@@ -958,16 +958,17 @@ class Subscriber(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("nodes", ("nodes", Subscriber.Manager.Nodes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("nodes", ("nodes", Subscriber.Manager.Nodes))])
             self._leafs = OrderedDict()
 
             self.nodes = Subscriber.Manager.Nodes()
             self.nodes.parent = self
             self._children_name_map["nodes"] = "nodes"
-            self._children_yang_names.add("nodes")
             self._segment_path = lambda: "manager"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Subscriber.Manager, [], name, value)
 
 
         class Nodes(Entity):
@@ -994,8 +995,7 @@ class Subscriber(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("node", ("node", Subscriber.Manager.Nodes.Node))])
+                self._child_classes = OrderedDict([("node", ("node", Subscriber.Manager.Nodes.Node))])
                 self._leafs = OrderedDict()
 
                 self.node = YList(self)
@@ -1038,8 +1038,7 @@ class Subscriber(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['node_name']
-                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Subscriber.Manager.Nodes.Node.Statistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("statistics", ("statistics", Subscriber.Manager.Nodes.Node.Statistics))])
                     self._leafs = OrderedDict([
                         ('node_name', YLeaf(YType.str, 'node-name')),
                     ])
@@ -1048,7 +1047,6 @@ class Subscriber(Entity):
                     self.statistics = Subscriber.Manager.Nodes.Node.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
                     self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/%s" % self._segment_path()
 
@@ -1090,25 +1088,24 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("aaa", ("aaa", Subscriber.Manager.Nodes.Node.Statistics.Aaa)), ("aggregate-summary", ("aggregate_summary", Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary)), ("srg", ("srg", Subscriber.Manager.Nodes.Node.Statistics.Srg))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("aaa", ("aaa", Subscriber.Manager.Nodes.Node.Statistics.Aaa)), ("aggregate-summary", ("aggregate_summary", Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary)), ("srg", ("srg", Subscriber.Manager.Nodes.Node.Statistics.Srg))])
                         self._leafs = OrderedDict()
 
                         self.aaa = Subscriber.Manager.Nodes.Node.Statistics.Aaa()
                         self.aaa.parent = self
                         self._children_name_map["aaa"] = "aaa"
-                        self._children_yang_names.add("aaa")
 
                         self.aggregate_summary = Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary()
                         self.aggregate_summary.parent = self
                         self._children_name_map["aggregate_summary"] = "aggregate-summary"
-                        self._children_yang_names.add("aggregate-summary")
 
                         self.srg = Subscriber.Manager.Nodes.Node.Statistics.Srg()
                         self.srg.parent = self
                         self._children_name_map["srg"] = "srg"
-                        self._children_yang_names.add("srg")
                         self._segment_path = lambda: "statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics, [], name, value)
 
 
                     class Aaa(Entity):
@@ -1190,70 +1187,60 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("aggregate-accounting", ("aggregate_accounting", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting)), ("authentication", ("authentication", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication)), ("aggregate-mobility", ("aggregate_mobility", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility)), ("aggregate-authentication", ("aggregate_authentication", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication)), ("accounting-stats-all", ("accounting_stats_all", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll)), ("change-of-authorization", ("change_of_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization)), ("authorization", ("authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization)), ("aggregate-authorization", ("aggregate_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization)), ("aggregate-accounting-stats-all", ("aggregate_accounting_stats_all", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll)), ("accounting", ("accounting", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting)), ("mobility", ("mobility", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility)), ("aggregate-change-of-authorization", ("aggregate_change_of_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("aggregate-accounting", ("aggregate_accounting", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting)), ("authentication", ("authentication", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication)), ("aggregate-mobility", ("aggregate_mobility", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility)), ("aggregate-authentication", ("aggregate_authentication", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication)), ("accounting-stats-all", ("accounting_stats_all", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll)), ("change-of-authorization", ("change_of_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization)), ("authorization", ("authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization)), ("aggregate-authorization", ("aggregate_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization)), ("aggregate-accounting-stats-all", ("aggregate_accounting_stats_all", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll)), ("accounting", ("accounting", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting)), ("mobility", ("mobility", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility)), ("aggregate-change-of-authorization", ("aggregate_change_of_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization))])
                             self._leafs = OrderedDict()
 
                             self.aggregate_accounting = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting()
                             self.aggregate_accounting.parent = self
                             self._children_name_map["aggregate_accounting"] = "aggregate-accounting"
-                            self._children_yang_names.add("aggregate-accounting")
 
                             self.authentication = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication()
                             self.authentication.parent = self
                             self._children_name_map["authentication"] = "authentication"
-                            self._children_yang_names.add("authentication")
 
                             self.aggregate_mobility = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility()
                             self.aggregate_mobility.parent = self
                             self._children_name_map["aggregate_mobility"] = "aggregate-mobility"
-                            self._children_yang_names.add("aggregate-mobility")
 
                             self.aggregate_authentication = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication()
                             self.aggregate_authentication.parent = self
                             self._children_name_map["aggregate_authentication"] = "aggregate-authentication"
-                            self._children_yang_names.add("aggregate-authentication")
 
                             self.accounting_stats_all = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll()
                             self.accounting_stats_all.parent = self
                             self._children_name_map["accounting_stats_all"] = "accounting-stats-all"
-                            self._children_yang_names.add("accounting-stats-all")
 
                             self.change_of_authorization = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization()
                             self.change_of_authorization.parent = self
                             self._children_name_map["change_of_authorization"] = "change-of-authorization"
-                            self._children_yang_names.add("change-of-authorization")
 
                             self.authorization = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization()
                             self.authorization.parent = self
                             self._children_name_map["authorization"] = "authorization"
-                            self._children_yang_names.add("authorization")
 
                             self.aggregate_authorization = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization()
                             self.aggregate_authorization.parent = self
                             self._children_name_map["aggregate_authorization"] = "aggregate-authorization"
-                            self._children_yang_names.add("aggregate-authorization")
 
                             self.aggregate_accounting_stats_all = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll()
                             self.aggregate_accounting_stats_all.parent = self
                             self._children_name_map["aggregate_accounting_stats_all"] = "aggregate-accounting-stats-all"
-                            self._children_yang_names.add("aggregate-accounting-stats-all")
 
                             self.accounting = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting()
                             self.accounting.parent = self
                             self._children_name_map["accounting"] = "accounting"
-                            self._children_yang_names.add("accounting")
 
                             self.mobility = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility()
                             self.mobility.parent = self
                             self._children_name_map["mobility"] = "mobility"
-                            self._children_yang_names.add("mobility")
 
                             self.aggregate_change_of_authorization = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization()
                             self.aggregate_change_of_authorization.parent = self
                             self._children_name_map["aggregate_change_of_authorization"] = "aggregate-change-of-authorization"
-                            self._children_yang_names.add("aggregate-change-of-authorization")
                             self._segment_path = lambda: "aaa"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa, [], name, value)
 
 
                         class AggregateAccounting(Entity):
@@ -1340,8 +1327,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight))])
                                 self._leafs = OrderedDict([
                                     ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
                                     ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
@@ -1358,32 +1344,26 @@ class Subscriber(Entity):
                                 self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start()
                                 self.start.parent = self
                                 self._children_name_map["start"] = "start"
-                                self._children_yang_names.add("start")
 
                                 self.stop = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop()
                                 self.stop.parent = self
                                 self._children_name_map["stop"] = "stop"
-                                self._children_yang_names.add("stop")
 
                                 self.interim = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim()
                                 self.interim.parent = self
                                 self._children_name_map["interim"] = "interim"
-                                self._children_yang_names.add("interim")
 
                                 self.pass_through = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough()
                                 self.pass_through.parent = self
                                 self._children_name_map["pass_through"] = "pass-through"
-                                self._children_yang_names.add("pass-through")
 
                                 self.update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update()
                                 self.update.parent = self
                                 self._children_name_map["update"] = "update"
-                                self._children_yang_names.add("update")
 
                                 self.interim_inflight = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight()
                                 self.interim_inflight.parent = self
                                 self._children_name_map["interim_inflight"] = "interim-inflight"
-                                self._children_yang_names.add("interim-inflight")
                                 self._segment_path = lambda: "aggregate-accounting"
 
                             def __setattr__(self, name, value):
@@ -1451,8 +1431,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -1534,8 +1513,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -1617,8 +1595,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -1700,8 +1677,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -1783,8 +1759,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -1866,8 +1841,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
                                         ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
@@ -1963,8 +1937,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
                                     ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
@@ -2036,8 +2009,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
                                     ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
@@ -2129,8 +2101,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
                                     ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
@@ -2200,35 +2171,32 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("accounting-statistics", ("accounting_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics)), ("authentication-statistics", ("authentication_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics)), ("authorization-statistics", ("authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics)), ("change-of-authorization-statistics", ("change_of_authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics)), ("mobility-statistics", ("mobility_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("accounting-statistics", ("accounting_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics)), ("authentication-statistics", ("authentication_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics)), ("authorization-statistics", ("authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics)), ("change-of-authorization-statistics", ("change_of_authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics)), ("mobility-statistics", ("mobility_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics))])
                                 self._leafs = OrderedDict()
 
                                 self.accounting_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics()
                                 self.accounting_statistics.parent = self
                                 self._children_name_map["accounting_statistics"] = "accounting-statistics"
-                                self._children_yang_names.add("accounting-statistics")
 
                                 self.authentication_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics()
                                 self.authentication_statistics.parent = self
                                 self._children_name_map["authentication_statistics"] = "authentication-statistics"
-                                self._children_yang_names.add("authentication-statistics")
 
                                 self.authorization_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics()
                                 self.authorization_statistics.parent = self
                                 self._children_name_map["authorization_statistics"] = "authorization-statistics"
-                                self._children_yang_names.add("authorization-statistics")
 
                                 self.change_of_authorization_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics()
                                 self.change_of_authorization_statistics.parent = self
                                 self._children_name_map["change_of_authorization_statistics"] = "change-of-authorization-statistics"
-                                self._children_yang_names.add("change-of-authorization-statistics")
 
                                 self.mobility_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics()
                                 self.mobility_statistics.parent = self
                                 self._children_name_map["mobility_statistics"] = "mobility-statistics"
-                                self._children_yang_names.add("mobility-statistics")
                                 self._segment_path = lambda: "accounting-stats-all"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll, [], name, value)
 
 
                             class AccountingStatistics(Entity):
@@ -2315,8 +2283,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight))])
                                     self._leafs = OrderedDict([
                                         ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
                                         ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
@@ -2333,32 +2300,26 @@ class Subscriber(Entity):
                                     self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start()
                                     self.start.parent = self
                                     self._children_name_map["start"] = "start"
-                                    self._children_yang_names.add("start")
 
                                     self.stop = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop()
                                     self.stop.parent = self
                                     self._children_name_map["stop"] = "stop"
-                                    self._children_yang_names.add("stop")
 
                                     self.interim = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim()
                                     self.interim.parent = self
                                     self._children_name_map["interim"] = "interim"
-                                    self._children_yang_names.add("interim")
 
                                     self.pass_through = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough()
                                     self.pass_through.parent = self
                                     self._children_name_map["pass_through"] = "pass-through"
-                                    self._children_yang_names.add("pass-through")
 
                                     self.update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update()
                                     self.update.parent = self
                                     self._children_name_map["update"] = "update"
-                                    self._children_yang_names.add("update")
 
                                     self.interim_inflight = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight()
                                     self.interim_inflight.parent = self
                                     self._children_name_map["interim_inflight"] = "interim-inflight"
-                                    self._children_yang_names.add("interim-inflight")
                                     self._segment_path = lambda: "accounting-statistics"
 
                                 def __setattr__(self, name, value):
@@ -2426,8 +2387,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -2509,8 +2469,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -2592,8 +2551,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -2675,8 +2633,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -2758,8 +2715,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -2841,8 +2797,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
                                             ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
@@ -2938,8 +2893,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
                                         ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
@@ -3039,8 +2993,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
                                         ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
@@ -3194,8 +3147,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti))])
                                     self._leafs = OrderedDict([
                                         ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
                                         ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
@@ -3222,42 +3174,34 @@ class Subscriber(Entity):
                                     self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon()
                                     self.account_logon.parent = self
                                     self._children_name_map["account_logon"] = "account-logon"
-                                    self._children_yang_names.add("account-logon")
 
                                     self.account_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff()
                                     self.account_logoff.parent = self
                                     self._children_name_map["account_logoff"] = "account-logoff"
-                                    self._children_yang_names.add("account-logoff")
 
                                     self.account_update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate()
                                     self.account_update.parent = self
                                     self._children_name_map["account_update"] = "account-update"
-                                    self._children_yang_names.add("account-update")
 
                                     self.session_disconnect = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect()
                                     self.session_disconnect.parent = self
                                     self._children_name_map["session_disconnect"] = "session-disconnect"
-                                    self._children_yang_names.add("session-disconnect")
 
                                     self.single_service_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon()
                                     self.single_service_logon.parent = self
                                     self._children_name_map["single_service_logon"] = "single-service-logon"
-                                    self._children_yang_names.add("single-service-logon")
 
                                     self.single_service_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff()
                                     self.single_service_logoff.parent = self
                                     self._children_name_map["single_service_logoff"] = "single-service-logoff"
-                                    self._children_yang_names.add("single-service-logoff")
 
                                     self.single_service_modify = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify()
                                     self.single_service_modify.parent = self
                                     self._children_name_map["single_service_modify"] = "single-service-modify"
-                                    self._children_yang_names.add("single-service-modify")
 
                                     self.service_multi = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti()
                                     self.service_multi.parent = self
                                     self._children_name_map["service_multi"] = "service-multi"
-                                    self._children_yang_names.add("service-multi")
                                     self._segment_path = lambda: "change-of-authorization-statistics"
 
                                 def __setattr__(self, name, value):
@@ -3304,8 +3248,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -3360,8 +3303,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -3416,8 +3358,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -3472,8 +3413,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -3528,8 +3468,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -3584,8 +3523,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -3640,8 +3578,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -3696,8 +3633,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -3759,8 +3695,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
                                         ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
@@ -3906,8 +3841,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti))])
                                 self._leafs = OrderedDict([
                                     ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
                                     ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
@@ -3934,42 +3868,34 @@ class Subscriber(Entity):
                                 self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon()
                                 self.account_logon.parent = self
                                 self._children_name_map["account_logon"] = "account-logon"
-                                self._children_yang_names.add("account-logon")
 
                                 self.account_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff()
                                 self.account_logoff.parent = self
                                 self._children_name_map["account_logoff"] = "account-logoff"
-                                self._children_yang_names.add("account-logoff")
 
                                 self.account_update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate()
                                 self.account_update.parent = self
                                 self._children_name_map["account_update"] = "account-update"
-                                self._children_yang_names.add("account-update")
 
                                 self.session_disconnect = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect()
                                 self.session_disconnect.parent = self
                                 self._children_name_map["session_disconnect"] = "session-disconnect"
-                                self._children_yang_names.add("session-disconnect")
 
                                 self.single_service_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon()
                                 self.single_service_logon.parent = self
                                 self._children_name_map["single_service_logon"] = "single-service-logon"
-                                self._children_yang_names.add("single-service-logon")
 
                                 self.single_service_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff()
                                 self.single_service_logoff.parent = self
                                 self._children_name_map["single_service_logoff"] = "single-service-logoff"
-                                self._children_yang_names.add("single-service-logoff")
 
                                 self.single_service_modify = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify()
                                 self.single_service_modify.parent = self
                                 self._children_name_map["single_service_modify"] = "single-service-modify"
-                                self._children_yang_names.add("single-service-modify")
 
                                 self.service_multi = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti()
                                 self.service_multi.parent = self
                                 self._children_name_map["service_multi"] = "service-multi"
-                                self._children_yang_names.add("service-multi")
                                 self._segment_path = lambda: "change-of-authorization"
 
                             def __setattr__(self, name, value):
@@ -4016,8 +3942,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -4072,8 +3997,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -4128,8 +4052,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -4184,8 +4107,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -4240,8 +4162,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -4296,8 +4217,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -4352,8 +4272,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -4408,8 +4327,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -4499,8 +4417,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
                                     ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
@@ -4600,8 +4517,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
                                     ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
@@ -4671,35 +4587,32 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("accounting-statistics", ("accounting_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics)), ("authentication-statistics", ("authentication_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics)), ("authorization-statistics", ("authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics)), ("change-of-authorization-statistics", ("change_of_authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics)), ("mobility-statistics", ("mobility_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("accounting-statistics", ("accounting_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics)), ("authentication-statistics", ("authentication_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics)), ("authorization-statistics", ("authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics)), ("change-of-authorization-statistics", ("change_of_authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics)), ("mobility-statistics", ("mobility_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics))])
                                 self._leafs = OrderedDict()
 
                                 self.accounting_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics()
                                 self.accounting_statistics.parent = self
                                 self._children_name_map["accounting_statistics"] = "accounting-statistics"
-                                self._children_yang_names.add("accounting-statistics")
 
                                 self.authentication_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics()
                                 self.authentication_statistics.parent = self
                                 self._children_name_map["authentication_statistics"] = "authentication-statistics"
-                                self._children_yang_names.add("authentication-statistics")
 
                                 self.authorization_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics()
                                 self.authorization_statistics.parent = self
                                 self._children_name_map["authorization_statistics"] = "authorization-statistics"
-                                self._children_yang_names.add("authorization-statistics")
 
                                 self.change_of_authorization_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics()
                                 self.change_of_authorization_statistics.parent = self
                                 self._children_name_map["change_of_authorization_statistics"] = "change-of-authorization-statistics"
-                                self._children_yang_names.add("change-of-authorization-statistics")
 
                                 self.mobility_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics()
                                 self.mobility_statistics.parent = self
                                 self._children_name_map["mobility_statistics"] = "mobility-statistics"
-                                self._children_yang_names.add("mobility-statistics")
                                 self._segment_path = lambda: "aggregate-accounting-stats-all"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll, [], name, value)
 
 
                             class AccountingStatistics(Entity):
@@ -4786,8 +4699,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight))])
                                     self._leafs = OrderedDict([
                                         ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
                                         ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
@@ -4804,32 +4716,26 @@ class Subscriber(Entity):
                                     self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start()
                                     self.start.parent = self
                                     self._children_name_map["start"] = "start"
-                                    self._children_yang_names.add("start")
 
                                     self.stop = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop()
                                     self.stop.parent = self
                                     self._children_name_map["stop"] = "stop"
-                                    self._children_yang_names.add("stop")
 
                                     self.interim = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim()
                                     self.interim.parent = self
                                     self._children_name_map["interim"] = "interim"
-                                    self._children_yang_names.add("interim")
 
                                     self.pass_through = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough()
                                     self.pass_through.parent = self
                                     self._children_name_map["pass_through"] = "pass-through"
-                                    self._children_yang_names.add("pass-through")
 
                                     self.update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update()
                                     self.update.parent = self
                                     self._children_name_map["update"] = "update"
-                                    self._children_yang_names.add("update")
 
                                     self.interim_inflight = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight()
                                     self.interim_inflight.parent = self
                                     self._children_name_map["interim_inflight"] = "interim-inflight"
-                                    self._children_yang_names.add("interim-inflight")
                                     self._segment_path = lambda: "accounting-statistics"
 
                                 def __setattr__(self, name, value):
@@ -4897,8 +4803,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -4980,8 +4885,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -5063,8 +4967,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -5146,8 +5049,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -5229,8 +5131,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -5312,8 +5213,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
                                             ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
@@ -5409,8 +5309,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
                                         ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
@@ -5510,8 +5409,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
                                         ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
@@ -5665,8 +5563,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti))])
                                     self._leafs = OrderedDict([
                                         ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
                                         ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
@@ -5693,42 +5590,34 @@ class Subscriber(Entity):
                                     self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon()
                                     self.account_logon.parent = self
                                     self._children_name_map["account_logon"] = "account-logon"
-                                    self._children_yang_names.add("account-logon")
 
                                     self.account_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff()
                                     self.account_logoff.parent = self
                                     self._children_name_map["account_logoff"] = "account-logoff"
-                                    self._children_yang_names.add("account-logoff")
 
                                     self.account_update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate()
                                     self.account_update.parent = self
                                     self._children_name_map["account_update"] = "account-update"
-                                    self._children_yang_names.add("account-update")
 
                                     self.session_disconnect = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect()
                                     self.session_disconnect.parent = self
                                     self._children_name_map["session_disconnect"] = "session-disconnect"
-                                    self._children_yang_names.add("session-disconnect")
 
                                     self.single_service_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon()
                                     self.single_service_logon.parent = self
                                     self._children_name_map["single_service_logon"] = "single-service-logon"
-                                    self._children_yang_names.add("single-service-logon")
 
                                     self.single_service_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff()
                                     self.single_service_logoff.parent = self
                                     self._children_name_map["single_service_logoff"] = "single-service-logoff"
-                                    self._children_yang_names.add("single-service-logoff")
 
                                     self.single_service_modify = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify()
                                     self.single_service_modify.parent = self
                                     self._children_name_map["single_service_modify"] = "single-service-modify"
-                                    self._children_yang_names.add("single-service-modify")
 
                                     self.service_multi = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti()
                                     self.service_multi.parent = self
                                     self._children_name_map["service_multi"] = "service-multi"
-                                    self._children_yang_names.add("service-multi")
                                     self._segment_path = lambda: "change-of-authorization-statistics"
 
                                 def __setattr__(self, name, value):
@@ -5775,8 +5664,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -5831,8 +5719,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -5887,8 +5774,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -5943,8 +5829,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -5999,8 +5884,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -6055,8 +5939,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -6111,8 +5994,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -6167,8 +6049,7 @@ class Subscriber(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                             ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -6230,8 +6111,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
                                         ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
@@ -6332,8 +6212,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight))])
                                 self._leafs = OrderedDict([
                                     ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
                                     ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
@@ -6350,32 +6229,26 @@ class Subscriber(Entity):
                                 self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start()
                                 self.start.parent = self
                                 self._children_name_map["start"] = "start"
-                                self._children_yang_names.add("start")
 
                                 self.stop = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop()
                                 self.stop.parent = self
                                 self._children_name_map["stop"] = "stop"
-                                self._children_yang_names.add("stop")
 
                                 self.interim = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim()
                                 self.interim.parent = self
                                 self._children_name_map["interim"] = "interim"
-                                self._children_yang_names.add("interim")
 
                                 self.pass_through = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough()
                                 self.pass_through.parent = self
                                 self._children_name_map["pass_through"] = "pass-through"
-                                self._children_yang_names.add("pass-through")
 
                                 self.update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update()
                                 self.update.parent = self
                                 self._children_name_map["update"] = "update"
-                                self._children_yang_names.add("update")
 
                                 self.interim_inflight = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight()
                                 self.interim_inflight.parent = self
                                 self._children_name_map["interim_inflight"] = "interim-inflight"
-                                self._children_yang_names.add("interim-inflight")
                                 self._segment_path = lambda: "accounting"
 
                             def __setattr__(self, name, value):
@@ -6443,8 +6316,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -6526,8 +6398,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -6609,8 +6480,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -6692,8 +6562,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -6775,8 +6644,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
@@ -6858,8 +6726,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
                                         ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
@@ -6927,8 +6794,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
                                     ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
@@ -7075,8 +6941,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti))])
                                 self._leafs = OrderedDict([
                                     ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
                                     ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
@@ -7103,42 +6968,34 @@ class Subscriber(Entity):
                                 self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon()
                                 self.account_logon.parent = self
                                 self._children_name_map["account_logon"] = "account-logon"
-                                self._children_yang_names.add("account-logon")
 
                                 self.account_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff()
                                 self.account_logoff.parent = self
                                 self._children_name_map["account_logoff"] = "account-logoff"
-                                self._children_yang_names.add("account-logoff")
 
                                 self.account_update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate()
                                 self.account_update.parent = self
                                 self._children_name_map["account_update"] = "account-update"
-                                self._children_yang_names.add("account-update")
 
                                 self.session_disconnect = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect()
                                 self.session_disconnect.parent = self
                                 self._children_name_map["session_disconnect"] = "session-disconnect"
-                                self._children_yang_names.add("session-disconnect")
 
                                 self.single_service_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon()
                                 self.single_service_logon.parent = self
                                 self._children_name_map["single_service_logon"] = "single-service-logon"
-                                self._children_yang_names.add("single-service-logon")
 
                                 self.single_service_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff()
                                 self.single_service_logoff.parent = self
                                 self._children_name_map["single_service_logoff"] = "single-service-logoff"
-                                self._children_yang_names.add("single-service-logoff")
 
                                 self.single_service_modify = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify()
                                 self.single_service_modify.parent = self
                                 self._children_name_map["single_service_modify"] = "single-service-modify"
-                                self._children_yang_names.add("single-service-modify")
 
                                 self.service_multi = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti()
                                 self.service_multi.parent = self
                                 self._children_name_map["service_multi"] = "service-multi"
-                                self._children_yang_names.add("service-multi")
                                 self._segment_path = lambda: "aggregate-change-of-authorization"
 
                             def __setattr__(self, name, value):
@@ -7185,8 +7042,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -7241,8 +7097,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -7297,8 +7152,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -7353,8 +7207,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -7409,8 +7262,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -7465,8 +7317,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -7521,8 +7372,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -7577,8 +7427,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('received_requests', YLeaf(YType.uint64, 'received-requests')),
                                         ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
@@ -7745,8 +7594,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('no_subscriber_control_policy_on_interface', YLeaf(YType.uint64, 'no-subscriber-control-policy-on-interface')),
                                 ('no_class_match_in_start_request', YLeaf(YType.uint64, 'no-class-match-in-start-request')),
@@ -8174,8 +8022,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('txlist_send_triggered', YLeaf(YType.uint32, 'txlist-send-triggered')),
                                 ('txlist_send_failed', YLeaf(YType.uint32, 'txlist-send-failed')),
@@ -8312,16 +8159,17 @@ class Subscriber(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("nodes", ("nodes", Subscriber.Session.Nodes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("nodes", ("nodes", Subscriber.Session.Nodes))])
             self._leafs = OrderedDict()
 
             self.nodes = Subscriber.Session.Nodes()
             self.nodes.parent = self
             self._children_name_map["nodes"] = "nodes"
-            self._children_yang_names.add("nodes")
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Subscriber.Session, [], name, value)
 
 
         class Nodes(Entity):
@@ -8348,8 +8196,7 @@ class Subscriber(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("node", ("node", Subscriber.Session.Nodes.Node))])
+                self._child_classes = OrderedDict([("node", ("node", Subscriber.Session.Nodes.Node))])
                 self._leafs = OrderedDict()
 
                 self.node = YList(self)
@@ -8452,8 +8299,7 @@ class Subscriber(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['node_name']
-                    self._child_container_classes = OrderedDict([("author-summaries", ("author_summaries", Subscriber.Session.Nodes.Node.AuthorSummaries)), ("summary", ("summary", Subscriber.Session.Nodes.Node.Summary)), ("mac-summaries", ("mac_summaries", Subscriber.Session.Nodes.Node.MacSummaries)), ("interface-summaries", ("interface_summaries", Subscriber.Session.Nodes.Node.InterfaceSummaries)), ("authentication-summaries", ("authentication_summaries", Subscriber.Session.Nodes.Node.AuthenticationSummaries)), ("state-summaries", ("state_summaries", Subscriber.Session.Nodes.Node.StateSummaries)), ("ipv4-address-vrf-summaries", ("ipv4_address_vrf_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries)), ("address-family-summaries", ("address_family_summaries", Subscriber.Session.Nodes.Node.AddressFamilySummaries)), ("username-summaries", ("username_summaries", Subscriber.Session.Nodes.Node.UsernameSummaries)), ("access-interface-summaries", ("access_interface_summaries", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries)), ("ipv4-address-summaries", ("ipv4_address_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries)), ("vrf-summaries", ("vrf_summaries", Subscriber.Session.Nodes.Node.VrfSummaries)), ("sessions", ("sessions", Subscriber.Session.Nodes.Node.Sessions))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("author-summaries", ("author_summaries", Subscriber.Session.Nodes.Node.AuthorSummaries)), ("summary", ("summary", Subscriber.Session.Nodes.Node.Summary)), ("mac-summaries", ("mac_summaries", Subscriber.Session.Nodes.Node.MacSummaries)), ("interface-summaries", ("interface_summaries", Subscriber.Session.Nodes.Node.InterfaceSummaries)), ("authentication-summaries", ("authentication_summaries", Subscriber.Session.Nodes.Node.AuthenticationSummaries)), ("state-summaries", ("state_summaries", Subscriber.Session.Nodes.Node.StateSummaries)), ("ipv4-address-vrf-summaries", ("ipv4_address_vrf_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries)), ("address-family-summaries", ("address_family_summaries", Subscriber.Session.Nodes.Node.AddressFamilySummaries)), ("username-summaries", ("username_summaries", Subscriber.Session.Nodes.Node.UsernameSummaries)), ("access-interface-summaries", ("access_interface_summaries", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries)), ("ipv4-address-summaries", ("ipv4_address_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries)), ("vrf-summaries", ("vrf_summaries", Subscriber.Session.Nodes.Node.VrfSummaries)), ("sessions", ("sessions", Subscriber.Session.Nodes.Node.Sessions))])
                     self._leafs = OrderedDict([
                         ('node_name', YLeaf(YType.str, 'node-name')),
                     ])
@@ -8462,67 +8308,54 @@ class Subscriber(Entity):
                     self.author_summaries = Subscriber.Session.Nodes.Node.AuthorSummaries()
                     self.author_summaries.parent = self
                     self._children_name_map["author_summaries"] = "author-summaries"
-                    self._children_yang_names.add("author-summaries")
 
                     self.summary = Subscriber.Session.Nodes.Node.Summary()
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
 
                     self.mac_summaries = Subscriber.Session.Nodes.Node.MacSummaries()
                     self.mac_summaries.parent = self
                     self._children_name_map["mac_summaries"] = "mac-summaries"
-                    self._children_yang_names.add("mac-summaries")
 
                     self.interface_summaries = Subscriber.Session.Nodes.Node.InterfaceSummaries()
                     self.interface_summaries.parent = self
                     self._children_name_map["interface_summaries"] = "interface-summaries"
-                    self._children_yang_names.add("interface-summaries")
 
                     self.authentication_summaries = Subscriber.Session.Nodes.Node.AuthenticationSummaries()
                     self.authentication_summaries.parent = self
                     self._children_name_map["authentication_summaries"] = "authentication-summaries"
-                    self._children_yang_names.add("authentication-summaries")
 
                     self.state_summaries = Subscriber.Session.Nodes.Node.StateSummaries()
                     self.state_summaries.parent = self
                     self._children_name_map["state_summaries"] = "state-summaries"
-                    self._children_yang_names.add("state-summaries")
 
                     self.ipv4_address_vrf_summaries = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries()
                     self.ipv4_address_vrf_summaries.parent = self
                     self._children_name_map["ipv4_address_vrf_summaries"] = "ipv4-address-vrf-summaries"
-                    self._children_yang_names.add("ipv4-address-vrf-summaries")
 
                     self.address_family_summaries = Subscriber.Session.Nodes.Node.AddressFamilySummaries()
                     self.address_family_summaries.parent = self
                     self._children_name_map["address_family_summaries"] = "address-family-summaries"
-                    self._children_yang_names.add("address-family-summaries")
 
                     self.username_summaries = Subscriber.Session.Nodes.Node.UsernameSummaries()
                     self.username_summaries.parent = self
                     self._children_name_map["username_summaries"] = "username-summaries"
-                    self._children_yang_names.add("username-summaries")
 
                     self.access_interface_summaries = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries()
                     self.access_interface_summaries.parent = self
                     self._children_name_map["access_interface_summaries"] = "access-interface-summaries"
-                    self._children_yang_names.add("access-interface-summaries")
 
                     self.ipv4_address_summaries = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries()
                     self.ipv4_address_summaries.parent = self
                     self._children_name_map["ipv4_address_summaries"] = "ipv4-address-summaries"
-                    self._children_yang_names.add("ipv4-address-summaries")
 
                     self.vrf_summaries = Subscriber.Session.Nodes.Node.VrfSummaries()
                     self.vrf_summaries.parent = self
                     self._children_name_map["vrf_summaries"] = "vrf-summaries"
-                    self._children_yang_names.add("vrf-summaries")
 
                     self.sessions = Subscriber.Session.Nodes.Node.Sessions()
                     self.sessions.parent = self
                     self._children_name_map["sessions"] = "sessions"
-                    self._children_yang_names.add("sessions")
                     self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/%s" % self._segment_path()
 
@@ -8555,8 +8388,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("author-summary", ("author_summary", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary))])
+                        self._child_classes = OrderedDict([("author-summary", ("author_summary", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary))])
                         self._leafs = OrderedDict()
 
                         self.author_summary = YList(self)
@@ -8600,8 +8432,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['author_state']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('author_state', YLeaf(YType.enumeration, 'author-state')),
                             ])
@@ -8610,12 +8441,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "author-summary" + "[author-state='" + str(self.author_state) + "']"
 
                         def __setattr__(self, name, value):
@@ -8656,25 +8485,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -8745,8 +8573,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -8766,7 +8593,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -8837,8 +8664,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -8858,7 +8684,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -8929,8 +8755,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -8950,7 +8775,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -8987,25 +8812,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -9069,8 +8893,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -9088,7 +8911,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -9152,8 +8975,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -9171,7 +8993,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -9235,8 +9057,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -9254,7 +9075,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class Summary(Entity):
@@ -9286,20 +9107,20 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Summary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Summary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr))])
                         self._leafs = OrderedDict()
 
                         self.state_xr = Subscriber.Session.Nodes.Node.Summary.StateXr()
                         self.state_xr.parent = self
                         self._children_name_map["state_xr"] = "state-xr"
-                        self._children_yang_names.add("state-xr")
 
                         self.address_family_xr = Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr()
                         self.address_family_xr.parent = self
                         self._children_name_map["address_family_xr"] = "address-family-xr"
-                        self._children_yang_names.add("address-family-xr")
                         self._segment_path = lambda: "summary"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Subscriber.Session.Nodes.Node.Summary, [], name, value)
 
 
                     class StateXr(Entity):
@@ -9336,25 +9157,24 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket))])
                             self._leafs = OrderedDict()
 
                             self.pppoe = Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe()
                             self.pppoe.parent = self
                             self._children_name_map["pppoe"] = "pppoe"
-                            self._children_yang_names.add("pppoe")
 
                             self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp()
                             self.ip_subscriber_dhcp.parent = self
                             self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                            self._children_yang_names.add("ip-subscriber-dhcp")
 
                             self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket()
                             self.ip_subscriber_packet.parent = self
                             self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                            self._children_yang_names.add("ip-subscriber-packet")
                             self._segment_path = lambda: "state-xr"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr, [], name, value)
 
 
                         class Pppoe(Entity):
@@ -9425,8 +9245,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                     ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -9446,7 +9265,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "pppoe"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class IpSubscriberDhcp(Entity):
@@ -9517,8 +9336,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                     ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -9538,7 +9356,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "ip-subscriber-dhcp"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class IpSubscriberPacket(Entity):
@@ -9609,8 +9427,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                     ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -9630,7 +9447,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "ip-subscriber-packet"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                     class AddressFamilyXr(Entity):
@@ -9667,25 +9484,24 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket))])
                             self._leafs = OrderedDict()
 
                             self.pppoe = Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe()
                             self.pppoe.parent = self
                             self._children_name_map["pppoe"] = "pppoe"
-                            self._children_yang_names.add("pppoe")
 
                             self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp()
                             self.ip_subscriber_dhcp.parent = self
                             self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                            self._children_yang_names.add("ip-subscriber-dhcp")
 
                             self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket()
                             self.ip_subscriber_packet.parent = self
                             self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                            self._children_yang_names.add("ip-subscriber-packet")
                             self._segment_path = lambda: "address-family-xr"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr, [], name, value)
 
 
                         class Pppoe(Entity):
@@ -9749,8 +9565,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                     ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -9768,7 +9583,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "pppoe"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                         class IpSubscriberDhcp(Entity):
@@ -9832,8 +9647,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                     ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -9851,7 +9665,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "ip-subscriber-dhcp"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                         class IpSubscriberPacket(Entity):
@@ -9915,8 +9729,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                     ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -9934,7 +9747,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "ip-subscriber-packet"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class MacSummaries(Entity):
@@ -9961,8 +9774,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("mac-summary", ("mac_summary", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary))])
+                        self._child_classes = OrderedDict([("mac-summary", ("mac_summary", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary))])
                         self._leafs = OrderedDict()
 
                         self.mac_summary = YList(self)
@@ -10008,8 +9820,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['mac_address']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('mac_address', YLeaf(YType.str, 'mac-address')),
                             ])
@@ -10018,12 +9829,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "mac-summary" + "[mac-address='" + str(self.mac_address) + "']"
 
                         def __setattr__(self, name, value):
@@ -10064,25 +9873,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -10153,8 +9961,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -10174,7 +9981,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -10245,8 +10052,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -10266,7 +10072,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -10337,8 +10143,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -10358,7 +10163,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -10395,25 +10200,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -10477,8 +10281,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -10496,7 +10299,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -10560,8 +10363,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -10579,7 +10381,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -10643,8 +10445,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -10662,7 +10463,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class InterfaceSummaries(Entity):
@@ -10689,8 +10490,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface-summary", ("interface_summary", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary))])
+                        self._child_classes = OrderedDict([("interface-summary", ("interface_summary", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary))])
                         self._leafs = OrderedDict()
 
                         self.interface_summary = YList(self)
@@ -10736,8 +10536,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ])
@@ -10746,12 +10545,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "interface-summary" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -10792,25 +10589,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -10881,8 +10677,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -10902,7 +10697,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -10973,8 +10768,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -10994,7 +10788,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -11065,8 +10859,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -11086,7 +10879,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -11123,25 +10916,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -11205,8 +10997,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -11224,7 +11015,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -11288,8 +11079,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -11307,7 +11097,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -11371,8 +11161,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -11390,7 +11179,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class AuthenticationSummaries(Entity):
@@ -11418,8 +11207,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("authentication-summary", ("authentication_summary", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary))])
+                        self._child_classes = OrderedDict([("authentication-summary", ("authentication_summary", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary))])
                         self._leafs = OrderedDict()
 
                         self.authentication_summary = YList(self)
@@ -11463,8 +11251,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['authentication_state']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('authentication_state', YLeaf(YType.enumeration, 'authentication-state')),
                             ])
@@ -11473,12 +11260,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "authentication-summary" + "[authentication-state='" + str(self.authentication_state) + "']"
 
                         def __setattr__(self, name, value):
@@ -11519,25 +11304,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -11608,8 +11392,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -11629,7 +11412,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -11700,8 +11483,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -11721,7 +11503,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -11792,8 +11574,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -11813,7 +11594,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -11850,25 +11631,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -11932,8 +11712,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -11951,7 +11730,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -12015,8 +11794,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -12034,7 +11812,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -12098,8 +11876,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -12117,7 +11894,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class StateSummaries(Entity):
@@ -12144,8 +11921,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("state-summary", ("state_summary", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary))])
+                        self._child_classes = OrderedDict([("state-summary", ("state_summary", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary))])
                         self._leafs = OrderedDict()
 
                         self.state_summary = YList(self)
@@ -12189,8 +11965,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['state']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('state', YLeaf(YType.enumeration, 'state')),
                             ])
@@ -12199,12 +11974,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "state-summary" + "[state='" + str(self.state) + "']"
 
                         def __setattr__(self, name, value):
@@ -12245,25 +12018,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -12334,8 +12106,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -12355,7 +12126,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -12426,8 +12197,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -12447,7 +12217,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -12518,8 +12288,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -12539,7 +12308,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -12576,25 +12345,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -12658,8 +12426,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -12677,7 +12444,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -12741,8 +12508,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -12760,7 +12526,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -12824,8 +12590,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -12843,7 +12608,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class Ipv4AddressVrfSummaries(Entity):
@@ -12871,8 +12636,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ipv4-address-vrf-summary", ("ipv4_address_vrf_summary", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary))])
+                        self._child_classes = OrderedDict([("ipv4-address-vrf-summary", ("ipv4_address_vrf_summary", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary))])
                         self._leafs = OrderedDict()
 
                         self.ipv4_address_vrf_summary = YList(self)
@@ -12925,8 +12689,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                                 ('address', YLeaf(YType.str, 'address')),
@@ -12937,12 +12700,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "ipv4-address-vrf-summary"
 
                         def __setattr__(self, name, value):
@@ -12983,25 +12744,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -13072,8 +12832,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -13093,7 +12852,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -13164,8 +12923,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -13185,7 +12943,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -13256,8 +13014,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -13277,7 +13034,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -13314,25 +13071,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -13396,8 +13152,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -13415,7 +13170,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -13479,8 +13234,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -13498,7 +13252,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -13562,8 +13316,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -13581,7 +13334,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class AddressFamilySummaries(Entity):
@@ -13609,8 +13362,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("address-family-summary", ("address_family_summary", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary))])
+                        self._child_classes = OrderedDict([("address-family-summary", ("address_family_summary", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary))])
                         self._leafs = OrderedDict()
 
                         self.address_family_summary = YList(self)
@@ -13654,8 +13406,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['address_family']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('address_family', YLeaf(YType.enumeration, 'address-family')),
                             ])
@@ -13664,12 +13415,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "address-family-summary" + "[address-family='" + str(self.address_family) + "']"
 
                         def __setattr__(self, name, value):
@@ -13710,25 +13459,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -13799,8 +13547,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -13820,7 +13567,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -13891,8 +13638,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -13912,7 +13658,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -13983,8 +13729,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -14004,7 +13749,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -14041,25 +13786,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -14123,8 +13867,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -14142,7 +13885,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -14206,8 +13949,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -14225,7 +13967,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -14289,8 +14031,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -14308,7 +14049,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class UsernameSummaries(Entity):
@@ -14335,8 +14076,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("username-summary", ("username_summary", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary))])
+                        self._child_classes = OrderedDict([("username-summary", ("username_summary", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary))])
                         self._leafs = OrderedDict()
 
                         self.username_summary = YList(self)
@@ -14382,8 +14122,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['username']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('username', YLeaf(YType.str, 'username')),
                             ])
@@ -14392,12 +14131,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "username-summary" + "[username='" + str(self.username) + "']"
 
                         def __setattr__(self, name, value):
@@ -14438,25 +14175,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -14527,8 +14263,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -14548,7 +14283,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -14619,8 +14354,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -14640,7 +14374,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -14711,8 +14445,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -14732,7 +14465,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -14769,25 +14502,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -14851,8 +14583,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -14870,7 +14601,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -14934,8 +14665,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -14953,7 +14683,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -15017,8 +14747,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -15036,7 +14765,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class AccessInterfaceSummaries(Entity):
@@ -15064,8 +14793,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("access-interface-summary", ("access_interface_summary", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary))])
+                        self._child_classes = OrderedDict([("access-interface-summary", ("access_interface_summary", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary))])
                         self._leafs = OrderedDict()
 
                         self.access_interface_summary = YList(self)
@@ -15111,8 +14839,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ])
@@ -15121,12 +14848,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "access-interface-summary" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -15167,25 +14892,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -15256,8 +14980,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -15277,7 +15000,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -15348,8 +15071,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -15369,7 +15091,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -15440,8 +15162,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -15461,7 +15182,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -15498,25 +15219,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -15580,8 +15300,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -15599,7 +15318,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -15663,8 +15382,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -15682,7 +15400,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -15746,8 +15464,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -15765,7 +15482,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class Ipv4AddressSummaries(Entity):
@@ -15793,8 +15510,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ipv4-address-summary", ("ipv4_address_summary", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary))])
+                        self._child_classes = OrderedDict([("ipv4-address-summary", ("ipv4_address_summary", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary))])
                         self._leafs = OrderedDict()
 
                         self.ipv4_address_summary = YList(self)
@@ -15840,8 +15556,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['address']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                             ])
@@ -15850,12 +15565,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "ipv4-address-summary" + "[address='" + str(self.address) + "']"
 
                         def __setattr__(self, name, value):
@@ -15896,25 +15609,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -15985,8 +15697,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -16006,7 +15717,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -16077,8 +15788,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -16098,7 +15808,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -16169,8 +15879,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -16190,7 +15899,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -16227,25 +15936,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -16309,8 +16017,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -16328,7 +16035,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -16392,8 +16099,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -16411,7 +16117,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -16475,8 +16181,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -16494,7 +16199,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class VrfSummaries(Entity):
@@ -16521,8 +16226,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("vrf-summary", ("vrf_summary", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary))])
+                        self._child_classes = OrderedDict([("vrf-summary", ("vrf_summary", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary))])
                         self._leafs = OrderedDict()
 
                         self.vrf_summary = YList(self)
@@ -16568,8 +16272,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['vrf_name']
-                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
                                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ])
@@ -16578,12 +16281,10 @@ class Subscriber(Entity):
                             self.state_xr = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr()
                             self.state_xr.parent = self
                             self._children_name_map["state_xr"] = "state-xr"
-                            self._children_yang_names.add("state-xr")
 
                             self.address_family_xr = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr()
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
-                            self._children_yang_names.add("address-family-xr")
                             self._segment_path = lambda: "vrf-summary" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -16624,25 +16325,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "state-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -16713,8 +16413,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -16734,7 +16433,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -16805,8 +16504,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -16826,7 +16524,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -16897,8 +16595,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
                                         ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
@@ -16918,7 +16615,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
                         class AddressFamilyXr(Entity):
@@ -16955,25 +16652,24 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket))])
                                 self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
                                 self._children_name_map["pppoe"] = "pppoe"
-                                self._children_yang_names.add("pppoe")
 
                                 self.ip_subscriber_dhcp = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp()
                                 self.ip_subscriber_dhcp.parent = self
                                 self._children_name_map["ip_subscriber_dhcp"] = "ip-subscriber-dhcp"
-                                self._children_yang_names.add("ip-subscriber-dhcp")
 
                                 self.ip_subscriber_packet = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket()
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
-                                self._children_yang_names.add("ip-subscriber-packet")
                                 self._segment_path = lambda: "address-family-xr"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr, [], name, value)
 
 
                             class Pppoe(Entity):
@@ -17037,8 +16733,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -17056,7 +16751,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberDhcp(Entity):
@@ -17120,8 +16815,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -17139,7 +16833,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                             class IpSubscriberPacket(Entity):
@@ -17203,8 +16897,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
                                         ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
@@ -17222,7 +16915,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
                 class Sessions(Entity):
@@ -17249,8 +16942,7 @@ class Subscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("session", ("session", Subscriber.Session.Nodes.Node.Sessions.Session_))])
+                        self._child_classes = OrderedDict([("session", ("session", Subscriber.Session.Nodes.Node.Sessions.Session_))])
                         self._leafs = OrderedDict()
 
                         self.session = YList(self)
@@ -17488,8 +17180,7 @@ class Subscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['session_id']
-                            self._child_container_classes = OrderedDict([("accounting", ("accounting", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting)), ("user-profile-attributes", ("user_profile_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes)), ("mobility-attributes", ("mobility_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes))])
-                            self._child_list_classes = OrderedDict([("session-change-of-authorization", ("session_change_of_authorization", Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization))])
+                            self._child_classes = OrderedDict([("accounting", ("accounting", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting)), ("user-profile-attributes", ("user_profile_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes)), ("mobility-attributes", ("mobility_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes)), ("session-change-of-authorization", ("session_change_of_authorization", Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization))])
                             self._leafs = OrderedDict([
                                 ('session_id', YLeaf(YType.str, 'session-id')),
                                 ('session_type', YLeaf(YType.enumeration, 'session-type')),
@@ -17562,23 +17253,20 @@ class Subscriber(Entity):
                             self.accounting = Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting()
                             self.accounting.parent = self
                             self._children_name_map["accounting"] = "accounting"
-                            self._children_yang_names.add("accounting")
 
                             self.user_profile_attributes = Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes()
                             self.user_profile_attributes.parent = self
                             self._children_name_map["user_profile_attributes"] = "user-profile-attributes"
-                            self._children_yang_names.add("user-profile-attributes")
 
                             self.mobility_attributes = Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes()
                             self.mobility_attributes.parent = self
                             self._children_name_map["mobility_attributes"] = "mobility-attributes"
-                            self._children_yang_names.add("mobility-attributes")
 
                             self.session_change_of_authorization = YList(self)
                             self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name', 'pending_callbacks', 'af_up_status', 'session_ipv4_state', 'session_ipv6_state'], name, value)
+                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', u'session_type', u'pppoe_sub_type', u'interface_name', u'vrf_name', u'circuit_id', u'remote_id', u'lns_address', u'lac_address', u'tunnel_client_authentication_id', u'tunnel_server_authentication_id', u'session_ip_address', u'session_ipv6_address', u'session_ipv6_prefix', u'delegated_ipv6_prefix', u'ipv6_interface_id', u'mac_address', u'account_session_id', u'nas_port', u'username', u'clientname', u'formattedname', u'is_session_authentic', u'is_session_author', u'session_state', u'session_creation_time', u'idle_state_change_time', u'total_session_idle_time', u'access_interface_name', u'pending_callbacks', u'af_up_status', u'session_ipv4_state', u'session_ipv6_state'], name, value)
 
 
                         class Accounting(Entity):
@@ -17605,8 +17293,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("accounting-session", ("accounting_session", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession))])
+                                self._child_classes = OrderedDict([("accounting-session", ("accounting_session", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession))])
                                 self._leafs = OrderedDict()
 
                                 self.accounting_session = YList(self)
@@ -17730,8 +17417,7 @@ class Subscriber(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('accounting_state_rc', YLeaf(YType.uint32, 'accounting-state-rc')),
                                         ('accounting_stop_state', YLeaf(YType.uint32, 'accounting-stop-state')),
@@ -17767,7 +17453,7 @@ class Subscriber(Entity):
                                     self._segment_path = lambda: "accounting-session"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, [u'accounting_state_rc', u'accounting_stop_state', u'record_context_name', u'method_list_name', u'account_session_id', u'accounting_start_time', u'is_interim_accounting_enabled', u'interim_interval', u'last_successful_interim_update_time', u'next_interim_update_attempt_time', u'last_interim_update_attempt_time', u'sent_interim_updates', u'accepted_interim_updates', u'rejected_interim_updates', u'sent_interim_update_failures'], name, value)
 
 
                         class UserProfileAttributes(Entity):
@@ -18113,8 +17799,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ipv4mtu', YLeaf(YType.uint32, 'ipv4mtu')),
                                     ('ipv4_unnumbered', YLeaf(YType.str, 'ipv4-unnumbered')),
@@ -18218,7 +17903,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "user-profile-attributes"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes, ['ipv4mtu', 'ipv4_unnumbered', 'authorization_service_type', 'tunnel_client_endpoint', 'tunnel_server_endpoint', 'tunnel_tos_setting', 'tunnel_medium', 'tunnel_preference', 'tunnel_client_authentication_id', 'tunnel_protocol', 'actual_data_rate_upstream', 'actual_data_rate_downstream', 'attainable_data_rate_upstream', 'attainable_data_rate_downstream', 'pool_address', 'circuit_id', 'connection_receive_speed', 'connection_transmission_speed', 'destination_station_id', 'primary_dns_server_address', 'secondary_dns_server_address', 'formatted_calling_station_id', 'interface_name', 'interface_type', 'interim_accounting_interval', 'ingress_access_list', 'egress_access_list', 'ip_netmask', 'is_interworking_functionality', 'max_interleaving_delay_downstream', 'max_interleaving_delay_upstream', 'max_data_rate_upstream', 'max_data_rate_downstream', 'min_data_rate_downstream', 'min_data_rate_downstream_low_power', 'min_data_rate_upstream_low_power', 'primary_net_bios_server_address', 'secondary_net_bios_server_address', 'parent_interface_name', 'remote_id', 'route', 'session_timeout', 'strict_rpf_packets', 'accounting_session_id', 'upstream_parameterized_qos_policy', 'downstream_parameterized_qos_policy', 'upstream_qos_policy', 'downstream_qos_policy', 'session_termination_cause'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes, [u'ipv4mtu', u'ipv4_unnumbered', u'authorization_service_type', u'tunnel_client_endpoint', u'tunnel_server_endpoint', u'tunnel_tos_setting', u'tunnel_medium', u'tunnel_preference', u'tunnel_client_authentication_id', u'tunnel_protocol', u'actual_data_rate_upstream', u'actual_data_rate_downstream', u'attainable_data_rate_upstream', u'attainable_data_rate_downstream', u'pool_address', u'circuit_id', u'connection_receive_speed', u'connection_transmission_speed', u'destination_station_id', u'primary_dns_server_address', u'secondary_dns_server_address', u'formatted_calling_station_id', u'interface_name', u'interface_type', u'interim_accounting_interval', u'ingress_access_list', u'egress_access_list', u'ip_netmask', u'is_interworking_functionality', u'max_interleaving_delay_downstream', u'max_interleaving_delay_upstream', u'max_data_rate_upstream', u'max_data_rate_downstream', u'min_data_rate_downstream', u'min_data_rate_downstream_low_power', u'min_data_rate_upstream_low_power', u'primary_net_bios_server_address', u'secondary_net_bios_server_address', u'parent_interface_name', u'remote_id', u'route', u'session_timeout', u'strict_rpf_packets', u'accounting_session_id', u'upstream_parameterized_qos_policy', u'downstream_parameterized_qos_policy', u'upstream_qos_policy', u'downstream_qos_policy', u'session_termination_cause'], name, value)
 
 
                         class MobilityAttributes(Entity):
@@ -18293,8 +17978,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mpc_protocol', YLeaf(YType.boolean, 'mpc-protocol')),
                                     ('mobility_ipv4_address', YLeaf(YType.str, 'mobility-ipv4-address')),
@@ -18320,7 +18004,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "mobility-attributes"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes, ['mpc_protocol', 'mobility_ipv4_address', 'mobility_default_ipv4_gateway', 'mobility_dns_server', 'mobility_dhcp_server', 'mobility_ipv4_netmask', 'domain_name', 'uplink_gre_key', 'downlink_gre_key', 'lease_time'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes, [u'mpc_protocol', u'mobility_ipv4_address', u'mobility_default_ipv4_gateway', u'mobility_dns_server', u'mobility_dhcp_server', u'mobility_ipv4_netmask', u'domain_name', u'uplink_gre_key', u'downlink_gre_key', u'lease_time'], name, value)
 
 
                         class SessionChangeOfAuthorization(Entity):
@@ -18371,8 +18055,7 @@ class Subscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('request_acked', YLeaf(YType.boolean, 'request-acked')),
                                     ('request_time', YLeaf(YType.str, 'request-time')),
@@ -18388,7 +18071,7 @@ class Subscriber(Entity):
                                 self._segment_path = lambda: "session-change-of-authorization"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, ['request_acked', 'request_time', 'coa_request_attributes', 'reply_time', 'coa_reply_attributes'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, [u'request_acked', u'request_time', u'coa_request_attributes', u'reply_time', u'coa_reply_attributes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Subscriber()
@@ -18419,15 +18102,16 @@ class IedgeLicenseManager(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", IedgeLicenseManager.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", IedgeLicenseManager.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = IedgeLicenseManager.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(IedgeLicenseManager, [], name, value)
 
 
     class Nodes(Entity):
@@ -18455,8 +18139,7 @@ class IedgeLicenseManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", IedgeLicenseManager.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", IedgeLicenseManager.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -18498,8 +18181,7 @@ class IedgeLicenseManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nodeid']
-                self._child_container_classes = OrderedDict([("iedge-license-manager-summary", ("iedge_license_manager_summary", IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("iedge-license-manager-summary", ("iedge_license_manager_summary", IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary))])
                 self._leafs = OrderedDict([
                     ('nodeid', YLeaf(YType.str, 'nodeid')),
                 ])
@@ -18508,7 +18190,6 @@ class IedgeLicenseManager(Entity):
                 self.iedge_license_manager_summary = IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary()
                 self.iedge_license_manager_summary.parent = self
                 self._children_name_map["iedge_license_manager_summary"] = "iedge-license-manager-summary"
-                self._children_yang_names.add("iedge-license-manager-summary")
                 self._segment_path = lambda: "node" + "[nodeid='" + str(self.nodeid) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager/nodes/%s" % self._segment_path()
 
@@ -18563,8 +18244,7 @@ class IedgeLicenseManager(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('session_limit', YLeaf(YType.uint32, 'session-limit')),
                         ('session_threshold', YLeaf(YType.uint32, 'session-threshold')),

@@ -276,8 +276,7 @@ class DhcpOperData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("dhcpv4-server-oper", ("dhcpv4_server_oper", DhcpOperData.Dhcpv4ServerOper)), ("dhcpv4-client-oper", ("dhcpv4_client_oper", DhcpOperData.Dhcpv4ClientOper))])
+        self._child_classes = OrderedDict([("dhcpv4-server-oper", ("dhcpv4_server_oper", DhcpOperData.Dhcpv4ServerOper)), ("dhcpv4-client-oper", ("dhcpv4_client_oper", DhcpOperData.Dhcpv4ClientOper))])
         self._leafs = OrderedDict()
 
         self.dhcpv4_server_oper = YList(self)
@@ -360,8 +359,7 @@ class DhcpOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['pool_name','client_ip','vrf_name']
-            self._child_container_classes = OrderedDict([("expiration", ("expiration", DhcpOperData.Dhcpv4ServerOper.Expiration))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("expiration", ("expiration", DhcpOperData.Dhcpv4ServerOper.Expiration))])
             self._leafs = OrderedDict([
                 ('pool_name', YLeaf(YType.str, 'pool-name')),
                 ('client_ip', YLeaf(YType.str, 'client-ip')),
@@ -384,7 +382,6 @@ class DhcpOperData(Entity):
             self.expiration = DhcpOperData.Dhcpv4ServerOper.Expiration()
             self.expiration.parent = self
             self._children_name_map["expiration"] = "expiration"
-            self._children_yang_names.add("expiration")
             self._segment_path = lambda: "dhcpv4-server-oper" + "[pool-name='" + str(self.pool_name) + "']" + "[client-ip='" + str(self.client_ip) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data/%s" % self._segment_path()
 
@@ -423,8 +420,7 @@ class DhcpOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('time', YLeaf(YType.str, 'time')),
                     ('infinite', YLeaf(YType.empty, 'infinite')),
@@ -542,8 +538,7 @@ class DhcpOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['if_name','client_addr','vrf_name']
-            self._child_container_classes = OrderedDict([("lease-expiry", ("lease_expiry", DhcpOperData.Dhcpv4ClientOper.LeaseExpiry))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("lease-expiry", ("lease_expiry", DhcpOperData.Dhcpv4ClientOper.LeaseExpiry))])
             self._leafs = OrderedDict([
                 ('if_name', YLeaf(YType.str, 'if-name')),
                 ('client_addr', YLeaf(YType.str, 'client-addr')),
@@ -568,7 +563,6 @@ class DhcpOperData(Entity):
             self.lease_expiry = DhcpOperData.Dhcpv4ClientOper.LeaseExpiry()
             self.lease_expiry.parent = self
             self._children_name_map["lease_expiry"] = "lease-expiry"
-            self._children_yang_names.add("lease-expiry")
             self._segment_path = lambda: "dhcpv4-client-oper" + "[if-name='" + str(self.if_name) + "']" + "[client-addr='" + str(self.client_addr) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data/%s" % self._segment_path()
 
@@ -607,8 +601,7 @@ class DhcpOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('time', YLeaf(YType.str, 'time')),
                     ('infinite', YLeaf(YType.empty, 'infinite')),

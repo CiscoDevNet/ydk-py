@@ -45,15 +45,16 @@ class SdrInventory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("racks", ("racks", SdrInventory.Racks))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("racks", ("racks", SdrInventory.Racks))])
         self._leafs = OrderedDict()
 
         self.racks = SdrInventory.Racks()
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
-        self._children_yang_names.add("racks")
         self._segment_path = lambda: "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SdrInventory, [], name, value)
 
 
     class Racks(Entity):
@@ -80,8 +81,7 @@ class SdrInventory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rack", ("rack", SdrInventory.Racks.Rack))])
+            self._child_classes = OrderedDict([("rack", ("rack", SdrInventory.Racks.Rack))])
             self._leafs = OrderedDict()
 
             self.rack = YList(self)
@@ -123,8 +123,7 @@ class SdrInventory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("slot", ("slot", SdrInventory.Racks.Rack.Slot))])
+                self._child_classes = OrderedDict([("slot", ("slot", SdrInventory.Racks.Rack.Slot))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -169,8 +168,7 @@ class SdrInventory(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("card", ("card", SdrInventory.Racks.Rack.Slot.Card))])
+                    self._child_classes = OrderedDict([("card", ("card", SdrInventory.Racks.Rack.Slot.Card))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
@@ -214,8 +212,7 @@ class SdrInventory(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([("attributes", ("attributes", SdrInventory.Racks.Rack.Slot.Card.Attributes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("attributes", ("attributes", SdrInventory.Racks.Rack.Slot.Card.Attributes))])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -224,7 +221,6 @@ class SdrInventory(Entity):
                         self.attributes = SdrInventory.Racks.Rack.Slot.Card.Attributes()
                         self.attributes.parent = self
                         self._children_name_map["attributes"] = "attributes"
-                        self._children_yang_names.add("attributes")
                         self._segment_path = lambda: "card" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
@@ -360,8 +356,7 @@ class SdrInventory(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('config_state_string', YLeaf(YType.str, 'config-state-string')),
                                 ('power', YLeaf(YType.uint32, 'power')),

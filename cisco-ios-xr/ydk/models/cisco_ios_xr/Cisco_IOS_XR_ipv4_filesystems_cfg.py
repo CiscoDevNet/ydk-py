@@ -47,15 +47,16 @@ class Rcp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("rcp-client", ("rcp_client", Rcp.RcpClient))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("rcp-client", ("rcp_client", Rcp.RcpClient))])
         self._leafs = OrderedDict()
 
         self.rcp_client = Rcp.RcpClient()
         self.rcp_client.parent = self
         self._children_name_map["rcp_client"] = "rcp-client"
-        self._children_yang_names.add("rcp-client")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:rcp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Rcp, [], name, value)
 
 
     class RcpClient(Entity):
@@ -89,8 +90,7 @@ class Rcp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('username', YLeaf(YType.str, 'username')),
                 ('source_interface', YLeaf(YType.str, 'source-interface')),
@@ -132,15 +132,16 @@ class Ftp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ftp-client", ("ftp_client", Ftp.FtpClient))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ftp-client", ("ftp_client", Ftp.FtpClient))])
         self._leafs = OrderedDict()
 
         self.ftp_client = Ftp.FtpClient()
         self.ftp_client.parent = self
         self._children_name_map["ftp_client"] = "ftp-client"
-        self._children_yang_names.add("ftp-client")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ftp, [], name, value)
 
 
     class FtpClient(Entity):
@@ -196,8 +197,7 @@ class Ftp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ftp.FtpClient.Vrfs))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("vrfs", ("vrfs", Ftp.FtpClient.Vrfs))])
             self._leafs = OrderedDict([
                 ('passive', YLeaf(YType.empty, 'passive')),
                 ('password', YLeaf(YType.str, 'password')),
@@ -214,7 +214,6 @@ class Ftp(Entity):
             self.vrfs = Ftp.FtpClient.Vrfs()
             self.vrfs.parent = self
             self._children_name_map["vrfs"] = "vrfs"
-            self._children_yang_names.add("vrfs")
             self._segment_path = lambda: "ftp-client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/%s" % self._segment_path()
 
@@ -246,8 +245,7 @@ class Ftp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("vrf", ("vrf", Ftp.FtpClient.Vrfs.Vrf))])
+                self._child_classes = OrderedDict([("vrf", ("vrf", Ftp.FtpClient.Vrfs.Vrf))])
                 self._leafs = OrderedDict()
 
                 self.vrf = YList(self)
@@ -313,8 +311,7 @@ class Ftp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('source_interface', YLeaf(YType.str, 'source-interface')),
@@ -364,15 +361,16 @@ class Tftp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("tftp-client", ("tftp_client", Tftp.TftpClient))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("tftp-client", ("tftp_client", Tftp.TftpClient))])
         self._leafs = OrderedDict()
 
         self.tftp_client = Tftp.TftpClient()
         self.tftp_client.parent = self
         self._children_name_map["tftp_client"] = "tftp-client"
-        self._children_yang_names.add("tftp-client")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Tftp, [], name, value)
 
 
     class TftpClient(Entity):
@@ -422,8 +420,7 @@ class Tftp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Tftp.TftpClient.Vrfs))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("vrfs", ("vrfs", Tftp.TftpClient.Vrfs))])
             self._leafs = OrderedDict([
                 ('retry', YLeaf(YType.uint32, 'retry')),
                 ('timeout', YLeaf(YType.uint32, 'timeout')),
@@ -436,7 +433,6 @@ class Tftp(Entity):
             self.vrfs = Tftp.TftpClient.Vrfs()
             self.vrfs.parent = self
             self._children_name_map["vrfs"] = "vrfs"
-            self._children_yang_names.add("vrfs")
             self._segment_path = lambda: "tftp-client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/%s" % self._segment_path()
 
@@ -468,8 +464,7 @@ class Tftp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("vrf", ("vrf", Tftp.TftpClient.Vrfs.Vrf))])
+                self._child_classes = OrderedDict([("vrf", ("vrf", Tftp.TftpClient.Vrfs.Vrf))])
                 self._leafs = OrderedDict()
 
                 self.vrf = YList(self)
@@ -529,8 +524,7 @@ class Tftp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('source_interface', YLeaf(YType.str, 'source-interface')),

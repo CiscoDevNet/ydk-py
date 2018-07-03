@@ -62,15 +62,16 @@ class BgpRib(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("afi-safis", ("afi_safis", BgpRib.AfiSafis))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("afi-safis", ("afi_safis", BgpRib.AfiSafis))])
         self._leafs = OrderedDict()
 
         self.afi_safis = BgpRib.AfiSafis()
         self.afi_safis.parent = self
         self._children_name_map["afi_safis"] = "afi-safis"
-        self._children_yang_names.add("afi-safis")
         self._segment_path = lambda: "openconfig-rib-bgp:bgp-rib"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(BgpRib, [], name, value)
 
 
     class AfiSafis(Entity):
@@ -97,8 +98,7 @@ class BgpRib(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("afi-safi", ("afi_safi", BgpRib.AfiSafis.AfiSafi))])
+            self._child_classes = OrderedDict([("afi-safi", ("afi_safi", BgpRib.AfiSafis.AfiSafi))])
             self._leafs = OrderedDict()
 
             self.afi_safi = YList(self)
@@ -143,8 +143,7 @@ class BgpRib(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['afi_safi_name']
-                self._child_container_classes = OrderedDict([("ipv4-unicast", ("ipv4_unicast", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast)), ("ipv6-unicast", ("ipv6_unicast", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv4-unicast", ("ipv4_unicast", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast)), ("ipv6-unicast", ("ipv6_unicast", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast))])
                 self._leafs = OrderedDict([
                     ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
                 ])
@@ -153,12 +152,10 @@ class BgpRib(Entity):
                 self.ipv4_unicast = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast()
                 self.ipv4_unicast.parent = self
                 self._children_name_map["ipv4_unicast"] = "ipv4-unicast"
-                self._children_yang_names.add("ipv4-unicast")
 
                 self.ipv6_unicast = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast()
                 self.ipv6_unicast.parent = self
                 self._children_name_map["ipv6_unicast"] = "ipv6-unicast"
-                self._children_yang_names.add("ipv6-unicast")
                 self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + str(self.afi_safi_name) + "']"
                 self._absolute_path = lambda: "openconfig-rib-bgp:bgp-rib/afi-safis/%s" % self._segment_path()
 
@@ -196,20 +193,20 @@ class BgpRib(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("loc-rib", ("loc_rib", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib)), ("neighbors", ("neighbors", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("loc-rib", ("loc_rib", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib)), ("neighbors", ("neighbors", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors))])
                     self._leafs = OrderedDict()
 
                     self.loc_rib = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib()
                     self.loc_rib.parent = self
                     self._children_name_map["loc_rib"] = "loc-rib"
-                    self._children_yang_names.add("loc-rib")
 
                     self.neighbors = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors()
                     self.neighbors.parent = self
                     self._children_name_map["neighbors"] = "neighbors"
-                    self._children_yang_names.add("neighbors")
                     self._segment_path = lambda: "ipv4-unicast"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast, [], name, value)
 
 
                 class LocRib(Entity):
@@ -252,8 +249,7 @@ class BgpRib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes))])
                         self._leafs = OrderedDict([
                             ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                         ])
@@ -262,7 +258,6 @@ class BgpRib(Entity):
                         self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes()
                         self.routes.parent = self
                         self._children_name_map["routes"] = "routes"
-                        self._children_yang_names.add("routes")
                         self._segment_path = lambda: "loc-rib"
 
                     def __setattr__(self, name, value):
@@ -294,8 +289,7 @@ class BgpRib(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route))])
+                            self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route))])
                             self._leafs = OrderedDict()
 
                             self.route = YList(self)
@@ -370,8 +364,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes))])
                                 self._leafs = OrderedDict([
                                     ('prefix', YLeaf(YType.str, 'prefix')),
                                     ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -390,12 +383,10 @@ class BgpRib(Entity):
                                 self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes()
                                 self.attributes.parent = self
                                 self._children_name_map["attributes"] = "attributes"
-                                self._children_yang_names.add("attributes")
 
                                 self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes()
                                 self.ext_attributes.parent = self
                                 self._children_name_map["ext_attributes"] = "ext-attributes"
-                                self._children_yang_names.add("ext-attributes")
                                 self._segment_path = lambda: "route"
 
                             def __setattr__(self, name, value):
@@ -469,7 +460,7 @@ class BgpRib(Entity):
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** ([0\-9]+\:[0\-9]+)
+                                			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 
 
@@ -486,8 +477,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator))])
                                     self._leafs = OrderedDict([
                                         ('origin', YLeaf(YType.enumeration, 'origin')),
                                         ('as_path', YLeaf(YType.str, 'as-path')),
@@ -510,7 +500,6 @@ class BgpRib(Entity):
                                     self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator()
                                     self.aggregator.parent = self
                                     self._children_name_map["aggregator"] = "aggregator"
-                                    self._children_yang_names.add("aggregator")
                                     self._segment_path = lambda: "attributes"
 
                                 def __setattr__(self, name, value):
@@ -558,8 +547,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_', YLeaf(YType.uint32, 'as')),
                                             ('as4', YLeaf(YType.uint32, 'as4')),
@@ -600,27 +588,39 @@ class BgpRib(Entity):
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                
+                                		**type**\: list of str
+                                
+                                			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                
+                                		**type**\: list of str
+                                
+                                			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                
+                                		**type**\: list of str
+                                
+                                			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 .. attribute:: aigp
                                 
@@ -656,8 +656,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                    self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute))])
                                     self._leafs = OrderedDict([
                                         ('originator_id', YLeaf(YType.str, 'originator-id')),
                                         ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -719,8 +718,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['attr_type']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                             ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -759,8 +757,7 @@ class BgpRib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor))])
+                        self._child_classes = OrderedDict([("neighbor", ("neighbor", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor))])
                         self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
@@ -822,8 +819,7 @@ class BgpRib(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['neighbor_address']
-                            self._child_container_classes = OrderedDict([("adj-rib-in-pre", ("adj_rib_in_pre", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre)), ("adj-rib-in-post", ("adj_rib_in_post", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre)), ("adj-rib-out-post", ("adj_rib_out_post", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("adj-rib-in-pre", ("adj_rib_in_pre", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre)), ("adj-rib-in-post", ("adj_rib_in_post", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre)), ("adj-rib-out-post", ("adj_rib_out_post", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost))])
                             self._leafs = OrderedDict([
                                 ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                             ])
@@ -832,22 +828,18 @@ class BgpRib(Entity):
                             self.adj_rib_in_pre = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre()
                             self.adj_rib_in_pre.parent = self
                             self._children_name_map["adj_rib_in_pre"] = "adj-rib-in-pre"
-                            self._children_yang_names.add("adj-rib-in-pre")
 
                             self.adj_rib_in_post = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost()
                             self.adj_rib_in_post.parent = self
                             self._children_name_map["adj_rib_in_post"] = "adj-rib-in-post"
-                            self._children_yang_names.add("adj-rib-in-post")
 
                             self.adj_rib_out_pre = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre()
                             self.adj_rib_out_pre.parent = self
                             self._children_name_map["adj_rib_out_pre"] = "adj-rib-out-pre"
-                            self._children_yang_names.add("adj-rib-out-pre")
 
                             self.adj_rib_out_post = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost()
                             self.adj_rib_out_post.parent = self
                             self._children_name_map["adj_rib_out_post"] = "adj-rib-out-post"
-                            self._children_yang_names.add("adj-rib-out-post")
                             self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                         def __setattr__(self, name, value):
@@ -888,8 +880,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes))])
                                 self._leafs = OrderedDict([
                                     ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                 ])
@@ -898,7 +889,6 @@ class BgpRib(Entity):
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
                                 self._segment_path = lambda: "adj-rib-in-pre"
 
                             def __setattr__(self, name, value):
@@ -930,8 +920,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -1006,8 +995,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -1026,12 +1014,10 @@ class BgpRib(Entity):
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
 
                                         self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes()
                                         self.ext_attributes.parent = self
                                         self._children_name_map["ext_attributes"] = "ext-attributes"
-                                        self._children_yang_names.add("ext-attributes")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -1105,7 +1091,7 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ([0\-9]+\:[0\-9]+)
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         
 
@@ -1122,8 +1108,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator))])
                                             self._leafs = OrderedDict([
                                                 ('origin', YLeaf(YType.enumeration, 'origin')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -1146,7 +1131,6 @@ class BgpRib(Entity):
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
                                             self._children_name_map["aggregator"] = "aggregator"
-                                            self._children_yang_names.add("aggregator")
                                             self._segment_path = lambda: "attributes"
 
                                         def __setattr__(self, name, value):
@@ -1194,8 +1178,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -1236,27 +1219,39 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         .. attribute:: aigp
                                         
@@ -1292,8 +1287,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -1355,8 +1349,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['attr_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                                     ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -1404,8 +1397,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes))])
                                 self._leafs = OrderedDict([
                                     ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                 ])
@@ -1414,7 +1406,6 @@ class BgpRib(Entity):
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
                                 self._segment_path = lambda: "adj-rib-in-post"
 
                             def __setattr__(self, name, value):
@@ -1446,8 +1437,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -1522,8 +1512,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -1542,12 +1531,10 @@ class BgpRib(Entity):
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
 
                                         self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes()
                                         self.ext_attributes.parent = self
                                         self._children_name_map["ext_attributes"] = "ext-attributes"
-                                        self._children_yang_names.add("ext-attributes")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -1621,7 +1608,7 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ([0\-9]+\:[0\-9]+)
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         
 
@@ -1638,8 +1625,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator))])
                                             self._leafs = OrderedDict([
                                                 ('origin', YLeaf(YType.enumeration, 'origin')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -1662,7 +1648,6 @@ class BgpRib(Entity):
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
                                             self._children_name_map["aggregator"] = "aggregator"
-                                            self._children_yang_names.add("aggregator")
                                             self._segment_path = lambda: "attributes"
 
                                         def __setattr__(self, name, value):
@@ -1710,8 +1695,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -1752,27 +1736,39 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         .. attribute:: aigp
                                         
@@ -1808,8 +1804,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -1871,8 +1866,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['attr_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                                     ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -1920,8 +1914,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes))])
                                 self._leafs = OrderedDict([
                                     ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                 ])
@@ -1930,7 +1923,6 @@ class BgpRib(Entity):
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
                                 self._segment_path = lambda: "adj-rib-out-pre"
 
                             def __setattr__(self, name, value):
@@ -1962,8 +1954,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -2038,8 +2029,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -2058,12 +2048,10 @@ class BgpRib(Entity):
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
 
                                         self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes()
                                         self.ext_attributes.parent = self
                                         self._children_name_map["ext_attributes"] = "ext-attributes"
-                                        self._children_yang_names.add("ext-attributes")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -2137,7 +2125,7 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ([0\-9]+\:[0\-9]+)
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         
 
@@ -2154,8 +2142,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator))])
                                             self._leafs = OrderedDict([
                                                 ('origin', YLeaf(YType.enumeration, 'origin')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -2178,7 +2165,6 @@ class BgpRib(Entity):
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
                                             self._children_name_map["aggregator"] = "aggregator"
-                                            self._children_yang_names.add("aggregator")
                                             self._segment_path = lambda: "attributes"
 
                                         def __setattr__(self, name, value):
@@ -2226,8 +2212,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -2268,27 +2253,39 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         .. attribute:: aigp
                                         
@@ -2324,8 +2321,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -2387,8 +2383,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['attr_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                                     ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -2436,8 +2431,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes))])
                                 self._leafs = OrderedDict([
                                     ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                 ])
@@ -2446,7 +2440,6 @@ class BgpRib(Entity):
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
                                 self._segment_path = lambda: "adj-rib-out-post"
 
                             def __setattr__(self, name, value):
@@ -2478,8 +2471,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -2554,8 +2546,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -2574,12 +2565,10 @@ class BgpRib(Entity):
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
 
                                         self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes()
                                         self.ext_attributes.parent = self
                                         self._children_name_map["ext_attributes"] = "ext-attributes"
-                                        self._children_yang_names.add("ext-attributes")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -2653,7 +2642,7 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ([0\-9]+\:[0\-9]+)
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         
 
@@ -2670,8 +2659,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator))])
                                             self._leafs = OrderedDict([
                                                 ('origin', YLeaf(YType.enumeration, 'origin')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -2694,7 +2682,6 @@ class BgpRib(Entity):
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
                                             self._children_name_map["aggregator"] = "aggregator"
-                                            self._children_yang_names.add("aggregator")
                                             self._segment_path = lambda: "attributes"
 
                                         def __setattr__(self, name, value):
@@ -2742,8 +2729,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -2784,27 +2770,39 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         .. attribute:: aigp
                                         
@@ -2840,8 +2838,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -2903,8 +2900,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['attr_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                                     ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -2949,20 +2945,20 @@ class BgpRib(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("loc-rib", ("loc_rib", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib)), ("neighbors", ("neighbors", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("loc-rib", ("loc_rib", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib)), ("neighbors", ("neighbors", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors))])
                     self._leafs = OrderedDict()
 
                     self.loc_rib = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib()
                     self.loc_rib.parent = self
                     self._children_name_map["loc_rib"] = "loc-rib"
-                    self._children_yang_names.add("loc-rib")
 
                     self.neighbors = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors()
                     self.neighbors.parent = self
                     self._children_name_map["neighbors"] = "neighbors"
-                    self._children_yang_names.add("neighbors")
                     self._segment_path = lambda: "ipv6-unicast"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast, [], name, value)
 
 
                 class LocRib(Entity):
@@ -3005,8 +3001,7 @@ class BgpRib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes))])
                         self._leafs = OrderedDict([
                             ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                         ])
@@ -3015,7 +3010,6 @@ class BgpRib(Entity):
                         self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes()
                         self.routes.parent = self
                         self._children_name_map["routes"] = "routes"
-                        self._children_yang_names.add("routes")
                         self._segment_path = lambda: "loc-rib"
 
                     def __setattr__(self, name, value):
@@ -3047,8 +3041,7 @@ class BgpRib(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route))])
+                            self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route))])
                             self._leafs = OrderedDict()
 
                             self.route = YList(self)
@@ -3123,8 +3116,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes))])
                                 self._leafs = OrderedDict([
                                     ('prefix', YLeaf(YType.str, 'prefix')),
                                     ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -3143,12 +3135,10 @@ class BgpRib(Entity):
                                 self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes()
                                 self.attributes.parent = self
                                 self._children_name_map["attributes"] = "attributes"
-                                self._children_yang_names.add("attributes")
 
                                 self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes()
                                 self.ext_attributes.parent = self
                                 self._children_name_map["ext_attributes"] = "ext-attributes"
-                                self._children_yang_names.add("ext-attributes")
                                 self._segment_path = lambda: "route"
 
                             def __setattr__(self, name, value):
@@ -3222,7 +3212,7 @@ class BgpRib(Entity):
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** ([0\-9]+\:[0\-9]+)
+                                			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 
 
@@ -3239,8 +3229,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator))])
                                     self._leafs = OrderedDict([
                                         ('origin', YLeaf(YType.enumeration, 'origin')),
                                         ('as_path', YLeaf(YType.str, 'as-path')),
@@ -3263,7 +3252,6 @@ class BgpRib(Entity):
                                     self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator()
                                     self.aggregator.parent = self
                                     self._children_name_map["aggregator"] = "aggregator"
-                                    self._children_yang_names.add("aggregator")
                                     self._segment_path = lambda: "attributes"
 
                                 def __setattr__(self, name, value):
@@ -3311,8 +3299,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_', YLeaf(YType.uint32, 'as')),
                                             ('as4', YLeaf(YType.uint32, 'as4')),
@@ -3353,27 +3340,39 @@ class BgpRib(Entity):
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                
+                                		**type**\: list of str
+                                
+                                			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                
+                                		**type**\: list of str
+                                
+                                			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                
+                                		**type**\: list of str
+                                
+                                			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
                                 .. attribute:: aigp
                                 
@@ -3409,8 +3408,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                    self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute))])
                                     self._leafs = OrderedDict([
                                         ('originator_id', YLeaf(YType.str, 'originator-id')),
                                         ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -3472,8 +3470,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['attr_type']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                             ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -3512,8 +3509,7 @@ class BgpRib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor))])
+                        self._child_classes = OrderedDict([("neighbor", ("neighbor", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor))])
                         self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
@@ -3575,8 +3571,7 @@ class BgpRib(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['neighbor_address']
-                            self._child_container_classes = OrderedDict([("adj-rib-in-pre", ("adj_rib_in_pre", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre)), ("adj-rib-in-post", ("adj_rib_in_post", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre)), ("adj-rib-out-post", ("adj_rib_out_post", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("adj-rib-in-pre", ("adj_rib_in_pre", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre)), ("adj-rib-in-post", ("adj_rib_in_post", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre)), ("adj-rib-out-post", ("adj_rib_out_post", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost))])
                             self._leafs = OrderedDict([
                                 ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                             ])
@@ -3585,22 +3580,18 @@ class BgpRib(Entity):
                             self.adj_rib_in_pre = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre()
                             self.adj_rib_in_pre.parent = self
                             self._children_name_map["adj_rib_in_pre"] = "adj-rib-in-pre"
-                            self._children_yang_names.add("adj-rib-in-pre")
 
                             self.adj_rib_in_post = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost()
                             self.adj_rib_in_post.parent = self
                             self._children_name_map["adj_rib_in_post"] = "adj-rib-in-post"
-                            self._children_yang_names.add("adj-rib-in-post")
 
                             self.adj_rib_out_pre = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre()
                             self.adj_rib_out_pre.parent = self
                             self._children_name_map["adj_rib_out_pre"] = "adj-rib-out-pre"
-                            self._children_yang_names.add("adj-rib-out-pre")
 
                             self.adj_rib_out_post = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost()
                             self.adj_rib_out_post.parent = self
                             self._children_name_map["adj_rib_out_post"] = "adj-rib-out-post"
-                            self._children_yang_names.add("adj-rib-out-post")
                             self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                         def __setattr__(self, name, value):
@@ -3641,8 +3632,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes))])
                                 self._leafs = OrderedDict([
                                     ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                 ])
@@ -3651,7 +3641,6 @@ class BgpRib(Entity):
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
                                 self._segment_path = lambda: "adj-rib-in-pre"
 
                             def __setattr__(self, name, value):
@@ -3683,8 +3672,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -3759,8 +3747,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -3779,12 +3766,10 @@ class BgpRib(Entity):
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
 
                                         self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes()
                                         self.ext_attributes.parent = self
                                         self._children_name_map["ext_attributes"] = "ext-attributes"
-                                        self._children_yang_names.add("ext-attributes")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -3858,7 +3843,7 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ([0\-9]+\:[0\-9]+)
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         
 
@@ -3875,8 +3860,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator))])
                                             self._leafs = OrderedDict([
                                                 ('origin', YLeaf(YType.enumeration, 'origin')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -3899,7 +3883,6 @@ class BgpRib(Entity):
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
                                             self._children_name_map["aggregator"] = "aggregator"
-                                            self._children_yang_names.add("aggregator")
                                             self._segment_path = lambda: "attributes"
 
                                         def __setattr__(self, name, value):
@@ -3947,8 +3930,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -3989,27 +3971,39 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         .. attribute:: aigp
                                         
@@ -4045,8 +4039,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -4108,8 +4101,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['attr_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                                     ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -4157,8 +4149,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes))])
                                 self._leafs = OrderedDict([
                                     ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                 ])
@@ -4167,7 +4158,6 @@ class BgpRib(Entity):
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
                                 self._segment_path = lambda: "adj-rib-in-post"
 
                             def __setattr__(self, name, value):
@@ -4199,8 +4189,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -4275,8 +4264,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -4295,12 +4283,10 @@ class BgpRib(Entity):
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
 
                                         self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes()
                                         self.ext_attributes.parent = self
                                         self._children_name_map["ext_attributes"] = "ext-attributes"
-                                        self._children_yang_names.add("ext-attributes")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -4374,7 +4360,7 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ([0\-9]+\:[0\-9]+)
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         
 
@@ -4391,8 +4377,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator))])
                                             self._leafs = OrderedDict([
                                                 ('origin', YLeaf(YType.enumeration, 'origin')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -4415,7 +4400,6 @@ class BgpRib(Entity):
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
                                             self._children_name_map["aggregator"] = "aggregator"
-                                            self._children_yang_names.add("aggregator")
                                             self._segment_path = lambda: "attributes"
 
                                         def __setattr__(self, name, value):
@@ -4463,8 +4447,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -4505,27 +4488,39 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         .. attribute:: aigp
                                         
@@ -4561,8 +4556,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -4624,8 +4618,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['attr_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                                     ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -4673,8 +4666,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes))])
                                 self._leafs = OrderedDict([
                                     ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                 ])
@@ -4683,7 +4675,6 @@ class BgpRib(Entity):
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
                                 self._segment_path = lambda: "adj-rib-out-pre"
 
                             def __setattr__(self, name, value):
@@ -4715,8 +4706,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -4791,8 +4781,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -4811,12 +4800,10 @@ class BgpRib(Entity):
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
 
                                         self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes()
                                         self.ext_attributes.parent = self
                                         self._children_name_map["ext_attributes"] = "ext-attributes"
-                                        self._children_yang_names.add("ext-attributes")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -4890,7 +4877,7 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ([0\-9]+\:[0\-9]+)
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         
 
@@ -4907,8 +4894,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator))])
                                             self._leafs = OrderedDict([
                                                 ('origin', YLeaf(YType.enumeration, 'origin')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -4931,7 +4917,6 @@ class BgpRib(Entity):
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
                                             self._children_name_map["aggregator"] = "aggregator"
-                                            self._children_yang_names.add("aggregator")
                                             self._segment_path = lambda: "attributes"
 
                                         def __setattr__(self, name, value):
@@ -4979,8 +4964,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -5021,27 +5005,39 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         .. attribute:: aigp
                                         
@@ -5077,8 +5073,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -5140,8 +5135,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['attr_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                                     ('attr_len', YLeaf(YType.uint16, 'attr-len')),
@@ -5189,8 +5183,7 @@ class BgpRib(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes))])
                                 self._leafs = OrderedDict([
                                     ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                 ])
@@ -5199,7 +5192,6 @@ class BgpRib(Entity):
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
                                 self._segment_path = lambda: "adj-rib-out-post"
 
                             def __setattr__(self, name, value):
@@ -5231,8 +5223,7 @@ class BgpRib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -5307,8 +5298,7 @@ class BgpRib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
@@ -5327,12 +5317,10 @@ class BgpRib(Entity):
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes()
                                         self.attributes.parent = self
                                         self._children_name_map["attributes"] = "attributes"
-                                        self._children_yang_names.add("attributes")
 
                                         self.ext_attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes()
                                         self.ext_attributes.parent = self
                                         self._children_name_map["ext_attributes"] = "ext-attributes"
-                                        self._children_yang_names.add("ext-attributes")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -5406,7 +5394,7 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ([0\-9]+\:[0\-9]+)
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         
 
@@ -5423,8 +5411,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator))])
                                             self._leafs = OrderedDict([
                                                 ('origin', YLeaf(YType.enumeration, 'origin')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -5447,7 +5434,6 @@ class BgpRib(Entity):
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
                                             self._children_name_map["aggregator"] = "aggregator"
-                                            self._children_yang_names.add("aggregator")
                                             self._segment_path = lambda: "attributes"
 
                                         def __setattr__(self, name, value):
@@ -5495,8 +5481,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -5537,27 +5522,39 @@ class BgpRib(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])\:(4[0\-2][0\-9][0\-4][0\-9][0\-6][0\-7][0\-2][0\-9][0\-6]\|[1\-3][0\-9]{9}\|[1\-9]([0\-9]{1,7})?[0\-9]\|[1\-9])
+                                        			**pattern:** ^route\\\-target\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6[0\-5][0\-5][0\-3][0\-5]\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,4}\|[0\-9])
+                                        			**pattern:** ^route\\\-target\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        		**type**\: list of str
+                                        
+                                        			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
                                         .. attribute:: aigp
                                         
@@ -5593,8 +5590,7 @@ class BgpRib(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._child_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('cluster_list', YLeafList(YType.str, 'cluster-list')),
@@ -5656,8 +5652,7 @@ class BgpRib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['attr_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attr_type', YLeaf(YType.uint16, 'attr-type')),
                                                     ('attr_len', YLeaf(YType.uint16, 'attr-len')),

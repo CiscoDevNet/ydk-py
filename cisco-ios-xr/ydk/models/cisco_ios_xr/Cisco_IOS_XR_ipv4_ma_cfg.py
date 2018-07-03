@@ -111,8 +111,7 @@ class Ipv4NetworkGlobal(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("unnumbered", ("unnumbered", Ipv4NetworkGlobal.Unnumbered)), ("qppb", ("qppb", Ipv4NetworkGlobal.Qppb))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("unnumbered", ("unnumbered", Ipv4NetworkGlobal.Unnumbered)), ("qppb", ("qppb", Ipv4NetworkGlobal.Qppb))])
         self._leafs = OrderedDict([
             ('source_route', YLeaf(YType.boolean, 'source-route')),
             ('reassemble_max_packets', YLeaf(YType.uint32, 'reassemble-max-packets')),
@@ -125,12 +124,10 @@ class Ipv4NetworkGlobal(Entity):
         self.unnumbered = Ipv4NetworkGlobal.Unnumbered()
         self.unnumbered.parent = self
         self._children_name_map["unnumbered"] = "unnumbered"
-        self._children_yang_names.add("unnumbered")
 
         self.qppb = Ipv4NetworkGlobal.Qppb()
         self.qppb.parent = self
         self._children_name_map["qppb"] = "qppb"
-        self._children_yang_names.add("qppb")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global"
 
     def __setattr__(self, name, value):
@@ -162,16 +159,17 @@ class Ipv4NetworkGlobal(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("mpls", ("mpls", Ipv4NetworkGlobal.Unnumbered.Mpls))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("mpls", ("mpls", Ipv4NetworkGlobal.Unnumbered.Mpls))])
             self._leafs = OrderedDict()
 
             self.mpls = Ipv4NetworkGlobal.Unnumbered.Mpls()
             self.mpls.parent = self
             self._children_name_map["mpls"] = "mpls"
-            self._children_yang_names.add("mpls")
             self._segment_path = lambda: "unnumbered"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipv4NetworkGlobal.Unnumbered, [], name, value)
 
 
         class Mpls(Entity):
@@ -198,16 +196,17 @@ class Ipv4NetworkGlobal(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("te", ("te", Ipv4NetworkGlobal.Unnumbered.Mpls.Te))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("te", ("te", Ipv4NetworkGlobal.Unnumbered.Mpls.Te))])
                 self._leafs = OrderedDict()
 
                 self.te = Ipv4NetworkGlobal.Unnumbered.Mpls.Te()
                 self.te.parent = self
                 self._children_name_map["te"] = "te"
-                self._children_yang_names.add("te")
                 self._segment_path = lambda: "mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv4NetworkGlobal.Unnumbered.Mpls, [], name, value)
 
 
             class Te(Entity):
@@ -234,8 +233,7 @@ class Ipv4NetworkGlobal(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface', YLeaf(YType.str, 'interface')),
                     ])
@@ -276,8 +274,7 @@ class Ipv4NetworkGlobal(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('source', YLeaf(YType.enumeration, 'source')),
                 ('destination', YLeaf(YType.enumeration, 'destination')),
@@ -323,8 +320,7 @@ class SubscriberPta(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
             ('tcp_mss_adjust', YLeaf(YType.uint32, 'tcp-mss-adjust')),
         ])

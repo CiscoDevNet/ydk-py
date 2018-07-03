@@ -104,20 +104,20 @@ class Ipv4Network(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ipv4Network.Nodes)), ("Cisco-IOS-XR-ipv4-ma-oper:interfaces", ("interfaces", Ipv4Network.Interfaces))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ipv4Network.Nodes)), ("Cisco-IOS-XR-ipv4-ma-oper:interfaces", ("interfaces", Ipv4Network.Interfaces))])
         self._leafs = OrderedDict()
 
         self.nodes = Ipv4Network.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
 
         self.interfaces = Ipv4Network.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "Cisco-IOS-XR-ipv4-ma-oper:interfaces"
-        self._children_yang_names.add("Cisco-IOS-XR-ipv4-ma-oper:interfaces")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-io-oper:ipv4-network"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ipv4Network, [], name, value)
 
 
     class Nodes(Entity):
@@ -144,8 +144,7 @@ class Ipv4Network(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Ipv4Network.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Ipv4Network.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -193,8 +192,7 @@ class Ipv4Network(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("interface-data", ("interface_data", Ipv4Network.Nodes.Node.InterfaceData)), ("statistics", ("statistics", Ipv4Network.Nodes.Node.Statistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interface-data", ("interface_data", Ipv4Network.Nodes.Node.InterfaceData)), ("statistics", ("statistics", Ipv4Network.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -203,12 +201,10 @@ class Ipv4Network(Entity):
                 self.interface_data = Ipv4Network.Nodes.Node.InterfaceData()
                 self.interface_data.parent = self
                 self._children_name_map["interface_data"] = "interface-data"
-                self._children_yang_names.add("interface-data")
 
                 self.statistics = Ipv4Network.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/%s" % self._segment_path()
 
@@ -245,20 +241,20 @@ class Ipv4Network(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipv4Network.Nodes.Node.InterfaceData.Vrfs)), ("summary", ("summary", Ipv4Network.Nodes.Node.InterfaceData.Summary))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipv4Network.Nodes.Node.InterfaceData.Vrfs)), ("summary", ("summary", Ipv4Network.Nodes.Node.InterfaceData.Summary))])
                     self._leafs = OrderedDict()
 
                     self.vrfs = Ipv4Network.Nodes.Node.InterfaceData.Vrfs()
                     self.vrfs.parent = self
                     self._children_name_map["vrfs"] = "vrfs"
-                    self._children_yang_names.add("vrfs")
 
                     self.summary = Ipv4Network.Nodes.Node.InterfaceData.Summary()
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
                     self._segment_path = lambda: "interface-data"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData, [], name, value)
 
 
                 class Vrfs(Entity):
@@ -286,8 +282,7 @@ class Ipv4Network(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf))])
+                        self._child_classes = OrderedDict([("vrf", ("vrf", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf))])
                         self._leafs = OrderedDict()
 
                         self.vrf = YList(self)
@@ -333,8 +328,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['vrf_name']
-                            self._child_container_classes = OrderedDict([("briefs", ("briefs", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs)), ("details", ("details", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("briefs", ("briefs", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs)), ("details", ("details", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details))])
                             self._leafs = OrderedDict([
                                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ])
@@ -343,12 +337,10 @@ class Ipv4Network(Entity):
                             self.briefs = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs()
                             self.briefs.parent = self
                             self._children_name_map["briefs"] = "briefs"
-                            self._children_yang_names.add("briefs")
 
                             self.details = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details()
                             self.details.parent = self
                             self._children_name_map["details"] = "details"
-                            self._children_yang_names.add("details")
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -380,8 +372,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("brief", ("brief", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief))])
+                                self._child_classes = OrderedDict([("brief", ("brief", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief))])
                                 self._leafs = OrderedDict()
 
                                 self.brief = YList(self)
@@ -442,8 +433,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('primary_address', YLeaf(YType.str, 'primary-address')),
@@ -459,7 +449,7 @@ class Ipv4Network(Entity):
                                     self._segment_path = lambda: "brief" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', 'primary_address', 'vrf_id', 'vrf_name', 'line_state'], name, value)
+                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', u'primary_address', u'vrf_id', u'vrf_name', u'line_state'], name, value)
 
 
                         class Details(Entity):
@@ -487,8 +477,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("detail", ("detail", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail))])
+                                self._child_classes = OrderedDict([("detail", ("detail", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail))])
                                 self._leafs = OrderedDict()
 
                                 self.detail = YList(self)
@@ -675,8 +664,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("acl", ("acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("pub-utime", ("pub_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime)), ("idb-utime", ("idb_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime))])
-                                    self._child_list_classes = OrderedDict([("multicast-group", ("multicast_group", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress))])
+                                    self._child_classes = OrderedDict([("acl", ("acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("pub-utime", ("pub_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime)), ("idb-utime", ("idb_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('primary_address', YLeaf(YType.str, 'primary-address')),
@@ -717,59 +705,49 @@ class Ipv4Network(Entity):
                                     self.acl = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl()
                                     self.acl.parent = self
                                     self._children_name_map["acl"] = "acl"
-                                    self._children_yang_names.add("acl")
 
                                     self.multi_acl = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl()
                                     self.multi_acl.parent = self
                                     self._children_name_map["multi_acl"] = "multi-acl"
-                                    self._children_yang_names.add("multi-acl")
 
                                     self.helper_address = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress()
                                     self.helper_address.parent = self
                                     self._children_name_map["helper_address"] = "helper-address"
-                                    self._children_yang_names.add("helper-address")
 
                                     self.rpf = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf()
                                     self.rpf.parent = self
                                     self._children_name_map["rpf"] = "rpf"
-                                    self._children_yang_names.add("rpf")
 
                                     self.bgp_pa = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa()
                                     self.bgp_pa.parent = self
                                     self._children_name_map["bgp_pa"] = "bgp-pa"
-                                    self._children_yang_names.add("bgp-pa")
 
                                     self.pub_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime()
                                     self.pub_utime.parent = self
                                     self._children_name_map["pub_utime"] = "pub-utime"
-                                    self._children_yang_names.add("pub-utime")
 
                                     self.idb_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
                                     self.idb_utime.parent = self
                                     self._children_name_map["idb_utime"] = "idb-utime"
-                                    self._children_yang_names.add("idb-utime")
 
                                     self.caps_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
                                     self.caps_utime.parent = self
                                     self._children_name_map["caps_utime"] = "caps-utime"
-                                    self._children_yang_names.add("caps-utime")
 
                                     self.fwd_en_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
                                     self.fwd_en_utime.parent = self
                                     self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-                                    self._children_yang_names.add("fwd-en-utime")
 
                                     self.fwd_dis_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
                                     self.fwd_dis_utime.parent = self
                                     self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-                                    self._children_yang_names.add("fwd-dis-utime")
 
                                     self.multicast_group = YList(self)
                                     self.secondary_address = YList(self)
                                     self._segment_path = lambda: "detail" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'primary_address', 'vrf_id', 'line_state', 'prefix_length', 'route_tag', 'mtu', 'unreachable', 'redirect', 'direct_broadcast', 'mask_reply', 'rg_id_exists', 'mlacp_active', 'unnumbered_interface_name', 'proxy_arp_disabled', 'flow_tag_src', 'flow_tag_dst'], name, value)
+                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', u'primary_address', u'vrf_id', u'line_state', u'prefix_length', u'route_tag', u'mtu', u'unreachable', u'redirect', u'direct_broadcast', u'mask_reply', u'rg_id_exists', u'mlacp_active', u'unnumbered_interface_name', u'proxy_arp_disabled', u'flow_tag_src', u'flow_tag_dst'], name, value)
 
 
                                 class Acl(Entity):
@@ -811,8 +789,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('inbound', YLeaf(YType.str, 'inbound')),
                                             ('outbound', YLeaf(YType.str, 'outbound')),
@@ -826,7 +803,7 @@ class Ipv4Network(Entity):
                                         self._segment_path = lambda: "acl"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, ['inbound', 'outbound', 'common_in_bound', 'common_out_bound'], name, value)
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, [u'inbound', u'outbound', u'common_in_bound', u'common_out_bound'], name, value)
 
 
                                 class MultiAcl(Entity):
@@ -863,8 +840,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("inbound", ("inbound", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound)), ("outbound", ("outbound", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound)), ("common", ("common", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common))])
+                                        self._child_classes = OrderedDict([("inbound", ("inbound", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound)), ("outbound", ("outbound", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound)), ("common", ("common", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common))])
                                         self._leafs = OrderedDict()
 
                                         self.inbound = YList(self)
@@ -900,8 +876,7 @@ class Ipv4Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -909,7 +884,7 @@ class Ipv4Network(Entity):
                                             self._segment_path = lambda: "inbound"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, [u'entry'], name, value)
 
 
                                     class Outbound(Entity):
@@ -936,8 +911,7 @@ class Ipv4Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -945,7 +919,7 @@ class Ipv4Network(Entity):
                                             self._segment_path = lambda: "outbound"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, [u'entry'], name, value)
 
 
                                     class Common(Entity):
@@ -972,8 +946,7 @@ class Ipv4Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -981,7 +954,7 @@ class Ipv4Network(Entity):
                                             self._segment_path = lambda: "common"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, ['entry'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, [u'entry'], name, value)
 
 
                                 class HelperAddress(Entity):
@@ -1008,8 +981,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("address-array", ("address_array", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray))])
+                                        self._child_classes = OrderedDict([("address-array", ("address_array", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray))])
                                         self._leafs = OrderedDict()
 
                                         self.address_array = YList(self)
@@ -1045,8 +1017,7 @@ class Ipv4Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('entry', YLeaf(YType.str, 'entry')),
                                             ])
@@ -1054,7 +1025,7 @@ class Ipv4Network(Entity):
                                             self._segment_path = lambda: "address-array"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, ['entry'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, [u'entry'], name, value)
 
 
                                 class Rpf(Entity):
@@ -1096,8 +1067,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.boolean, 'enable')),
                                             ('allow_default_route', YLeaf(YType.boolean, 'allow-default-route')),
@@ -1111,7 +1081,7 @@ class Ipv4Network(Entity):
                                         self._segment_path = lambda: "rpf"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
 
 
                                 class BgpPa(Entity):
@@ -1143,20 +1113,20 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("input", ("input", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input)), ("output", ("output", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("input", ("input", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input)), ("output", ("output", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output))])
                                         self._leafs = OrderedDict()
 
                                         self.input = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input()
                                         self.input.parent = self
                                         self._children_name_map["input"] = "input"
-                                        self._children_yang_names.add("input")
 
                                         self.output = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output()
                                         self.output.parent = self
                                         self._children_name_map["output"] = "output"
-                                        self._children_yang_names.add("output")
                                         self._segment_path = lambda: "bgp-pa"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, [], name, value)
 
 
                                     class Input(Entity):
@@ -1193,8 +1163,7 @@ class Ipv4Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                                 ('source', YLeaf(YType.boolean, 'source')),
@@ -1206,7 +1175,7 @@ class Ipv4Network(Entity):
                                             self._segment_path = lambda: "input"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
 
 
                                     class Output(Entity):
@@ -1243,8 +1212,7 @@ class Ipv4Network(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                                 ('source', YLeaf(YType.boolean, 'source')),
@@ -1256,7 +1224,7 @@ class Ipv4Network(Entity):
                                             self._segment_path = lambda: "output"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
 
 
                                 class PubUtime(Entity):
@@ -1278,8 +1246,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "pub-utime"
 
@@ -1303,8 +1270,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "idb-utime"
 
@@ -1328,8 +1294,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "caps-utime"
 
@@ -1353,8 +1318,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-en-utime"
 
@@ -1378,8 +1342,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-dis-utime"
 
@@ -1410,8 +1373,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('group_address', YLeaf(YType.str, 'group-address')),
                                         ])
@@ -1419,7 +1381,7 @@ class Ipv4Network(Entity):
                                         self._segment_path = lambda: "multicast-group"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['group_address'], name, value)
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, [u'group_address'], name, value)
 
 
                                 class SecondaryAddress(Entity):
@@ -1462,8 +1424,7 @@ class Ipv4Network(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -1475,7 +1436,7 @@ class Ipv4Network(Entity):
                                         self._segment_path = lambda: "secondary-address"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, ['address', 'prefix_length', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, [u'address', u'prefix_length', u'route_tag'], name, value)
 
 
                 class Summary(Entity):
@@ -1525,8 +1486,7 @@ class Ipv4Network(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("if-up-up", ("if_up_up", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp)), ("if-up-down", ("if_up_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown)), ("if-down-down", ("if_down_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown)), ("if-shutdown-down", ("if_shutdown_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("if-up-up", ("if_up_up", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp)), ("if-up-down", ("if_up_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown)), ("if-down-down", ("if_down_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown)), ("if-shutdown-down", ("if_shutdown_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown))])
                         self._leafs = OrderedDict([
                             ('if_up_down_basecaps_up', YLeaf(YType.uint32, 'if-up-down-basecaps-up')),
                         ])
@@ -1535,26 +1495,22 @@ class Ipv4Network(Entity):
                         self.if_up_up = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp()
                         self.if_up_up.parent = self
                         self._children_name_map["if_up_up"] = "if-up-up"
-                        self._children_yang_names.add("if-up-up")
 
                         self.if_up_down = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown()
                         self.if_up_down.parent = self
                         self._children_name_map["if_up_down"] = "if-up-down"
-                        self._children_yang_names.add("if-up-down")
 
                         self.if_down_down = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown()
                         self.if_down_down.parent = self
                         self._children_name_map["if_down_down"] = "if-down-down"
-                        self._children_yang_names.add("if-down-down")
 
                         self.if_shutdown_down = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown()
                         self.if_shutdown_down.parent = self
                         self._children_name_map["if_shutdown_down"] = "if-shutdown-down"
-                        self._children_yang_names.add("if-shutdown-down")
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
+                        self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary, [u'if_up_down_basecaps_up'], name, value)
 
 
                     class IfUpUp(Entity):
@@ -1597,8 +1553,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
                                 ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
@@ -1610,7 +1565,7 @@ class Ipv4Network(Entity):
                             self._segment_path = lambda: "if-up-up"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
                     class IfUpDown(Entity):
@@ -1653,8 +1608,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
                                 ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
@@ -1666,7 +1620,7 @@ class Ipv4Network(Entity):
                             self._segment_path = lambda: "if-up-down"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
                     class IfDownDown(Entity):
@@ -1709,8 +1663,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
                                 ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
@@ -1722,7 +1675,7 @@ class Ipv4Network(Entity):
                             self._segment_path = lambda: "if-down-down"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
                     class IfShutdownDown(Entity):
@@ -1765,8 +1718,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
                                 ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
@@ -1778,7 +1730,7 @@ class Ipv4Network(Entity):
                             self._segment_path = lambda: "if-shutdown-down"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
             class Statistics(Entity):
@@ -1806,15 +1758,16 @@ class Ipv4Network(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("traffic", ("traffic", Ipv4Network.Nodes.Node.Statistics.Traffic))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("traffic", ("traffic", Ipv4Network.Nodes.Node.Statistics.Traffic))])
                     self._leafs = OrderedDict()
 
                     self.traffic = Ipv4Network.Nodes.Node.Statistics.Traffic()
                     self.traffic.parent = self
                     self._children_name_map["traffic"] = "traffic"
-                    self._children_yang_names.add("traffic")
                     self._segment_path = lambda: "statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv4Network.Nodes.Node.Statistics, [], name, value)
 
 
                 class Traffic(Entity):
@@ -1846,20 +1799,20 @@ class Ipv4Network(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("ipv4-stats", ("ipv4_stats", Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats)), ("icmp-stats", ("icmp_stats", Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("ipv4-stats", ("ipv4_stats", Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats)), ("icmp-stats", ("icmp_stats", Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats))])
                         self._leafs = OrderedDict()
 
                         self.ipv4_stats = Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats()
                         self.ipv4_stats.parent = self
                         self._children_name_map["ipv4_stats"] = "ipv4-stats"
-                        self._children_yang_names.add("ipv4-stats")
 
                         self.icmp_stats = Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats()
                         self.icmp_stats.parent = self
                         self._children_name_map["icmp_stats"] = "icmp-stats"
-                        self._children_yang_names.add("icmp-stats")
                         self._segment_path = lambda: "traffic"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic, [], name, value)
 
 
                     class Ipv4Stats(Entity):
@@ -2196,8 +2149,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('input_packets', YLeaf(YType.uint32, 'input-packets')),
                                 ('received_packets', YLeaf(YType.uint32, 'received-packets')),
@@ -2574,8 +2526,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('received', YLeaf(YType.uint32, 'received')),
                                 ('checksum_error', YLeaf(YType.uint32, 'checksum-error')),
@@ -2682,8 +2633,7 @@ class Ipv4Network(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Ipv4Network.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Ipv4Network.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -2725,8 +2675,7 @@ class Ipv4Network(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipv4Network.Interfaces.Interface.Vrfs))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipv4Network.Interfaces.Interface.Vrfs))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
@@ -2735,7 +2684,6 @@ class Ipv4Network(Entity):
                 self.vrfs = Ipv4Network.Interfaces.Interface.Vrfs()
                 self.vrfs.parent = self
                 self._children_name_map["vrfs"] = "vrfs"
-                self._children_yang_names.add("vrfs")
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/%s" % self._segment_path()
 
@@ -2767,8 +2715,7 @@ class Ipv4Network(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv4Network.Interfaces.Interface.Vrfs.Vrf))])
+                    self._child_classes = OrderedDict([("vrf", ("vrf", Ipv4Network.Interfaces.Interface.Vrfs.Vrf))])
                     self._leafs = OrderedDict()
 
                     self.vrf = YList(self)
@@ -2814,8 +2761,7 @@ class Ipv4Network(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['vrf_name']
-                        self._child_container_classes = OrderedDict([("detail", ("detail", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail)), ("brief", ("brief", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("detail", ("detail", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail)), ("brief", ("brief", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief))])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ])
@@ -2824,12 +2770,10 @@ class Ipv4Network(Entity):
                         self.detail = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail()
                         self.detail.parent = self
                         self._children_name_map["detail"] = "detail"
-                        self._children_yang_names.add("detail")
 
                         self.brief = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief()
                         self.brief.parent = self
                         self._children_name_map["brief"] = "brief"
-                        self._children_yang_names.add("brief")
                         self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -3006,8 +2950,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("acl", ("acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa)), ("pub-utime", ("pub_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime)), ("idb-utime", ("idb_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime))])
-                            self._child_list_classes = OrderedDict([("multicast-group", ("multicast_group", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress))])
+                            self._child_classes = OrderedDict([("acl", ("acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa)), ("pub-utime", ("pub_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime)), ("idb-utime", ("idb_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress))])
                             self._leafs = OrderedDict([
                                 ('primary_address', YLeaf(YType.str, 'primary-address')),
                                 ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
@@ -3046,52 +2989,42 @@ class Ipv4Network(Entity):
                             self.acl = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl()
                             self.acl.parent = self
                             self._children_name_map["acl"] = "acl"
-                            self._children_yang_names.add("acl")
 
                             self.multi_acl = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl()
                             self.multi_acl.parent = self
                             self._children_name_map["multi_acl"] = "multi-acl"
-                            self._children_yang_names.add("multi-acl")
 
                             self.helper_address = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress()
                             self.helper_address.parent = self
                             self._children_name_map["helper_address"] = "helper-address"
-                            self._children_yang_names.add("helper-address")
 
                             self.rpf = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf()
                             self.rpf.parent = self
                             self._children_name_map["rpf"] = "rpf"
-                            self._children_yang_names.add("rpf")
 
                             self.bgp_pa = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa()
                             self.bgp_pa.parent = self
                             self._children_name_map["bgp_pa"] = "bgp-pa"
-                            self._children_yang_names.add("bgp-pa")
 
                             self.pub_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime()
                             self.pub_utime.parent = self
                             self._children_name_map["pub_utime"] = "pub-utime"
-                            self._children_yang_names.add("pub-utime")
 
                             self.idb_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime()
                             self.idb_utime.parent = self
                             self._children_name_map["idb_utime"] = "idb-utime"
-                            self._children_yang_names.add("idb-utime")
 
                             self.caps_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime()
                             self.caps_utime.parent = self
                             self._children_name_map["caps_utime"] = "caps-utime"
-                            self._children_yang_names.add("caps-utime")
 
                             self.fwd_en_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime()
                             self.fwd_en_utime.parent = self
                             self._children_name_map["fwd_en_utime"] = "fwd-en-utime"
-                            self._children_yang_names.add("fwd-en-utime")
 
                             self.fwd_dis_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime()
                             self.fwd_dis_utime.parent = self
                             self._children_name_map["fwd_dis_utime"] = "fwd-dis-utime"
-                            self._children_yang_names.add("fwd-dis-utime")
 
                             self.multicast_group = YList(self)
                             self.secondary_address = YList(self)
@@ -3140,8 +3073,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('inbound', YLeaf(YType.str, 'inbound')),
                                     ('outbound', YLeaf(YType.str, 'outbound')),
@@ -3192,8 +3124,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("inbound", ("inbound", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound)), ("outbound", ("outbound", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound)), ("common", ("common", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common))])
+                                self._child_classes = OrderedDict([("inbound", ("inbound", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound)), ("outbound", ("outbound", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound)), ("common", ("common", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common))])
                                 self._leafs = OrderedDict()
 
                                 self.inbound = YList(self)
@@ -3229,8 +3160,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.str, 'entry')),
                                     ])
@@ -3265,8 +3195,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.str, 'entry')),
                                     ])
@@ -3301,8 +3230,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.str, 'entry')),
                                     ])
@@ -3337,8 +3265,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("address-array", ("address_array", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray))])
+                                self._child_classes = OrderedDict([("address-array", ("address_array", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray))])
                                 self._leafs = OrderedDict()
 
                                 self.address_array = YList(self)
@@ -3374,8 +3301,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.str, 'entry')),
                                     ])
@@ -3425,8 +3351,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                     ('allow_default_route', YLeaf(YType.boolean, 'allow-default-route')),
@@ -3472,20 +3397,20 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("input", ("input", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input)), ("output", ("output", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("input", ("input", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input)), ("output", ("output", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output))])
                                 self._leafs = OrderedDict()
 
                                 self.input = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input()
                                 self.input.parent = self
                                 self._children_name_map["input"] = "input"
-                                self._children_yang_names.add("input")
 
                                 self.output = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output()
                                 self.output.parent = self
                                 self._children_name_map["output"] = "output"
-                                self._children_yang_names.add("output")
                                 self._segment_path = lambda: "bgp-pa"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa, [], name, value)
 
 
                             class Input(Entity):
@@ -3522,8 +3447,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('enable', YLeaf(YType.boolean, 'enable')),
                                         ('source', YLeaf(YType.boolean, 'source')),
@@ -3572,8 +3496,7 @@ class Ipv4Network(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('enable', YLeaf(YType.boolean, 'enable')),
                                         ('source', YLeaf(YType.boolean, 'source')),
@@ -3607,8 +3530,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "pub-utime"
 
@@ -3632,8 +3554,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "idb-utime"
 
@@ -3657,8 +3578,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "caps-utime"
 
@@ -3682,8 +3602,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "fwd-en-utime"
 
@@ -3707,8 +3626,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "fwd-dis-utime"
 
@@ -3739,8 +3657,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('group_address', YLeaf(YType.str, 'group-address')),
                                 ])
@@ -3791,8 +3708,7 @@ class Ipv4Network(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address', YLeaf(YType.str, 'address')),
                                     ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -3851,8 +3767,7 @@ class Ipv4Network(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('primary_address', YLeaf(YType.str, 'primary-address')),
                                 ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),

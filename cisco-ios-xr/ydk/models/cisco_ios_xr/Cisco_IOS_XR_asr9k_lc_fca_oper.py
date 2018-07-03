@@ -175,15 +175,16 @@ class MpaInternal(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", MpaInternal.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", MpaInternal.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = MpaInternal.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(MpaInternal, [], name, value)
 
 
     class Nodes(Entity):
@@ -210,8 +211,7 @@ class MpaInternal(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", MpaInternal.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", MpaInternal.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -253,8 +253,7 @@ class MpaInternal(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("bay", ("bay", MpaInternal.Nodes.Node.Bay))])
+                self._child_classes = OrderedDict([("bay", ("bay", MpaInternal.Nodes.Node.Bay))])
                 self._leafs = OrderedDict([
                     ('node', YLeaf(YType.str, 'node')),
                 ])
@@ -299,8 +298,7 @@ class MpaInternal(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['number']
-                    self._child_container_classes = OrderedDict([("ifsubsies", ("ifsubsies", MpaInternal.Nodes.Node.Bay.Ifsubsies))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ifsubsies", ("ifsubsies", MpaInternal.Nodes.Node.Bay.Ifsubsies))])
                     self._leafs = OrderedDict([
                         ('number', YLeaf(YType.int32, 'number')),
                     ])
@@ -309,7 +307,6 @@ class MpaInternal(Entity):
                     self.ifsubsies = MpaInternal.Nodes.Node.Bay.Ifsubsies()
                     self.ifsubsies.parent = self
                     self._children_name_map["ifsubsies"] = "ifsubsies"
-                    self._children_yang_names.add("ifsubsies")
                     self._segment_path = lambda: "bay" + "[number='" + str(self.number) + "']"
 
                 def __setattr__(self, name, value):
@@ -340,8 +337,7 @@ class MpaInternal(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ifsubsy", ("ifsubsy", MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy))])
+                        self._child_classes = OrderedDict([("ifsubsy", ("ifsubsy", MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy))])
                         self._leafs = OrderedDict()
 
                         self.ifsubsy = YList(self)
@@ -382,8 +378,7 @@ class MpaInternal(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['number']
-                            self._child_container_classes = OrderedDict([("mpa-internal-info", ("mpa_internal_info", MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("mpa-internal-info", ("mpa_internal_info", MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo))])
                             self._leafs = OrderedDict([
                                 ('number', YLeaf(YType.str, 'number')),
                             ])
@@ -392,7 +387,6 @@ class MpaInternal(Entity):
                             self.mpa_internal_info = MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo()
                             self.mpa_internal_info.parent = self
                             self._children_name_map["mpa_internal_info"] = "mpa-internal-info"
-                            self._children_yang_names.add("mpa-internal-info")
                             self._segment_path = lambda: "ifsubsy" + "[number='" + str(self.number) + "']"
 
                         def __setattr__(self, name, value):
@@ -488,8 +482,7 @@ class MpaInternal(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('bay', YLeaf(YType.uint32, 'bay')),
                                     ('ifsubsys', YLeaf(YType.uint32, 'ifsubsys')),
@@ -546,15 +539,16 @@ class Mpa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Mpa.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Mpa.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Mpa.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Mpa, [], name, value)
 
 
     class Nodes(Entity):
@@ -581,8 +575,7 @@ class Mpa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Mpa.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Mpa.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -624,8 +617,7 @@ class Mpa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("bay", ("bay", Mpa.Nodes.Node.Bay))])
+                self._child_classes = OrderedDict([("bay", ("bay", Mpa.Nodes.Node.Bay))])
                 self._leafs = OrderedDict([
                     ('node', YLeaf(YType.str, 'node')),
                 ])
@@ -670,8 +662,7 @@ class Mpa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['number']
-                    self._child_container_classes = OrderedDict([("mpa-detail-table", ("mpa_detail_table", Mpa.Nodes.Node.Bay.MpaDetailTable))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("mpa-detail-table", ("mpa_detail_table", Mpa.Nodes.Node.Bay.MpaDetailTable))])
                     self._leafs = OrderedDict([
                         ('number', YLeaf(YType.int32, 'number')),
                     ])
@@ -680,7 +671,6 @@ class Mpa(Entity):
                     self.mpa_detail_table = Mpa.Nodes.Node.Bay.MpaDetailTable()
                     self.mpa_detail_table.parent = self
                     self._children_name_map["mpa_detail_table"] = "mpa-detail-table"
-                    self._children_yang_names.add("mpa-detail-table")
                     self._segment_path = lambda: "bay" + "[number='" + str(self.number) + "']"
 
                 def __setattr__(self, name, value):
@@ -711,15 +701,16 @@ class Mpa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("mpa-detail", ("mpa_detail", Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("mpa-detail", ("mpa_detail", Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail))])
                         self._leafs = OrderedDict()
 
                         self.mpa_detail = Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail()
                         self.mpa_detail.parent = self
                         self._children_name_map["mpa_detail"] = "mpa-detail"
-                        self._children_yang_names.add("mpa-detail")
                         self._segment_path = lambda: "mpa-detail-table"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpa.Nodes.Node.Bay.MpaDetailTable, [], name, value)
 
 
                     class MpaDetail(Entity):
@@ -822,8 +813,7 @@ class Mpa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('bay_number', YLeaf(YType.uint16, 'bay-number')),
                                 ('is_spa_inserted', YLeaf(YType.boolean, 'is-spa-inserted')),
@@ -855,7 +845,7 @@ class Mpa(Entity):
                             self._segment_path = lambda: "mpa-detail"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, ['bay_number', 'is_spa_inserted', 'spa_type', 'is_spa_admin_up', 'spa_oper_state', 'is_spa_power_admin_up', 'is_spa_powered', 'is_spa_in_reset', 'last_reset_reason', 'last_failure_reason', 'insertion_time', 'last_ready_time', 'up_time'], name, value)
+                            self._perform_setattr(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, [u'bay_number', u'is_spa_inserted', u'spa_type', u'is_spa_admin_up', u'spa_oper_state', u'is_spa_power_admin_up', u'is_spa_powered', u'is_spa_in_reset', u'last_reset_reason', u'last_failure_reason', u'insertion_time', u'last_ready_time', u'up_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Mpa()

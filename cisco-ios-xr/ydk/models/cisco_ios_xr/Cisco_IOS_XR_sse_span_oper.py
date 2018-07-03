@@ -45,15 +45,16 @@ class Ssespan(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ssespan.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ssespan.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Ssespan.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-sse-span-oper:ssespan"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ssespan, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class Ssespan(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Ssespan.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Ssespan.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -133,8 +133,7 @@ class Ssespan(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node']
-                self._child_container_classes = OrderedDict([("span-mirr-infos", ("span_mirr_infos", Ssespan.Nodes.Node.SpanMirrInfos)), ("spanudf", ("spanudf", Ssespan.Nodes.Node.Spanudf)), ("span-sess-infos", ("span_sess_infos", Ssespan.Nodes.Node.SpanSessInfos))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("span-mirr-infos", ("span_mirr_infos", Ssespan.Nodes.Node.SpanMirrInfos)), ("spanudf", ("spanudf", Ssespan.Nodes.Node.Spanudf)), ("span-sess-infos", ("span_sess_infos", Ssespan.Nodes.Node.SpanSessInfos))])
                 self._leafs = OrderedDict([
                     ('node', YLeaf(YType.str, 'node')),
                 ])
@@ -143,17 +142,14 @@ class Ssespan(Entity):
                 self.span_mirr_infos = Ssespan.Nodes.Node.SpanMirrInfos()
                 self.span_mirr_infos.parent = self
                 self._children_name_map["span_mirr_infos"] = "span-mirr-infos"
-                self._children_yang_names.add("span-mirr-infos")
 
                 self.spanudf = Ssespan.Nodes.Node.Spanudf()
                 self.spanudf.parent = self
                 self._children_name_map["spanudf"] = "spanudf"
-                self._children_yang_names.add("spanudf")
 
                 self.span_sess_infos = Ssespan.Nodes.Node.SpanSessInfos()
                 self.span_sess_infos.parent = self
                 self._children_name_map["span_sess_infos"] = "span-sess-infos"
-                self._children_yang_names.add("span-sess-infos")
                 self._segment_path = lambda: "node" + "[node='" + str(self.node) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sse-span-oper:ssespan/nodes/%s" % self._segment_path()
 
@@ -185,8 +181,7 @@ class Ssespan(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("span-mirr-info", ("span_mirr_info", Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo))])
+                    self._child_classes = OrderedDict([("span-mirr-info", ("span_mirr_info", Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo))])
                     self._leafs = OrderedDict()
 
                     self.span_mirr_info = YList(self)
@@ -383,8 +378,7 @@ class Ssespan(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['intf_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('intf_name', YLeaf(YType.str, 'intf-name')),
                             ('src_ifh', YLeaf(YType.uint32, 'src-ifh')),
@@ -438,7 +432,7 @@ class Ssespan(Entity):
                         self._segment_path = lambda: "span-mirr-info" + "[intf-name='" + str(self.intf_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo, ['intf_name', 'src_ifh', 'intf_name_xr', 'v4_acl_flag', 'v6_acl_flag', 'gre_acl_flag', 'v4state', 'v6state', 'gre_state', 'v4sessid', 'v6sessid', 'gre_sessid', 'v4dst_type', 'v6dst_type', 'gredst_type', 'v4statsptr', 'v6statsptr', 'grev4statsptr', 'grev6statsptr', 'mplsv4stats', 'mplsv6pkts', 'np_umask', 'uidb', 'sft_hw_data'], name, value)
+                        self._perform_setattr(Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo, ['intf_name', u'src_ifh', u'intf_name_xr', u'v4_acl_flag', u'v6_acl_flag', u'gre_acl_flag', u'v4state', u'v6state', u'gre_state', u'v4sessid', u'v6sessid', u'gre_sessid', u'v4dst_type', u'v6dst_type', u'gredst_type', u'v4statsptr', u'v6statsptr', u'grev4statsptr', u'grev6statsptr', u'mplsv4stats', u'mplsv6pkts', u'np_umask', u'uidb', u'sft_hw_data'], name, value)
 
 
             class Spanudf(Entity):
@@ -495,8 +489,7 @@ class Ssespan(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('udf_hdr', YLeafList(YType.uint32, 'udf-hdr')),
                         ('udf_type', YLeafList(YType.uint32, 'udf-type')),
@@ -512,7 +505,7 @@ class Ssespan(Entity):
                     self._segment_path = lambda: "spanudf"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ssespan.Nodes.Node.Spanudf, ['udf_hdr', 'udf_type', 'udf_len', 'udf_value', 'udf_hw_data'], name, value)
+                    self._perform_setattr(Ssespan.Nodes.Node.Spanudf, [u'udf_hdr', u'udf_type', u'udf_len', u'udf_value', u'udf_hw_data'], name, value)
 
 
             class SpanSessInfos(Entity):
@@ -539,8 +532,7 @@ class Ssespan(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("span-sess-info", ("span_sess_info", Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo))])
+                    self._child_classes = OrderedDict([("span-sess-info", ("span_sess_info", Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo))])
                     self._leafs = OrderedDict()
 
                     self.span_sess_info = YList(self)
@@ -688,8 +680,7 @@ class Ssespan(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['session_id','session_class']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('session_id', YLeaf(YType.int32, 'session-id')),
                             ('session_class', YLeaf(YType.int32, 'session-class')),
@@ -729,7 +720,7 @@ class Ssespan(Entity):
                         self._segment_path = lambda: "span-sess-info" + "[session-id='" + str(self.session_id) + "']" + "[session-class='" + str(self.session_class) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo, ['session_id', 'session_class', 'valid', 'id', 'state', 'class_', 'ifhandle', 'mode', 'ip_type', 'vrf_id', 'tos_bit', 'tos_bit_copied', 'ttl', 'dfbit', 'src_ip', 'dst_ip', 'sdt_hw_data'], name, value)
+                        self._perform_setattr(Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo, ['session_id', 'session_class', u'valid', u'id', u'state', u'class_', u'ifhandle', u'mode', u'ip_type', u'vrf_id', u'tos_bit', u'tos_bit_copied', u'ttl', u'dfbit', u'src_ip', u'dst_ip', u'sdt_hw_data'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ssespan()

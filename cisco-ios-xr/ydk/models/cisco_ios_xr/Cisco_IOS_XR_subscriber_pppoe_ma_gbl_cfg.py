@@ -71,7 +71,7 @@ class PppoeCfg(Entity):
     """
 
     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-30'
 
     def __init__(self):
         super(PppoeCfg, self).__init__()
@@ -82,8 +82,7 @@ class PppoeCfg(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("pppoe-bba-groups", ("pppoe_bba_groups", PppoeCfg.PppoeBbaGroups))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("pppoe-bba-groups", ("pppoe_bba_groups", PppoeCfg.PppoeBbaGroups))])
         self._leafs = OrderedDict([
             ('session_id_space_flat', YLeaf(YType.empty, 'session-id-space-flat')),
             ('in_flight_window', YLeaf(YType.uint32, 'in-flight-window')),
@@ -94,7 +93,6 @@ class PppoeCfg(Entity):
         self.pppoe_bba_groups = PppoeCfg.PppoeBbaGroups()
         self.pppoe_bba_groups.parent = self
         self._children_name_map["pppoe_bba_groups"] = "pppoe-bba-groups"
-        self._children_yang_names.add("pppoe-bba-groups")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg"
 
     def __setattr__(self, name, value):
@@ -115,7 +113,7 @@ class PppoeCfg(Entity):
         """
 
         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-30'
 
         def __init__(self):
             super(PppoeCfg.PppoeBbaGroups, self).__init__()
@@ -125,8 +123,7 @@ class PppoeCfg(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pppoe-bba-group", ("pppoe_bba_group", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup))])
+            self._child_classes = OrderedDict([("pppoe-bba-group", ("pppoe_bba_group", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup))])
             self._leafs = OrderedDict()
 
             self.pppoe_bba_group = YList(self)
@@ -168,6 +165,8 @@ class PppoeCfg(Entity):
             	PPPoE PADO delay configuration data
             	**type**\:  :py:class:`PaDoDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay>`
             
+            	**presence node**\: True
+            
             .. attribute:: completion_timeout
             
             	PPPoE session completion timeout
@@ -197,7 +196,7 @@ class PppoeCfg(Entity):
             """
 
             _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup, self).__init__()
@@ -207,8 +206,7 @@ class PppoeCfg(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['bba_group']
-                self._child_container_classes = OrderedDict([("tag", ("tag", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag)), ("sessions", ("sessions", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions)), ("control-packets", ("control_packets", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets)), ("pa-do-delay", ("pa_do_delay", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("tag", ("tag", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag)), ("sessions", ("sessions", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions)), ("control-packets", ("control_packets", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets)), ("pa-do-delay", ("pa_do_delay", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay))])
                 self._leafs = OrderedDict([
                     ('bba_group', YLeaf(YType.str, 'bba-group')),
                     ('completion_timeout', YLeaf(YType.uint32, 'completion-timeout')),
@@ -225,22 +223,17 @@ class PppoeCfg(Entity):
                 self.tag = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag()
                 self.tag.parent = self
                 self._children_name_map["tag"] = "tag"
-                self._children_yang_names.add("tag")
 
                 self.sessions = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions()
                 self.sessions.parent = self
                 self._children_name_map["sessions"] = "sessions"
-                self._children_yang_names.add("sessions")
 
                 self.control_packets = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets()
                 self.control_packets.parent = self
                 self._children_name_map["control_packets"] = "control-packets"
-                self._children_yang_names.add("control-packets")
 
-                self.pa_do_delay = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay()
-                self.pa_do_delay.parent = self
+                self.pa_do_delay = None
                 self._children_name_map["pa_do_delay"] = "pa-do-delay"
-                self._children_yang_names.add("pa-do-delay")
                 self._segment_path = lambda: "pppoe-bba-group" + "[bba-group='" + str(self.bba_group) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/%s" % self._segment_path()
 
@@ -289,7 +282,7 @@ class PppoeCfg(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag, self).__init__()
@@ -299,8 +292,7 @@ class PppoeCfg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("padr", ("padr", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr)), ("service-name-configureds", ("service_name_configureds", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds)), ("ppp-max-payload", ("ppp_max_payload", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("padr", ("padr", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr)), ("service-name-configureds", ("service_name_configureds", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds)), ("ppp-max-payload", ("ppp_max_payload", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload))])
                     self._leafs = OrderedDict([
                         ('ppp_max_payload_deny', YLeaf(YType.empty, 'ppp-max-payload-deny')),
                         ('service_selection_disable', YLeaf(YType.empty, 'service-selection-disable')),
@@ -313,16 +305,13 @@ class PppoeCfg(Entity):
                     self.padr = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr()
                     self.padr.parent = self
                     self._children_name_map["padr"] = "padr"
-                    self._children_yang_names.add("padr")
 
                     self.service_name_configureds = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds()
                     self.service_name_configureds.parent = self
                     self._children_name_map["service_name_configureds"] = "service-name-configureds"
-                    self._children_yang_names.add("service-name-configureds")
 
                     self.ppp_max_payload = None
                     self._children_name_map["ppp_max_payload"] = "ppp-max-payload"
-                    self._children_yang_names.add("ppp-max-payload")
                     self._segment_path = lambda: "tag"
 
                 def __setattr__(self, name, value):
@@ -348,7 +337,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr, self).__init__()
@@ -358,8 +347,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('session_unique_relay_session_id', YLeaf(YType.empty, 'session-unique-relay-session-id')),
                             ('invalid_payload_allow', YLeaf(YType.empty, 'invalid-payload-allow')),
@@ -386,7 +374,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds, self).__init__()
@@ -396,8 +384,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("service-name-configured", ("service_name_configured", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured))])
+                        self._child_classes = OrderedDict([("service-name-configured", ("service_name_configured", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured))])
                         self._leafs = OrderedDict()
 
                         self.service_name_configured = YList(self)
@@ -423,7 +410,7 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured, self).__init__()
@@ -433,8 +420,7 @@ class PppoeCfg(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                             ])
@@ -474,7 +460,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload, self).__init__()
@@ -484,8 +470,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('min', YLeaf(YType.uint32, 'min')),
@@ -655,7 +640,7 @@ class PppoeCfg(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions, self).__init__()
@@ -665,94 +650,75 @@ class PppoeCfg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("vlan-throttle", ("vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle)), ("inner-vlan-throttle", ("inner_vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle)), ("remote-id-limit", ("remote_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit)), ("mac-iwf-access-interface-throttle", ("mac_iwf_access_interface_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle)), ("access-interface-limit", ("access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit)), ("mac-access-interface-throttle", ("mac_access_interface_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle)), ("outer-vlan-limit", ("outer_vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit)), ("circuit-id-throttle", ("circuit_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle)), ("mac-limit", ("mac_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit)), ("circuit-id-limit", ("circuit_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit)), ("mac-iwf-limit", ("mac_iwf_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit)), ("mac-iwf-access-interface-limit", ("mac_iwf_access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit)), ("inner-vlan-limit", ("inner_vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit)), ("outer-vlan-throttle", ("outer_vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle)), ("mac-throttle", ("mac_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle)), ("circuit-id-and-remote-id-limit", ("circuit_id_and_remote_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit)), ("vlan-limit", ("vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit)), ("mac-access-interface-limit", ("mac_access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit)), ("remote-id-throttle", ("remote_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle)), ("max-limit", ("max_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit)), ("circuit-id-and-remote-id-throttle", ("circuit_id_and_remote_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("vlan-throttle", ("vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle)), ("inner-vlan-throttle", ("inner_vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle)), ("remote-id-limit", ("remote_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit)), ("mac-iwf-access-interface-throttle", ("mac_iwf_access_interface_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle)), ("access-interface-limit", ("access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit)), ("mac-access-interface-throttle", ("mac_access_interface_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle)), ("outer-vlan-limit", ("outer_vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit)), ("circuit-id-throttle", ("circuit_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle)), ("mac-limit", ("mac_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit)), ("circuit-id-limit", ("circuit_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit)), ("mac-iwf-limit", ("mac_iwf_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit)), ("mac-iwf-access-interface-limit", ("mac_iwf_access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit)), ("inner-vlan-limit", ("inner_vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit)), ("outer-vlan-throttle", ("outer_vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle)), ("mac-throttle", ("mac_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle)), ("circuit-id-and-remote-id-limit", ("circuit_id_and_remote_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit)), ("vlan-limit", ("vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit)), ("mac-access-interface-limit", ("mac_access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit)), ("remote-id-throttle", ("remote_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle)), ("max-limit", ("max_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit)), ("circuit-id-and-remote-id-throttle", ("circuit_id_and_remote_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle))])
                     self._leafs = OrderedDict()
 
                     self.vlan_throttle = None
                     self._children_name_map["vlan_throttle"] = "vlan-throttle"
-                    self._children_yang_names.add("vlan-throttle")
 
                     self.inner_vlan_throttle = None
                     self._children_name_map["inner_vlan_throttle"] = "inner-vlan-throttle"
-                    self._children_yang_names.add("inner-vlan-throttle")
 
                     self.remote_id_limit = None
                     self._children_name_map["remote_id_limit"] = "remote-id-limit"
-                    self._children_yang_names.add("remote-id-limit")
 
                     self.mac_iwf_access_interface_throttle = None
                     self._children_name_map["mac_iwf_access_interface_throttle"] = "mac-iwf-access-interface-throttle"
-                    self._children_yang_names.add("mac-iwf-access-interface-throttle")
 
                     self.access_interface_limit = None
                     self._children_name_map["access_interface_limit"] = "access-interface-limit"
-                    self._children_yang_names.add("access-interface-limit")
 
                     self.mac_access_interface_throttle = None
                     self._children_name_map["mac_access_interface_throttle"] = "mac-access-interface-throttle"
-                    self._children_yang_names.add("mac-access-interface-throttle")
 
                     self.outer_vlan_limit = None
                     self._children_name_map["outer_vlan_limit"] = "outer-vlan-limit"
-                    self._children_yang_names.add("outer-vlan-limit")
 
                     self.circuit_id_throttle = None
                     self._children_name_map["circuit_id_throttle"] = "circuit-id-throttle"
-                    self._children_yang_names.add("circuit-id-throttle")
 
                     self.mac_limit = None
                     self._children_name_map["mac_limit"] = "mac-limit"
-                    self._children_yang_names.add("mac-limit")
 
                     self.circuit_id_limit = None
                     self._children_name_map["circuit_id_limit"] = "circuit-id-limit"
-                    self._children_yang_names.add("circuit-id-limit")
 
                     self.mac_iwf_limit = None
                     self._children_name_map["mac_iwf_limit"] = "mac-iwf-limit"
-                    self._children_yang_names.add("mac-iwf-limit")
 
                     self.mac_iwf_access_interface_limit = None
                     self._children_name_map["mac_iwf_access_interface_limit"] = "mac-iwf-access-interface-limit"
-                    self._children_yang_names.add("mac-iwf-access-interface-limit")
 
                     self.inner_vlan_limit = None
                     self._children_name_map["inner_vlan_limit"] = "inner-vlan-limit"
-                    self._children_yang_names.add("inner-vlan-limit")
 
                     self.outer_vlan_throttle = None
                     self._children_name_map["outer_vlan_throttle"] = "outer-vlan-throttle"
-                    self._children_yang_names.add("outer-vlan-throttle")
 
                     self.mac_throttle = None
                     self._children_name_map["mac_throttle"] = "mac-throttle"
-                    self._children_yang_names.add("mac-throttle")
 
                     self.circuit_id_and_remote_id_limit = None
                     self._children_name_map["circuit_id_and_remote_id_limit"] = "circuit-id-and-remote-id-limit"
-                    self._children_yang_names.add("circuit-id-and-remote-id-limit")
 
                     self.vlan_limit = None
                     self._children_name_map["vlan_limit"] = "vlan-limit"
-                    self._children_yang_names.add("vlan-limit")
 
                     self.mac_access_interface_limit = None
                     self._children_name_map["mac_access_interface_limit"] = "mac-access-interface-limit"
-                    self._children_yang_names.add("mac-access-interface-limit")
 
                     self.remote_id_throttle = None
                     self._children_name_map["remote_id_throttle"] = "remote-id-throttle"
-                    self._children_yang_names.add("remote-id-throttle")
 
                     self.max_limit = None
                     self._children_name_map["max_limit"] = "max-limit"
-                    self._children_yang_names.add("max-limit")
 
                     self.circuit_id_and_remote_id_throttle = None
                     self._children_name_map["circuit_id_and_remote_id_throttle"] = "circuit-id-and-remote-id-throttle"
-                    self._children_yang_names.add("circuit-id-and-remote-id-throttle")
                     self._segment_path = lambda: "sessions"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions, [], name, value)
 
 
                 class VlanThrottle(Entity):
@@ -794,7 +760,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle, self).__init__()
@@ -804,8 +770,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -859,7 +824,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle, self).__init__()
@@ -869,8 +834,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -913,7 +877,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit, self).__init__()
@@ -923,8 +887,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -977,7 +940,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle, self).__init__()
@@ -987,8 +950,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -1031,7 +993,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit, self).__init__()
@@ -1041,8 +1003,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1094,7 +1055,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle, self).__init__()
@@ -1104,8 +1065,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -1148,7 +1108,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit, self).__init__()
@@ -1158,8 +1118,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1211,7 +1170,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle, self).__init__()
@@ -1221,8 +1180,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -1266,7 +1224,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit, self).__init__()
@@ -1276,8 +1234,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1318,7 +1275,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit, self).__init__()
@@ -1328,8 +1285,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1371,7 +1327,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit, self).__init__()
@@ -1381,8 +1337,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1424,7 +1379,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit, self).__init__()
@@ -1434,8 +1389,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1476,7 +1430,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit, self).__init__()
@@ -1486,8 +1440,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1539,7 +1492,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle, self).__init__()
@@ -1549,8 +1502,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -1604,7 +1556,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle, self).__init__()
@@ -1614,8 +1566,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -1659,7 +1610,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit, self).__init__()
@@ -1669,8 +1620,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1712,7 +1662,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit, self).__init__()
@@ -1722,8 +1672,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1765,7 +1714,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit, self).__init__()
@@ -1775,8 +1724,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1828,7 +1776,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle, self).__init__()
@@ -1838,8 +1786,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -1882,7 +1829,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit, self).__init__()
@@ -1892,8 +1839,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('limit', YLeaf(YType.uint32, 'limit')),
@@ -1945,7 +1891,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle, self).__init__()
@@ -1955,8 +1901,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -1988,7 +1933,7 @@ class PppoeCfg(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets, self).__init__()
@@ -1998,8 +1943,7 @@ class PppoeCfg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('priority', YLeaf(YType.uint32, 'priority')),
                     ])
@@ -2051,6 +1995,8 @@ class PppoeCfg(Entity):
                 
                 	**range:** 0..10000
                 
+                	**mandatory**\: True
+                
                 	**units**\: millisecond
                 
                 .. attribute:: circuit_id
@@ -2059,6 +2005,8 @@ class PppoeCfg(Entity):
                 	**type**\: int
                 
                 	**range:** 0..10000
+                
+                	**mandatory**\: True
                 
                 	**units**\: millisecond
                 
@@ -2069,14 +2017,18 @@ class PppoeCfg(Entity):
                 
                 	**range:** 0..10000
                 
+                	**mandatory**\: True
+                
                 	**units**\: millisecond
                 
                 
 
+                This class is a :ref:`presence class<presence-class>`
+
                 """
 
                 _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay, self).__init__()
@@ -2086,8 +2038,8 @@ class PppoeCfg(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("remote-id-substrings", ("remote_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings)), ("remote-id-strings", ("remote_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings)), ("service-name-strings", ("service_name_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings)), ("circuit-id-substrings", ("circuit_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings)), ("service-name-substrings", ("service_name_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings)), ("circuit-id-strings", ("circuit_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("remote-id-substrings", ("remote_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings)), ("remote-id-strings", ("remote_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings)), ("service-name-strings", ("service_name_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings)), ("circuit-id-substrings", ("circuit_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings)), ("service-name-substrings", ("service_name_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings)), ("circuit-id-strings", ("circuit_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings))])
+                    self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('default', YLeaf(YType.uint32, 'default')),
                         ('circuit_id', YLeaf(YType.uint32, 'circuit-id')),
@@ -2100,32 +2052,26 @@ class PppoeCfg(Entity):
                     self.remote_id_substrings = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings()
                     self.remote_id_substrings.parent = self
                     self._children_name_map["remote_id_substrings"] = "remote-id-substrings"
-                    self._children_yang_names.add("remote-id-substrings")
 
                     self.remote_id_strings = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings()
                     self.remote_id_strings.parent = self
                     self._children_name_map["remote_id_strings"] = "remote-id-strings"
-                    self._children_yang_names.add("remote-id-strings")
 
                     self.service_name_strings = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings()
                     self.service_name_strings.parent = self
                     self._children_name_map["service_name_strings"] = "service-name-strings"
-                    self._children_yang_names.add("service-name-strings")
 
                     self.circuit_id_substrings = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings()
                     self.circuit_id_substrings.parent = self
                     self._children_name_map["circuit_id_substrings"] = "circuit-id-substrings"
-                    self._children_yang_names.add("circuit-id-substrings")
 
                     self.service_name_substrings = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings()
                     self.service_name_substrings.parent = self
                     self._children_name_map["service_name_substrings"] = "service-name-substrings"
-                    self._children_yang_names.add("service-name-substrings")
 
                     self.circuit_id_strings = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings()
                     self.circuit_id_strings.parent = self
                     self._children_name_map["circuit_id_strings"] = "circuit-id-strings"
-                    self._children_yang_names.add("circuit-id-strings")
                     self._segment_path = lambda: "pa-do-delay"
 
                 def __setattr__(self, name, value):
@@ -2147,7 +2093,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings, self).__init__()
@@ -2157,8 +2103,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("remote-id-substring", ("remote_id_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring))])
+                        self._child_classes = OrderedDict([("remote-id-substring", ("remote_id_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring))])
                         self._leafs = OrderedDict()
 
                         self.remote_id_substring = YList(self)
@@ -2196,7 +2141,7 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring, self).__init__()
@@ -2206,8 +2151,7 @@ class PppoeCfg(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                                 ('delay', YLeaf(YType.uint32, 'delay')),
@@ -2235,7 +2179,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings, self).__init__()
@@ -2245,8 +2189,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("remote-id-string", ("remote_id_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString))])
+                        self._child_classes = OrderedDict([("remote-id-string", ("remote_id_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString))])
                         self._leafs = OrderedDict()
 
                         self.remote_id_string = YList(self)
@@ -2284,7 +2227,7 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString, self).__init__()
@@ -2294,8 +2237,7 @@ class PppoeCfg(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                                 ('delay', YLeaf(YType.uint32, 'delay')),
@@ -2323,7 +2265,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings, self).__init__()
@@ -2333,8 +2275,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("service-name-string", ("service_name_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString))])
+                        self._child_classes = OrderedDict([("service-name-string", ("service_name_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString))])
                         self._leafs = OrderedDict()
 
                         self.service_name_string = YList(self)
@@ -2372,7 +2313,7 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString, self).__init__()
@@ -2382,8 +2323,7 @@ class PppoeCfg(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                                 ('delay', YLeaf(YType.uint32, 'delay')),
@@ -2411,7 +2351,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings, self).__init__()
@@ -2421,8 +2361,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("circuit-id-substring", ("circuit_id_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring))])
+                        self._child_classes = OrderedDict([("circuit-id-substring", ("circuit_id_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring))])
                         self._leafs = OrderedDict()
 
                         self.circuit_id_substring = YList(self)
@@ -2460,7 +2399,7 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring, self).__init__()
@@ -2470,8 +2409,7 @@ class PppoeCfg(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                                 ('delay', YLeaf(YType.uint32, 'delay')),
@@ -2499,7 +2437,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings, self).__init__()
@@ -2509,8 +2447,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("service-name-substring", ("service_name_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring))])
+                        self._child_classes = OrderedDict([("service-name-substring", ("service_name_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring))])
                         self._leafs = OrderedDict()
 
                         self.service_name_substring = YList(self)
@@ -2548,7 +2485,7 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring, self).__init__()
@@ -2558,8 +2495,7 @@ class PppoeCfg(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                                 ('delay', YLeaf(YType.uint32, 'delay')),
@@ -2587,7 +2523,7 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-30'
 
                     def __init__(self):
                         super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings, self).__init__()
@@ -2597,8 +2533,7 @@ class PppoeCfg(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("circuit-id-string", ("circuit_id_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString))])
+                        self._child_classes = OrderedDict([("circuit-id-string", ("circuit_id_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString))])
                         self._leafs = OrderedDict()
 
                         self.circuit_id_string = YList(self)
@@ -2636,7 +2571,7 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-30'
 
                         def __init__(self):
                             super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString, self).__init__()
@@ -2646,8 +2581,7 @@ class PppoeCfg(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                                 ('delay', YLeaf(YType.uint32, 'delay')),

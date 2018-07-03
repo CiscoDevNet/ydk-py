@@ -279,12 +279,12 @@ class CISCOCONFIGCOPYMIB(Entity):
     .. attribute:: cccopytable
     
     	A table of config\-copy requests
-    	**type**\:  :py:class:`Cccopytable <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopytable>`
+    	**type**\:  :py:class:`CcCopyTable <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.CcCopyTable>`
     
     .. attribute:: cccopyerrortable
     
     	A table containing information about the failure cause of the config copy operation. An entry is created only when the value of ccCopyState changes to 'failed' for a config copy operation.  Not all combinations of ccCopySourceFileType and ccCopyDestFileType need to be supported.  For example, an implementation may choose to support only the following combination\: ccCopySourceFileType = 'runningConfig' ccCopyDestFileType = 'fabricStartupConfig'.   In the case where a fabric wide config copy  operation is being performed, for example by selecting ccCopyDestFileType value to be 'fabricStartupConfig', it is possible that the fabric could have more than one device. In such cases this table would have one entry for each device in the fabric. In this case even if the  operation succeeded in one device and failed in  another, the operation as such has failed, so the global state  represented by ccCopyState 'failed', but for the device on which it was success,  ccCopyErrorDescription would have the  distinguished value, 'success'.   Once the config copy operation completes and if an entry gets instantiated, the management station  should retrieve the values of the status objects of  interest. Once an entry in ccCopyTable is deleted by management station, all the corresponding entries with the same ccCopyIndex in this table are also  deleted.   In order to prevent old entries from clogging the  table, entries age out at the same time as the  corresponding entry with same ccCopyIndex in  ccCopyTable ages out
-    	**type**\:  :py:class:`Cccopyerrortable <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopyerrortable>`
+    	**type**\:  :py:class:`CcCopyErrorTable <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.CcCopyErrorTable>`
     
     
 
@@ -302,30 +302,30 @@ class CISCOCONFIGCOPYMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ccCopyTable", ("cccopytable", CISCOCONFIGCOPYMIB.Cccopytable)), ("ccCopyErrorTable", ("cccopyerrortable", CISCOCONFIGCOPYMIB.Cccopyerrortable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ccCopyTable", ("cccopytable", CISCOCONFIGCOPYMIB.CcCopyTable)), ("ccCopyErrorTable", ("cccopyerrortable", CISCOCONFIGCOPYMIB.CcCopyErrorTable))])
         self._leafs = OrderedDict()
 
-        self.cccopytable = CISCOCONFIGCOPYMIB.Cccopytable()
+        self.cccopytable = CISCOCONFIGCOPYMIB.CcCopyTable()
         self.cccopytable.parent = self
         self._children_name_map["cccopytable"] = "ccCopyTable"
-        self._children_yang_names.add("ccCopyTable")
 
-        self.cccopyerrortable = CISCOCONFIGCOPYMIB.Cccopyerrortable()
+        self.cccopyerrortable = CISCOCONFIGCOPYMIB.CcCopyErrorTable()
         self.cccopyerrortable.parent = self
         self._children_name_map["cccopyerrortable"] = "ccCopyErrorTable"
-        self._children_yang_names.add("ccCopyErrorTable")
         self._segment_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOCONFIGCOPYMIB, [], name, value)
 
-    class Cccopytable(Entity):
+
+    class CcCopyTable(Entity):
         """
         A table of config\-copy requests.
         
         .. attribute:: cccopyentry
         
         	A config\-copy request.  A management station wishing to create an entry  should first generate a random serial number to be used as the index to this sparse table. The station  should then create the associated instance of the row status and row index objects.  It must also,  either in the same or in successive PDUs, create an instance of ccCopySourceFileType and  ccCopyDestFileType.  At least one of the file types defined in  ConfigFileType TC must be an agent\-config file type (i.e. 'startupConfig' or 'runningConfig'). If one of the file types is a 'networkFile', a valid ccCopyFileName and ccCopyServerAddressType and  ccCopyServerAddressRev1 or just ccCopyServerAddress must be created as well. If ccCopyServerAddress is created then ccCopyServerAddressRev1 will store the same IP address and ccCopyServerAddressType will  take the value 'ipv4'.  For a file type of 'iosFile', only a valid ccCopyFileName needs to be created as an  extra parameter.  It should also modify the default values for the  other configuration objects if the defaults are not appropriate.  Once the appropriate instance of all the  configuration objects have been created, either by an explicit SNMP set request or by default, the row  status should be set to active to initiate the  request. Note that this entire procedure may be  initiated via a single set request which specifies a row status of createAndGo as well as specifies valid values for the non\-defaulted  configuration objects.  Once the config\-copy request has been created  (i.e. the ccCopyEntryRowStatus has been made  active), the entry cannot be modified \- the only  operation possible after this is to delete the row.  Once the request completes, the management station  should retrieve the values of the status objects of  interest, and should then delete the entry.  In order to prevent old entries from clogging the  table, entries will be aged out, but an entry will  ever be deleted within 5 minutes of completing
-        	**type**\: list of  		 :py:class:`Cccopyentry <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry>`
+        	**type**\: list of  		 :py:class:`CcCopyEntry <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.CcCopyTable.CcCopyEntry>`
         
         
 
@@ -335,15 +335,14 @@ class CISCOCONFIGCOPYMIB(Entity):
         _revision = '2005-04-06'
 
         def __init__(self):
-            super(CISCOCONFIGCOPYMIB.Cccopytable, self).__init__()
+            super(CISCOCONFIGCOPYMIB.CcCopyTable, self).__init__()
 
             self.yang_name = "ccCopyTable"
             self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ccCopyEntry", ("cccopyentry", CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry))])
+            self._child_classes = OrderedDict([("ccCopyEntry", ("cccopyentry", CISCOCONFIGCOPYMIB.CcCopyTable.CcCopyEntry))])
             self._leafs = OrderedDict()
 
             self.cccopyentry = YList(self)
@@ -351,10 +350,10 @@ class CISCOCONFIGCOPYMIB(Entity):
             self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopytable, [], name, value)
+            self._perform_setattr(CISCOCONFIGCOPYMIB.CcCopyTable, [], name, value)
 
 
-        class Cccopyentry(Entity):
+        class CcCopyEntry(Entity):
             """
             A config\-copy request.
             
@@ -512,15 +511,14 @@ class CISCOCONFIGCOPYMIB(Entity):
             _revision = '2005-04-06'
 
             def __init__(self):
-                super(CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry, self).__init__()
+                super(CISCOCONFIGCOPYMIB.CcCopyTable.CcCopyEntry, self).__init__()
 
                 self.yang_name = "ccCopyEntry"
                 self.yang_parent_name = "ccCopyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cccopyindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cccopyindex', YLeaf(YType.uint32, 'ccCopyIndex')),
                     ('cccopyprotocol', YLeaf(YType.enumeration, 'ccCopyProtocol')),
@@ -559,10 +557,10 @@ class CISCOCONFIGCOPYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry, ['cccopyindex', 'cccopyprotocol', 'cccopysourcefiletype', 'cccopydestfiletype', 'cccopyserveraddress', 'cccopyfilename', 'cccopyusername', 'cccopyuserpassword', 'cccopynotificationoncompletion', 'cccopystate', 'cccopytimestarted', 'cccopytimecompleted', 'cccopyfailcause', 'cccopyentryrowstatus', 'cccopyserveraddresstype', 'cccopyserveraddressrev1'], name, value)
+                self._perform_setattr(CISCOCONFIGCOPYMIB.CcCopyTable.CcCopyEntry, ['cccopyindex', 'cccopyprotocol', 'cccopysourcefiletype', 'cccopydestfiletype', 'cccopyserveraddress', 'cccopyfilename', 'cccopyusername', 'cccopyuserpassword', 'cccopynotificationoncompletion', 'cccopystate', 'cccopytimestarted', 'cccopytimecompleted', 'cccopyfailcause', 'cccopyentryrowstatus', 'cccopyserveraddresstype', 'cccopyserveraddressrev1'], name, value)
 
 
-    class Cccopyerrortable(Entity):
+    class CcCopyErrorTable(Entity):
         """
         A table containing information about the failure
         cause of the config copy operation. An entry is
@@ -606,7 +604,7 @@ class CISCOCONFIGCOPYMIB(Entity):
         .. attribute:: cccopyerrorentry
         
         	An entry containing information about the outcome at one destination of a failed config copy operation
-        	**type**\: list of  		 :py:class:`Cccopyerrorentry <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry>`
+        	**type**\: list of  		 :py:class:`CcCopyErrorEntry <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.CcCopyErrorTable.CcCopyErrorEntry>`
         
         
 
@@ -616,15 +614,14 @@ class CISCOCONFIGCOPYMIB(Entity):
         _revision = '2005-04-06'
 
         def __init__(self):
-            super(CISCOCONFIGCOPYMIB.Cccopyerrortable, self).__init__()
+            super(CISCOCONFIGCOPYMIB.CcCopyErrorTable, self).__init__()
 
             self.yang_name = "ccCopyErrorTable"
             self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ccCopyErrorEntry", ("cccopyerrorentry", CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry))])
+            self._child_classes = OrderedDict([("ccCopyErrorEntry", ("cccopyerrorentry", CISCOCONFIGCOPYMIB.CcCopyErrorTable.CcCopyErrorEntry))])
             self._leafs = OrderedDict()
 
             self.cccopyerrorentry = YList(self)
@@ -632,10 +629,10 @@ class CISCOCONFIGCOPYMIB(Entity):
             self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopyerrortable, [], name, value)
+            self._perform_setattr(CISCOCONFIGCOPYMIB.CcCopyErrorTable, [], name, value)
 
 
-        class Cccopyerrorentry(Entity):
+        class CcCopyErrorEntry(Entity):
             """
             An entry containing information about the
             outcome at one destination of a failed config
@@ -648,7 +645,7 @@ class CISCOCONFIGCOPYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cccopyindex <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry>`
+            	**refers to**\:  :py:class:`cccopyindex <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.CcCopyTable.CcCopyEntry>`
             
             .. attribute:: cccopyerrorindex  (key)
             
@@ -689,15 +686,14 @@ class CISCOCONFIGCOPYMIB(Entity):
             _revision = '2005-04-06'
 
             def __init__(self):
-                super(CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry, self).__init__()
+                super(CISCOCONFIGCOPYMIB.CcCopyErrorTable.CcCopyErrorEntry, self).__init__()
 
                 self.yang_name = "ccCopyErrorEntry"
                 self.yang_parent_name = "ccCopyErrorTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cccopyindex','cccopyerrorindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cccopyindex', YLeaf(YType.str, 'ccCopyIndex')),
                     ('cccopyerrorindex', YLeaf(YType.uint32, 'ccCopyErrorIndex')),
@@ -716,7 +712,7 @@ class CISCOCONFIGCOPYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyErrorTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry, ['cccopyindex', 'cccopyerrorindex', 'cccopyerrordeviceipaddresstype', 'cccopyerrordeviceipaddress', 'cccopyerrordevicewwn', 'cccopyerrordescription'], name, value)
+                self._perform_setattr(CISCOCONFIGCOPYMIB.CcCopyErrorTable.CcCopyErrorEntry, ['cccopyindex', 'cccopyerrorindex', 'cccopyerrordeviceipaddresstype', 'cccopyerrordeviceipaddress', 'cccopyerrordevicewwn', 'cccopyerrordescription'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOCONFIGCOPYMIB()

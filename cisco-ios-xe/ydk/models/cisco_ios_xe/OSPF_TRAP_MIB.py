@@ -25,7 +25,7 @@ class OSPFTRAPMIB(Entity):
     .. attribute:: ospftrapcontrol
     
     	
-    	**type**\:  :py:class:`Ospftrapcontrol <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.Ospftrapcontrol>`
+    	**type**\:  :py:class:`OspfTrapControl <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.OspfTrapControl>`
     
     
 
@@ -43,18 +43,19 @@ class OSPFTRAPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ospfTrapControl", ("ospftrapcontrol", OSPFTRAPMIB.Ospftrapcontrol))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ospfTrapControl", ("ospftrapcontrol", OSPFTRAPMIB.OspfTrapControl))])
         self._leafs = OrderedDict()
 
-        self.ospftrapcontrol = OSPFTRAPMIB.Ospftrapcontrol()
+        self.ospftrapcontrol = OSPFTRAPMIB.OspfTrapControl()
         self.ospftrapcontrol.parent = self
         self._children_name_map["ospftrapcontrol"] = "ospfTrapControl"
-        self._children_yang_names.add("ospfTrapControl")
         self._segment_path = lambda: "OSPF-TRAP-MIB:OSPF-TRAP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(OSPFTRAPMIB, [], name, value)
 
-    class Ospftrapcontrol(Entity):
+
+    class OspfTrapControl(Entity):
         """
         
         
@@ -68,12 +69,12 @@ class OSPFTRAPMIB(Entity):
         .. attribute:: ospfconfigerrortype
         
         	Potential types of configuration conflicts. Used by the ospfConfigError and ospfConfigVirtError traps.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
-        	**type**\:  :py:class:`Ospfconfigerrortype <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.Ospftrapcontrol.Ospfconfigerrortype>`
+        	**type**\:  :py:class:`OspfConfigErrorType <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.OspfTrapControl.OspfConfigErrorType>`
         
         .. attribute:: ospfpackettype
         
         	OSPF packet types.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
-        	**type**\:  :py:class:`Ospfpackettype <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.Ospftrapcontrol.Ospfpackettype>`
+        	**type**\:  :py:class:`OspfPacketType <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.OspfTrapControl.OspfPacketType>`
         
         .. attribute:: ospfpacketsrc
         
@@ -90,15 +91,14 @@ class OSPFTRAPMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFTRAPMIB.Ospftrapcontrol, self).__init__()
+            super(OSPFTRAPMIB.OspfTrapControl, self).__init__()
 
             self.yang_name = "ospfTrapControl"
             self.yang_parent_name = "OSPF-TRAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ospfsettrap', YLeaf(YType.str, 'ospfSetTrap')),
                 ('ospfconfigerrortype', YLeaf(YType.enumeration, 'ospfConfigErrorType')),
@@ -113,11 +113,11 @@ class OSPFTRAPMIB(Entity):
             self._absolute_path = lambda: "OSPF-TRAP-MIB:OSPF-TRAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFTRAPMIB.Ospftrapcontrol, ['ospfsettrap', 'ospfconfigerrortype', 'ospfpackettype', 'ospfpacketsrc'], name, value)
+            self._perform_setattr(OSPFTRAPMIB.OspfTrapControl, ['ospfsettrap', 'ospfconfigerrortype', 'ospfpackettype', 'ospfpacketsrc'], name, value)
 
-        class Ospfconfigerrortype(Enum):
+        class OspfConfigErrorType(Enum):
             """
-            Ospfconfigerrortype (Enum Class)
+            OspfConfigErrorType (Enum Class)
 
             Potential types of configuration conflicts.
 
@@ -188,9 +188,9 @@ class OSPFTRAPMIB(Entity):
             noError = Enum.YLeaf(13, "noError")
 
 
-        class Ospfpackettype(Enum):
+        class OspfPacketType(Enum):
             """
-            Ospfpackettype (Enum Class)
+            OspfPacketType (Enum Class)
 
             OSPF packet types.  When the last value of a trap
 

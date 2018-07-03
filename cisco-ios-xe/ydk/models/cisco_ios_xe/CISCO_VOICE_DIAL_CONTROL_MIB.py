@@ -261,122 +261,122 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
     .. attribute:: cvgeneralconfiguration
     
     	
-    	**type**\:  :py:class:`Cvgeneralconfiguration <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration>`
+    	**type**\:  :py:class:`CvGeneralConfiguration <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvGeneralConfiguration>`
     
     .. attribute:: cvgatewaycallactive
     
     	
-    	**type**\:  :py:class:`Cvgatewaycallactive <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive>`
+    	**type**\:  :py:class:`CvGatewayCallActive <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvGatewayCallActive>`
     
     .. attribute:: cvcallvolume
     
     	
-    	**type**\:  :py:class:`Cvcallvolume <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolume>`
+    	**type**\:  :py:class:`CvCallVolume <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallVolume>`
     
     .. attribute:: cvcallratemonitor
     
     	
-    	**type**\:  :py:class:`Cvcallratemonitor <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor>`
+    	**type**\:  :py:class:`CvCallRateMonitor <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallRateMonitor>`
     
     .. attribute:: cvcallvolumestatshistory
     
     	
-    	**type**\:  :py:class:`Cvcallvolumestatshistory <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory>`
+    	**type**\:  :py:class:`CvCallVolumeStatsHistory <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallVolumeStatsHistory>`
     
     .. attribute:: cvpeercfgtable
     
     	The table contains the Voice Generic Peer information that is used to create an ifIndexed row with an appropriate ifType that is associated with the cvPeerCfgType and cvPeerCfgPeerType objects
-    	**type**\:  :py:class:`Cvpeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable>`
+    	**type**\:  :py:class:`CvPeerCfgTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable>`
     
     .. attribute:: cvvoicepeercfgtable
     
     	The table contains the Voice over Telephony peer specific information that is required to accept voice calls or to which it will place them or perform various loopback tests via interface
-    	**type**\:  :py:class:`Cvvoicepeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable>`
+    	**type**\:  :py:class:`CvVoicePeerCfgTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable>`
     
     .. attribute:: cvvoippeercfgtable
     
     	The table contains the Voice over IP (VoIP) peer specific information that is required to accept voice calls or to which it will place them via IP backbone with the specified session protocol in cvVoIPPeerCfgSessionProtocol
-    	**type**\:  :py:class:`Cvvoippeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable>`
+    	**type**\:  :py:class:`CvVoIPPeerCfgTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable>`
     
     .. attribute:: cvpeercommoncfgtable
     
     	The table contains the Voice specific peer common configuration information that is required to accept voice calls or to which it will place them or process the incoming calls
-    	**type**\:  :py:class:`Cvpeercommoncfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable>`
+    	**type**\:  :py:class:`CvPeerCommonCfgTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable>`
     
     .. attribute:: cvcallactivetable
     
     	This table is the voice extension to the call active table of IETF Dial Control MIB. It contains voice encapsulation call leg information that is derived from the statistics of lower layer telephony interface
-    	**type**\:  :py:class:`Cvcallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallactivetable>`
+    	**type**\:  :py:class:`CvCallActiveTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallActiveTable>`
     
     .. attribute:: cvvoipcallactivetable
     
     	This table is the VoIP extension to the call active table of IETF Dial Control MIB. It contains VoIP call leg information about specific VoIP call destination and the selected QoS for the call leg
-    	**type**\:  :py:class:`Cvvoipcallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable>`
+    	**type**\:  :py:class:`CvVoIPCallActiveTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable>`
     
     .. attribute:: cvcallvolconntable
     
     	This table represents the number of active call connections for each call connection type in the voice gateway
-    	**type**\:  :py:class:`Cvcallvolconntable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable>`
+    	**type**\:  :py:class:`CvCallVolConnTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable>`
     
     .. attribute:: cvcallvoliftable
     
     	This table represents the information about the usage of an IP interface in a voice gateway for voice media calls. This table has a sparse\-dependent relationship with   ifTable. There exists an entry in this table,  for each of the  entries in ifTable where ifType  is one of 'ethernetCsmacd' and 'softwareLoopback'
-    	**type**\:  :py:class:`Cvcallvoliftable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable>`
+    	**type**\:  :py:class:`CvCallVolIfTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable>`
     
     .. attribute:: cvcallhistorytable
     
     	This table is the voice extension to the call history table of IETF Dial Control MIB. It contains voice encapsulation call leg information such as voice packet statistics, coder usage and end to end bandwidth of the call leg
-    	**type**\:  :py:class:`Cvcallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable>`
+    	**type**\:  :py:class:`CvCallHistoryTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable>`
     
     .. attribute:: cvvoipcallhistorytable
     
     	This table is the VoIP extension to the call history table of IETF Dial Control MIB. It contains VoIP call leg information about specific VoIP call destination and the selected QoS for the call leg
-    	**type**\:  :py:class:`Cvvoipcallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable>`
+    	**type**\:  :py:class:`CvVoIPCallHistoryTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable>`
     
     .. attribute:: cvcallratestatstable
     
     	This table represents voice call rate measurement in various interval lengths defined by the  CvCallVolumeStatsIntvlType object.  Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:  :py:class:`Cvcallratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable>`
+    	**type**\:  :py:class:`CvCallRateStatsTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable>`
     
     .. attribute:: cvcalllegratestatstable
     
     	cvCallLegRateStatsTable table represents voice call leg rate measurement in various interval lengths defined by  the CvCallVolumeStatsIntvlType object. Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:  :py:class:`Cvcalllegratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable>`
+    	**type**\:  :py:class:`CvCallLegRateStatsTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable>`
     
     .. attribute:: cvactivecallstatstable
     
     	This table represents the active voice calls in various interval lengths defined by the  CvCallVolumeStatsIntvlType object.  Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:  :py:class:`Cvactivecallstatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable>`
+    	**type**\:  :py:class:`CvActiveCallStatsTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable>`
     
     .. attribute:: cvcalldurationstatstable
     
     	This table represents the number of calls below a specific duration in various interval length defined by  the CvCallVolumeStatsIntvlType object.    The specific duration is configurable value of   cvCallDurationStatsThreshold object.  Each interval may contain one or more entries to allow for  detailed measurement to be collected
-    	**type**\:  :py:class:`Cvcalldurationstatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable>`
+    	**type**\:  :py:class:`CvCallDurationStatsTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable>`
     
     .. attribute:: cvsipmsgratestatstable
     
     	This table represents the SIP message rate measurement in various interval length defined by the  CvCallVolumeStatsIntvlType object.  Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:  :py:class:`Cvsipmsgratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable>`
+    	**type**\:  :py:class:`CvSipMsgRateStatsTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable>`
     
     .. attribute:: cvcallratewmtable
     
     	This table represents high watermarks achieved by call rate in various interval length defined  by CvCallVolumeWMIntvlType.   Each interval may contain one or more entries to allow for  detailed measurement to be collected
-    	**type**\:  :py:class:`Cvcallratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable>`
+    	**type**\:  :py:class:`CvCallRateWMTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable>`
     
     .. attribute:: cvcalllegratewmtable
     
     	cvCallLegRateWMTable table represents high watermarks achieved by call\-leg rate in various interval length defined  by CvCallVolumeWMIntvlType.   Each interval may contain one or more entries to allow for  detailed measurement to be collected
-    	**type**\:  :py:class:`Cvcalllegratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable>`
+    	**type**\:  :py:class:`CvCallLegRateWMTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable>`
     
     .. attribute:: cvactivecallwmtable
     
     	This table represents high watermarks achieved by active calls in various interval length defined  by CvCallVolumeWMIntvlType.   Each interval may contain one or more entries to allow  for detailed measurement to be collected
-    	**type**\:  :py:class:`Cvactivecallwmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable>`
+    	**type**\:  :py:class:`CvActiveCallWMTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable>`
     
     .. attribute:: cvsipmsgratewmtable
     
     	This table represents of high watermarks achieved by SIP message rate in various interval length defined  by CvCallVolumeWMIntvlType.   Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:  :py:class:`Cvsipmsgratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable>`
+    	**type**\:  :py:class:`CvSipMsgRateWMTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable>`
     
     
 
@@ -394,133 +394,111 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cvGeneralConfiguration", ("cvgeneralconfiguration", CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration)), ("cvGatewayCallActive", ("cvgatewaycallactive", CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive)), ("cvCallVolume", ("cvcallvolume", CISCOVOICEDIALCONTROLMIB.Cvcallvolume)), ("cvCallRateMonitor", ("cvcallratemonitor", CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor)), ("cvCallVolumeStatsHistory", ("cvcallvolumestatshistory", CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory)), ("cvPeerCfgTable", ("cvpeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable)), ("cvVoicePeerCfgTable", ("cvvoicepeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable)), ("cvVoIPPeerCfgTable", ("cvvoippeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable)), ("cvPeerCommonCfgTable", ("cvpeercommoncfgtable", CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable)), ("cvCallActiveTable", ("cvcallactivetable", CISCOVOICEDIALCONTROLMIB.Cvcallactivetable)), ("cvVoIPCallActiveTable", ("cvvoipcallactivetable", CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable)), ("cvCallVolConnTable", ("cvcallvolconntable", CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable)), ("cvCallVolIfTable", ("cvcallvoliftable", CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable)), ("cvCallHistoryTable", ("cvcallhistorytable", CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable)), ("cvVoIPCallHistoryTable", ("cvvoipcallhistorytable", CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable)), ("cvCallRateStatsTable", ("cvcallratestatstable", CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable)), ("cvCallLegRateStatsTable", ("cvcalllegratestatstable", CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable)), ("cvActiveCallStatsTable", ("cvactivecallstatstable", CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable)), ("cvCallDurationStatsTable", ("cvcalldurationstatstable", CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable)), ("cvSipMsgRateStatsTable", ("cvsipmsgratestatstable", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable)), ("cvCallRateWMTable", ("cvcallratewmtable", CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable)), ("cvCallLegRateWMTable", ("cvcalllegratewmtable", CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable)), ("cvActiveCallWMTable", ("cvactivecallwmtable", CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable)), ("cvSipMsgRateWMTable", ("cvsipmsgratewmtable", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cvGeneralConfiguration", ("cvgeneralconfiguration", CISCOVOICEDIALCONTROLMIB.CvGeneralConfiguration)), ("cvGatewayCallActive", ("cvgatewaycallactive", CISCOVOICEDIALCONTROLMIB.CvGatewayCallActive)), ("cvCallVolume", ("cvcallvolume", CISCOVOICEDIALCONTROLMIB.CvCallVolume)), ("cvCallRateMonitor", ("cvcallratemonitor", CISCOVOICEDIALCONTROLMIB.CvCallRateMonitor)), ("cvCallVolumeStatsHistory", ("cvcallvolumestatshistory", CISCOVOICEDIALCONTROLMIB.CvCallVolumeStatsHistory)), ("cvPeerCfgTable", ("cvpeercfgtable", CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable)), ("cvVoicePeerCfgTable", ("cvvoicepeercfgtable", CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable)), ("cvVoIPPeerCfgTable", ("cvvoippeercfgtable", CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable)), ("cvPeerCommonCfgTable", ("cvpeercommoncfgtable", CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable)), ("cvCallActiveTable", ("cvcallactivetable", CISCOVOICEDIALCONTROLMIB.CvCallActiveTable)), ("cvVoIPCallActiveTable", ("cvvoipcallactivetable", CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable)), ("cvCallVolConnTable", ("cvcallvolconntable", CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable)), ("cvCallVolIfTable", ("cvcallvoliftable", CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable)), ("cvCallHistoryTable", ("cvcallhistorytable", CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable)), ("cvVoIPCallHistoryTable", ("cvvoipcallhistorytable", CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable)), ("cvCallRateStatsTable", ("cvcallratestatstable", CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable)), ("cvCallLegRateStatsTable", ("cvcalllegratestatstable", CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable)), ("cvActiveCallStatsTable", ("cvactivecallstatstable", CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable)), ("cvCallDurationStatsTable", ("cvcalldurationstatstable", CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable)), ("cvSipMsgRateStatsTable", ("cvsipmsgratestatstable", CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable)), ("cvCallRateWMTable", ("cvcallratewmtable", CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable)), ("cvCallLegRateWMTable", ("cvcalllegratewmtable", CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable)), ("cvActiveCallWMTable", ("cvactivecallwmtable", CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable)), ("cvSipMsgRateWMTable", ("cvsipmsgratewmtable", CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable))])
         self._leafs = OrderedDict()
 
-        self.cvgeneralconfiguration = CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration()
+        self.cvgeneralconfiguration = CISCOVOICEDIALCONTROLMIB.CvGeneralConfiguration()
         self.cvgeneralconfiguration.parent = self
         self._children_name_map["cvgeneralconfiguration"] = "cvGeneralConfiguration"
-        self._children_yang_names.add("cvGeneralConfiguration")
 
-        self.cvgatewaycallactive = CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive()
+        self.cvgatewaycallactive = CISCOVOICEDIALCONTROLMIB.CvGatewayCallActive()
         self.cvgatewaycallactive.parent = self
         self._children_name_map["cvgatewaycallactive"] = "cvGatewayCallActive"
-        self._children_yang_names.add("cvGatewayCallActive")
 
-        self.cvcallvolume = CISCOVOICEDIALCONTROLMIB.Cvcallvolume()
+        self.cvcallvolume = CISCOVOICEDIALCONTROLMIB.CvCallVolume()
         self.cvcallvolume.parent = self
         self._children_name_map["cvcallvolume"] = "cvCallVolume"
-        self._children_yang_names.add("cvCallVolume")
 
-        self.cvcallratemonitor = CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor()
+        self.cvcallratemonitor = CISCOVOICEDIALCONTROLMIB.CvCallRateMonitor()
         self.cvcallratemonitor.parent = self
         self._children_name_map["cvcallratemonitor"] = "cvCallRateMonitor"
-        self._children_yang_names.add("cvCallRateMonitor")
 
-        self.cvcallvolumestatshistory = CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory()
+        self.cvcallvolumestatshistory = CISCOVOICEDIALCONTROLMIB.CvCallVolumeStatsHistory()
         self.cvcallvolumestatshistory.parent = self
         self._children_name_map["cvcallvolumestatshistory"] = "cvCallVolumeStatsHistory"
-        self._children_yang_names.add("cvCallVolumeStatsHistory")
 
-        self.cvpeercfgtable = CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable()
+        self.cvpeercfgtable = CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable()
         self.cvpeercfgtable.parent = self
         self._children_name_map["cvpeercfgtable"] = "cvPeerCfgTable"
-        self._children_yang_names.add("cvPeerCfgTable")
 
-        self.cvvoicepeercfgtable = CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable()
+        self.cvvoicepeercfgtable = CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable()
         self.cvvoicepeercfgtable.parent = self
         self._children_name_map["cvvoicepeercfgtable"] = "cvVoicePeerCfgTable"
-        self._children_yang_names.add("cvVoicePeerCfgTable")
 
-        self.cvvoippeercfgtable = CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable()
+        self.cvvoippeercfgtable = CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable()
         self.cvvoippeercfgtable.parent = self
         self._children_name_map["cvvoippeercfgtable"] = "cvVoIPPeerCfgTable"
-        self._children_yang_names.add("cvVoIPPeerCfgTable")
 
-        self.cvpeercommoncfgtable = CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable()
+        self.cvpeercommoncfgtable = CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable()
         self.cvpeercommoncfgtable.parent = self
         self._children_name_map["cvpeercommoncfgtable"] = "cvPeerCommonCfgTable"
-        self._children_yang_names.add("cvPeerCommonCfgTable")
 
-        self.cvcallactivetable = CISCOVOICEDIALCONTROLMIB.Cvcallactivetable()
+        self.cvcallactivetable = CISCOVOICEDIALCONTROLMIB.CvCallActiveTable()
         self.cvcallactivetable.parent = self
         self._children_name_map["cvcallactivetable"] = "cvCallActiveTable"
-        self._children_yang_names.add("cvCallActiveTable")
 
-        self.cvvoipcallactivetable = CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable()
+        self.cvvoipcallactivetable = CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable()
         self.cvvoipcallactivetable.parent = self
         self._children_name_map["cvvoipcallactivetable"] = "cvVoIPCallActiveTable"
-        self._children_yang_names.add("cvVoIPCallActiveTable")
 
-        self.cvcallvolconntable = CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable()
+        self.cvcallvolconntable = CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable()
         self.cvcallvolconntable.parent = self
         self._children_name_map["cvcallvolconntable"] = "cvCallVolConnTable"
-        self._children_yang_names.add("cvCallVolConnTable")
 
-        self.cvcallvoliftable = CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable()
+        self.cvcallvoliftable = CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable()
         self.cvcallvoliftable.parent = self
         self._children_name_map["cvcallvoliftable"] = "cvCallVolIfTable"
-        self._children_yang_names.add("cvCallVolIfTable")
 
-        self.cvcallhistorytable = CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable()
+        self.cvcallhistorytable = CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable()
         self.cvcallhistorytable.parent = self
         self._children_name_map["cvcallhistorytable"] = "cvCallHistoryTable"
-        self._children_yang_names.add("cvCallHistoryTable")
 
-        self.cvvoipcallhistorytable = CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable()
+        self.cvvoipcallhistorytable = CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable()
         self.cvvoipcallhistorytable.parent = self
         self._children_name_map["cvvoipcallhistorytable"] = "cvVoIPCallHistoryTable"
-        self._children_yang_names.add("cvVoIPCallHistoryTable")
 
-        self.cvcallratestatstable = CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable()
+        self.cvcallratestatstable = CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable()
         self.cvcallratestatstable.parent = self
         self._children_name_map["cvcallratestatstable"] = "cvCallRateStatsTable"
-        self._children_yang_names.add("cvCallRateStatsTable")
 
-        self.cvcalllegratestatstable = CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable()
+        self.cvcalllegratestatstable = CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable()
         self.cvcalllegratestatstable.parent = self
         self._children_name_map["cvcalllegratestatstable"] = "cvCallLegRateStatsTable"
-        self._children_yang_names.add("cvCallLegRateStatsTable")
 
-        self.cvactivecallstatstable = CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable()
+        self.cvactivecallstatstable = CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable()
         self.cvactivecallstatstable.parent = self
         self._children_name_map["cvactivecallstatstable"] = "cvActiveCallStatsTable"
-        self._children_yang_names.add("cvActiveCallStatsTable")
 
-        self.cvcalldurationstatstable = CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable()
+        self.cvcalldurationstatstable = CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable()
         self.cvcalldurationstatstable.parent = self
         self._children_name_map["cvcalldurationstatstable"] = "cvCallDurationStatsTable"
-        self._children_yang_names.add("cvCallDurationStatsTable")
 
-        self.cvsipmsgratestatstable = CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable()
+        self.cvsipmsgratestatstable = CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable()
         self.cvsipmsgratestatstable.parent = self
         self._children_name_map["cvsipmsgratestatstable"] = "cvSipMsgRateStatsTable"
-        self._children_yang_names.add("cvSipMsgRateStatsTable")
 
-        self.cvcallratewmtable = CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable()
+        self.cvcallratewmtable = CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable()
         self.cvcallratewmtable.parent = self
         self._children_name_map["cvcallratewmtable"] = "cvCallRateWMTable"
-        self._children_yang_names.add("cvCallRateWMTable")
 
-        self.cvcalllegratewmtable = CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable()
+        self.cvcalllegratewmtable = CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable()
         self.cvcalllegratewmtable.parent = self
         self._children_name_map["cvcalllegratewmtable"] = "cvCallLegRateWMTable"
-        self._children_yang_names.add("cvCallLegRateWMTable")
 
-        self.cvactivecallwmtable = CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable()
+        self.cvactivecallwmtable = CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable()
         self.cvactivecallwmtable.parent = self
         self._children_name_map["cvactivecallwmtable"] = "cvActiveCallWMTable"
-        self._children_yang_names.add("cvActiveCallWMTable")
 
-        self.cvsipmsgratewmtable = CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable()
+        self.cvsipmsgratewmtable = CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable()
         self.cvsipmsgratewmtable.parent = self
         self._children_name_map["cvsipmsgratewmtable"] = "cvSipMsgRateWMTable"
-        self._children_yang_names.add("cvSipMsgRateWMTable")
         self._segment_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOVOICEDIALCONTROLMIB, [], name, value)
 
-    class Cvgeneralconfiguration(Entity):
+
+    class CvGeneralConfiguration(Entity):
         """
         
         
@@ -552,15 +530,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvGeneralConfiguration, self).__init__()
 
             self.yang_name = "cvGeneralConfiguration"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cvgeneralpoorqovnotificationenable', YLeaf(YType.boolean, 'cvGeneralPoorQoVNotificationEnable')),
                 ('cvgeneralfallbacknotificationenable', YLeaf(YType.boolean, 'cvGeneralFallbackNotificationEnable')),
@@ -575,10 +552,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration, ['cvgeneralpoorqovnotificationenable', 'cvgeneralfallbacknotificationenable', 'cvgeneraldscppolicynotificationenable', 'cvgeneralmediapolicynotificationenable'], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvGeneralConfiguration, ['cvgeneralpoorqovnotificationenable', 'cvgeneralfallbacknotificationenable', 'cvgeneraldscppolicynotificationenable', 'cvgeneralmediapolicynotificationenable'], name, value)
 
 
-    class Cvgatewaycallactive(Entity):
+    class CvGatewayCallActive(Entity):
         """
         
         
@@ -627,15 +604,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvGatewayCallActive, self).__init__()
 
             self.yang_name = "cvGatewayCallActive"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cvcallactiveds0s', YLeaf(YType.uint32, 'cvCallActiveDS0s')),
                 ('cvcallactiveds0shighthreshold', YLeaf(YType.uint32, 'cvCallActiveDS0sHighThreshold')),
@@ -652,10 +628,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive, ['cvcallactiveds0s', 'cvcallactiveds0shighthreshold', 'cvcallactiveds0slowthreshold', 'cvcallactiveds0shighnotifyenable', 'cvcallactiveds0slownotifyenable'], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvGatewayCallActive, ['cvcallactiveds0s', 'cvcallactiveds0shighthreshold', 'cvcallactiveds0slowthreshold', 'cvcallactiveds0shighnotifyenable', 'cvcallactiveds0slownotifyenable'], name, value)
 
 
-    class Cvcallvolume(Entity):
+    class CvCallVolume(Entity):
         """
         
         
@@ -681,15 +657,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallvolume, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallVolume, self).__init__()
 
             self.yang_name = "cvCallVolume"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cvcallvolconntotalactiveconnections', YLeaf(YType.uint32, 'cvCallVolConnTotalActiveConnections')),
                 ('cvcallvolconnmaxcallconnectionlicenese', YLeaf(YType.uint32, 'cvCallVolConnMaxCallConnectionLicenese')),
@@ -700,10 +675,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallvolume, ['cvcallvolconntotalactiveconnections', 'cvcallvolconnmaxcallconnectionlicenese'], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallVolume, ['cvcallvolconntotalactiveconnections', 'cvcallvolconnmaxcallconnectionlicenese'], name, value)
 
 
-    class Cvcallratemonitor(Entity):
+    class CvCallRateMonitor(Entity):
         """
         
         
@@ -743,15 +718,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallRateMonitor, self).__init__()
 
             self.yang_name = "cvCallRateMonitor"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cvcallratemonitorenable', YLeaf(YType.boolean, 'cvCallRateMonitorEnable')),
                 ('cvcallratemonitortime', YLeaf(YType.uint32, 'cvCallRateMonitorTime')),
@@ -766,10 +740,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor, ['cvcallratemonitorenable', 'cvcallratemonitortime', 'cvcallrate', 'cvcallratehiwatermark'], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallRateMonitor, ['cvcallratemonitorenable', 'cvcallratemonitortime', 'cvcallrate', 'cvcallratehiwatermark'], name, value)
 
 
-    class Cvcallvolumestatshistory(Entity):
+    class CvCallVolumeStatsHistory(Entity):
         """
         
         
@@ -797,15 +771,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallVolumeStatsHistory, self).__init__()
 
             self.yang_name = "cvCallVolumeStatsHistory"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cvcalldurationstatsthreshold', YLeaf(YType.uint32, 'cvCallDurationStatsThreshold')),
                 ('cvcallvolumewmtablesize', YLeaf(YType.uint32, 'cvCallVolumeWMTableSize')),
@@ -816,10 +789,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory, ['cvcalldurationstatsthreshold', 'cvcallvolumewmtablesize'], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallVolumeStatsHistory, ['cvcalldurationstatsthreshold', 'cvcallvolumewmtablesize'], name, value)
 
 
-    class Cvpeercfgtable(Entity):
+    class CvPeerCfgTable(Entity):
         """
         The table contains the Voice Generic Peer information that
         is used to create an ifIndexed row with an appropriate
@@ -829,7 +802,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvpeercfgentry
         
         	A single voice generic Peer. The creation of this entry will create an associated ifEntry with an ifType that is associated with cvPeerCfgType, i.e., for 'voiceEncap' encapsulation, an ifEntry will contain an ifType voiceEncap(103); for 'voiceOverIp' encapsulation, an ifEntry will contain an ifType voiceOverIp(104). The ifAdminStatus of the newly created ifEntry is set to 'up' and ifOperStatus is set to 'down'. In addition, an associated voiceEncap/voiceOverIp Peer configuration entry is created after the successful ifEntry creation. Then ifIndex of the newly created ifEntry must be used by the network manager to create a peer configuration entry of IETF Dial Control MIB (Refer to RFC 2128 section 2.2.3.1 and the description of dialCtlPeerCfgEntry for the detailed information). In summary, the voice dial peer creation steps are as follows\: [1] create this entry (voice/data generic peer entry). [2] read the cvPeerCfgIfIndex of this entry for the     ifIndex of newly created voice/data generic peer. [3] create the dialCtlPeerCfgEntry of RFC 2128 with the     indices of dialCtlPeerCfgId and the ifIndex of newly     created voice generic peer.  For each VoIP peer, it uses IP address and UDP port with RTP protocol to transfer voice packet. Therefore, it does not have its lower layer interface. The dialCtlPeerCfgIfType object of IETF Dial Control MIB must set to 'other' and the dialCtlPeerCfgLowerIf must set to '0'.  After the successful creation of peer configuration entry of IETF Dial Control MIB, the dial plan software in managed device will set the ifOperStatus of the newly created voiceEncap/voiceOverIp ifEntry to 'up' for enabling the peer function if the peer configuration is completed. When this entry is deleted, its associated ifEntry, voiceEncap/voiceOverIp specific peer entry and the peer entry of IETF Dial Control MIB are deleted
-        	**type**\: list of  		 :py:class:`Cvpeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry>`
+        	**type**\: list of  		 :py:class:`CvPeerCfgEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable.CvPeerCfgEntry>`
         
         
 
@@ -839,15 +812,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable, self).__init__()
 
             self.yang_name = "cvPeerCfgTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvPeerCfgEntry", ("cvpeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry))])
+            self._child_classes = OrderedDict([("cvPeerCfgEntry", ("cvpeercfgentry", CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable.CvPeerCfgEntry))])
             self._leafs = OrderedDict()
 
             self.cvpeercfgentry = YList(self)
@@ -855,10 +827,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable, [], name, value)
 
 
-        class Cvpeercfgentry(Entity):
+        class CvPeerCfgEntry(Entity):
             """
             A single voice generic Peer. The creation of this
             entry will create an associated ifEntry with an ifType
@@ -918,7 +890,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvpeercfgtype
             
             	Specifies the type of voice related encapsulation. voice \- voice encapsulation (voiceEncap ifType) on the         telephony network. voip  \- VoIP encapsulation (voiceOverIp ifType) on the IP         network. mmail \- Media Mail over IP encapsulation (mediaMailOverIp         ifType) on the IP network. voatm \- VoATM encapsulation (voiceOverATM ifType) on the         ATM network. vofr  \- VoFR encapsulation (voiceOverFR ifType) on the         Frame Relay network
-            	**type**\:  :py:class:`Cvpeercfgtype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry.Cvpeercfgtype>`
+            	**type**\:  :py:class:`CvPeerCfgType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable.CvPeerCfgEntry.CvPeerCfgType>`
             
             .. attribute:: cvpeercfgrowstatus
             
@@ -928,7 +900,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvpeercfgpeertype
             
             	Specifies the type of a peer. voice \- peer in voice type to be defined in a voice         gateway for voice calls.  data  \- peer in data type to be defined in gateway         that supports universal ports for modem/data         calls and integrated ports for data calls
-            	**type**\:  :py:class:`Cvpeercfgpeertype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry.Cvpeercfgpeertype>`
+            	**type**\:  :py:class:`CvPeerCfgPeerType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable.CvPeerCfgEntry.CvPeerCfgPeerType>`
             
             .. attribute:: cvcallvolpeerincomingcalls
             
@@ -952,15 +924,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable.CvPeerCfgEntry, self).__init__()
 
                 self.yang_name = "cvPeerCfgEntry"
                 self.yang_parent_name = "cvPeerCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvpeercfgindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvpeercfgindex', YLeaf(YType.int32, 'cvPeerCfgIndex')),
                     ('cvpeercfgifindex', YLeaf(YType.int32, 'cvPeerCfgIfIndex')),
@@ -981,11 +952,11 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvPeerCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry, ['cvpeercfgindex', 'cvpeercfgifindex', 'cvpeercfgtype', 'cvpeercfgrowstatus', 'cvpeercfgpeertype', 'cvcallvolpeerincomingcalls', 'cvcallvolpeeroutgoingcalls'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvPeerCfgTable.CvPeerCfgEntry, ['cvpeercfgindex', 'cvpeercfgifindex', 'cvpeercfgtype', 'cvpeercfgrowstatus', 'cvpeercfgpeertype', 'cvcallvolpeerincomingcalls', 'cvcallvolpeeroutgoingcalls'], name, value)
 
-            class Cvpeercfgpeertype(Enum):
+            class CvPeerCfgPeerType(Enum):
                 """
-                Cvpeercfgpeertype (Enum Class)
+                CvPeerCfgPeerType (Enum Class)
 
                 Specifies the type of a peer.
 
@@ -1010,9 +981,9 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 data = Enum.YLeaf(2, "data")
 
 
-            class Cvpeercfgtype(Enum):
+            class CvPeerCfgType(Enum):
                 """
-                Cvpeercfgtype (Enum Class)
+                CvPeerCfgType (Enum Class)
 
                 Specifies the type of voice related encapsulation.
 
@@ -1060,7 +1031,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
 
 
-    class Cvvoicepeercfgtable(Entity):
+    class CvVoicePeerCfgTable(Entity):
         """
         The table contains the Voice over Telephony peer specific
         information that is required to accept voice calls or to
@@ -1070,7 +1041,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvvoicepeercfgentry
         
         	A single Voice specific Peer. One entry per voice encapsulation. The entry is created when its associated 'voiceEncap(103)' encapsulation ifEntry is created. This entry is deleted when its associated ifEntry is deleted
-        	**type**\: list of  		 :py:class:`Cvvoicepeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry>`
+        	**type**\: list of  		 :py:class:`CvVoicePeerCfgEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable.CvVoicePeerCfgEntry>`
         
         
 
@@ -1080,15 +1051,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable, self).__init__()
 
             self.yang_name = "cvVoicePeerCfgTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvVoicePeerCfgEntry", ("cvvoicepeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry))])
+            self._child_classes = OrderedDict([("cvVoicePeerCfgEntry", ("cvvoicepeercfgentry", CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable.CvVoicePeerCfgEntry))])
             self._leafs = OrderedDict()
 
             self.cvvoicepeercfgentry = YList(self)
@@ -1096,10 +1066,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable, [], name, value)
 
 
-        class Cvvoicepeercfgentry(Entity):
+        class CvVoicePeerCfgEntry(Entity):
             """
             A single Voice specific Peer. One entry per voice
             encapsulation.
@@ -1115,7 +1085,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cvvoicepeercfgsessiontarget
             
@@ -1158,7 +1128,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoicepeercfgechocancellertest
             
             	This object specifies which, if any, test to run in the echo canceller when a call from the network is connected. echoCancellerTestNone    \- do not run a test. echoCancellerG168Test2A  \- run ITU\-T G.168 Test 2A. echoCancellerG168Test2B  \- run ITU\-T G.168 Test 2B. echoCancellerG168Test2Ca \- run ITU\-T G.168 Test 2C(a). echoCancellerG168Test2Cb \- run ITU\-T G.168 Test 2C(b). echoCancellerG168Test3A  \- run ITU\-T G.168 Test 3A. echoCancellerG168Test3B  \- run ITU\-T G.168 Test 3B. echoCancellerG168Test3C  \- run ITU\-T G.168 Test 3C. echoCancellerG168Test4   \- run ITU\-T G.168 Test 4. echoCancellerG168Test5   \- run ITU\-T G.168 Test 5. echoCancellerG168Test6   \- run ITU\-T G.168 Test 6. echoCancellerG168Test7   \- run ITU\-T G.168 Test 7. echoCancellerG168Test9   \- run ITU\-T G.168 Test 9
-            	**type**\:  :py:class:`Cvvoicepeercfgechocancellertest <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry.Cvvoicepeercfgechocancellertest>`
+            	**type**\:  :py:class:`CvVoicePeerCfgEchoCancellerTest <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable.CvVoicePeerCfgEntry.CvVoicePeerCfgEchoCancellerTest>`
             
             
 
@@ -1168,15 +1138,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable.CvVoicePeerCfgEntry, self).__init__()
 
                 self.yang_name = "cvVoicePeerCfgEntry"
                 self.yang_parent_name = "cvVoicePeerCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cvvoicepeercfgsessiontarget', YLeaf(YType.str, 'cvVoicePeerCfgSessionTarget')),
@@ -1199,11 +1168,11 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoicePeerCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry, ['ifindex', 'cvvoicepeercfgsessiontarget', 'cvvoicepeercfgdialdigitsprefix', 'cvvoicepeercfgdidcallenable', 'cvvoicepeercfgcasgroup', 'cvvoicepeercfgregistere164', 'cvvoicepeercfgforwarddigits', 'cvvoicepeercfgechocancellertest'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvVoicePeerCfgTable.CvVoicePeerCfgEntry, ['ifindex', 'cvvoicepeercfgsessiontarget', 'cvvoicepeercfgdialdigitsprefix', 'cvvoicepeercfgdidcallenable', 'cvvoicepeercfgcasgroup', 'cvvoicepeercfgregistere164', 'cvvoicepeercfgforwarddigits', 'cvvoicepeercfgechocancellertest'], name, value)
 
-            class Cvvoicepeercfgechocancellertest(Enum):
+            class CvVoicePeerCfgEchoCancellerTest(Enum):
                 """
-                Cvvoicepeercfgechocancellertest (Enum Class)
+                CvVoicePeerCfgEchoCancellerTest (Enum Class)
 
                 This object specifies which, if any, test to run in the
 
@@ -1291,7 +1260,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
 
 
-    class Cvvoippeercfgtable(Entity):
+    class CvVoIPPeerCfgTable(Entity):
         """
         The table contains the Voice over IP (VoIP) peer specific
         information that is required to accept voice calls or to
@@ -1301,7 +1270,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvvoippeercfgentry
         
         	A single VoIP specific Peer. One entry per VoIP encapsulation. The entry is created when its associated 'voiceOverIp(104)' encapsulation ifEntry is created. This entry is deleted when its associated ifEntry is deleted
-        	**type**\: list of  		 :py:class:`Cvvoippeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry>`
+        	**type**\: list of  		 :py:class:`CvVoIPPeerCfgEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable.CvVoIPPeerCfgEntry>`
         
         
 
@@ -1311,15 +1280,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable, self).__init__()
 
             self.yang_name = "cvVoIPPeerCfgTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvVoIPPeerCfgEntry", ("cvvoippeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry))])
+            self._child_classes = OrderedDict([("cvVoIPPeerCfgEntry", ("cvvoippeercfgentry", CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable.CvVoIPPeerCfgEntry))])
             self._leafs = OrderedDict()
 
             self.cvvoippeercfgentry = YList(self)
@@ -1327,10 +1295,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable, [], name, value)
 
 
-        class Cvvoippeercfgentry(Entity):
+        class CvVoIPPeerCfgEntry(Entity):
             """
             A single VoIP specific Peer. One entry per VoIP
             encapsulation.
@@ -1346,7 +1314,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cvvoippeercfgsessionprotocol
             
@@ -1428,7 +1396,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfgdigitrelay
             
             	This object specifies the methods to transmit dial digits (DTMF or MF digits) via IP network. rtpCisco       \- Enable capability to transmit dial digits                  with Cisco proprietary RTP payload type. h245Signal     \- Enable capability to transmit dtmf digits                  across the H.245 channel, via the signal                  field of the UserInputIndication message h245Alphanumeric \- Enable capability to transmit dtmf                  digit across the H.245 channel, via the                  string or alphanumeric fields of the                  UserInputIndication message rtpNte         \- Enable capability to transmit dial digits                  using Named Telephony Event per RFC 2833                  section 3. sipNotify      \- Enable capability to transmit dtmf                  digits using unsolicited SIP NOTIFY                  messages. This mechanism is only available                  for SIP dialpeers. sipKpml        \- Enable capability to transmit dtmf                  digits using KPML over SIP SUBSCRIBE                  and NOTIFY messages. This mechanism is                  only available for SIP dialpeers.   Modifying the value of cvVoIPPeerCfgSessionProtocol can reset the digit\-relay method associated bits value in this object if the modified session protocol does not support  these digit\-relay methods
-            	**type**\:  :py:class:`Cvvoippeercfgdigitrelay <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgdigitrelay>`
+            	**type**\:  :py:class:`CvVoIPPeerCfgDigitRelay <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable.CvVoIPPeerCfgEntry.CvVoIPPeerCfgDigitRelay>`
             
             .. attribute:: cvvoippeercfgcoderbytes
             
@@ -1456,7 +1424,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfgmediasetting
             
             	This object specifies how the media is to be setup on an IP\-IP Gateway. Two choices are valid\: flow\-through and flow\-around. When in flow\-through mode, which is the default setting, the IP\-IP Gateway will terminate and  then re\-originate the media stream. When flow\-around is configured the Gateway will not be involved with the media, since it will flow\-around the Gateway and will be established directly between the endpoints
-            	**type**\:  :py:class:`Cvvoippeercfgmediasetting <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgmediasetting>`
+            	**type**\:  :py:class:`CvVoIPPeerCfgMediaSetting <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable.CvVoIPPeerCfgEntry.CvVoIPPeerCfgMediaSetting>`
             
             .. attribute:: cvvoippeercfgdesiredqosvideo
             
@@ -1496,7 +1464,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfgcodingmode
             
             	This object specifies the coding mode to be used. The object is instantiated only if cvVoIPPeerCfgCoderRate is 'iSAC'. Following coding modes are supported\: adaptive    (1) \- adaptive mode where iSAC performs bandwidth                     estimation and adapts to the available channel                    bandwidth. independent (2) \- independent mode in which no bandwidth estimation                    is performed
-            	**type**\:  :py:class:`Cvvoippeercfgcodingmode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgcodingmode>`
+            	**type**\:  :py:class:`CvVoIPPeerCfgCodingMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable.CvVoIPPeerCfgEntry.CvVoIPPeerCfgCodingMode>`
             
             .. attribute:: cvvoippeercfgbitrate
             
@@ -1508,7 +1476,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfgframesize
             
             	This object specifies the frame size used. The object is instantiated only if cvVoIPPeerCfgCoderRate is 'iSAC'. The frame size can be 30 ms or 60 ms, and it can be fixed for all packets or vary depending on the configuration and bandwidth estimation. Thus it can have the following values\: frameSize30      \- initial frame size of 30 ms frameSize60      \- initial frame size of 60 ms frameSize30fixed \- fixed frame size 30 ms frameSize60fixed \- fixed frame size 60 ms
-            	**type**\:  :py:class:`Cvvoippeercfgframesize <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgframesize>`
+            	**type**\:  :py:class:`CvVoIPPeerCfgFrameSize <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable.CvVoIPPeerCfgEntry.CvVoIPPeerCfgFrameSize>`
             
             .. attribute:: cvvoippeercfgdscppolicynotificationenable
             
@@ -1528,15 +1496,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable.CvVoIPPeerCfgEntry, self).__init__()
 
                 self.yang_name = "cvVoIPPeerCfgEntry"
                 self.yang_parent_name = "cvVoIPPeerCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cvvoippeercfgsessionprotocol', YLeaf(YType.enumeration, 'cvVoIPPeerCfgSessionProtocol')),
@@ -1605,11 +1572,11 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPPeerCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry, ['ifindex', 'cvvoippeercfgsessionprotocol', 'cvvoippeercfgdesiredqos', 'cvvoippeercfgminacceptableqos', 'cvvoippeercfgsessiontarget', 'cvvoippeercfgcoderrate', 'cvvoippeercfgfaxrate', 'cvvoippeercfgvadenable', 'cvvoippeercfgexpectfactor', 'cvvoippeercfgicpif', 'cvvoippeercfgpoorqovnotificationenable', 'cvvoippeercfgudpchecksumenable', 'cvvoippeercfgipprecedence', 'cvvoippeercfgtechprefix', 'cvvoippeercfgdigitrelay', 'cvvoippeercfgcoderbytes', 'cvvoippeercfgfaxbytes', 'cvvoippeercfginbandsignaling', 'cvvoippeercfgmediasetting', 'cvvoippeercfgdesiredqosvideo', 'cvvoippeercfgminacceptableqosvideo', 'cvvoippeercfgredirectip2ip', 'cvvoippeercfgoctetaligned', 'cvvoippeercfgbitrates', 'cvvoippeercfgcrc', 'cvvoippeercfgcodermode', 'cvvoippeercfgcodingmode', 'cvvoippeercfgbitrate', 'cvvoippeercfgframesize', 'cvvoippeercfgdscppolicynotificationenable', 'cvvoippeercfgmediapolicynotificationenable'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvVoIPPeerCfgTable.CvVoIPPeerCfgEntry, ['ifindex', 'cvvoippeercfgsessionprotocol', 'cvvoippeercfgdesiredqos', 'cvvoippeercfgminacceptableqos', 'cvvoippeercfgsessiontarget', 'cvvoippeercfgcoderrate', 'cvvoippeercfgfaxrate', 'cvvoippeercfgvadenable', 'cvvoippeercfgexpectfactor', 'cvvoippeercfgicpif', 'cvvoippeercfgpoorqovnotificationenable', 'cvvoippeercfgudpchecksumenable', 'cvvoippeercfgipprecedence', 'cvvoippeercfgtechprefix', 'cvvoippeercfgdigitrelay', 'cvvoippeercfgcoderbytes', 'cvvoippeercfgfaxbytes', 'cvvoippeercfginbandsignaling', 'cvvoippeercfgmediasetting', 'cvvoippeercfgdesiredqosvideo', 'cvvoippeercfgminacceptableqosvideo', 'cvvoippeercfgredirectip2ip', 'cvvoippeercfgoctetaligned', 'cvvoippeercfgbitrates', 'cvvoippeercfgcrc', 'cvvoippeercfgcodermode', 'cvvoippeercfgcodingmode', 'cvvoippeercfgbitrate', 'cvvoippeercfgframesize', 'cvvoippeercfgdscppolicynotificationenable', 'cvvoippeercfgmediapolicynotificationenable'], name, value)
 
-            class Cvvoippeercfgcodingmode(Enum):
+            class CvVoIPPeerCfgCodingMode(Enum):
                 """
-                Cvvoippeercfgcodingmode (Enum Class)
+                CvVoIPPeerCfgCodingMode (Enum Class)
 
                 This object specifies the coding mode to be used. The object is
 
@@ -1640,9 +1607,9 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 independent = Enum.YLeaf(2, "independent")
 
 
-            class Cvvoippeercfgframesize(Enum):
+            class CvVoIPPeerCfgFrameSize(Enum):
                 """
-                Cvvoippeercfgframesize (Enum Class)
+                CvVoIPPeerCfgFrameSize (Enum Class)
 
                 This object specifies the frame size used. The object is
 
@@ -1681,9 +1648,9 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 frameSize60fixed = Enum.YLeaf(4, "frameSize60fixed")
 
 
-            class Cvvoippeercfgmediasetting(Enum):
+            class CvVoIPPeerCfgMediaSetting(Enum):
                 """
-                Cvvoippeercfgmediasetting (Enum Class)
+                CvVoIPPeerCfgMediaSetting (Enum Class)
 
                 This object specifies how the media is to be setup on
 
@@ -1713,7 +1680,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
 
 
-    class Cvpeercommoncfgtable(Entity):
+    class CvPeerCommonCfgTable(Entity):
         """
         The table contains the Voice specific peer common
         configuration information that is required to accept voice
@@ -1723,7 +1690,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvpeercommoncfgentry
         
         	A single Voice specific Peer. One entry per voice related encapsulation. The entry is created when a voice related encapsulation ifEntry is created. This entry is deleted when its associated ifEntry is deleted
-        	**type**\: list of  		 :py:class:`Cvpeercommoncfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable.Cvpeercommoncfgentry>`
+        	**type**\: list of  		 :py:class:`CvPeerCommonCfgEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable.CvPeerCommonCfgEntry>`
         
         
 
@@ -1733,15 +1700,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable, self).__init__()
 
             self.yang_name = "cvPeerCommonCfgTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvPeerCommonCfgEntry", ("cvpeercommoncfgentry", CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable.Cvpeercommoncfgentry))])
+            self._child_classes = OrderedDict([("cvPeerCommonCfgEntry", ("cvpeercommoncfgentry", CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable.CvPeerCommonCfgEntry))])
             self._leafs = OrderedDict()
 
             self.cvpeercommoncfgentry = YList(self)
@@ -1749,10 +1715,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable, [], name, value)
 
 
-        class Cvpeercommoncfgentry(Entity):
+        class CvPeerCommonCfgEntry(Entity):
             """
             A single Voice specific Peer. One entry per voice related
             encapsulation.
@@ -1768,7 +1734,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cvpeercommoncfgincomingdnisdigits
             
@@ -1836,15 +1802,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable.Cvpeercommoncfgentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable.CvPeerCommonCfgEntry, self).__init__()
 
                 self.yang_name = "cvPeerCommonCfgEntry"
                 self.yang_parent_name = "cvPeerCommonCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cvpeercommoncfgincomingdnisdigits', YLeaf(YType.str, 'cvPeerCommonCfgIncomingDnisDigits')),
@@ -1873,10 +1838,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvPeerCommonCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable.Cvpeercommoncfgentry, ['ifindex', 'cvpeercommoncfgincomingdnisdigits', 'cvpeercommoncfgmaxconnections', 'cvpeercommoncfgapplicationname', 'cvpeercommoncfgpreference', 'cvpeercommoncfghuntstop', 'cvpeercommoncfgdnismappingname', 'cvpeercommoncfgsourcecarrierid', 'cvpeercommoncfgtargetcarrierid', 'cvpeercommoncfgsourcetrunkgrplabel', 'cvpeercommoncfgtargettrunkgrplabel'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvPeerCommonCfgTable.CvPeerCommonCfgEntry, ['ifindex', 'cvpeercommoncfgincomingdnisdigits', 'cvpeercommoncfgmaxconnections', 'cvpeercommoncfgapplicationname', 'cvpeercommoncfgpreference', 'cvpeercommoncfghuntstop', 'cvpeercommoncfgdnismappingname', 'cvpeercommoncfgsourcecarrierid', 'cvpeercommoncfgtargetcarrierid', 'cvpeercommoncfgsourcetrunkgrplabel', 'cvpeercommoncfgtargettrunkgrplabel'], name, value)
 
 
-    class Cvcallactivetable(Entity):
+    class CvCallActiveTable(Entity):
         """
         This table is the voice extension to the call active table
         of IETF Dial Control MIB. It contains voice encapsulation
@@ -1886,7 +1851,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallactiveentry
         
         	The information regarding a single voice encapsulation call leg. The call leg entry is identified by using the same index objects that are used by Call Active table of IETF Dial Control MIB to identify the call. An entry of this table is created when its associated call active entry in the IETF Dial Control MIB is created and call active entry contains the call establishment to a voice over telephony network peer. The entry is deleted when its associated call active entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of  		 :py:class:`Cvcallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallactivetable.Cvcallactiveentry>`
+        	**type**\: list of  		 :py:class:`CvCallActiveEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallActiveTable.CvCallActiveEntry>`
         
         
 
@@ -1896,15 +1861,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallactivetable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallActiveTable, self).__init__()
 
             self.yang_name = "cvCallActiveTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallActiveEntry", ("cvcallactiveentry", CISCOVOICEDIALCONTROLMIB.Cvcallactivetable.Cvcallactiveentry))])
+            self._child_classes = OrderedDict([("cvCallActiveEntry", ("cvcallactiveentry", CISCOVOICEDIALCONTROLMIB.CvCallActiveTable.CvCallActiveEntry))])
             self._leafs = OrderedDict()
 
             self.cvcallactiveentry = YList(self)
@@ -1912,10 +1876,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallactivetable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallActiveTable, [], name, value)
 
 
-        class Cvcallactiveentry(Entity):
+        class CvCallActiveEntry(Entity):
             """
             The information regarding a single voice encapsulation
             call leg.
@@ -1936,7 +1900,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
             .. attribute:: callactiveindex  (key)
             
@@ -1945,7 +1909,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
             .. attribute:: cvcallactiveconnectionid
             
@@ -2097,15 +2061,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcallactivetable.Cvcallactiveentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallActiveTable.CvCallActiveEntry, self).__init__()
 
                 self.yang_name = "cvCallActiveEntry"
                 self.yang_parent_name = "cvCallActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['callactivesetuptime','callactiveindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('callactivesetuptime', YLeaf(YType.str, 'callActiveSetupTime')),
                     ('callactiveindex', YLeaf(YType.str, 'callActiveIndex')),
@@ -2152,10 +2115,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallactivetable.Cvcallactiveentry, ['callactivesetuptime', 'callactiveindex', 'cvcallactiveconnectionid', 'cvcallactivetxduration', 'cvcallactivevoicetxduration', 'cvcallactivefaxtxduration', 'cvcallactivecodertyperate', 'cvcallactivenoiselevel', 'cvcallactiveacomlevel', 'cvcallactiveoutsignallevel', 'cvcallactiveinsignallevel', 'cvcallactiveerllevel', 'cvcallactivesessiontarget', 'cvcallactiveimgpagecount', 'cvcallactivecallingname', 'cvcallactivecalleridblock', 'cvcallactiveecanreflectorlocation', 'cvcallactiveaccountcode', 'cvcallactiveerllevelrev1', 'cvcallactivecallid'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallActiveTable.CvCallActiveEntry, ['callactivesetuptime', 'callactiveindex', 'cvcallactiveconnectionid', 'cvcallactivetxduration', 'cvcallactivevoicetxduration', 'cvcallactivefaxtxduration', 'cvcallactivecodertyperate', 'cvcallactivenoiselevel', 'cvcallactiveacomlevel', 'cvcallactiveoutsignallevel', 'cvcallactiveinsignallevel', 'cvcallactiveerllevel', 'cvcallactivesessiontarget', 'cvcallactiveimgpagecount', 'cvcallactivecallingname', 'cvcallactivecalleridblock', 'cvcallactiveecanreflectorlocation', 'cvcallactiveaccountcode', 'cvcallactiveerllevelrev1', 'cvcallactivecallid'], name, value)
 
 
-    class Cvvoipcallactivetable(Entity):
+    class CvVoIPCallActiveTable(Entity):
         """
         This table is the VoIP extension to the call active table of
         IETF Dial Control MIB. It contains VoIP call leg
@@ -2165,7 +2128,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvvoipcallactiveentry
         
         	The information regarding a single VoIP call leg. The call leg entry is identified by using the same index objects that are used by Call Active table of IETF Dial Control MIB to identify the call. An entry of this table is created when its associated call active entry in the IETF Dial Control MIB is created and the call active entry contains information for the call establishment to the peer on the IP backbone via a voice over  IP peer. The entry is deleted when its associated call active entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of  		 :py:class:`Cvvoipcallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable.Cvvoipcallactiveentry>`
+        	**type**\: list of  		 :py:class:`CvVoIPCallActiveEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable.CvVoIPCallActiveEntry>`
         
         
 
@@ -2175,15 +2138,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable, self).__init__()
 
             self.yang_name = "cvVoIPCallActiveTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvVoIPCallActiveEntry", ("cvvoipcallactiveentry", CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable.Cvvoipcallactiveentry))])
+            self._child_classes = OrderedDict([("cvVoIPCallActiveEntry", ("cvvoipcallactiveentry", CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable.CvVoIPCallActiveEntry))])
             self._leafs = OrderedDict()
 
             self.cvvoipcallactiveentry = YList(self)
@@ -2191,10 +2153,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable, [], name, value)
 
 
-        class Cvvoipcallactiveentry(Entity):
+        class CvVoIPCallActiveEntry(Entity):
             """
             The information regarding a single VoIP call leg.
             The call leg entry is identified by using the same index
@@ -2215,7 +2177,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
             .. attribute:: callactiveindex  (key)
             
@@ -2224,7 +2186,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
             .. attribute:: cvvoipcallactiveconnectionid
             
@@ -2564,15 +2526,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable.Cvvoipcallactiveentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable.CvVoIPCallActiveEntry, self).__init__()
 
                 self.yang_name = "cvVoIPCallActiveEntry"
                 self.yang_parent_name = "cvVoIPCallActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['callactivesetuptime','callactiveindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('callactivesetuptime', YLeaf(YType.str, 'callActiveSetupTime')),
                     ('callactiveindex', YLeaf(YType.str, 'callActiveIndex')),
@@ -2675,10 +2636,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPCallActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable.Cvvoipcallactiveentry, ['callactivesetuptime', 'callactiveindex', 'cvvoipcallactiveconnectionid', 'cvvoipcallactiveremoteipaddress', 'cvvoipcallactiveremoteudpport', 'cvvoipcallactiveroundtripdelay', 'cvvoipcallactiveselectedqos', 'cvvoipcallactivesessionprotocol', 'cvvoipcallactivesessiontarget', 'cvvoipcallactiveontimervplayout', 'cvvoipcallactivegapfillwithsilence', 'cvvoipcallactivegapfillwithprediction', 'cvvoipcallactivegapfillwithinterpolation', 'cvvoipcallactivegapfillwithredundancy', 'cvvoipcallactivehiwaterplayoutdelay', 'cvvoipcallactivelowaterplayoutdelay', 'cvvoipcallactivereceivedelay', 'cvvoipcallactivevadenable', 'cvvoipcallactivecodertyperate', 'cvvoipcallactivelostpackets', 'cvvoipcallactiveearlypackets', 'cvvoipcallactivelatepackets', 'cvvoipcallactiveusername', 'cvvoipcallactiveprotocolcallid', 'cvvoipcallactiveremsigipaddrt', 'cvvoipcallactiveremsigipaddr', 'cvvoipcallactiveremsigport', 'cvvoipcallactiveremmediaipaddrt', 'cvvoipcallactiveremmediaipaddr', 'cvvoipcallactiveremmediaport', 'cvvoipcallactivesrtpenable', 'cvvoipcallactiveoctetaligned', 'cvvoipcallactivebitrates', 'cvvoipcallactivemodechgperiod', 'cvvoipcallactivemodechgneighbor', 'cvvoipcallactivemaxptime', 'cvvoipcallactivecrc', 'cvvoipcallactiverobustsorting', 'cvvoipcallactiveencap', 'cvvoipcallactiveinterleaving', 'cvvoipcallactiveptime', 'cvvoipcallactivechannels', 'cvvoipcallactivecodermode', 'cvvoipcallactivecallid', 'cvvoipcallactivecallreferenceid', 'ccvoipcallactivepolicyname', 'cvvoipcallactivereverseddirectionpeeraddress', 'cvvoipcallactivesessionid'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvVoIPCallActiveTable.CvVoIPCallActiveEntry, ['callactivesetuptime', 'callactiveindex', 'cvvoipcallactiveconnectionid', 'cvvoipcallactiveremoteipaddress', 'cvvoipcallactiveremoteudpport', 'cvvoipcallactiveroundtripdelay', 'cvvoipcallactiveselectedqos', 'cvvoipcallactivesessionprotocol', 'cvvoipcallactivesessiontarget', 'cvvoipcallactiveontimervplayout', 'cvvoipcallactivegapfillwithsilence', 'cvvoipcallactivegapfillwithprediction', 'cvvoipcallactivegapfillwithinterpolation', 'cvvoipcallactivegapfillwithredundancy', 'cvvoipcallactivehiwaterplayoutdelay', 'cvvoipcallactivelowaterplayoutdelay', 'cvvoipcallactivereceivedelay', 'cvvoipcallactivevadenable', 'cvvoipcallactivecodertyperate', 'cvvoipcallactivelostpackets', 'cvvoipcallactiveearlypackets', 'cvvoipcallactivelatepackets', 'cvvoipcallactiveusername', 'cvvoipcallactiveprotocolcallid', 'cvvoipcallactiveremsigipaddrt', 'cvvoipcallactiveremsigipaddr', 'cvvoipcallactiveremsigport', 'cvvoipcallactiveremmediaipaddrt', 'cvvoipcallactiveremmediaipaddr', 'cvvoipcallactiveremmediaport', 'cvvoipcallactivesrtpenable', 'cvvoipcallactiveoctetaligned', 'cvvoipcallactivebitrates', 'cvvoipcallactivemodechgperiod', 'cvvoipcallactivemodechgneighbor', 'cvvoipcallactivemaxptime', 'cvvoipcallactivecrc', 'cvvoipcallactiverobustsorting', 'cvvoipcallactiveencap', 'cvvoipcallactiveinterleaving', 'cvvoipcallactiveptime', 'cvvoipcallactivechannels', 'cvvoipcallactivecodermode', 'cvvoipcallactivecallid', 'cvvoipcallactivecallreferenceid', 'ccvoipcallactivepolicyname', 'cvvoipcallactivereverseddirectionpeeraddress', 'cvvoipcallactivesessionid'], name, value)
 
 
-    class Cvcallvolconntable(Entity):
+    class CvCallVolConnTable(Entity):
         """
         This table represents the number of active
         call connections for each call connection type
@@ -2687,7 +2648,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallvolconnentry
         
         	An entry in the cvCallVolConnTable indicates number of active calls for a call connection type in the voice gateway
-        	**type**\: list of  		 :py:class:`Cvcallvolconnentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable.Cvcallvolconnentry>`
+        	**type**\: list of  		 :py:class:`CvCallVolConnEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable.CvCallVolConnEntry>`
         
         
 
@@ -2697,15 +2658,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable, self).__init__()
 
             self.yang_name = "cvCallVolConnTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallVolConnEntry", ("cvcallvolconnentry", CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable.Cvcallvolconnentry))])
+            self._child_classes = OrderedDict([("cvCallVolConnEntry", ("cvcallvolconnentry", CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable.CvCallVolConnEntry))])
             self._leafs = OrderedDict()
 
             self.cvcallvolconnentry = YList(self)
@@ -2713,10 +2673,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable, [], name, value)
 
 
-        class Cvcallvolconnentry(Entity):
+        class CvCallVolConnEntry(Entity):
             """
             An entry in the cvCallVolConnTable indicates
             number of active calls for a call connection type
@@ -2742,15 +2702,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable.Cvcallvolconnentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable.CvCallVolConnEntry, self).__init__()
 
                 self.yang_name = "cvCallVolConnEntry"
                 self.yang_parent_name = "cvCallVolConnTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvcallvolconnindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvcallvolconnindex', YLeaf(YType.enumeration, 'cvCallVolConnIndex')),
                     ('cvcallvolconnactiveconnection', YLeaf(YType.uint32, 'cvCallVolConnActiveConnection')),
@@ -2761,10 +2720,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallVolConnTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable.Cvcallvolconnentry, ['cvcallvolconnindex', 'cvcallvolconnactiveconnection'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallVolConnTable.CvCallVolConnEntry, ['cvcallvolconnindex', 'cvcallvolconnactiveconnection'], name, value)
 
 
-    class Cvcallvoliftable(Entity):
+    class CvCallVolIfTable(Entity):
         """
         This table represents the information about
         the usage of an IP interface in a voice
@@ -2777,7 +2736,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallvolifentry
         
         	Each entry represents a row in cvCallVolIfTable and corresponds to the information about an IP  interface in the voice gateway
-        	**type**\: list of  		 :py:class:`Cvcallvolifentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable.Cvcallvolifentry>`
+        	**type**\: list of  		 :py:class:`CvCallVolIfEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable.CvCallVolIfEntry>`
         
         
 
@@ -2787,15 +2746,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable, self).__init__()
 
             self.yang_name = "cvCallVolIfTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallVolIfEntry", ("cvcallvolifentry", CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable.Cvcallvolifentry))])
+            self._child_classes = OrderedDict([("cvCallVolIfEntry", ("cvcallvolifentry", CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable.CvCallVolIfEntry))])
             self._leafs = OrderedDict()
 
             self.cvcallvolifentry = YList(self)
@@ -2803,10 +2761,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable, [], name, value)
 
 
-        class Cvcallvolifentry(Entity):
+        class CvCallVolIfEntry(Entity):
             """
             Each entry represents a row in cvCallVolIfTable
             and corresponds to the information about an IP 
@@ -2819,7 +2777,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cvcallvolmediaincomingcalls
             
@@ -2843,15 +2801,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable.Cvcallvolifentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable.CvCallVolIfEntry, self).__init__()
 
                 self.yang_name = "cvCallVolIfEntry"
                 self.yang_parent_name = "cvCallVolIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cvcallvolmediaincomingcalls', YLeaf(YType.uint32, 'cvCallVolMediaIncomingCalls')),
@@ -2864,10 +2821,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallVolIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable.Cvcallvolifentry, ['ifindex', 'cvcallvolmediaincomingcalls', 'cvcallvolmediaoutgoingcalls'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallVolIfTable.CvCallVolIfEntry, ['ifindex', 'cvcallvolmediaincomingcalls', 'cvcallvolmediaoutgoingcalls'], name, value)
 
 
-    class Cvcallhistorytable(Entity):
+    class CvCallHistoryTable(Entity):
         """
         This table is the voice extension to the call history table
         of IETF Dial Control MIB. It contains voice encapsulation
@@ -2877,7 +2834,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallhistoryentry
         
         	The information regarding a single voice encapsulation call leg. The call leg entry is identified by using the same index objects that are used by Call Active table of IETF Dial Control MIB to identify the call. An entry of this table is created when its associated call history entry in the IETF Dial Control MIB is created and the call history entry contains the call establishment to a voice encapsulation peer. The entry is deleted when its associated call active entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of  		 :py:class:`Cvcallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable.Cvcallhistoryentry>`
+        	**type**\: list of  		 :py:class:`CvCallHistoryEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable.CvCallHistoryEntry>`
         
         
 
@@ -2887,15 +2844,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable, self).__init__()
 
             self.yang_name = "cvCallHistoryTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallHistoryEntry", ("cvcallhistoryentry", CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable.Cvcallhistoryentry))])
+            self._child_classes = OrderedDict([("cvCallHistoryEntry", ("cvcallhistoryentry", CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable.CvCallHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.cvcallhistoryentry = YList(self)
@@ -2903,10 +2859,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable, [], name, value)
 
 
-        class Cvcallhistoryentry(Entity):
+        class CvCallHistoryEntry(Entity):
             """
             The information regarding a single voice encapsulation
             call leg.
@@ -2927,7 +2883,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
+            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry>`
             
             .. attribute:: cvcallhistoryconnectionid
             
@@ -3034,15 +2990,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable.Cvcallhistoryentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable.CvCallHistoryEntry, self).__init__()
 
                 self.yang_name = "cvCallHistoryEntry"
                 self.yang_parent_name = "cvCallHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ccallhistoryindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccallhistoryindex', YLeaf(YType.str, 'cCallHistoryIndex')),
                     ('cvcallhistoryconnectionid', YLeaf(YType.str, 'cvCallHistoryConnectionId')),
@@ -3077,10 +3032,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable.Cvcallhistoryentry, ['ccallhistoryindex', 'cvcallhistoryconnectionid', 'cvcallhistorytxduration', 'cvcallhistoryvoicetxduration', 'cvcallhistoryfaxtxduration', 'cvcallhistorycodertyperate', 'cvcallhistorynoiselevel', 'cvcallhistoryacomlevel', 'cvcallhistorysessiontarget', 'cvcallhistoryimgpagecount', 'cvcallhistorycallingname', 'cvcallhistorycalleridblock', 'cvcallhistoryaccountcode', 'cvcallhistorycallid'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallHistoryTable.CvCallHistoryEntry, ['ccallhistoryindex', 'cvcallhistoryconnectionid', 'cvcallhistorytxduration', 'cvcallhistoryvoicetxduration', 'cvcallhistoryfaxtxduration', 'cvcallhistorycodertyperate', 'cvcallhistorynoiselevel', 'cvcallhistoryacomlevel', 'cvcallhistorysessiontarget', 'cvcallhistoryimgpagecount', 'cvcallhistorycallingname', 'cvcallhistorycalleridblock', 'cvcallhistoryaccountcode', 'cvcallhistorycallid'], name, value)
 
 
-    class Cvvoipcallhistorytable(Entity):
+    class CvVoIPCallHistoryTable(Entity):
         """
         This table is the VoIP extension to the call history table
         of IETF Dial Control MIB. It contains VoIP call leg
@@ -3090,7 +3045,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvvoipcallhistoryentry
         
         	The information regarding a single VoIP call leg. The call leg entry is identified by using the same index objects that are used by Call Active table of IETF Dial Control MIB to identify the call. An entry of this table is created when its associated call history entry in the IETF Dial Control MIB is created and the call history entry contains information for the call establishment to the peer on the IP backbone via a voice over IP peer. The entry is deleted when its associated call history entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of  		 :py:class:`Cvvoipcallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable.Cvvoipcallhistoryentry>`
+        	**type**\: list of  		 :py:class:`CvVoIPCallHistoryEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable.CvVoIPCallHistoryEntry>`
         
         
 
@@ -3100,15 +3055,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable, self).__init__()
 
             self.yang_name = "cvVoIPCallHistoryTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvVoIPCallHistoryEntry", ("cvvoipcallhistoryentry", CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable.Cvvoipcallhistoryentry))])
+            self._child_classes = OrderedDict([("cvVoIPCallHistoryEntry", ("cvvoipcallhistoryentry", CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable.CvVoIPCallHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.cvvoipcallhistoryentry = YList(self)
@@ -3116,10 +3070,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable, [], name, value)
 
 
-        class Cvvoipcallhistoryentry(Entity):
+        class CvVoIPCallHistoryEntry(Entity):
             """
             The information regarding a single VoIP call leg.
             The call leg entry is identified by using the same index
@@ -3140,7 +3094,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
+            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry>`
             
             .. attribute:: cvvoipcallhistoryconnectionid
             
@@ -3500,15 +3454,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable.Cvvoipcallhistoryentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable.CvVoIPCallHistoryEntry, self).__init__()
 
                 self.yang_name = "cvVoIPCallHistoryEntry"
                 self.yang_parent_name = "cvVoIPCallHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ccallhistoryindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccallhistoryindex', YLeaf(YType.str, 'cCallHistoryIndex')),
                     ('cvvoipcallhistoryconnectionid', YLeaf(YType.str, 'cvVoIPCallHistoryConnectionId')),
@@ -3613,10 +3566,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPCallHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable.Cvvoipcallhistoryentry, ['ccallhistoryindex', 'cvvoipcallhistoryconnectionid', 'cvvoipcallhistoryremoteipaddress', 'cvvoipcallhistoryremoteudpport', 'cvvoipcallhistoryroundtripdelay', 'cvvoipcallhistoryselectedqos', 'cvvoipcallhistorysessionprotocol', 'cvvoipcallhistorysessiontarget', 'cvvoipcallhistoryontimervplayout', 'cvvoipcallhistorygapfillwithsilence', 'cvvoipcallhistorygapfillwithprediction', 'cvvoipcallhistorygapfillwithinterpolation', 'cvvoipcallhistorygapfillwithredundancy', 'cvvoipcallhistoryhiwaterplayoutdelay', 'cvvoipcallhistorylowaterplayoutdelay', 'cvvoipcallhistoryreceivedelay', 'cvvoipcallhistoryvadenable', 'cvvoipcallhistorycodertyperate', 'cvvoipcallhistoryicpif', 'cvvoipcallhistorylostpackets', 'cvvoipcallhistoryearlypackets', 'cvvoipcallhistorylatepackets', 'cvvoipcallhistoryusername', 'cvvoipcallhistoryprotocolcallid', 'cvvoipcallhistoryremsigipaddrt', 'cvvoipcallhistoryremsigipaddr', 'cvvoipcallhistoryremsigport', 'cvvoipcallhistoryremmediaipaddrt', 'cvvoipcallhistoryremmediaipaddr', 'cvvoipcallhistoryremmediaport', 'cvvoipcallhistorysrtpenable', 'cvvoipcallhistoryfallbackicpif', 'cvvoipcallhistoryfallbackloss', 'cvvoipcallhistoryfallbackdelay', 'cvvoipcallhistoryoctetaligned', 'cvvoipcallhistorybitrates', 'cvvoipcallhistorymodechgperiod', 'cvvoipcallhistorymodechgneighbor', 'cvvoipcallhistorymaxptime', 'cvvoipcallhistorycrc', 'cvvoipcallhistoryrobustsorting', 'cvvoipcallhistoryencap', 'cvvoipcallhistoryinterleaving', 'cvvoipcallhistoryptime', 'cvvoipcallhistorychannels', 'cvvoipcallhistorycodermode', 'cvvoipcallhistorycallid', 'cvvoipcallhistorycallreferenceid', 'cvvoipcallhistorysessionid'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvVoIPCallHistoryTable.CvVoIPCallHistoryEntry, ['ccallhistoryindex', 'cvvoipcallhistoryconnectionid', 'cvvoipcallhistoryremoteipaddress', 'cvvoipcallhistoryremoteudpport', 'cvvoipcallhistoryroundtripdelay', 'cvvoipcallhistoryselectedqos', 'cvvoipcallhistorysessionprotocol', 'cvvoipcallhistorysessiontarget', 'cvvoipcallhistoryontimervplayout', 'cvvoipcallhistorygapfillwithsilence', 'cvvoipcallhistorygapfillwithprediction', 'cvvoipcallhistorygapfillwithinterpolation', 'cvvoipcallhistorygapfillwithredundancy', 'cvvoipcallhistoryhiwaterplayoutdelay', 'cvvoipcallhistorylowaterplayoutdelay', 'cvvoipcallhistoryreceivedelay', 'cvvoipcallhistoryvadenable', 'cvvoipcallhistorycodertyperate', 'cvvoipcallhistoryicpif', 'cvvoipcallhistorylostpackets', 'cvvoipcallhistoryearlypackets', 'cvvoipcallhistorylatepackets', 'cvvoipcallhistoryusername', 'cvvoipcallhistoryprotocolcallid', 'cvvoipcallhistoryremsigipaddrt', 'cvvoipcallhistoryremsigipaddr', 'cvvoipcallhistoryremsigport', 'cvvoipcallhistoryremmediaipaddrt', 'cvvoipcallhistoryremmediaipaddr', 'cvvoipcallhistoryremmediaport', 'cvvoipcallhistorysrtpenable', 'cvvoipcallhistoryfallbackicpif', 'cvvoipcallhistoryfallbackloss', 'cvvoipcallhistoryfallbackdelay', 'cvvoipcallhistoryoctetaligned', 'cvvoipcallhistorybitrates', 'cvvoipcallhistorymodechgperiod', 'cvvoipcallhistorymodechgneighbor', 'cvvoipcallhistorymaxptime', 'cvvoipcallhistorycrc', 'cvvoipcallhistoryrobustsorting', 'cvvoipcallhistoryencap', 'cvvoipcallhistoryinterleaving', 'cvvoipcallhistoryptime', 'cvvoipcallhistorychannels', 'cvvoipcallhistorycodermode', 'cvvoipcallhistorycallid', 'cvvoipcallhistorycallreferenceid', 'cvvoipcallhistorysessionid'], name, value)
 
 
-    class Cvcallratestatstable(Entity):
+    class CvCallRateStatsTable(Entity):
         """
         This table represents voice call rate measurement in various
         interval lengths defined by the 
@@ -3628,7 +3581,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallratestatsentry
         
         	This is a conceptual\-row in cvCallRateStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of  		 :py:class:`Cvcallratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable.Cvcallratestatsentry>`
+        	**type**\: list of  		 :py:class:`CvCallRateStatsEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable.CvCallRateStatsEntry>`
         
         
 
@@ -3638,15 +3591,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable, self).__init__()
 
             self.yang_name = "cvCallRateStatsTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallRateStatsEntry", ("cvcallratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable.Cvcallratestatsentry))])
+            self._child_classes = OrderedDict([("cvCallRateStatsEntry", ("cvcallratestatsentry", CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable.CvCallRateStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cvcallratestatsentry = YList(self)
@@ -3654,10 +3606,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable, [], name, value)
 
 
-        class Cvcallratestatsentry(Entity):
+        class CvCallRateStatsEntry(Entity):
             """
             This is a conceptual\-row in cvCallRateStatsTable
             This entry is created at the system initialization and is
@@ -3701,15 +3653,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable.Cvcallratestatsentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable.CvCallRateStatsEntry, self).__init__()
 
                 self.yang_name = "cvCallRateStatsEntry"
                 self.yang_parent_name = "cvCallRateStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvcallratestatsintvldurunits','cvcallratestatsintvldur']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvcallratestatsintvldurunits', YLeaf(YType.enumeration, 'cvCallRateStatsIntvlDurUnits')),
                     ('cvcallratestatsintvldur', YLeaf(YType.uint32, 'cvCallRateStatsIntvlDur')),
@@ -3724,10 +3675,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallRateStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable.Cvcallratestatsentry, ['cvcallratestatsintvldurunits', 'cvcallratestatsintvldur', 'cvcallratestatsmaxval', 'cvcallratestatsavgval'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallRateStatsTable.CvCallRateStatsEntry, ['cvcallratestatsintvldurunits', 'cvcallratestatsintvldur', 'cvcallratestatsmaxval', 'cvcallratestatsavgval'], name, value)
 
 
-    class Cvcalllegratestatstable(Entity):
+    class CvCallLegRateStatsTable(Entity):
         """
         cvCallLegRateStatsTable table represents voice call leg rate
         measurement in various interval lengths defined by 
@@ -3738,7 +3689,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcalllegratestatsentry
         
         	This is a conceptual\-row in cvCallLegRateStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of  		 :py:class:`Cvcalllegratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable.Cvcalllegratestatsentry>`
+        	**type**\: list of  		 :py:class:`CvCallLegRateStatsEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable.CvCallLegRateStatsEntry>`
         
         
 
@@ -3748,15 +3699,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable, self).__init__()
 
             self.yang_name = "cvCallLegRateStatsTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallLegRateStatsEntry", ("cvcalllegratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable.Cvcalllegratestatsentry))])
+            self._child_classes = OrderedDict([("cvCallLegRateStatsEntry", ("cvcalllegratestatsentry", CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable.CvCallLegRateStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cvcalllegratestatsentry = YList(self)
@@ -3764,10 +3714,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable, [], name, value)
 
 
-        class Cvcalllegratestatsentry(Entity):
+        class CvCallLegRateStatsEntry(Entity):
             """
             This is a conceptual\-row in cvCallLegRateStatsTable
             This entry is created at the system initialization and is
@@ -3811,15 +3761,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable.Cvcalllegratestatsentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable.CvCallLegRateStatsEntry, self).__init__()
 
                 self.yang_name = "cvCallLegRateStatsEntry"
                 self.yang_parent_name = "cvCallLegRateStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvcalllegratestatsintvldurunits','cvcalllegratestatsintvldur']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvcalllegratestatsintvldurunits', YLeaf(YType.enumeration, 'cvCallLegRateStatsIntvlDurUnits')),
                     ('cvcalllegratestatsintvldur', YLeaf(YType.uint32, 'cvCallLegRateStatsIntvlDur')),
@@ -3834,10 +3783,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallLegRateStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable.Cvcalllegratestatsentry, ['cvcalllegratestatsintvldurunits', 'cvcalllegratestatsintvldur', 'cvcalllegratestatsmaxval', 'cvcalllegratestatsavgval'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallLegRateStatsTable.CvCallLegRateStatsEntry, ['cvcalllegratestatsintvldurunits', 'cvcalllegratestatsintvldur', 'cvcalllegratestatsmaxval', 'cvcalllegratestatsavgval'], name, value)
 
 
-    class Cvactivecallstatstable(Entity):
+    class CvActiveCallStatsTable(Entity):
         """
         This table represents the active voice calls in various
         interval lengths defined by the 
@@ -3849,7 +3798,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvactivecallstatsentry
         
         	This is a conceptual\-row in cvActiveCallStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of  		 :py:class:`Cvactivecallstatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable.Cvactivecallstatsentry>`
+        	**type**\: list of  		 :py:class:`CvActiveCallStatsEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable.CvActiveCallStatsEntry>`
         
         
 
@@ -3859,15 +3808,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable, self).__init__()
 
             self.yang_name = "cvActiveCallStatsTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvActiveCallStatsEntry", ("cvactivecallstatsentry", CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable.Cvactivecallstatsentry))])
+            self._child_classes = OrderedDict([("cvActiveCallStatsEntry", ("cvactivecallstatsentry", CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable.CvActiveCallStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cvactivecallstatsentry = YList(self)
@@ -3875,10 +3823,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable, [], name, value)
 
 
-        class Cvactivecallstatsentry(Entity):
+        class CvActiveCallStatsEntry(Entity):
             """
             This is a conceptual\-row in cvActiveCallStatsTable
             This entry is created at the system initialization and is
@@ -3922,15 +3870,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable.Cvactivecallstatsentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable.CvActiveCallStatsEntry, self).__init__()
 
                 self.yang_name = "cvActiveCallStatsEntry"
                 self.yang_parent_name = "cvActiveCallStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvactivecallstatsintvldurunits','cvactivecallstatsintvldur']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvactivecallstatsintvldurunits', YLeaf(YType.enumeration, 'cvActiveCallStatsIntvlDurUnits')),
                     ('cvactivecallstatsintvldur', YLeaf(YType.uint32, 'cvActiveCallStatsIntvlDur')),
@@ -3945,10 +3892,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvActiveCallStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable.Cvactivecallstatsentry, ['cvactivecallstatsintvldurunits', 'cvactivecallstatsintvldur', 'cvactivecallstatsmaxval', 'cvactivecallstatsavgval'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvActiveCallStatsTable.CvActiveCallStatsEntry, ['cvactivecallstatsintvldurunits', 'cvactivecallstatsintvldur', 'cvactivecallstatsmaxval', 'cvactivecallstatsavgval'], name, value)
 
 
-    class Cvcalldurationstatstable(Entity):
+    class CvCallDurationStatsTable(Entity):
         """
         This table represents the number of calls below a specific
         duration in various interval length defined by 
@@ -3963,7 +3910,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcalldurationstatsentry
         
         	This is a conceptual\-row in cvCallDurationStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of  		 :py:class:`Cvcalldurationstatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable.Cvcalldurationstatsentry>`
+        	**type**\: list of  		 :py:class:`CvCallDurationStatsEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable.CvCallDurationStatsEntry>`
         
         
 
@@ -3973,15 +3920,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable, self).__init__()
 
             self.yang_name = "cvCallDurationStatsTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallDurationStatsEntry", ("cvcalldurationstatsentry", CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable.Cvcalldurationstatsentry))])
+            self._child_classes = OrderedDict([("cvCallDurationStatsEntry", ("cvcalldurationstatsentry", CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable.CvCallDurationStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cvcalldurationstatsentry = YList(self)
@@ -3989,10 +3935,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable, [], name, value)
 
 
-        class Cvcalldurationstatsentry(Entity):
+        class CvCallDurationStatsEntry(Entity):
             """
             This is a conceptual\-row in cvCallDurationStatsTable
             This entry is created at the system initialization and is
@@ -4036,15 +3982,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable.Cvcalldurationstatsentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable.CvCallDurationStatsEntry, self).__init__()
 
                 self.yang_name = "cvCallDurationStatsEntry"
                 self.yang_parent_name = "cvCallDurationStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvcalldurationstatsintvldurunits','cvcalldurationstatsintvldur']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvcalldurationstatsintvldurunits', YLeaf(YType.enumeration, 'cvCallDurationStatsIntvlDurUnits')),
                     ('cvcalldurationstatsintvldur', YLeaf(YType.uint32, 'cvCallDurationStatsIntvlDur')),
@@ -4059,10 +4004,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallDurationStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable.Cvcalldurationstatsentry, ['cvcalldurationstatsintvldurunits', 'cvcalldurationstatsintvldur', 'cvcalldurationstatsmaxval', 'cvcalldurationstatsavgval'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallDurationStatsTable.CvCallDurationStatsEntry, ['cvcalldurationstatsintvldurunits', 'cvcalldurationstatsintvldur', 'cvcalldurationstatsmaxval', 'cvcalldurationstatsavgval'], name, value)
 
 
-    class Cvsipmsgratestatstable(Entity):
+    class CvSipMsgRateStatsTable(Entity):
         """
         This table represents the SIP message rate measurement in
         various interval length defined by the 
@@ -4074,7 +4019,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvsipmsgratestatsentry
         
         	This is a conceptual\-row in cvSipMsgRateStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of  		 :py:class:`Cvsipmsgratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable.Cvsipmsgratestatsentry>`
+        	**type**\: list of  		 :py:class:`CvSipMsgRateStatsEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable.CvSipMsgRateStatsEntry>`
         
         
 
@@ -4084,15 +4029,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable, self).__init__()
 
             self.yang_name = "cvSipMsgRateStatsTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvSipMsgRateStatsEntry", ("cvsipmsgratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable.Cvsipmsgratestatsentry))])
+            self._child_classes = OrderedDict([("cvSipMsgRateStatsEntry", ("cvsipmsgratestatsentry", CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable.CvSipMsgRateStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cvsipmsgratestatsentry = YList(self)
@@ -4100,10 +4044,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable, [], name, value)
 
 
-        class Cvsipmsgratestatsentry(Entity):
+        class CvSipMsgRateStatsEntry(Entity):
             """
             This is a conceptual\-row in cvSipMsgRateStatsTable
             This entry is created at the system initialization and is
@@ -4147,15 +4091,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable.Cvsipmsgratestatsentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable.CvSipMsgRateStatsEntry, self).__init__()
 
                 self.yang_name = "cvSipMsgRateStatsEntry"
                 self.yang_parent_name = "cvSipMsgRateStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvsipmsgratestatsintvldurunits','cvsipmsgratestatsintvldur']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvsipmsgratestatsintvldurunits', YLeaf(YType.enumeration, 'cvSipMsgRateStatsIntvlDurUnits')),
                     ('cvsipmsgratestatsintvldur', YLeaf(YType.uint32, 'cvSipMsgRateStatsIntvlDur')),
@@ -4170,10 +4113,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvSipMsgRateStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable.Cvsipmsgratestatsentry, ['cvsipmsgratestatsintvldurunits', 'cvsipmsgratestatsintvldur', 'cvsipmsgratestatsmaxval', 'cvsipmsgratestatsavgval'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvSipMsgRateStatsTable.CvSipMsgRateStatsEntry, ['cvsipmsgratestatsintvldurunits', 'cvsipmsgratestatsintvldur', 'cvsipmsgratestatsmaxval', 'cvsipmsgratestatsavgval'], name, value)
 
 
-    class Cvcallratewmtable(Entity):
+    class CvCallRateWMTable(Entity):
         """
         This table represents high watermarks achieved
         by call rate in various interval length defined 
@@ -4185,7 +4128,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallratewmentry
         
         	This is a conceptual\-row in cvCallRateWMTable This entry is created at the system initialization and is updated whenever  a) This entry is obsolete OR b) A new/higher entry is available. These entries are reinitialised/added/deleted  if cvCallVolumeWMTableSize is changed
-        	**type**\: list of  		 :py:class:`Cvcallratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable.Cvcallratewmentry>`
+        	**type**\: list of  		 :py:class:`CvCallRateWMEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable.CvCallRateWMEntry>`
         
         
 
@@ -4195,15 +4138,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable, self).__init__()
 
             self.yang_name = "cvCallRateWMTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallRateWMEntry", ("cvcallratewmentry", CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable.Cvcallratewmentry))])
+            self._child_classes = OrderedDict([("cvCallRateWMEntry", ("cvcallratewmentry", CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable.CvCallRateWMEntry))])
             self._leafs = OrderedDict()
 
             self.cvcallratewmentry = YList(self)
@@ -4211,10 +4153,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable, [], name, value)
 
 
-        class Cvcallratewmentry(Entity):
+        class CvCallRateWMEntry(Entity):
             """
             This is a conceptual\-row in cvCallRateWMTable
             This entry is created at the system initialization and is
@@ -4258,15 +4200,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable.Cvcallratewmentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable.CvCallRateWMEntry, self).__init__()
 
                 self.yang_name = "cvCallRateWMEntry"
                 self.yang_parent_name = "cvCallRateWMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvcallratewmintvldurunits','cvcallratewmindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvcallratewmintvldurunits', YLeaf(YType.enumeration, 'cvCallRateWMIntvlDurUnits')),
                     ('cvcallratewmindex', YLeaf(YType.uint32, 'cvCallRateWMIndex')),
@@ -4281,10 +4222,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallRateWMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable.Cvcallratewmentry, ['cvcallratewmintvldurunits', 'cvcallratewmindex', 'cvcallratewmvalue', 'cvcallratewmts'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallRateWMTable.CvCallRateWMEntry, ['cvcallratewmintvldurunits', 'cvcallratewmindex', 'cvcallratewmvalue', 'cvcallratewmts'], name, value)
 
 
-    class Cvcalllegratewmtable(Entity):
+    class CvCallLegRateWMTable(Entity):
         """
         cvCallLegRateWMTable table represents high watermarks achieved
         by call\-leg rate in various interval length defined 
@@ -4296,7 +4237,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcalllegratewmentry
         
         	This is a conceptual\-row in cvCallLegRateWMTable This entry is created at the system initialization and is updated whenever  a) This entry is obsolete OR b) A new/higher entry is available. These entries are reinitialised/added/deleted  if cvCallVolumeWMTableSize is changed
-        	**type**\: list of  		 :py:class:`Cvcalllegratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable.Cvcalllegratewmentry>`
+        	**type**\: list of  		 :py:class:`CvCallLegRateWMEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable.CvCallLegRateWMEntry>`
         
         
 
@@ -4306,15 +4247,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable, self).__init__()
 
             self.yang_name = "cvCallLegRateWMTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvCallLegRateWMEntry", ("cvcalllegratewmentry", CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable.Cvcalllegratewmentry))])
+            self._child_classes = OrderedDict([("cvCallLegRateWMEntry", ("cvcalllegratewmentry", CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable.CvCallLegRateWMEntry))])
             self._leafs = OrderedDict()
 
             self.cvcalllegratewmentry = YList(self)
@@ -4322,10 +4262,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable, [], name, value)
 
 
-        class Cvcalllegratewmentry(Entity):
+        class CvCallLegRateWMEntry(Entity):
             """
             This is a conceptual\-row in cvCallLegRateWMTable
             This entry is created at the system initialization and is
@@ -4369,15 +4309,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable.Cvcalllegratewmentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable.CvCallLegRateWMEntry, self).__init__()
 
                 self.yang_name = "cvCallLegRateWMEntry"
                 self.yang_parent_name = "cvCallLegRateWMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvcalllegratewmintvldurunits','cvcalllegratewmindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvcalllegratewmintvldurunits', YLeaf(YType.enumeration, 'cvCallLegRateWMIntvlDurUnits')),
                     ('cvcalllegratewmindex', YLeaf(YType.uint32, 'cvCallLegRateWMIndex')),
@@ -4392,10 +4331,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallLegRateWMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable.Cvcalllegratewmentry, ['cvcalllegratewmintvldurunits', 'cvcalllegratewmindex', 'cvcalllegratewmvalue', 'cvcalllegratewmts'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvCallLegRateWMTable.CvCallLegRateWMEntry, ['cvcalllegratewmintvldurunits', 'cvcalllegratewmindex', 'cvcalllegratewmvalue', 'cvcalllegratewmts'], name, value)
 
 
-    class Cvactivecallwmtable(Entity):
+    class CvActiveCallWMTable(Entity):
         """
         This table represents high watermarks achieved
         by active calls in various interval length defined 
@@ -4407,7 +4346,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvactivecallwmentry
         
         	This is a conceptual\-row in cvActiveCallWMTable This entry is created at the system initialization and is updated whenever  a) This entry is obsolete OR b) A new/higher entry is available. These entries are reinitialised/added/deleted  if cvCallVolumeWMTableSize is changed
-        	**type**\: list of  		 :py:class:`Cvactivecallwmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable.Cvactivecallwmentry>`
+        	**type**\: list of  		 :py:class:`CvActiveCallWMEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable.CvActiveCallWMEntry>`
         
         
 
@@ -4417,15 +4356,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable, self).__init__()
 
             self.yang_name = "cvActiveCallWMTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvActiveCallWMEntry", ("cvactivecallwmentry", CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable.Cvactivecallwmentry))])
+            self._child_classes = OrderedDict([("cvActiveCallWMEntry", ("cvactivecallwmentry", CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable.CvActiveCallWMEntry))])
             self._leafs = OrderedDict()
 
             self.cvactivecallwmentry = YList(self)
@@ -4433,10 +4371,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable, [], name, value)
 
 
-        class Cvactivecallwmentry(Entity):
+        class CvActiveCallWMEntry(Entity):
             """
             This is a conceptual\-row in cvActiveCallWMTable
             This entry is created at the system initialization and is
@@ -4480,15 +4418,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable.Cvactivecallwmentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable.CvActiveCallWMEntry, self).__init__()
 
                 self.yang_name = "cvActiveCallWMEntry"
                 self.yang_parent_name = "cvActiveCallWMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvactivecallwmintvldurunits','cvactivecallwmindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvactivecallwmintvldurunits', YLeaf(YType.enumeration, 'cvActiveCallWMIntvlDurUnits')),
                     ('cvactivecallwmindex', YLeaf(YType.uint32, 'cvActiveCallWMIndex')),
@@ -4503,10 +4440,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvActiveCallWMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable.Cvactivecallwmentry, ['cvactivecallwmintvldurunits', 'cvactivecallwmindex', 'cvactivecallwmvalue', 'cvactivecallwmts'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvActiveCallWMTable.CvActiveCallWMEntry, ['cvactivecallwmintvldurunits', 'cvactivecallwmindex', 'cvactivecallwmvalue', 'cvactivecallwmts'], name, value)
 
 
-    class Cvsipmsgratewmtable(Entity):
+    class CvSipMsgRateWMTable(Entity):
         """
         This table represents of high watermarks achieved
         by SIP message rate in various interval length defined 
@@ -4518,7 +4455,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvsipmsgratewmentry
         
         	This is a conceptual\-row in cvSipMsgRateWMTable. This entry is created at the system initialization and is updated whenever  a) This entry is obsolete OR b) A new/higher entry is available. These entries are reinitialised/added/deleted if cvCallVolumeWMTableSize is changed
-        	**type**\: list of  		 :py:class:`Cvsipmsgratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable.Cvsipmsgratewmentry>`
+        	**type**\: list of  		 :py:class:`CvSipMsgRateWMEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable.CvSipMsgRateWMEntry>`
         
         
 
@@ -4528,15 +4465,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         _revision = '2012-05-15'
 
         def __init__(self):
-            super(CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable, self).__init__()
+            super(CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable, self).__init__()
 
             self.yang_name = "cvSipMsgRateWMTable"
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvSipMsgRateWMEntry", ("cvsipmsgratewmentry", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable.Cvsipmsgratewmentry))])
+            self._child_classes = OrderedDict([("cvSipMsgRateWMEntry", ("cvsipmsgratewmentry", CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable.CvSipMsgRateWMEntry))])
             self._leafs = OrderedDict()
 
             self.cvsipmsgratewmentry = YList(self)
@@ -4544,10 +4480,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable, [], name, value)
 
 
-        class Cvsipmsgratewmentry(Entity):
+        class CvSipMsgRateWMEntry(Entity):
             """
             This is a conceptual\-row in cvSipMsgRateWMTable.
             This entry is created at the system initialization and is
@@ -4591,15 +4527,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             _revision = '2012-05-15'
 
             def __init__(self):
-                super(CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable.Cvsipmsgratewmentry, self).__init__()
+                super(CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable.CvSipMsgRateWMEntry, self).__init__()
 
                 self.yang_name = "cvSipMsgRateWMEntry"
                 self.yang_parent_name = "cvSipMsgRateWMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvsipmsgratewmintvldurunits','cvsipmsgratewmindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvsipmsgratewmintvldurunits', YLeaf(YType.enumeration, 'cvSipMsgRateWMIntvlDurUnits')),
                     ('cvsipmsgratewmindex', YLeaf(YType.uint32, 'cvSipMsgRateWMIndex')),
@@ -4614,7 +4549,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvSipMsgRateWMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable.Cvsipmsgratewmentry, ['cvsipmsgratewmintvldurunits', 'cvsipmsgratewmindex', 'cvsipmsgratewmvalue', 'cvsipmsgratewmts'], name, value)
+                self._perform_setattr(CISCOVOICEDIALCONTROLMIB.CvSipMsgRateWMTable.CvSipMsgRateWMEntry, ['cvsipmsgratewmintvldurunits', 'cvsipmsgratewmindex', 'cvsipmsgratewmvalue', 'cvsipmsgratewmts'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOVOICEDIALCONTROLMIB()

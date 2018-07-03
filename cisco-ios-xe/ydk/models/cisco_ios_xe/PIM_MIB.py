@@ -24,44 +24,44 @@ class PIMMIB(Entity):
     .. attribute:: piminterfacetable
     
     	The (conceptual) table listing the router's PIM interfaces. IGMP and PIM are enabled on all interfaces listed in this table
-    	**type**\:  :py:class:`Piminterfacetable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable>`
+    	**type**\:  :py:class:`PimInterfaceTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimInterfaceTable>`
     
     .. attribute:: pimneighbortable
     
     	The (conceptual) table listing the router's PIM neighbors
-    	**type**\:  :py:class:`Pimneighbortable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable>`
+    	**type**\:  :py:class:`PimNeighborTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimNeighborTable>`
     
     .. attribute:: pimipmroutetable
     
     	The (conceptual) table listing PIM\-specific information on a subset of the rows of the ipMRouteTable defined in the IP Multicast MIB
-    	**type**\:  :py:class:`Pimipmroutetable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutetable>`
+    	**type**\:  :py:class:`PimIpMRouteTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteTable>`
     
     .. attribute:: pimrptable
     
     	The (conceptual) table listing PIM version 1 information for the Rendezvous Points (RPs) for IP multicast groups. This table is deprecated since its function is replaced by the pimRPSetTable for PIM version 2
-    	**type**\:  :py:class:`Pimrptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable>`
+    	**type**\:  :py:class:`PimRPTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPTable>`
     
     	**status**\: deprecated
     
     .. attribute:: pimrpsettable
     
     	The (conceptual) table listing PIM information for candidate Rendezvous Points (RPs) for IP multicast groups. When the local router is the BSR, this information is obtained from received Candidate\-RP\-Advertisements.  When the local router is not the BSR, this information is obtained from received RP\-Set messages
-    	**type**\:  :py:class:`Pimrpsettable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrpsettable>`
+    	**type**\:  :py:class:`PimRPSetTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPSetTable>`
     
     .. attribute:: pimipmroutenexthoptable
     
     	The (conceptual) table listing PIM\-specific information on a subset of the rows of the ipMRouteNextHopTable defined in the IP Multicast MIB
-    	**type**\:  :py:class:`Pimipmroutenexthoptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable>`
+    	**type**\:  :py:class:`PimIpMRouteNextHopTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteNextHopTable>`
     
     .. attribute:: pimcandidaterptable
     
     	The (conceptual) table listing the IP multicast groups for which the local router is to advertise itself as a Candidate\-RP when the value of pimComponentCRPHoldTime is non\-zero.  If this table is empty, then the local router      will advertise itself as a Candidate\-RP for all groups (providing the value of pimComponentCRPHoldTime is non\- zero)
-    	**type**\:  :py:class:`Pimcandidaterptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcandidaterptable>`
+    	**type**\:  :py:class:`PimCandidateRPTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimCandidateRPTable>`
     
     .. attribute:: pimcomponenttable
     
     	The (conceptual) table containing objects specific to a PIM domain.  One row exists for each domain to which the router is connected.  A PIM\-SM domain is defined as an area of the network over which Bootstrap messages are forwarded. Typically, a PIM\-SM router will be a member of exactly one domain.  This table also supports, however, routers which may form a border between two PIM\-SM domains and do not forward Bootstrap messages between them
-    	**type**\:  :py:class:`Pimcomponenttable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcomponenttable>`
+    	**type**\:  :py:class:`PimComponentTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimComponentTable>`
     
     
 
@@ -79,55 +79,48 @@ class PIMMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("pim", ("pim", PIMMIB.Pim)), ("pimInterfaceTable", ("piminterfacetable", PIMMIB.Piminterfacetable)), ("pimNeighborTable", ("pimneighbortable", PIMMIB.Pimneighbortable)), ("pimIpMRouteTable", ("pimipmroutetable", PIMMIB.Pimipmroutetable)), ("pimRPTable", ("pimrptable", PIMMIB.Pimrptable)), ("pimRPSetTable", ("pimrpsettable", PIMMIB.Pimrpsettable)), ("pimIpMRouteNextHopTable", ("pimipmroutenexthoptable", PIMMIB.Pimipmroutenexthoptable)), ("pimCandidateRPTable", ("pimcandidaterptable", PIMMIB.Pimcandidaterptable)), ("pimComponentTable", ("pimcomponenttable", PIMMIB.Pimcomponenttable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("pim", ("pim", PIMMIB.Pim)), ("pimInterfaceTable", ("piminterfacetable", PIMMIB.PimInterfaceTable)), ("pimNeighborTable", ("pimneighbortable", PIMMIB.PimNeighborTable)), ("pimIpMRouteTable", ("pimipmroutetable", PIMMIB.PimIpMRouteTable)), ("pimRPTable", ("pimrptable", PIMMIB.PimRPTable)), ("pimRPSetTable", ("pimrpsettable", PIMMIB.PimRPSetTable)), ("pimIpMRouteNextHopTable", ("pimipmroutenexthoptable", PIMMIB.PimIpMRouteNextHopTable)), ("pimCandidateRPTable", ("pimcandidaterptable", PIMMIB.PimCandidateRPTable)), ("pimComponentTable", ("pimcomponenttable", PIMMIB.PimComponentTable))])
         self._leafs = OrderedDict()
 
         self.pim = PIMMIB.Pim()
         self.pim.parent = self
         self._children_name_map["pim"] = "pim"
-        self._children_yang_names.add("pim")
 
-        self.piminterfacetable = PIMMIB.Piminterfacetable()
+        self.piminterfacetable = PIMMIB.PimInterfaceTable()
         self.piminterfacetable.parent = self
         self._children_name_map["piminterfacetable"] = "pimInterfaceTable"
-        self._children_yang_names.add("pimInterfaceTable")
 
-        self.pimneighbortable = PIMMIB.Pimneighbortable()
+        self.pimneighbortable = PIMMIB.PimNeighborTable()
         self.pimneighbortable.parent = self
         self._children_name_map["pimneighbortable"] = "pimNeighborTable"
-        self._children_yang_names.add("pimNeighborTable")
 
-        self.pimipmroutetable = PIMMIB.Pimipmroutetable()
+        self.pimipmroutetable = PIMMIB.PimIpMRouteTable()
         self.pimipmroutetable.parent = self
         self._children_name_map["pimipmroutetable"] = "pimIpMRouteTable"
-        self._children_yang_names.add("pimIpMRouteTable")
 
-        self.pimrptable = PIMMIB.Pimrptable()
+        self.pimrptable = PIMMIB.PimRPTable()
         self.pimrptable.parent = self
         self._children_name_map["pimrptable"] = "pimRPTable"
-        self._children_yang_names.add("pimRPTable")
 
-        self.pimrpsettable = PIMMIB.Pimrpsettable()
+        self.pimrpsettable = PIMMIB.PimRPSetTable()
         self.pimrpsettable.parent = self
         self._children_name_map["pimrpsettable"] = "pimRPSetTable"
-        self._children_yang_names.add("pimRPSetTable")
 
-        self.pimipmroutenexthoptable = PIMMIB.Pimipmroutenexthoptable()
+        self.pimipmroutenexthoptable = PIMMIB.PimIpMRouteNextHopTable()
         self.pimipmroutenexthoptable.parent = self
         self._children_name_map["pimipmroutenexthoptable"] = "pimIpMRouteNextHopTable"
-        self._children_yang_names.add("pimIpMRouteNextHopTable")
 
-        self.pimcandidaterptable = PIMMIB.Pimcandidaterptable()
+        self.pimcandidaterptable = PIMMIB.PimCandidateRPTable()
         self.pimcandidaterptable.parent = self
         self._children_name_map["pimcandidaterptable"] = "pimCandidateRPTable"
-        self._children_yang_names.add("pimCandidateRPTable")
 
-        self.pimcomponenttable = PIMMIB.Pimcomponenttable()
+        self.pimcomponenttable = PIMMIB.PimComponentTable()
         self.pimcomponenttable.parent = self
         self._children_name_map["pimcomponenttable"] = "pimComponentTable"
-        self._children_yang_names.add("pimComponentTable")
         self._segment_path = lambda: "PIM-MIB:PIM-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PIMMIB, [], name, value)
 
 
     class Pim(Entity):
@@ -158,8 +151,7 @@ class PIMMIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('pimjoinpruneinterval', YLeaf(YType.int32, 'pimJoinPruneInterval')),
             ])
@@ -171,7 +163,7 @@ class PIMMIB(Entity):
             self._perform_setattr(PIMMIB.Pim, ['pimjoinpruneinterval'], name, value)
 
 
-    class Piminterfacetable(Entity):
+    class PimInterfaceTable(Entity):
         """
         The (conceptual) table listing the router's PIM interfaces.
         IGMP and PIM are enabled on all interfaces listed in this
@@ -180,7 +172,7 @@ class PIMMIB(Entity):
         .. attribute:: piminterfaceentry
         
         	An entry (conceptual row) in the pimInterfaceTable
-        	**type**\: list of  		 :py:class:`Piminterfaceentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable.Piminterfaceentry>`
+        	**type**\: list of  		 :py:class:`PimInterfaceEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimInterfaceTable.PimInterfaceEntry>`
         
         
 
@@ -190,15 +182,14 @@ class PIMMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(PIMMIB.Piminterfacetable, self).__init__()
+            super(PIMMIB.PimInterfaceTable, self).__init__()
 
             self.yang_name = "pimInterfaceTable"
             self.yang_parent_name = "PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pimInterfaceEntry", ("piminterfaceentry", PIMMIB.Piminterfacetable.Piminterfaceentry))])
+            self._child_classes = OrderedDict([("pimInterfaceEntry", ("piminterfaceentry", PIMMIB.PimInterfaceTable.PimInterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.piminterfaceentry = YList(self)
@@ -206,10 +197,10 @@ class PIMMIB(Entity):
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Piminterfacetable, [], name, value)
+            self._perform_setattr(PIMMIB.PimInterfaceTable, [], name, value)
 
 
-        class Piminterfaceentry(Entity):
+        class PimInterfaceEntry(Entity):
             """
             An entry (conceptual row) in the pimInterfaceTable.
             
@@ -237,7 +228,7 @@ class PIMMIB(Entity):
             .. attribute:: piminterfacemode
             
             	The configured mode of this PIM interface.  A value of sparseDense is only valid for PIMv1
-            	**type**\:  :py:class:`Piminterfacemode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable.Piminterfaceentry.Piminterfacemode>`
+            	**type**\:  :py:class:`PimInterfaceMode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimInterfaceTable.PimInterfaceEntry.PimInterfaceMode>`
             
             .. attribute:: piminterfacedr
             
@@ -284,15 +275,14 @@ class PIMMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(PIMMIB.Piminterfacetable.Piminterfaceentry, self).__init__()
+                super(PIMMIB.PimInterfaceTable.PimInterfaceEntry, self).__init__()
 
                 self.yang_name = "pimInterfaceEntry"
                 self.yang_parent_name = "pimInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['piminterfaceifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('piminterfaceifindex', YLeaf(YType.int32, 'pimInterfaceIfIndex')),
                     ('piminterfaceaddress', YLeaf(YType.str, 'pimInterfaceAddress')),
@@ -317,11 +307,11 @@ class PIMMIB(Entity):
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.Piminterfacetable.Piminterfaceentry, ['piminterfaceifindex', 'piminterfaceaddress', 'piminterfacenetmask', 'piminterfacemode', 'piminterfacedr', 'piminterfacehellointerval', 'piminterfacestatus', 'piminterfacejoinpruneinterval', 'piminterfacecbsrpreference'], name, value)
+                self._perform_setattr(PIMMIB.PimInterfaceTable.PimInterfaceEntry, ['piminterfaceifindex', 'piminterfaceaddress', 'piminterfacenetmask', 'piminterfacemode', 'piminterfacedr', 'piminterfacehellointerval', 'piminterfacestatus', 'piminterfacejoinpruneinterval', 'piminterfacecbsrpreference'], name, value)
 
-            class Piminterfacemode(Enum):
+            class PimInterfaceMode(Enum):
                 """
-                Piminterfacemode (Enum Class)
+                PimInterfaceMode (Enum Class)
 
                 The configured mode of this PIM interface.  A value of
 
@@ -343,14 +333,14 @@ class PIMMIB(Entity):
 
 
 
-    class Pimneighbortable(Entity):
+    class PimNeighborTable(Entity):
         """
         The (conceptual) table listing the router's PIM neighbors.
         
         .. attribute:: pimneighborentry
         
         	An entry (conceptual row) in the pimNeighborTable
-        	**type**\: list of  		 :py:class:`Pimneighborentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable.Pimneighborentry>`
+        	**type**\: list of  		 :py:class:`PimNeighborEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimNeighborTable.PimNeighborEntry>`
         
         
 
@@ -360,15 +350,14 @@ class PIMMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(PIMMIB.Pimneighbortable, self).__init__()
+            super(PIMMIB.PimNeighborTable, self).__init__()
 
             self.yang_name = "pimNeighborTable"
             self.yang_parent_name = "PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pimNeighborEntry", ("pimneighborentry", PIMMIB.Pimneighbortable.Pimneighborentry))])
+            self._child_classes = OrderedDict([("pimNeighborEntry", ("pimneighborentry", PIMMIB.PimNeighborTable.PimNeighborEntry))])
             self._leafs = OrderedDict()
 
             self.pimneighborentry = YList(self)
@@ -376,10 +365,10 @@ class PIMMIB(Entity):
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pimneighbortable, [], name, value)
+            self._perform_setattr(PIMMIB.PimNeighborTable, [], name, value)
 
 
-        class Pimneighborentry(Entity):
+        class PimNeighborEntry(Entity):
             """
             An entry (conceptual row) in the pimNeighborTable.
             
@@ -414,7 +403,7 @@ class PIMMIB(Entity):
             .. attribute:: pimneighbormode
             
             	The active PIM mode of this neighbor.  This object is deprecated for PIMv2 routers since all neighbors on the interface must be either dense or sparse as determined by the protocol running on the interface
-            	**type**\:  :py:class:`Pimneighbormode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable.Pimneighborentry.Pimneighbormode>`
+            	**type**\:  :py:class:`PimNeighborMode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimNeighborTable.PimNeighborEntry.PimNeighborMode>`
             
             	**status**\: deprecated
             
@@ -426,15 +415,14 @@ class PIMMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(PIMMIB.Pimneighbortable.Pimneighborentry, self).__init__()
+                super(PIMMIB.PimNeighborTable.PimNeighborEntry, self).__init__()
 
                 self.yang_name = "pimNeighborEntry"
                 self.yang_parent_name = "pimNeighborTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['pimneighboraddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('pimneighboraddress', YLeaf(YType.str, 'pimNeighborAddress')),
                     ('pimneighborifindex', YLeaf(YType.int32, 'pimNeighborIfIndex')),
@@ -451,11 +439,11 @@ class PIMMIB(Entity):
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimNeighborTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.Pimneighbortable.Pimneighborentry, ['pimneighboraddress', 'pimneighborifindex', 'pimneighboruptime', 'pimneighborexpirytime', 'pimneighbormode'], name, value)
+                self._perform_setattr(PIMMIB.PimNeighborTable.PimNeighborEntry, ['pimneighboraddress', 'pimneighborifindex', 'pimneighboruptime', 'pimneighborexpirytime', 'pimneighbormode'], name, value)
 
-            class Pimneighbormode(Enum):
+            class PimNeighborMode(Enum):
                 """
-                Pimneighbormode (Enum Class)
+                PimNeighborMode (Enum Class)
 
                 The active PIM mode of this neighbor.  This object is
 
@@ -477,7 +465,7 @@ class PIMMIB(Entity):
 
 
 
-    class Pimipmroutetable(Entity):
+    class PimIpMRouteTable(Entity):
         """
         The (conceptual) table listing PIM\-specific information on
         a subset of the rows of the ipMRouteTable defined in the IP
@@ -486,7 +474,7 @@ class PIMMIB(Entity):
         .. attribute:: pimipmrouteentry
         
         	An entry (conceptual row) in the pimIpMRouteTable.  There is one entry per entry in the ipMRouteTable whose incoming interface is running PIM
-        	**type**\: list of  		 :py:class:`Pimipmrouteentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutetable.Pimipmrouteentry>`
+        	**type**\: list of  		 :py:class:`PimIpMRouteEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteTable.PimIpMRouteEntry>`
         
         
 
@@ -496,15 +484,14 @@ class PIMMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(PIMMIB.Pimipmroutetable, self).__init__()
+            super(PIMMIB.PimIpMRouteTable, self).__init__()
 
             self.yang_name = "pimIpMRouteTable"
             self.yang_parent_name = "PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pimIpMRouteEntry", ("pimipmrouteentry", PIMMIB.Pimipmroutetable.Pimipmrouteentry))])
+            self._child_classes = OrderedDict([("pimIpMRouteEntry", ("pimipmrouteentry", PIMMIB.PimIpMRouteTable.PimIpMRouteEntry))])
             self._leafs = OrderedDict()
 
             self.pimipmrouteentry = YList(self)
@@ -512,10 +499,10 @@ class PIMMIB(Entity):
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pimipmroutetable, [], name, value)
+            self._perform_setattr(PIMMIB.PimIpMRouteTable, [], name, value)
 
 
-        class Pimipmrouteentry(Entity):
+        class PimIpMRouteEntry(Entity):
             """
             An entry (conceptual row) in the pimIpMRouteTable.  There
             is one entry per entry in the ipMRouteTable whose incoming
@@ -528,7 +515,7 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ipmroutegroup <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry>`
+            	**refers to**\:  :py:class:`ipmroutegroup <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry>`
             
             .. attribute:: ipmroutesource  (key)
             
@@ -537,7 +524,7 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ipmroutesource <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry>`
+            	**refers to**\:  :py:class:`ipmroutesource <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry>`
             
             .. attribute:: ipmroutesourcemask  (key)
             
@@ -546,7 +533,7 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ipmroutesourcemask <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry>`
+            	**refers to**\:  :py:class:`ipmroutesourcemask <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry>`
             
             .. attribute:: pimipmrouteupstreamasserttimer
             
@@ -589,15 +576,14 @@ class PIMMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(PIMMIB.Pimipmroutetable.Pimipmrouteentry, self).__init__()
+                super(PIMMIB.PimIpMRouteTable.PimIpMRouteEntry, self).__init__()
 
                 self.yang_name = "pimIpMRouteEntry"
                 self.yang_parent_name = "pimIpMRouteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipmroutegroup','ipmroutesource','ipmroutesourcemask']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipmroutegroup', YLeaf(YType.str, 'ipMRouteGroup')),
                     ('ipmroutesource', YLeaf(YType.str, 'ipMRouteSource')),
@@ -620,10 +606,10 @@ class PIMMIB(Entity):
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimIpMRouteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.Pimipmroutetable.Pimipmrouteentry, ['ipmroutegroup', 'ipmroutesource', 'ipmroutesourcemask', 'pimipmrouteupstreamasserttimer', 'pimipmrouteassertmetric', 'pimipmrouteassertmetricpref', 'pimipmrouteassertrptbit', 'pimipmrouteflags'], name, value)
+                self._perform_setattr(PIMMIB.PimIpMRouteTable.PimIpMRouteEntry, ['ipmroutegroup', 'ipmroutesource', 'ipmroutesourcemask', 'pimipmrouteupstreamasserttimer', 'pimipmrouteassertmetric', 'pimipmrouteassertmetricpref', 'pimipmrouteassertrptbit', 'pimipmrouteflags'], name, value)
 
 
-    class Pimrptable(Entity):
+    class PimRPTable(Entity):
         """
         The (conceptual) table listing PIM version 1 information
         for the Rendezvous Points (RPs) for IP multicast groups.
@@ -633,7 +619,7 @@ class PIMMIB(Entity):
         .. attribute:: pimrpentry
         
         	An entry (conceptual row) in the pimRPTable.  There is one entry per RP address for each IP multicast group
-        	**type**\: list of  		 :py:class:`Pimrpentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable.Pimrpentry>`
+        	**type**\: list of  		 :py:class:`PimRPEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPTable.PimRPEntry>`
         
         	**status**\: deprecated
         
@@ -645,15 +631,14 @@ class PIMMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(PIMMIB.Pimrptable, self).__init__()
+            super(PIMMIB.PimRPTable, self).__init__()
 
             self.yang_name = "pimRPTable"
             self.yang_parent_name = "PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pimRPEntry", ("pimrpentry", PIMMIB.Pimrptable.Pimrpentry))])
+            self._child_classes = OrderedDict([("pimRPEntry", ("pimrpentry", PIMMIB.PimRPTable.PimRPEntry))])
             self._leafs = OrderedDict()
 
             self.pimrpentry = YList(self)
@@ -661,10 +646,10 @@ class PIMMIB(Entity):
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pimrptable, [], name, value)
+            self._perform_setattr(PIMMIB.PimRPTable, [], name, value)
 
 
-        class Pimrpentry(Entity):
+        class PimRPEntry(Entity):
             """
             An entry (conceptual row) in the pimRPTable.  There is one
             entry per RP address for each IP multicast group.
@@ -690,7 +675,7 @@ class PIMMIB(Entity):
             .. attribute:: pimrpstate
             
             	The state of the RP
-            	**type**\:  :py:class:`Pimrpstate <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable.Pimrpentry.Pimrpstate>`
+            	**type**\:  :py:class:`PimRPState <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPTable.PimRPEntry.PimRPState>`
             
             	**status**\: deprecated
             
@@ -727,15 +712,14 @@ class PIMMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(PIMMIB.Pimrptable.Pimrpentry, self).__init__()
+                super(PIMMIB.PimRPTable.PimRPEntry, self).__init__()
 
                 self.yang_name = "pimRPEntry"
                 self.yang_parent_name = "pimRPTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['pimrpgroupaddress','pimrpaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('pimrpgroupaddress', YLeaf(YType.str, 'pimRPGroupAddress')),
                     ('pimrpaddress', YLeaf(YType.str, 'pimRPAddress')),
@@ -754,11 +738,11 @@ class PIMMIB(Entity):
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimRPTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.Pimrptable.Pimrpentry, ['pimrpgroupaddress', 'pimrpaddress', 'pimrpstate', 'pimrpstatetimer', 'pimrplastchange', 'pimrprowstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimRPTable.PimRPEntry, ['pimrpgroupaddress', 'pimrpaddress', 'pimrpstate', 'pimrpstatetimer', 'pimrplastchange', 'pimrprowstatus'], name, value)
 
-            class Pimrpstate(Enum):
+            class PimRPState(Enum):
                 """
-                Pimrpstate (Enum Class)
+                PimRPState (Enum Class)
 
                 The state of the RP.
 
@@ -774,7 +758,7 @@ class PIMMIB(Entity):
 
 
 
-    class Pimrpsettable(Entity):
+    class PimRPSetTable(Entity):
         """
         The (conceptual) table listing PIM information for
         candidate Rendezvous Points (RPs) for IP multicast groups.
@@ -786,7 +770,7 @@ class PIMMIB(Entity):
         .. attribute:: pimrpsetentry
         
         	An entry (conceptual row) in the pimRPSetTable
-        	**type**\: list of  		 :py:class:`Pimrpsetentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrpsettable.Pimrpsetentry>`
+        	**type**\: list of  		 :py:class:`PimRPSetEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPSetTable.PimRPSetEntry>`
         
         
 
@@ -796,15 +780,14 @@ class PIMMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(PIMMIB.Pimrpsettable, self).__init__()
+            super(PIMMIB.PimRPSetTable, self).__init__()
 
             self.yang_name = "pimRPSetTable"
             self.yang_parent_name = "PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pimRPSetEntry", ("pimrpsetentry", PIMMIB.Pimrpsettable.Pimrpsetentry))])
+            self._child_classes = OrderedDict([("pimRPSetEntry", ("pimrpsetentry", PIMMIB.PimRPSetTable.PimRPSetEntry))])
             self._leafs = OrderedDict()
 
             self.pimrpsetentry = YList(self)
@@ -812,10 +795,10 @@ class PIMMIB(Entity):
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pimrpsettable, [], name, value)
+            self._perform_setattr(PIMMIB.PimRPSetTable, [], name, value)
 
 
-        class Pimrpsetentry(Entity):
+        class PimRPSetEntry(Entity):
             """
             An entry (conceptual row) in the pimRPSetTable.
             
@@ -871,15 +854,14 @@ class PIMMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(PIMMIB.Pimrpsettable.Pimrpsetentry, self).__init__()
+                super(PIMMIB.PimRPSetTable.PimRPSetEntry, self).__init__()
 
                 self.yang_name = "pimRPSetEntry"
                 self.yang_parent_name = "pimRPSetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['pimrpsetcomponent','pimrpsetgroupaddress','pimrpsetgroupmask','pimrpsetaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('pimrpsetcomponent', YLeaf(YType.int32, 'pimRPSetComponent')),
                     ('pimrpsetgroupaddress', YLeaf(YType.str, 'pimRPSetGroupAddress')),
@@ -898,10 +880,10 @@ class PIMMIB(Entity):
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimRPSetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.Pimrpsettable.Pimrpsetentry, ['pimrpsetcomponent', 'pimrpsetgroupaddress', 'pimrpsetgroupmask', 'pimrpsetaddress', 'pimrpsetholdtime', 'pimrpsetexpirytime'], name, value)
+                self._perform_setattr(PIMMIB.PimRPSetTable.PimRPSetEntry, ['pimrpsetcomponent', 'pimrpsetgroupaddress', 'pimrpsetgroupmask', 'pimrpsetaddress', 'pimrpsetholdtime', 'pimrpsetexpirytime'], name, value)
 
 
-    class Pimipmroutenexthoptable(Entity):
+    class PimIpMRouteNextHopTable(Entity):
         """
         The (conceptual) table listing PIM\-specific information on
         a subset of the rows of the ipMRouteNextHopTable defined in
@@ -910,7 +892,7 @@ class PIMMIB(Entity):
         .. attribute:: pimipmroutenexthopentry
         
         	An entry (conceptual row) in the pimIpMRouteNextHopTable. There is one entry per entry in the ipMRouteNextHopTable whose interface is running PIM and whose ipMRouteNextHopState is pruned(1)
-        	**type**\: list of  		 :py:class:`Pimipmroutenexthopentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry>`
+        	**type**\: list of  		 :py:class:`PimIpMRouteNextHopEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry>`
         
         
 
@@ -920,15 +902,14 @@ class PIMMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(PIMMIB.Pimipmroutenexthoptable, self).__init__()
+            super(PIMMIB.PimIpMRouteNextHopTable, self).__init__()
 
             self.yang_name = "pimIpMRouteNextHopTable"
             self.yang_parent_name = "PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pimIpMRouteNextHopEntry", ("pimipmroutenexthopentry", PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry))])
+            self._child_classes = OrderedDict([("pimIpMRouteNextHopEntry", ("pimipmroutenexthopentry", PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry))])
             self._leafs = OrderedDict()
 
             self.pimipmroutenexthopentry = YList(self)
@@ -936,10 +917,10 @@ class PIMMIB(Entity):
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pimipmroutenexthoptable, [], name, value)
+            self._perform_setattr(PIMMIB.PimIpMRouteNextHopTable, [], name, value)
 
 
-        class Pimipmroutenexthopentry(Entity):
+        class PimIpMRouteNextHopEntry(Entity):
             """
             An entry (conceptual row) in the pimIpMRouteNextHopTable.
             There is one entry per entry in the ipMRouteNextHopTable
@@ -953,7 +934,7 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ipmroutenexthopgroup <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
+            	**refers to**\:  :py:class:`ipmroutenexthopgroup <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
             
             .. attribute:: ipmroutenexthopsource  (key)
             
@@ -962,7 +943,7 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ipmroutenexthopsource <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
+            	**refers to**\:  :py:class:`ipmroutenexthopsource <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
             
             .. attribute:: ipmroutenexthopsourcemask  (key)
             
@@ -971,7 +952,7 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ipmroutenexthopsourcemask <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
+            	**refers to**\:  :py:class:`ipmroutenexthopsourcemask <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
             
             .. attribute:: ipmroutenexthopifindex  (key)
             
@@ -980,7 +961,7 @@ class PIMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ipmroutenexthopifindex <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
+            	**refers to**\:  :py:class:`ipmroutenexthopifindex <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
             
             .. attribute:: ipmroutenexthopaddress  (key)
             
@@ -989,12 +970,12 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ipmroutenexthopaddress <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
+            	**refers to**\:  :py:class:`ipmroutenexthopaddress <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
             
             .. attribute:: pimipmroutenexthopprunereason
             
             	This object indicates why the downstream interface was pruned, whether in response to a PIM prune message or due to PIM Assert processing
-            	**type**\:  :py:class:`Pimipmroutenexthopprunereason <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry.Pimipmroutenexthopprunereason>`
+            	**type**\:  :py:class:`PimIpMRouteNextHopPruneReason <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry.PimIpMRouteNextHopPruneReason>`
             
             
 
@@ -1004,15 +985,14 @@ class PIMMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry, self).__init__()
+                super(PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry, self).__init__()
 
                 self.yang_name = "pimIpMRouteNextHopEntry"
                 self.yang_parent_name = "pimIpMRouteNextHopTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipmroutenexthopgroup','ipmroutenexthopsource','ipmroutenexthopsourcemask','ipmroutenexthopifindex','ipmroutenexthopaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipmroutenexthopgroup', YLeaf(YType.str, 'ipMRouteNextHopGroup')),
                     ('ipmroutenexthopsource', YLeaf(YType.str, 'ipMRouteNextHopSource')),
@@ -1031,11 +1011,11 @@ class PIMMIB(Entity):
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimIpMRouteNextHopTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry, ['ipmroutenexthopgroup', 'ipmroutenexthopsource', 'ipmroutenexthopsourcemask', 'ipmroutenexthopifindex', 'ipmroutenexthopaddress', 'pimipmroutenexthopprunereason'], name, value)
+                self._perform_setattr(PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry, ['ipmroutenexthopgroup', 'ipmroutenexthopsource', 'ipmroutenexthopsourcemask', 'ipmroutenexthopifindex', 'ipmroutenexthopaddress', 'pimipmroutenexthopprunereason'], name, value)
 
-            class Pimipmroutenexthopprunereason(Enum):
+            class PimIpMRouteNextHopPruneReason(Enum):
                 """
-                Pimipmroutenexthopprunereason (Enum Class)
+                PimIpMRouteNextHopPruneReason (Enum Class)
 
                 This object indicates why the downstream interface was
 
@@ -1059,7 +1039,7 @@ class PIMMIB(Entity):
 
 
 
-    class Pimcandidaterptable(Entity):
+    class PimCandidateRPTable(Entity):
         """
         The (conceptual) table listing the IP multicast groups for
         which the local router is to advertise itself as a
@@ -1077,7 +1057,7 @@ class PIMMIB(Entity):
         .. attribute:: pimcandidaterpentry
         
         	An entry (conceptual row) in the pimCandidateRPTable
-        	**type**\: list of  		 :py:class:`Pimcandidaterpentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcandidaterptable.Pimcandidaterpentry>`
+        	**type**\: list of  		 :py:class:`PimCandidateRPEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimCandidateRPTable.PimCandidateRPEntry>`
         
         
 
@@ -1087,15 +1067,14 @@ class PIMMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(PIMMIB.Pimcandidaterptable, self).__init__()
+            super(PIMMIB.PimCandidateRPTable, self).__init__()
 
             self.yang_name = "pimCandidateRPTable"
             self.yang_parent_name = "PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pimCandidateRPEntry", ("pimcandidaterpentry", PIMMIB.Pimcandidaterptable.Pimcandidaterpentry))])
+            self._child_classes = OrderedDict([("pimCandidateRPEntry", ("pimcandidaterpentry", PIMMIB.PimCandidateRPTable.PimCandidateRPEntry))])
             self._leafs = OrderedDict()
 
             self.pimcandidaterpentry = YList(self)
@@ -1103,10 +1082,10 @@ class PIMMIB(Entity):
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pimcandidaterptable, [], name, value)
+            self._perform_setattr(PIMMIB.PimCandidateRPTable, [], name, value)
 
 
-        class Pimcandidaterpentry(Entity):
+        class PimCandidateRPEntry(Entity):
             """
             An entry (conceptual row) in the pimCandidateRPTable.
             
@@ -1144,15 +1123,14 @@ class PIMMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(PIMMIB.Pimcandidaterptable.Pimcandidaterpentry, self).__init__()
+                super(PIMMIB.PimCandidateRPTable.PimCandidateRPEntry, self).__init__()
 
                 self.yang_name = "pimCandidateRPEntry"
                 self.yang_parent_name = "pimCandidateRPTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['pimcandidaterpgroupaddress','pimcandidaterpgroupmask']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('pimcandidaterpgroupaddress', YLeaf(YType.str, 'pimCandidateRPGroupAddress')),
                     ('pimcandidaterpgroupmask', YLeaf(YType.str, 'pimCandidateRPGroupMask')),
@@ -1167,10 +1145,10 @@ class PIMMIB(Entity):
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimCandidateRPTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.Pimcandidaterptable.Pimcandidaterpentry, ['pimcandidaterpgroupaddress', 'pimcandidaterpgroupmask', 'pimcandidaterpaddress', 'pimcandidaterprowstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimCandidateRPTable.PimCandidateRPEntry, ['pimcandidaterpgroupaddress', 'pimcandidaterpgroupmask', 'pimcandidaterpaddress', 'pimcandidaterprowstatus'], name, value)
 
 
-    class Pimcomponenttable(Entity):
+    class PimComponentTable(Entity):
         """
         The (conceptual) table containing objects specific to a PIM
         domain.  One row exists for each domain to which the router
@@ -1184,7 +1162,7 @@ class PIMMIB(Entity):
         .. attribute:: pimcomponententry
         
         	An entry (conceptual row) in the pimComponentTable
-        	**type**\: list of  		 :py:class:`Pimcomponententry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcomponenttable.Pimcomponententry>`
+        	**type**\: list of  		 :py:class:`PimComponentEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimComponentTable.PimComponentEntry>`
         
         
 
@@ -1194,15 +1172,14 @@ class PIMMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(PIMMIB.Pimcomponenttable, self).__init__()
+            super(PIMMIB.PimComponentTable, self).__init__()
 
             self.yang_name = "pimComponentTable"
             self.yang_parent_name = "PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pimComponentEntry", ("pimcomponententry", PIMMIB.Pimcomponenttable.Pimcomponententry))])
+            self._child_classes = OrderedDict([("pimComponentEntry", ("pimcomponententry", PIMMIB.PimComponentTable.PimComponentEntry))])
             self._leafs = OrderedDict()
 
             self.pimcomponententry = YList(self)
@@ -1210,10 +1187,10 @@ class PIMMIB(Entity):
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pimcomponenttable, [], name, value)
+            self._perform_setattr(PIMMIB.PimComponentTable, [], name, value)
 
 
-        class Pimcomponententry(Entity):
+        class PimComponentEntry(Entity):
             """
             An entry (conceptual row) in the pimComponentTable.
             
@@ -1260,15 +1237,14 @@ class PIMMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(PIMMIB.Pimcomponenttable.Pimcomponententry, self).__init__()
+                super(PIMMIB.PimComponentTable.PimComponentEntry, self).__init__()
 
                 self.yang_name = "pimComponentEntry"
                 self.yang_parent_name = "pimComponentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['pimcomponentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('pimcomponentindex', YLeaf(YType.int32, 'pimComponentIndex')),
                     ('pimcomponentbsraddress', YLeaf(YType.str, 'pimComponentBSRAddress')),
@@ -1285,7 +1261,7 @@ class PIMMIB(Entity):
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimComponentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.Pimcomponenttable.Pimcomponententry, ['pimcomponentindex', 'pimcomponentbsraddress', 'pimcomponentbsrexpirytime', 'pimcomponentcrpholdtime', 'pimcomponentstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimComponentTable.PimComponentEntry, ['pimcomponentindex', 'pimcomponentbsraddress', 'pimcomponentbsrexpirytime', 'pimcomponentcrpholdtime', 'pimcomponentstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PIMMIB()

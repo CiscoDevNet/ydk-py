@@ -126,8 +126,7 @@ class Components(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("component", ("component", Components.Component))])
+        self._child_classes = OrderedDict([("component", ("component", Components.Component))])
         self._leafs = OrderedDict()
 
         self.component = YList(self)
@@ -176,8 +175,7 @@ class Components(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['cname']
-            self._child_container_classes = OrderedDict([("state", ("state", Components.Component.State)), ("platform-properties", ("platform_properties", Components.Component.PlatformProperties)), ("platform-subcomponents", ("platform_subcomponents", Components.Component.PlatformSubcomponents))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("state", ("state", Components.Component.State)), ("platform-properties", ("platform_properties", Components.Component.PlatformProperties)), ("platform-subcomponents", ("platform_subcomponents", Components.Component.PlatformSubcomponents))])
             self._leafs = OrderedDict([
                 ('cname', YLeaf(YType.str, 'cname')),
             ])
@@ -186,17 +184,14 @@ class Components(Entity):
             self.state = Components.Component.State()
             self.state.parent = self
             self._children_name_map["state"] = "state"
-            self._children_yang_names.add("state")
 
             self.platform_properties = Components.Component.PlatformProperties()
             self.platform_properties.parent = self
             self._children_name_map["platform_properties"] = "platform-properties"
-            self._children_yang_names.add("platform-properties")
 
             self.platform_subcomponents = Components.Component.PlatformSubcomponents()
             self.platform_subcomponents.parent = self
             self._children_name_map["platform_subcomponents"] = "platform-subcomponents"
-            self._children_yang_names.add("platform-subcomponents")
             self._segment_path = lambda: "component" + "[cname='" + str(self.cname) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-platform-oper:components/%s" % self._segment_path()
 
@@ -263,8 +258,7 @@ class Components(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("temp", ("temp", Components.Component.State.Temp))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("temp", ("temp", Components.Component.State.Temp))])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.enumeration, 'type')),
                     ('id', YLeaf(YType.str, 'id')),
@@ -285,7 +279,6 @@ class Components(Entity):
                 self.temp = Components.Component.State.Temp()
                 self.temp.parent = self
                 self._children_name_map["temp"] = "temp"
-                self._children_yang_names.add("temp")
                 self._segment_path = lambda: "state"
 
             def __setattr__(self, name, value):
@@ -342,8 +335,7 @@ class Components(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('temp_instant', YLeaf(YType.str, 'temp-instant')),
                         ('temp_avg', YLeaf(YType.str, 'temp-avg')),
@@ -384,8 +376,7 @@ class Components(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("platform-property", ("platform_property", Components.Component.PlatformProperties.PlatformProperty))])
+                self._child_classes = OrderedDict([("platform-property", ("platform_property", Components.Component.PlatformProperties.PlatformProperty))])
                 self._leafs = OrderedDict()
 
                 self.platform_property = YList(self)
@@ -429,8 +420,7 @@ class Components(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("value", ("value", Components.Component.PlatformProperties.PlatformProperty.Value))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("value", ("value", Components.Component.PlatformProperties.PlatformProperty.Value))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('configurable', YLeaf(YType.boolean, 'configurable')),
@@ -441,7 +431,6 @@ class Components(Entity):
                     self.value = Components.Component.PlatformProperties.PlatformProperty.Value()
                     self.value.parent = self
                     self._children_name_map["value"] = "value"
-                    self._children_yang_names.add("value")
                     self._segment_path = lambda: "platform-property" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
@@ -498,8 +487,7 @@ class Components(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('string', YLeaf(YType.str, 'string')),
                             ('boolean', YLeaf(YType.boolean, 'boolean')),
@@ -542,8 +530,7 @@ class Components(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("platform-subcomponent", ("platform_subcomponent", Components.Component.PlatformSubcomponents.PlatformSubcomponent))])
+                self._child_classes = OrderedDict([("platform-subcomponent", ("platform_subcomponent", Components.Component.PlatformSubcomponents.PlatformSubcomponent))])
                 self._leafs = OrderedDict()
 
                 self.platform_subcomponent = YList(self)
@@ -577,8 +564,7 @@ class Components(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])

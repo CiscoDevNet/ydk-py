@@ -34,7 +34,7 @@ class ProcessesMemory(Entity):
     """
 
     _prefix = 'procmem-oper'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(ProcessesMemory, self).__init__()
@@ -45,15 +45,16 @@ class ProcessesMemory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", ProcessesMemory.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", ProcessesMemory.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = ProcessesMemory.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-procmem-oper:processes-memory"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ProcessesMemory, [], name, value)
 
 
     class Nodes(Entity):
@@ -70,7 +71,7 @@ class ProcessesMemory(Entity):
         """
 
         _prefix = 'procmem-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(ProcessesMemory.Nodes, self).__init__()
@@ -80,8 +81,7 @@ class ProcessesMemory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", ProcessesMemory.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", ProcessesMemory.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -113,7 +113,7 @@ class ProcessesMemory(Entity):
             """
 
             _prefix = 'procmem-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ProcessesMemory.Nodes.Node, self).__init__()
@@ -123,8 +123,7 @@ class ProcessesMemory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("process-ids", ("process_ids", ProcessesMemory.Nodes.Node.ProcessIds))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("process-ids", ("process_ids", ProcessesMemory.Nodes.Node.ProcessIds))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -133,7 +132,6 @@ class ProcessesMemory(Entity):
                 self.process_ids = ProcessesMemory.Nodes.Node.ProcessIds()
                 self.process_ids.parent = self
                 self._children_name_map["process_ids"] = "process-ids"
-                self._children_yang_names.add("process-ids")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-procmem-oper:processes-memory/nodes/%s" % self._segment_path()
 
@@ -155,7 +153,7 @@ class ProcessesMemory(Entity):
                 """
 
                 _prefix = 'procmem-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ProcessesMemory.Nodes.Node.ProcessIds, self).__init__()
@@ -165,8 +163,7 @@ class ProcessesMemory(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("process-id", ("process_id", ProcessesMemory.Nodes.Node.ProcessIds.ProcessId))])
+                    self._child_classes = OrderedDict([("process-id", ("process_id", ProcessesMemory.Nodes.Node.ProcessIds.ProcessId))])
                     self._leafs = OrderedDict()
 
                     self.process_id = YList(self)
@@ -185,7 +182,7 @@ class ProcessesMemory(Entity):
                     	Process Id
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
@@ -260,7 +257,7 @@ class ProcessesMemory(Entity):
                     """
 
                     _prefix = 'procmem-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, self).__init__()
@@ -270,10 +267,9 @@ class ProcessesMemory(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['process_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('process_id', YLeaf(YType.int32, 'process-id')),
+                            ('process_id', YLeaf(YType.uint32, 'process-id')),
                             ('name', YLeaf(YType.str, 'name')),
                             ('jid', YLeaf(YType.uint32, 'jid')),
                             ('pid', YLeaf(YType.uint32, 'pid')),

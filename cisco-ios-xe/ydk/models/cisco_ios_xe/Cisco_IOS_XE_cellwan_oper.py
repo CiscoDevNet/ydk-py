@@ -779,8 +779,7 @@ class CellwanOperData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("cellwan-hardware", ("cellwan_hardware", CellwanOperData.CellwanHardware)), ("cellwan-radio", ("cellwan_radio", CellwanOperData.CellwanRadio)), ("cellwan-network", ("cellwan_network", CellwanOperData.CellwanNetwork)), ("cellwan-connection", ("cellwan_connection", CellwanOperData.CellwanConnection))])
+        self._child_classes = OrderedDict([("cellwan-hardware", ("cellwan_hardware", CellwanOperData.CellwanHardware)), ("cellwan-radio", ("cellwan_radio", CellwanOperData.CellwanRadio)), ("cellwan-network", ("cellwan_network", CellwanOperData.CellwanNetwork)), ("cellwan-connection", ("cellwan_connection", CellwanOperData.CellwanConnection))])
         self._leafs = OrderedDict()
 
         self.cellwan_hardware = YList(self)
@@ -894,8 +893,7 @@ class CellwanOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['cellular_interface']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cellular_interface', YLeaf(YType.str, 'cellular-interface')),
                 ('cellular_firmware_version', YLeaf(YType.str, 'cellular-firmware-version')),
@@ -1035,8 +1033,7 @@ class CellwanOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['cellular_interface']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cellular_interface', YLeaf(YType.str, 'cellular-interface')),
                 ('technology', YLeaf(YType.enumeration, 'technology')),
@@ -1214,8 +1211,7 @@ class CellwanOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['cellular_interface']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cellular_interface', YLeaf(YType.str, 'cellular-interface')),
                 ('cellular_modem_time', YLeaf(YType.str, 'cellular-modem-time')),
@@ -1414,8 +1410,7 @@ class CellwanOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['cellular_interface']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cellular_interface', YLeaf(YType.str, 'cellular-interface')),
                 ('active_profile', YLeaf(YType.uint64, 'active-profile')),

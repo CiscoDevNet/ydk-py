@@ -611,15 +611,16 @@ class Dwdm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ports", ("ports", Dwdm.Ports))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ports", ("ports", Dwdm.Ports))])
         self._leafs = OrderedDict()
 
         self.ports = Dwdm.Ports()
         self.ports.parent = self
         self._children_name_map["ports"] = "ports"
-        self._children_yang_names.add("ports")
         self._segment_path = lambda: "Cisco-IOS-XR-dwdm-ui-oper:dwdm"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Dwdm, [], name, value)
 
 
     class Ports(Entity):
@@ -646,8 +647,7 @@ class Dwdm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("port", ("port", Dwdm.Ports.Port))])
+            self._child_classes = OrderedDict([("port", ("port", Dwdm.Ports.Port))])
             self._leafs = OrderedDict()
 
             self.port = YList(self)
@@ -699,8 +699,7 @@ class Dwdm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("prbs", ("prbs", Dwdm.Ports.Port.Prbs)), ("optics", ("optics", Dwdm.Ports.Port.Optics)), ("info", ("info", Dwdm.Ports.Port.Info))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("prbs", ("prbs", Dwdm.Ports.Port.Prbs)), ("optics", ("optics", Dwdm.Ports.Port.Optics)), ("info", ("info", Dwdm.Ports.Port.Info))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -709,17 +708,14 @@ class Dwdm(Entity):
                 self.prbs = Dwdm.Ports.Port.Prbs()
                 self.prbs.parent = self
                 self._children_name_map["prbs"] = "prbs"
-                self._children_yang_names.add("prbs")
 
                 self.optics = Dwdm.Ports.Port.Optics()
                 self.optics.parent = self
                 self._children_name_map["optics"] = "optics"
-                self._children_yang_names.add("optics")
 
                 self.info = Dwdm.Ports.Port.Info()
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
-                self._children_yang_names.add("info")
                 self._segment_path = lambda: "port" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/%s" % self._segment_path()
 
@@ -756,20 +752,20 @@ class Dwdm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("twenty-four-hours-bucket", ("twenty_four_hours_bucket", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket)), ("fifteen-minutes-bucket", ("fifteen_minutes_bucket", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("twenty-four-hours-bucket", ("twenty_four_hours_bucket", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket)), ("fifteen-minutes-bucket", ("fifteen_minutes_bucket", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket))])
                     self._leafs = OrderedDict()
 
                     self.twenty_four_hours_bucket = Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket()
                     self.twenty_four_hours_bucket.parent = self
                     self._children_name_map["twenty_four_hours_bucket"] = "twenty-four-hours-bucket"
-                    self._children_yang_names.add("twenty-four-hours-bucket")
 
                     self.fifteen_minutes_bucket = Dwdm.Ports.Port.Prbs.FifteenMinutesBucket()
                     self.fifteen_minutes_bucket.parent = self
                     self._children_name_map["fifteen_minutes_bucket"] = "fifteen-minutes-bucket"
-                    self._children_yang_names.add("fifteen-minutes-bucket")
                     self._segment_path = lambda: "prbs"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Dwdm.Ports.Port.Prbs, [], name, value)
 
 
                 class TwentyFourHoursBucket(Entity):
@@ -796,15 +792,16 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("twenty-four-hours-statistics", ("twenty_four_hours_statistics", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("twenty-four-hours-statistics", ("twenty_four_hours_statistics", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics))])
                         self._leafs = OrderedDict()
 
                         self.twenty_four_hours_statistics = Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics()
                         self.twenty_four_hours_statistics.parent = self
                         self._children_name_map["twenty_four_hours_statistics"] = "twenty-four-hours-statistics"
-                        self._children_yang_names.add("twenty-four-hours-statistics")
                         self._segment_path = lambda: "twenty-four-hours-bucket"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket, [], name, value)
 
 
                     class TwentyFourHoursStatistics(Entity):
@@ -841,8 +838,7 @@ class Dwdm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("prbs-entry", ("prbs_entry", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry))])
+                            self._child_classes = OrderedDict([("prbs-entry", ("prbs_entry", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry))])
                             self._leafs = OrderedDict([
                                 ('is_prbs_enabled', YLeaf(YType.boolean, 'is-prbs-enabled')),
                                 ('prbs_config_mode', YLeaf(YType.enumeration, 'prbs-config-mode')),
@@ -854,7 +850,7 @@ class Dwdm(Entity):
                             self._segment_path = lambda: "twenty-four-hours-statistics"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, ['is_prbs_enabled', 'prbs_config_mode'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, [u'is_prbs_enabled', u'prbs_config_mode'], name, value)
 
 
                         class PrbsEntry(Entity):
@@ -940,8 +936,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interval_index', YLeaf(YType.enumeration, 'interval-index')),
                                     ('configured_pattern', YLeaf(YType.enumeration, 'configured-pattern')),
@@ -967,7 +962,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "prbs-entry"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, ['interval_index', 'configured_pattern', 'start_at', 'stop_at', 'received_pattern', 'bit_error_count', 'found_count', 'lost_count', 'found_at', 'lost_at'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, [u'interval_index', u'configured_pattern', u'start_at', u'stop_at', u'received_pattern', u'bit_error_count', u'found_count', u'lost_count', u'found_at', u'lost_at'], name, value)
 
 
                 class FifteenMinutesBucket(Entity):
@@ -994,15 +989,16 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("fifteen-minutes-statistics", ("fifteen_minutes_statistics", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("fifteen-minutes-statistics", ("fifteen_minutes_statistics", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics))])
                         self._leafs = OrderedDict()
 
                         self.fifteen_minutes_statistics = Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics()
                         self.fifteen_minutes_statistics.parent = self
                         self._children_name_map["fifteen_minutes_statistics"] = "fifteen-minutes-statistics"
-                        self._children_yang_names.add("fifteen-minutes-statistics")
                         self._segment_path = lambda: "fifteen-minutes-bucket"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket, [], name, value)
 
 
                     class FifteenMinutesStatistics(Entity):
@@ -1039,8 +1035,7 @@ class Dwdm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("prbs-entry", ("prbs_entry", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry))])
+                            self._child_classes = OrderedDict([("prbs-entry", ("prbs_entry", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry))])
                             self._leafs = OrderedDict([
                                 ('is_prbs_enabled', YLeaf(YType.boolean, 'is-prbs-enabled')),
                                 ('prbs_config_mode', YLeaf(YType.enumeration, 'prbs-config-mode')),
@@ -1052,7 +1047,7 @@ class Dwdm(Entity):
                             self._segment_path = lambda: "fifteen-minutes-statistics"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, ['is_prbs_enabled', 'prbs_config_mode'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, [u'is_prbs_enabled', u'prbs_config_mode'], name, value)
 
 
                         class PrbsEntry(Entity):
@@ -1138,8 +1133,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interval_index', YLeaf(YType.enumeration, 'interval-index')),
                                     ('configured_pattern', YLeaf(YType.enumeration, 'configured-pattern')),
@@ -1165,7 +1159,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "prbs-entry"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, ['interval_index', 'configured_pattern', 'start_at', 'stop_at', 'received_pattern', 'bit_error_count', 'found_count', 'lost_count', 'found_at', 'lost_at'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, [u'interval_index', u'configured_pattern', u'start_at', u'stop_at', u'received_pattern', u'bit_error_count', u'found_count', u'lost_count', u'found_at', u'lost_at'], name, value)
 
 
             class Optics(Entity):
@@ -1192,15 +1186,16 @@ class Dwdm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("wave-info", ("wave_info", Dwdm.Ports.Port.Optics.WaveInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("wave-info", ("wave_info", Dwdm.Ports.Port.Optics.WaveInfo))])
                     self._leafs = OrderedDict()
 
                     self.wave_info = Dwdm.Ports.Port.Optics.WaveInfo()
                     self.wave_info.parent = self
                     self._children_name_map["wave_info"] = "wave-info"
-                    self._children_yang_names.add("wave-info")
                     self._segment_path = lambda: "optics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Dwdm.Ports.Port.Optics, [], name, value)
 
 
                 class WaveInfo(Entity):
@@ -1243,8 +1238,7 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('wave_band', YLeaf(YType.uint32, 'wave-band')),
                             ('wave_channel_min', YLeaf(YType.uint32, 'wave-channel-min')),
@@ -1256,7 +1250,7 @@ class Dwdm(Entity):
                         self._segment_path = lambda: "wave-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Optics.WaveInfo, ['wave_band', 'wave_channel_min', 'wave_channel_max'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Optics.WaveInfo, [u'wave_band', u'wave_channel_min', u'wave_channel_max'], name, value)
 
 
             class Info(Entity):
@@ -1323,8 +1317,7 @@ class Dwdm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("g709-info", ("g709_info", Dwdm.Ports.Port.Info.G709Info)), ("optics-info", ("optics_info", Dwdm.Ports.Port.Info.OpticsInfo)), ("tdc-info", ("tdc_info", Dwdm.Ports.Port.Info.TdcInfo)), ("network-srlg-info", ("network_srlg_info", Dwdm.Ports.Port.Info.NetworkSrlgInfo)), ("proactive", ("proactive", Dwdm.Ports.Port.Info.Proactive)), ("signal-log", ("signal_log", Dwdm.Ports.Port.Info.SignalLog))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("g709-info", ("g709_info", Dwdm.Ports.Port.Info.G709Info)), ("optics-info", ("optics_info", Dwdm.Ports.Port.Info.OpticsInfo)), ("tdc-info", ("tdc_info", Dwdm.Ports.Port.Info.TdcInfo)), ("network-srlg-info", ("network_srlg_info", Dwdm.Ports.Port.Info.NetworkSrlgInfo)), ("proactive", ("proactive", Dwdm.Ports.Port.Info.Proactive)), ("signal-log", ("signal_log", Dwdm.Ports.Port.Info.SignalLog))])
                     self._leafs = OrderedDict([
                         ('controller_state', YLeaf(YType.enumeration, 'controller-state')),
                         ('transport_admin_state', YLeaf(YType.enumeration, 'transport-admin-state')),
@@ -1337,36 +1330,30 @@ class Dwdm(Entity):
                     self.g709_info = Dwdm.Ports.Port.Info.G709Info()
                     self.g709_info.parent = self
                     self._children_name_map["g709_info"] = "g709-info"
-                    self._children_yang_names.add("g709-info")
 
                     self.optics_info = Dwdm.Ports.Port.Info.OpticsInfo()
                     self.optics_info.parent = self
                     self._children_name_map["optics_info"] = "optics-info"
-                    self._children_yang_names.add("optics-info")
 
                     self.tdc_info = Dwdm.Ports.Port.Info.TdcInfo()
                     self.tdc_info.parent = self
                     self._children_name_map["tdc_info"] = "tdc-info"
-                    self._children_yang_names.add("tdc-info")
 
                     self.network_srlg_info = Dwdm.Ports.Port.Info.NetworkSrlgInfo()
                     self.network_srlg_info.parent = self
                     self._children_name_map["network_srlg_info"] = "network-srlg-info"
-                    self._children_yang_names.add("network-srlg-info")
 
                     self.proactive = Dwdm.Ports.Port.Info.Proactive()
                     self.proactive.parent = self
                     self._children_name_map["proactive"] = "proactive"
-                    self._children_yang_names.add("proactive")
 
                     self.signal_log = Dwdm.Ports.Port.Info.SignalLog()
                     self.signal_log.parent = self
                     self._children_name_map["signal_log"] = "signal-log"
-                    self._children_yang_names.add("signal-log")
                     self._segment_path = lambda: "info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dwdm.Ports.Port.Info, ['controller_state', 'transport_admin_state', 'slice_state'], name, value)
+                    self._perform_setattr(Dwdm.Ports.Port.Info, [u'controller_state', u'transport_admin_state', u'slice_state'], name, value)
 
 
                 class G709Info(Entity):
@@ -1555,8 +1542,7 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("fec-mismatch", ("fec_mismatch", Dwdm.Ports.Port.Info.G709Info.FecMismatch)), ("ec-tca", ("ec_tca", Dwdm.Ports.Port.Info.G709Info.EcTca)), ("uc-tca", ("uc_tca", Dwdm.Ports.Port.Info.G709Info.UcTca)), ("otu-info", ("otu_info", Dwdm.Ports.Port.Info.G709Info.OtuInfo)), ("odu-info", ("odu_info", Dwdm.Ports.Port.Info.G709Info.OduInfo))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("fec-mismatch", ("fec_mismatch", Dwdm.Ports.Port.Info.G709Info.FecMismatch)), ("ec-tca", ("ec_tca", Dwdm.Ports.Port.Info.G709Info.EcTca)), ("uc-tca", ("uc_tca", Dwdm.Ports.Port.Info.G709Info.UcTca)), ("otu-info", ("otu_info", Dwdm.Ports.Port.Info.G709Info.OtuInfo)), ("odu-info", ("odu_info", Dwdm.Ports.Port.Info.G709Info.OduInfo))])
                         self._leafs = OrderedDict([
                             ('is_g709_enabled', YLeaf(YType.boolean, 'is-g709-enabled')),
                             ('is_fec_mode_default', YLeaf(YType.boolean, 'is-fec-mode-default')),
@@ -1607,31 +1593,26 @@ class Dwdm(Entity):
                         self.fec_mismatch = Dwdm.Ports.Port.Info.G709Info.FecMismatch()
                         self.fec_mismatch.parent = self
                         self._children_name_map["fec_mismatch"] = "fec-mismatch"
-                        self._children_yang_names.add("fec-mismatch")
 
                         self.ec_tca = Dwdm.Ports.Port.Info.G709Info.EcTca()
                         self.ec_tca.parent = self
                         self._children_name_map["ec_tca"] = "ec-tca"
-                        self._children_yang_names.add("ec-tca")
 
                         self.uc_tca = Dwdm.Ports.Port.Info.G709Info.UcTca()
                         self.uc_tca.parent = self
                         self._children_name_map["uc_tca"] = "uc-tca"
-                        self._children_yang_names.add("uc-tca")
 
                         self.otu_info = Dwdm.Ports.Port.Info.G709Info.OtuInfo()
                         self.otu_info.parent = self
                         self._children_name_map["otu_info"] = "otu-info"
-                        self._children_yang_names.add("otu-info")
 
                         self.odu_info = Dwdm.Ports.Port.Info.G709Info.OduInfo()
                         self.odu_info.parent = self
                         self._children_name_map["odu_info"] = "odu-info"
-                        self._children_yang_names.add("odu-info")
                         self._segment_path = lambda: "g709-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.G709Info, ['is_g709_enabled', 'is_fec_mode_default', 'fec_mode', 'remote_fec_mode', 'efec_mode', 'loopback_mode', 'ec', 'ec_accum', 'uc', 'fec_ber', 'fec_ber_man', 'q', 'q_margin', 'fe_cstr', 'qstr', 'qmargin_str', 'network_port_id', 'network_conn_id', 'is_prbs_enabled', 'g709_prbs_mode', 'g709_prbs_pattern', 'prbs_time_stamp'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.G709Info, [u'is_g709_enabled', u'is_fec_mode_default', u'fec_mode', u'remote_fec_mode', u'efec_mode', u'loopback_mode', u'ec', u'ec_accum', u'uc', u'fec_ber', u'fec_ber_man', u'q', u'q_margin', u'fe_cstr', u'qstr', u'qmargin_str', u'network_port_id', u'network_conn_id', u'is_prbs_enabled', u'g709_prbs_mode', u'g709_prbs_pattern', u'prbs_time_stamp'], name, value)
 
 
                     class FecMismatch(Entity):
@@ -1675,8 +1656,7 @@ class Dwdm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -1690,7 +1670,7 @@ class Dwdm(Entity):
                             self._segment_path = lambda: "fec-mismatch"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.FecMismatch, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.FecMismatch, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class EcTca(Entity):
@@ -1741,8 +1721,7 @@ class Dwdm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -1758,7 +1737,7 @@ class Dwdm(Entity):
                             self._segment_path = lambda: "ec-tca"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.EcTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.EcTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                     class UcTca(Entity):
@@ -1809,8 +1788,7 @@ class Dwdm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                 ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -1826,7 +1804,7 @@ class Dwdm(Entity):
                             self._segment_path = lambda: "uc-tca"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.UcTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.UcTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                     class OtuInfo(Entity):
@@ -1987,8 +1965,7 @@ class Dwdm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("los", ("los", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los)), ("lof", ("lof", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof)), ("lom", ("lom", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom)), ("oof", ("oof", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof)), ("oom", ("oom", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom)), ("ais", ("ais", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais)), ("iae", ("iae", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae)), ("bdi", ("bdi", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi)), ("tim", ("tim", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim)), ("eoc", ("eoc", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc)), ("sf-ber", ("sf_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer)), ("sd-ber", ("sd_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer)), ("prefec-sf-ber", ("prefec_sf_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer)), ("prefec-sd-ber", ("prefec_sd_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer)), ("bbe-tca", ("bbe_tca", Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca)), ("es-tca", ("es_tca", Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca)), ("bbe", ("bbe", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe)), ("es", ("es", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es)), ("ses", ("ses", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses)), ("uas", ("uas", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas)), ("fc", ("fc", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc)), ("bber", ("bber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber)), ("esr", ("esr", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr)), ("sesr", ("sesr", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr)), ("tti", ("tti", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("los", ("los", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los)), ("lof", ("lof", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof)), ("lom", ("lom", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom)), ("oof", ("oof", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof)), ("oom", ("oom", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom)), ("ais", ("ais", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais)), ("iae", ("iae", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae)), ("bdi", ("bdi", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi)), ("tim", ("tim", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim)), ("eoc", ("eoc", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc)), ("sf-ber", ("sf_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer)), ("sd-ber", ("sd_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer)), ("prefec-sf-ber", ("prefec_sf_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer)), ("prefec-sd-ber", ("prefec_sd_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer)), ("bbe-tca", ("bbe_tca", Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca)), ("es-tca", ("es_tca", Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca)), ("bbe", ("bbe", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe)), ("es", ("es", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es)), ("ses", ("ses", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses)), ("uas", ("uas", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas)), ("fc", ("fc", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc)), ("bber", ("bber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber)), ("esr", ("esr", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr)), ("sesr", ("sesr", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr)), ("tti", ("tti", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti))])
                             self._leafs = OrderedDict([
                                 ('bei', YLeaf(YType.uint64, 'bei')),
                                 ('bip', YLeaf(YType.uint64, 'bip')),
@@ -1999,131 +1976,106 @@ class Dwdm(Entity):
                             self.los = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los()
                             self.los.parent = self
                             self._children_name_map["los"] = "los"
-                            self._children_yang_names.add("los")
 
                             self.lof = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof()
                             self.lof.parent = self
                             self._children_name_map["lof"] = "lof"
-                            self._children_yang_names.add("lof")
 
                             self.lom = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom()
                             self.lom.parent = self
                             self._children_name_map["lom"] = "lom"
-                            self._children_yang_names.add("lom")
 
                             self.oof = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof()
                             self.oof.parent = self
                             self._children_name_map["oof"] = "oof"
-                            self._children_yang_names.add("oof")
 
                             self.oom = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom()
                             self.oom.parent = self
                             self._children_name_map["oom"] = "oom"
-                            self._children_yang_names.add("oom")
 
                             self.ais = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais()
                             self.ais.parent = self
                             self._children_name_map["ais"] = "ais"
-                            self._children_yang_names.add("ais")
 
                             self.iae = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae()
                             self.iae.parent = self
                             self._children_name_map["iae"] = "iae"
-                            self._children_yang_names.add("iae")
 
                             self.bdi = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi()
                             self.bdi.parent = self
                             self._children_name_map["bdi"] = "bdi"
-                            self._children_yang_names.add("bdi")
 
                             self.tim = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim()
                             self.tim.parent = self
                             self._children_name_map["tim"] = "tim"
-                            self._children_yang_names.add("tim")
 
                             self.eoc = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc()
                             self.eoc.parent = self
                             self._children_name_map["eoc"] = "eoc"
-                            self._children_yang_names.add("eoc")
 
                             self.sf_ber = Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer()
                             self.sf_ber.parent = self
                             self._children_name_map["sf_ber"] = "sf-ber"
-                            self._children_yang_names.add("sf-ber")
 
                             self.sd_ber = Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer()
                             self.sd_ber.parent = self
                             self._children_name_map["sd_ber"] = "sd-ber"
-                            self._children_yang_names.add("sd-ber")
 
                             self.prefec_sf_ber = Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer()
                             self.prefec_sf_ber.parent = self
                             self._children_name_map["prefec_sf_ber"] = "prefec-sf-ber"
-                            self._children_yang_names.add("prefec-sf-ber")
 
                             self.prefec_sd_ber = Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer()
                             self.prefec_sd_ber.parent = self
                             self._children_name_map["prefec_sd_ber"] = "prefec-sd-ber"
-                            self._children_yang_names.add("prefec-sd-ber")
 
                             self.bbe_tca = Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca()
                             self.bbe_tca.parent = self
                             self._children_name_map["bbe_tca"] = "bbe-tca"
-                            self._children_yang_names.add("bbe-tca")
 
                             self.es_tca = Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca()
                             self.es_tca.parent = self
                             self._children_name_map["es_tca"] = "es-tca"
-                            self._children_yang_names.add("es-tca")
 
                             self.bbe = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe()
                             self.bbe.parent = self
                             self._children_name_map["bbe"] = "bbe"
-                            self._children_yang_names.add("bbe")
 
                             self.es = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es()
                             self.es.parent = self
                             self._children_name_map["es"] = "es"
-                            self._children_yang_names.add("es")
 
                             self.ses = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses()
                             self.ses.parent = self
                             self._children_name_map["ses"] = "ses"
-                            self._children_yang_names.add("ses")
 
                             self.uas = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas()
                             self.uas.parent = self
                             self._children_name_map["uas"] = "uas"
-                            self._children_yang_names.add("uas")
 
                             self.fc = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc()
                             self.fc.parent = self
                             self._children_name_map["fc"] = "fc"
-                            self._children_yang_names.add("fc")
 
                             self.bber = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber()
                             self.bber.parent = self
                             self._children_name_map["bber"] = "bber"
-                            self._children_yang_names.add("bber")
 
                             self.esr = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr()
                             self.esr.parent = self
                             self._children_name_map["esr"] = "esr"
-                            self._children_yang_names.add("esr")
 
                             self.sesr = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr()
                             self.sesr.parent = self
                             self._children_name_map["sesr"] = "sesr"
-                            self._children_yang_names.add("sesr")
 
                             self.tti = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti()
                             self.tti.parent = self
                             self._children_name_map["tti"] = "tti"
-                            self._children_yang_names.add("tti")
                             self._segment_path = lambda: "otu-info"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo, ['bei', 'bip'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo, [u'bei', u'bip'], name, value)
 
 
                         class Los(Entity):
@@ -2167,8 +2119,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2182,7 +2133,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "los"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Lof(Entity):
@@ -2226,8 +2177,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2241,7 +2191,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "lof"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Lom(Entity):
@@ -2285,8 +2235,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2300,7 +2249,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "lom"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Oof(Entity):
@@ -2344,8 +2293,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2359,7 +2307,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "oof"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Oom(Entity):
@@ -2403,8 +2351,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2418,7 +2365,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "oom"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Ais(Entity):
@@ -2462,8 +2409,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2477,7 +2423,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "ais"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Iae(Entity):
@@ -2521,8 +2467,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2536,7 +2481,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "iae"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Bdi(Entity):
@@ -2580,8 +2525,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2595,7 +2539,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "bdi"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Tim(Entity):
@@ -2639,8 +2583,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2654,7 +2597,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "tim"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Eoc(Entity):
@@ -2698,8 +2641,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2713,7 +2655,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "eoc"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class SfBer(Entity):
@@ -2764,8 +2706,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2781,7 +2722,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "sf-ber"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class SdBer(Entity):
@@ -2832,8 +2773,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2849,7 +2789,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "sd-ber"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class PrefecSfBer(Entity):
@@ -2900,8 +2840,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2917,7 +2856,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "prefec-sf-ber"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class PrefecSdBer(Entity):
@@ -2968,8 +2907,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -2985,7 +2923,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "prefec-sd-ber"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class BbeTca(Entity):
@@ -3036,8 +2974,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -3053,7 +2990,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "bbe-tca"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class EsTca(Entity):
@@ -3104,8 +3041,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -3121,7 +3057,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "es-tca"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class Bbe(Entity):
@@ -3150,8 +3086,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -3159,7 +3094,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "bbe"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, [u'counter'], name, value)
 
 
                         class Es(Entity):
@@ -3188,8 +3123,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -3197,7 +3131,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "es"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, [u'counter'], name, value)
 
 
                         class Ses(Entity):
@@ -3226,8 +3160,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -3235,7 +3168,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "ses"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, [u'counter'], name, value)
 
 
                         class Uas(Entity):
@@ -3264,8 +3197,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -3273,7 +3205,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "uas"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, [u'counter'], name, value)
 
 
                         class Fc(Entity):
@@ -3302,8 +3234,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -3311,7 +3242,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "fc"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, [u'counter'], name, value)
 
 
                         class Bber(Entity):
@@ -3340,8 +3271,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -3349,7 +3279,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "bber"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, [u'counter'], name, value)
 
 
                         class Esr(Entity):
@@ -3378,8 +3308,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -3387,7 +3316,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "esr"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, [u'counter'], name, value)
 
 
                         class Sesr(Entity):
@@ -3416,8 +3345,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -3425,7 +3353,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "sesr"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, [u'counter'], name, value)
 
 
                         class Tti(Entity):
@@ -3657,8 +3585,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('tx_string_type', YLeaf(YType.uint32, 'tx-string-type')),
                                     ('expected_string_type', YLeaf(YType.uint32, 'expected-string-type')),
@@ -3724,7 +3651,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "tti"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, ['tx_string_type', 'expected_string_type', 'rx_string_type', 'tx_tti', 'tx_sapi0', 'tx_sapi', 'tx_sapi_range', 'tx_dapi0', 'tx_dapi', 'tx_dapi_range', 'tx_oper_spec', 'tx_oper_spec_range', 'rx_tti', 'rx_sapi0', 'rx_sapi', 'rx_sapi_range', 'rx_dapi0', 'rx_dapi', 'rx_dapi_range', 'rx_oper_spec_range', 'rx_oper_spec', 'expected_tti', 'expected_sapi0', 'expected_sapi', 'exp_sapi_range', 'expected_dapi0', 'expected_dapi', 'exp_dapi_range', 'expected_oper_spec', 'exp_oper_spec_range'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, [u'tx_string_type', u'expected_string_type', u'rx_string_type', u'tx_tti', u'tx_sapi0', u'tx_sapi', u'tx_sapi_range', u'tx_dapi0', u'tx_dapi', u'tx_dapi_range', u'tx_oper_spec', u'tx_oper_spec_range', u'rx_tti', u'rx_sapi0', u'rx_sapi', u'rx_sapi_range', u'rx_dapi0', u'rx_dapi', u'rx_dapi_range', u'rx_oper_spec_range', u'rx_oper_spec', u'expected_tti', u'expected_sapi0', u'expected_sapi', u'exp_sapi_range', u'expected_dapi0', u'expected_dapi', u'exp_dapi_range', u'expected_oper_spec', u'exp_oper_spec_range'], name, value)
 
 
                     class OduInfo(Entity):
@@ -3860,8 +3787,7 @@ class Dwdm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("oci", ("oci", Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci)), ("ais", ("ais", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais)), ("lck", ("lck", Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck)), ("bdi", ("bdi", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi)), ("eoc", ("eoc", Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc)), ("ptim", ("ptim", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim)), ("tim", ("tim", Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim)), ("sf-ber", ("sf_ber", Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer)), ("sd-ber", ("sd_ber", Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer)), ("bbe-tca", ("bbe_tca", Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca)), ("es-tca", ("es_tca", Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca)), ("bbe", ("bbe", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe)), ("es", ("es", Dwdm.Ports.Port.Info.G709Info.OduInfo.Es)), ("ses", ("ses", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses)), ("uas", ("uas", Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas)), ("fc", ("fc", Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc)), ("bber", ("bber", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber)), ("esr", ("esr", Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr)), ("sesr", ("sesr", Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr)), ("tti", ("tti", Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("oci", ("oci", Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci)), ("ais", ("ais", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais)), ("lck", ("lck", Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck)), ("bdi", ("bdi", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi)), ("eoc", ("eoc", Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc)), ("ptim", ("ptim", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim)), ("tim", ("tim", Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim)), ("sf-ber", ("sf_ber", Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer)), ("sd-ber", ("sd_ber", Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer)), ("bbe-tca", ("bbe_tca", Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca)), ("es-tca", ("es_tca", Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca)), ("bbe", ("bbe", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe)), ("es", ("es", Dwdm.Ports.Port.Info.G709Info.OduInfo.Es)), ("ses", ("ses", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses)), ("uas", ("uas", Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas)), ("fc", ("fc", Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc)), ("bber", ("bber", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber)), ("esr", ("esr", Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr)), ("sesr", ("sesr", Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr)), ("tti", ("tti", Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti))])
                             self._leafs = OrderedDict([
                                 ('bip', YLeaf(YType.uint64, 'bip')),
                                 ('bei', YLeaf(YType.uint64, 'bei')),
@@ -3872,106 +3798,86 @@ class Dwdm(Entity):
                             self.oci = Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci()
                             self.oci.parent = self
                             self._children_name_map["oci"] = "oci"
-                            self._children_yang_names.add("oci")
 
                             self.ais = Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais()
                             self.ais.parent = self
                             self._children_name_map["ais"] = "ais"
-                            self._children_yang_names.add("ais")
 
                             self.lck = Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck()
                             self.lck.parent = self
                             self._children_name_map["lck"] = "lck"
-                            self._children_yang_names.add("lck")
 
                             self.bdi = Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi()
                             self.bdi.parent = self
                             self._children_name_map["bdi"] = "bdi"
-                            self._children_yang_names.add("bdi")
 
                             self.eoc = Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc()
                             self.eoc.parent = self
                             self._children_name_map["eoc"] = "eoc"
-                            self._children_yang_names.add("eoc")
 
                             self.ptim = Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim()
                             self.ptim.parent = self
                             self._children_name_map["ptim"] = "ptim"
-                            self._children_yang_names.add("ptim")
 
                             self.tim = Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim()
                             self.tim.parent = self
                             self._children_name_map["tim"] = "tim"
-                            self._children_yang_names.add("tim")
 
                             self.sf_ber = Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer()
                             self.sf_ber.parent = self
                             self._children_name_map["sf_ber"] = "sf-ber"
-                            self._children_yang_names.add("sf-ber")
 
                             self.sd_ber = Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer()
                             self.sd_ber.parent = self
                             self._children_name_map["sd_ber"] = "sd-ber"
-                            self._children_yang_names.add("sd-ber")
 
                             self.bbe_tca = Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca()
                             self.bbe_tca.parent = self
                             self._children_name_map["bbe_tca"] = "bbe-tca"
-                            self._children_yang_names.add("bbe-tca")
 
                             self.es_tca = Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca()
                             self.es_tca.parent = self
                             self._children_name_map["es_tca"] = "es-tca"
-                            self._children_yang_names.add("es-tca")
 
                             self.bbe = Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe()
                             self.bbe.parent = self
                             self._children_name_map["bbe"] = "bbe"
-                            self._children_yang_names.add("bbe")
 
                             self.es = Dwdm.Ports.Port.Info.G709Info.OduInfo.Es()
                             self.es.parent = self
                             self._children_name_map["es"] = "es"
-                            self._children_yang_names.add("es")
 
                             self.ses = Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses()
                             self.ses.parent = self
                             self._children_name_map["ses"] = "ses"
-                            self._children_yang_names.add("ses")
 
                             self.uas = Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas()
                             self.uas.parent = self
                             self._children_name_map["uas"] = "uas"
-                            self._children_yang_names.add("uas")
 
                             self.fc = Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc()
                             self.fc.parent = self
                             self._children_name_map["fc"] = "fc"
-                            self._children_yang_names.add("fc")
 
                             self.bber = Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber()
                             self.bber.parent = self
                             self._children_name_map["bber"] = "bber"
-                            self._children_yang_names.add("bber")
 
                             self.esr = Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr()
                             self.esr.parent = self
                             self._children_name_map["esr"] = "esr"
-                            self._children_yang_names.add("esr")
 
                             self.sesr = Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr()
                             self.sesr.parent = self
                             self._children_name_map["sesr"] = "sesr"
-                            self._children_yang_names.add("sesr")
 
                             self.tti = Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti()
                             self.tti.parent = self
                             self._children_name_map["tti"] = "tti"
-                            self._children_yang_names.add("tti")
                             self._segment_path = lambda: "odu-info"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo, ['bip', 'bei'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo, [u'bip', u'bei'], name, value)
 
 
                         class Oci(Entity):
@@ -4015,8 +3921,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4030,7 +3935,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "oci"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Ais(Entity):
@@ -4074,8 +3979,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4089,7 +3993,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "ais"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Lck(Entity):
@@ -4133,8 +4037,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4148,7 +4051,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "lck"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Bdi(Entity):
@@ -4192,8 +4095,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4207,7 +4109,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "bdi"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Eoc(Entity):
@@ -4251,8 +4153,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4266,7 +4167,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "eoc"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Ptim(Entity):
@@ -4310,8 +4211,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4325,7 +4225,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "ptim"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class Tim(Entity):
@@ -4369,8 +4269,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4384,7 +4283,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "tim"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                         class SfBer(Entity):
@@ -4435,8 +4334,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4452,7 +4350,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "sf-ber"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class SdBer(Entity):
@@ -4503,8 +4401,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4520,7 +4417,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "sd-ber"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class BbeTca(Entity):
@@ -4571,8 +4468,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4588,7 +4484,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "bbe-tca"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class EsTca(Entity):
@@ -4639,8 +4535,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
                                     ('is_detected', YLeaf(YType.boolean, 'is-detected')),
@@ -4656,7 +4551,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "es-tca"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
 
 
                         class Bbe(Entity):
@@ -4685,8 +4580,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -4694,7 +4588,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "bbe"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, [u'counter'], name, value)
 
 
                         class Es(Entity):
@@ -4723,8 +4617,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -4732,7 +4625,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "es"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, [u'counter'], name, value)
 
 
                         class Ses(Entity):
@@ -4761,8 +4654,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -4770,7 +4662,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "ses"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, [u'counter'], name, value)
 
 
                         class Uas(Entity):
@@ -4799,8 +4691,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -4808,7 +4699,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "uas"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, [u'counter'], name, value)
 
 
                         class Fc(Entity):
@@ -4837,8 +4728,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -4846,7 +4736,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "fc"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, [u'counter'], name, value)
 
 
                         class Bber(Entity):
@@ -4875,8 +4765,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -4884,7 +4773,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "bber"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, [u'counter'], name, value)
 
 
                         class Esr(Entity):
@@ -4913,8 +4802,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -4922,7 +4810,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "esr"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, [u'counter'], name, value)
 
 
                         class Sesr(Entity):
@@ -4951,8 +4839,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('counter', YLeaf(YType.uint64, 'counter')),
                                 ])
@@ -4960,7 +4847,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "sesr"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, [u'counter'], name, value)
 
 
                         class Tti(Entity):
@@ -5192,8 +5079,7 @@ class Dwdm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('tx_string_type', YLeaf(YType.uint32, 'tx-string-type')),
                                     ('expected_string_type', YLeaf(YType.uint32, 'expected-string-type')),
@@ -5259,7 +5145,7 @@ class Dwdm(Entity):
                                 self._segment_path = lambda: "tti"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, ['tx_string_type', 'expected_string_type', 'rx_string_type', 'tx_tti', 'tx_sapi0', 'tx_sapi', 'tx_sapi_range', 'tx_dapi0', 'tx_dapi', 'tx_dapi_range', 'tx_oper_spec', 'tx_oper_spec_range', 'rx_tti', 'rx_sapi0', 'rx_sapi', 'rx_sapi_range', 'rx_dapi0', 'rx_dapi', 'rx_dapi_range', 'rx_oper_spec_range', 'rx_oper_spec', 'expected_tti', 'expected_sapi0', 'expected_sapi', 'exp_sapi_range', 'expected_dapi0', 'expected_dapi', 'exp_dapi_range', 'expected_oper_spec', 'exp_oper_spec_range'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, [u'tx_string_type', u'expected_string_type', u'rx_string_type', u'tx_tti', u'tx_sapi0', u'tx_sapi', u'tx_sapi_range', u'tx_dapi0', u'tx_dapi', u'tx_dapi_range', u'tx_oper_spec', u'tx_oper_spec_range', u'rx_tti', u'rx_sapi0', u'rx_sapi', u'rx_sapi_range', u'rx_dapi0', u'rx_dapi', u'rx_dapi_range', u'rx_oper_spec_range', u'rx_oper_spec', u'expected_tti', u'expected_sapi0', u'expected_sapi', u'exp_sapi_range', u'expected_dapi0', u'expected_dapi', u'exp_dapi_range', u'expected_oper_spec', u'exp_oper_spec_range'], name, value)
 
 
                 class OpticsInfo(Entity):
@@ -5546,8 +5432,7 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('optics_type', YLeaf(YType.str, 'optics-type')),
                             ('clock_source', YLeaf(YType.uint8, 'clock-source')),
@@ -5631,7 +5516,7 @@ class Dwdm(Entity):
                         self._segment_path = lambda: "optics-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.OpticsInfo, ['optics_type', 'clock_source', 'wave_frequency_progressive_string', 'wavelength_progressive_string', 'is_wave_frequency_progressive_valid', 'wavelength_progressive', 'wave_band', 'wave_channel', 'wave_frequency', 'is_wave_frequency_valid', 'wave_channel_owner', 'gmpls_set_wave_channel', 'configured_wave_channel', 'default_wave_channel', 'transmit_power', 'transmit_power_threshold', 'laser_current_bias', 'laser_current_bias_threshold', 'receive_power', 'is_rx_los_threshold_supported', 'rx_los_threshold', 'transmit_power_min', 'transmit_power_max', 'transmit_power_avg', 'receive_power_min', 'receive_power_max', 'receive_power_avg', 'laser_bias_current_min', 'laser_bias_current_max', 'laser_bias_current_avg', 'chromatic_dispersion', 'differential_group_delay', 'polarization_mode_dispersion', 'signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'phase_noise', 'output_power_fail', 'input_power_fail'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.OpticsInfo, [u'optics_type', u'clock_source', u'wave_frequency_progressive_string', u'wavelength_progressive_string', u'is_wave_frequency_progressive_valid', u'wavelength_progressive', u'wave_band', u'wave_channel', u'wave_frequency', u'is_wave_frequency_valid', u'wave_channel_owner', u'gmpls_set_wave_channel', u'configured_wave_channel', u'default_wave_channel', u'transmit_power', u'transmit_power_threshold', u'laser_current_bias', u'laser_current_bias_threshold', u'receive_power', u'is_rx_los_threshold_supported', u'rx_los_threshold', u'transmit_power_min', u'transmit_power_max', u'transmit_power_avg', u'receive_power_min', u'receive_power_max', u'receive_power_avg', u'laser_bias_current_min', u'laser_bias_current_max', u'laser_bias_current_avg', u'chromatic_dispersion', u'differential_group_delay', u'polarization_mode_dispersion', u'signal_to_noise_ratio', u'polarization_dependent_loss', u'polarization_change_rate', u'phase_noise', u'output_power_fail', u'input_power_fail'], name, value)
 
 
                 class TdcInfo(Entity):
@@ -5692,8 +5577,7 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('tdc_valid', YLeaf(YType.boolean, 'tdc-valid')),
                             ('major_alarm', YLeaf(YType.boolean, 'major-alarm')),
@@ -5713,7 +5597,7 @@ class Dwdm(Entity):
                         self._segment_path = lambda: "tdc-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.TdcInfo, ['tdc_valid', 'major_alarm', 'operation_mode', 'tdc_status', 'dispersion_offset', 'reroute_ber', 'is_reroute_control_enabled'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.TdcInfo, [u'tdc_valid', u'major_alarm', u'operation_mode', u'tdc_status', u'dispersion_offset', u'reroute_ber', u'is_reroute_control_enabled'], name, value)
 
 
                 class NetworkSrlgInfo(Entity):
@@ -5742,8 +5626,7 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('network_srlg', YLeafList(YType.uint32, 'network-srlg')),
                         ])
@@ -5751,7 +5634,7 @@ class Dwdm(Entity):
                         self._segment_path = lambda: "network-srlg-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.NetworkSrlgInfo, ['network_srlg'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.NetworkSrlgInfo, [u'network_srlg'], name, value)
 
 
                 class Proactive(Entity):
@@ -5940,8 +5823,7 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('proactive_feature', YLeaf(YType.boolean, 'proactive-feature')),
                             ('proactive_mode', YLeaf(YType.enumeration, 'proactive-mode')),
@@ -6001,7 +5883,7 @@ class Dwdm(Entity):
                         self._segment_path = lambda: "proactive"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.Proactive, ['proactive_feature', 'proactive_mode', 'proactive_fsm_state', 'proactive_fsm_if_state', 'tas_state', 'trig_thresh_coeff', 'trig_thresh_power', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'default_trig_thresh_coeff', 'default_trig_thresh_power', 'default_rvrt_thresh_coeff', 'default_rvrt_thresh_power', 'trig_samples', 'rvrt_samples', 'trigger_window', 'revert_window', 'protection_trigger', 'interface_trigger', 'tx_aps', 'tx_aps_descr', 'rx_aps', 'rx_aps_descr', 'alarm_state', 'trig_ec_cnt', 'rvrt_ec_cnt', 'prefec_thresh_crossed'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.Proactive, [u'proactive_feature', u'proactive_mode', u'proactive_fsm_state', u'proactive_fsm_if_state', u'tas_state', u'trig_thresh_coeff', u'trig_thresh_power', u'rvrt_thresh_coeff', u'rvrt_thresh_power', u'default_trig_thresh_coeff', u'default_trig_thresh_power', u'default_rvrt_thresh_coeff', u'default_rvrt_thresh_power', u'trig_samples', u'rvrt_samples', u'trigger_window', u'revert_window', u'protection_trigger', u'interface_trigger', u'tx_aps', u'tx_aps_descr', u'rx_aps', u'rx_aps_descr', u'alarm_state', u'trig_ec_cnt', u'rvrt_ec_cnt', u'prefec_thresh_crossed'], name, value)
 
 
                 class SignalLog(Entity):
@@ -6035,8 +5917,7 @@ class Dwdm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
                             ('log_filename', YLeaf(YType.str, 'log-filename')),
@@ -6046,7 +5927,7 @@ class Dwdm(Entity):
                         self._segment_path = lambda: "signal-log"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.SignalLog, ['is_log_enabled', 'log_filename'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.SignalLog, [u'is_log_enabled', u'log_filename'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Dwdm()
@@ -6077,15 +5958,16 @@ class Vtxp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dwdm-vtxp", ("dwdm_vtxp", Vtxp.DwdmVtxp))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dwdm-vtxp", ("dwdm_vtxp", Vtxp.DwdmVtxp))])
         self._leafs = OrderedDict()
 
         self.dwdm_vtxp = Vtxp.DwdmVtxp()
         self.dwdm_vtxp.parent = self
         self._children_name_map["dwdm_vtxp"] = "dwdm-vtxp"
-        self._children_yang_names.add("dwdm-vtxp")
         self._segment_path = lambda: "Cisco-IOS-XR-dwdm-ui-oper:vtxp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Vtxp, [], name, value)
 
 
     class DwdmVtxp(Entity):
@@ -6112,16 +5994,17 @@ class Vtxp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("port-vtxps", ("port_vtxps", Vtxp.DwdmVtxp.PortVtxps))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("port-vtxps", ("port_vtxps", Vtxp.DwdmVtxp.PortVtxps))])
             self._leafs = OrderedDict()
 
             self.port_vtxps = Vtxp.DwdmVtxp.PortVtxps()
             self.port_vtxps.parent = self
             self._children_name_map["port_vtxps"] = "port-vtxps"
-            self._children_yang_names.add("port-vtxps")
             self._segment_path = lambda: "dwdm-vtxp"
             self._absolute_path = lambda: "Cisco-IOS-XR-dwdm-ui-oper:vtxp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vtxp.DwdmVtxp, [], name, value)
 
 
         class PortVtxps(Entity):
@@ -6148,8 +6031,7 @@ class Vtxp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("port-vtxp", ("port_vtxp", Vtxp.DwdmVtxp.PortVtxps.PortVtxp))])
+                self._child_classes = OrderedDict([("port-vtxp", ("port_vtxp", Vtxp.DwdmVtxp.PortVtxps.PortVtxp))])
                 self._leafs = OrderedDict()
 
                 self.port_vtxp = YList(self)
@@ -6191,8 +6073,7 @@ class Vtxp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("info", ("info", Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("info", ("info", Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
@@ -6201,7 +6082,6 @@ class Vtxp(Entity):
                     self.info = Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info()
                     self.info.parent = self
                     self._children_name_map["info"] = "info"
-                    self._children_yang_names.add("info")
                     self._segment_path = lambda: "port-vtxp" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-dwdm-ui-oper:vtxp/dwdm-vtxp/port-vtxps/%s" % self._segment_path()
 
@@ -6233,8 +6113,7 @@ class Vtxp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vtxp_enable', YLeaf(YType.boolean, 'vtxp-enable')),
                         ])
@@ -6242,7 +6121,7 @@ class Vtxp(Entity):
                         self._segment_path = lambda: "info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, ['vtxp_enable'], name, value)
+                        self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, [u'vtxp_enable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vtxp()

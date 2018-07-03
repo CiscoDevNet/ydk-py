@@ -48,19 +48,16 @@ class Zapdisk(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Zapdisk.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Zapdisk.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-zapdisk:zapdisk"
 
 
@@ -93,8 +90,7 @@ class Zapdisk(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("czapdisk-unset", ("czapdisk_unset", Zapdisk.Input.CzapdiskUnset))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("czapdisk-unset", ("czapdisk_unset", Zapdisk.Input.CzapdiskUnset))])
             self._leafs = OrderedDict([
                 ('set', YLeaf(YType.empty, 'set')),
             ])
@@ -103,7 +99,6 @@ class Zapdisk(Entity):
             self.czapdisk_unset = Zapdisk.Input.CzapdiskUnset()
             self.czapdisk_unset.parent = self
             self._children_name_map["czapdisk_unset"] = "czapdisk-unset"
-            self._children_yang_names.add("czapdisk-unset")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-zapdisk:zapdisk/%s" % self._segment_path()
 
@@ -135,8 +130,7 @@ class Zapdisk(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('unset', YLeaf(YType.empty, 'unset')),
                 ])
@@ -174,8 +168,7 @@ class Zapdisk(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])

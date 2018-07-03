@@ -45,15 +45,16 @@ class Config(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("global", ("global_", Config.Global))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("global", ("global_", Config.Global))])
         self._leafs = OrderedDict()
 
         self.global_ = Config.Global()
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
-        self._children_yang_names.add("global")
         self._segment_path = lambda: "Cisco-IOS-XR-config-cfgmgr-oper:config"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Config, [], name, value)
 
 
     class Global(Entity):
@@ -75,8 +76,7 @@ class Config(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict()
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-cfgmgr-oper:config/%s" % self._segment_path()

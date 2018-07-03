@@ -51,25 +51,10 @@ class Aaa(Entity):
     	AAA authentication
     	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications>`
     
-    .. attribute:: aaa_subscriber
+    .. attribute:: intercept
     
-    	AAA subscriber
-    	**type**\:  :py:class:`AaaSubscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber>`
-    
-    .. attribute:: aaa_mobile
-    
-    	AAA Mobile
-    	**type**\:  :py:class:`AaaMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile>`
-    
-    .. attribute:: aaa_dot1x
-    
-    	AAA Dot1x
-    	**type**\:  :py:class:`AaaDot1X <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X>`
-    
-    .. attribute:: radius_attribute
-    
-    	AAA RADIUS attribute configurations
-    	**type**\:  :py:class:`RadiusAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute>`
+    	Enable LI RADIUS Feature
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: password_policies
     
@@ -106,27 +91,42 @@ class Aaa(Entity):
     	Diameter base protocol
     	**type**\:  :py:class:`Diameter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter>`
     
-    .. attribute:: intercept
+    .. attribute:: tacacs
     
-    	Enable LI RADIUS Feature
-    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+    	Modify TACACS+ query parameters
+    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs>`
     
     .. attribute:: radius
     
     	Remote Access Dial\-In User Service
     	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius>`
     
-    .. attribute:: tacacs
+    .. attribute:: aaa_subscriber
     
-    	Modify TACACS+ query parameters
-    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs>`
+    	AAA subscriber
+    	**type**\:  :py:class:`AaaSubscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber>`
+    
+    .. attribute:: aaa_mobile
+    
+    	AAA Mobile
+    	**type**\:  :py:class:`AaaMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile>`
+    
+    .. attribute:: aaa_dot1x
+    
+    	AAA Dot1x
+    	**type**\:  :py:class:`AaaDot1x <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1x>`
+    
+    .. attribute:: radius_attribute
+    
+    	AAA RADIUS attribute configurations
+    	**type**\:  :py:class:`RadiusAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute>`
     
     
 
     """
 
     _prefix = 'aaa-lib-cfg'
-    _revision = '2017-11-14'
+    _revision = '2017-05-01'
 
     def __init__(self):
         super(Aaa, self).__init__()
@@ -137,102 +137,84 @@ class Aaa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("accountings", ("accountings", Aaa.Accountings)), ("authorizations", ("authorizations", Aaa.Authorizations)), ("accounting-update", ("accounting_update", Aaa.AccountingUpdate)), ("banner", ("banner", Aaa.Banner)), ("authentications", ("authentications", Aaa.Authentications)), ("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber", ("aaa_subscriber", Aaa.AaaSubscriber)), ("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile", ("aaa_mobile", Aaa.AaaMobile)), ("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x", ("aaa_dot1x", Aaa.AaaDot1X)), ("Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute", ("radius_attribute", Aaa.RadiusAttribute)), ("Cisco-IOS-XR-aaa-locald-cfg:password-policies", ("password_policies", Aaa.PasswordPolicies)), ("Cisco-IOS-XR-aaa-locald-cfg:server-groups", ("server_groups", Aaa.ServerGroups)), ("Cisco-IOS-XR-aaa-locald-cfg:usernames", ("usernames", Aaa.Usernames)), ("Cisco-IOS-XR-aaa-locald-cfg:taskgroups", ("taskgroups", Aaa.Taskgroups)), ("Cisco-IOS-XR-aaa-locald-cfg:usergroups", ("usergroups", Aaa.Usergroups)), ("Cisco-IOS-XR-aaa-diameter-cfg:diameter", ("diameter", Aaa.Diameter)), ("Cisco-IOS-XR-aaa-protocol-radius-cfg:radius", ("radius", Aaa.Radius)), ("Cisco-IOS-XR-aaa-tacacs-cfg:tacacs", ("tacacs", Aaa.Tacacs))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("accountings", ("accountings", Aaa.Accountings)), ("authorizations", ("authorizations", Aaa.Authorizations)), ("accounting-update", ("accounting_update", Aaa.AccountingUpdate)), ("banner", ("banner", Aaa.Banner)), ("authentications", ("authentications", Aaa.Authentications)), ("Cisco-IOS-XR-aaa-locald-cfg:password-policies", ("password_policies", Aaa.PasswordPolicies)), ("Cisco-IOS-XR-aaa-locald-cfg:server-groups", ("server_groups", Aaa.ServerGroups)), ("Cisco-IOS-XR-aaa-locald-cfg:usernames", ("usernames", Aaa.Usernames)), ("Cisco-IOS-XR-aaa-locald-cfg:taskgroups", ("taskgroups", Aaa.Taskgroups)), ("Cisco-IOS-XR-aaa-locald-cfg:usergroups", ("usergroups", Aaa.Usergroups)), ("Cisco-IOS-XR-aaa-diameter-cfg:diameter", ("diameter", Aaa.Diameter)), ("Cisco-IOS-XR-aaa-tacacs-cfg:tacacs", ("tacacs", Aaa.Tacacs)), ("Cisco-IOS-XR-aaa-protocol-radius-cfg:radius", ("radius", Aaa.Radius)), ("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber", ("aaa_subscriber", Aaa.AaaSubscriber)), ("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile", ("aaa_mobile", Aaa.AaaMobile)), ("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x", ("aaa_dot1x", Aaa.AaaDot1x)), ("Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute", ("radius_attribute", Aaa.RadiusAttribute))])
         self._leafs = OrderedDict([
-            ('default_taskgroup', YLeaf(YType.str, 'Cisco-IOS-XR-aaa-locald-cfg:default-taskgroup')),
             ('intercept', YLeaf(YType.empty, 'Cisco-IOS-XR-aaa-li-cfg:intercept')),
+            ('default_taskgroup', YLeaf(YType.str, 'Cisco-IOS-XR-aaa-locald-cfg:default-taskgroup')),
         ])
-        self.default_taskgroup = None
         self.intercept = None
+        self.default_taskgroup = None
 
         self.accountings = Aaa.Accountings()
         self.accountings.parent = self
         self._children_name_map["accountings"] = "accountings"
-        self._children_yang_names.add("accountings")
 
         self.authorizations = Aaa.Authorizations()
         self.authorizations.parent = self
         self._children_name_map["authorizations"] = "authorizations"
-        self._children_yang_names.add("authorizations")
 
         self.accounting_update = None
         self._children_name_map["accounting_update"] = "accounting-update"
-        self._children_yang_names.add("accounting-update")
 
         self.banner = Aaa.Banner()
         self.banner.parent = self
         self._children_name_map["banner"] = "banner"
-        self._children_yang_names.add("banner")
 
         self.authentications = Aaa.Authentications()
         self.authentications.parent = self
         self._children_name_map["authentications"] = "authentications"
-        self._children_yang_names.add("authentications")
-
-        self.aaa_subscriber = Aaa.AaaSubscriber()
-        self.aaa_subscriber.parent = self
-        self._children_name_map["aaa_subscriber"] = "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber")
-
-        self.aaa_mobile = Aaa.AaaMobile()
-        self.aaa_mobile.parent = self
-        self._children_name_map["aaa_mobile"] = "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile")
-
-        self.aaa_dot1x = Aaa.AaaDot1X()
-        self.aaa_dot1x.parent = self
-        self._children_name_map["aaa_dot1x"] = "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x")
-
-        self.radius_attribute = Aaa.RadiusAttribute()
-        self.radius_attribute.parent = self
-        self._children_name_map["radius_attribute"] = "Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute")
 
         self.password_policies = Aaa.PasswordPolicies()
         self.password_policies.parent = self
         self._children_name_map["password_policies"] = "Cisco-IOS-XR-aaa-locald-cfg:password-policies"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-locald-cfg:password-policies")
 
         self.server_groups = Aaa.ServerGroups()
         self.server_groups.parent = self
         self._children_name_map["server_groups"] = "Cisco-IOS-XR-aaa-locald-cfg:server-groups"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-locald-cfg:server-groups")
 
         self.usernames = Aaa.Usernames()
         self.usernames.parent = self
         self._children_name_map["usernames"] = "Cisco-IOS-XR-aaa-locald-cfg:usernames"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-locald-cfg:usernames")
 
         self.taskgroups = Aaa.Taskgroups()
         self.taskgroups.parent = self
         self._children_name_map["taskgroups"] = "Cisco-IOS-XR-aaa-locald-cfg:taskgroups"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-locald-cfg:taskgroups")
 
         self.usergroups = Aaa.Usergroups()
         self.usergroups.parent = self
         self._children_name_map["usergroups"] = "Cisco-IOS-XR-aaa-locald-cfg:usergroups"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-locald-cfg:usergroups")
 
         self.diameter = Aaa.Diameter()
         self.diameter.parent = self
         self._children_name_map["diameter"] = "Cisco-IOS-XR-aaa-diameter-cfg:diameter"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-diameter-cfg:diameter")
-
-        self.radius = Aaa.Radius()
-        self.radius.parent = self
-        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-cfg:radius"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-protocol-radius-cfg:radius")
 
         self.tacacs = Aaa.Tacacs()
         self.tacacs.parent = self
         self._children_name_map["tacacs"] = "Cisco-IOS-XR-aaa-tacacs-cfg:tacacs"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-tacacs-cfg:tacacs")
+
+        self.radius = Aaa.Radius()
+        self.radius.parent = self
+        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-cfg:radius"
+
+        self.aaa_subscriber = Aaa.AaaSubscriber()
+        self.aaa_subscriber.parent = self
+        self._children_name_map["aaa_subscriber"] = "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber"
+
+        self.aaa_mobile = Aaa.AaaMobile()
+        self.aaa_mobile.parent = self
+        self._children_name_map["aaa_mobile"] = "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile"
+
+        self.aaa_dot1x = Aaa.AaaDot1x()
+        self.aaa_dot1x.parent = self
+        self._children_name_map["aaa_dot1x"] = "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x"
+
+        self.radius_attribute = Aaa.RadiusAttribute()
+        self.radius_attribute.parent = self
+        self._children_name_map["radius_attribute"] = "Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute"
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Aaa, ['default_taskgroup', 'intercept'], name, value)
+        self._perform_setattr(Aaa, ['intercept', u'default_taskgroup'], name, value)
 
 
     class Accountings(Entity):
@@ -249,7 +231,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-lib-cfg'
-        _revision = '2017-11-14'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(Aaa.Accountings, self).__init__()
@@ -259,8 +241,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("accounting", ("accounting", Aaa.Accountings.Accounting))])
+            self._child_classes = OrderedDict([("accounting", ("accounting", Aaa.Accountings.Accounting))])
             self._leafs = OrderedDict()
 
             self.accounting = YList(self)
@@ -307,22 +288,22 @@ class Aaa(Entity):
             .. attribute:: method1
             
             	Method Type
-            	**type**\:  :py:class:`AaaMethodAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodAccounting>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method2
             
             	Method Type
-            	**type**\:  :py:class:`AaaMethodAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodAccounting>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method3
             
             	Method Type
-            	**type**\:  :py:class:`AaaMethodAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodAccounting>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method4
             
             	Method Type
-            	**type**\:  :py:class:`AaaMethodAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodAccounting>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: server_group_name1
             
@@ -349,7 +330,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-lib-cfg'
-            _revision = '2017-11-14'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(Aaa.Accountings.Accounting, self).__init__()
@@ -359,8 +340,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['type','listname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.str, 'type')),
                     ('listname', YLeaf(YType.str, 'listname')),
@@ -393,7 +373,7 @@ class Aaa(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/accountings/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Accountings.Accounting, ['type', 'listname', 'rp_failover', 'broadcast', 'type_xr', 'method1', 'method2', 'method3', 'method4', 'server_group_name1', 'server_group_name2', 'server_group_name3', 'server_group_name4'], name, value)
+                self._perform_setattr(Aaa.Accountings.Accounting, [u'type', u'listname', u'rp_failover', u'broadcast', u'type_xr', u'method1', u'method2', u'method3', u'method4', u'server_group_name1', u'server_group_name2', u'server_group_name3', u'server_group_name4'], name, value)
 
 
     class Authorizations(Entity):
@@ -410,7 +390,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-lib-cfg'
-        _revision = '2017-11-14'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(Aaa.Authorizations, self).__init__()
@@ -420,8 +400,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("authorization", ("authorization", Aaa.Authorizations.Authorization))])
+            self._child_classes = OrderedDict([("authorization", ("authorization", Aaa.Authorizations.Authorization))])
             self._leafs = OrderedDict()
 
             self.authorization = YList(self)
@@ -495,7 +474,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-lib-cfg'
-            _revision = '2017-11-14'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(Aaa.Authorizations.Authorization, self).__init__()
@@ -505,8 +484,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['type','listname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.str, 'type')),
                     ('listname', YLeaf(YType.str, 'listname')),
@@ -533,7 +511,7 @@ class Aaa(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/authorizations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Authorizations.Authorization, ['type', 'listname', 'method1', 'method2', 'method3', 'method4', 'server_group_name1', 'server_group_name2', 'server_group_name3', 'server_group_name4'], name, value)
+                self._perform_setattr(Aaa.Authorizations.Authorization, [u'type', u'listname', u'method1', u'method2', u'method3', u'method4', u'server_group_name1', u'server_group_name2', u'server_group_name3', u'server_group_name4'], name, value)
 
 
     class AccountingUpdate(Entity):
@@ -563,7 +541,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-lib-cfg'
-        _revision = '2017-11-14'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(Aaa.AccountingUpdate, self).__init__()
@@ -573,8 +551,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('type', YLeaf(YType.enumeration, 'type')),
@@ -586,7 +563,7 @@ class Aaa(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.AccountingUpdate, ['type', 'periodic_interval'], name, value)
+            self._perform_setattr(Aaa.AccountingUpdate, [u'type', u'periodic_interval'], name, value)
 
 
     class Banner(Entity):
@@ -603,7 +580,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-lib-cfg'
-        _revision = '2017-11-14'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(Aaa.Banner, self).__init__()
@@ -613,8 +590,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('login', YLeaf(YType.str, 'login')),
             ])
@@ -623,7 +599,7 @@ class Aaa(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.Banner, ['login'], name, value)
+            self._perform_setattr(Aaa.Banner, [u'login'], name, value)
 
 
     class Authentications(Entity):
@@ -640,7 +616,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-lib-cfg'
-        _revision = '2017-11-14'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(Aaa.Authentications, self).__init__()
@@ -650,8 +626,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("authentication", ("authentication", Aaa.Authentications.Authentication))])
+            self._child_classes = OrderedDict([("authentication", ("authentication", Aaa.Authentications.Authentication))])
             self._leafs = OrderedDict()
 
             self.authentication = YList(self)
@@ -725,7 +700,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-lib-cfg'
-            _revision = '2017-11-14'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(Aaa.Authentications.Authentication, self).__init__()
@@ -735,8 +710,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['type','listname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.str, 'type')),
                     ('listname', YLeaf(YType.str, 'listname')),
@@ -763,1672 +737,7 @@ class Aaa(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/authentications/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Authentications.Authentication, ['type', 'listname', 'method1', 'method2', 'method3', 'method4', 'server_group_name1', 'server_group_name2', 'server_group_name3', 'server_group_name4'], name, value)
-
-
-    class AaaSubscriber(Entity):
-        """
-        AAA subscriber
-        
-        .. attribute:: policy_if_authors
-        
-        	AAA authorization policy
-        	**type**\:  :py:class:`PolicyIfAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors>`
-        
-        .. attribute:: accountings
-        
-        	AAA accounting
-        	**type**\:  :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings>`
-        
-        .. attribute:: service_accounting
-        
-        	Set accounting parameters for Service
-        	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.ServiceAccounting>`
-        
-        .. attribute:: prepaid_authors
-        
-        	AAA authorization prepaid
-        	**type**\:  :py:class:`PrepaidAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors>`
-        
-        .. attribute:: authorizations
-        
-        	AAA authorization
-        	**type**\:  :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations>`
-        
-        .. attribute:: authentications
-        
-        	AAA authentication
-        	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-aaacore-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Aaa.AaaSubscriber, self).__init__()
-
-            self.yang_name = "aaa-subscriber"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("policy-if-authors", ("policy_if_authors", Aaa.AaaSubscriber.PolicyIfAuthors)), ("accountings", ("accountings", Aaa.AaaSubscriber.Accountings)), ("service-accounting", ("service_accounting", Aaa.AaaSubscriber.ServiceAccounting)), ("prepaid-authors", ("prepaid_authors", Aaa.AaaSubscriber.PrepaidAuthors)), ("authorizations", ("authorizations", Aaa.AaaSubscriber.Authorizations)), ("authentications", ("authentications", Aaa.AaaSubscriber.Authentications))])
-            self._child_list_classes = OrderedDict([])
-            self._leafs = OrderedDict()
-
-            self.policy_if_authors = Aaa.AaaSubscriber.PolicyIfAuthors()
-            self.policy_if_authors.parent = self
-            self._children_name_map["policy_if_authors"] = "policy-if-authors"
-            self._children_yang_names.add("policy-if-authors")
-
-            self.accountings = Aaa.AaaSubscriber.Accountings()
-            self.accountings.parent = self
-            self._children_name_map["accountings"] = "accountings"
-            self._children_yang_names.add("accountings")
-
-            self.service_accounting = Aaa.AaaSubscriber.ServiceAccounting()
-            self.service_accounting.parent = self
-            self._children_name_map["service_accounting"] = "service-accounting"
-            self._children_yang_names.add("service-accounting")
-
-            self.prepaid_authors = Aaa.AaaSubscriber.PrepaidAuthors()
-            self.prepaid_authors.parent = self
-            self._children_name_map["prepaid_authors"] = "prepaid-authors"
-            self._children_yang_names.add("prepaid-authors")
-
-            self.authorizations = Aaa.AaaSubscriber.Authorizations()
-            self.authorizations.parent = self
-            self._children_name_map["authorizations"] = "authorizations"
-            self._children_yang_names.add("authorizations")
-
-            self.authentications = Aaa.AaaSubscriber.Authentications()
-            self.authentications.parent = self
-            self._children_name_map["authentications"] = "authentications"
-            self._children_yang_names.add("authentications")
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber"
-            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
-
-
-        class PolicyIfAuthors(Entity):
-            """
-            AAA authorization policy
-            
-            .. attribute:: policy_if_author
-            
-            	Configurations related to authorization
-            	**type**\: list of  		 :py:class:`PolicyIfAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.AaaSubscriber.PolicyIfAuthors, self).__init__()
-
-                self.yang_name = "policy-if-authors"
-                self.yang_parent_name = "aaa-subscriber"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("policy-if-author", ("policy_if_author", Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor))])
-                self._leafs = OrderedDict()
-
-                self.policy_if_author = YList(self)
-                self._segment_path = lambda: "policy-if-authors"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.AaaSubscriber.PolicyIfAuthors, [], name, value)
-
-
-            class PolicyIfAuthor(Entity):
-                """
-                Configurations related to authorization
-                
-                .. attribute:: type  (key)
-                
-                	Set authorization lists
-                	**type**\: str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: listname  (key)
-                
-                	Named authorization list
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\: list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor, self).__init__()
-
-                    self.yang_name = "policy-if-author"
-                    self.yang_parent_name = "policy-if-authors"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['type','listname']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('listname', YLeaf(YType.str, 'listname')),
-                        ('method', YLeafList(YType.enumeration, 'method')),
-                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
-                    ])
-                    self.type = None
-                    self.listname = None
-                    self.method = []
-                    self.server_group_name = []
-                    self._segment_path = lambda: "policy-if-author" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/policy-if-authors/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor, ['type', 'listname', 'method', 'server_group_name'], name, value)
-
-
-        class Accountings(Entity):
-            """
-            AAA accounting
-            
-            .. attribute:: accounting
-            
-            	Configurations related to accounting
-            	**type**\: list of  		 :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings.Accounting>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.AaaSubscriber.Accountings, self).__init__()
-
-                self.yang_name = "accountings"
-                self.yang_parent_name = "aaa-subscriber"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("accounting", ("accounting", Aaa.AaaSubscriber.Accountings.Accounting))])
-                self._leafs = OrderedDict()
-
-                self.accounting = YList(self)
-                self._segment_path = lambda: "accountings"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.AaaSubscriber.Accountings, [], name, value)
-
-
-            class Accounting(Entity):
-                """
-                Configurations related to accounting
-                
-                .. attribute:: type  (key)
-                
-                	Set accounting lists
-                	**type**\: str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: listname  (key)
-                
-                	Named accounting list
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: broadcast
-                
-                	Broadcast
-                	**type**\:  :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
-                
-                	**mandatory**\: True
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\: list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.AaaSubscriber.Accountings.Accounting, self).__init__()
-
-                    self.yang_name = "accounting"
-                    self.yang_parent_name = "accountings"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['type','listname']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('listname', YLeaf(YType.str, 'listname')),
-                        ('broadcast', YLeaf(YType.enumeration, 'broadcast')),
-                        ('method', YLeafList(YType.enumeration, 'method')),
-                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
-                    ])
-                    self.type = None
-                    self.listname = None
-                    self.broadcast = None
-                    self.method = []
-                    self.server_group_name = []
-                    self._segment_path = lambda: "accounting" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/accountings/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.AaaSubscriber.Accountings.Accounting, ['type', 'listname', 'broadcast', 'method', 'server_group_name'], name, value)
-
-
-        class ServiceAccounting(Entity):
-            """
-            Set accounting parameters for Service
-            
-            .. attribute:: type
-            
-            	Send extended/brief service accounting records
-            	**type**\:  :py:class:`AaaServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_aaacore_cfg.AaaServiceAccounting>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.AaaSubscriber.ServiceAccounting, self).__init__()
-
-                self.yang_name = "service-accounting"
-                self.yang_parent_name = "aaa-subscriber"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                ])
-                self.type = None
-                self._segment_path = lambda: "service-accounting"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.AaaSubscriber.ServiceAccounting, ['type'], name, value)
-
-
-        class PrepaidAuthors(Entity):
-            """
-            AAA authorization prepaid
-            
-            .. attribute:: prepaid_author
-            
-            	Configurations related to authorization
-            	**type**\: list of  		 :py:class:`PrepaidAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.AaaSubscriber.PrepaidAuthors, self).__init__()
-
-                self.yang_name = "prepaid-authors"
-                self.yang_parent_name = "aaa-subscriber"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("prepaid-author", ("prepaid_author", Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor))])
-                self._leafs = OrderedDict()
-
-                self.prepaid_author = YList(self)
-                self._segment_path = lambda: "prepaid-authors"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.AaaSubscriber.PrepaidAuthors, [], name, value)
-
-
-            class PrepaidAuthor(Entity):
-                """
-                Configurations related to authorization
-                
-                .. attribute:: type  (key)
-                
-                	Set authorization lists
-                	**type**\: str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: listname  (key)
-                
-                	Named authorization list
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\: list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor, self).__init__()
-
-                    self.yang_name = "prepaid-author"
-                    self.yang_parent_name = "prepaid-authors"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['type','listname']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('listname', YLeaf(YType.str, 'listname')),
-                        ('method', YLeafList(YType.enumeration, 'method')),
-                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
-                    ])
-                    self.type = None
-                    self.listname = None
-                    self.method = []
-                    self.server_group_name = []
-                    self._segment_path = lambda: "prepaid-author" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/prepaid-authors/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor, ['type', 'listname', 'method', 'server_group_name'], name, value)
-
-
-        class Authorizations(Entity):
-            """
-            AAA authorization
-            
-            .. attribute:: authorization
-            
-            	Configurations related to authorization
-            	**type**\: list of  		 :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations.Authorization>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.AaaSubscriber.Authorizations, self).__init__()
-
-                self.yang_name = "authorizations"
-                self.yang_parent_name = "aaa-subscriber"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("authorization", ("authorization", Aaa.AaaSubscriber.Authorizations.Authorization))])
-                self._leafs = OrderedDict()
-
-                self.authorization = YList(self)
-                self._segment_path = lambda: "authorizations"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.AaaSubscriber.Authorizations, [], name, value)
-
-
-            class Authorization(Entity):
-                """
-                Configurations related to authorization
-                
-                .. attribute:: type  (key)
-                
-                	Set authorization lists
-                	**type**\: str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: listname  (key)
-                
-                	Named authorization list
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\: list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.AaaSubscriber.Authorizations.Authorization, self).__init__()
-
-                    self.yang_name = "authorization"
-                    self.yang_parent_name = "authorizations"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['type','listname']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('listname', YLeaf(YType.str, 'listname')),
-                        ('method', YLeafList(YType.enumeration, 'method')),
-                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
-                    ])
-                    self.type = None
-                    self.listname = None
-                    self.method = []
-                    self.server_group_name = []
-                    self._segment_path = lambda: "authorization" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/authorizations/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.AaaSubscriber.Authorizations.Authorization, ['type', 'listname', 'method', 'server_group_name'], name, value)
-
-
-        class Authentications(Entity):
-            """
-            AAA authentication
-            
-            .. attribute:: authentication
-            
-            	Configurations related to authentication
-            	**type**\: list of  		 :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications.Authentication>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.AaaSubscriber.Authentications, self).__init__()
-
-                self.yang_name = "authentications"
-                self.yang_parent_name = "aaa-subscriber"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("authentication", ("authentication", Aaa.AaaSubscriber.Authentications.Authentication))])
-                self._leafs = OrderedDict()
-
-                self.authentication = YList(self)
-                self._segment_path = lambda: "authentications"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.AaaSubscriber.Authentications, [], name, value)
-
-
-            class Authentication(Entity):
-                """
-                Configurations related to authentication
-                
-                .. attribute:: type  (key)
-                
-                	Set authentication lists
-                	**type**\: str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: listname  (key)
-                
-                	Named authentication list
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\: list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.AaaSubscriber.Authentications.Authentication, self).__init__()
-
-                    self.yang_name = "authentication"
-                    self.yang_parent_name = "authentications"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['type','listname']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('listname', YLeaf(YType.str, 'listname')),
-                        ('method', YLeafList(YType.enumeration, 'method')),
-                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
-                    ])
-                    self.type = None
-                    self.listname = None
-                    self.method = []
-                    self.server_group_name = []
-                    self._segment_path = lambda: "authentication" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/authentications/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.AaaSubscriber.Authentications.Authentication, ['type', 'listname', 'method', 'server_group_name'], name, value)
-
-
-    class AaaMobile(Entity):
-        """
-        AAA Mobile
-        
-        .. attribute:: mobiles
-        
-        	AAA Mobile Accounting
-        	**type**\:  :py:class:`Mobiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-aaacore-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Aaa.AaaMobile, self).__init__()
-
-            self.yang_name = "aaa-mobile"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("mobiles", ("mobiles", Aaa.AaaMobile.Mobiles))])
-            self._child_list_classes = OrderedDict([])
-            self._leafs = OrderedDict()
-
-            self.mobiles = Aaa.AaaMobile.Mobiles()
-            self.mobiles.parent = self
-            self._children_name_map["mobiles"] = "mobiles"
-            self._children_yang_names.add("mobiles")
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile"
-            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
-
-
-        class Mobiles(Entity):
-            """
-            AAA Mobile Accounting
-            
-            .. attribute:: mobile
-            
-            	Configurations related to accounting
-            	**type**\: list of  		 :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles.Mobile>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.AaaMobile.Mobiles, self).__init__()
-
-                self.yang_name = "mobiles"
-                self.yang_parent_name = "aaa-mobile"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("mobile", ("mobile", Aaa.AaaMobile.Mobiles.Mobile))])
-                self._leafs = OrderedDict()
-
-                self.mobile = YList(self)
-                self._segment_path = lambda: "mobiles"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.AaaMobile.Mobiles, [], name, value)
-
-
-            class Mobile(Entity):
-                """
-                Configurations related to accounting
-                
-                .. attribute:: listname  (key)
-                
-                	Named accounting list
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: broadcast
-                
-                	Broadcast
-                	**type**\:  :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
-                
-                	**mandatory**\: True
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\: list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.AaaMobile.Mobiles.Mobile, self).__init__()
-
-                    self.yang_name = "mobile"
-                    self.yang_parent_name = "mobiles"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['listname']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('listname', YLeaf(YType.str, 'listname')),
-                        ('broadcast', YLeaf(YType.enumeration, 'broadcast')),
-                        ('method', YLeafList(YType.enumeration, 'method')),
-                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
-                    ])
-                    self.listname = None
-                    self.broadcast = None
-                    self.method = []
-                    self.server_group_name = []
-                    self._segment_path = lambda: "mobile" + "[listname='" + str(self.listname) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile/mobiles/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.AaaMobile.Mobiles.Mobile, ['listname', 'broadcast', 'method', 'server_group_name'], name, value)
-
-
-    class AaaDot1X(Entity):
-        """
-        AAA Dot1x
-        
-        .. attribute:: authentications
-        
-        	AAA authentication
-        	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-aaacore-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Aaa.AaaDot1X, self).__init__()
-
-            self.yang_name = "aaa-dot1x"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("authentications", ("authentications", Aaa.AaaDot1X.Authentications))])
-            self._child_list_classes = OrderedDict([])
-            self._leafs = OrderedDict()
-
-            self.authentications = Aaa.AaaDot1X.Authentications()
-            self.authentications.parent = self
-            self._children_name_map["authentications"] = "authentications"
-            self._children_yang_names.add("authentications")
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x"
-            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
-
-
-        class Authentications(Entity):
-            """
-            AAA authentication
-            
-            .. attribute:: authentication
-            
-            	Configurations related to authentication
-            	**type**\: list of  		 :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications.Authentication>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.AaaDot1X.Authentications, self).__init__()
-
-                self.yang_name = "authentications"
-                self.yang_parent_name = "aaa-dot1x"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("authentication", ("authentication", Aaa.AaaDot1X.Authentications.Authentication))])
-                self._leafs = OrderedDict()
-
-                self.authentication = YList(self)
-                self._segment_path = lambda: "authentications"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.AaaDot1X.Authentications, [], name, value)
-
-
-            class Authentication(Entity):
-                """
-                Configurations related to authentication
-                
-                .. attribute:: type  (key)
-                
-                	Set authentication lists
-                	**type**\: str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: listname  (key)
-                
-                	Named authentication list
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\: list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.AaaDot1X.Authentications.Authentication, self).__init__()
-
-                    self.yang_name = "authentication"
-                    self.yang_parent_name = "authentications"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['type','listname']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('listname', YLeaf(YType.str, 'listname')),
-                        ('method', YLeafList(YType.enumeration, 'method')),
-                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
-                    ])
-                    self.type = None
-                    self.listname = None
-                    self.method = []
-                    self.server_group_name = []
-                    self._segment_path = lambda: "authentication" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x/authentications/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.AaaDot1X.Authentications.Authentication, ['type', 'listname', 'method', 'server_group_name'], name, value)
-
-
-    class RadiusAttribute(Entity):
-        """
-        AAA RADIUS attribute configurations
-        
-        .. attribute:: nas_port_id
-        
-        	AAA nas\-port\-id attribute
-        	**type**\:  :py:class:`NasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId>`
-        
-        .. attribute:: calling_station
-        
-        	AAA calling station id attribute
-        	**type**\:  :py:class:`CallingStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation>`
-        
-        .. attribute:: called_station
-        
-        	AAA called station id attribute
-        	**type**\:  :py:class:`CalledStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation>`
-        
-        .. attribute:: nas_port
-        
-        	AAA nas\-port\-id attribute
-        	**type**\:  :py:class:`NasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort>`
-        
-        .. attribute:: format_others
-        
-        	AAA nas\-port\-id attribute format
-        	**type**\:  :py:class:`FormatOthers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-aaacore-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Aaa.RadiusAttribute, self).__init__()
-
-            self.yang_name = "radius-attribute"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("nas-port-id", ("nas_port_id", Aaa.RadiusAttribute.NasPortId)), ("calling-station", ("calling_station", Aaa.RadiusAttribute.CallingStation)), ("called-station", ("called_station", Aaa.RadiusAttribute.CalledStation)), ("nas-port", ("nas_port", Aaa.RadiusAttribute.NasPort)), ("format-others", ("format_others", Aaa.RadiusAttribute.FormatOthers))])
-            self._child_list_classes = OrderedDict([])
-            self._leafs = OrderedDict()
-
-            self.nas_port_id = Aaa.RadiusAttribute.NasPortId()
-            self.nas_port_id.parent = self
-            self._children_name_map["nas_port_id"] = "nas-port-id"
-            self._children_yang_names.add("nas-port-id")
-
-            self.calling_station = Aaa.RadiusAttribute.CallingStation()
-            self.calling_station.parent = self
-            self._children_name_map["calling_station"] = "calling-station"
-            self._children_yang_names.add("calling-station")
-
-            self.called_station = Aaa.RadiusAttribute.CalledStation()
-            self.called_station.parent = self
-            self._children_name_map["called_station"] = "called-station"
-            self._children_yang_names.add("called-station")
-
-            self.nas_port = Aaa.RadiusAttribute.NasPort()
-            self.nas_port.parent = self
-            self._children_name_map["nas_port"] = "nas-port"
-            self._children_yang_names.add("nas-port")
-
-            self.format_others = Aaa.RadiusAttribute.FormatOthers()
-            self.format_others.parent = self
-            self._children_name_map["format_others"] = "format-others"
-            self._children_yang_names.add("format-others")
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute"
-            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
-
-
-        class NasPortId(Entity):
-            """
-            AAA nas\-port\-id attribute
-            
-            .. attribute:: formats
-            
-            	AAA nas\-port\-id attribute format
-            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.RadiusAttribute.NasPortId, self).__init__()
-
-                self.yang_name = "nas-port-id"
-                self.yang_parent_name = "radius-attribute"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("formats", ("formats", Aaa.RadiusAttribute.NasPortId.Formats))])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict()
-
-                self.formats = Aaa.RadiusAttribute.NasPortId.Formats()
-                self.formats.parent = self
-                self._children_name_map["formats"] = "formats"
-                self._children_yang_names.add("formats")
-                self._segment_path = lambda: "nas-port-id"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
-
-
-            class Formats(Entity):
-                """
-                AAA nas\-port\-id attribute format
-                
-                .. attribute:: format
-                
-                	nas\-port\-id attribute format
-                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats.Format>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.RadiusAttribute.NasPortId.Formats, self).__init__()
-
-                    self.yang_name = "formats"
-                    self.yang_parent_name = "nas-port-id"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("format", ("format", Aaa.RadiusAttribute.NasPortId.Formats.Format))])
-                    self._leafs = OrderedDict()
-
-                    self.format = YList(self)
-                    self._segment_path = lambda: "formats"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/nas-port-id/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.RadiusAttribute.NasPortId.Formats, [], name, value)
-
-
-                class Format(Entity):
-                    """
-                    nas\-port\-id attribute format
-                    
-                    .. attribute:: type  (key)
-                    
-                    	Nas\-Port\-Type value to apply format name on
-                    	**type**\: int
-                    
-                    	**range:** 0..45
-                    
-                    .. attribute:: format_name
-                    
-                    	AAA nas\-port attribute format
-                    	**type**\: str
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-aaacore-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.RadiusAttribute.NasPortId.Formats.Format, self).__init__()
-
-                        self.yang_name = "format"
-                        self.yang_parent_name = "formats"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('type', YLeaf(YType.uint32, 'type')),
-                            ('format_name', YLeaf(YType.str, 'format-name')),
-                        ])
-                        self.type = None
-                        self.format_name = None
-                        self._segment_path = lambda: "format" + "[type='" + str(self.type) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/nas-port-id/formats/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.RadiusAttribute.NasPortId.Formats.Format, ['type', 'format_name'], name, value)
-
-
-        class CallingStation(Entity):
-            """
-            AAA calling station id attribute
-            
-            .. attribute:: formats
-            
-            	AAA nas\-port\-id attribute format
-            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.RadiusAttribute.CallingStation, self).__init__()
-
-                self.yang_name = "calling-station"
-                self.yang_parent_name = "radius-attribute"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("formats", ("formats", Aaa.RadiusAttribute.CallingStation.Formats))])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict()
-
-                self.formats = Aaa.RadiusAttribute.CallingStation.Formats()
-                self.formats.parent = self
-                self._children_name_map["formats"] = "formats"
-                self._children_yang_names.add("formats")
-                self._segment_path = lambda: "calling-station"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
-
-
-            class Formats(Entity):
-                """
-                AAA nas\-port\-id attribute format
-                
-                .. attribute:: format
-                
-                	nas\-port\-id attribute format
-                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats.Format>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.RadiusAttribute.CallingStation.Formats, self).__init__()
-
-                    self.yang_name = "formats"
-                    self.yang_parent_name = "calling-station"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("format", ("format", Aaa.RadiusAttribute.CallingStation.Formats.Format))])
-                    self._leafs = OrderedDict()
-
-                    self.format = YList(self)
-                    self._segment_path = lambda: "formats"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/calling-station/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.RadiusAttribute.CallingStation.Formats, [], name, value)
-
-
-                class Format(Entity):
-                    """
-                    nas\-port\-id attribute format
-                    
-                    .. attribute:: type  (key)
-                    
-                    	Nas\-Port\-Type value to apply format name on
-                    	**type**\: int
-                    
-                    	**range:** 0..45
-                    
-                    .. attribute:: format_name
-                    
-                    	AAA nas\-port attribute format
-                    	**type**\: str
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-aaacore-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.RadiusAttribute.CallingStation.Formats.Format, self).__init__()
-
-                        self.yang_name = "format"
-                        self.yang_parent_name = "formats"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('type', YLeaf(YType.uint32, 'type')),
-                            ('format_name', YLeaf(YType.str, 'format-name')),
-                        ])
-                        self.type = None
-                        self.format_name = None
-                        self._segment_path = lambda: "format" + "[type='" + str(self.type) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/calling-station/formats/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.RadiusAttribute.CallingStation.Formats.Format, ['type', 'format_name'], name, value)
-
-
-        class CalledStation(Entity):
-            """
-            AAA called station id attribute
-            
-            .. attribute:: formats
-            
-            	AAA nas\-port\-id attribute format
-            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.RadiusAttribute.CalledStation, self).__init__()
-
-                self.yang_name = "called-station"
-                self.yang_parent_name = "radius-attribute"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("formats", ("formats", Aaa.RadiusAttribute.CalledStation.Formats))])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict()
-
-                self.formats = Aaa.RadiusAttribute.CalledStation.Formats()
-                self.formats.parent = self
-                self._children_name_map["formats"] = "formats"
-                self._children_yang_names.add("formats")
-                self._segment_path = lambda: "called-station"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
-
-
-            class Formats(Entity):
-                """
-                AAA nas\-port\-id attribute format
-                
-                .. attribute:: format
-                
-                	nas\-port\-id attribute format
-                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats.Format>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.RadiusAttribute.CalledStation.Formats, self).__init__()
-
-                    self.yang_name = "formats"
-                    self.yang_parent_name = "called-station"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("format", ("format", Aaa.RadiusAttribute.CalledStation.Formats.Format))])
-                    self._leafs = OrderedDict()
-
-                    self.format = YList(self)
-                    self._segment_path = lambda: "formats"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/called-station/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.RadiusAttribute.CalledStation.Formats, [], name, value)
-
-
-                class Format(Entity):
-                    """
-                    nas\-port\-id attribute format
-                    
-                    .. attribute:: type  (key)
-                    
-                    	Nas\-Port\-Type value to apply format name on
-                    	**type**\: int
-                    
-                    	**range:** 0..45
-                    
-                    .. attribute:: format_name
-                    
-                    	AAA nas\-port attribute format
-                    	**type**\: str
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-aaacore-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.RadiusAttribute.CalledStation.Formats.Format, self).__init__()
-
-                        self.yang_name = "format"
-                        self.yang_parent_name = "formats"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('type', YLeaf(YType.uint32, 'type')),
-                            ('format_name', YLeaf(YType.str, 'format-name')),
-                        ])
-                        self.type = None
-                        self.format_name = None
-                        self._segment_path = lambda: "format" + "[type='" + str(self.type) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/called-station/formats/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.RadiusAttribute.CalledStation.Formats.Format, ['type', 'format_name'], name, value)
-
-
-        class NasPort(Entity):
-            """
-            AAA nas\-port\-id attribute
-            
-            .. attribute:: format_extendeds
-            
-            	AAA nas\-port\-id attribute format
-            	**type**\:  :py:class:`FormatExtendeds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.RadiusAttribute.NasPort, self).__init__()
-
-                self.yang_name = "nas-port"
-                self.yang_parent_name = "radius-attribute"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("format-extendeds", ("format_extendeds", Aaa.RadiusAttribute.NasPort.FormatExtendeds))])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict()
-
-                self.format_extendeds = Aaa.RadiusAttribute.NasPort.FormatExtendeds()
-                self.format_extendeds.parent = self
-                self._children_name_map["format_extendeds"] = "format-extendeds"
-                self._children_yang_names.add("format-extendeds")
-                self._segment_path = lambda: "nas-port"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
-
-
-            class FormatExtendeds(Entity):
-                """
-                AAA nas\-port\-id attribute format
-                
-                .. attribute:: format_extended
-                
-                	nas\-port\-id extended attribute
-                	**type**\: list of  		 :py:class:`FormatExtended <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.RadiusAttribute.NasPort.FormatExtendeds, self).__init__()
-
-                    self.yang_name = "format-extendeds"
-                    self.yang_parent_name = "nas-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("format-extended", ("format_extended", Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended))])
-                    self._leafs = OrderedDict()
-
-                    self.format_extended = YList(self)
-                    self._segment_path = lambda: "format-extendeds"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/nas-port/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.RadiusAttribute.NasPort.FormatExtendeds, [], name, value)
-
-
-                class FormatExtended(Entity):
-                    """
-                    nas\-port\-id extended attribute
-                    
-                    .. attribute:: value  (key)
-                    
-                    	format type
-                    	**type**\: str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: type  (key)
-                    
-                    	AAA nas\-port attribute format
-                    	**type**\: int
-                    
-                    	**range:** 0..45
-                    
-                    .. attribute:: format_identifier
-                    
-                    	A 32 character string representing the format to be used
-                    	**type**\: str
-                    
-                    	**length:** 1..32
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-aaacore-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended, self).__init__()
-
-                        self.yang_name = "format-extended"
-                        self.yang_parent_name = "format-extendeds"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['value','type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('value', YLeaf(YType.str, 'value')),
-                            ('type', YLeaf(YType.uint32, 'type')),
-                            ('format_identifier', YLeaf(YType.str, 'format-identifier')),
-                        ])
-                        self.value = None
-                        self.type = None
-                        self.format_identifier = None
-                        self._segment_path = lambda: "format-extended" + "[value='" + str(self.value) + "']" + "[type='" + str(self.type) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/nas-port/format-extendeds/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended, ['value', 'type', 'format_identifier'], name, value)
-
-
-        class FormatOthers(Entity):
-            """
-            AAA nas\-port\-id attribute format
-            
-            .. attribute:: format_other
-            
-            	Other configs
-            	**type**\: list of  		 :py:class:`FormatOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers.FormatOther>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.RadiusAttribute.FormatOthers, self).__init__()
-
-                self.yang_name = "format-others"
-                self.yang_parent_name = "radius-attribute"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("format-other", ("format_other", Aaa.RadiusAttribute.FormatOthers.FormatOther))])
-                self._leafs = OrderedDict()
-
-                self.format_other = YList(self)
-                self._segment_path = lambda: "format-others"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.RadiusAttribute.FormatOthers, [], name, value)
-
-
-            class FormatOther(Entity):
-                """
-                Other configs
-                
-                .. attribute:: nas_port_type_name  (key)
-                
-                	Nas\-Port\-Type value to apply format name on
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: attribute_config1
-                
-                	Argument1
-                	**type**\: str
-                
-                .. attribute:: attribute_config2
-                
-                	Argument2
-                	**type**\: str
-                
-                .. attribute:: attribute_config3
-                
-                	Argument3
-                	**type**\: str
-                
-                .. attribute:: attribute_config4
-                
-                	Argument4
-                	**type**\: str
-                
-                .. attribute:: attribute_config5
-                
-                	Argument5
-                	**type**\: str
-                
-                .. attribute:: attribute_config6
-                
-                	Argument6
-                	**type**\: str
-                
-                .. attribute:: attribute_config7
-                
-                	Argument7
-                	**type**\: str
-                
-                .. attribute:: attribute_config8
-                
-                	Argument8
-                	**type**\: str
-                
-                .. attribute:: attribute_config9
-                
-                	Argument9
-                	**type**\: str
-                
-                .. attribute:: attribute_config10
-                
-                	Argument10
-                	**type**\: str
-                
-                .. attribute:: attribute_config11
-                
-                	Argument11
-                	**type**\: str
-                
-                .. attribute:: attribute_config12
-                
-                	Argument12
-                	**type**\: str
-                
-                .. attribute:: attribute_config13
-                
-                	Argument13
-                	**type**\: str
-                
-                .. attribute:: attribute_config14
-                
-                	Argument14
-                	**type**\: str
-                
-                .. attribute:: attribute_config15
-                
-                	Argument15
-                	**type**\: str
-                
-                .. attribute:: attribute_config16
-                
-                	Argument16
-                	**type**\: str
-                
-                .. attribute:: attribute_config17
-                
-                	Argument17
-                	**type**\: str
-                
-                .. attribute:: attribute_config18
-                
-                	Argument18
-                	**type**\: str
-                
-                .. attribute:: attribute_config19
-                
-                	Argument19
-                	**type**\: int
-                
-                	**range:** 1..253
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.RadiusAttribute.FormatOthers.FormatOther, self).__init__()
-
-                    self.yang_name = "format-other"
-                    self.yang_parent_name = "format-others"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['nas_port_type_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('nas_port_type_name', YLeaf(YType.str, 'nas-port-type-name')),
-                        ('attribute_config1', YLeaf(YType.str, 'attribute-config1')),
-                        ('attribute_config2', YLeaf(YType.str, 'attribute-config2')),
-                        ('attribute_config3', YLeaf(YType.str, 'attribute-config3')),
-                        ('attribute_config4', YLeaf(YType.str, 'attribute-config4')),
-                        ('attribute_config5', YLeaf(YType.str, 'attribute-config5')),
-                        ('attribute_config6', YLeaf(YType.str, 'attribute-config6')),
-                        ('attribute_config7', YLeaf(YType.str, 'attribute-config7')),
-                        ('attribute_config8', YLeaf(YType.str, 'attribute-config8')),
-                        ('attribute_config9', YLeaf(YType.str, 'attribute-config9')),
-                        ('attribute_config10', YLeaf(YType.str, 'attribute-config10')),
-                        ('attribute_config11', YLeaf(YType.str, 'attribute-config11')),
-                        ('attribute_config12', YLeaf(YType.str, 'attribute-config12')),
-                        ('attribute_config13', YLeaf(YType.str, 'attribute-config13')),
-                        ('attribute_config14', YLeaf(YType.str, 'attribute-config14')),
-                        ('attribute_config15', YLeaf(YType.str, 'attribute-config15')),
-                        ('attribute_config16', YLeaf(YType.str, 'attribute-config16')),
-                        ('attribute_config17', YLeaf(YType.str, 'attribute-config17')),
-                        ('attribute_config18', YLeaf(YType.str, 'attribute-config18')),
-                        ('attribute_config19', YLeaf(YType.uint32, 'attribute-config19')),
-                    ])
-                    self.nas_port_type_name = None
-                    self.attribute_config1 = None
-                    self.attribute_config2 = None
-                    self.attribute_config3 = None
-                    self.attribute_config4 = None
-                    self.attribute_config5 = None
-                    self.attribute_config6 = None
-                    self.attribute_config7 = None
-                    self.attribute_config8 = None
-                    self.attribute_config9 = None
-                    self.attribute_config10 = None
-                    self.attribute_config11 = None
-                    self.attribute_config12 = None
-                    self.attribute_config13 = None
-                    self.attribute_config14 = None
-                    self.attribute_config15 = None
-                    self.attribute_config16 = None
-                    self.attribute_config17 = None
-                    self.attribute_config18 = None
-                    self.attribute_config19 = None
-                    self._segment_path = lambda: "format-other" + "[nas-port-type-name='" + str(self.nas_port_type_name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/format-others/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.RadiusAttribute.FormatOthers.FormatOther, ['nas_port_type_name', 'attribute_config1', 'attribute_config2', 'attribute_config3', 'attribute_config4', 'attribute_config5', 'attribute_config6', 'attribute_config7', 'attribute_config8', 'attribute_config9', 'attribute_config10', 'attribute_config11', 'attribute_config12', 'attribute_config13', 'attribute_config14', 'attribute_config15', 'attribute_config16', 'attribute_config17', 'attribute_config18', 'attribute_config19'], name, value)
+                self._perform_setattr(Aaa.Authentications.Authentication, [u'type', u'listname', u'method1', u'method2', u'method3', u'method4', u'server_group_name1', u'server_group_name2', u'server_group_name3', u'server_group_name4'], name, value)
 
 
     class PasswordPolicies(Entity):
@@ -2445,7 +754,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-locald-cfg'
-        _revision = '2017-03-11'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Aaa.PasswordPolicies, self).__init__()
@@ -2455,8 +764,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("password-policy", ("password_policy", Aaa.PasswordPolicies.PasswordPolicy))])
+            self._child_classes = OrderedDict([("password-policy", ("password_policy", Aaa.PasswordPolicies.PasswordPolicy))])
             self._leafs = OrderedDict()
 
             self.password_policy = YList(self)
@@ -2549,7 +857,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-locald-cfg'
-            _revision = '2017-03-11'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.PasswordPolicies.PasswordPolicy, self).__init__()
@@ -2559,8 +867,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("lifetime", ("lifetime", Aaa.PasswordPolicies.PasswordPolicy.Lifetime)), ("lockout-time", ("lockout_time", Aaa.PasswordPolicies.PasswordPolicy.LockoutTime))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("lifetime", ("lifetime", Aaa.PasswordPolicies.PasswordPolicy.Lifetime)), ("lockout-time", ("lockout_time", Aaa.PasswordPolicies.PasswordPolicy.LockoutTime))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('lower_case', YLeaf(YType.uint32, 'lower-case')),
@@ -2585,17 +892,15 @@ class Aaa(Entity):
                 self.lifetime = Aaa.PasswordPolicies.PasswordPolicy.Lifetime()
                 self.lifetime.parent = self
                 self._children_name_map["lifetime"] = "lifetime"
-                self._children_yang_names.add("lifetime")
 
                 self.lockout_time = Aaa.PasswordPolicies.PasswordPolicy.LockoutTime()
                 self.lockout_time.parent = self
                 self._children_name_map["lockout_time"] = "lockout-time"
-                self._children_yang_names.add("lockout-time")
                 self._segment_path = lambda: "password-policy" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:password-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy, ['name', 'lower_case', 'upper_case', 'max_length', 'min_char_change', 'special_char', 'numeric', 'min_length', 'authen_max_attempts'], name, value)
+                self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy, [u'name', u'lower_case', u'upper_case', u'max_length', u'min_char_change', u'special_char', u'numeric', u'min_length', u'authen_max_attempts'], name, value)
 
 
             class Lifetime(Entity):
@@ -2657,7 +962,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-locald-cfg'
-                _revision = '2017-03-11'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.PasswordPolicies.PasswordPolicy.Lifetime, self).__init__()
@@ -2667,8 +972,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('years', YLeaf(YType.uint32, 'years')),
                         ('months', YLeaf(YType.uint32, 'months')),
@@ -2686,7 +990,7 @@ class Aaa(Entity):
                     self._segment_path = lambda: "lifetime"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.Lifetime, ['years', 'months', 'hours', 'minutes', 'seconds', 'days'], name, value)
+                    self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.Lifetime, [u'years', u'months', u'hours', u'minutes', u'seconds', u'days'], name, value)
 
 
             class LockoutTime(Entity):
@@ -2735,7 +1039,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-locald-cfg'
-                _revision = '2017-03-11'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.PasswordPolicies.PasswordPolicy.LockoutTime, self).__init__()
@@ -2745,8 +1049,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('hours', YLeaf(YType.uint32, 'hours')),
                         ('minutes', YLeaf(YType.uint32, 'minutes')),
@@ -2760,7 +1063,7 @@ class Aaa(Entity):
                     self._segment_path = lambda: "lockout-time"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.LockoutTime, ['hours', 'minutes', 'seconds', 'days'], name, value)
+                    self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.LockoutTime, [u'hours', u'minutes', u'seconds', u'days'], name, value)
 
 
     class ServerGroups(Entity):
@@ -2772,22 +1075,22 @@ class Aaa(Entity):
         	DIAMETER server group definition
         	**type**\:  :py:class:`DiameterServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups>`
         
-        .. attribute:: radius_server_groups
-        
-        	RADIUS server group definition
-        	**type**\:  :py:class:`RadiusServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups>`
-        
         .. attribute:: tacacs_server_groups
         
         	TACACS+ server\-group definition
         	**type**\:  :py:class:`TacacsServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups>`
+        
+        .. attribute:: radius_server_groups
+        
+        	RADIUS server group definition
+        	**type**\:  :py:class:`RadiusServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups>`
         
         
 
         """
 
         _prefix = 'aaa-locald-cfg'
-        _revision = '2017-03-11'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Aaa.ServerGroups, self).__init__()
@@ -2797,26 +1100,25 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("Cisco-IOS-XR-aaa-diameter-cfg:diameter-server-groups", ("diameter_server_groups", Aaa.ServerGroups.DiameterServerGroups)), ("Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-groups", ("radius_server_groups", Aaa.ServerGroups.RadiusServerGroups)), ("Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups", ("tacacs_server_groups", Aaa.ServerGroups.TacacsServerGroups))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-aaa-diameter-cfg:diameter-server-groups", ("diameter_server_groups", Aaa.ServerGroups.DiameterServerGroups)), ("Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups", ("tacacs_server_groups", Aaa.ServerGroups.TacacsServerGroups)), ("Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-groups", ("radius_server_groups", Aaa.ServerGroups.RadiusServerGroups))])
             self._leafs = OrderedDict()
 
             self.diameter_server_groups = Aaa.ServerGroups.DiameterServerGroups()
             self.diameter_server_groups.parent = self
             self._children_name_map["diameter_server_groups"] = "Cisco-IOS-XR-aaa-diameter-cfg:diameter-server-groups"
-            self._children_yang_names.add("Cisco-IOS-XR-aaa-diameter-cfg:diameter-server-groups")
-
-            self.radius_server_groups = Aaa.ServerGroups.RadiusServerGroups()
-            self.radius_server_groups.parent = self
-            self._children_name_map["radius_server_groups"] = "Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-groups"
-            self._children_yang_names.add("Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-groups")
 
             self.tacacs_server_groups = Aaa.ServerGroups.TacacsServerGroups()
             self.tacacs_server_groups.parent = self
             self._children_name_map["tacacs_server_groups"] = "Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups"
-            self._children_yang_names.add("Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups")
+
+            self.radius_server_groups = Aaa.ServerGroups.RadiusServerGroups()
+            self.radius_server_groups.parent = self
+            self._children_name_map["radius_server_groups"] = "Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-groups"
             self._segment_path = lambda: "Cisco-IOS-XR-aaa-locald-cfg:server-groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.ServerGroups, [], name, value)
 
 
         class DiameterServerGroups(Entity):
@@ -2833,7 +1135,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.ServerGroups.DiameterServerGroups, self).__init__()
@@ -2843,8 +1145,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("diameter-server-group", ("diameter_server_group", Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup))])
+                self._child_classes = OrderedDict([("diameter-server-group", ("diameter_server_group", Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup))])
                 self._leafs = OrderedDict()
 
                 self.diameter_server_group = YList(self)
@@ -2876,7 +1177,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup, self).__init__()
@@ -2886,8 +1187,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['server_group_name']
-                    self._child_container_classes = OrderedDict([("servers", ("servers", Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("servers", ("servers", Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers))])
                     self._leafs = OrderedDict([
                         ('server_group_name', YLeaf(YType.str, 'server-group-name')),
                     ])
@@ -2896,7 +1196,6 @@ class Aaa(Entity):
                     self.servers = Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers()
                     self.servers.parent = self
                     self._children_name_map["servers"] = "servers"
-                    self._children_yang_names.add("servers")
                     self._segment_path = lambda: "diameter-server-group" + "[server-group-name='" + str(self.server_group_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-diameter-cfg:diameter-server-groups/%s" % self._segment_path()
 
@@ -2918,7 +1217,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-diameter-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers, self).__init__()
@@ -2928,8 +1227,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("server", ("server", Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server))])
+                        self._child_classes = OrderedDict([("server", ("server", Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server))])
                         self._leafs = OrderedDict()
 
                         self.server = YList(self)
@@ -2948,7 +1246,7 @@ class Aaa(Entity):
                         	This is used to sort the servers in the order of precedence
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: peer_name  (key)
                         
@@ -2962,7 +1260,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-diameter-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server, self).__init__()
@@ -2972,10 +1270,9 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ordering_index','peer_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ordering_index', YLeaf(YType.int32, 'ordering-index')),
+                                ('ordering_index', YLeaf(YType.uint32, 'ordering-index')),
                                 ('peer_name', YLeaf(YType.str, 'peer-name')),
                             ])
                             self.ordering_index = None
@@ -2984,6 +1281,307 @@ class Aaa(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server, ['ordering_index', 'peer_name'], name, value)
+
+
+        class TacacsServerGroups(Entity):
+            """
+            TACACS+ server\-group definition
+            
+            .. attribute:: tacacs_server_group
+            
+            	TACACS+ Server group name
+            	**type**\: list of  		 :py:class:`TacacsServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-cfg'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(Aaa.ServerGroups.TacacsServerGroups, self).__init__()
+
+                self.yang_name = "tacacs-server-groups"
+                self.yang_parent_name = "server-groups"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("tacacs-server-group", ("tacacs_server_group", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup))])
+                self._leafs = OrderedDict()
+
+                self.tacacs_server_group = YList(self)
+                self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups, [], name, value)
+
+
+            class TacacsServerGroup(Entity):
+                """
+                TACACS+ Server group name
+                
+                .. attribute:: server_group_name  (key)
+                
+                	TACACS+ Server group name
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: servers
+                
+                	Specify a TACACS+ server
+                	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
+                
+                .. attribute:: private_servers
+                
+                	List of private TACACS servers present in the group
+                	**type**\:  :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
+                
+                .. attribute:: vrf
+                
+                	Specify VRF name of TACACS group
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-cfg'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup, self).__init__()
+
+                    self.yang_name = "tacacs-server-group"
+                    self.yang_parent_name = "tacacs-server-groups"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['server_group_name']
+                    self._child_classes = OrderedDict([("servers", ("servers", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers)), ("private-servers", ("private_servers", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers))])
+                    self._leafs = OrderedDict([
+                        ('server_group_name', YLeaf(YType.str, 'server-group-name')),
+                        ('vrf', YLeaf(YType.str, 'vrf')),
+                    ])
+                    self.server_group_name = None
+                    self.vrf = None
+
+                    self.servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers()
+                    self.servers.parent = self
+                    self._children_name_map["servers"] = "servers"
+
+                    self.private_servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers()
+                    self.private_servers.parent = self
+                    self._children_name_map["private_servers"] = "private-servers"
+                    self._segment_path = lambda: "tacacs-server-group" + "[server-group-name='" + str(self.server_group_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup, ['server_group_name', 'vrf'], name, value)
+
+
+                class Servers(Entity):
+                    """
+                    Specify a TACACS+ server
+                    
+                    .. attribute:: server
+                    
+                    	A server to include in the server group
+                    	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers, self).__init__()
+
+                        self.yang_name = "servers"
+                        self.yang_parent_name = "tacacs-server-group"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("server", ("server", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server))])
+                        self._leafs = OrderedDict()
+
+                        self.server = YList(self)
+                        self._segment_path = lambda: "servers"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers, [], name, value)
+
+
+                    class Server(Entity):
+                        """
+                        A server to include in the server group
+                        
+                        .. attribute:: ordering_index  (key)
+                        
+                        	This is used to sort the servers in the order of precedence
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_address  (key)
+                        
+                        	IP address of TACACS+ server
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'aaa-tacacs-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server, self).__init__()
+
+                            self.yang_name = "server"
+                            self.yang_parent_name = "servers"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['ordering_index','ip_address']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ordering_index', YLeaf(YType.uint32, 'ordering-index')),
+                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                            ])
+                            self.ordering_index = None
+                            self.ip_address = None
+                            self._segment_path = lambda: "server" + "[ordering-index='" + str(self.ordering_index) + "']" + "[ip-address='" + str(self.ip_address) + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server, ['ordering_index', 'ip_address'], name, value)
+
+
+                class PrivateServers(Entity):
+                    """
+                    List of private TACACS servers present in the
+                    group
+                    
+                    .. attribute:: private_server
+                    
+                    	A private server to include in the server group
+                    	**type**\: list of  		 :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers, self).__init__()
+
+                        self.yang_name = "private-servers"
+                        self.yang_parent_name = "tacacs-server-group"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("private-server", ("private_server", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer))])
+                        self._leafs = OrderedDict()
+
+                        self.private_server = YList(self)
+                        self._segment_path = lambda: "private-servers"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers, [], name, value)
+
+
+                    class PrivateServer(Entity):
+                        """
+                        A private server to include in the server
+                        group
+                        
+                        .. attribute:: ordering_index  (key)
+                        
+                        	This is used to sort the servers in the order of precedence
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ip_address  (key)
+                        
+                        	IP address of TACACS+ server
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: port_number  (key)
+                        
+                        	Port number (standard 49)
+                        	**type**\: int
+                        
+                        	**range:** 1..65535
+                        
+                        .. attribute:: key
+                        
+                        	Set TACACS+ encryption key
+                        	**type**\: str
+                        
+                        	**pattern:** (!.+)\|([^!].+)
+                        
+                        .. attribute:: timeout
+                        
+                        	Time to wait for a TACACS+ server to reply
+                        	**type**\: int
+                        
+                        	**range:** 1..1000
+                        
+                        	**default value**\: 5
+                        
+                        
+
+                        """
+
+                        _prefix = 'aaa-tacacs-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer, self).__init__()
+
+                            self.yang_name = "private-server"
+                            self.yang_parent_name = "private-servers"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['ordering_index','ip_address','port_number']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ordering_index', YLeaf(YType.uint32, 'ordering-index')),
+                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                ('port_number', YLeaf(YType.uint32, 'port-number')),
+                                ('key', YLeaf(YType.str, 'key')),
+                                ('timeout', YLeaf(YType.uint32, 'timeout')),
+                            ])
+                            self.ordering_index = None
+                            self.ip_address = None
+                            self.port_number = None
+                            self.key = None
+                            self.timeout = None
+                            self._segment_path = lambda: "private-server" + "[ordering-index='" + str(self.ordering_index) + "']" + "[ip-address='" + str(self.ip_address) + "']" + "[port-number='" + str(self.port_number) + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer, ['ordering_index', 'ip_address', 'port_number', 'key', 'timeout'], name, value)
 
 
         class RadiusServerGroups(Entity):
@@ -3000,7 +1598,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.ServerGroups.RadiusServerGroups, self).__init__()
@@ -3010,8 +1608,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("radius-server-group", ("radius_server_group", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup))])
+                self._child_classes = OrderedDict([("radius-server-group", ("radius_server_group", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup))])
                 self._leafs = OrderedDict()
 
                 self.radius_server_group = YList(self)
@@ -3089,7 +1686,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup, self).__init__()
@@ -3099,8 +1696,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['server_group_name']
-                    self._child_container_classes = OrderedDict([("accounting", ("accounting", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting)), ("servers", ("servers", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers)), ("private-servers", ("private_servers", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers)), ("server-group-throttle", ("server_group_throttle", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle)), ("load-balance", ("load_balance", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance)), ("authorization", ("authorization", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("accounting", ("accounting", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting)), ("servers", ("servers", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers)), ("private-servers", ("private_servers", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers)), ("server-group-throttle", ("server_group_throttle", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle)), ("load-balance", ("load_balance", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance)), ("authorization", ("authorization", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization))])
                     self._leafs = OrderedDict([
                         ('server_group_name', YLeaf(YType.str, 'server-group-name')),
                         ('dead_time', YLeaf(YType.uint32, 'dead-time')),
@@ -3115,32 +1711,26 @@ class Aaa(Entity):
                     self.accounting = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting()
                     self.accounting.parent = self
                     self._children_name_map["accounting"] = "accounting"
-                    self._children_yang_names.add("accounting")
 
                     self.servers = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers()
                     self.servers.parent = self
                     self._children_name_map["servers"] = "servers"
-                    self._children_yang_names.add("servers")
 
                     self.private_servers = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers()
                     self.private_servers.parent = self
                     self._children_name_map["private_servers"] = "private-servers"
-                    self._children_yang_names.add("private-servers")
 
                     self.server_group_throttle = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle()
                     self.server_group_throttle.parent = self
                     self._children_name_map["server_group_throttle"] = "server-group-throttle"
-                    self._children_yang_names.add("server-group-throttle")
 
                     self.load_balance = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance()
                     self.load_balance.parent = self
                     self._children_name_map["load_balance"] = "load-balance"
-                    self._children_yang_names.add("load-balance")
 
                     self.authorization = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization()
                     self.authorization.parent = self
                     self._children_name_map["authorization"] = "authorization"
-                    self._children_yang_names.add("authorization")
                     self._segment_path = lambda: "radius-server-group" + "[server-group-name='" + str(self.server_group_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-groups/%s" % self._segment_path()
 
@@ -3167,7 +1757,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting, self).__init__()
@@ -3177,20 +1767,20 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("request", ("request", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request)), ("reply", ("reply", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("request", ("request", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request)), ("reply", ("reply", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply))])
                         self._leafs = OrderedDict()
 
                         self.request = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request()
                         self.request.parent = self
                         self._children_name_map["request"] = "request"
-                        self._children_yang_names.add("request")
 
                         self.reply = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply()
                         self.reply.parent = self
                         self._children_name_map["reply"] = "reply"
-                        self._children_yang_names.add("reply")
                         self._segment_path = lambda: "accounting"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting, [], name, value)
 
 
                     class Request(Entity):
@@ -3212,7 +1802,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request, self).__init__()
@@ -3222,8 +1812,7 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('action', YLeaf(YType.enumeration, 'action')),
                                 ('attribute_list_name', YLeaf(YType.str, 'attribute-list-name')),
@@ -3255,7 +1844,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply, self).__init__()
@@ -3265,8 +1854,7 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('action', YLeaf(YType.enumeration, 'action')),
                                 ('attribute_list_name', YLeaf(YType.str, 'attribute-list-name')),
@@ -3293,7 +1881,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers, self).__init__()
@@ -3303,8 +1891,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("server", ("server", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server))])
+                        self._child_classes = OrderedDict([("server", ("server", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server))])
                         self._leafs = OrderedDict()
 
                         self.server = YList(self)
@@ -3323,7 +1910,7 @@ class Aaa(Entity):
                         	This is used to sort the servers in the order of precedence
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: ip_address  (key)
                         
@@ -3357,7 +1944,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server, self).__init__()
@@ -3367,10 +1954,9 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ordering_index','ip_address','auth_port_number','acct_port_number']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ordering_index', YLeaf(YType.int32, 'ordering-index')),
+                                ('ordering_index', YLeaf(YType.uint32, 'ordering-index')),
                                 ('ip_address', YLeaf(YType.str, 'ip-address')),
                                 ('auth_port_number', YLeaf(YType.uint16, 'auth-port-number')),
                                 ('acct_port_number', YLeaf(YType.uint16, 'acct-port-number')),
@@ -3400,7 +1986,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers, self).__init__()
@@ -3410,8 +1996,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("private-server", ("private_server", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers.PrivateServer))])
+                        self._child_classes = OrderedDict([("private-server", ("private_server", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers.PrivateServer))])
                         self._leafs = OrderedDict()
 
                         self.private_server = YList(self)
@@ -3431,7 +2016,7 @@ class Aaa(Entity):
                         	This is used to sort the servers in the order of precedence
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: ip_address  (key)
                         
@@ -3514,7 +2099,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers.PrivateServer, self).__init__()
@@ -3524,10 +2109,9 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ordering_index','ip_address','auth_port_number','acct_port_number']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ordering_index', YLeaf(YType.int32, 'ordering-index')),
+                                ('ordering_index', YLeaf(YType.uint32, 'ordering-index')),
                                 ('ip_address', YLeaf(YType.str, 'ip-address')),
                                 ('auth_port_number', YLeaf(YType.uint16, 'auth-port-number')),
                                 ('acct_port_number', YLeaf(YType.uint16, 'acct-port-number')),
@@ -3592,7 +2176,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle, self).__init__()
@@ -3602,8 +2186,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('access', YLeaf(YType.uint32, 'access')),
                             ('accounting', YLeaf(YType.uint32, 'accounting')),
@@ -3632,7 +2215,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance, self).__init__()
@@ -3642,15 +2225,16 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("method", ("method", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("method", ("method", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method))])
                         self._leafs = OrderedDict()
 
                         self.method = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method()
                         self.method.parent = self
                         self._children_name_map["method"] = "method"
-                        self._children_yang_names.add("method")
                         self._segment_path = lambda: "load-balance"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance, [], name, value)
 
 
                     class Method(Entity):
@@ -3667,7 +2251,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method, self).__init__()
@@ -3677,15 +2261,16 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("name", ("name", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method.Name))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("name", ("name", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method.Name))])
                             self._leafs = OrderedDict()
 
                             self.name = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method.Name()
                             self.name.parent = self
                             self._children_name_map["name"] = "name"
-                            self._children_yang_names.add("name")
                             self._segment_path = lambda: "method"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method, [], name, value)
 
 
                         class Name(Entity):
@@ -3697,7 +2282,7 @@ class Aaa(Entity):
                             	Pick the server with the least transactions outstanding
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             	**default value**\: 4
                             
@@ -3722,7 +2307,7 @@ class Aaa(Entity):
                             """
 
                             _prefix = 'aaa-protocol-radius-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method.Name, self).__init__()
@@ -3732,10 +2317,9 @@ class Aaa(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('least_outstanding', YLeaf(YType.int32, 'least-outstanding')),
+                                    ('least_outstanding', YLeaf(YType.uint32, 'least-outstanding')),
                                     ('batch_size', YLeaf(YType.uint32, 'batch-size')),
                                     ('ignore_preferred_server', YLeaf(YType.boolean, 'ignore-preferred-server')),
                                 ])
@@ -3767,7 +2351,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization, self).__init__()
@@ -3777,20 +2361,20 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("request", ("request", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request)), ("reply", ("reply", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("request", ("request", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request)), ("reply", ("reply", Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply))])
                         self._leafs = OrderedDict()
 
                         self.request = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request()
                         self.request.parent = self
                         self._children_name_map["request"] = "request"
-                        self._children_yang_names.add("request")
 
                         self.reply = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply()
                         self.reply.parent = self
                         self._children_name_map["reply"] = "reply"
-                        self._children_yang_names.add("reply")
                         self._segment_path = lambda: "authorization"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization, [], name, value)
 
 
                     class Request(Entity):
@@ -3812,7 +2396,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request, self).__init__()
@@ -3822,8 +2406,7 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('action', YLeaf(YType.enumeration, 'action')),
                                 ('attribute_list_name', YLeaf(YType.str, 'attribute-list-name')),
@@ -3855,7 +2438,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply, self).__init__()
@@ -3865,8 +2448,7 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('action', YLeaf(YType.enumeration, 'action')),
                                 ('attribute_list_name', YLeaf(YType.str, 'attribute-list-name')),
@@ -3877,315 +2459,6 @@ class Aaa(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply, ['action', 'attribute_list_name'], name, value)
-
-
-        class TacacsServerGroups(Entity):
-            """
-            TACACS+ server\-group definition
-            
-            .. attribute:: tacacs_server_group
-            
-            	TACACS+ Server group name
-            	**type**\: list of  		 :py:class:`TacacsServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.ServerGroups.TacacsServerGroups, self).__init__()
-
-                self.yang_name = "tacacs-server-groups"
-                self.yang_parent_name = "server-groups"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tacacs-server-group", ("tacacs_server_group", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup))])
-                self._leafs = OrderedDict()
-
-                self.tacacs_server_group = YList(self)
-                self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups, [], name, value)
-
-
-            class TacacsServerGroup(Entity):
-                """
-                TACACS+ Server group name
-                
-                .. attribute:: server_group_name  (key)
-                
-                	TACACS+ Server group name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: servers
-                
-                	Specify a TACACS+ server
-                	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
-                
-                .. attribute:: private_servers
-                
-                	List of private TACACS servers present in the group
-                	**type**\:  :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
-                
-                .. attribute:: vrf
-                
-                	Specify VRF name of TACACS group
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup, self).__init__()
-
-                    self.yang_name = "tacacs-server-group"
-                    self.yang_parent_name = "tacacs-server-groups"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['server_group_name']
-                    self._child_container_classes = OrderedDict([("servers", ("servers", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers)), ("private-servers", ("private_servers", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers))])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('server_group_name', YLeaf(YType.str, 'server-group-name')),
-                        ('vrf', YLeaf(YType.str, 'vrf')),
-                    ])
-                    self.server_group_name = None
-                    self.vrf = None
-
-                    self.servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers()
-                    self.servers.parent = self
-                    self._children_name_map["servers"] = "servers"
-                    self._children_yang_names.add("servers")
-
-                    self.private_servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers()
-                    self.private_servers.parent = self
-                    self._children_name_map["private_servers"] = "private-servers"
-                    self._children_yang_names.add("private-servers")
-                    self._segment_path = lambda: "tacacs-server-group" + "[server-group-name='" + str(self.server_group_name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup, ['server_group_name', 'vrf'], name, value)
-
-
-                class Servers(Entity):
-                    """
-                    Specify a TACACS+ server
-                    
-                    .. attribute:: server
-                    
-                    	A server to include in the server group
-                    	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers, self).__init__()
-
-                        self.yang_name = "servers"
-                        self.yang_parent_name = "tacacs-server-group"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("server", ("server", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server))])
-                        self._leafs = OrderedDict()
-
-                        self.server = YList(self)
-                        self._segment_path = lambda: "servers"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers, [], name, value)
-
-
-                    class Server(Entity):
-                        """
-                        A server to include in the server group
-                        
-                        .. attribute:: ordering_index  (key)
-                        
-                        	This is used to sort the servers in the order of precedence
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: ip_address  (key)
-                        
-                        	IP address of TACACS+ server
-                        	**type**\: union of the below types:
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'aaa-tacacs-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server, self).__init__()
-
-                            self.yang_name = "server"
-                            self.yang_parent_name = "servers"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = ['ordering_index','ip_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('ordering_index', YLeaf(YType.int32, 'ordering-index')),
-                                ('ip_address', YLeaf(YType.str, 'ip-address')),
-                            ])
-                            self.ordering_index = None
-                            self.ip_address = None
-                            self._segment_path = lambda: "server" + "[ordering-index='" + str(self.ordering_index) + "']" + "[ip-address='" + str(self.ip_address) + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server, ['ordering_index', 'ip_address'], name, value)
-
-
-                class PrivateServers(Entity):
-                    """
-                    List of private TACACS servers present in the
-                    group
-                    
-                    .. attribute:: private_server
-                    
-                    	A private server to include in the server group
-                    	**type**\: list of  		 :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers, self).__init__()
-
-                        self.yang_name = "private-servers"
-                        self.yang_parent_name = "tacacs-server-group"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("private-server", ("private_server", Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer))])
-                        self._leafs = OrderedDict()
-
-                        self.private_server = YList(self)
-                        self._segment_path = lambda: "private-servers"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers, [], name, value)
-
-
-                    class PrivateServer(Entity):
-                        """
-                        A private server to include in the server
-                        group
-                        
-                        .. attribute:: ordering_index  (key)
-                        
-                        	This is used to sort the servers in the order of precedence
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: ip_address  (key)
-                        
-                        	IP address of TACACS+ server
-                        	**type**\: union of the below types:
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: port_number  (key)
-                        
-                        	Port number (standard 49)
-                        	**type**\: int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: key
-                        
-                        	Set TACACS+ encryption key
-                        	**type**\: str
-                        
-                        	**pattern:** (!.+)\|([^!].+)
-                        
-                        .. attribute:: timeout
-                        
-                        	Time to wait for a TACACS+ server to reply
-                        	**type**\: int
-                        
-                        	**range:** 1..1000
-                        
-                        	**default value**\: 5
-                        
-                        
-
-                        """
-
-                        _prefix = 'aaa-tacacs-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer, self).__init__()
-
-                            self.yang_name = "private-server"
-                            self.yang_parent_name = "private-servers"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = ['ordering_index','ip_address','port_number']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('ordering_index', YLeaf(YType.int32, 'ordering-index')),
-                                ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                ('port_number', YLeaf(YType.uint32, 'port-number')),
-                                ('key', YLeaf(YType.str, 'key')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                            ])
-                            self.ordering_index = None
-                            self.ip_address = None
-                            self.port_number = None
-                            self.key = None
-                            self.timeout = None
-                            self._segment_path = lambda: "private-server" + "[ordering-index='" + str(self.ordering_index) + "']" + "[ip-address='" + str(self.ip_address) + "']" + "[port-number='" + str(self.port_number) + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer, ['ordering_index', 'ip_address', 'port_number', 'key', 'timeout'], name, value)
 
 
     class Usernames(Entity):
@@ -4202,7 +2475,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-locald-cfg'
-        _revision = '2017-03-11'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Aaa.Usernames, self).__init__()
@@ -4212,8 +2485,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("username", ("username", Aaa.Usernames.Username))])
+            self._child_classes = OrderedDict([("username", ("username", Aaa.Usernames.Username))])
             self._leafs = OrderedDict()
 
             self.username = YList(self)
@@ -4233,7 +2505,7 @@ class Aaa(Entity):
             	This is used to sort the users in the order of precedence
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: name  (key)
             
@@ -4269,7 +2541,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-locald-cfg'
-            _revision = '2017-03-11'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Usernames.Username, self).__init__()
@@ -4279,10 +2551,9 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ordering_index','name']
-                self._child_container_classes = OrderedDict([("password-policy", ("password_policy", Aaa.Usernames.Username.PasswordPolicy)), ("usergroup-under-usernames", ("usergroup_under_usernames", Aaa.Usernames.Username.UsergroupUnderUsernames))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("password-policy", ("password_policy", Aaa.Usernames.Username.PasswordPolicy)), ("usergroup-under-usernames", ("usergroup_under_usernames", Aaa.Usernames.Username.UsergroupUnderUsernames))])
                 self._leafs = OrderedDict([
-                    ('ordering_index', YLeaf(YType.int32, 'ordering-index')),
+                    ('ordering_index', YLeaf(YType.uint32, 'ordering-index')),
                     ('name', YLeaf(YType.str, 'name')),
                     ('secret', YLeaf(YType.str, 'secret')),
                     ('password', YLeaf(YType.str, 'password')),
@@ -4295,17 +2566,15 @@ class Aaa(Entity):
                 self.password_policy = Aaa.Usernames.Username.PasswordPolicy()
                 self.password_policy.parent = self
                 self._children_name_map["password_policy"] = "password-policy"
-                self._children_yang_names.add("password-policy")
 
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
                 self.usergroup_under_usernames.parent = self
                 self._children_name_map["usergroup_under_usernames"] = "usergroup-under-usernames"
-                self._children_yang_names.add("usergroup-under-usernames")
                 self._segment_path = lambda: "username" + "[ordering-index='" + str(self.ordering_index) + "']" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:usernames/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Usernames.Username, ['ordering_index', 'name', 'secret', 'password'], name, value)
+                self._perform_setattr(Aaa.Usernames.Username, [u'ordering_index', u'name', u'secret', u'password'], name, value)
 
 
             class PasswordPolicy(Entity):
@@ -4331,7 +2600,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-locald-cfg'
-                _revision = '2017-03-11'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Usernames.Username.PasswordPolicy, self).__init__()
@@ -4341,8 +2610,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('password', YLeaf(YType.str, 'password')),
@@ -4352,7 +2620,7 @@ class Aaa(Entity):
                     self._segment_path = lambda: "password-policy"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Usernames.Username.PasswordPolicy, ['name', 'password'], name, value)
+                    self._perform_setattr(Aaa.Usernames.Username.PasswordPolicy, [u'name', u'password'], name, value)
 
 
             class UsergroupUnderUsernames(Entity):
@@ -4370,7 +2638,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-locald-cfg'
-                _revision = '2017-03-11'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Usernames.Username.UsergroupUnderUsernames, self).__init__()
@@ -4380,8 +2648,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("usergroup-under-username", ("usergroup_under_username", Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername))])
+                    self._child_classes = OrderedDict([("usergroup-under-username", ("usergroup_under_username", Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername))])
                     self._leafs = OrderedDict()
 
                     self.usergroup_under_username = YList(self)
@@ -4407,7 +2674,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-locald-cfg'
-                    _revision = '2017-03-11'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, self).__init__()
@@ -4417,8 +2684,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -4426,7 +2692,7 @@ class Aaa(Entity):
                         self._segment_path = lambda: "usergroup-under-username" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, ['name'], name, value)
+                        self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, [u'name'], name, value)
 
 
     class Taskgroups(Entity):
@@ -4443,7 +2709,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-locald-cfg'
-        _revision = '2017-03-11'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Aaa.Taskgroups, self).__init__()
@@ -4453,8 +2719,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("taskgroup", ("taskgroup", Aaa.Taskgroups.Taskgroup))])
+            self._child_classes = OrderedDict([("taskgroup", ("taskgroup", Aaa.Taskgroups.Taskgroup))])
             self._leafs = OrderedDict()
 
             self.taskgroup = YList(self)
@@ -4494,7 +2759,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-locald-cfg'
-            _revision = '2017-03-11'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Taskgroups.Taskgroup, self).__init__()
@@ -4504,8 +2769,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("taskgroup-under-taskgroups", ("taskgroup_under_taskgroups", Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups)), ("tasks", ("tasks", Aaa.Taskgroups.Taskgroup.Tasks))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("taskgroup-under-taskgroups", ("taskgroup_under_taskgroups", Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups)), ("tasks", ("tasks", Aaa.Taskgroups.Taskgroup.Tasks))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('description', YLeaf(YType.str, 'description')),
@@ -4516,17 +2780,15 @@ class Aaa(Entity):
                 self.taskgroup_under_taskgroups = Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups()
                 self.taskgroup_under_taskgroups.parent = self
                 self._children_name_map["taskgroup_under_taskgroups"] = "taskgroup-under-taskgroups"
-                self._children_yang_names.add("taskgroup-under-taskgroups")
 
                 self.tasks = Aaa.Taskgroups.Taskgroup.Tasks()
                 self.tasks.parent = self
                 self._children_name_map["tasks"] = "tasks"
-                self._children_yang_names.add("tasks")
                 self._segment_path = lambda: "taskgroup" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:taskgroups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Taskgroups.Taskgroup, ['name', 'description'], name, value)
+                self._perform_setattr(Aaa.Taskgroups.Taskgroup, [u'name', u'description'], name, value)
 
 
             class TaskgroupUnderTaskgroups(Entity):
@@ -4543,7 +2805,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-locald-cfg'
-                _revision = '2017-03-11'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups, self).__init__()
@@ -4553,8 +2815,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("taskgroup-under-taskgroup", ("taskgroup_under_taskgroup", Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup))])
+                    self._child_classes = OrderedDict([("taskgroup-under-taskgroup", ("taskgroup_under_taskgroup", Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup))])
                     self._leafs = OrderedDict()
 
                     self.taskgroup_under_taskgroup = YList(self)
@@ -4580,7 +2841,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-locald-cfg'
-                    _revision = '2017-03-11'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup, self).__init__()
@@ -4590,8 +2851,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -4599,7 +2859,7 @@ class Aaa(Entity):
                         self._segment_path = lambda: "taskgroup-under-taskgroup" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup, ['name'], name, value)
+                        self._perform_setattr(Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup, [u'name'], name, value)
 
 
             class Tasks(Entity):
@@ -4616,7 +2876,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-locald-cfg'
-                _revision = '2017-03-11'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Taskgroups.Taskgroup.Tasks, self).__init__()
@@ -4626,8 +2886,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("task", ("task", Aaa.Taskgroups.Taskgroup.Tasks.Task))])
+                    self._child_classes = OrderedDict([("task", ("task", Aaa.Taskgroups.Taskgroup.Tasks.Task))])
                     self._leafs = OrderedDict()
 
                     self.task = YList(self)
@@ -4656,7 +2915,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-locald-cfg'
-                    _revision = '2017-03-11'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Taskgroups.Taskgroup.Tasks.Task, self).__init__()
@@ -4666,8 +2925,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['type','task_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('type', YLeaf(YType.enumeration, 'type')),
                             ('task_id', YLeaf(YType.str, 'task-id')),
@@ -4677,7 +2935,7 @@ class Aaa(Entity):
                         self._segment_path = lambda: "task" + "[type='" + str(self.type) + "']" + "[task-id='" + str(self.task_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Taskgroups.Taskgroup.Tasks.Task, ['type', 'task_id'], name, value)
+                        self._perform_setattr(Aaa.Taskgroups.Taskgroup.Tasks.Task, [u'type', u'task_id'], name, value)
 
 
     class Usergroups(Entity):
@@ -4694,7 +2952,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-locald-cfg'
-        _revision = '2017-03-11'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Aaa.Usergroups, self).__init__()
@@ -4704,8 +2962,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("usergroup", ("usergroup", Aaa.Usergroups.Usergroup))])
+            self._child_classes = OrderedDict([("usergroup", ("usergroup", Aaa.Usergroups.Usergroup))])
             self._leafs = OrderedDict()
 
             self.usergroup = YList(self)
@@ -4745,7 +3002,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-locald-cfg'
-            _revision = '2017-03-11'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Usergroups.Usergroup, self).__init__()
@@ -4755,8 +3012,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("taskgroup-under-usergroups", ("taskgroup_under_usergroups", Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups)), ("usergroup-under-usergroups", ("usergroup_under_usergroups", Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("taskgroup-under-usergroups", ("taskgroup_under_usergroups", Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups)), ("usergroup-under-usergroups", ("usergroup_under_usergroups", Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('description', YLeaf(YType.str, 'description')),
@@ -4767,17 +3023,15 @@ class Aaa(Entity):
                 self.taskgroup_under_usergroups = Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups()
                 self.taskgroup_under_usergroups.parent = self
                 self._children_name_map["taskgroup_under_usergroups"] = "taskgroup-under-usergroups"
-                self._children_yang_names.add("taskgroup-under-usergroups")
 
                 self.usergroup_under_usergroups = Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups()
                 self.usergroup_under_usergroups.parent = self
                 self._children_name_map["usergroup_under_usergroups"] = "usergroup-under-usergroups"
-                self._children_yang_names.add("usergroup-under-usergroups")
                 self._segment_path = lambda: "usergroup" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:usergroups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Usergroups.Usergroup, ['name', 'description'], name, value)
+                self._perform_setattr(Aaa.Usergroups.Usergroup, [u'name', u'description'], name, value)
 
 
             class TaskgroupUnderUsergroups(Entity):
@@ -4794,7 +3048,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-locald-cfg'
-                _revision = '2017-03-11'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups, self).__init__()
@@ -4804,8 +3058,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("taskgroup-under-usergroup", ("taskgroup_under_usergroup", Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup))])
+                    self._child_classes = OrderedDict([("taskgroup-under-usergroup", ("taskgroup_under_usergroup", Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup))])
                     self._leafs = OrderedDict()
 
                     self.taskgroup_under_usergroup = YList(self)
@@ -4831,7 +3084,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-locald-cfg'
-                    _revision = '2017-03-11'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup, self).__init__()
@@ -4841,8 +3094,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -4850,7 +3102,7 @@ class Aaa(Entity):
                         self._segment_path = lambda: "taskgroup-under-usergroup" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup, ['name'], name, value)
+                        self._perform_setattr(Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup, [u'name'], name, value)
 
 
             class UsergroupUnderUsergroups(Entity):
@@ -4867,7 +3119,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-locald-cfg'
-                _revision = '2017-03-11'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups, self).__init__()
@@ -4877,8 +3129,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("usergroup-under-usergroup", ("usergroup_under_usergroup", Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup))])
+                    self._child_classes = OrderedDict([("usergroup-under-usergroup", ("usergroup_under_usergroup", Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup))])
                     self._leafs = OrderedDict()
 
                     self.usergroup_under_usergroup = YList(self)
@@ -4904,7 +3155,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-locald-cfg'
-                    _revision = '2017-03-11'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup, self).__init__()
@@ -4914,8 +3165,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -4923,7 +3173,7 @@ class Aaa(Entity):
                         self._segment_path = lambda: "usergroup-under-usergroup" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup, ['name'], name, value)
+                        self._perform_setattr(Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup, [u'name'], name, value)
 
 
     class Diameter(Entity):
@@ -4987,7 +3237,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-diameter-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Aaa.Diameter, self).__init__()
@@ -4997,8 +3247,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("gy", ("gy", Aaa.Diameter.Gy)), ("origin", ("origin", Aaa.Diameter.Origin)), ("nas", ("nas", Aaa.Diameter.Nas)), ("diameter-tls", ("diameter_tls", Aaa.Diameter.DiameterTls)), ("peers", ("peers", Aaa.Diameter.Peers)), ("diams", ("diams", Aaa.Diameter.Diams)), ("gx", ("gx", Aaa.Diameter.Gx)), ("diameter-timer", ("diameter_timer", Aaa.Diameter.DiameterTimer)), ("vendor", ("vendor", Aaa.Diameter.Vendor))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("gy", ("gy", Aaa.Diameter.Gy)), ("origin", ("origin", Aaa.Diameter.Origin)), ("nas", ("nas", Aaa.Diameter.Nas)), ("diameter-tls", ("diameter_tls", Aaa.Diameter.DiameterTls)), ("peers", ("peers", Aaa.Diameter.Peers)), ("diams", ("diams", Aaa.Diameter.Diams)), ("gx", ("gx", Aaa.Diameter.Gx)), ("diameter-timer", ("diameter_timer", Aaa.Diameter.DiameterTimer)), ("vendor", ("vendor", Aaa.Diameter.Vendor))])
             self._leafs = OrderedDict([
                 ('source_interface', YLeaf(YType.str, 'source-interface')),
             ])
@@ -5007,47 +3256,38 @@ class Aaa(Entity):
             self.gy = Aaa.Diameter.Gy()
             self.gy.parent = self
             self._children_name_map["gy"] = "gy"
-            self._children_yang_names.add("gy")
 
             self.origin = Aaa.Diameter.Origin()
             self.origin.parent = self
             self._children_name_map["origin"] = "origin"
-            self._children_yang_names.add("origin")
 
             self.nas = Aaa.Diameter.Nas()
             self.nas.parent = self
             self._children_name_map["nas"] = "nas"
-            self._children_yang_names.add("nas")
 
             self.diameter_tls = Aaa.Diameter.DiameterTls()
             self.diameter_tls.parent = self
             self._children_name_map["diameter_tls"] = "diameter-tls"
-            self._children_yang_names.add("diameter-tls")
 
             self.peers = Aaa.Diameter.Peers()
             self.peers.parent = self
             self._children_name_map["peers"] = "peers"
-            self._children_yang_names.add("peers")
 
             self.diams = Aaa.Diameter.Diams()
             self.diams.parent = self
             self._children_name_map["diams"] = "diams"
-            self._children_yang_names.add("diams")
 
             self.gx = Aaa.Diameter.Gx()
             self.gx.parent = self
             self._children_name_map["gx"] = "gx"
-            self._children_yang_names.add("gx")
 
             self.diameter_timer = Aaa.Diameter.DiameterTimer()
             self.diameter_timer.parent = self
             self._children_name_map["diameter_timer"] = "diameter-timer"
-            self._children_yang_names.add("diameter-timer")
 
             self.vendor = Aaa.Diameter.Vendor()
             self.vendor.parent = self
             self._children_name_map["vendor"] = "vendor"
-            self._children_yang_names.add("vendor")
             self._segment_path = lambda: "Cisco-IOS-XR-aaa-diameter-cfg:diameter"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
 
@@ -5083,7 +3323,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Gy, self).__init__()
@@ -5093,8 +3333,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('retransmit', YLeaf(YType.uint32, 'retransmit')),
                     ('dest_host', YLeaf(YType.str, 'dest-host')),
@@ -5129,7 +3368,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Origin, self).__init__()
@@ -5139,8 +3378,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('realm', YLeaf(YType.str, 'realm')),
                     ('host', YLeaf(YType.str, 'host')),
@@ -5168,7 +3406,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Nas, self).__init__()
@@ -5178,8 +3416,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dest_host', YLeaf(YType.str, 'dest-host')),
                 ])
@@ -5205,7 +3442,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.DiameterTls, self).__init__()
@@ -5215,8 +3452,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('trustpoint', YLeaf(YType.str, 'trustpoint')),
                 ])
@@ -5242,7 +3478,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Peers, self).__init__()
@@ -5252,8 +3488,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("peer", ("peer", Aaa.Diameter.Peers.Peer))])
+                self._child_classes = OrderedDict([("peer", ("peer", Aaa.Diameter.Peers.Peer))])
                 self._leafs = OrderedDict()
 
                 self.peer = YList(self)
@@ -5340,7 +3575,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Diameter.Peers.Peer, self).__init__()
@@ -5350,8 +3585,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['peer_name']
-                    self._child_container_classes = OrderedDict([("peer-timer", ("peer_timer", Aaa.Diameter.Peers.Peer.PeerTimer)), ("peer-type", ("peer_type", Aaa.Diameter.Peers.Peer.PeerType))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("peer-timer", ("peer_timer", Aaa.Diameter.Peers.Peer.PeerTimer)), ("peer-type", ("peer_type", Aaa.Diameter.Peers.Peer.PeerType))])
                     self._leafs = OrderedDict([
                         ('peer_name', YLeaf(YType.str, 'peer-name')),
                         ('host_destination', YLeaf(YType.str, 'host-destination')),
@@ -5376,12 +3610,10 @@ class Aaa(Entity):
                     self.peer_timer = Aaa.Diameter.Peers.Peer.PeerTimer()
                     self.peer_timer.parent = self
                     self._children_name_map["peer_timer"] = "peer-timer"
-                    self._children_yang_names.add("peer-timer")
 
                     self.peer_type = Aaa.Diameter.Peers.Peer.PeerType()
                     self.peer_type.parent = self
                     self._children_name_map["peer_type"] = "peer-type"
-                    self._children_yang_names.add("peer-type")
                     self._segment_path = lambda: "peer" + "[peer-name='" + str(self.peer_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-diameter-cfg:diameter/peers/%s" % self._segment_path()
 
@@ -5419,7 +3651,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-diameter-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Diameter.Peers.Peer.PeerTimer, self).__init__()
@@ -5429,8 +3661,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('transaction', YLeaf(YType.uint32, 'transaction')),
                             ('connection', YLeaf(YType.uint32, 'connection')),
@@ -5459,7 +3690,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-diameter-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Diameter.Peers.Peer.PeerType, self).__init__()
@@ -5469,8 +3700,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('server', YLeaf(YType.boolean, 'server')),
                         ])
@@ -5495,7 +3725,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Diams, self).__init__()
@@ -5505,8 +3735,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("diam", ("diam", Aaa.Diameter.Diams.Diam))])
+                self._child_classes = OrderedDict([("diam", ("diam", Aaa.Diameter.Diams.Diam))])
                 self._leafs = OrderedDict()
 
                 self.diam = YList(self)
@@ -5538,7 +3767,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Diameter.Diams.Diam, self).__init__()
@@ -5548,8 +3777,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['list_id']
-                    self._child_container_classes = OrderedDict([("diam-attr-defs", ("diam_attr_defs", Aaa.Diameter.Diams.Diam.DiamAttrDefs))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("diam-attr-defs", ("diam_attr_defs", Aaa.Diameter.Diams.Diam.DiamAttrDefs))])
                     self._leafs = OrderedDict([
                         ('list_id', YLeaf(YType.uint32, 'list-id')),
                     ])
@@ -5558,7 +3786,6 @@ class Aaa(Entity):
                     self.diam_attr_defs = Aaa.Diameter.Diams.Diam.DiamAttrDefs()
                     self.diam_attr_defs.parent = self
                     self._children_name_map["diam_attr_defs"] = "diam-attr-defs"
-                    self._children_yang_names.add("diam-attr-defs")
                     self._segment_path = lambda: "diam" + "[list-id='" + str(self.list_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-diameter-cfg:diameter/diams/%s" % self._segment_path()
 
@@ -5580,7 +3807,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-diameter-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Diameter.Diams.Diam.DiamAttrDefs, self).__init__()
@@ -5590,8 +3817,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("diam-attr-def", ("diam_attr_def", Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef))])
+                        self._child_classes = OrderedDict([("diam-attr-def", ("diam_attr_def", Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef))])
                         self._leafs = OrderedDict()
 
                         self.diam_attr_def = YList(self)
@@ -5629,7 +3855,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-diameter-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef, self).__init__()
@@ -5639,8 +3865,7 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['vendor_id','attribute_id']
-                            self._child_container_classes = OrderedDict([("diam-attr-value", ("diam_attr_value", Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("diam-attr-value", ("diam_attr_value", Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue))])
                             self._leafs = OrderedDict([
                                 ('vendor_id', YLeaf(YType.uint32, 'vendor-id')),
                                 ('attribute_id', YLeaf(YType.uint32, 'attribute-id')),
@@ -5651,7 +3876,6 @@ class Aaa(Entity):
                             self.diam_attr_value = Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue()
                             self.diam_attr_value.parent = self
                             self._children_name_map["diam_attr_value"] = "diam-attr-value"
-                            self._children_yang_names.add("diam-attr-value")
                             self._segment_path = lambda: "diam-attr-def" + "[vendor-id='" + str(self.vendor_id) + "']" + "[attribute-id='" + str(self.attribute_id) + "']"
 
                         def __setattr__(self, name, value):
@@ -5731,7 +3955,7 @@ class Aaa(Entity):
                             """
 
                             _prefix = 'aaa-diameter-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue, self).__init__()
@@ -5741,8 +3965,7 @@ class Aaa(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('type_string', YLeaf(YType.str, 'type-string')),
                                     ('type_ipv4_address', YLeaf(YType.str, 'type-ipv4-address')),
@@ -5799,7 +4022,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Gx, self).__init__()
@@ -5809,8 +4032,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('retransmit', YLeaf(YType.uint32, 'retransmit')),
                     ('dest_host', YLeaf(YType.str, 'dest-host')),
@@ -5856,7 +4078,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.DiameterTimer, self).__init__()
@@ -5866,8 +4088,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('transaction', YLeaf(YType.uint32, 'transaction')),
                     ('connection', YLeaf(YType.uint32, 'connection')),
@@ -5897,7 +4118,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Vendor, self).__init__()
@@ -5907,16 +4128,17 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("supported", ("supported", Aaa.Diameter.Vendor.Supported))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("supported", ("supported", Aaa.Diameter.Vendor.Supported))])
                 self._leafs = OrderedDict()
 
                 self.supported = Aaa.Diameter.Vendor.Supported()
                 self.supported.parent = self
                 self._children_name_map["supported"] = "supported"
-                self._children_yang_names.add("supported")
                 self._segment_path = lambda: "vendor"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-diameter-cfg:diameter/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Diameter.Vendor, [], name, value)
 
 
             class Supported(Entity):
@@ -5948,7 +4170,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Diameter.Vendor.Supported, self).__init__()
@@ -5958,8 +4180,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('cisco', YLeaf(YType.boolean, 'cisco')),
                         ('threegpp', YLeaf(YType.boolean, 'threegpp')),
@@ -5975,6 +4196,392 @@ class Aaa(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Diameter.Vendor.Supported, ['cisco', 'threegpp', 'etsi', 'vodafone'], name, value)
+
+
+    class Tacacs(Entity):
+        """
+        Modify TACACS+ query parameters
+        
+        .. attribute:: ipv6
+        
+        	IPv6 configuration
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
+        
+        .. attribute:: hosts
+        
+        	Specify a TACACS+ server
+        	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts>`
+        
+        .. attribute:: ipv4
+        
+        	IPv4 configuration
+        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
+        
+        .. attribute:: vrfs
+        
+        	List of VRFs
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
+        
+        .. attribute:: key
+        
+        	Set TACACS+ encryption key
+        	**type**\: str
+        
+        	**pattern:** (!.+)\|([^!].+)
+        
+        .. attribute:: timeout
+        
+        	Time to wait for a TACACS+ server to reply
+        	**type**\: int
+        
+        	**range:** 1..1000
+        
+        	**default value**\: 5
+        
+        .. attribute:: single_connect
+        
+        	Use a single connection for all sessions for a given TACACS+ server
+        	**type**\: bool
+        
+        	**default value**\: false
+        
+        
+
+        """
+
+        _prefix = 'aaa-tacacs-cfg'
+        _revision = '2017-09-07'
+
+        def __init__(self):
+            super(Aaa.Tacacs, self).__init__()
+
+            self.yang_name = "tacacs"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("ipv6", ("ipv6", Aaa.Tacacs.Ipv6)), ("hosts", ("hosts", Aaa.Tacacs.Hosts)), ("ipv4", ("ipv4", Aaa.Tacacs.Ipv4)), ("vrfs", ("vrfs", Aaa.Tacacs.Vrfs))])
+            self._leafs = OrderedDict([
+                ('key', YLeaf(YType.str, 'key')),
+                ('timeout', YLeaf(YType.uint32, 'timeout')),
+                ('single_connect', YLeaf(YType.boolean, 'single-connect')),
+            ])
+            self.key = None
+            self.timeout = None
+            self.single_connect = None
+
+            self.ipv6 = Aaa.Tacacs.Ipv6()
+            self.ipv6.parent = self
+            self._children_name_map["ipv6"] = "ipv6"
+
+            self.hosts = Aaa.Tacacs.Hosts()
+            self.hosts.parent = self
+            self._children_name_map["hosts"] = "hosts"
+
+            self.ipv4 = Aaa.Tacacs.Ipv4()
+            self.ipv4.parent = self
+            self._children_name_map["ipv4"] = "ipv4"
+
+            self.vrfs = Aaa.Tacacs.Vrfs()
+            self.vrfs.parent = self
+            self._children_name_map["vrfs"] = "vrfs"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-cfg:tacacs"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Tacacs, ['key', 'timeout', 'single_connect'], name, value)
+
+
+        class Ipv6(Entity):
+            """
+            IPv6 configuration
+            
+            .. attribute:: dscp
+            
+            	Specify the DSCP value
+            	**type**\: union of the below types:
+            
+            		**type**\:  :py:class:`TacacsDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue>`
+            
+            		**type**\: int
+            
+            			**range:** 0..63
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-cfg'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(Aaa.Tacacs.Ipv6, self).__init__()
+
+                self.yang_name = "ipv6"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dscp', YLeaf(YType.str, 'dscp')),
+                ])
+                self.dscp = None
+                self._segment_path = lambda: "ipv6"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Ipv6, ['dscp'], name, value)
+
+
+        class Hosts(Entity):
+            """
+            Specify a TACACS+ server
+            
+            .. attribute:: host
+            
+            	One of the TACACS+ servers
+            	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts.Host>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-cfg'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(Aaa.Tacacs.Hosts, self).__init__()
+
+                self.yang_name = "hosts"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("host", ("host", Aaa.Tacacs.Hosts.Host))])
+                self._leafs = OrderedDict()
+
+                self.host = YList(self)
+                self._segment_path = lambda: "hosts"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Hosts, [], name, value)
+
+
+            class Host(Entity):
+                """
+                One of the TACACS+ servers
+                
+                .. attribute:: ordering_index  (key)
+                
+                	This is used to sort the servers in the order of precedence
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ip_address  (key)
+                
+                	IP address of TACACS+ server
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: port_number  (key)
+                
+                	Port number (standard 49)
+                	**type**\: int
+                
+                	**range:** 1..65535
+                
+                .. attribute:: key
+                
+                	Set TACACS+ encryption key
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
+                
+                .. attribute:: timeout
+                
+                	Time to wait for a TACACS+ server to reply
+                	**type**\: int
+                
+                	**range:** 1..1000
+                
+                	**default value**\: 5
+                
+                .. attribute:: single_connect
+                
+                	Use a single connection for all sessions for a given TACACS+ server
+                	**type**\: bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-cfg'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(Aaa.Tacacs.Hosts.Host, self).__init__()
+
+                    self.yang_name = "host"
+                    self.yang_parent_name = "hosts"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['ordering_index','ip_address','port_number']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ordering_index', YLeaf(YType.uint32, 'ordering-index')),
+                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                        ('port_number', YLeaf(YType.uint32, 'port-number')),
+                        ('key', YLeaf(YType.str, 'key')),
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                        ('single_connect', YLeaf(YType.boolean, 'single-connect')),
+                    ])
+                    self.ordering_index = None
+                    self.ip_address = None
+                    self.port_number = None
+                    self.key = None
+                    self.timeout = None
+                    self.single_connect = None
+                    self._segment_path = lambda: "host" + "[ordering-index='" + str(self.ordering_index) + "']" + "[ip-address='" + str(self.ip_address) + "']" + "[port-number='" + str(self.port_number) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/hosts/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.Hosts.Host, ['ordering_index', 'ip_address', 'port_number', 'key', 'timeout', 'single_connect'], name, value)
+
+
+        class Ipv4(Entity):
+            """
+            IPv4 configuration
+            
+            .. attribute:: dscp
+            
+            	Specify the DSCP value
+            	**type**\: union of the below types:
+            
+            		**type**\:  :py:class:`TacacsDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue>`
+            
+            		**type**\: int
+            
+            			**range:** 0..63
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-cfg'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(Aaa.Tacacs.Ipv4, self).__init__()
+
+                self.yang_name = "ipv4"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dscp', YLeaf(YType.str, 'dscp')),
+                ])
+                self.dscp = None
+                self._segment_path = lambda: "ipv4"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Ipv4, ['dscp'], name, value)
+
+
+        class Vrfs(Entity):
+            """
+            List of VRFs
+            
+            .. attribute:: vrf
+            
+            	A VRF
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs.Vrf>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-cfg'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(Aaa.Tacacs.Vrfs, self).__init__()
+
+                self.yang_name = "vrfs"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("vrf", ("vrf", Aaa.Tacacs.Vrfs.Vrf))])
+                self._leafs = OrderedDict()
+
+                self.vrf = YList(self)
+                self._segment_path = lambda: "vrfs"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Vrfs, [], name, value)
+
+
+            class Vrf(Entity):
+                """
+                A VRF
+                
+                .. attribute:: vrf_name  (key)
+                
+                	VRF name. Specify 'default' for default VRF
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: source_interface
+                
+                	Specify interface for source address in TACACS+ packets
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-cfg'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(Aaa.Tacacs.Vrfs.Vrf, self).__init__()
+
+                    self.yang_name = "vrf"
+                    self.yang_parent_name = "vrfs"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['vrf_name']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('source_interface', YLeaf(YType.str, 'source-interface')),
+                    ])
+                    self.vrf_name = None
+                    self.source_interface = None
+                    self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/vrfs/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.Vrfs.Vrf, ['vrf_name', 'source_interface'], name, value)
 
 
     class Radius(Entity):
@@ -6109,7 +4716,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-protocol-radius-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Aaa.Radius, self).__init__()
@@ -6119,8 +4726,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("hosts", ("hosts", Aaa.Radius.Hosts)), ("dead-criteria", ("dead_criteria", Aaa.Radius.DeadCriteria)), ("disallow", ("disallow", Aaa.Radius.Disallow)), ("ipv6", ("ipv6", Aaa.Radius.Ipv6)), ("dynamic-authorization", ("dynamic_authorization", Aaa.Radius.DynamicAuthorization)), ("load-balance-options", ("load_balance_options", Aaa.Radius.LoadBalanceOptions)), ("vrfs", ("vrfs", Aaa.Radius.Vrfs)), ("throttle", ("throttle", Aaa.Radius.Throttle)), ("vsa", ("vsa", Aaa.Radius.Vsa)), ("ipv4", ("ipv4", Aaa.Radius.Ipv4)), ("radius-attribute", ("radius_attribute", Aaa.Radius.RadiusAttribute)), ("attributes", ("attributes", Aaa.Radius.Attributes)), ("source-port", ("source_port", Aaa.Radius.SourcePort))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("hosts", ("hosts", Aaa.Radius.Hosts)), ("dead-criteria", ("dead_criteria", Aaa.Radius.DeadCriteria)), ("disallow", ("disallow", Aaa.Radius.Disallow)), ("ipv6", ("ipv6", Aaa.Radius.Ipv6)), ("dynamic-authorization", ("dynamic_authorization", Aaa.Radius.DynamicAuthorization)), ("load-balance-options", ("load_balance_options", Aaa.Radius.LoadBalanceOptions)), ("vrfs", ("vrfs", Aaa.Radius.Vrfs)), ("throttle", ("throttle", Aaa.Radius.Throttle)), ("vsa", ("vsa", Aaa.Radius.Vsa)), ("ipv4", ("ipv4", Aaa.Radius.Ipv4)), ("radius-attribute", ("radius_attribute", Aaa.Radius.RadiusAttribute)), ("attributes", ("attributes", Aaa.Radius.Attributes)), ("source-port", ("source_port", Aaa.Radius.SourcePort))])
             self._leafs = OrderedDict([
                 ('retransmit', YLeaf(YType.uint32, 'retransmit')),
                 ('dead_time', YLeaf(YType.uint32, 'dead-time')),
@@ -6143,67 +4749,54 @@ class Aaa(Entity):
             self.hosts = Aaa.Radius.Hosts()
             self.hosts.parent = self
             self._children_name_map["hosts"] = "hosts"
-            self._children_yang_names.add("hosts")
 
             self.dead_criteria = Aaa.Radius.DeadCriteria()
             self.dead_criteria.parent = self
             self._children_name_map["dead_criteria"] = "dead-criteria"
-            self._children_yang_names.add("dead-criteria")
 
             self.disallow = Aaa.Radius.Disallow()
             self.disallow.parent = self
             self._children_name_map["disallow"] = "disallow"
-            self._children_yang_names.add("disallow")
 
             self.ipv6 = Aaa.Radius.Ipv6()
             self.ipv6.parent = self
             self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
 
             self.dynamic_authorization = Aaa.Radius.DynamicAuthorization()
             self.dynamic_authorization.parent = self
             self._children_name_map["dynamic_authorization"] = "dynamic-authorization"
-            self._children_yang_names.add("dynamic-authorization")
 
             self.load_balance_options = Aaa.Radius.LoadBalanceOptions()
             self.load_balance_options.parent = self
             self._children_name_map["load_balance_options"] = "load-balance-options"
-            self._children_yang_names.add("load-balance-options")
 
             self.vrfs = Aaa.Radius.Vrfs()
             self.vrfs.parent = self
             self._children_name_map["vrfs"] = "vrfs"
-            self._children_yang_names.add("vrfs")
 
             self.throttle = Aaa.Radius.Throttle()
             self.throttle.parent = self
             self._children_name_map["throttle"] = "throttle"
-            self._children_yang_names.add("throttle")
 
             self.vsa = Aaa.Radius.Vsa()
             self.vsa.parent = self
             self._children_name_map["vsa"] = "vsa"
-            self._children_yang_names.add("vsa")
 
             self.ipv4 = Aaa.Radius.Ipv4()
             self.ipv4.parent = self
             self._children_name_map["ipv4"] = "ipv4"
-            self._children_yang_names.add("ipv4")
 
             self.radius_attribute = Aaa.Radius.RadiusAttribute()
             self.radius_attribute.parent = self
             self._children_name_map["radius_attribute"] = "radius-attribute"
-            self._children_yang_names.add("radius-attribute")
 
             self.attributes = Aaa.Radius.Attributes()
             self.attributes.parent = self
             self._children_name_map["attributes"] = "attributes"
-            self._children_yang_names.add("attributes")
 
             self.source_port = Aaa.Radius.SourcePort()
             self.source_port.parent = self
             self._children_name_map["source_port"] = "source-port"
-            self._children_yang_names.add("source-port")
             self._segment_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-cfg:radius"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
 
@@ -6225,7 +4818,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.Hosts, self).__init__()
@@ -6235,8 +4828,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("host", ("host", Aaa.Radius.Hosts.Host))])
+                self._child_classes = OrderedDict([("host", ("host", Aaa.Radius.Hosts.Host))])
                 self._leafs = OrderedDict()
 
                 self.host = YList(self)
@@ -6256,7 +4848,7 @@ class Aaa(Entity):
                 	This is used to sort the servers in the order of precedence
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: ip_address  (key)
                 
@@ -6339,7 +4931,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.Hosts.Host, self).__init__()
@@ -6349,10 +4941,9 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['ordering_index','ip_address','auth_port_number','acct_port_number']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ordering_index', YLeaf(YType.int32, 'ordering-index')),
+                        ('ordering_index', YLeaf(YType.uint32, 'ordering-index')),
                         ('ip_address', YLeaf(YType.str, 'ip-address')),
                         ('auth_port_number', YLeaf(YType.uint16, 'auth-port-number')),
                         ('acct_port_number', YLeaf(YType.uint16, 'acct-port-number')),
@@ -6405,7 +4996,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.DeadCriteria, self).__init__()
@@ -6415,8 +5006,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tries', YLeaf(YType.uint32, 'tries')),
                     ('time', YLeaf(YType.uint32, 'time')),
@@ -6439,14 +5029,14 @@ class Aaa(Entity):
             	Disallow null\-username
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             
 
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.Disallow, self).__init__()
@@ -6456,10 +5046,9 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('null_username', YLeaf(YType.int32, 'null-username')),
+                    ('null_username', YLeaf(YType.uint32, 'null-username')),
                 ])
                 self.null_username = None
                 self._segment_path = lambda: "disallow"
@@ -6489,7 +5078,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.Ipv6, self).__init__()
@@ -6499,8 +5088,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dscp', YLeaf(YType.str, 'dscp')),
                 ])
@@ -6550,7 +5138,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.DynamicAuthorization, self).__init__()
@@ -6560,8 +5148,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("clients", ("clients", Aaa.Radius.DynamicAuthorization.Clients))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("clients", ("clients", Aaa.Radius.DynamicAuthorization.Clients))])
                 self._leafs = OrderedDict([
                     ('ignore', YLeaf(YType.enumeration, 'ignore')),
                     ('port', YLeaf(YType.uint32, 'port')),
@@ -6576,7 +5163,6 @@ class Aaa(Entity):
                 self.clients = Aaa.Radius.DynamicAuthorization.Clients()
                 self.clients.parent = self
                 self._children_name_map["clients"] = "clients"
-                self._children_yang_names.add("clients")
                 self._segment_path = lambda: "dynamic-authorization"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/%s" % self._segment_path()
 
@@ -6603,7 +5189,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.DynamicAuthorization.Clients, self).__init__()
@@ -6613,8 +5199,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("client", ("client", Aaa.Radius.DynamicAuthorization.Clients.Client)), ("client-vrf-name", ("client_vrf_name", Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName))])
+                    self._child_classes = OrderedDict([("client", ("client", Aaa.Radius.DynamicAuthorization.Clients.Client)), ("client-vrf-name", ("client_vrf_name", Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName))])
                     self._leafs = OrderedDict()
 
                     self.client = YList(self)
@@ -6655,7 +5240,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Radius.DynamicAuthorization.Clients.Client, self).__init__()
@@ -6665,8 +5250,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['ip_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ip_address', YLeaf(YType.str, 'ip-address')),
                             ('server_key', YLeaf(YType.str, 'server-key')),
@@ -6716,7 +5300,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName, self).__init__()
@@ -6726,8 +5310,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['vrf_name','ip_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('ip_address', YLeaf(YType.str, 'ip-address')),
@@ -6757,7 +5340,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.LoadBalanceOptions, self).__init__()
@@ -6767,16 +5350,17 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("load-balance-method", ("load_balance_method", Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("load-balance-method", ("load_balance_method", Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod))])
                 self._leafs = OrderedDict()
 
                 self.load_balance_method = Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod()
                 self.load_balance_method.parent = self
                 self._children_name_map["load_balance_method"] = "load-balance-method"
-                self._children_yang_names.add("load-balance-method")
                 self._segment_path = lambda: "load-balance-options"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Radius.LoadBalanceOptions, [], name, value)
 
 
             class LoadBalanceMethod(Entity):
@@ -6793,7 +5377,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod, self).__init__()
@@ -6803,16 +5387,17 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("batch-size", ("batch_size", Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("batch-size", ("batch_size", Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize))])
                     self._leafs = OrderedDict()
 
                     self.batch_size = Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize()
                     self.batch_size.parent = self
                     self._children_name_map["batch_size"] = "batch-size"
-                    self._children_yang_names.add("batch-size")
                     self._segment_path = lambda: "load-balance-method"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/load-balance-options/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod, [], name, value)
 
 
                 class BatchSize(Entity):
@@ -6840,7 +5425,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize, self).__init__()
@@ -6850,8 +5435,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('batch_size', YLeaf(YType.uint32, 'batch-size')),
                             ('ignore_preferred_server', YLeaf(YType.boolean, 'ignore-preferred-server')),
@@ -6879,7 +5463,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.Vrfs, self).__init__()
@@ -6889,8 +5473,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("vrf", ("vrf", Aaa.Radius.Vrfs.Vrf))])
+                self._child_classes = OrderedDict([("vrf", ("vrf", Aaa.Radius.Vrfs.Vrf))])
                 self._leafs = OrderedDict()
 
                 self.vrf = YList(self)
@@ -6924,7 +5507,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.Vrfs.Vrf, self).__init__()
@@ -6934,8 +5517,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('source_interface', YLeaf(YType.str, 'source-interface')),
@@ -6985,7 +5567,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.Throttle, self).__init__()
@@ -6995,8 +5577,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('access', YLeaf(YType.uint32, 'access')),
                     ('accounting', YLeaf(YType.uint32, 'accounting')),
@@ -7027,7 +5608,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.Vsa, self).__init__()
@@ -7037,16 +5618,17 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("attribute", ("attribute", Aaa.Radius.Vsa.Attribute))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("attribute", ("attribute", Aaa.Radius.Vsa.Attribute))])
                 self._leafs = OrderedDict()
 
                 self.attribute = Aaa.Radius.Vsa.Attribute()
                 self.attribute.parent = self
                 self._children_name_map["attribute"] = "attribute"
-                self._children_yang_names.add("attribute")
                 self._segment_path = lambda: "vsa"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Radius.Vsa, [], name, value)
 
 
             class Attribute(Entity):
@@ -7063,7 +5645,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.Vsa.Attribute, self).__init__()
@@ -7073,16 +5655,17 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ignore", ("ignore", Aaa.Radius.Vsa.Attribute.Ignore))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ignore", ("ignore", Aaa.Radius.Vsa.Attribute.Ignore))])
                     self._leafs = OrderedDict()
 
                     self.ignore = Aaa.Radius.Vsa.Attribute.Ignore()
                     self.ignore.parent = self
                     self._children_name_map["ignore"] = "ignore"
-                    self._children_yang_names.add("ignore")
                     self._segment_path = lambda: "attribute"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/vsa/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Radius.Vsa.Attribute, [], name, value)
 
 
                 class Ignore(Entity):
@@ -7099,7 +5682,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Radius.Vsa.Attribute.Ignore, self).__init__()
@@ -7109,8 +5692,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('unknown', YLeaf(YType.empty, 'unknown')),
                         ])
@@ -7142,7 +5724,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.Ipv4, self).__init__()
@@ -7152,8 +5734,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dscp', YLeaf(YType.str, 'dscp')),
                 ])
@@ -7189,7 +5770,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.RadiusAttribute, self).__init__()
@@ -7199,26 +5780,25 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("filter-id-11", ("filter_id_11", Aaa.Radius.RadiusAttribute.FilterId11)), ("acct-multi-session-id", ("acct_multi_session_id", Aaa.Radius.RadiusAttribute.AcctMultiSessionId)), ("acct-session-id", ("acct_session_id", Aaa.Radius.RadiusAttribute.AcctSessionId))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("filter-id-11", ("filter_id_11", Aaa.Radius.RadiusAttribute.FilterId11)), ("acct-multi-session-id", ("acct_multi_session_id", Aaa.Radius.RadiusAttribute.AcctMultiSessionId)), ("acct-session-id", ("acct_session_id", Aaa.Radius.RadiusAttribute.AcctSessionId))])
                 self._leafs = OrderedDict()
 
                 self.filter_id_11 = Aaa.Radius.RadiusAttribute.FilterId11()
                 self.filter_id_11.parent = self
                 self._children_name_map["filter_id_11"] = "filter-id-11"
-                self._children_yang_names.add("filter-id-11")
 
                 self.acct_multi_session_id = Aaa.Radius.RadiusAttribute.AcctMultiSessionId()
                 self.acct_multi_session_id.parent = self
                 self._children_name_map["acct_multi_session_id"] = "acct-multi-session-id"
-                self._children_yang_names.add("acct-multi-session-id")
 
                 self.acct_session_id = Aaa.Radius.RadiusAttribute.AcctSessionId()
                 self.acct_session_id.parent = self
                 self._children_name_map["acct_session_id"] = "acct-session-id"
-                self._children_yang_names.add("acct-session-id")
                 self._segment_path = lambda: "radius-attribute"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Radius.RadiusAttribute, [], name, value)
 
 
             class FilterId11(Entity):
@@ -7235,7 +5815,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.RadiusAttribute.FilterId11, self).__init__()
@@ -7245,16 +5825,17 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("defaults", ("defaults", Aaa.Radius.RadiusAttribute.FilterId11.Defaults))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("defaults", ("defaults", Aaa.Radius.RadiusAttribute.FilterId11.Defaults))])
                     self._leafs = OrderedDict()
 
                     self.defaults = Aaa.Radius.RadiusAttribute.FilterId11.Defaults()
                     self.defaults.parent = self
                     self._children_name_map["defaults"] = "defaults"
-                    self._children_yang_names.add("defaults")
                     self._segment_path = lambda: "filter-id-11"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/radius-attribute/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Radius.RadiusAttribute.FilterId11, [], name, value)
 
 
                 class Defaults(Entity):
@@ -7271,7 +5852,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Radius.RadiusAttribute.FilterId11.Defaults, self).__init__()
@@ -7281,8 +5862,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('direction', YLeaf(YType.enumeration, 'direction')),
                         ])
@@ -7308,7 +5888,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.RadiusAttribute.AcctMultiSessionId, self).__init__()
@@ -7318,16 +5898,17 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("include-parent-session-id", ("include_parent_session_id", Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("include-parent-session-id", ("include_parent_session_id", Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId))])
                     self._leafs = OrderedDict()
 
                     self.include_parent_session_id = Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId()
                     self.include_parent_session_id.parent = self
                     self._children_name_map["include_parent_session_id"] = "include-parent-session-id"
-                    self._children_yang_names.add("include-parent-session-id")
                     self._segment_path = lambda: "acct-multi-session-id"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/radius-attribute/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Radius.RadiusAttribute.AcctMultiSessionId, [], name, value)
 
 
                 class IncludeParentSessionId(Entity):
@@ -7345,7 +5926,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId, self).__init__()
@@ -7355,8 +5936,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('config', YLeaf(YType.enumeration, 'config')),
                         ])
@@ -7382,7 +5962,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.RadiusAttribute.AcctSessionId, self).__init__()
@@ -7392,16 +5972,17 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("prepend-nas-port-id", ("prepend_nas_port_id", Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("prepend-nas-port-id", ("prepend_nas_port_id", Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId))])
                     self._leafs = OrderedDict()
 
                     self.prepend_nas_port_id = Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId()
                     self.prepend_nas_port_id.parent = self
                     self._children_name_map["prepend_nas_port_id"] = "prepend-nas-port-id"
-                    self._children_yang_names.add("prepend-nas-port-id")
                     self._segment_path = lambda: "acct-session-id"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/radius-attribute/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Radius.RadiusAttribute.AcctSessionId, [], name, value)
 
 
                 class PrependNasPortId(Entity):
@@ -7419,7 +6000,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId, self).__init__()
@@ -7429,8 +6010,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('config', YLeaf(YType.enumeration, 'config')),
                         ])
@@ -7456,7 +6036,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.Attributes, self).__init__()
@@ -7466,8 +6046,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("attribute", ("attribute", Aaa.Radius.Attributes.Attribute))])
+                self._child_classes = OrderedDict([("attribute", ("attribute", Aaa.Radius.Attributes.Attribute))])
                 self._leafs = OrderedDict()
 
                 self.attribute = YList(self)
@@ -7504,7 +6083,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Radius.Attributes.Attribute, self).__init__()
@@ -7514,8 +6093,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['attribute_list_name']
-                    self._child_container_classes = OrderedDict([("vendor-ids", ("vendor_ids", Aaa.Radius.Attributes.Attribute.VendorIds))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("vendor-ids", ("vendor_ids", Aaa.Radius.Attributes.Attribute.VendorIds))])
                     self._leafs = OrderedDict([
                         ('attribute_list_name', YLeaf(YType.str, 'attribute-list-name')),
                         ('attribute', YLeaf(YType.str, 'attribute')),
@@ -7526,7 +6104,6 @@ class Aaa(Entity):
                     self.vendor_ids = Aaa.Radius.Attributes.Attribute.VendorIds()
                     self.vendor_ids.parent = self
                     self._children_name_map["vendor_ids"] = "vendor-ids"
-                    self._children_yang_names.add("vendor-ids")
                     self._segment_path = lambda: "attribute" + "[attribute-list-name='" + str(self.attribute_list_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/attributes/%s" % self._segment_path()
 
@@ -7548,7 +6125,7 @@ class Aaa(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Aaa.Radius.Attributes.Attribute.VendorIds, self).__init__()
@@ -7558,8 +6135,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("vendor-id", ("vendor_id", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId))])
+                        self._child_classes = OrderedDict([("vendor-id", ("vendor_id", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId))])
                         self._leafs = OrderedDict()
 
                         self.vendor_id = YList(self)
@@ -7578,7 +6154,7 @@ class Aaa(Entity):
                         	Vendor Id of vsa
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: vendor_type
                         
@@ -7590,7 +6166,7 @@ class Aaa(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Aaa.Radius.Attributes.Attribute.VendorIds.VendorId, self).__init__()
@@ -7600,10 +6176,9 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['vendor_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("vendor-type", ("vendor_type", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType))])
+                            self._child_classes = OrderedDict([("vendor-type", ("vendor_type", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType))])
                             self._leafs = OrderedDict([
-                                ('vendor_id', YLeaf(YType.int32, 'vendor-id')),
+                                ('vendor_id', YLeaf(YType.uint32, 'vendor-id')),
                             ])
                             self.vendor_id = None
 
@@ -7623,7 +6198,7 @@ class Aaa(Entity):
                             	Vendor Type of vsa
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: attribute_name
                             
@@ -7635,7 +6210,7 @@ class Aaa(Entity):
                             """
 
                             _prefix = 'aaa-protocol-radius-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType, self).__init__()
@@ -7645,10 +6220,9 @@ class Aaa(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['vendor_type']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("attribute-name", ("attribute_name", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName))])
+                                self._child_classes = OrderedDict([("attribute-name", ("attribute_name", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName))])
                                 self._leafs = OrderedDict([
-                                    ('vendor_type', YLeaf(YType.int32, 'vendor-type')),
+                                    ('vendor_type', YLeaf(YType.uint32, 'vendor-type')),
                                 ])
                                 self.vendor_type = None
 
@@ -7680,7 +6254,7 @@ class Aaa(Entity):
                                 """
 
                                 _prefix = 'aaa-protocol-radius-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName, self).__init__()
@@ -7690,8 +6264,7 @@ class Aaa(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['attribute_name']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("attribute-name-absent", ("attribute_name_absent", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent))])
+                                    self._child_classes = OrderedDict([("attribute-name-absent", ("attribute_name_absent", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent))])
                                     self._leafs = OrderedDict([
                                         ('attribute_name', YLeaf(YType.str, 'attribute-name')),
                                     ])
@@ -7713,7 +6286,7 @@ class Aaa(Entity):
                                     	AttributeName of vsa is absent
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: attribute_name_present
                                     
@@ -7725,7 +6298,7 @@ class Aaa(Entity):
                                     """
 
                                     _prefix = 'aaa-protocol-radius-cfg'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent, self).__init__()
@@ -7735,10 +6308,9 @@ class Aaa(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['attribute_name_absent']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("attribute-name-present", ("attribute_name_present", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent.AttributeNamePresent))])
+                                        self._child_classes = OrderedDict([("attribute-name-present", ("attribute_name_present", Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent.AttributeNamePresent))])
                                         self._leafs = OrderedDict([
-                                            ('attribute_name_absent', YLeaf(YType.int32, 'attribute-name-absent')),
+                                            ('attribute_name_absent', YLeaf(YType.uint32, 'attribute-name-absent')),
                                         ])
                                         self.attribute_name_absent = None
 
@@ -7758,14 +6330,14 @@ class Aaa(Entity):
                                         	AttributeName of vsa is present
                                         	**type**\: int
                                         
-                                        	**range:** \-2147483648..2147483647
+                                        	**range:** 0..4294967295
                                         
                                         
 
                                         """
 
                                         _prefix = 'aaa-protocol-radius-cfg'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent.AttributeNamePresent, self).__init__()
@@ -7775,10 +6347,9 @@ class Aaa(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['attribute_name_present']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('attribute_name_present', YLeaf(YType.int32, 'attribute-name-present')),
+                                                ('attribute_name_present', YLeaf(YType.uint32, 'attribute-name-present')),
                                             ])
                                             self.attribute_name_present = None
                                             self._segment_path = lambda: "attribute-name-present" + "[attribute-name-present='" + str(self.attribute_name_present) + "']"
@@ -7801,7 +6372,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Radius.SourcePort, self).__init__()
@@ -7811,8 +6382,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('extended', YLeaf(YType.empty, 'extended')),
                 ])
@@ -7824,401 +6394,1643 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Radius.SourcePort, ['extended'], name, value)
 
 
-    class Tacacs(Entity):
+    class AaaSubscriber(Entity):
         """
-        Modify TACACS+ query parameters
+        AAA subscriber
         
-        .. attribute:: ipv6
+        .. attribute:: policy_if_authors
         
-        	IPv6 configuration
-        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
+        	AAA authorization policy
+        	**type**\:  :py:class:`PolicyIfAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors>`
         
-        .. attribute:: hosts
+        .. attribute:: accountings
         
-        	Specify a TACACS+ server
-        	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts>`
+        	AAA accounting
+        	**type**\:  :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings>`
         
-        .. attribute:: ipv4
+        .. attribute:: service_accounting
         
-        	IPv4 configuration
-        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
+        	Set accounting parameters for Service
+        	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.ServiceAccounting>`
         
-        .. attribute:: vrfs
+        .. attribute:: prepaid_authors
         
-        	List of VRFs
-        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
+        	AAA authorization prepaid
+        	**type**\:  :py:class:`PrepaidAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors>`
         
-        .. attribute:: key
+        .. attribute:: authorizations
         
-        	Set TACACS+ encryption key
-        	**type**\: str
+        	AAA authorization
+        	**type**\:  :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations>`
         
-        	**pattern:** (!.+)\|([^!].+)
+        .. attribute:: authentications
         
-        .. attribute:: timeout
-        
-        	Time to wait for a TACACS+ server to reply
-        	**type**\: int
-        
-        	**range:** 1..1000
-        
-        	**default value**\: 5
-        
-        .. attribute:: single_connect
-        
-        	Use a single connection for all sessions for a given TACACS+ server
-        	**type**\: bool
-        
-        	**default value**\: false
+        	AAA authentication
+        	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications>`
         
         
 
         """
 
-        _prefix = 'aaa-tacacs-cfg'
+        _prefix = 'aaa-aaacore-cfg'
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.Tacacs, self).__init__()
+            super(Aaa.AaaSubscriber, self).__init__()
 
-            self.yang_name = "tacacs"
+            self.yang_name = "aaa-subscriber"
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Aaa.Tacacs.Ipv6)), ("hosts", ("hosts", Aaa.Tacacs.Hosts)), ("ipv4", ("ipv4", Aaa.Tacacs.Ipv4)), ("vrfs", ("vrfs", Aaa.Tacacs.Vrfs))])
-            self._child_list_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('key', YLeaf(YType.str, 'key')),
-                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                ('single_connect', YLeaf(YType.boolean, 'single-connect')),
-            ])
-            self.key = None
-            self.timeout = None
-            self.single_connect = None
+            self._child_classes = OrderedDict([("policy-if-authors", ("policy_if_authors", Aaa.AaaSubscriber.PolicyIfAuthors)), ("accountings", ("accountings", Aaa.AaaSubscriber.Accountings)), ("service-accounting", ("service_accounting", Aaa.AaaSubscriber.ServiceAccounting)), ("prepaid-authors", ("prepaid_authors", Aaa.AaaSubscriber.PrepaidAuthors)), ("authorizations", ("authorizations", Aaa.AaaSubscriber.Authorizations)), ("authentications", ("authentications", Aaa.AaaSubscriber.Authentications))])
+            self._leafs = OrderedDict()
 
-            self.ipv6 = Aaa.Tacacs.Ipv6()
-            self.ipv6.parent = self
-            self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
+            self.policy_if_authors = Aaa.AaaSubscriber.PolicyIfAuthors()
+            self.policy_if_authors.parent = self
+            self._children_name_map["policy_if_authors"] = "policy-if-authors"
 
-            self.hosts = Aaa.Tacacs.Hosts()
-            self.hosts.parent = self
-            self._children_name_map["hosts"] = "hosts"
-            self._children_yang_names.add("hosts")
+            self.accountings = Aaa.AaaSubscriber.Accountings()
+            self.accountings.parent = self
+            self._children_name_map["accountings"] = "accountings"
 
-            self.ipv4 = Aaa.Tacacs.Ipv4()
-            self.ipv4.parent = self
-            self._children_name_map["ipv4"] = "ipv4"
-            self._children_yang_names.add("ipv4")
+            self.service_accounting = Aaa.AaaSubscriber.ServiceAccounting()
+            self.service_accounting.parent = self
+            self._children_name_map["service_accounting"] = "service-accounting"
 
-            self.vrfs = Aaa.Tacacs.Vrfs()
-            self.vrfs.parent = self
-            self._children_name_map["vrfs"] = "vrfs"
-            self._children_yang_names.add("vrfs")
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-cfg:tacacs"
+            self.prepaid_authors = Aaa.AaaSubscriber.PrepaidAuthors()
+            self.prepaid_authors.parent = self
+            self._children_name_map["prepaid_authors"] = "prepaid-authors"
+
+            self.authorizations = Aaa.AaaSubscriber.Authorizations()
+            self.authorizations.parent = self
+            self._children_name_map["authorizations"] = "authorizations"
+
+            self.authentications = Aaa.AaaSubscriber.Authentications()
+            self.authentications.parent = self
+            self._children_name_map["authentications"] = "authentications"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.Tacacs, ['key', 'timeout', 'single_connect'], name, value)
+            self._perform_setattr(Aaa.AaaSubscriber, [], name, value)
 
 
-        class Ipv6(Entity):
+        class PolicyIfAuthors(Entity):
             """
-            IPv6 configuration
+            AAA authorization policy
             
-            .. attribute:: dscp
+            .. attribute:: policy_if_author
             
-            	Specify the DSCP value
-            	**type**\: union of the below types:
-            
-            		**type**\:  :py:class:`TacacsDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue>`
-            
-            		**type**\: int
-            
-            			**range:** 0..63
+            	Configurations related to authorization
+            	**type**\: list of  		 :py:class:`PolicyIfAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor>`
             
             
 
             """
 
-            _prefix = 'aaa-tacacs-cfg'
+            _prefix = 'aaa-aaacore-cfg'
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Aaa.Tacacs.Ipv6, self).__init__()
+                super(Aaa.AaaSubscriber.PolicyIfAuthors, self).__init__()
 
-                self.yang_name = "ipv6"
-                self.yang_parent_name = "tacacs"
+                self.yang_name = "policy-if-authors"
+                self.yang_parent_name = "aaa-subscriber"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('dscp', YLeaf(YType.str, 'dscp')),
-                ])
-                self.dscp = None
-                self._segment_path = lambda: "ipv6"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Ipv6, ['dscp'], name, value)
-
-
-        class Hosts(Entity):
-            """
-            Specify a TACACS+ server
-            
-            .. attribute:: host
-            
-            	One of the TACACS+ servers
-            	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts.Host>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Hosts, self).__init__()
-
-                self.yang_name = "hosts"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("host", ("host", Aaa.Tacacs.Hosts.Host))])
+                self._child_classes = OrderedDict([("policy-if-author", ("policy_if_author", Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor))])
                 self._leafs = OrderedDict()
 
-                self.host = YList(self)
-                self._segment_path = lambda: "hosts"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/%s" % self._segment_path()
+                self.policy_if_author = YList(self)
+                self._segment_path = lambda: "policy-if-authors"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Hosts, [], name, value)
+                self._perform_setattr(Aaa.AaaSubscriber.PolicyIfAuthors, [], name, value)
 
 
-            class Host(Entity):
+            class PolicyIfAuthor(Entity):
                 """
-                One of the TACACS+ servers
+                Configurations related to authorization
                 
-                .. attribute:: ordering_index  (key)
+                .. attribute:: type  (key)
                 
-                	This is used to sort the servers in the order of precedence
-                	**type**\: int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: ip_address  (key)
-                
-                	IP address of TACACS+ server
-                	**type**\: union of the below types:
-                
-                		**type**\: str
-                
-                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                		**type**\: str
-                
-                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: port_number  (key)
-                
-                	Port number (standard 49)
-                	**type**\: int
-                
-                	**range:** 1..65535
-                
-                .. attribute:: key
-                
-                	Set TACACS+ encryption key
+                	Set authorization lists
                 	**type**\: str
                 
-                	**pattern:** (!.+)\|([^!].+)
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
                 
-                .. attribute:: timeout
+                .. attribute:: listname  (key)
                 
-                	Time to wait for a TACACS+ server to reply
-                	**type**\: int
-                
-                	**range:** 1..1000
-                
-                	**default value**\: 5
-                
-                .. attribute:: single_connect
-                
-                	Use a single connection for all sessions for a given TACACS+ server
-                	**type**\: bool
-                
-                	**default value**\: false
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.Hosts.Host, self).__init__()
-
-                    self.yang_name = "host"
-                    self.yang_parent_name = "hosts"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['ordering_index','ip_address','port_number']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('ordering_index', YLeaf(YType.int32, 'ordering-index')),
-                        ('ip_address', YLeaf(YType.str, 'ip-address')),
-                        ('port_number', YLeaf(YType.uint32, 'port-number')),
-                        ('key', YLeaf(YType.str, 'key')),
-                        ('timeout', YLeaf(YType.uint32, 'timeout')),
-                        ('single_connect', YLeaf(YType.boolean, 'single-connect')),
-                    ])
-                    self.ordering_index = None
-                    self.ip_address = None
-                    self.port_number = None
-                    self.key = None
-                    self.timeout = None
-                    self.single_connect = None
-                    self._segment_path = lambda: "host" + "[ordering-index='" + str(self.ordering_index) + "']" + "[ip-address='" + str(self.ip_address) + "']" + "[port-number='" + str(self.port_number) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/hosts/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Hosts.Host, ['ordering_index', 'ip_address', 'port_number', 'key', 'timeout', 'single_connect'], name, value)
-
-
-        class Ipv4(Entity):
-            """
-            IPv4 configuration
-            
-            .. attribute:: dscp
-            
-            	Specify the DSCP value
-            	**type**\: union of the below types:
-            
-            		**type**\:  :py:class:`TacacsDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue>`
-            
-            		**type**\: int
-            
-            			**range:** 0..63
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Ipv4, self).__init__()
-
-                self.yang_name = "ipv4"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('dscp', YLeaf(YType.str, 'dscp')),
-                ])
-                self.dscp = None
-                self._segment_path = lambda: "ipv4"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Ipv4, ['dscp'], name, value)
-
-
-        class Vrfs(Entity):
-            """
-            List of VRFs
-            
-            .. attribute:: vrf
-            
-            	A VRF
-            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs.Vrf>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Vrfs, self).__init__()
-
-                self.yang_name = "vrfs"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("vrf", ("vrf", Aaa.Tacacs.Vrfs.Vrf))])
-                self._leafs = OrderedDict()
-
-                self.vrf = YList(self)
-                self._segment_path = lambda: "vrfs"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Vrfs, [], name, value)
-
-
-            class Vrf(Entity):
-                """
-                A VRF
-                
-                .. attribute:: vrf_name  (key)
-                
-                	VRF name. Specify 'default' for default VRF
+                	Named authorization list
                 	**type**\: str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: source_interface
+                .. attribute:: method
                 
-                	Specify interface for source address in TACACS+ packets
-                	**type**\: str
+                	Method Types
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\: list of str
                 
                 
 
                 """
 
-                _prefix = 'aaa-tacacs-cfg'
+                _prefix = 'aaa-aaacore-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.Tacacs.Vrfs.Vrf, self).__init__()
+                    super(Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor, self).__init__()
 
-                    self.yang_name = "vrf"
-                    self.yang_parent_name = "vrfs"
+                    self.yang_name = "policy-if-author"
+                    self.yang_parent_name = "policy-if-authors"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['vrf_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self.ylist_key_names = ['type','listname']
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('source_interface', YLeaf(YType.str, 'source-interface')),
+                        ('type', YLeaf(YType.str, 'type')),
+                        ('listname', YLeaf(YType.str, 'listname')),
+                        ('method', YLeafList(YType.enumeration, 'method')),
+                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
                     ])
-                    self.vrf_name = None
-                    self.source_interface = None
-                    self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/vrfs/%s" % self._segment_path()
+                    self.type = None
+                    self.listname = None
+                    self.method = []
+                    self.server_group_name = []
+                    self._segment_path = lambda: "policy-if-author" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/policy-if-authors/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Vrfs.Vrf, ['vrf_name', 'source_interface'], name, value)
+                    self._perform_setattr(Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor, ['type', 'listname', 'method', 'server_group_name'], name, value)
+
+
+        class Accountings(Entity):
+            """
+            AAA accounting
+            
+            .. attribute:: accounting
+            
+            	Configurations related to accounting
+            	**type**\: list of  		 :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings.Accounting>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.AaaSubscriber.Accountings, self).__init__()
+
+                self.yang_name = "accountings"
+                self.yang_parent_name = "aaa-subscriber"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("accounting", ("accounting", Aaa.AaaSubscriber.Accountings.Accounting))])
+                self._leafs = OrderedDict()
+
+                self.accounting = YList(self)
+                self._segment_path = lambda: "accountings"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.AaaSubscriber.Accountings, [], name, value)
+
+
+            class Accounting(Entity):
+                """
+                Configurations related to accounting
+                
+                .. attribute:: type  (key)
+                
+                	Set accounting lists
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  (key)
+                
+                	Named accounting list
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: broadcast
+                
+                	Broadcast
+                	**type**\:  :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
+                
+                	**mandatory**\: True
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\: list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.AaaSubscriber.Accountings.Accounting, self).__init__()
+
+                    self.yang_name = "accounting"
+                    self.yang_parent_name = "accountings"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['type','listname']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.str, 'type')),
+                        ('listname', YLeaf(YType.str, 'listname')),
+                        ('broadcast', YLeaf(YType.enumeration, 'broadcast')),
+                        ('method', YLeafList(YType.enumeration, 'method')),
+                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
+                    ])
+                    self.type = None
+                    self.listname = None
+                    self.broadcast = None
+                    self.method = []
+                    self.server_group_name = []
+                    self._segment_path = lambda: "accounting" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/accountings/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.AaaSubscriber.Accountings.Accounting, ['type', 'listname', 'broadcast', 'method', 'server_group_name'], name, value)
+
+
+        class ServiceAccounting(Entity):
+            """
+            Set accounting parameters for Service
+            
+            .. attribute:: type
+            
+            	Send extended/brief service accounting records
+            	**type**\:  :py:class:`AaaServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_aaacore_cfg.AaaServiceAccounting>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.AaaSubscriber.ServiceAccounting, self).__init__()
+
+                self.yang_name = "service-accounting"
+                self.yang_parent_name = "aaa-subscriber"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('type', YLeaf(YType.enumeration, 'type')),
+                ])
+                self.type = None
+                self._segment_path = lambda: "service-accounting"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.AaaSubscriber.ServiceAccounting, ['type'], name, value)
+
+
+        class PrepaidAuthors(Entity):
+            """
+            AAA authorization prepaid
+            
+            .. attribute:: prepaid_author
+            
+            	Configurations related to authorization
+            	**type**\: list of  		 :py:class:`PrepaidAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.AaaSubscriber.PrepaidAuthors, self).__init__()
+
+                self.yang_name = "prepaid-authors"
+                self.yang_parent_name = "aaa-subscriber"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("prepaid-author", ("prepaid_author", Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor))])
+                self._leafs = OrderedDict()
+
+                self.prepaid_author = YList(self)
+                self._segment_path = lambda: "prepaid-authors"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.AaaSubscriber.PrepaidAuthors, [], name, value)
+
+
+            class PrepaidAuthor(Entity):
+                """
+                Configurations related to authorization
+                
+                .. attribute:: type  (key)
+                
+                	Set authorization lists
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  (key)
+                
+                	Named authorization list
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\: list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor, self).__init__()
+
+                    self.yang_name = "prepaid-author"
+                    self.yang_parent_name = "prepaid-authors"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['type','listname']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.str, 'type')),
+                        ('listname', YLeaf(YType.str, 'listname')),
+                        ('method', YLeafList(YType.enumeration, 'method')),
+                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
+                    ])
+                    self.type = None
+                    self.listname = None
+                    self.method = []
+                    self.server_group_name = []
+                    self._segment_path = lambda: "prepaid-author" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/prepaid-authors/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor, ['type', 'listname', 'method', 'server_group_name'], name, value)
+
+
+        class Authorizations(Entity):
+            """
+            AAA authorization
+            
+            .. attribute:: authorization
+            
+            	Configurations related to authorization
+            	**type**\: list of  		 :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations.Authorization>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.AaaSubscriber.Authorizations, self).__init__()
+
+                self.yang_name = "authorizations"
+                self.yang_parent_name = "aaa-subscriber"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("authorization", ("authorization", Aaa.AaaSubscriber.Authorizations.Authorization))])
+                self._leafs = OrderedDict()
+
+                self.authorization = YList(self)
+                self._segment_path = lambda: "authorizations"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.AaaSubscriber.Authorizations, [], name, value)
+
+
+            class Authorization(Entity):
+                """
+                Configurations related to authorization
+                
+                .. attribute:: type  (key)
+                
+                	Set authorization lists
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  (key)
+                
+                	Named authorization list
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\: list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.AaaSubscriber.Authorizations.Authorization, self).__init__()
+
+                    self.yang_name = "authorization"
+                    self.yang_parent_name = "authorizations"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['type','listname']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.str, 'type')),
+                        ('listname', YLeaf(YType.str, 'listname')),
+                        ('method', YLeafList(YType.enumeration, 'method')),
+                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
+                    ])
+                    self.type = None
+                    self.listname = None
+                    self.method = []
+                    self.server_group_name = []
+                    self._segment_path = lambda: "authorization" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/authorizations/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.AaaSubscriber.Authorizations.Authorization, ['type', 'listname', 'method', 'server_group_name'], name, value)
+
+
+        class Authentications(Entity):
+            """
+            AAA authentication
+            
+            .. attribute:: authentication
+            
+            	Configurations related to authentication
+            	**type**\: list of  		 :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications.Authentication>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.AaaSubscriber.Authentications, self).__init__()
+
+                self.yang_name = "authentications"
+                self.yang_parent_name = "aaa-subscriber"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("authentication", ("authentication", Aaa.AaaSubscriber.Authentications.Authentication))])
+                self._leafs = OrderedDict()
+
+                self.authentication = YList(self)
+                self._segment_path = lambda: "authentications"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.AaaSubscriber.Authentications, [], name, value)
+
+
+            class Authentication(Entity):
+                """
+                Configurations related to authentication
+                
+                .. attribute:: type  (key)
+                
+                	Set authentication lists
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  (key)
+                
+                	Named authentication list
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\: list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.AaaSubscriber.Authentications.Authentication, self).__init__()
+
+                    self.yang_name = "authentication"
+                    self.yang_parent_name = "authentications"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['type','listname']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.str, 'type')),
+                        ('listname', YLeaf(YType.str, 'listname')),
+                        ('method', YLeafList(YType.enumeration, 'method')),
+                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
+                    ])
+                    self.type = None
+                    self.listname = None
+                    self.method = []
+                    self.server_group_name = []
+                    self._segment_path = lambda: "authentication" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/authentications/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.AaaSubscriber.Authentications.Authentication, ['type', 'listname', 'method', 'server_group_name'], name, value)
+
+
+    class AaaMobile(Entity):
+        """
+        AAA Mobile
+        
+        .. attribute:: mobiles
+        
+        	AAA Mobile Accounting
+        	**type**\:  :py:class:`Mobiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-aaacore-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Aaa.AaaMobile, self).__init__()
+
+            self.yang_name = "aaa-mobile"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("mobiles", ("mobiles", Aaa.AaaMobile.Mobiles))])
+            self._leafs = OrderedDict()
+
+            self.mobiles = Aaa.AaaMobile.Mobiles()
+            self.mobiles.parent = self
+            self._children_name_map["mobiles"] = "mobiles"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.AaaMobile, [], name, value)
+
+
+        class Mobiles(Entity):
+            """
+            AAA Mobile Accounting
+            
+            .. attribute:: mobile
+            
+            	Configurations related to accounting
+            	**type**\: list of  		 :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles.Mobile>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.AaaMobile.Mobiles, self).__init__()
+
+                self.yang_name = "mobiles"
+                self.yang_parent_name = "aaa-mobile"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("mobile", ("mobile", Aaa.AaaMobile.Mobiles.Mobile))])
+                self._leafs = OrderedDict()
+
+                self.mobile = YList(self)
+                self._segment_path = lambda: "mobiles"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.AaaMobile.Mobiles, [], name, value)
+
+
+            class Mobile(Entity):
+                """
+                Configurations related to accounting
+                
+                .. attribute:: listname  (key)
+                
+                	Named accounting list
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: broadcast
+                
+                	Broadcast
+                	**type**\:  :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
+                
+                	**mandatory**\: True
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\: list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.AaaMobile.Mobiles.Mobile, self).__init__()
+
+                    self.yang_name = "mobile"
+                    self.yang_parent_name = "mobiles"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['listname']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('listname', YLeaf(YType.str, 'listname')),
+                        ('broadcast', YLeaf(YType.enumeration, 'broadcast')),
+                        ('method', YLeafList(YType.enumeration, 'method')),
+                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
+                    ])
+                    self.listname = None
+                    self.broadcast = None
+                    self.method = []
+                    self.server_group_name = []
+                    self._segment_path = lambda: "mobile" + "[listname='" + str(self.listname) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile/mobiles/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.AaaMobile.Mobiles.Mobile, ['listname', 'broadcast', 'method', 'server_group_name'], name, value)
+
+
+    class AaaDot1x(Entity):
+        """
+        AAA Dot1x
+        
+        .. attribute:: authentications
+        
+        	AAA authentication
+        	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1x.Authentications>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-aaacore-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Aaa.AaaDot1x, self).__init__()
+
+            self.yang_name = "aaa-dot1x"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("authentications", ("authentications", Aaa.AaaDot1x.Authentications))])
+            self._leafs = OrderedDict()
+
+            self.authentications = Aaa.AaaDot1x.Authentications()
+            self.authentications.parent = self
+            self._children_name_map["authentications"] = "authentications"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.AaaDot1x, [], name, value)
+
+
+        class Authentications(Entity):
+            """
+            AAA authentication
+            
+            .. attribute:: authentication
+            
+            	Configurations related to authentication
+            	**type**\: list of  		 :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1x.Authentications.Authentication>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.AaaDot1x.Authentications, self).__init__()
+
+                self.yang_name = "authentications"
+                self.yang_parent_name = "aaa-dot1x"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("authentication", ("authentication", Aaa.AaaDot1x.Authentications.Authentication))])
+                self._leafs = OrderedDict()
+
+                self.authentication = YList(self)
+                self._segment_path = lambda: "authentications"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.AaaDot1x.Authentications, [], name, value)
+
+
+            class Authentication(Entity):
+                """
+                Configurations related to authentication
+                
+                .. attribute:: type  (key)
+                
+                	Set authentication lists
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  (key)
+                
+                	Named authentication list
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\: list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.AaaDot1x.Authentications.Authentication, self).__init__()
+
+                    self.yang_name = "authentication"
+                    self.yang_parent_name = "authentications"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['type','listname']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.str, 'type')),
+                        ('listname', YLeaf(YType.str, 'listname')),
+                        ('method', YLeafList(YType.enumeration, 'method')),
+                        ('server_group_name', YLeafList(YType.str, 'server-group-name')),
+                    ])
+                    self.type = None
+                    self.listname = None
+                    self.method = []
+                    self.server_group_name = []
+                    self._segment_path = lambda: "authentication" + "[type='" + str(self.type) + "']" + "[listname='" + str(self.listname) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x/authentications/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.AaaDot1x.Authentications.Authentication, ['type', 'listname', 'method', 'server_group_name'], name, value)
+
+
+    class RadiusAttribute(Entity):
+        """
+        AAA RADIUS attribute configurations
+        
+        .. attribute:: nas_port_id
+        
+        	AAA nas\-port\-id attribute
+        	**type**\:  :py:class:`NasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId>`
+        
+        .. attribute:: calling_station
+        
+        	AAA calling station id attribute
+        	**type**\:  :py:class:`CallingStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation>`
+        
+        .. attribute:: called_station
+        
+        	AAA called station id attribute
+        	**type**\:  :py:class:`CalledStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation>`
+        
+        .. attribute:: nas_port
+        
+        	AAA nas\-port\-id attribute
+        	**type**\:  :py:class:`NasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort>`
+        
+        .. attribute:: format_others
+        
+        	AAA nas\-port\-id attribute format
+        	**type**\:  :py:class:`FormatOthers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-aaacore-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Aaa.RadiusAttribute, self).__init__()
+
+            self.yang_name = "radius-attribute"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("nas-port-id", ("nas_port_id", Aaa.RadiusAttribute.NasPortId)), ("calling-station", ("calling_station", Aaa.RadiusAttribute.CallingStation)), ("called-station", ("called_station", Aaa.RadiusAttribute.CalledStation)), ("nas-port", ("nas_port", Aaa.RadiusAttribute.NasPort)), ("format-others", ("format_others", Aaa.RadiusAttribute.FormatOthers))])
+            self._leafs = OrderedDict()
+
+            self.nas_port_id = Aaa.RadiusAttribute.NasPortId()
+            self.nas_port_id.parent = self
+            self._children_name_map["nas_port_id"] = "nas-port-id"
+
+            self.calling_station = Aaa.RadiusAttribute.CallingStation()
+            self.calling_station.parent = self
+            self._children_name_map["calling_station"] = "calling-station"
+
+            self.called_station = Aaa.RadiusAttribute.CalledStation()
+            self.called_station.parent = self
+            self._children_name_map["called_station"] = "called-station"
+
+            self.nas_port = Aaa.RadiusAttribute.NasPort()
+            self.nas_port.parent = self
+            self._children_name_map["nas_port"] = "nas-port"
+
+            self.format_others = Aaa.RadiusAttribute.FormatOthers()
+            self.format_others.parent = self
+            self._children_name_map["format_others"] = "format-others"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.RadiusAttribute, [], name, value)
+
+
+        class NasPortId(Entity):
+            """
+            AAA nas\-port\-id attribute
+            
+            .. attribute:: formats
+            
+            	AAA nas\-port\-id attribute format
+            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.RadiusAttribute.NasPortId, self).__init__()
+
+                self.yang_name = "nas-port-id"
+                self.yang_parent_name = "radius-attribute"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("formats", ("formats", Aaa.RadiusAttribute.NasPortId.Formats))])
+                self._leafs = OrderedDict()
+
+                self.formats = Aaa.RadiusAttribute.NasPortId.Formats()
+                self.formats.parent = self
+                self._children_name_map["formats"] = "formats"
+                self._segment_path = lambda: "nas-port-id"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.RadiusAttribute.NasPortId, [], name, value)
+
+
+            class Formats(Entity):
+                """
+                AAA nas\-port\-id attribute format
+                
+                .. attribute:: format
+                
+                	nas\-port\-id attribute format
+                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats.Format>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.RadiusAttribute.NasPortId.Formats, self).__init__()
+
+                    self.yang_name = "formats"
+                    self.yang_parent_name = "nas-port-id"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("format", ("format", Aaa.RadiusAttribute.NasPortId.Formats.Format))])
+                    self._leafs = OrderedDict()
+
+                    self.format = YList(self)
+                    self._segment_path = lambda: "formats"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/nas-port-id/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.RadiusAttribute.NasPortId.Formats, [], name, value)
+
+
+                class Format(Entity):
+                    """
+                    nas\-port\-id attribute format
+                    
+                    .. attribute:: type  (key)
+                    
+                    	Nas\-Port\-Type value to apply format name on
+                    	**type**\: int
+                    
+                    	**range:** 0..45
+                    
+                    .. attribute:: format_name
+                    
+                    	AAA nas\-port attribute format
+                    	**type**\: str
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-aaacore-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Aaa.RadiusAttribute.NasPortId.Formats.Format, self).__init__()
+
+                        self.yang_name = "format"
+                        self.yang_parent_name = "formats"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['type']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('type', YLeaf(YType.uint32, 'type')),
+                            ('format_name', YLeaf(YType.str, 'format-name')),
+                        ])
+                        self.type = None
+                        self.format_name = None
+                        self._segment_path = lambda: "format" + "[type='" + str(self.type) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/nas-port-id/formats/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.RadiusAttribute.NasPortId.Formats.Format, ['type', 'format_name'], name, value)
+
+
+        class CallingStation(Entity):
+            """
+            AAA calling station id attribute
+            
+            .. attribute:: formats
+            
+            	AAA nas\-port\-id attribute format
+            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.RadiusAttribute.CallingStation, self).__init__()
+
+                self.yang_name = "calling-station"
+                self.yang_parent_name = "radius-attribute"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("formats", ("formats", Aaa.RadiusAttribute.CallingStation.Formats))])
+                self._leafs = OrderedDict()
+
+                self.formats = Aaa.RadiusAttribute.CallingStation.Formats()
+                self.formats.parent = self
+                self._children_name_map["formats"] = "formats"
+                self._segment_path = lambda: "calling-station"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.RadiusAttribute.CallingStation, [], name, value)
+
+
+            class Formats(Entity):
+                """
+                AAA nas\-port\-id attribute format
+                
+                .. attribute:: format
+                
+                	nas\-port\-id attribute format
+                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats.Format>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.RadiusAttribute.CallingStation.Formats, self).__init__()
+
+                    self.yang_name = "formats"
+                    self.yang_parent_name = "calling-station"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("format", ("format", Aaa.RadiusAttribute.CallingStation.Formats.Format))])
+                    self._leafs = OrderedDict()
+
+                    self.format = YList(self)
+                    self._segment_path = lambda: "formats"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/calling-station/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.RadiusAttribute.CallingStation.Formats, [], name, value)
+
+
+                class Format(Entity):
+                    """
+                    nas\-port\-id attribute format
+                    
+                    .. attribute:: type  (key)
+                    
+                    	Nas\-Port\-Type value to apply format name on
+                    	**type**\: int
+                    
+                    	**range:** 0..45
+                    
+                    .. attribute:: format_name
+                    
+                    	AAA nas\-port attribute format
+                    	**type**\: str
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-aaacore-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Aaa.RadiusAttribute.CallingStation.Formats.Format, self).__init__()
+
+                        self.yang_name = "format"
+                        self.yang_parent_name = "formats"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['type']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('type', YLeaf(YType.uint32, 'type')),
+                            ('format_name', YLeaf(YType.str, 'format-name')),
+                        ])
+                        self.type = None
+                        self.format_name = None
+                        self._segment_path = lambda: "format" + "[type='" + str(self.type) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/calling-station/formats/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.RadiusAttribute.CallingStation.Formats.Format, ['type', 'format_name'], name, value)
+
+
+        class CalledStation(Entity):
+            """
+            AAA called station id attribute
+            
+            .. attribute:: formats
+            
+            	AAA nas\-port\-id attribute format
+            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.RadiusAttribute.CalledStation, self).__init__()
+
+                self.yang_name = "called-station"
+                self.yang_parent_name = "radius-attribute"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("formats", ("formats", Aaa.RadiusAttribute.CalledStation.Formats))])
+                self._leafs = OrderedDict()
+
+                self.formats = Aaa.RadiusAttribute.CalledStation.Formats()
+                self.formats.parent = self
+                self._children_name_map["formats"] = "formats"
+                self._segment_path = lambda: "called-station"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.RadiusAttribute.CalledStation, [], name, value)
+
+
+            class Formats(Entity):
+                """
+                AAA nas\-port\-id attribute format
+                
+                .. attribute:: format
+                
+                	nas\-port\-id attribute format
+                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats.Format>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.RadiusAttribute.CalledStation.Formats, self).__init__()
+
+                    self.yang_name = "formats"
+                    self.yang_parent_name = "called-station"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("format", ("format", Aaa.RadiusAttribute.CalledStation.Formats.Format))])
+                    self._leafs = OrderedDict()
+
+                    self.format = YList(self)
+                    self._segment_path = lambda: "formats"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/called-station/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.RadiusAttribute.CalledStation.Formats, [], name, value)
+
+
+                class Format(Entity):
+                    """
+                    nas\-port\-id attribute format
+                    
+                    .. attribute:: type  (key)
+                    
+                    	Nas\-Port\-Type value to apply format name on
+                    	**type**\: int
+                    
+                    	**range:** 0..45
+                    
+                    .. attribute:: format_name
+                    
+                    	AAA nas\-port attribute format
+                    	**type**\: str
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-aaacore-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Aaa.RadiusAttribute.CalledStation.Formats.Format, self).__init__()
+
+                        self.yang_name = "format"
+                        self.yang_parent_name = "formats"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['type']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('type', YLeaf(YType.uint32, 'type')),
+                            ('format_name', YLeaf(YType.str, 'format-name')),
+                        ])
+                        self.type = None
+                        self.format_name = None
+                        self._segment_path = lambda: "format" + "[type='" + str(self.type) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/called-station/formats/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.RadiusAttribute.CalledStation.Formats.Format, ['type', 'format_name'], name, value)
+
+
+        class NasPort(Entity):
+            """
+            AAA nas\-port\-id attribute
+            
+            .. attribute:: format_extendeds
+            
+            	AAA nas\-port\-id attribute format
+            	**type**\:  :py:class:`FormatExtendeds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.RadiusAttribute.NasPort, self).__init__()
+
+                self.yang_name = "nas-port"
+                self.yang_parent_name = "radius-attribute"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("format-extendeds", ("format_extendeds", Aaa.RadiusAttribute.NasPort.FormatExtendeds))])
+                self._leafs = OrderedDict()
+
+                self.format_extendeds = Aaa.RadiusAttribute.NasPort.FormatExtendeds()
+                self.format_extendeds.parent = self
+                self._children_name_map["format_extendeds"] = "format-extendeds"
+                self._segment_path = lambda: "nas-port"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.RadiusAttribute.NasPort, [], name, value)
+
+
+            class FormatExtendeds(Entity):
+                """
+                AAA nas\-port\-id attribute format
+                
+                .. attribute:: format_extended
+                
+                	nas\-port\-id extended attribute
+                	**type**\: list of  		 :py:class:`FormatExtended <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.RadiusAttribute.NasPort.FormatExtendeds, self).__init__()
+
+                    self.yang_name = "format-extendeds"
+                    self.yang_parent_name = "nas-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("format-extended", ("format_extended", Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended))])
+                    self._leafs = OrderedDict()
+
+                    self.format_extended = YList(self)
+                    self._segment_path = lambda: "format-extendeds"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/nas-port/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.RadiusAttribute.NasPort.FormatExtendeds, [], name, value)
+
+
+                class FormatExtended(Entity):
+                    """
+                    nas\-port\-id extended attribute
+                    
+                    .. attribute:: value  (key)
+                    
+                    	format type
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: type  (key)
+                    
+                    	AAA nas\-port attribute format
+                    	**type**\: int
+                    
+                    	**range:** 0..45
+                    
+                    .. attribute:: format_identifier
+                    
+                    	A 32 character string representing the format to be used
+                    	**type**\: str
+                    
+                    	**length:** 1..32
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-aaacore-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended, self).__init__()
+
+                        self.yang_name = "format-extended"
+                        self.yang_parent_name = "format-extendeds"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['value','type']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.str, 'value')),
+                            ('type', YLeaf(YType.uint32, 'type')),
+                            ('format_identifier', YLeaf(YType.str, 'format-identifier')),
+                        ])
+                        self.value = None
+                        self.type = None
+                        self.format_identifier = None
+                        self._segment_path = lambda: "format-extended" + "[value='" + str(self.value) + "']" + "[type='" + str(self.type) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/nas-port/format-extendeds/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended, ['value', 'type', 'format_identifier'], name, value)
+
+
+        class FormatOthers(Entity):
+            """
+            AAA nas\-port\-id attribute format
+            
+            .. attribute:: format_other
+            
+            	Other configs
+            	**type**\: list of  		 :py:class:`FormatOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers.FormatOther>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.RadiusAttribute.FormatOthers, self).__init__()
+
+                self.yang_name = "format-others"
+                self.yang_parent_name = "radius-attribute"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("format-other", ("format_other", Aaa.RadiusAttribute.FormatOthers.FormatOther))])
+                self._leafs = OrderedDict()
+
+                self.format_other = YList(self)
+                self._segment_path = lambda: "format-others"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.RadiusAttribute.FormatOthers, [], name, value)
+
+
+            class FormatOther(Entity):
+                """
+                Other configs
+                
+                .. attribute:: nas_port_type_name  (key)
+                
+                	Nas\-Port\-Type value to apply format name on
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: attribute_config1
+                
+                	Argument1
+                	**type**\: str
+                
+                .. attribute:: attribute_config2
+                
+                	Argument2
+                	**type**\: str
+                
+                .. attribute:: attribute_config3
+                
+                	Argument3
+                	**type**\: str
+                
+                .. attribute:: attribute_config4
+                
+                	Argument4
+                	**type**\: str
+                
+                .. attribute:: attribute_config5
+                
+                	Argument5
+                	**type**\: str
+                
+                .. attribute:: attribute_config6
+                
+                	Argument6
+                	**type**\: str
+                
+                .. attribute:: attribute_config7
+                
+                	Argument7
+                	**type**\: str
+                
+                .. attribute:: attribute_config8
+                
+                	Argument8
+                	**type**\: str
+                
+                .. attribute:: attribute_config9
+                
+                	Argument9
+                	**type**\: str
+                
+                .. attribute:: attribute_config10
+                
+                	Argument10
+                	**type**\: str
+                
+                .. attribute:: attribute_config11
+                
+                	Argument11
+                	**type**\: str
+                
+                .. attribute:: attribute_config12
+                
+                	Argument12
+                	**type**\: str
+                
+                .. attribute:: attribute_config13
+                
+                	Argument13
+                	**type**\: str
+                
+                .. attribute:: attribute_config14
+                
+                	Argument14
+                	**type**\: str
+                
+                .. attribute:: attribute_config15
+                
+                	Argument15
+                	**type**\: str
+                
+                .. attribute:: attribute_config16
+                
+                	Argument16
+                	**type**\: str
+                
+                .. attribute:: attribute_config17
+                
+                	Argument17
+                	**type**\: str
+                
+                .. attribute:: attribute_config18
+                
+                	Argument18
+                	**type**\: str
+                
+                .. attribute:: attribute_config19
+                
+                	Argument19
+                	**type**\: int
+                
+                	**range:** 1..253
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.RadiusAttribute.FormatOthers.FormatOther, self).__init__()
+
+                    self.yang_name = "format-other"
+                    self.yang_parent_name = "format-others"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['nas_port_type_name']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('nas_port_type_name', YLeaf(YType.str, 'nas-port-type-name')),
+                        ('attribute_config1', YLeaf(YType.str, 'attribute-config1')),
+                        ('attribute_config2', YLeaf(YType.str, 'attribute-config2')),
+                        ('attribute_config3', YLeaf(YType.str, 'attribute-config3')),
+                        ('attribute_config4', YLeaf(YType.str, 'attribute-config4')),
+                        ('attribute_config5', YLeaf(YType.str, 'attribute-config5')),
+                        ('attribute_config6', YLeaf(YType.str, 'attribute-config6')),
+                        ('attribute_config7', YLeaf(YType.str, 'attribute-config7')),
+                        ('attribute_config8', YLeaf(YType.str, 'attribute-config8')),
+                        ('attribute_config9', YLeaf(YType.str, 'attribute-config9')),
+                        ('attribute_config10', YLeaf(YType.str, 'attribute-config10')),
+                        ('attribute_config11', YLeaf(YType.str, 'attribute-config11')),
+                        ('attribute_config12', YLeaf(YType.str, 'attribute-config12')),
+                        ('attribute_config13', YLeaf(YType.str, 'attribute-config13')),
+                        ('attribute_config14', YLeaf(YType.str, 'attribute-config14')),
+                        ('attribute_config15', YLeaf(YType.str, 'attribute-config15')),
+                        ('attribute_config16', YLeaf(YType.str, 'attribute-config16')),
+                        ('attribute_config17', YLeaf(YType.str, 'attribute-config17')),
+                        ('attribute_config18', YLeaf(YType.str, 'attribute-config18')),
+                        ('attribute_config19', YLeaf(YType.uint32, 'attribute-config19')),
+                    ])
+                    self.nas_port_type_name = None
+                    self.attribute_config1 = None
+                    self.attribute_config2 = None
+                    self.attribute_config3 = None
+                    self.attribute_config4 = None
+                    self.attribute_config5 = None
+                    self.attribute_config6 = None
+                    self.attribute_config7 = None
+                    self.attribute_config8 = None
+                    self.attribute_config9 = None
+                    self.attribute_config10 = None
+                    self.attribute_config11 = None
+                    self.attribute_config12 = None
+                    self.attribute_config13 = None
+                    self.attribute_config14 = None
+                    self.attribute_config15 = None
+                    self.attribute_config16 = None
+                    self.attribute_config17 = None
+                    self.attribute_config18 = None
+                    self.attribute_config19 = None
+                    self._segment_path = lambda: "format-other" + "[nas-port-type-name='" + str(self.nas_port_type_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/format-others/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.RadiusAttribute.FormatOthers.FormatOther, ['nas_port_type_name', 'attribute_config1', 'attribute_config2', 'attribute_config3', 'attribute_config4', 'attribute_config5', 'attribute_config6', 'attribute_config7', 'attribute_config8', 'attribute_config9', 'attribute_config10', 'attribute_config11', 'attribute_config12', 'attribute_config13', 'attribute_config14', 'attribute_config15', 'attribute_config16', 'attribute_config17', 'attribute_config18', 'attribute_config19'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Aaa()

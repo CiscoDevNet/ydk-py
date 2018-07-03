@@ -103,22 +103,22 @@ class CISCOATMQOSMIB(Entity):
     .. attribute:: caqvccparamstable
     
     	This table is defined to provide QoS information for each active ATM VC existing on the interface
-    	**type**\:  :py:class:`Caqvccparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvccparamstable>`
+    	**type**\:  :py:class:`CaqVccParamsTable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.CaqVccParamsTable>`
     
     .. attribute:: caqvpcparamstable
     
     	This table is defined to provide QoS information for each active ATM VP existing on the interface
-    	**type**\:  :py:class:`Caqvpcparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvpcparamstable>`
+    	**type**\:  :py:class:`CaqVpcParamsTable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.CaqVpcParamsTable>`
     
     .. attribute:: caqqueuingparamstable
     
     	This table provides queuing related information for a VC existing on an ATM interface
-    	**type**\:  :py:class:`Caqqueuingparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamstable>`
+    	**type**\:  :py:class:`CaqQueuingParamsTable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.CaqQueuingParamsTable>`
     
     .. attribute:: caqqueuingparamsclasstable
     
     	This table provides queuing information for all  queuing classes associating with a VC
-    	**type**\:  :py:class:`Caqqueuingparamsclasstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamsclasstable>`
+    	**type**\:  :py:class:`CaqQueuingParamsClassTable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.CaqQueuingParamsClassTable>`
     
     
 
@@ -136,33 +136,31 @@ class CISCOATMQOSMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("caqVccParamsTable", ("caqvccparamstable", CISCOATMQOSMIB.Caqvccparamstable)), ("caqVpcParamsTable", ("caqvpcparamstable", CISCOATMQOSMIB.Caqvpcparamstable)), ("caqQueuingParamsTable", ("caqqueuingparamstable", CISCOATMQOSMIB.Caqqueuingparamstable)), ("caqQueuingParamsClassTable", ("caqqueuingparamsclasstable", CISCOATMQOSMIB.Caqqueuingparamsclasstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("caqVccParamsTable", ("caqvccparamstable", CISCOATMQOSMIB.CaqVccParamsTable)), ("caqVpcParamsTable", ("caqvpcparamstable", CISCOATMQOSMIB.CaqVpcParamsTable)), ("caqQueuingParamsTable", ("caqqueuingparamstable", CISCOATMQOSMIB.CaqQueuingParamsTable)), ("caqQueuingParamsClassTable", ("caqqueuingparamsclasstable", CISCOATMQOSMIB.CaqQueuingParamsClassTable))])
         self._leafs = OrderedDict()
 
-        self.caqvccparamstable = CISCOATMQOSMIB.Caqvccparamstable()
+        self.caqvccparamstable = CISCOATMQOSMIB.CaqVccParamsTable()
         self.caqvccparamstable.parent = self
         self._children_name_map["caqvccparamstable"] = "caqVccParamsTable"
-        self._children_yang_names.add("caqVccParamsTable")
 
-        self.caqvpcparamstable = CISCOATMQOSMIB.Caqvpcparamstable()
+        self.caqvpcparamstable = CISCOATMQOSMIB.CaqVpcParamsTable()
         self.caqvpcparamstable.parent = self
         self._children_name_map["caqvpcparamstable"] = "caqVpcParamsTable"
-        self._children_yang_names.add("caqVpcParamsTable")
 
-        self.caqqueuingparamstable = CISCOATMQOSMIB.Caqqueuingparamstable()
+        self.caqqueuingparamstable = CISCOATMQOSMIB.CaqQueuingParamsTable()
         self.caqqueuingparamstable.parent = self
         self._children_name_map["caqqueuingparamstable"] = "caqQueuingParamsTable"
-        self._children_yang_names.add("caqQueuingParamsTable")
 
-        self.caqqueuingparamsclasstable = CISCOATMQOSMIB.Caqqueuingparamsclasstable()
+        self.caqqueuingparamsclasstable = CISCOATMQOSMIB.CaqQueuingParamsClassTable()
         self.caqqueuingparamsclasstable.parent = self
         self._children_name_map["caqqueuingparamsclasstable"] = "caqQueuingParamsClassTable"
-        self._children_yang_names.add("caqQueuingParamsClassTable")
         self._segment_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOATMQOSMIB, [], name, value)
 
-    class Caqvccparamstable(Entity):
+
+    class CaqVccParamsTable(Entity):
         """
         This table is defined to provide QoS information for
         each active ATM VC existing on the interface.
@@ -170,7 +168,7 @@ class CISCOATMQOSMIB(Entity):
         .. attribute:: caqvccparamsentry
         
         	This list contains the ATM QoS parameters provided by ciscoAtmQosVccEntry
-        	**type**\: list of  		 :py:class:`Caqvccparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvccparamstable.Caqvccparamsentry>`
+        	**type**\: list of  		 :py:class:`CaqVccParamsEntry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.CaqVccParamsTable.CaqVccParamsEntry>`
         
         
 
@@ -180,15 +178,14 @@ class CISCOATMQOSMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOATMQOSMIB.Caqvccparamstable, self).__init__()
+            super(CISCOATMQOSMIB.CaqVccParamsTable, self).__init__()
 
             self.yang_name = "caqVccParamsTable"
             self.yang_parent_name = "CISCO-ATM-QOS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("caqVccParamsEntry", ("caqvccparamsentry", CISCOATMQOSMIB.Caqvccparamstable.Caqvccparamsentry))])
+            self._child_classes = OrderedDict([("caqVccParamsEntry", ("caqvccparamsentry", CISCOATMQOSMIB.CaqVccParamsTable.CaqVccParamsEntry))])
             self._leafs = OrderedDict()
 
             self.caqvccparamsentry = YList(self)
@@ -196,10 +193,10 @@ class CISCOATMQOSMIB(Entity):
             self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOATMQOSMIB.Caqvccparamstable, [], name, value)
+            self._perform_setattr(CISCOATMQOSMIB.CaqVccParamsTable, [], name, value)
 
 
-        class Caqvccparamsentry(Entity):
+        class CaqVccParamsEntry(Entity):
             """
             This list contains the ATM QoS parameters provided by
             ciscoAtmQosVccEntry.
@@ -211,7 +208,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atmvclvpi  (key)
             
@@ -220,7 +217,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 0..4095
             
-            	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
+            	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
             .. attribute:: atmvclvci  (key)
             
@@ -229,7 +226,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 0..65535
             
-            	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
+            	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
             .. attribute:: caqvccparamstype
             
@@ -429,15 +426,14 @@ class CISCOATMQOSMIB(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CISCOATMQOSMIB.Caqvccparamstable.Caqvccparamsentry, self).__init__()
+                super(CISCOATMQOSMIB.CaqVccParamsTable.CaqVccParamsEntry, self).__init__()
 
                 self.yang_name = "caqVccParamsEntry"
                 self.yang_parent_name = "caqVccParamsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
@@ -506,10 +502,10 @@ class CISCOATMQOSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqVccParamsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOATMQOSMIB.Caqvccparamstable.Caqvccparamsentry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqvccparamstype', 'caqvccparamspcrin0', 'caqvccparamspcrin01', 'caqvccparamspcrout0', 'caqvccparamspcrout01', 'caqvccparamsscrin0', 'caqvccparamsscrin01', 'caqvccparamsscrout0', 'caqvccparamsscrout01', 'caqvccparamsbcsin0', 'caqvccparamsbcsin01', 'caqvccparamsbcsout0', 'caqvccparamsbcsout01', 'caqvccparamsinheritlevel', 'caqvccparamsmcrin', 'caqvccparamsmcrout', 'caqvccparamsinvrdf', 'caqvccparamsinvrif', 'caqvccparamsrfl', 'caqvccparamscdv', 'caqvccparamscdvt', 'caqvccparamsicr', 'caqvccparamstbe', 'caqvccparamsfrtt', 'caqvccparamsnrm', 'caqvccparamsinvtrm', 'caqvccparamsinvcdf', 'caqvccparamsadtf'], name, value)
+                self._perform_setattr(CISCOATMQOSMIB.CaqVccParamsTable.CaqVccParamsEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqvccparamstype', 'caqvccparamspcrin0', 'caqvccparamspcrin01', 'caqvccparamspcrout0', 'caqvccparamspcrout01', 'caqvccparamsscrin0', 'caqvccparamsscrin01', 'caqvccparamsscrout0', 'caqvccparamsscrout01', 'caqvccparamsbcsin0', 'caqvccparamsbcsin01', 'caqvccparamsbcsout0', 'caqvccparamsbcsout01', 'caqvccparamsinheritlevel', 'caqvccparamsmcrin', 'caqvccparamsmcrout', 'caqvccparamsinvrdf', 'caqvccparamsinvrif', 'caqvccparamsrfl', 'caqvccparamscdv', 'caqvccparamscdvt', 'caqvccparamsicr', 'caqvccparamstbe', 'caqvccparamsfrtt', 'caqvccparamsnrm', 'caqvccparamsinvtrm', 'caqvccparamsinvcdf', 'caqvccparamsadtf'], name, value)
 
 
-    class Caqvpcparamstable(Entity):
+    class CaqVpcParamsTable(Entity):
         """
         This table is defined to provide QoS information for
         each active ATM VP existing on the interface.
@@ -517,7 +513,7 @@ class CISCOATMQOSMIB(Entity):
         .. attribute:: caqvpcparamsentry
         
         	This list contains the ATM QoS parameters provided by ciscoAtmQosVpcEntry
-        	**type**\: list of  		 :py:class:`Caqvpcparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvpcparamstable.Caqvpcparamsentry>`
+        	**type**\: list of  		 :py:class:`CaqVpcParamsEntry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.CaqVpcParamsTable.CaqVpcParamsEntry>`
         
         
 
@@ -527,15 +523,14 @@ class CISCOATMQOSMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOATMQOSMIB.Caqvpcparamstable, self).__init__()
+            super(CISCOATMQOSMIB.CaqVpcParamsTable, self).__init__()
 
             self.yang_name = "caqVpcParamsTable"
             self.yang_parent_name = "CISCO-ATM-QOS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("caqVpcParamsEntry", ("caqvpcparamsentry", CISCOATMQOSMIB.Caqvpcparamstable.Caqvpcparamsentry))])
+            self._child_classes = OrderedDict([("caqVpcParamsEntry", ("caqvpcparamsentry", CISCOATMQOSMIB.CaqVpcParamsTable.CaqVpcParamsEntry))])
             self._leafs = OrderedDict()
 
             self.caqvpcparamsentry = YList(self)
@@ -543,10 +538,10 @@ class CISCOATMQOSMIB(Entity):
             self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOATMQOSMIB.Caqvpcparamstable, [], name, value)
+            self._perform_setattr(CISCOATMQOSMIB.CaqVpcParamsTable, [], name, value)
 
 
-        class Caqvpcparamsentry(Entity):
+        class CaqVpcParamsEntry(Entity):
             """
             This list contains the ATM QoS parameters provided by
             ciscoAtmQosVpcEntry.
@@ -558,7 +553,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atmvplvpi  (key)
             
@@ -567,7 +562,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 0..4095
             
-            	**refers to**\:  :py:class:`atmvplvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpltable.Atmvplentry>`
+            	**refers to**\:  :py:class:`atmvplvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVplTable.AtmVplEntry>`
             
             .. attribute:: caqvpcparamsvpstate
             
@@ -645,15 +640,14 @@ class CISCOATMQOSMIB(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CISCOATMQOSMIB.Caqvpcparamstable.Caqvpcparamsentry, self).__init__()
+                super(CISCOATMQOSMIB.CaqVpcParamsTable.CaqVpcParamsEntry, self).__init__()
 
                 self.yang_name = "caqVpcParamsEntry"
                 self.yang_parent_name = "caqVpcParamsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','atmvplvpi']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atmvplvpi', YLeaf(YType.str, 'atmVplVpi')),
@@ -684,10 +678,10 @@ class CISCOATMQOSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqVpcParamsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOATMQOSMIB.Caqvpcparamstable.Caqvpcparamsentry, ['ifindex', 'atmvplvpi', 'caqvpcparamsvpstate', 'caqvpcparamspeakrate', 'caqvpcparamscesrate', 'caqvpcparamsdatavccount', 'caqvpcparamscesvccount', 'caqvpcparamsvcdf4seg', 'caqvpcparamsvcdf4ete', 'caqvpcparamsscr', 'caqvpcparamsmbs', 'caqvpcparamsavailbw'], name, value)
+                self._perform_setattr(CISCOATMQOSMIB.CaqVpcParamsTable.CaqVpcParamsEntry, ['ifindex', 'atmvplvpi', 'caqvpcparamsvpstate', 'caqvpcparamspeakrate', 'caqvpcparamscesrate', 'caqvpcparamsdatavccount', 'caqvpcparamscesvccount', 'caqvpcparamsvcdf4seg', 'caqvpcparamsvcdf4ete', 'caqvpcparamsscr', 'caqvpcparamsmbs', 'caqvpcparamsavailbw'], name, value)
 
 
-    class Caqqueuingparamstable(Entity):
+    class CaqQueuingParamsTable(Entity):
         """
         This table provides queuing related information
         for a VC existing on an ATM interface.
@@ -695,7 +689,7 @@ class CISCOATMQOSMIB(Entity):
         .. attribute:: caqqueuingparamsentry
         
         	This is defined as an entry in caqQueuingParamsTable
-        	**type**\: list of  		 :py:class:`Caqqueuingparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamstable.Caqqueuingparamsentry>`
+        	**type**\: list of  		 :py:class:`CaqQueuingParamsEntry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.CaqQueuingParamsTable.CaqQueuingParamsEntry>`
         
         
 
@@ -705,15 +699,14 @@ class CISCOATMQOSMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOATMQOSMIB.Caqqueuingparamstable, self).__init__()
+            super(CISCOATMQOSMIB.CaqQueuingParamsTable, self).__init__()
 
             self.yang_name = "caqQueuingParamsTable"
             self.yang_parent_name = "CISCO-ATM-QOS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("caqQueuingParamsEntry", ("caqqueuingparamsentry", CISCOATMQOSMIB.Caqqueuingparamstable.Caqqueuingparamsentry))])
+            self._child_classes = OrderedDict([("caqQueuingParamsEntry", ("caqqueuingparamsentry", CISCOATMQOSMIB.CaqQueuingParamsTable.CaqQueuingParamsEntry))])
             self._leafs = OrderedDict()
 
             self.caqqueuingparamsentry = YList(self)
@@ -721,10 +714,10 @@ class CISCOATMQOSMIB(Entity):
             self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOATMQOSMIB.Caqqueuingparamstable, [], name, value)
+            self._perform_setattr(CISCOATMQOSMIB.CaqQueuingParamsTable, [], name, value)
 
 
-        class Caqqueuingparamsentry(Entity):
+        class CaqQueuingParamsEntry(Entity):
             """
             This is defined as an entry in caqQueuingParamsTable.
             
@@ -735,7 +728,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atmvclvpi  (key)
             
@@ -744,7 +737,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 0..4095
             
-            	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
+            	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
             .. attribute:: atmvclvci  (key)
             
@@ -753,7 +746,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 0..65535
             
-            	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
+            	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
             .. attribute:: caqqueuingparamsmeanqdepth
             
@@ -770,15 +763,14 @@ class CISCOATMQOSMIB(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CISCOATMQOSMIB.Caqqueuingparamstable.Caqqueuingparamsentry, self).__init__()
+                super(CISCOATMQOSMIB.CaqQueuingParamsTable.CaqQueuingParamsEntry, self).__init__()
 
                 self.yang_name = "caqQueuingParamsEntry"
                 self.yang_parent_name = "caqQueuingParamsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
@@ -793,10 +785,10 @@ class CISCOATMQOSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqQueuingParamsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOATMQOSMIB.Caqqueuingparamstable.Caqqueuingparamsentry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqqueuingparamsmeanqdepth'], name, value)
+                self._perform_setattr(CISCOATMQOSMIB.CaqQueuingParamsTable.CaqQueuingParamsEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqqueuingparamsmeanqdepth'], name, value)
 
 
-    class Caqqueuingparamsclasstable(Entity):
+    class CaqQueuingParamsClassTable(Entity):
         """
         This table provides queuing information for all 
         queuing classes associating with a VC.
@@ -804,7 +796,7 @@ class CISCOATMQOSMIB(Entity):
         .. attribute:: caqqueuingparamsclassentry
         
         	This is defined as an entry in ciscoAtmQosVcQueuingClassTable to provide queuing information of a specific class
-        	**type**\: list of  		 :py:class:`Caqqueuingparamsclassentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamsclasstable.Caqqueuingparamsclassentry>`
+        	**type**\: list of  		 :py:class:`CaqQueuingParamsClassEntry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.CaqQueuingParamsClassTable.CaqQueuingParamsClassEntry>`
         
         
 
@@ -814,15 +806,14 @@ class CISCOATMQOSMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOATMQOSMIB.Caqqueuingparamsclasstable, self).__init__()
+            super(CISCOATMQOSMIB.CaqQueuingParamsClassTable, self).__init__()
 
             self.yang_name = "caqQueuingParamsClassTable"
             self.yang_parent_name = "CISCO-ATM-QOS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("caqQueuingParamsClassEntry", ("caqqueuingparamsclassentry", CISCOATMQOSMIB.Caqqueuingparamsclasstable.Caqqueuingparamsclassentry))])
+            self._child_classes = OrderedDict([("caqQueuingParamsClassEntry", ("caqqueuingparamsclassentry", CISCOATMQOSMIB.CaqQueuingParamsClassTable.CaqQueuingParamsClassEntry))])
             self._leafs = OrderedDict()
 
             self.caqqueuingparamsclassentry = YList(self)
@@ -830,10 +821,10 @@ class CISCOATMQOSMIB(Entity):
             self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOATMQOSMIB.Caqqueuingparamsclasstable, [], name, value)
+            self._perform_setattr(CISCOATMQOSMIB.CaqQueuingParamsClassTable, [], name, value)
 
 
-        class Caqqueuingparamsclassentry(Entity):
+        class CaqQueuingParamsClassEntry(Entity):
             """
             This is defined as an entry in ciscoAtmQosVcQueuingClassTable
             to provide queuing information of a specific class.
@@ -845,7 +836,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atmvclvpi  (key)
             
@@ -854,7 +845,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 0..4095
             
-            	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
+            	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
             .. attribute:: atmvclvci  (key)
             
@@ -863,7 +854,7 @@ class CISCOATMQOSMIB(Entity):
             
             	**range:** 0..65535
             
-            	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
+            	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
             .. attribute:: caqqueuingparamsclassindex  (key)
             
@@ -915,15 +906,14 @@ class CISCOATMQOSMIB(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CISCOATMQOSMIB.Caqqueuingparamsclasstable.Caqqueuingparamsclassentry, self).__init__()
+                super(CISCOATMQOSMIB.CaqQueuingParamsClassTable.CaqQueuingParamsClassEntry, self).__init__()
 
                 self.yang_name = "caqQueuingParamsClassEntry"
                 self.yang_parent_name = "caqQueuingParamsClassTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci','caqqueuingparamsclassindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
@@ -948,7 +938,7 @@ class CISCOATMQOSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqQueuingParamsClassTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOATMQOSMIB.Caqqueuingparamsclasstable.Caqqueuingparamsclassentry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqqueuingparamsclassindex', 'caqqueuingparamsclassranddrp', 'caqqueuingparamsclasstaildrp', 'caqqueuingparamsclassminthre', 'caqqueuingparamsclassmaxthre', 'caqqueuingparamsclassmrkprob'], name, value)
+                self._perform_setattr(CISCOATMQOSMIB.CaqQueuingParamsClassTable.CaqQueuingParamsClassEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqqueuingparamsclassindex', 'caqqueuingparamsclassranddrp', 'caqqueuingparamsclasstaildrp', 'caqqueuingparamsclassminthre', 'caqqueuingparamsclassmaxthre', 'caqqueuingparamsclassmrkprob'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOATMQOSMIB()

@@ -45,15 +45,16 @@ class Controller(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dpa", ("dpa", Controller.Dpa))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dpa", ("dpa", Controller.Dpa))])
         self._leafs = OrderedDict()
 
         self.dpa = Controller.Dpa()
         self.dpa.parent = self
         self._children_name_map["dpa"] = "dpa"
-        self._children_yang_names.add("dpa")
         self._segment_path = lambda: "Cisco-IOS-XR-fia-internal-tcam-oper:controller"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Controller, [], name, value)
 
 
     class Dpa(Entity):
@@ -80,16 +81,17 @@ class Controller(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("nodes", ("nodes", Controller.Dpa.Nodes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("nodes", ("nodes", Controller.Dpa.Nodes))])
             self._leafs = OrderedDict()
 
             self.nodes = Controller.Dpa.Nodes()
             self.nodes.parent = self
             self._children_name_map["nodes"] = "nodes"
-            self._children_yang_names.add("nodes")
             self._segment_path = lambda: "dpa"
             self._absolute_path = lambda: "Cisco-IOS-XR-fia-internal-tcam-oper:controller/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Controller.Dpa, [], name, value)
 
 
         class Nodes(Entity):
@@ -116,8 +118,7 @@ class Controller(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("node", ("node", Controller.Dpa.Nodes.Node))])
+                self._child_classes = OrderedDict([("node", ("node", Controller.Dpa.Nodes.Node))])
                 self._leafs = OrderedDict()
 
                 self.node = YList(self)
@@ -164,8 +165,7 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['node_name']
-                    self._child_container_classes = OrderedDict([("external-tcam-resources", ("external_tcam_resources", Controller.Dpa.Nodes.Node.ExternalTcamResources)), ("internal-tcam-resources", ("internal_tcam_resources", Controller.Dpa.Nodes.Node.InternalTcamResources))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("external-tcam-resources", ("external_tcam_resources", Controller.Dpa.Nodes.Node.ExternalTcamResources)), ("internal-tcam-resources", ("internal_tcam_resources", Controller.Dpa.Nodes.Node.InternalTcamResources))])
                     self._leafs = OrderedDict([
                         ('node_name', YLeaf(YType.str, 'node-name')),
                     ])
@@ -174,12 +174,10 @@ class Controller(Entity):
                     self.external_tcam_resources = Controller.Dpa.Nodes.Node.ExternalTcamResources()
                     self.external_tcam_resources.parent = self
                     self._children_name_map["external_tcam_resources"] = "external-tcam-resources"
-                    self._children_yang_names.add("external-tcam-resources")
 
                     self.internal_tcam_resources = Controller.Dpa.Nodes.Node.InternalTcamResources()
                     self.internal_tcam_resources.parent = self
                     self._children_name_map["internal_tcam_resources"] = "internal-tcam-resources"
-                    self._children_yang_names.add("internal-tcam-resources")
                     self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-fia-internal-tcam-oper:controller/dpa/nodes/%s" % self._segment_path()
 
@@ -211,8 +209,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("npu-tcam", ("npu_tcam", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam))])
+                        self._child_classes = OrderedDict([("npu-tcam", ("npu_tcam", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam))])
                         self._leafs = OrderedDict()
 
                         self.npu_tcam = YList(self)
@@ -253,8 +250,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("tcam-bank", ("tcam_bank", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank))])
+                            self._child_classes = OrderedDict([("tcam-bank", ("tcam_bank", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank))])
                             self._leafs = OrderedDict([
                                 ('npu_id', YLeaf(YType.uint32, 'npu-id')),
                             ])
@@ -327,8 +323,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("bank-db", ("bank_db", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb))])
+                                self._child_classes = OrderedDict([("bank-db", ("bank_db", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb))])
                                 self._leafs = OrderedDict([
                                     ('bank_id', YLeaf(YType.str, 'bank-id')),
                                     ('bank_key_size', YLeaf(YType.str, 'bank-key-size')),
@@ -389,8 +384,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('db_id', YLeaf(YType.uint32, 'db-id')),
                                         ('db_inuse_entries', YLeaf(YType.uint32, 'db-inuse-entries')),
@@ -429,8 +423,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("npu-tcam", ("npu_tcam", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam))])
+                        self._child_classes = OrderedDict([("npu-tcam", ("npu_tcam", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam))])
                         self._leafs = OrderedDict()
 
                         self.npu_tcam = YList(self)
@@ -471,8 +464,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("tcam-bank", ("tcam_bank", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank))])
+                            self._child_classes = OrderedDict([("tcam-bank", ("tcam_bank", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank))])
                             self._leafs = OrderedDict([
                                 ('npu_id', YLeaf(YType.uint32, 'npu-id')),
                             ])
@@ -545,8 +537,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("bank-db", ("bank_db", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb))])
+                                self._child_classes = OrderedDict([("bank-db", ("bank_db", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb))])
                                 self._leafs = OrderedDict([
                                     ('bank_id', YLeaf(YType.str, 'bank-id')),
                                     ('bank_key_size', YLeaf(YType.str, 'bank-key-size')),
@@ -607,8 +598,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('db_id', YLeaf(YType.uint32, 'db-id')),
                                         ('db_inuse_entries', YLeaf(YType.uint32, 'db-inuse-entries')),

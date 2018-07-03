@@ -207,10 +207,14 @@ class Exception(Entity):
     	Preference of the dump location
     	**type**\:  :py:class:`Choice1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice1>`
     
+    	**presence node**\: True
+    
     .. attribute:: choice3
     
     	Preference of the dump location
     	**type**\:  :py:class:`Choice3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice3>`
+    
+    	**presence node**\: True
     
     .. attribute:: process_names
     
@@ -221,6 +225,8 @@ class Exception(Entity):
     
     	Preference of the dump location
     	**type**\:  :py:class:`Choice2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice2>`
+    
+    	**presence node**\: True
     
     .. attribute:: sparse
     
@@ -281,8 +287,7 @@ class Exception(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("choice1", ("choice1", Exception.Choice1)), ("choice3", ("choice3", Exception.Choice3)), ("process-names", ("process_names", Exception.ProcessNames)), ("choice2", ("choice2", Exception.Choice2))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("choice1", ("choice1", Exception.Choice1)), ("choice3", ("choice3", Exception.Choice3)), ("process-names", ("process_names", Exception.ProcessNames)), ("choice2", ("choice2", Exception.Choice2))])
         self._leafs = OrderedDict([
             ('sparse', YLeaf(YType.boolean, 'sparse')),
             ('core_verification', YLeaf(YType.boolean, 'core-verification')),
@@ -300,25 +305,18 @@ class Exception(Entity):
         self.sparse_size = None
         self.memory_threshold = None
 
-        self.choice1 = Exception.Choice1()
-        self.choice1.parent = self
+        self.choice1 = None
         self._children_name_map["choice1"] = "choice1"
-        self._children_yang_names.add("choice1")
 
-        self.choice3 = Exception.Choice3()
-        self.choice3.parent = self
+        self.choice3 = None
         self._children_name_map["choice3"] = "choice3"
-        self._children_yang_names.add("choice3")
 
         self.process_names = Exception.ProcessNames()
         self.process_names.parent = self
         self._children_name_map["process_names"] = "process-names"
-        self._children_yang_names.add("process-names")
 
-        self.choice2 = Exception.Choice2()
-        self.choice2.parent = self
+        self.choice2 = None
         self._children_name_map["choice2"] = "choice2"
-        self._children_yang_names.add("choice2")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-dumper-cfg:exception"
 
     def __setattr__(self, name, value):
@@ -360,6 +358,8 @@ class Exception(Entity):
         
         
 
+        This class is a :ref:`presence class<presence-class>`
+
         """
 
         _prefix = 'infra-dumper-cfg'
@@ -373,8 +373,8 @@ class Exception(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
+            self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('compress', YLeaf(YType.boolean, 'compress')),
                 ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
@@ -429,6 +429,8 @@ class Exception(Entity):
         
         
 
+        This class is a :ref:`presence class<presence-class>`
+
         """
 
         _prefix = 'infra-dumper-cfg'
@@ -442,8 +444,8 @@ class Exception(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
+            self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('compress', YLeaf(YType.boolean, 'compress')),
                 ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
@@ -487,8 +489,7 @@ class Exception(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("process-name", ("process_name", Exception.ProcessNames.ProcessName))])
+            self._child_classes = OrderedDict([("process-name", ("process_name", Exception.ProcessNames.ProcessName))])
             self._leafs = OrderedDict()
 
             self.process_name = YList(self)
@@ -530,8 +531,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['processname']
-                self._child_container_classes = OrderedDict([("core-option", ("core_option", Exception.ProcessNames.ProcessName.CoreOption))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("core-option", ("core_option", Exception.ProcessNames.ProcessName.CoreOption))])
                 self._leafs = OrderedDict([
                     ('processname', YLeaf(YType.str, 'processname')),
                 ])
@@ -540,7 +540,6 @@ class Exception(Entity):
                 self.core_option = Exception.ProcessNames.ProcessName.CoreOption()
                 self.core_option.parent = self
                 self._children_name_map["core_option"] = "core-option"
-                self._children_yang_names.add("core-option")
                 self._segment_path = lambda: "process-name" + "[processname='" + str(self.processname) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-cfg:exception/process-names/%s" % self._segment_path()
 
@@ -623,8 +622,7 @@ class Exception(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('main_memoryval', YLeaf(YType.enumeration, 'main-memoryval')),
                         ('shared_memoryval', YLeaf(YType.enumeration, 'shared-memoryval')),
@@ -684,6 +682,8 @@ class Exception(Entity):
         
         
 
+        This class is a :ref:`presence class<presence-class>`
+
         """
 
         _prefix = 'infra-dumper-cfg'
@@ -697,8 +697,8 @@ class Exception(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
+            self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('compress', YLeaf(YType.boolean, 'compress')),
                 ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),

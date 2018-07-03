@@ -563,30 +563,28 @@ class Lmp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("global-status", ("global_status", Lmp.GlobalStatus)), ("clients", ("clients", Lmp.Clients)), ("gmpls-uni", ("gmpls_uni", Lmp.GmplsUni)), ("component-link-ids", ("component_link_ids", Lmp.ComponentLinkIds))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("global-status", ("global_status", Lmp.GlobalStatus)), ("clients", ("clients", Lmp.Clients)), ("gmpls-uni", ("gmpls_uni", Lmp.GmplsUni)), ("component-link-ids", ("component_link_ids", Lmp.ComponentLinkIds))])
         self._leafs = OrderedDict()
 
         self.global_status = Lmp.GlobalStatus()
         self.global_status.parent = self
         self._children_name_map["global_status"] = "global-status"
-        self._children_yang_names.add("global-status")
 
         self.clients = Lmp.Clients()
         self.clients.parent = self
         self._children_name_map["clients"] = "clients"
-        self._children_yang_names.add("clients")
 
         self.gmpls_uni = Lmp.GmplsUni()
         self.gmpls_uni.parent = self
         self._children_name_map["gmpls_uni"] = "gmpls-uni"
-        self._children_yang_names.add("gmpls-uni")
 
         self.component_link_ids = Lmp.ComponentLinkIds()
         self.component_link_ids.parent = self
         self._children_name_map["component_link_ids"] = "component-link-ids"
-        self._children_yang_names.add("component-link-ids")
         self._segment_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Lmp, [], name, value)
 
 
     class GlobalStatus(Entity):
@@ -648,8 +646,7 @@ class Lmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("local-ouni-lmp-node-id", ("local_ouni_lmp_node_id", Lmp.GlobalStatus.LocalOuniLmpNodeId)), ("local-mpls-te-lmp-node-id", ("local_mpls_te_lmp_node_id", Lmp.GlobalStatus.LocalMplsTeLmpNodeId)), ("local-gmpls-uni-lmp-node-id", ("local_gmpls_uni_lmp_node_id", Lmp.GlobalStatus.LocalGmplsUniLmpNodeId))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("local-ouni-lmp-node-id", ("local_ouni_lmp_node_id", Lmp.GlobalStatus.LocalOuniLmpNodeId)), ("local-mpls-te-lmp-node-id", ("local_mpls_te_lmp_node_id", Lmp.GlobalStatus.LocalMplsTeLmpNodeId)), ("local-gmpls-uni-lmp-node-id", ("local_gmpls_uni_lmp_node_id", Lmp.GlobalStatus.LocalGmplsUniLmpNodeId))])
             self._leafs = OrderedDict([
                 ('local_ouni_lmp_node_id_interface', YLeaf(YType.str, 'local-ouni-lmp-node-id-interface')),
                 ('local_ouni_lmp_node_id_type', YLeaf(YType.enumeration, 'local-ouni-lmp-node-id-type')),
@@ -666,22 +663,19 @@ class Lmp(Entity):
             self.local_ouni_lmp_node_id = Lmp.GlobalStatus.LocalOuniLmpNodeId()
             self.local_ouni_lmp_node_id.parent = self
             self._children_name_map["local_ouni_lmp_node_id"] = "local-ouni-lmp-node-id"
-            self._children_yang_names.add("local-ouni-lmp-node-id")
 
             self.local_mpls_te_lmp_node_id = Lmp.GlobalStatus.LocalMplsTeLmpNodeId()
             self.local_mpls_te_lmp_node_id.parent = self
             self._children_name_map["local_mpls_te_lmp_node_id"] = "local-mpls-te-lmp-node-id"
-            self._children_yang_names.add("local-mpls-te-lmp-node-id")
 
             self.local_gmpls_uni_lmp_node_id = Lmp.GlobalStatus.LocalGmplsUniLmpNodeId()
             self.local_gmpls_uni_lmp_node_id.parent = self
             self._children_name_map["local_gmpls_uni_lmp_node_id"] = "local-gmpls-uni-lmp-node-id"
-            self._children_yang_names.add("local-gmpls-uni-lmp-node-id")
             self._segment_path = lambda: "global-status"
             self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Lmp.GlobalStatus, ['local_ouni_lmp_node_id_interface', 'local_ouni_lmp_node_id_type', 'is_ouni_config_exist', 'is_gmpls_nni_config_exist', 'is_gmpls_uni_config_exist'], name, value)
+            self._perform_setattr(Lmp.GlobalStatus, [u'local_ouni_lmp_node_id_interface', u'local_ouni_lmp_node_id_type', u'is_ouni_config_exist', u'is_gmpls_nni_config_exist', u'is_gmpls_uni_config_exist'], name, value)
 
 
         class LocalOuniLmpNodeId(Entity):
@@ -708,16 +702,17 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("address", ("address", Lmp.GlobalStatus.LocalOuniLmpNodeId.Address))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("address", ("address", Lmp.GlobalStatus.LocalOuniLmpNodeId.Address))])
                 self._leafs = OrderedDict()
 
                 self.address = Lmp.GlobalStatus.LocalOuniLmpNodeId.Address()
                 self.address.parent = self
                 self._children_name_map["address"] = "address"
-                self._children_yang_names.add("address")
                 self._segment_path = lambda: "local-ouni-lmp-node-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId, [], name, value)
 
 
             class Address(Entity):
@@ -765,8 +760,7 @@ class Lmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address_type', YLeaf(YType.enumeration, 'address-type')),
                         ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -781,7 +775,7 @@ class Lmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/local-ouni-lmp-node-id/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
         class LocalMplsTeLmpNodeId(Entity):
@@ -808,16 +802,17 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("address", ("address", Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("address", ("address", Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address))])
                 self._leafs = OrderedDict()
 
                 self.address = Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address()
                 self.address.parent = self
                 self._children_name_map["address"] = "address"
-                self._children_yang_names.add("address")
                 self._segment_path = lambda: "local-mpls-te-lmp-node-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId, [], name, value)
 
 
             class Address(Entity):
@@ -865,8 +860,7 @@ class Lmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address_type', YLeaf(YType.enumeration, 'address-type')),
                         ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -881,7 +875,7 @@ class Lmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/local-mpls-te-lmp-node-id/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
         class LocalGmplsUniLmpNodeId(Entity):
@@ -908,16 +902,17 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("address", ("address", Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("address", ("address", Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address))])
                 self._leafs = OrderedDict()
 
                 self.address = Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address()
                 self.address.parent = self
                 self._children_name_map["address"] = "address"
-                self._children_yang_names.add("address")
                 self._segment_path = lambda: "local-gmpls-uni-lmp-node-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId, [], name, value)
 
 
             class Address(Entity):
@@ -965,8 +960,7 @@ class Lmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address_type', YLeaf(YType.enumeration, 'address-type')),
                         ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -981,7 +975,7 @@ class Lmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/local-gmpls-uni-lmp-node-id/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
     class Clients(Entity):
@@ -1008,8 +1002,7 @@ class Lmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("client", ("client", Lmp.Clients.Client))])
+            self._child_classes = OrderedDict([("client", ("client", Lmp.Clients.Client))])
             self._leafs = OrderedDict()
 
             self.client = YList(self)
@@ -1056,8 +1049,7 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['client_name']
-                self._child_container_classes = OrderedDict([("connected-time", ("connected_time", Lmp.Clients.Client.ConnectedTime))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("connected-time", ("connected_time", Lmp.Clients.Client.ConnectedTime))])
                 self._leafs = OrderedDict([
                     ('client_name', YLeaf(YType.str, 'client-name')),
                     ('node_name', YLeaf(YType.str, 'node-name')),
@@ -1068,12 +1060,11 @@ class Lmp(Entity):
                 self.connected_time = Lmp.Clients.Client.ConnectedTime()
                 self.connected_time.parent = self
                 self._children_name_map["connected_time"] = "connected-time"
-                self._children_yang_names.add("connected-time")
                 self._segment_path = lambda: "client" + "[client-name='" + str(self.client_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/clients/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lmp.Clients.Client, ['client_name', 'node_name'], name, value)
+                self._perform_setattr(Lmp.Clients.Client, ['client_name', u'node_name'], name, value)
 
 
             class ConnectedTime(Entity):
@@ -1102,8 +1093,7 @@ class Lmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('time_connected', YLeaf(YType.uint32, 'time-connected')),
                     ])
@@ -1111,7 +1101,7 @@ class Lmp(Entity):
                     self._segment_path = lambda: "connected-time"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.Clients.Client.ConnectedTime, ['time_connected'], name, value)
+                    self._perform_setattr(Lmp.Clients.Client.ConnectedTime, [u'time_connected'], name, value)
 
 
     class GmplsUni(Entity):
@@ -1143,21 +1133,21 @@ class Lmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("te-links", ("te_links", Lmp.GmplsUni.TeLinks)), ("neighbors", ("neighbors", Lmp.GmplsUni.Neighbors))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("te-links", ("te_links", Lmp.GmplsUni.TeLinks)), ("neighbors", ("neighbors", Lmp.GmplsUni.Neighbors))])
             self._leafs = OrderedDict()
 
             self.te_links = Lmp.GmplsUni.TeLinks()
             self.te_links.parent = self
             self._children_name_map["te_links"] = "te-links"
-            self._children_yang_names.add("te-links")
 
             self.neighbors = Lmp.GmplsUni.Neighbors()
             self.neighbors.parent = self
             self._children_name_map["neighbors"] = "neighbors"
-            self._children_yang_names.add("neighbors")
             self._segment_path = lambda: "gmpls-uni"
             self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Lmp.GmplsUni, [], name, value)
 
 
         class TeLinks(Entity):
@@ -1184,8 +1174,7 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("te-link", ("te_link", Lmp.GmplsUni.TeLinks.TeLink))])
+                self._child_classes = OrderedDict([("te-link", ("te_link", Lmp.GmplsUni.TeLinks.TeLink))])
                 self._leafs = OrderedDict()
 
                 self.te_link = YList(self)
@@ -1379,8 +1368,7 @@ class Lmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['controller_name']
-                    self._child_container_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId)), ("remote-link-id", ("remote_link_id", Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId)), ("local-te-link-id", ("local_te_link_id", Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId)), ("remote-te-link-id", ("remote_te_link_id", Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId)), ("neighbor-address", ("neighbor_address", Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress)), ("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId)), ("remote-link-id", ("remote_link_id", Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId)), ("local-te-link-id", ("local_te_link_id", Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId)), ("remote-te-link-id", ("remote_te_link_id", Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId)), ("neighbor-address", ("neighbor_address", Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress)), ("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress))])
                     self._leafs = OrderedDict([
                         ('controller_name', YLeaf(YType.str, 'controller-name')),
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -1431,37 +1419,31 @@ class Lmp(Entity):
                     self.local_link_id = Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId()
                     self.local_link_id.parent = self
                     self._children_name_map["local_link_id"] = "local-link-id"
-                    self._children_yang_names.add("local-link-id")
 
                     self.remote_link_id = Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId()
                     self.remote_link_id.parent = self
                     self._children_name_map["remote_link_id"] = "remote-link-id"
-                    self._children_yang_names.add("remote-link-id")
 
                     self.local_te_link_id = Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId()
                     self.local_te_link_id.parent = self
                     self._children_name_map["local_te_link_id"] = "local-te-link-id"
-                    self._children_yang_names.add("local-te-link-id")
 
                     self.remote_te_link_id = Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId()
                     self.remote_te_link_id.parent = self
                     self._children_name_map["remote_te_link_id"] = "remote-te-link-id"
-                    self._children_yang_names.add("remote-te-link-id")
 
                     self.neighbor_address = Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress()
                     self.neighbor_address.parent = self
                     self._children_name_map["neighbor_address"] = "neighbor-address"
-                    self._children_yang_names.add("neighbor-address")
 
                     self.remote_ipcc_address = Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress()
                     self.remote_ipcc_address.parent = self
                     self._children_name_map["remote_ipcc_address"] = "remote-ipcc-address"
-                    self._children_yang_names.add("remote-ipcc-address")
                     self._segment_path = lambda: "te-link" + "[controller-name='" + str(self.controller_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/gmpls-uni/te-links/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink, ['controller_name', 'interface_name', 'protocol_owner', 'neighbor_name', 'ipcc_id', 'ipc_ctype', 'ipcc_name', 'local_mux_cap', 'remote_mux_cap', 'im_state', 'lmp_state', 'te_link_lmp_state', 'gmpls_te_link_local_minimum_bandwidth', 'gmpls_te_link_local_maximum_bandwidth', 'gmpls_te_link_neighbor_minimum_bandwidth', 'gmpls_te_link_neighbor_maximum_bandwidth', 'gmpls_te_link_local_encoding_type', 'gmpls_te_link_neighbor_encoding_type', 'is_lmp_enabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_comp_link_status'], name, value)
+                    self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink, ['controller_name', u'interface_name', u'protocol_owner', u'neighbor_name', u'ipcc_id', u'ipc_ctype', u'ipcc_name', u'local_mux_cap', u'remote_mux_cap', u'im_state', u'lmp_state', u'te_link_lmp_state', u'gmpls_te_link_local_minimum_bandwidth', u'gmpls_te_link_local_maximum_bandwidth', u'gmpls_te_link_neighbor_minimum_bandwidth', u'gmpls_te_link_neighbor_maximum_bandwidth', u'gmpls_te_link_local_encoding_type', u'gmpls_te_link_neighbor_encoding_type', u'is_lmp_enabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_comp_link_status'], name, value)
 
 
                 class LocalLinkId(Entity):
@@ -1488,15 +1470,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "local-link-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId, [], name, value)
 
 
                     class Address(Entity):
@@ -1544,8 +1527,7 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1559,7 +1541,7 @@ class Lmp(Entity):
                             self._segment_path = lambda: "address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                 class RemoteLinkId(Entity):
@@ -1586,15 +1568,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "remote-link-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId, [], name, value)
 
 
                     class Address(Entity):
@@ -1642,8 +1625,7 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1657,7 +1639,7 @@ class Lmp(Entity):
                             self._segment_path = lambda: "address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                 class LocalTeLinkId(Entity):
@@ -1684,15 +1666,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "local-te-link-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId, [], name, value)
 
 
                     class Address(Entity):
@@ -1740,8 +1723,7 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1755,7 +1737,7 @@ class Lmp(Entity):
                             self._segment_path = lambda: "address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                 class RemoteTeLinkId(Entity):
@@ -1782,15 +1764,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "remote-te-link-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId, [], name, value)
 
 
                     class Address(Entity):
@@ -1838,8 +1821,7 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1853,7 +1835,7 @@ class Lmp(Entity):
                             self._segment_path = lambda: "address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                 class NeighborAddress(Entity):
@@ -1880,15 +1862,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "neighbor-address"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress, [], name, value)
 
 
                     class Address(Entity):
@@ -1936,8 +1919,7 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1951,7 +1933,7 @@ class Lmp(Entity):
                             self._segment_path = lambda: "address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                 class RemoteIpccAddress(Entity):
@@ -1978,15 +1960,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "remote-ipcc-address"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress, [], name, value)
 
 
                     class Address(Entity):
@@ -2034,8 +2017,7 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2049,7 +2031,7 @@ class Lmp(Entity):
                             self._segment_path = lambda: "address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
         class Neighbors(Entity):
@@ -2076,8 +2058,7 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Lmp.GmplsUni.Neighbors.Neighbor))])
+                self._child_classes = OrderedDict([("neighbor", ("neighbor", Lmp.GmplsUni.Neighbors.Neighbor))])
                 self._leafs = OrderedDict()
 
                 self.neighbor = YList(self)
@@ -2179,8 +2160,7 @@ class Lmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['neighbor_name']
-                    self._child_container_classes = OrderedDict([("neighbor-address", ("neighbor_address", Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress))])
-                    self._child_list_classes = OrderedDict([("te-link", ("te_link", Lmp.GmplsUni.Neighbors.Neighbor.TeLink)), ("ipcc", ("ipcc", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc))])
+                    self._child_classes = OrderedDict([("neighbor-address", ("neighbor_address", Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress)), ("te-link", ("te_link", Lmp.GmplsUni.Neighbors.Neighbor.TeLink)), ("ipcc", ("ipcc", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc))])
                     self._leafs = OrderedDict([
                         ('neighbor_name', YLeaf(YType.str, 'neighbor-name')),
                         ('protocol_owner', YLeaf(YType.enumeration, 'protocol-owner')),
@@ -2205,7 +2185,6 @@ class Lmp(Entity):
                     self.neighbor_address = Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress()
                     self.neighbor_address.parent = self
                     self._children_name_map["neighbor_address"] = "neighbor-address"
-                    self._children_yang_names.add("neighbor-address")
 
                     self.te_link = YList(self)
                     self.ipcc = YList(self)
@@ -2213,7 +2192,7 @@ class Lmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/gmpls-uni/neighbors/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor, ['neighbor_name', 'protocol_owner', 'ipcc_id', 'is_lmp_enabled', 'is_lmp_config_disabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_link_sum_transmit_packets', 'lmp_link_sum_receive_packets'], name, value)
+                    self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor, ['neighbor_name', u'protocol_owner', u'ipcc_id', u'is_lmp_enabled', u'is_lmp_config_disabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_link_sum_transmit_packets', u'lmp_link_sum_receive_packets'], name, value)
 
 
                 class NeighborAddress(Entity):
@@ -2240,15 +2219,16 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "neighbor-address"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress, [], name, value)
 
 
                     class Address(Entity):
@@ -2296,8 +2276,7 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2311,7 +2290,7 @@ class Lmp(Entity):
                             self._segment_path = lambda: "address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                 class TeLink(Entity):
@@ -2490,8 +2469,7 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId)), ("remote-link-id", ("remote_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId)), ("local-te-link-id", ("local_te_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId)), ("remote-te-link-id", ("remote_te_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId)), ("neighbor-address", ("neighbor_address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress)), ("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId)), ("remote-link-id", ("remote_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId)), ("local-te-link-id", ("local_te_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId)), ("remote-te-link-id", ("remote_te_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId)), ("neighbor-address", ("neighbor_address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress)), ("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('protocol_owner', YLeaf(YType.enumeration, 'protocol-owner')),
@@ -2540,36 +2518,30 @@ class Lmp(Entity):
                         self.local_link_id = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId()
                         self.local_link_id.parent = self
                         self._children_name_map["local_link_id"] = "local-link-id"
-                        self._children_yang_names.add("local-link-id")
 
                         self.remote_link_id = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId()
                         self.remote_link_id.parent = self
                         self._children_name_map["remote_link_id"] = "remote-link-id"
-                        self._children_yang_names.add("remote-link-id")
 
                         self.local_te_link_id = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId()
                         self.local_te_link_id.parent = self
                         self._children_name_map["local_te_link_id"] = "local-te-link-id"
-                        self._children_yang_names.add("local-te-link-id")
 
                         self.remote_te_link_id = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId()
                         self.remote_te_link_id.parent = self
                         self._children_name_map["remote_te_link_id"] = "remote-te-link-id"
-                        self._children_yang_names.add("remote-te-link-id")
 
                         self.neighbor_address = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress()
                         self.neighbor_address.parent = self
                         self._children_name_map["neighbor_address"] = "neighbor-address"
-                        self._children_yang_names.add("neighbor-address")
 
                         self.remote_ipcc_address = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress()
                         self.remote_ipcc_address.parent = self
                         self._children_name_map["remote_ipcc_address"] = "remote-ipcc-address"
-                        self._children_yang_names.add("remote-ipcc-address")
                         self._segment_path = lambda: "te-link"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, ['interface_name', 'protocol_owner', 'neighbor_name', 'ipcc_id', 'ipc_ctype', 'ipcc_name', 'local_mux_cap', 'remote_mux_cap', 'im_state', 'lmp_state', 'te_link_lmp_state', 'gmpls_te_link_local_minimum_bandwidth', 'gmpls_te_link_local_maximum_bandwidth', 'gmpls_te_link_neighbor_minimum_bandwidth', 'gmpls_te_link_neighbor_maximum_bandwidth', 'gmpls_te_link_local_encoding_type', 'gmpls_te_link_neighbor_encoding_type', 'is_lmp_enabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_comp_link_status'], name, value)
+                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, [u'interface_name', u'protocol_owner', u'neighbor_name', u'ipcc_id', u'ipc_ctype', u'ipcc_name', u'local_mux_cap', u'remote_mux_cap', u'im_state', u'lmp_state', u'te_link_lmp_state', u'gmpls_te_link_local_minimum_bandwidth', u'gmpls_te_link_local_maximum_bandwidth', u'gmpls_te_link_neighbor_minimum_bandwidth', u'gmpls_te_link_neighbor_maximum_bandwidth', u'gmpls_te_link_local_encoding_type', u'gmpls_te_link_neighbor_encoding_type', u'is_lmp_enabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_comp_link_status'], name, value)
 
 
                     class LocalLinkId(Entity):
@@ -2596,15 +2568,16 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "local-link-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId, [], name, value)
 
 
                         class Address(Entity):
@@ -2652,8 +2625,7 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2667,7 +2639,7 @@ class Lmp(Entity):
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                     class RemoteLinkId(Entity):
@@ -2694,15 +2666,16 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "remote-link-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId, [], name, value)
 
 
                         class Address(Entity):
@@ -2750,8 +2723,7 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2765,7 +2737,7 @@ class Lmp(Entity):
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                     class LocalTeLinkId(Entity):
@@ -2792,15 +2764,16 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "local-te-link-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId, [], name, value)
 
 
                         class Address(Entity):
@@ -2848,8 +2821,7 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2863,7 +2835,7 @@ class Lmp(Entity):
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                     class RemoteTeLinkId(Entity):
@@ -2890,15 +2862,16 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "remote-te-link-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId, [], name, value)
 
 
                         class Address(Entity):
@@ -2946,8 +2919,7 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2961,7 +2933,7 @@ class Lmp(Entity):
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                     class NeighborAddress(Entity):
@@ -2988,15 +2960,16 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "neighbor-address"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress, [], name, value)
 
 
                         class Address(Entity):
@@ -3044,8 +3017,7 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3059,7 +3031,7 @@ class Lmp(Entity):
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                     class RemoteIpccAddress(Entity):
@@ -3086,15 +3058,16 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "remote-ipcc-address"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress, [], name, value)
 
 
                         class Address(Entity):
@@ -3142,8 +3115,7 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3157,7 +3129,7 @@ class Lmp(Entity):
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                 class Ipcc(Entity):
@@ -3314,8 +3286,7 @@ class Lmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress)), ("source-ip-cc-address", ("source_ip_cc_address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress)), ("source-ip-cc-address", ("source_ip_cc_address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress))])
                         self._leafs = OrderedDict([
                             ('ipcc_id', YLeaf(YType.uint32, 'ipcc-id')),
                             ('ipc_ctype', YLeaf(YType.enumeration, 'ipc-ctype')),
@@ -3360,16 +3331,14 @@ class Lmp(Entity):
                         self.remote_ipcc_address = Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress()
                         self.remote_ipcc_address.parent = self
                         self._children_name_map["remote_ipcc_address"] = "remote-ipcc-address"
-                        self._children_yang_names.add("remote-ipcc-address")
 
                         self.source_ip_cc_address = Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress()
                         self.source_ip_cc_address.parent = self
                         self._children_name_map["source_ip_cc_address"] = "source-ip-cc-address"
-                        self._children_yang_names.add("source-ip-cc-address")
                         self._segment_path = lambda: "ipcc"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, ['ipcc_id', 'ipc_ctype', 'interface_name', 'neighbor_name', 'ipcc_state', 'lmp_hello_interval', 'lmp_hello_interval_minimum', 'lmp_hello_interval_maximum', 'lmp_hello_dead_interval', 'lmp_hello_dead_interval_minimum', 'lmp_hello_dead_interval_maximum', 'lmp_hello_transmit_packets', 'lmp_hello_receive_packets', 'lmp_hello_transmit_packet_sequence_number', 'lmp_hello_receive_packet_sequence_number', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_link_sum_transmit_packets', 'lmp_link_sum_receive_packets'], name, value)
+                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, [u'ipcc_id', u'ipc_ctype', u'interface_name', u'neighbor_name', u'ipcc_state', u'lmp_hello_interval', u'lmp_hello_interval_minimum', u'lmp_hello_interval_maximum', u'lmp_hello_dead_interval', u'lmp_hello_dead_interval_minimum', u'lmp_hello_dead_interval_maximum', u'lmp_hello_transmit_packets', u'lmp_hello_receive_packets', u'lmp_hello_transmit_packet_sequence_number', u'lmp_hello_receive_packet_sequence_number', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_link_sum_transmit_packets', u'lmp_link_sum_receive_packets'], name, value)
 
 
                     class RemoteIpccAddress(Entity):
@@ -3396,15 +3365,16 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "remote-ipcc-address"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress, [], name, value)
 
 
                         class Address(Entity):
@@ -3452,8 +3422,7 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3467,7 +3436,7 @@ class Lmp(Entity):
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
                     class SourceIpCcAddress(Entity):
@@ -3494,15 +3463,16 @@ class Lmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "source-ip-cc-address"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress, [], name, value)
 
 
                         class Address(Entity):
@@ -3550,8 +3520,7 @@ class Lmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address_type', YLeaf(YType.enumeration, 'address-type')),
                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3565,7 +3534,7 @@ class Lmp(Entity):
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
 
 
     class ComponentLinkIds(Entity):
@@ -3592,8 +3561,7 @@ class Lmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("component-link-id", ("component_link_id", Lmp.ComponentLinkIds.ComponentLinkId))])
+            self._child_classes = OrderedDict([("component-link-id", ("component_link_id", Lmp.ComponentLinkIds.ComponentLinkId))])
             self._leafs = OrderedDict()
 
             self.component_link_id = YList(self)
@@ -3638,8 +3606,7 @@ class Lmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['controller_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('controller_name', YLeaf(YType.str, 'controller-name')),
                     ('component_interface_id', YLeaf(YType.uint32, 'component-interface-id')),
@@ -3650,7 +3617,7 @@ class Lmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/component-link-ids/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lmp.ComponentLinkIds.ComponentLinkId, ['controller_name', 'component_interface_id'], name, value)
+                self._perform_setattr(Lmp.ComponentLinkIds.ComponentLinkId, ['controller_name', u'component_interface_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Lmp()

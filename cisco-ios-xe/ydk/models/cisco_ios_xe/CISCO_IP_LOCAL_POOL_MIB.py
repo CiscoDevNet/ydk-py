@@ -45,32 +45,32 @@ class CISCOIPLOCALPOOLMIB(Entity):
     .. attribute:: ciplocalpoolconfig
     
     	
-    	**type**\:  :py:class:`Ciplocalpoolconfig <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig>`
+    	**type**\:  :py:class:`CIpLocalPoolConfig <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolConfig>`
     
     .. attribute:: ciplocalpoolconfigtable
     
     	This table manages the creation, modification, and deletion of IP local pools using the RowStatus textual convention.  An entry in this table defines an IP address range that is associated with an IP local pool.  A conceptual row in this table can not be modified while cIpLocalPoolRowStatus is set to 'active'.  Since IP local pool names are unique even when they belong to different groups, and addresses within a group can not overlap, a row in this table is uniquely indexed by the pool name, and by the low address of the IP local pool together with its address type
-    	**type**\:  :py:class:`Ciplocalpoolconfigtable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable>`
+    	**type**\:  :py:class:`CIpLocalPoolConfigTable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable>`
     
     .. attribute:: ciplocalpoolgroupcontainstable
     
     	A table which exposes the container/'containee' relationships between local IP pools and IP pool groups.  Entries in this table are created or deleted as a by\-product of creating or deleting entries in the cIpLocalPoolConfigTable.  When an entry is created and activated in the cIpLocalPoolConfigTable table, an entry in this table will come into existence if it does not already exist.  When an entry is deleted in the cIpLocalPoolConfigTable table, if there is no other entry existing in that table with the same cIpLocalPoolGroupContainedIn and cIpLocalPoolName, the entry in this table with the respective cIpLocalPoolGroupName and cIpLocalPoolName indices will be removed
-    	**type**\:  :py:class:`Ciplocalpoolgroupcontainstable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable>`
+    	**type**\:  :py:class:`CIpLocalPoolGroupContainsTable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable>`
     
     .. attribute:: ciplocalpoolgrouptable
     
     	This table provides statistics for configured IP pool groups.  Entries in this table are created as the result of adding a new IP pool group to the cIpLocalPoolConfigTable.  Entries in this table are deleted as the result of removing all IP local pools that are contained in an IP pool group in the cIpLocalPoolConfigTable.  An entry in this table is uniquely indexed by IP pool group name
-    	**type**\:  :py:class:`Ciplocalpoolgrouptable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable>`
+    	**type**\:  :py:class:`CIpLocalPoolGroupTable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable>`
     
     .. attribute:: ciplocalpoolstatstable
     
     	A table providing statistics for each IP local pool.  Entries in this table are created as the result of adding a new IP local pool to the cIpLocalPoolConfigTable.  Entries in this table are deleted as the result of removing all the address ranges that are contained in an IP local pool in the cIpLocalPoolConfigTable.  Entries in this table are uniquely indexed by the name of the IP local pool
-    	**type**\:  :py:class:`Ciplocalpoolstatstable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable>`
+    	**type**\:  :py:class:`CIpLocalPoolStatsTable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable>`
     
     .. attribute:: ciplocalpoolalloctable
     
     	This table lists all addresses that have been allocated out of an IP local pool.  Entries in this table are created when a remote peer allocates an address from one of the IP local pools in the cIpLocalPoolConfigTable.  Entries in this table are deleted when a remote peer deallocates an address from one of the IP local pool in the cIpLocalPoolConfigTable.  Entries in this table are uniquely indexed by the name of the IP local pool, and the allocated address, together with its address type
-    	**type**\:  :py:class:`Ciplocalpoolalloctable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable>`
+    	**type**\:  :py:class:`CIpLocalPoolAllocTable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable>`
     
     
 
@@ -88,43 +88,39 @@ class CISCOIPLOCALPOOLMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cIpLocalPoolConfig", ("ciplocalpoolconfig", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig)), ("cIpLocalPoolConfigTable", ("ciplocalpoolconfigtable", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable)), ("cIpLocalPoolGroupContainsTable", ("ciplocalpoolgroupcontainstable", CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable)), ("cIpLocalPoolGroupTable", ("ciplocalpoolgrouptable", CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable)), ("cIpLocalPoolStatsTable", ("ciplocalpoolstatstable", CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable)), ("cIpLocalPoolAllocTable", ("ciplocalpoolalloctable", CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cIpLocalPoolConfig", ("ciplocalpoolconfig", CISCOIPLOCALPOOLMIB.CIpLocalPoolConfig)), ("cIpLocalPoolConfigTable", ("ciplocalpoolconfigtable", CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable)), ("cIpLocalPoolGroupContainsTable", ("ciplocalpoolgroupcontainstable", CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable)), ("cIpLocalPoolGroupTable", ("ciplocalpoolgrouptable", CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable)), ("cIpLocalPoolStatsTable", ("ciplocalpoolstatstable", CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable)), ("cIpLocalPoolAllocTable", ("ciplocalpoolalloctable", CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable))])
         self._leafs = OrderedDict()
 
-        self.ciplocalpoolconfig = CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig()
+        self.ciplocalpoolconfig = CISCOIPLOCALPOOLMIB.CIpLocalPoolConfig()
         self.ciplocalpoolconfig.parent = self
         self._children_name_map["ciplocalpoolconfig"] = "cIpLocalPoolConfig"
-        self._children_yang_names.add("cIpLocalPoolConfig")
 
-        self.ciplocalpoolconfigtable = CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable()
+        self.ciplocalpoolconfigtable = CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable()
         self.ciplocalpoolconfigtable.parent = self
         self._children_name_map["ciplocalpoolconfigtable"] = "cIpLocalPoolConfigTable"
-        self._children_yang_names.add("cIpLocalPoolConfigTable")
 
-        self.ciplocalpoolgroupcontainstable = CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable()
+        self.ciplocalpoolgroupcontainstable = CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable()
         self.ciplocalpoolgroupcontainstable.parent = self
         self._children_name_map["ciplocalpoolgroupcontainstable"] = "cIpLocalPoolGroupContainsTable"
-        self._children_yang_names.add("cIpLocalPoolGroupContainsTable")
 
-        self.ciplocalpoolgrouptable = CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable()
+        self.ciplocalpoolgrouptable = CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable()
         self.ciplocalpoolgrouptable.parent = self
         self._children_name_map["ciplocalpoolgrouptable"] = "cIpLocalPoolGroupTable"
-        self._children_yang_names.add("cIpLocalPoolGroupTable")
 
-        self.ciplocalpoolstatstable = CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable()
+        self.ciplocalpoolstatstable = CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable()
         self.ciplocalpoolstatstable.parent = self
         self._children_name_map["ciplocalpoolstatstable"] = "cIpLocalPoolStatsTable"
-        self._children_yang_names.add("cIpLocalPoolStatsTable")
 
-        self.ciplocalpoolalloctable = CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable()
+        self.ciplocalpoolalloctable = CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable()
         self.ciplocalpoolalloctable.parent = self
         self._children_name_map["ciplocalpoolalloctable"] = "cIpLocalPoolAllocTable"
-        self._children_yang_names.add("cIpLocalPoolAllocTable")
         self._segment_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPLOCALPOOLMIB, [], name, value)
 
-    class Ciplocalpoolconfig(Entity):
+
+    class CIpLocalPoolConfig(Entity):
         """
         
         
@@ -141,15 +137,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
         _revision = '2007-11-12'
 
         def __init__(self):
-            super(CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig, self).__init__()
+            super(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfig, self).__init__()
 
             self.yang_name = "cIpLocalPoolConfig"
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ciplocalpoolnotificationsenable', YLeaf(YType.boolean, 'cIpLocalPoolNotificationsEnable')),
             ])
@@ -158,10 +153,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig, ['ciplocalpoolnotificationsenable'], name, value)
+            self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfig, ['ciplocalpoolnotificationsenable'], name, value)
 
 
-    class Ciplocalpoolconfigtable(Entity):
+    class CIpLocalPoolConfigTable(Entity):
         """
         This table manages the creation, modification, and deletion
         of IP local pools using the RowStatus textual convention.  An
@@ -180,7 +175,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolconfigentry
         
         	Each entry provides information about a particular IP local pool, including the number of free and used addresses and its priority
-        	**type**\: list of  		 :py:class:`Ciplocalpoolconfigentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry>`
+        	**type**\: list of  		 :py:class:`CIpLocalPoolConfigEntry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable.CIpLocalPoolConfigEntry>`
         
         
 
@@ -190,15 +185,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
         _revision = '2007-11-12'
 
         def __init__(self):
-            super(CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable, self).__init__()
+            super(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable, self).__init__()
 
             self.yang_name = "cIpLocalPoolConfigTable"
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cIpLocalPoolConfigEntry", ("ciplocalpoolconfigentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry))])
+            self._child_classes = OrderedDict([("cIpLocalPoolConfigEntry", ("ciplocalpoolconfigentry", CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable.CIpLocalPoolConfigEntry))])
             self._leafs = OrderedDict()
 
             self.ciplocalpoolconfigentry = YList(self)
@@ -206,10 +200,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable, [], name, value)
+            self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable, [], name, value)
 
 
-        class Ciplocalpoolconfigentry(Entity):
+        class CIpLocalPoolConfigEntry(Entity):
             """
             Each entry provides information about a particular IP local
             pool, including the number of free and used addresses and its priority.
@@ -281,15 +275,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
             _revision = '2007-11-12'
 
             def __init__(self):
-                super(CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry, self).__init__()
+                super(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable.CIpLocalPoolConfigEntry, self).__init__()
 
                 self.yang_name = "cIpLocalPoolConfigEntry"
                 self.yang_parent_name = "cIpLocalPoolConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciplocalpoolname','ciplocalpooladdrtype','ciplocalpooladdresslo']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
                     ('ciplocalpooladdrtype', YLeaf(YType.enumeration, 'cIpLocalPoolAddrType')),
@@ -314,10 +307,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry, ['ciplocalpoolname', 'ciplocalpooladdrtype', 'ciplocalpooladdresslo', 'ciplocalpooladdresshi', 'ciplocalpoolfreeaddrs', 'ciplocalpoolinuseaddrs', 'ciplocalpoolgroupcontainedin', 'ciplocalpoolrowstatus', 'ciplocalpoolpriority'], name, value)
+                self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable.CIpLocalPoolConfigEntry, ['ciplocalpoolname', 'ciplocalpooladdrtype', 'ciplocalpooladdresslo', 'ciplocalpooladdresshi', 'ciplocalpoolfreeaddrs', 'ciplocalpoolinuseaddrs', 'ciplocalpoolgroupcontainedin', 'ciplocalpoolrowstatus', 'ciplocalpoolpriority'], name, value)
 
 
-    class Ciplocalpoolgroupcontainstable(Entity):
+    class CIpLocalPoolGroupContainsTable(Entity):
         """
         A table which exposes the container/'containee' relationships
         between local IP pools and IP pool groups.
@@ -338,7 +331,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolgroupcontainsentry
         
         	Each entry describes single container/'containee' relationship.  Pool names can only be associated with one group.  Pools carry implicit group identifiers because pool names can only be associated with one group.  An entry in this table describes such an association
-        	**type**\: list of  		 :py:class:`Ciplocalpoolgroupcontainsentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry>`
+        	**type**\: list of  		 :py:class:`CIpLocalPoolGroupContainsEntry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable.CIpLocalPoolGroupContainsEntry>`
         
         
 
@@ -348,15 +341,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
         _revision = '2007-11-12'
 
         def __init__(self):
-            super(CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable, self).__init__()
+            super(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable, self).__init__()
 
             self.yang_name = "cIpLocalPoolGroupContainsTable"
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cIpLocalPoolGroupContainsEntry", ("ciplocalpoolgroupcontainsentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry))])
+            self._child_classes = OrderedDict([("cIpLocalPoolGroupContainsEntry", ("ciplocalpoolgroupcontainsentry", CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable.CIpLocalPoolGroupContainsEntry))])
             self._leafs = OrderedDict()
 
             self.ciplocalpoolgroupcontainsentry = YList(self)
@@ -364,10 +356,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable, [], name, value)
+            self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable, [], name, value)
 
 
-        class Ciplocalpoolgroupcontainsentry(Entity):
+        class CIpLocalPoolGroupContainsEntry(Entity):
             """
             Each entry describes single container/'containee'
             relationship.
@@ -399,15 +391,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
             _revision = '2007-11-12'
 
             def __init__(self):
-                super(CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry, self).__init__()
+                super(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable.CIpLocalPoolGroupContainsEntry, self).__init__()
 
                 self.yang_name = "cIpLocalPoolGroupContainsEntry"
                 self.yang_parent_name = "cIpLocalPoolGroupContainsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciplocalpoolgroupname','ciplocalpoolchildindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciplocalpoolgroupname', YLeaf(YType.str, 'cIpLocalPoolGroupName')),
                     ('ciplocalpoolchildindex', YLeaf(YType.str, 'cIpLocalPoolChildIndex')),
@@ -418,10 +409,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupContainsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry, ['ciplocalpoolgroupname', 'ciplocalpoolchildindex'], name, value)
+                self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable.CIpLocalPoolGroupContainsEntry, ['ciplocalpoolgroupname', 'ciplocalpoolchildindex'], name, value)
 
 
-    class Ciplocalpoolgrouptable(Entity):
+    class CIpLocalPoolGroupTable(Entity):
         """
         This table provides statistics for configured IP pool groups.
         
@@ -438,7 +429,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolgroupentry
         
         	Each entry provides information about a particular IP pool group and the number of free and used addresses in an IP pool group
-        	**type**\: list of  		 :py:class:`Ciplocalpoolgroupentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry>`
+        	**type**\: list of  		 :py:class:`CIpLocalPoolGroupEntry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable.CIpLocalPoolGroupEntry>`
         
         
 
@@ -448,15 +439,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
         _revision = '2007-11-12'
 
         def __init__(self):
-            super(CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable, self).__init__()
+            super(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable, self).__init__()
 
             self.yang_name = "cIpLocalPoolGroupTable"
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cIpLocalPoolGroupEntry", ("ciplocalpoolgroupentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry))])
+            self._child_classes = OrderedDict([("cIpLocalPoolGroupEntry", ("ciplocalpoolgroupentry", CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable.CIpLocalPoolGroupEntry))])
             self._leafs = OrderedDict()
 
             self.ciplocalpoolgroupentry = YList(self)
@@ -464,10 +454,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable, [], name, value)
+            self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable, [], name, value)
 
 
-        class Ciplocalpoolgroupentry(Entity):
+        class CIpLocalPoolGroupEntry(Entity):
             """
             Each entry provides information about a particular IP pool
             group and the number of free and used addresses in an IP pool
@@ -480,7 +470,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             
             	**length:** 0..48
             
-            	**refers to**\:  :py:class:`ciplocalpoolgroupname <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry>`
+            	**refers to**\:  :py:class:`ciplocalpoolgroupname <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable.CIpLocalPoolGroupContainsEntry>`
             
             .. attribute:: ciplocalpoolgroupfreeaddrs
             
@@ -504,15 +494,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
             _revision = '2007-11-12'
 
             def __init__(self):
-                super(CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry, self).__init__()
+                super(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable.CIpLocalPoolGroupEntry, self).__init__()
 
                 self.yang_name = "cIpLocalPoolGroupEntry"
                 self.yang_parent_name = "cIpLocalPoolGroupTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciplocalpoolgroupname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciplocalpoolgroupname', YLeaf(YType.str, 'cIpLocalPoolGroupName')),
                     ('ciplocalpoolgroupfreeaddrs', YLeaf(YType.uint32, 'cIpLocalPoolGroupFreeAddrs')),
@@ -525,10 +514,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry, ['ciplocalpoolgroupname', 'ciplocalpoolgroupfreeaddrs', 'ciplocalpoolgroupinuseaddrs'], name, value)
+                self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable.CIpLocalPoolGroupEntry, ['ciplocalpoolgroupname', 'ciplocalpoolgroupfreeaddrs', 'ciplocalpoolgroupinuseaddrs'], name, value)
 
 
-    class Ciplocalpoolstatstable(Entity):
+    class CIpLocalPoolStatsTable(Entity):
         """
         A table providing statistics for each IP local pool.
         
@@ -545,7 +534,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolstatsentry
         
         	Each entry provides statistical information about a particular IP local pool, and the total number of free and used addresses of all the ranges in an IP local pool
-        	**type**\: list of  		 :py:class:`Ciplocalpoolstatsentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable.Ciplocalpoolstatsentry>`
+        	**type**\: list of  		 :py:class:`CIpLocalPoolStatsEntry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable.CIpLocalPoolStatsEntry>`
         
         
 
@@ -555,15 +544,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
         _revision = '2007-11-12'
 
         def __init__(self):
-            super(CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable, self).__init__()
+            super(CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable, self).__init__()
 
             self.yang_name = "cIpLocalPoolStatsTable"
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cIpLocalPoolStatsEntry", ("ciplocalpoolstatsentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable.Ciplocalpoolstatsentry))])
+            self._child_classes = OrderedDict([("cIpLocalPoolStatsEntry", ("ciplocalpoolstatsentry", CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable.CIpLocalPoolStatsEntry))])
             self._leafs = OrderedDict()
 
             self.ciplocalpoolstatsentry = YList(self)
@@ -571,10 +559,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable, [], name, value)
+            self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable, [], name, value)
 
 
-        class Ciplocalpoolstatsentry(Entity):
+        class CIpLocalPoolStatsEntry(Entity):
             """
             Each entry provides statistical information about a particular
             IP local pool, and the total number of free and used addresses
@@ -587,7 +575,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             
             	**length:** 1..48
             
-            	**refers to**\:  :py:class:`ciplocalpoolname <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry>`
+            	**refers to**\:  :py:class:`ciplocalpoolname <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable.CIpLocalPoolConfigEntry>`
             
             .. attribute:: ciplocalpoolstatfreeaddrs
             
@@ -646,15 +634,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
             _revision = '2007-11-12'
 
             def __init__(self):
-                super(CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable.Ciplocalpoolstatsentry, self).__init__()
+                super(CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable.CIpLocalPoolStatsEntry, self).__init__()
 
                 self.yang_name = "cIpLocalPoolStatsEntry"
                 self.yang_parent_name = "cIpLocalPoolStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciplocalpoolname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
                     ('ciplocalpoolstatfreeaddrs', YLeaf(YType.uint32, 'cIpLocalPoolStatFreeAddrs')),
@@ -677,10 +664,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable.Ciplocalpoolstatsentry, ['ciplocalpoolname', 'ciplocalpoolstatfreeaddrs', 'ciplocalpoolstatinuseaddrs', 'ciplocalpoolstathiwaterusedaddrs', 'ciplocalpoolstatinuseaddrthldlo', 'ciplocalpoolstatinuseaddrthldhi', 'ciplocalpoolpercentaddrthldlo', 'ciplocalpoolpercentaddrthldhi'], name, value)
+                self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable.CIpLocalPoolStatsEntry, ['ciplocalpoolname', 'ciplocalpoolstatfreeaddrs', 'ciplocalpoolstatinuseaddrs', 'ciplocalpoolstathiwaterusedaddrs', 'ciplocalpoolstatinuseaddrthldlo', 'ciplocalpoolstatinuseaddrthldhi', 'ciplocalpoolpercentaddrthldlo', 'ciplocalpoolpercentaddrthldhi'], name, value)
 
 
-    class Ciplocalpoolalloctable(Entity):
+    class CIpLocalPoolAllocTable(Entity):
         """
         This table lists all addresses that have been allocated out of
         an IP local pool.
@@ -700,7 +687,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolallocentry
         
         	Each entry refers to conceptual row that associates an IP addresses with the interface where the request was received, and the user that requested the address
-        	**type**\: list of  		 :py:class:`Ciplocalpoolallocentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable.Ciplocalpoolallocentry>`
+        	**type**\: list of  		 :py:class:`CIpLocalPoolAllocEntry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable.CIpLocalPoolAllocEntry>`
         
         
 
@@ -710,15 +697,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
         _revision = '2007-11-12'
 
         def __init__(self):
-            super(CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable, self).__init__()
+            super(CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable, self).__init__()
 
             self.yang_name = "cIpLocalPoolAllocTable"
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cIpLocalPoolAllocEntry", ("ciplocalpoolallocentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable.Ciplocalpoolallocentry))])
+            self._child_classes = OrderedDict([("cIpLocalPoolAllocEntry", ("ciplocalpoolallocentry", CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable.CIpLocalPoolAllocEntry))])
             self._leafs = OrderedDict()
 
             self.ciplocalpoolallocentry = YList(self)
@@ -726,10 +712,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable, [], name, value)
+            self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable, [], name, value)
 
 
-        class Ciplocalpoolallocentry(Entity):
+        class CIpLocalPoolAllocEntry(Entity):
             """
             Each entry refers to conceptual row that associates an IP
             addresses with the interface where the request was received, and
@@ -742,7 +728,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             
             	**length:** 1..48
             
-            	**refers to**\:  :py:class:`ciplocalpoolname <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry>`
+            	**refers to**\:  :py:class:`ciplocalpoolname <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable.CIpLocalPoolConfigEntry>`
             
             .. attribute:: ciplocalpoolallocaddrtype  (key)
             
@@ -776,15 +762,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
             _revision = '2007-11-12'
 
             def __init__(self):
-                super(CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable.Ciplocalpoolallocentry, self).__init__()
+                super(CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable.CIpLocalPoolAllocEntry, self).__init__()
 
                 self.yang_name = "cIpLocalPoolAllocEntry"
                 self.yang_parent_name = "cIpLocalPoolAllocTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciplocalpoolname','ciplocalpoolallocaddrtype','ciplocalpoolallocaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
                     ('ciplocalpoolallocaddrtype', YLeaf(YType.enumeration, 'cIpLocalPoolAllocAddrType')),
@@ -801,7 +786,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolAllocTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable.Ciplocalpoolallocentry, ['ciplocalpoolname', 'ciplocalpoolallocaddrtype', 'ciplocalpoolallocaddr', 'ciplocalpoolallocifindex', 'ciplocalpoolallocuser'], name, value)
+                self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable.CIpLocalPoolAllocEntry, ['ciplocalpoolname', 'ciplocalpoolallocaddrtype', 'ciplocalpoolallocaddr', 'ciplocalpoolallocifindex', 'ciplocalpoolallocuser'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPLOCALPOOLMIB()

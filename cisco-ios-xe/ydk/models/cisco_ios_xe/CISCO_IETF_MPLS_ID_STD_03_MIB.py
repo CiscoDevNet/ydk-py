@@ -25,7 +25,7 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
     .. attribute:: cmplsidobjects
     
     	
-    	**type**\:  :py:class:`Cmplsidobjects <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_ID_STD_03_MIB.CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects>`
+    	**type**\:  :py:class:`CmplsIdObjects <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_ID_STD_03_MIB.CISCOIETFMPLSIDSTD03MIB.CmplsIdObjects>`
     
     
 
@@ -43,18 +43,19 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cmplsIdObjects", ("cmplsidobjects", CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cmplsIdObjects", ("cmplsidobjects", CISCOIETFMPLSIDSTD03MIB.CmplsIdObjects))])
         self._leafs = OrderedDict()
 
-        self.cmplsidobjects = CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects()
+        self.cmplsidobjects = CISCOIETFMPLSIDSTD03MIB.CmplsIdObjects()
         self.cmplsidobjects.parent = self
         self._children_name_map["cmplsidobjects"] = "cmplsIdObjects"
-        self._children_yang_names.add("cmplsIdObjects")
         self._segment_path = lambda: "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIETFMPLSIDSTD03MIB, [], name, value)
 
-    class Cmplsidobjects(Entity):
+
+    class CmplsIdObjects(Entity):
         """
         
         
@@ -87,15 +88,14 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         _revision = '2012-06-07'
 
         def __init__(self):
-            super(CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects, self).__init__()
+            super(CISCOIETFMPLSIDSTD03MIB.CmplsIdObjects, self).__init__()
 
             self.yang_name = "cmplsIdObjects"
             self.yang_parent_name = "CISCO-IETF-MPLS-ID-STD-03-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cmplsglobalid', YLeaf(YType.str, 'cmplsGlobalId')),
                 ('cmplsicc', YLeaf(YType.str, 'cmplsIcc')),
@@ -108,7 +108,7 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects, ['cmplsglobalid', 'cmplsicc', 'cmplsnodeid'], name, value)
+            self._perform_setattr(CISCOIETFMPLSIDSTD03MIB.CmplsIdObjects, ['cmplsglobalid', 'cmplsicc', 'cmplsnodeid'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIETFMPLSIDSTD03MIB()

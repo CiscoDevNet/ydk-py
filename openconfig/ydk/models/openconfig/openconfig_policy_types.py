@@ -114,51 +114,6 @@ class INSTALLPROTOCOLTYPE(Identity):
         super(INSTALLPROTOCOLTYPE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:INSTALL_PROTOCOL_TYPE")
 
 
-class ATTRIBUTEEQ(Identity):
-    """
-    == comparison
-    
-    
-
-    """
-
-    _prefix = 'oc-pol-types'
-    _revision = '2016-05-12'
-
-    def __init__(self):
-        super(ATTRIBUTEEQ, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_EQ")
-
-
-class ATTRIBUTEGE(Identity):
-    """
-    >= comparison
-    
-    
-
-    """
-
-    _prefix = 'oc-pol-types'
-    _revision = '2016-05-12'
-
-    def __init__(self):
-        super(ATTRIBUTEGE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_GE")
-
-
-class ATTRIBUTELE(Identity):
-    """
-    <= comparison
-    
-    
-
-    """
-
-    _prefix = 'oc-pol-types'
-    _revision = '2016-05-12'
-
-    def __init__(self):
-        super(ATTRIBUTELE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_LE")
-
-
 class BGP(Identity):
     """
     BGP
@@ -189,6 +144,96 @@ class ISIS(Identity):
         super(ISIS, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ISIS")
 
 
+class ATTRIBUTEGE(Identity):
+    """
+    >= comparison
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(ATTRIBUTEGE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_GE")
+
+
+class LOCALAGGREGATE(Identity):
+    """
+    Locally defined aggregate route
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(LOCALAGGREGATE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:LOCAL_AGGREGATE")
+
+
+class STATIC(Identity):
+    """
+    Locally\-installed static route
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(STATIC, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:STATIC")
+
+
+class ATTRIBUTEEQ(Identity):
+    """
+    == comparison
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(ATTRIBUTEEQ, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_EQ")
+
+
+class DIRECTLYCONNECTED(Identity):
+    """
+    A directly connected route
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(DIRECTLYCONNECTED, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:DIRECTLY_CONNECTED")
+
+
+class ATTRIBUTELE(Identity):
+    """
+    <= comparison
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(ATTRIBUTELE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_LE")
+
+
 class OSPF(Identity):
     """
     OSPFv2
@@ -217,50 +262,5 @@ class OSPF3(Identity):
 
     def __init__(self):
         super(OSPF3, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:OSPF3")
-
-
-class STATIC(Identity):
-    """
-    Locally\-installed static route
-    
-    
-
-    """
-
-    _prefix = 'oc-pol-types'
-    _revision = '2016-05-12'
-
-    def __init__(self):
-        super(STATIC, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:STATIC")
-
-
-class DIRECTLYCONNECTED(Identity):
-    """
-    A directly connected route
-    
-    
-
-    """
-
-    _prefix = 'oc-pol-types'
-    _revision = '2016-05-12'
-
-    def __init__(self):
-        super(DIRECTLYCONNECTED, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:DIRECTLY_CONNECTED")
-
-
-class LOCALAGGREGATE(Identity):
-    """
-    Locally defined aggregate route
-    
-    
-
-    """
-
-    _prefix = 'oc-pol-types'
-    _revision = '2016-05-12'
-
-    def __init__(self):
-        super(LOCALAGGREGATE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:LOCAL_AGGREGATE")
 
 

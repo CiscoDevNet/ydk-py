@@ -659,32 +659,32 @@ class CISCONETSYNCMIB(Entity):
     .. attribute:: cisconetsyncmibnotifcontrol
     
     	
-    	**type**\:  :py:class:`Cisconetsyncmibnotifcontrol <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol>`
+    	**type**\:  :py:class:`CiscoNetsyncMIBNotifControl <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CiscoNetsyncMIBNotifControl>`
     
     .. attribute:: cnsclkselglobaltable
     
     	G.781 clock selection process table. This table contains the global parameters for the G.781 clock selection process
-    	**type**\:  :py:class:`Cnsclkselglobaltable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsclkselglobaltable>`
+    	**type**\:  :py:class:`CnsClkSelGlobalTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsClkSelGlobalTable>`
     
     .. attribute:: cnsselectedinputsourcetable
     
     	T0 selected clock source table. This table contains the selected clock source for the input T0 clock
-    	**type**\:  :py:class:`Cnsselectedinputsourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsselectedinputsourcetable>`
+    	**type**\:  :py:class:`CnsSelectedInputSourceTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsSelectedInputSourceTable>`
     
     .. attribute:: cnsinputsourcetable
     
     	T0 clock source table. This table contains a list of input sources for input T0 clock selection
-    	**type**\:  :py:class:`Cnsinputsourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsinputsourcetable>`
+    	**type**\:  :py:class:`CnsInputSourceTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsInputSourceTable>`
     
     .. attribute:: cnsextoutputtable
     
     	T4 external output table. This table contains a list of T4 external outputs.  Each T4 external output is associated with clock source(s) to be found in cnsT4ClockSourceTable. The clock selection process considers all the available clock sources and select the T4 clock source based on the G.781 clock selection algorithm
-    	**type**\:  :py:class:`Cnsextoutputtable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsextoutputtable>`
+    	**type**\:  :py:class:`CnsExtOutputTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsExtOutputTable>`
     
     .. attribute:: cnst4clocksourcetable
     
     	T4 clock source table. This table contains a list of input sources for a specific T4 external output. An entry shall be added to cnsExtOutputTable first. Then clock sources shall be added in this table for the selection process to select the appropriate T4 clock source
-    	**type**\:  :py:class:`Cnst4Clocksourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnst4Clocksourcetable>`
+    	**type**\:  :py:class:`CnsT4ClockSourceTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsT4ClockSourceTable>`
     
     
 
@@ -702,43 +702,39 @@ class CISCONETSYNCMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoNetsyncMIBNotifControl", ("cisconetsyncmibnotifcontrol", CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol)), ("cnsClkSelGlobalTable", ("cnsclkselglobaltable", CISCONETSYNCMIB.Cnsclkselglobaltable)), ("cnsSelectedInputSourceTable", ("cnsselectedinputsourcetable", CISCONETSYNCMIB.Cnsselectedinputsourcetable)), ("cnsInputSourceTable", ("cnsinputsourcetable", CISCONETSYNCMIB.Cnsinputsourcetable)), ("cnsExtOutputTable", ("cnsextoutputtable", CISCONETSYNCMIB.Cnsextoutputtable)), ("cnsT4ClockSourceTable", ("cnst4clocksourcetable", CISCONETSYNCMIB.Cnst4Clocksourcetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoNetsyncMIBNotifControl", ("cisconetsyncmibnotifcontrol", CISCONETSYNCMIB.CiscoNetsyncMIBNotifControl)), ("cnsClkSelGlobalTable", ("cnsclkselglobaltable", CISCONETSYNCMIB.CnsClkSelGlobalTable)), ("cnsSelectedInputSourceTable", ("cnsselectedinputsourcetable", CISCONETSYNCMIB.CnsSelectedInputSourceTable)), ("cnsInputSourceTable", ("cnsinputsourcetable", CISCONETSYNCMIB.CnsInputSourceTable)), ("cnsExtOutputTable", ("cnsextoutputtable", CISCONETSYNCMIB.CnsExtOutputTable)), ("cnsT4ClockSourceTable", ("cnst4clocksourcetable", CISCONETSYNCMIB.CnsT4ClockSourceTable))])
         self._leafs = OrderedDict()
 
-        self.cisconetsyncmibnotifcontrol = CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol()
+        self.cisconetsyncmibnotifcontrol = CISCONETSYNCMIB.CiscoNetsyncMIBNotifControl()
         self.cisconetsyncmibnotifcontrol.parent = self
         self._children_name_map["cisconetsyncmibnotifcontrol"] = "ciscoNetsyncMIBNotifControl"
-        self._children_yang_names.add("ciscoNetsyncMIBNotifControl")
 
-        self.cnsclkselglobaltable = CISCONETSYNCMIB.Cnsclkselglobaltable()
+        self.cnsclkselglobaltable = CISCONETSYNCMIB.CnsClkSelGlobalTable()
         self.cnsclkselglobaltable.parent = self
         self._children_name_map["cnsclkselglobaltable"] = "cnsClkSelGlobalTable"
-        self._children_yang_names.add("cnsClkSelGlobalTable")
 
-        self.cnsselectedinputsourcetable = CISCONETSYNCMIB.Cnsselectedinputsourcetable()
+        self.cnsselectedinputsourcetable = CISCONETSYNCMIB.CnsSelectedInputSourceTable()
         self.cnsselectedinputsourcetable.parent = self
         self._children_name_map["cnsselectedinputsourcetable"] = "cnsSelectedInputSourceTable"
-        self._children_yang_names.add("cnsSelectedInputSourceTable")
 
-        self.cnsinputsourcetable = CISCONETSYNCMIB.Cnsinputsourcetable()
+        self.cnsinputsourcetable = CISCONETSYNCMIB.CnsInputSourceTable()
         self.cnsinputsourcetable.parent = self
         self._children_name_map["cnsinputsourcetable"] = "cnsInputSourceTable"
-        self._children_yang_names.add("cnsInputSourceTable")
 
-        self.cnsextoutputtable = CISCONETSYNCMIB.Cnsextoutputtable()
+        self.cnsextoutputtable = CISCONETSYNCMIB.CnsExtOutputTable()
         self.cnsextoutputtable.parent = self
         self._children_name_map["cnsextoutputtable"] = "cnsExtOutputTable"
-        self._children_yang_names.add("cnsExtOutputTable")
 
-        self.cnst4clocksourcetable = CISCONETSYNCMIB.Cnst4Clocksourcetable()
+        self.cnst4clocksourcetable = CISCONETSYNCMIB.CnsT4ClockSourceTable()
         self.cnst4clocksourcetable.parent = self
         self._children_name_map["cnst4clocksourcetable"] = "cnsT4ClockSourceTable"
-        self._children_yang_names.add("cnsT4ClockSourceTable")
         self._segment_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCONETSYNCMIB, [], name, value)
 
-    class Cisconetsyncmibnotifcontrol(Entity):
+
+    class CiscoNetsyncMIBNotifControl(Entity):
         """
         
         
@@ -755,15 +751,14 @@ class CISCONETSYNCMIB(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol, self).__init__()
+            super(CISCONETSYNCMIB.CiscoNetsyncMIBNotifControl, self).__init__()
 
             self.yang_name = "ciscoNetsyncMIBNotifControl"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cnsmibenablestatusnotification', YLeaf(YType.boolean, 'cnsMIBEnableStatusNotification')),
             ])
@@ -772,10 +767,10 @@ class CISCONETSYNCMIB(Entity):
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol, ['cnsmibenablestatusnotification'], name, value)
+            self._perform_setattr(CISCONETSYNCMIB.CiscoNetsyncMIBNotifControl, ['cnsmibenablestatusnotification'], name, value)
 
 
-    class Cnsclkselglobaltable(Entity):
+    class CnsClkSelGlobalTable(Entity):
         """
         G.781 clock selection process table.
         This table contains the global parameters for the G.781 clock
@@ -784,7 +779,7 @@ class CISCONETSYNCMIB(Entity):
         .. attribute:: cnsclkselglobalentry
         
         	An entry is added to cnsClkSelGlobalTable when G.781 clock selection is enabled in the device configuration.  The entry is removed when G.781 clock selection is removed from the configuration
-        	**type**\: list of  		 :py:class:`Cnsclkselglobalentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry>`
+        	**type**\: list of  		 :py:class:`CnsClkSelGlobalEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsClkSelGlobalTable.CnsClkSelGlobalEntry>`
         
         
 
@@ -794,15 +789,14 @@ class CISCONETSYNCMIB(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CISCONETSYNCMIB.Cnsclkselglobaltable, self).__init__()
+            super(CISCONETSYNCMIB.CnsClkSelGlobalTable, self).__init__()
 
             self.yang_name = "cnsClkSelGlobalTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnsClkSelGlobalEntry", ("cnsclkselglobalentry", CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry))])
+            self._child_classes = OrderedDict([("cnsClkSelGlobalEntry", ("cnsclkselglobalentry", CISCONETSYNCMIB.CnsClkSelGlobalTable.CnsClkSelGlobalEntry))])
             self._leafs = OrderedDict()
 
             self.cnsclkselglobalentry = YList(self)
@@ -810,10 +804,10 @@ class CISCONETSYNCMIB(Entity):
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONETSYNCMIB.Cnsclkselglobaltable, [], name, value)
+            self._perform_setattr(CISCONETSYNCMIB.CnsClkSelGlobalTable, [], name, value)
 
 
-        class Cnsclkselglobalentry(Entity):
+        class CnsClkSelGlobalEntry(Entity):
             """
             An entry is added to cnsClkSelGlobalTable when G.781 clock
             selection is enabled in the device configuration.  The entry
@@ -915,15 +909,14 @@ class CISCONETSYNCMIB(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry, self).__init__()
+                super(CISCONETSYNCMIB.CnsClkSelGlobalTable.CnsClkSelGlobalEntry, self).__init__()
 
                 self.yang_name = "cnsClkSelGlobalEntry"
                 self.yang_parent_name = "cnsClkSelGlobalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnsclkselgloprocindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnsclkselgloprocindex', YLeaf(YType.uint32, 'cnsClkSelGloProcIndex')),
                     ('cnsclkselglobprocessmode', YLeaf(YType.enumeration, 'cnsClkSelGlobProcessMode')),
@@ -956,10 +949,10 @@ class CISCONETSYNCMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsClkSelGlobalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry, ['cnsclkselgloprocindex', 'cnsclkselglobprocessmode', 'cnsclkselglobclockmode', 'cnsclkselglobnetsyncenable', 'cnsclkselglobrevertivemode', 'cnsclkselglobesmcmode', 'cnsclkselglobeecoption', 'cnsclkselglobnetworkoption', 'cnsclkselglobholdofftime', 'cnsclkselglobwtrtime', 'cnsclkselglobnofsources', 'cnsclkselgloblastholdoverseconds', 'cnsclkselglobcurrholdoverseconds'], name, value)
+                self._perform_setattr(CISCONETSYNCMIB.CnsClkSelGlobalTable.CnsClkSelGlobalEntry, ['cnsclkselgloprocindex', 'cnsclkselglobprocessmode', 'cnsclkselglobclockmode', 'cnsclkselglobnetsyncenable', 'cnsclkselglobrevertivemode', 'cnsclkselglobesmcmode', 'cnsclkselglobeecoption', 'cnsclkselglobnetworkoption', 'cnsclkselglobholdofftime', 'cnsclkselglobwtrtime', 'cnsclkselglobnofsources', 'cnsclkselgloblastholdoverseconds', 'cnsclkselglobcurrholdoverseconds'], name, value)
 
 
-    class Cnsselectedinputsourcetable(Entity):
+    class CnsSelectedInputSourceTable(Entity):
         """
         T0 selected clock source table.
         This table contains the selected clock source for the input T0
@@ -968,7 +961,7 @@ class CISCONETSYNCMIB(Entity):
         .. attribute:: cnsselectedinputsourceentry
         
         	An entry is created in the table when the G.781 clock selection process has successfully selected a T0 clock source.  The entry shall remain during the time the G.781 clock selection process remains enabled
-        	**type**\: list of  		 :py:class:`Cnsselectedinputsourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry>`
+        	**type**\: list of  		 :py:class:`CnsSelectedInputSourceEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsSelectedInputSourceTable.CnsSelectedInputSourceEntry>`
         
         
 
@@ -978,15 +971,14 @@ class CISCONETSYNCMIB(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CISCONETSYNCMIB.Cnsselectedinputsourcetable, self).__init__()
+            super(CISCONETSYNCMIB.CnsSelectedInputSourceTable, self).__init__()
 
             self.yang_name = "cnsSelectedInputSourceTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnsSelectedInputSourceEntry", ("cnsselectedinputsourceentry", CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry))])
+            self._child_classes = OrderedDict([("cnsSelectedInputSourceEntry", ("cnsselectedinputsourceentry", CISCONETSYNCMIB.CnsSelectedInputSourceTable.CnsSelectedInputSourceEntry))])
             self._leafs = OrderedDict()
 
             self.cnsselectedinputsourceentry = YList(self)
@@ -994,10 +986,10 @@ class CISCONETSYNCMIB(Entity):
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONETSYNCMIB.Cnsselectedinputsourcetable, [], name, value)
+            self._perform_setattr(CISCONETSYNCMIB.CnsSelectedInputSourceTable, [], name, value)
 
 
-        class Cnsselectedinputsourceentry(Entity):
+        class CnsSelectedInputSourceEntry(Entity):
             """
             An entry is created in the table when the G.781 clock
             selection process has successfully selected a T0 clock
@@ -1060,15 +1052,14 @@ class CISCONETSYNCMIB(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry, self).__init__()
+                super(CISCONETSYNCMIB.CnsSelectedInputSourceTable.CnsSelectedInputSourceEntry, self).__init__()
 
                 self.yang_name = "cnsSelectedInputSourceEntry"
                 self.yang_parent_name = "cnsSelectedInputSourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnsselinpsrcnetsyncindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnsselinpsrcnetsyncindex', YLeaf(YType.uint32, 'cnsSelInpSrcNetsyncIndex')),
                     ('cnsselinpsrcname', YLeaf(YType.str, 'cnsSelInpSrcName')),
@@ -1091,10 +1082,10 @@ class CISCONETSYNCMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsSelectedInputSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry, ['cnsselinpsrcnetsyncindex', 'cnsselinpsrcname', 'cnsselinpsrcintftype', 'cnsselinpsrcqualitylevel', 'cnsselinpsrcpriority', 'cnsselinpsrctimestamp', 'cnsselinpsrcfsw', 'cnsselinpsrcmsw'], name, value)
+                self._perform_setattr(CISCONETSYNCMIB.CnsSelectedInputSourceTable.CnsSelectedInputSourceEntry, ['cnsselinpsrcnetsyncindex', 'cnsselinpsrcname', 'cnsselinpsrcintftype', 'cnsselinpsrcqualitylevel', 'cnsselinpsrcpriority', 'cnsselinpsrctimestamp', 'cnsselinpsrcfsw', 'cnsselinpsrcmsw'], name, value)
 
 
-    class Cnsinputsourcetable(Entity):
+    class CnsInputSourceTable(Entity):
         """
         T0 clock source table.
         This table contains a list of input sources for input T0 clock
@@ -1103,7 +1094,7 @@ class CISCONETSYNCMIB(Entity):
         .. attribute:: cnsinputsourceentry
         
         	An entry is created in the table when a user adds a T0 clock source in the configuration. An entry is removed  in the table when a user removes a T0 clock source from the configuration
-        	**type**\: list of  		 :py:class:`Cnsinputsourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry>`
+        	**type**\: list of  		 :py:class:`CnsInputSourceEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsInputSourceTable.CnsInputSourceEntry>`
         
         
 
@@ -1113,15 +1104,14 @@ class CISCONETSYNCMIB(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CISCONETSYNCMIB.Cnsinputsourcetable, self).__init__()
+            super(CISCONETSYNCMIB.CnsInputSourceTable, self).__init__()
 
             self.yang_name = "cnsInputSourceTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnsInputSourceEntry", ("cnsinputsourceentry", CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry))])
+            self._child_classes = OrderedDict([("cnsInputSourceEntry", ("cnsinputsourceentry", CISCONETSYNCMIB.CnsInputSourceTable.CnsInputSourceEntry))])
             self._leafs = OrderedDict()
 
             self.cnsinputsourceentry = YList(self)
@@ -1129,10 +1119,10 @@ class CISCONETSYNCMIB(Entity):
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONETSYNCMIB.Cnsinputsourcetable, [], name, value)
+            self._perform_setattr(CISCONETSYNCMIB.CnsInputSourceTable, [], name, value)
 
 
-        class Cnsinputsourceentry(Entity):
+        class CnsInputSourceEntry(Entity):
             """
             An entry is created in the table when a user adds a T0
             clock source in the configuration. An entry is removed 
@@ -1256,15 +1246,14 @@ class CISCONETSYNCMIB(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry, self).__init__()
+                super(CISCONETSYNCMIB.CnsInputSourceTable.CnsInputSourceEntry, self).__init__()
 
                 self.yang_name = "cnsInputSourceEntry"
                 self.yang_parent_name = "cnsInputSourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnsinpsrcnetsyncindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnsinpsrcnetsyncindex', YLeaf(YType.uint32, 'cnsInpSrcNetsyncIndex')),
                     ('cnsinpsrcname', YLeaf(YType.str, 'cnsInpSrcName')),
@@ -1309,10 +1298,10 @@ class CISCONETSYNCMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsInputSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry, ['cnsinpsrcnetsyncindex', 'cnsinpsrcname', 'cnsinpsrcintftype', 'cnsinpsrcpriority', 'cnsinpsrcesmccap', 'cnsinpsrcssmcap', 'cnsinpsrcqualityleveltxcfg', 'cnsinpsrcqualitylevelrxcfg', 'cnsinpsrcqualityleveltx', 'cnsinpsrcqualitylevelrx', 'cnsinpsrcqualitylevel', 'cnsinpsrcholdofftime', 'cnsinpsrcwtrtime', 'cnsinpsrclockout', 'cnsinpsrcsignalfailure', 'cnsinpsrcalarm', 'cnsinpsrcalarminfo', 'cnsinpsrcfsw', 'cnsinpsrcmsw'], name, value)
+                self._perform_setattr(CISCONETSYNCMIB.CnsInputSourceTable.CnsInputSourceEntry, ['cnsinpsrcnetsyncindex', 'cnsinpsrcname', 'cnsinpsrcintftype', 'cnsinpsrcpriority', 'cnsinpsrcesmccap', 'cnsinpsrcssmcap', 'cnsinpsrcqualityleveltxcfg', 'cnsinpsrcqualitylevelrxcfg', 'cnsinpsrcqualityleveltx', 'cnsinpsrcqualitylevelrx', 'cnsinpsrcqualitylevel', 'cnsinpsrcholdofftime', 'cnsinpsrcwtrtime', 'cnsinpsrclockout', 'cnsinpsrcsignalfailure', 'cnsinpsrcalarm', 'cnsinpsrcalarminfo', 'cnsinpsrcfsw', 'cnsinpsrcmsw'], name, value)
 
 
-    class Cnsextoutputtable(Entity):
+    class CnsExtOutputTable(Entity):
         """
         T4 external output table.
         This table contains a list of T4 external outputs.
@@ -1326,7 +1315,7 @@ class CISCONETSYNCMIB(Entity):
         .. attribute:: cnsextoutputentry
         
         	An entry is created in the table when a user adds a T4 external output in the configuration.  A T4 external output configured input clock sources are defined in cnsT4ClockSourceTable.  An entry is removed from the table when a user removes a T4 external output from the configuration
-        	**type**\: list of  		 :py:class:`Cnsextoutputentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry>`
+        	**type**\: list of  		 :py:class:`CnsExtOutputEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry>`
         
         
 
@@ -1336,15 +1325,14 @@ class CISCONETSYNCMIB(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CISCONETSYNCMIB.Cnsextoutputtable, self).__init__()
+            super(CISCONETSYNCMIB.CnsExtOutputTable, self).__init__()
 
             self.yang_name = "cnsExtOutputTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnsExtOutputEntry", ("cnsextoutputentry", CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry))])
+            self._child_classes = OrderedDict([("cnsExtOutputEntry", ("cnsextoutputentry", CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry))])
             self._leafs = OrderedDict()
 
             self.cnsextoutputentry = YList(self)
@@ -1352,10 +1340,10 @@ class CISCONETSYNCMIB(Entity):
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONETSYNCMIB.Cnsextoutputtable, [], name, value)
+            self._perform_setattr(CISCONETSYNCMIB.CnsExtOutputTable, [], name, value)
 
 
-        class Cnsextoutputentry(Entity):
+        class CnsExtOutputEntry(Entity):
             """
             An entry is created in the table when a user adds
             a T4 external output in the configuration.  A T4 external
@@ -1426,15 +1414,14 @@ class CISCONETSYNCMIB(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry, self).__init__()
+                super(CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry, self).__init__()
 
                 self.yang_name = "cnsExtOutputEntry"
                 self.yang_parent_name = "cnsExtOutputTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnsextoutlistindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnsextoutlistindex', YLeaf(YType.uint32, 'cnsExtOutListIndex')),
                     ('cnsextoutselnetsyncindex', YLeaf(YType.uint32, 'cnsExtOutSelNetsyncIndex')),
@@ -1459,10 +1446,10 @@ class CISCONETSYNCMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsExtOutputTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry, ['cnsextoutlistindex', 'cnsextoutselnetsyncindex', 'cnsextoutname', 'cnsextoutintftype', 'cnsextoutqualitylevel', 'cnsextoutpriority', 'cnsextoutfsw', 'cnsextoutmsw', 'cnsextoutsquelch'], name, value)
+                self._perform_setattr(CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry, ['cnsextoutlistindex', 'cnsextoutselnetsyncindex', 'cnsextoutname', 'cnsextoutintftype', 'cnsextoutqualitylevel', 'cnsextoutpriority', 'cnsextoutfsw', 'cnsextoutmsw', 'cnsextoutsquelch'], name, value)
 
 
-    class Cnst4Clocksourcetable(Entity):
+    class CnsT4ClockSourceTable(Entity):
         """
         T4 clock source table.
         This table contains a list of input sources for a specific
@@ -1474,7 +1461,7 @@ class CISCONETSYNCMIB(Entity):
         .. attribute:: cnst4clocksourceentry
         
         	An entry is created in the table when a user adds a clock source to a T4 external output in the configuration. The T4 external output is defined in the T4 external output table. An entry is removed in the table when a user removes a T4 clock source from the configuration
-        	**type**\: list of  		 :py:class:`Cnst4Clocksourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry>`
+        	**type**\: list of  		 :py:class:`CnsT4ClockSourceEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsT4ClockSourceTable.CnsT4ClockSourceEntry>`
         
         
 
@@ -1484,15 +1471,14 @@ class CISCONETSYNCMIB(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CISCONETSYNCMIB.Cnst4Clocksourcetable, self).__init__()
+            super(CISCONETSYNCMIB.CnsT4ClockSourceTable, self).__init__()
 
             self.yang_name = "cnsT4ClockSourceTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnsT4ClockSourceEntry", ("cnst4clocksourceentry", CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry))])
+            self._child_classes = OrderedDict([("cnsT4ClockSourceEntry", ("cnst4clocksourceentry", CISCONETSYNCMIB.CnsT4ClockSourceTable.CnsT4ClockSourceEntry))])
             self._leafs = OrderedDict()
 
             self.cnst4clocksourceentry = YList(self)
@@ -1500,10 +1486,10 @@ class CISCONETSYNCMIB(Entity):
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONETSYNCMIB.Cnst4Clocksourcetable, [], name, value)
+            self._perform_setattr(CISCONETSYNCMIB.CnsT4ClockSourceTable, [], name, value)
 
 
-        class Cnst4Clocksourceentry(Entity):
+        class CnsT4ClockSourceEntry(Entity):
             """
             An entry is created in the table when a user adds a
             clock source to a T4 external output in the configuration.
@@ -1518,7 +1504,7 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cnsextoutlistindex <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry>`
+            	**refers to**\:  :py:class:`cnsextoutlistindex <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry>`
             
             .. attribute:: cnst4clksrcnetsyncindex  (key)
             
@@ -1637,15 +1623,14 @@ class CISCONETSYNCMIB(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry, self).__init__()
+                super(CISCONETSYNCMIB.CnsT4ClockSourceTable.CnsT4ClockSourceEntry, self).__init__()
 
                 self.yang_name = "cnsT4ClockSourceEntry"
                 self.yang_parent_name = "cnsT4ClockSourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnsextoutlistindex','cnst4clksrcnetsyncindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnsextoutlistindex', YLeaf(YType.str, 'cnsExtOutListIndex')),
                     ('cnst4clksrcnetsyncindex', YLeaf(YType.uint32, 'cnsT4ClkSrcNetsyncIndex')),
@@ -1692,7 +1677,7 @@ class CISCONETSYNCMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsT4ClockSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry, ['cnsextoutlistindex', 'cnst4clksrcnetsyncindex', 'cnst4clksrcname', 'cnst4clksrcintftype', 'cnst4clksrcpriority', 'cnst4clksrcesmccap', 'cnst4clksrcssmcap', 'cnst4clksrcqualityleveltxcfg', 'cnst4clksrcqualitylevelrxcfg', 'cnst4clksrcqualityleveltx', 'cnst4clksrcqualitylevelrx', 'cnst4clksrcqualitylevel', 'cnst4clksrcholdofftime', 'cnst4clksrcwtrtime', 'cnst4clksrclockout', 'cnst4clksrcsignalfailure', 'cnst4clksrcalarm', 'cnst4clksrcalarminfo', 'cnst4clksrcfsw', 'cnst4clksrcmsw'], name, value)
+                self._perform_setattr(CISCONETSYNCMIB.CnsT4ClockSourceTable.CnsT4ClockSourceEntry, ['cnsextoutlistindex', 'cnst4clksrcnetsyncindex', 'cnst4clksrcname', 'cnst4clksrcintftype', 'cnst4clksrcpriority', 'cnst4clksrcesmccap', 'cnst4clksrcssmcap', 'cnst4clksrcqualityleveltxcfg', 'cnst4clksrcqualitylevelrxcfg', 'cnst4clksrcqualityleveltx', 'cnst4clksrcqualitylevelrx', 'cnst4clksrcqualitylevel', 'cnst4clksrcholdofftime', 'cnst4clksrcwtrtime', 'cnst4clksrclockout', 'cnst4clksrcsignalfailure', 'cnst4clksrcalarm', 'cnst4clksrcalarminfo', 'cnst4clksrcfsw', 'cnst4clksrcmsw'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCONETSYNCMIB()

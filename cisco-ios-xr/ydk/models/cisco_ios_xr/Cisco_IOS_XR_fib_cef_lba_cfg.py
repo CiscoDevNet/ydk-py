@@ -31,12 +31,18 @@ class Fiblb(Entity):
     
     	**range:** 0..1
     
+    	**mandatory**\: True
+    
     .. attribute:: payload
     
     	Payload Load\-Balancing
     	**type**\: bool
     
+    	**mandatory**\: True
     
+    
+
+    This class is a :ref:`presence class<presence-class>`
 
     """
 
@@ -52,8 +58,8 @@ class Fiblb(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
+        self.is_presence_container = True
         self._leafs = OrderedDict([
             ('fields', YLeaf(YType.uint32, 'fields')),
             ('payload', YLeaf(YType.boolean, 'payload')),

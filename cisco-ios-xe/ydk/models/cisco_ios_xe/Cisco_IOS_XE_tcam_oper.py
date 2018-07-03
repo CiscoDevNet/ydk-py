@@ -40,8 +40,7 @@ class TcamDetails(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("tcam-detail", ("tcam_detail", TcamDetails.TcamDetail))])
+        self._child_classes = OrderedDict([("tcam-detail", ("tcam_detail", TcamDetails.TcamDetail))])
         self._leafs = OrderedDict()
 
         self.tcam_detail = YList(self)
@@ -110,8 +109,7 @@ class TcamDetails(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['asic_no','name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('asic_no', YLeaf(YType.uint8, 'asic-no')),
                 ('name', YLeaf(YType.str, 'name')),

@@ -21,12 +21,12 @@ class CISCOIPMROUTEMIB(Entity):
     .. attribute:: ciscoipmroute
     
     	
-    	**type**\:  :py:class:`Ciscoipmroute <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmroute>`
+    	**type**\:  :py:class:`CiscoIpMRoute <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.CiscoIpMRoute>`
     
     .. attribute:: ciscoipmrouteheartbeattable
     
     	The (conceptual) table listing sets of IP Multicast heartbeat parameters.  If no IP Multicast heartbeat is configured, this table would be empty
-    	**type**\:  :py:class:`Ciscoipmrouteheartbeattable <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable>`
+    	**type**\:  :py:class:`CiscoIpMRouteHeartBeatTable <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable>`
     
     
 
@@ -44,23 +44,23 @@ class CISCOIPMROUTEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoIpMRoute", ("ciscoipmroute", CISCOIPMROUTEMIB.Ciscoipmroute)), ("ciscoIpMRouteHeartBeatTable", ("ciscoipmrouteheartbeattable", CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoIpMRoute", ("ciscoipmroute", CISCOIPMROUTEMIB.CiscoIpMRoute)), ("ciscoIpMRouteHeartBeatTable", ("ciscoipmrouteheartbeattable", CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable))])
         self._leafs = OrderedDict()
 
-        self.ciscoipmroute = CISCOIPMROUTEMIB.Ciscoipmroute()
+        self.ciscoipmroute = CISCOIPMROUTEMIB.CiscoIpMRoute()
         self.ciscoipmroute.parent = self
         self._children_name_map["ciscoipmroute"] = "ciscoIpMRoute"
-        self._children_yang_names.add("ciscoIpMRoute")
 
-        self.ciscoipmrouteheartbeattable = CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable()
+        self.ciscoipmrouteheartbeattable = CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable()
         self.ciscoipmrouteheartbeattable.parent = self
         self._children_name_map["ciscoipmrouteheartbeattable"] = "ciscoIpMRouteHeartBeatTable"
-        self._children_yang_names.add("ciscoIpMRouteHeartBeatTable")
         self._segment_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPMROUTEMIB, [], name, value)
 
-    class Ciscoipmroute(Entity):
+
+    class CiscoIpMRoute(Entity):
         """
         
         
@@ -79,15 +79,14 @@ class CISCOIPMROUTEMIB(Entity):
         _revision = '2005-03-07'
 
         def __init__(self):
-            super(CISCOIPMROUTEMIB.Ciscoipmroute, self).__init__()
+            super(CISCOIPMROUTEMIB.CiscoIpMRoute, self).__init__()
 
             self.yang_name = "ciscoIpMRoute"
             self.yang_parent_name = "CISCO-IPMROUTE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ciscoipmroutenumberofentries', YLeaf(YType.uint32, 'ciscoIpMRouteNumberOfEntries')),
             ])
@@ -96,10 +95,10 @@ class CISCOIPMROUTEMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPMROUTEMIB.Ciscoipmroute, ['ciscoipmroutenumberofentries'], name, value)
+            self._perform_setattr(CISCOIPMROUTEMIB.CiscoIpMRoute, ['ciscoipmroutenumberofentries'], name, value)
 
 
-    class Ciscoipmrouteheartbeattable(Entity):
+    class CiscoIpMRouteHeartBeatTable(Entity):
         """
         The (conceptual) table listing sets of IP Multicast
         heartbeat parameters.  If no IP Multicast heartbeat is
@@ -108,7 +107,7 @@ class CISCOIPMROUTEMIB(Entity):
         .. attribute:: ciscoipmrouteheartbeatentry
         
         	An entry (conceptual row) representing a set of IP Multicast heartbeat parameters
-        	**type**\: list of  		 :py:class:`Ciscoipmrouteheartbeatentry <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry>`
+        	**type**\: list of  		 :py:class:`CiscoIpMRouteHeartBeatEntry <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable.CiscoIpMRouteHeartBeatEntry>`
         
         
 
@@ -118,15 +117,14 @@ class CISCOIPMROUTEMIB(Entity):
         _revision = '2005-03-07'
 
         def __init__(self):
-            super(CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable, self).__init__()
+            super(CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable, self).__init__()
 
             self.yang_name = "ciscoIpMRouteHeartBeatTable"
             self.yang_parent_name = "CISCO-IPMROUTE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ciscoIpMRouteHeartBeatEntry", ("ciscoipmrouteheartbeatentry", CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry))])
+            self._child_classes = OrderedDict([("ciscoIpMRouteHeartBeatEntry", ("ciscoipmrouteheartbeatentry", CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable.CiscoIpMRouteHeartBeatEntry))])
             self._leafs = OrderedDict()
 
             self.ciscoipmrouteheartbeatentry = YList(self)
@@ -134,10 +132,10 @@ class CISCOIPMROUTEMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable, [], name, value)
+            self._perform_setattr(CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable, [], name, value)
 
 
-        class Ciscoipmrouteheartbeatentry(Entity):
+        class CiscoIpMRouteHeartBeatEntry(Entity):
             """
             An entry (conceptual row) representing a set of IP
             Multicast heartbeat parameters.
@@ -206,15 +204,14 @@ class CISCOIPMROUTEMIB(Entity):
             _revision = '2005-03-07'
 
             def __init__(self):
-                super(CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry, self).__init__()
+                super(CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable.CiscoIpMRouteHeartBeatEntry, self).__init__()
 
                 self.yang_name = "ciscoIpMRouteHeartBeatEntry"
                 self.yang_parent_name = "ciscoIpMRouteHeartBeatTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciscoipmrouteheartbeatgroupaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciscoipmrouteheartbeatgroupaddr', YLeaf(YType.str, 'ciscoIpMRouteHeartBeatGroupAddr')),
                     ('ciscoipmrouteheartbeatsourceaddr', YLeaf(YType.str, 'ciscoIpMRouteHeartBeatSourceAddr')),
@@ -237,7 +234,7 @@ class CISCOIPMROUTEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/ciscoIpMRouteHeartBeatTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry, ['ciscoipmrouteheartbeatgroupaddr', 'ciscoipmrouteheartbeatsourceaddr', 'ciscoipmrouteheartbeatinterval', 'ciscoipmrouteheartbeatwindowsize', 'ciscoipmrouteheartbeatcount', 'ciscoipmrouteheartbeatminimum', 'ciscoipmrouteheartbeatalerttime', 'ciscoipmrouteheartbeatstatus'], name, value)
+                self._perform_setattr(CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable.CiscoIpMRouteHeartBeatEntry, ['ciscoipmrouteheartbeatgroupaddr', 'ciscoipmrouteheartbeatsourceaddr', 'ciscoipmrouteheartbeatinterval', 'ciscoipmrouteheartbeatwindowsize', 'ciscoipmrouteheartbeatcount', 'ciscoipmrouteheartbeatminimum', 'ciscoipmrouteheartbeatalerttime', 'ciscoipmrouteheartbeatstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPMROUTEMIB()

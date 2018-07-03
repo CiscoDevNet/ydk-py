@@ -328,25 +328,24 @@ class MplsStatic(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", MplsStatic.Vrfs)), ("summary", ("summary", MplsStatic.Summary)), ("local-labels", ("local_labels", MplsStatic.LocalLabels))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", MplsStatic.Vrfs)), ("summary", ("summary", MplsStatic.Summary)), ("local-labels", ("local_labels", MplsStatic.LocalLabels))])
         self._leafs = OrderedDict()
 
         self.vrfs = MplsStatic.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
 
         self.summary = MplsStatic.Summary()
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
 
         self.local_labels = MplsStatic.LocalLabels()
         self.local_labels.parent = self
         self._children_name_map["local_labels"] = "local-labels"
-        self._children_yang_names.add("local-labels")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-static-oper:mpls-static"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(MplsStatic, [], name, value)
 
 
     class Vrfs(Entity):
@@ -373,8 +372,7 @@ class MplsStatic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", MplsStatic.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", MplsStatic.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -421,8 +419,7 @@ class MplsStatic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("lsps", ("lsps", MplsStatic.Vrfs.Vrf.Lsps)), ("local-labels", ("local_labels", MplsStatic.Vrfs.Vrf.LocalLabels))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("lsps", ("lsps", MplsStatic.Vrfs.Vrf.Lsps)), ("local-labels", ("local_labels", MplsStatic.Vrfs.Vrf.LocalLabels))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -431,12 +428,10 @@ class MplsStatic(Entity):
                 self.lsps = MplsStatic.Vrfs.Vrf.Lsps()
                 self.lsps.parent = self
                 self._children_name_map["lsps"] = "lsps"
-                self._children_yang_names.add("lsps")
 
                 self.local_labels = MplsStatic.Vrfs.Vrf.LocalLabels()
                 self.local_labels.parent = self
                 self._children_name_map["local_labels"] = "local-labels"
-                self._children_yang_names.add("local-labels")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/%s" % self._segment_path()
 
@@ -468,8 +463,7 @@ class MplsStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("lsp", ("lsp", MplsStatic.Vrfs.Vrf.Lsps.Lsp))])
+                    self._child_classes = OrderedDict([("lsp", ("lsp", MplsStatic.Vrfs.Vrf.Lsps.Lsp))])
                     self._leafs = OrderedDict()
 
                     self.lsp = YList(self)
@@ -515,8 +509,7 @@ class MplsStatic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lsp_name']
-                        self._child_container_classes = OrderedDict([("label", ("label", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("label", ("label", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label))])
                         self._leafs = OrderedDict([
                             ('lsp_name', YLeaf(YType.str, 'lsp-name')),
                             ('lsp_name_xr', YLeaf(YType.str, 'lsp-name-xr')),
@@ -527,7 +520,6 @@ class MplsStatic(Entity):
                         self.label = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label()
                         self.label.parent = self
                         self._children_name_map["label"] = "label"
-                        self._children_yang_names.add("label")
                         self._segment_path = lambda: "lsp" + "[lsp-name='" + str(self.lsp_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -615,8 +607,7 @@ class MplsStatic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh))])
-                            self._child_list_classes = OrderedDict([("path-info", ("path_info", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo))])
+                            self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh)), ("path-info", ("path_info", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo))])
                             self._leafs = OrderedDict([
                                 ('label', YLeaf(YType.uint32, 'label')),
                                 ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
@@ -637,17 +628,14 @@ class MplsStatic(Entity):
                             self.prefix = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix()
                             self.prefix.parent = self
                             self._children_name_map["prefix"] = "prefix"
-                            self._children_yang_names.add("prefix")
 
                             self.pathset_resolve_nh = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh()
                             self.pathset_resolve_nh.parent = self
                             self._children_name_map["pathset_resolve_nh"] = "pathset-resolve-nh"
-                            self._children_yang_names.add("pathset-resolve-nh")
 
                             self.backup_pathset_resolve_nh = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh()
                             self.backup_pathset_resolve_nh.parent = self
                             self._children_name_map["backup_pathset_resolve_nh"] = "backup-pathset-resolve-nh"
-                            self._children_yang_names.add("backup-pathset-resolve-nh")
 
                             self.path_info = YList(self)
                             self.backup_path_info = YList(self)
@@ -688,8 +676,7 @@ class MplsStatic(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_))])
                                 self._leafs = OrderedDict([
                                     ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                 ])
@@ -698,7 +685,6 @@ class MplsStatic(Entity):
                                 self.prefix = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_()
                                 self.prefix.parent = self
                                 self._children_name_map["prefix"] = "prefix"
-                                self._children_yang_names.add("prefix")
                                 self._segment_path = lambda: "prefix"
 
                             def __setattr__(self, name, value):
@@ -743,8 +729,7 @@ class MplsStatic(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                         ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -797,8 +782,7 @@ class MplsStatic(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                     ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -851,8 +835,7 @@ class MplsStatic(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                     ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -927,8 +910,7 @@ class MplsStatic(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop))])
                                 self._leafs = OrderedDict([
                                     ('path_number', YLeaf(YType.uint32, 'path-number')),
                                     ('type', YLeaf(YType.enumeration, 'type')),
@@ -947,7 +929,6 @@ class MplsStatic(Entity):
                                 self.nexthop = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop()
                                 self.nexthop.parent = self
                                 self._children_name_map["nexthop"] = "nexthop"
-                                self._children_yang_names.add("nexthop")
                                 self._segment_path = lambda: "path-info"
 
                             def __setattr__(self, name, value):
@@ -995,8 +976,7 @@ class MplsStatic(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address))])
                                     self._leafs = OrderedDict([
                                         ('label', YLeaf(YType.uint32, 'label')),
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -1009,7 +989,6 @@ class MplsStatic(Entity):
                                     self.address = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address()
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
-                                    self._children_yang_names.add("address")
                                     self._segment_path = lambda: "nexthop"
 
                                 def __setattr__(self, name, value):
@@ -1054,8 +1033,7 @@ class MplsStatic(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                             ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -1130,8 +1108,7 @@ class MplsStatic(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop))])
                                 self._leafs = OrderedDict([
                                     ('path_number', YLeaf(YType.uint32, 'path-number')),
                                     ('type', YLeaf(YType.enumeration, 'type')),
@@ -1150,7 +1127,6 @@ class MplsStatic(Entity):
                                 self.nexthop = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop()
                                 self.nexthop.parent = self
                                 self._children_name_map["nexthop"] = "nexthop"
-                                self._children_yang_names.add("nexthop")
                                 self._segment_path = lambda: "backup-path-info"
 
                             def __setattr__(self, name, value):
@@ -1198,8 +1174,7 @@ class MplsStatic(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address))])
                                     self._leafs = OrderedDict([
                                         ('label', YLeaf(YType.uint32, 'label')),
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -1212,7 +1187,6 @@ class MplsStatic(Entity):
                                     self.address = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address()
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
-                                    self._children_yang_names.add("address")
                                     self._segment_path = lambda: "nexthop"
 
                                 def __setattr__(self, name, value):
@@ -1257,8 +1231,7 @@ class MplsStatic(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                             ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -1297,8 +1270,7 @@ class MplsStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("local-label", ("local_label", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel))])
+                    self._child_classes = OrderedDict([("local-label", ("local_label", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel))])
                     self._leafs = OrderedDict()
 
                     self.local_label = YList(self)
@@ -1396,8 +1368,7 @@ class MplsStatic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['local_label_id']
-                        self._child_container_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh))])
-                        self._child_list_classes = OrderedDict([("path-info", ("path_info", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo))])
+                        self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh)), ("path-info", ("path_info", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo))])
                         self._leafs = OrderedDict([
                             ('local_label_id', YLeaf(YType.uint32, 'local-label-id')),
                             ('label', YLeaf(YType.uint32, 'label')),
@@ -1420,17 +1391,14 @@ class MplsStatic(Entity):
                         self.prefix = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix()
                         self.prefix.parent = self
                         self._children_name_map["prefix"] = "prefix"
-                        self._children_yang_names.add("prefix")
 
                         self.pathset_resolve_nh = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh()
                         self.pathset_resolve_nh.parent = self
                         self._children_name_map["pathset_resolve_nh"] = "pathset-resolve-nh"
-                        self._children_yang_names.add("pathset-resolve-nh")
 
                         self.backup_pathset_resolve_nh = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh()
                         self.backup_pathset_resolve_nh.parent = self
                         self._children_name_map["backup_pathset_resolve_nh"] = "backup-pathset-resolve-nh"
-                        self._children_yang_names.add("backup-pathset-resolve-nh")
 
                         self.path_info = YList(self)
                         self.backup_path_info = YList(self)
@@ -1471,8 +1439,7 @@ class MplsStatic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_))])
                             self._leafs = OrderedDict([
                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                             ])
@@ -1481,7 +1448,6 @@ class MplsStatic(Entity):
                             self.prefix = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_()
                             self.prefix.parent = self
                             self._children_name_map["prefix"] = "prefix"
-                            self._children_yang_names.add("prefix")
                             self._segment_path = lambda: "prefix"
 
                         def __setattr__(self, name, value):
@@ -1526,8 +1492,7 @@ class MplsStatic(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                     ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -1580,8 +1545,7 @@ class MplsStatic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -1634,8 +1598,7 @@ class MplsStatic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -1710,8 +1673,7 @@ class MplsStatic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop))])
                             self._leafs = OrderedDict([
                                 ('path_number', YLeaf(YType.uint32, 'path-number')),
                                 ('type', YLeaf(YType.enumeration, 'type')),
@@ -1730,7 +1692,6 @@ class MplsStatic(Entity):
                             self.nexthop = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop()
                             self.nexthop.parent = self
                             self._children_name_map["nexthop"] = "nexthop"
-                            self._children_yang_names.add("nexthop")
                             self._segment_path = lambda: "path-info"
 
                         def __setattr__(self, name, value):
@@ -1778,8 +1739,7 @@ class MplsStatic(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address))])
                                 self._leafs = OrderedDict([
                                     ('label', YLeaf(YType.uint32, 'label')),
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -1792,7 +1752,6 @@ class MplsStatic(Entity):
                                 self.address = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address()
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
-                                self._children_yang_names.add("address")
                                 self._segment_path = lambda: "nexthop"
 
                             def __setattr__(self, name, value):
@@ -1837,8 +1796,7 @@ class MplsStatic(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                         ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -1913,8 +1871,7 @@ class MplsStatic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop))])
                             self._leafs = OrderedDict([
                                 ('path_number', YLeaf(YType.uint32, 'path-number')),
                                 ('type', YLeaf(YType.enumeration, 'type')),
@@ -1933,7 +1890,6 @@ class MplsStatic(Entity):
                             self.nexthop = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop()
                             self.nexthop.parent = self
                             self._children_name_map["nexthop"] = "nexthop"
-                            self._children_yang_names.add("nexthop")
                             self._segment_path = lambda: "backup-path-info"
 
                         def __setattr__(self, name, value):
@@ -1981,8 +1937,7 @@ class MplsStatic(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address))])
                                 self._leafs = OrderedDict([
                                     ('label', YLeaf(YType.uint32, 'label')),
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -1995,7 +1950,6 @@ class MplsStatic(Entity):
                                 self.address = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address()
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
-                                self._children_yang_names.add("address")
                                 self._segment_path = lambda: "nexthop"
 
                             def __setattr__(self, name, value):
@@ -2040,8 +1994,7 @@ class MplsStatic(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                         ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -2177,8 +2130,7 @@ class MplsStatic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('lsp_count', YLeaf(YType.uint32, 'lsp-count')),
                 ('label_count', YLeaf(YType.uint32, 'label-count')),
@@ -2244,8 +2196,7 @@ class MplsStatic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("local-label", ("local_label", MplsStatic.LocalLabels.LocalLabel))])
+            self._child_classes = OrderedDict([("local-label", ("local_label", MplsStatic.LocalLabels.LocalLabel))])
             self._leafs = OrderedDict()
 
             self.local_label = YList(self)
@@ -2344,8 +2295,7 @@ class MplsStatic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_label_id']
-                self._child_container_classes = OrderedDict([("prefix", ("prefix", MplsStatic.LocalLabels.LocalLabel.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh))])
-                self._child_list_classes = OrderedDict([("path-info", ("path_info", MplsStatic.LocalLabels.LocalLabel.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo))])
+                self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.LocalLabels.LocalLabel.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh)), ("path-info", ("path_info", MplsStatic.LocalLabels.LocalLabel.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo))])
                 self._leafs = OrderedDict([
                     ('local_label_id', YLeaf(YType.uint32, 'local-label-id')),
                     ('label', YLeaf(YType.uint32, 'label')),
@@ -2368,17 +2318,14 @@ class MplsStatic(Entity):
                 self.prefix = MplsStatic.LocalLabels.LocalLabel.Prefix()
                 self.prefix.parent = self
                 self._children_name_map["prefix"] = "prefix"
-                self._children_yang_names.add("prefix")
 
                 self.pathset_resolve_nh = MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh()
                 self.pathset_resolve_nh.parent = self
                 self._children_name_map["pathset_resolve_nh"] = "pathset-resolve-nh"
-                self._children_yang_names.add("pathset-resolve-nh")
 
                 self.backup_pathset_resolve_nh = MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh()
                 self.backup_pathset_resolve_nh.parent = self
                 self._children_name_map["backup_pathset_resolve_nh"] = "backup-pathset-resolve-nh"
-                self._children_yang_names.add("backup-pathset-resolve-nh")
 
                 self.path_info = YList(self)
                 self.backup_path_info = YList(self)
@@ -2420,8 +2367,7 @@ class MplsStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("prefix", ("prefix", MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_))])
                     self._leafs = OrderedDict([
                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                     ])
@@ -2430,7 +2376,6 @@ class MplsStatic(Entity):
                     self.prefix = MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_()
                     self.prefix.parent = self
                     self._children_name_map["prefix"] = "prefix"
-                    self._children_yang_names.add("prefix")
                     self._segment_path = lambda: "prefix"
 
                 def __setattr__(self, name, value):
@@ -2475,8 +2420,7 @@ class MplsStatic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
                             ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -2529,8 +2473,7 @@ class MplsStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                         ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -2583,8 +2526,7 @@ class MplsStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                         ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -2659,8 +2601,7 @@ class MplsStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop))])
                     self._leafs = OrderedDict([
                         ('path_number', YLeaf(YType.uint32, 'path-number')),
                         ('type', YLeaf(YType.enumeration, 'type')),
@@ -2679,7 +2620,6 @@ class MplsStatic(Entity):
                     self.nexthop = MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop()
                     self.nexthop.parent = self
                     self._children_name_map["nexthop"] = "nexthop"
-                    self._children_yang_names.add("nexthop")
                     self._segment_path = lambda: "path-info"
 
                 def __setattr__(self, name, value):
@@ -2727,8 +2667,7 @@ class MplsStatic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address))])
                         self._leafs = OrderedDict([
                             ('label', YLeaf(YType.uint32, 'label')),
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -2741,7 +2680,6 @@ class MplsStatic(Entity):
                         self.address = MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "nexthop"
 
                     def __setattr__(self, name, value):
@@ -2786,8 +2724,7 @@ class MplsStatic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
@@ -2862,8 +2799,7 @@ class MplsStatic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop))])
                     self._leafs = OrderedDict([
                         ('path_number', YLeaf(YType.uint32, 'path-number')),
                         ('type', YLeaf(YType.enumeration, 'type')),
@@ -2882,7 +2818,6 @@ class MplsStatic(Entity):
                     self.nexthop = MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop()
                     self.nexthop.parent = self
                     self._children_name_map["nexthop"] = "nexthop"
-                    self._children_yang_names.add("nexthop")
                     self._segment_path = lambda: "backup-path-info"
 
                 def __setattr__(self, name, value):
@@ -2930,8 +2865,7 @@ class MplsStatic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("address", ("address", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address", ("address", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address))])
                         self._leafs = OrderedDict([
                             ('label', YLeaf(YType.uint32, 'label')),
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -2944,7 +2878,6 @@ class MplsStatic(Entity):
                         self.address = MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address()
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
-                        self._children_yang_names.add("address")
                         self._segment_path = lambda: "nexthop"
 
                     def __setattr__(self, name, value):
@@ -2989,8 +2922,7 @@ class MplsStatic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),

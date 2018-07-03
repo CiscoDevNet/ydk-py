@@ -45,15 +45,16 @@ class MemorySummary(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", MemorySummary.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", MemorySummary.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = MemorySummary.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-nto-misc-shmem-oper:memory-summary"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(MemorySummary, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class MemorySummary(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", MemorySummary.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", MemorySummary.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -128,8 +128,7 @@ class MemorySummary(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("summary", ("summary", MemorySummary.Nodes.Node.Summary)), ("detail", ("detail", MemorySummary.Nodes.Node.Detail))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("summary", ("summary", MemorySummary.Nodes.Node.Summary)), ("detail", ("detail", MemorySummary.Nodes.Node.Detail))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -138,12 +137,10 @@ class MemorySummary(Entity):
                 self.summary = MemorySummary.Nodes.Node.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
 
                 self.detail = MemorySummary.Nodes.Node.Detail()
                 self.detail.parent = self
                 self._children_name_map["detail"] = "detail"
-                self._children_yang_names.add("detail")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-nto-misc-shmem-oper:memory-summary/nodes/%s" % self._segment_path()
 
@@ -260,8 +257,7 @@ class MemorySummary(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('page_size', YLeaf(YType.uint32, 'page-size')),
                         ('ram_memory', YLeaf(YType.uint64, 'ram-memory')),
@@ -429,13 +425,6 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: total_used
-                
-                	Total Used
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
                 .. attribute:: shared_window
                 
                 	Available Shared windows
@@ -456,8 +445,7 @@ class MemorySummary(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("shared-window", ("shared_window", MemorySummary.Nodes.Node.Detail.SharedWindow))])
+                    self._child_classes = OrderedDict([("shared-window", ("shared_window", MemorySummary.Nodes.Node.Detail.SharedWindow))])
                     self._leafs = OrderedDict([
                         ('page_size', YLeaf(YType.uint32, 'page-size')),
                         ('ram_memory', YLeaf(YType.uint64, 'ram-memory')),
@@ -475,7 +463,6 @@ class MemorySummary(Entity):
                         ('program_text', YLeaf(YType.uint64, 'program-text')),
                         ('program_data', YLeaf(YType.uint64, 'program-data')),
                         ('program_stack', YLeaf(YType.uint64, 'program-stack')),
-                        ('total_used', YLeaf(YType.uint64, 'total-used')),
                     ])
                     self.page_size = None
                     self.ram_memory = None
@@ -493,13 +480,12 @@ class MemorySummary(Entity):
                     self.program_text = None
                     self.program_data = None
                     self.program_stack = None
-                    self.total_used = None
 
                     self.shared_window = YList(self)
                     self._segment_path = lambda: "detail"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MemorySummary.Nodes.Node.Detail, ['page_size', 'ram_memory', 'free_physical_memory', 'private_physical_memory', 'system_ram_memory', 'free_application_memory', 'image_memory', 'boot_ram_size', 'reserved_memory', 'io_memory', 'flash_system', 'total_shared_window', 'allocated_memory', 'program_text', 'program_data', 'program_stack', 'total_used'], name, value)
+                    self._perform_setattr(MemorySummary.Nodes.Node.Detail, ['page_size', 'ram_memory', 'free_physical_memory', 'private_physical_memory', 'system_ram_memory', 'free_application_memory', 'image_memory', 'boot_ram_size', 'reserved_memory', 'io_memory', 'flash_system', 'total_shared_window', 'allocated_memory', 'program_text', 'program_data', 'program_stack'], name, value)
 
 
                 class SharedWindow(Entity):
@@ -533,8 +519,7 @@ class MemorySummary(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('shared_window', YLeaf(YType.str, 'shared-window')),
                             ('window_size', YLeaf(YType.uint64, 'window-size')),

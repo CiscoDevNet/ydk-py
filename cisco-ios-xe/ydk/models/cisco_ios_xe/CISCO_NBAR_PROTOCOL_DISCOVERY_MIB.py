@@ -122,42 +122,42 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
     .. attribute:: cnpdnotificationsconfig
     
     	
-    	**type**\:  :py:class:`Cnpdnotificationsconfig <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig>`
+    	**type**\:  :py:class:`CnpdNotificationsConfig <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdNotificationsConfig>`
     
     .. attribute:: cnpdstatustable
     
     	The cnpdStatusTable is used to enable and disable Protocol Discovery on an interface
-    	**type**\:  :py:class:`Cnpdstatustable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable>`
+    	**type**\:  :py:class:`CnpdStatusTable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable>`
     
     .. attribute:: cnpdallstatstable
     
     	The cnpdAllStatsTable contains all the statistics available for all the protocols/applications currently recognized by NBAR Protocol Discovery for a particular  interface.  In the event of an overflow, the 32 bit counters are not  valid. There is no overflow support
-    	**type**\:  :py:class:`Cnpdallstatstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable>`
+    	**type**\:  :py:class:`CnpdAllStatsTable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable>`
     
     .. attribute:: cnpdtopnconfigtable
     
     	The cnpdTopNConfigTable is used to configure cnpdTopNStatsTable's
-    	**type**\:  :py:class:`Cnpdtopnconfigtable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable>`
+    	**type**\:  :py:class:`CnpdTopNConfigTable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable>`
     
     .. attribute:: cnpdtopnstatstable
     
     	A cnpdTopNStatsTable describes an ordered list of protocols
-    	**type**\:  :py:class:`Cnpdtopnstatstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable>`
+    	**type**\:  :py:class:`CnpdTopNStatsTable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable>`
     
     .. attribute:: cnpdthresholdconfigtable
     
     	The cnpdThresholdConfigTable allows the management station to create thresholds for the purpose of sending notifications if breached, and creating a history of breached thresholds
-    	**type**\:  :py:class:`Cnpdthresholdconfigtable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable>`
+    	**type**\:  :py:class:`CnpdThresholdConfigTable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable>`
     
     .. attribute:: cnpdthresholdhistorytable
     
     	The Threshold History table. Notifications are unreliable so this table provides a history of the last 5000 threshold breached events. A notification can be traced back to its cnpdThresholdHistoryEntry
-    	**type**\:  :py:class:`Cnpdthresholdhistorytable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable>`
+    	**type**\:  :py:class:`CnpdThresholdHistoryTable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable>`
     
     .. attribute:: cnpdsupportedprotocolstable
     
     	The Supported Protocols table lists all the  protocols and applications which NBAR is currently capable of recognizing
-    	**type**\:  :py:class:`Cnpdsupportedprotocolstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable>`
+    	**type**\:  :py:class:`CnpdSupportedProtocolsTable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable>`
     
     
 
@@ -175,53 +175,47 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cnpdNotificationsConfig", ("cnpdnotificationsconfig", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig)), ("cnpdStatusTable", ("cnpdstatustable", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable)), ("cnpdAllStatsTable", ("cnpdallstatstable", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable)), ("cnpdTopNConfigTable", ("cnpdtopnconfigtable", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable)), ("cnpdTopNStatsTable", ("cnpdtopnstatstable", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable)), ("cnpdThresholdConfigTable", ("cnpdthresholdconfigtable", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable)), ("cnpdThresholdHistoryTable", ("cnpdthresholdhistorytable", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable)), ("cnpdSupportedProtocolsTable", ("cnpdsupportedprotocolstable", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cnpdNotificationsConfig", ("cnpdnotificationsconfig", CISCONBARPROTOCOLDISCOVERYMIB.CnpdNotificationsConfig)), ("cnpdStatusTable", ("cnpdstatustable", CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable)), ("cnpdAllStatsTable", ("cnpdallstatstable", CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable)), ("cnpdTopNConfigTable", ("cnpdtopnconfigtable", CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable)), ("cnpdTopNStatsTable", ("cnpdtopnstatstable", CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable)), ("cnpdThresholdConfigTable", ("cnpdthresholdconfigtable", CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable)), ("cnpdThresholdHistoryTable", ("cnpdthresholdhistorytable", CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable)), ("cnpdSupportedProtocolsTable", ("cnpdsupportedprotocolstable", CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable))])
         self._leafs = OrderedDict()
 
-        self.cnpdnotificationsconfig = CISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig()
+        self.cnpdnotificationsconfig = CISCONBARPROTOCOLDISCOVERYMIB.CnpdNotificationsConfig()
         self.cnpdnotificationsconfig.parent = self
         self._children_name_map["cnpdnotificationsconfig"] = "cnpdNotificationsConfig"
-        self._children_yang_names.add("cnpdNotificationsConfig")
 
-        self.cnpdstatustable = CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable()
+        self.cnpdstatustable = CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable()
         self.cnpdstatustable.parent = self
         self._children_name_map["cnpdstatustable"] = "cnpdStatusTable"
-        self._children_yang_names.add("cnpdStatusTable")
 
-        self.cnpdallstatstable = CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable()
+        self.cnpdallstatstable = CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable()
         self.cnpdallstatstable.parent = self
         self._children_name_map["cnpdallstatstable"] = "cnpdAllStatsTable"
-        self._children_yang_names.add("cnpdAllStatsTable")
 
-        self.cnpdtopnconfigtable = CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable()
+        self.cnpdtopnconfigtable = CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable()
         self.cnpdtopnconfigtable.parent = self
         self._children_name_map["cnpdtopnconfigtable"] = "cnpdTopNConfigTable"
-        self._children_yang_names.add("cnpdTopNConfigTable")
 
-        self.cnpdtopnstatstable = CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable()
+        self.cnpdtopnstatstable = CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable()
         self.cnpdtopnstatstable.parent = self
         self._children_name_map["cnpdtopnstatstable"] = "cnpdTopNStatsTable"
-        self._children_yang_names.add("cnpdTopNStatsTable")
 
-        self.cnpdthresholdconfigtable = CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable()
+        self.cnpdthresholdconfigtable = CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable()
         self.cnpdthresholdconfigtable.parent = self
         self._children_name_map["cnpdthresholdconfigtable"] = "cnpdThresholdConfigTable"
-        self._children_yang_names.add("cnpdThresholdConfigTable")
 
-        self.cnpdthresholdhistorytable = CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable()
+        self.cnpdthresholdhistorytable = CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable()
         self.cnpdthresholdhistorytable.parent = self
         self._children_name_map["cnpdthresholdhistorytable"] = "cnpdThresholdHistoryTable"
-        self._children_yang_names.add("cnpdThresholdHistoryTable")
 
-        self.cnpdsupportedprotocolstable = CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable()
+        self.cnpdsupportedprotocolstable = CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable()
         self.cnpdsupportedprotocolstable.parent = self
         self._children_name_map["cnpdsupportedprotocolstable"] = "cnpdSupportedProtocolsTable"
-        self._children_yang_names.add("cnpdSupportedProtocolsTable")
         self._segment_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB, [], name, value)
 
-    class Cnpdnotificationsconfig(Entity):
+
+    class CnpdNotificationsConfig(Entity):
         """
         
         
@@ -238,15 +232,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         _revision = '2002-08-16'
 
         def __init__(self):
-            super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig, self).__init__()
+            super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdNotificationsConfig, self).__init__()
 
             self.yang_name = "cnpdNotificationsConfig"
             self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cnpdnotificationsenable', YLeaf(YType.boolean, 'cnpdNotificationsEnable')),
             ])
@@ -255,10 +248,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig, ['cnpdnotificationsenable'], name, value)
+            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdNotificationsConfig, ['cnpdnotificationsenable'], name, value)
 
 
-    class Cnpdstatustable(Entity):
+    class CnpdStatusTable(Entity):
         """
         The cnpdStatusTable is used to enable and
         disable Protocol Discovery on an interface.
@@ -266,7 +259,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdstatusentry
         
         	An entry in the cnpdStatusTable contains objects for enabling or disabling Protocol Discovery on a per interface basis
-        	**type**\: list of  		 :py:class:`Cnpdstatusentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable.Cnpdstatusentry>`
+        	**type**\: list of  		 :py:class:`CnpdStatusEntry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable.CnpdStatusEntry>`
         
         
 
@@ -276,15 +269,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         _revision = '2002-08-16'
 
         def __init__(self):
-            super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable, self).__init__()
+            super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable, self).__init__()
 
             self.yang_name = "cnpdStatusTable"
             self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnpdStatusEntry", ("cnpdstatusentry", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable.Cnpdstatusentry))])
+            self._child_classes = OrderedDict([("cnpdStatusEntry", ("cnpdstatusentry", CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable.CnpdStatusEntry))])
             self._leafs = OrderedDict()
 
             self.cnpdstatusentry = YList(self)
@@ -292,10 +284,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable, [], name, value)
+            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable, [], name, value)
 
 
-        class Cnpdstatusentry(Entity):
+        class CnpdStatusEntry(Entity):
             """
             An entry in the cnpdStatusTable contains objects
             for enabling or disabling Protocol Discovery on a
@@ -308,7 +300,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cnpdstatuspdenable
             
@@ -330,15 +322,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             _revision = '2002-08-16'
 
             def __init__(self):
-                super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable.Cnpdstatusentry, self).__init__()
+                super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable.CnpdStatusEntry, self).__init__()
 
                 self.yang_name = "cnpdStatusEntry"
                 self.yang_parent_name = "cnpdStatusTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cnpdstatuspdenable', YLeaf(YType.boolean, 'cnpdStatusPdEnable')),
@@ -351,10 +342,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdStatusTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable.Cnpdstatusentry, ['ifindex', 'cnpdstatuspdenable', 'cnpdstatuslastupdatetime'], name, value)
+                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable.CnpdStatusEntry, ['ifindex', 'cnpdstatuspdenable', 'cnpdstatuslastupdatetime'], name, value)
 
 
-    class Cnpdallstatstable(Entity):
+    class CnpdAllStatsTable(Entity):
         """
         The cnpdAllStatsTable contains all the statistics
         available for all the protocols/applications currently
@@ -367,7 +358,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdallstatsentry
         
         	An entry in the cnpdAllStatsTable table. This entry  contains the statistics collected on all the protocols  which NBAR classifies for a particular interface
-        	**type**\: list of  		 :py:class:`Cnpdallstatsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable.Cnpdallstatsentry>`
+        	**type**\: list of  		 :py:class:`CnpdAllStatsEntry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable.CnpdAllStatsEntry>`
         
         
 
@@ -377,15 +368,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         _revision = '2002-08-16'
 
         def __init__(self):
-            super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable, self).__init__()
+            super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable, self).__init__()
 
             self.yang_name = "cnpdAllStatsTable"
             self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnpdAllStatsEntry", ("cnpdallstatsentry", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable.Cnpdallstatsentry))])
+            self._child_classes = OrderedDict([("cnpdAllStatsEntry", ("cnpdallstatsentry", CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable.CnpdAllStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cnpdallstatsentry = YList(self)
@@ -393,10 +383,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable, [], name, value)
+            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable, [], name, value)
 
 
-        class Cnpdallstatsentry(Entity):
+        class CnpdAllStatsEntry(Entity):
             """
             An entry in the cnpdAllStatsTable table. This entry 
             contains the statistics collected on all the protocols 
@@ -409,7 +399,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cnpdallstatsprotocolsindex  (key)
             
@@ -523,15 +513,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             _revision = '2002-08-16'
 
             def __init__(self):
-                super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable.Cnpdallstatsentry, self).__init__()
+                super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable.CnpdAllStatsEntry, self).__init__()
 
                 self.yang_name = "cnpdAllStatsEntry"
                 self.yang_parent_name = "cnpdAllStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','cnpdallstatsprotocolsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cnpdallstatsprotocolsindex', YLeaf(YType.uint32, 'cnpdAllStatsProtocolsIndex')),
@@ -564,10 +553,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdAllStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable.Cnpdallstatsentry, ['ifindex', 'cnpdallstatsprotocolsindex', 'cnpdallstatsprotocolname', 'cnpdallstatsinpkts', 'cnpdallstatsoutpkts', 'cnpdallstatsinbytes', 'cnpdallstatsoutbytes', 'cnpdallstatshcinpkts', 'cnpdallstatshcoutpkts', 'cnpdallstatshcinbytes', 'cnpdallstatshcoutbytes', 'cnpdallstatsinbitrate', 'cnpdallstatsoutbitrate'], name, value)
+                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable.CnpdAllStatsEntry, ['ifindex', 'cnpdallstatsprotocolsindex', 'cnpdallstatsprotocolname', 'cnpdallstatsinpkts', 'cnpdallstatsoutpkts', 'cnpdallstatsinbytes', 'cnpdallstatsoutbytes', 'cnpdallstatshcinpkts', 'cnpdallstatshcoutpkts', 'cnpdallstatshcinbytes', 'cnpdallstatshcoutbytes', 'cnpdallstatsinbitrate', 'cnpdallstatsoutbitrate'], name, value)
 
 
-    class Cnpdtopnconfigtable(Entity):
+    class CnpdTopNConfigTable(Entity):
         """
         The cnpdTopNConfigTable is used to configure
         cnpdTopNStatsTable's.
@@ -575,7 +564,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdtopnconfigentry
         
         	This entry provides the objects to configure and thus initiate the generation of a cnpdTopNStatsTable.
-        	**type**\: list of  		 :py:class:`Cnpdtopnconfigentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable.Cnpdtopnconfigentry>`
+        	**type**\: list of  		 :py:class:`CnpdTopNConfigEntry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable.CnpdTopNConfigEntry>`
         
         
 
@@ -585,15 +574,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         _revision = '2002-08-16'
 
         def __init__(self):
-            super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable, self).__init__()
+            super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable, self).__init__()
 
             self.yang_name = "cnpdTopNConfigTable"
             self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnpdTopNConfigEntry", ("cnpdtopnconfigentry", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable.Cnpdtopnconfigentry))])
+            self._child_classes = OrderedDict([("cnpdTopNConfigEntry", ("cnpdtopnconfigentry", CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable.CnpdTopNConfigEntry))])
             self._leafs = OrderedDict()
 
             self.cnpdtopnconfigentry = YList(self)
@@ -601,10 +589,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable, [], name, value)
+            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable, [], name, value)
 
 
-        class Cnpdtopnconfigentry(Entity):
+        class CnpdTopNConfigEntry(Entity):
             """
             This entry provides the objects to configure and thus
             initiate the generation of a cnpdTopNStatsTable..
@@ -671,15 +659,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             _revision = '2002-08-16'
 
             def __init__(self):
-                super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable.Cnpdtopnconfigentry, self).__init__()
+                super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable.CnpdTopNConfigEntry, self).__init__()
 
                 self.yang_name = "cnpdTopNConfigEntry"
                 self.yang_parent_name = "cnpdTopNConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnpdtopnconfigindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnpdtopnconfigindex', YLeaf(YType.uint32, 'cnpdTopNConfigIndex')),
                     ('cnpdtopnconfigifindex', YLeaf(YType.int32, 'cnpdTopNConfigIfIndex')),
@@ -702,10 +689,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdTopNConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable.Cnpdtopnconfigentry, ['cnpdtopnconfigindex', 'cnpdtopnconfigifindex', 'cnpdtopnconfigstatsselect', 'cnpdtopnconfigsampletime', 'cnpdtopnconfigrequestedsize', 'cnpdtopnconfiggrantedsize', 'cnpdtopnconfigtime', 'cnpdtopnconfigstatus'], name, value)
+                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable.CnpdTopNConfigEntry, ['cnpdtopnconfigindex', 'cnpdtopnconfigifindex', 'cnpdtopnconfigstatsselect', 'cnpdtopnconfigsampletime', 'cnpdtopnconfigrequestedsize', 'cnpdtopnconfiggrantedsize', 'cnpdtopnconfigtime', 'cnpdtopnconfigstatus'], name, value)
 
 
-    class Cnpdtopnstatstable(Entity):
+    class CnpdTopNStatsTable(Entity):
         """
         A cnpdTopNStatsTable describes an ordered
         list of protocols.
@@ -713,7 +700,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdtopnstatsentry
         
         	This entry is used to store a set of objects which  describe a cnpdTopNStatsTable. A cnpdTopNStatsTable  is a number of protocols and statistics sorted  according to the criteria in the associated cnpdTopNConfigEntry.  Therefore a cnpdTopNStatsTable can differ in content  and size according to what was configured in the associated cnpdTopNConfigTableEntry
-        	**type**\: list of  		 :py:class:`Cnpdtopnstatsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable.Cnpdtopnstatsentry>`
+        	**type**\: list of  		 :py:class:`CnpdTopNStatsEntry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable.CnpdTopNStatsEntry>`
         
         
 
@@ -723,15 +710,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         _revision = '2002-08-16'
 
         def __init__(self):
-            super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable, self).__init__()
+            super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable, self).__init__()
 
             self.yang_name = "cnpdTopNStatsTable"
             self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnpdTopNStatsEntry", ("cnpdtopnstatsentry", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable.Cnpdtopnstatsentry))])
+            self._child_classes = OrderedDict([("cnpdTopNStatsEntry", ("cnpdtopnstatsentry", CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable.CnpdTopNStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cnpdtopnstatsentry = YList(self)
@@ -739,10 +725,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable, [], name, value)
+            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable, [], name, value)
 
 
-        class Cnpdtopnstatsentry(Entity):
+        class CnpdTopNStatsEntry(Entity):
             """
             This entry is used to store a set of objects which 
             describe a cnpdTopNStatsTable. A cnpdTopNStatsTable 
@@ -761,7 +747,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             
             	**range:** 1..50
             
-            	**refers to**\:  :py:class:`cnpdtopnconfigindex <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable.Cnpdtopnconfigentry>`
+            	**refers to**\:  :py:class:`cnpdtopnconfigindex <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable.CnpdTopNConfigEntry>`
             
             .. attribute:: cnpdtopnstatsindex  (key)
             
@@ -799,15 +785,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             _revision = '2002-08-16'
 
             def __init__(self):
-                super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable.Cnpdtopnstatsentry, self).__init__()
+                super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable.CnpdTopNStatsEntry, self).__init__()
 
                 self.yang_name = "cnpdTopNStatsEntry"
                 self.yang_parent_name = "cnpdTopNStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnpdtopnconfigindex','cnpdtopnstatsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnpdtopnconfigindex', YLeaf(YType.str, 'cnpdTopNConfigIndex')),
                     ('cnpdtopnstatsindex', YLeaf(YType.uint32, 'cnpdTopNStatsIndex')),
@@ -824,10 +809,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdTopNStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable.Cnpdtopnstatsentry, ['cnpdtopnconfigindex', 'cnpdtopnstatsindex', 'cnpdtopnstatsprotocolname', 'cnpdtopnstatsrate', 'cnpdtopnstatshcrate'], name, value)
+                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable.CnpdTopNStatsEntry, ['cnpdtopnconfigindex', 'cnpdtopnstatsindex', 'cnpdtopnstatsprotocolname', 'cnpdtopnstatsrate', 'cnpdtopnstatshcrate'], name, value)
 
 
-    class Cnpdthresholdconfigtable(Entity):
+    class CnpdThresholdConfigTable(Entity):
         """
         The cnpdThresholdConfigTable allows the management
         station to create thresholds for the purpose of
@@ -837,7 +822,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdthresholdconfigentry
         
         	This entry contains configuration information to  set thresholds for the purpose of notifications.  The management station is allowed to set thresholds on individual statistics for individual protocols on an interface. If the threshold is breached by the protocol statistic, a new event is written to the cnpdThresholdHistoryTable, which in turn will  generate a Notification Event.  This function has a hysteresis mechanism to limit the generation of events. This mechanism generates one event as a threshold is crossed in the appropriate direction. No more events are generated for that threshold until the opposite threshold is crossed. This stops repeated Notification events being generated each time the value is sampled, when the value is above the threshold. Instead one notification is sent when the threshold is breached and one notification when the statistic drops below the threshold value again
-        	**type**\: list of  		 :py:class:`Cnpdthresholdconfigentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry>`
+        	**type**\: list of  		 :py:class:`CnpdThresholdConfigEntry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable.CnpdThresholdConfigEntry>`
         
         
 
@@ -847,15 +832,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         _revision = '2002-08-16'
 
         def __init__(self):
-            super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable, self).__init__()
+            super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable, self).__init__()
 
             self.yang_name = "cnpdThresholdConfigTable"
             self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnpdThresholdConfigEntry", ("cnpdthresholdconfigentry", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry))])
+            self._child_classes = OrderedDict([("cnpdThresholdConfigEntry", ("cnpdthresholdconfigentry", CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable.CnpdThresholdConfigEntry))])
             self._leafs = OrderedDict()
 
             self.cnpdthresholdconfigentry = YList(self)
@@ -863,10 +847,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable, [], name, value)
+            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable, [], name, value)
 
 
-        class Cnpdthresholdconfigentry(Entity):
+        class CnpdThresholdConfigEntry(Entity):
             """
             This entry contains configuration information to 
             set thresholds for the purpose of notifications.
@@ -916,7 +900,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdthresholdconfigsampletype
             
             	The method of sampling the selected statistic and calculating the value to be compared against  cnpdThresholdConfigRising or  cnpdThresholdConfigFalling thresholds.  		 If the value of this object is absoluteValue(1),  the value at the end of the sampling interval  cnpdThresholdConfigInterval, will be compared  with the cnpdThresholdConfigRising and  cnpdThresholdConfigFalling thresholds.   In this mode, when cnpdThresholdConfigStatsSelect is byte or packet based, a maximum of two  cnpdThresholdHistory entries will be created per application, as these byte and packet counts  monotonically increase from zero. 		 If the value of this object is deltaValue(2),  the difference between the samples at the  beginning and end of the cnpdThresholdConfigInterval  will be compared with the cnpdThresholdConfigRising  and cnpdThresholdConfigFalling thresholds. 		 Because the difference in the previous and current samples are compared over the sample period cnpdThresholdConfigInterval, this mode provides  more granularity to the thresholds because the NMS  is now provided with the gradient or change in the  cnpdThresholdConfigStatsSelect.  Note that even though the sample value is monotonically increasing for byte and packet counts,  cnpdThresholdConfigSampleType set to deltaValue, can  generate falling cnpdThresholdHistory entries, because the gradient can be lower than the  cnpdThresholdConfigFalling value
-            	**type**\:  :py:class:`Cnpdthresholdconfigsampletype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.Cnpdthresholdconfigsampletype>`
+            	**type**\:  :py:class:`CnpdThresholdConfigSampleType <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable.CnpdThresholdConfigEntry.CnpdThresholdConfigSampleType>`
             
             .. attribute:: cnpdthresholdconfigprotocol
             
@@ -938,7 +922,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdthresholdconfigstartup
             
             	This controls the type of notification that is  sent when this threshold entry is first enabled.   Because there is no previous sampling history, choosing one of these options determines the type of notification generated \- Rising or Falling.  If the first sample after this entry is enabled  is greater than or equal to cnpdThresholdConfigRising and this object is equal to rising(1) or risingOrFalling(3),  then a single rising notification will be generated.   If the first sample after this entry is enabled is less than or equal to cnpdThresholdConfigFalling and this object is equal to falling(2) or  risingOrFalling(3), then a single falling notification  will be generated
-            	**type**\:  :py:class:`Cnpdthresholdconfigstartup <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.Cnpdthresholdconfigstartup>`
+            	**type**\:  :py:class:`CnpdThresholdConfigStartup <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable.CnpdThresholdConfigEntry.CnpdThresholdConfigStartup>`
             
             .. attribute:: cnpdthresholdconfigrising
             
@@ -967,15 +951,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             _revision = '2002-08-16'
 
             def __init__(self):
-                super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry, self).__init__()
+                super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable.CnpdThresholdConfigEntry, self).__init__()
 
                 self.yang_name = "cnpdThresholdConfigEntry"
                 self.yang_parent_name = "cnpdThresholdConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnpdthresholdconfigindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnpdthresholdconfigindex', YLeaf(YType.uint32, 'cnpdThresholdConfigIndex')),
                     ('cnpdthresholdconfigifindex', YLeaf(YType.int32, 'cnpdThresholdConfigIfIndex')),
@@ -1004,11 +987,11 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdThresholdConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry, ['cnpdthresholdconfigindex', 'cnpdthresholdconfigifindex', 'cnpdthresholdconfiginterval', 'cnpdthresholdconfigsampletype', 'cnpdthresholdconfigprotocol', 'cnpdthresholdconfigprotocolany', 'cnpdthresholdconfigstatsselect', 'cnpdthresholdconfigstartup', 'cnpdthresholdconfigrising', 'cnpdthresholdconfigfalling', 'cnpdthresholdconfigstatus'], name, value)
+                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable.CnpdThresholdConfigEntry, ['cnpdthresholdconfigindex', 'cnpdthresholdconfigifindex', 'cnpdthresholdconfiginterval', 'cnpdthresholdconfigsampletype', 'cnpdthresholdconfigprotocol', 'cnpdthresholdconfigprotocolany', 'cnpdthresholdconfigstatsselect', 'cnpdthresholdconfigstartup', 'cnpdthresholdconfigrising', 'cnpdthresholdconfigfalling', 'cnpdthresholdconfigstatus'], name, value)
 
-            class Cnpdthresholdconfigsampletype(Enum):
+            class CnpdThresholdConfigSampleType(Enum):
                 """
-                Cnpdthresholdconfigsampletype (Enum Class)
+                CnpdThresholdConfigSampleType (Enum Class)
 
                 The method of sampling the selected statistic and
 
@@ -1083,9 +1066,9 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 deltaValue = Enum.YLeaf(2, "deltaValue")
 
 
-            class Cnpdthresholdconfigstartup(Enum):
+            class CnpdThresholdConfigStartup(Enum):
                 """
-                Cnpdthresholdconfigstartup (Enum Class)
+                CnpdThresholdConfigStartup (Enum Class)
 
                 This controls the type of notification that is 
 
@@ -1131,7 +1114,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
 
 
 
-    class Cnpdthresholdhistorytable(Entity):
+    class CnpdThresholdHistoryTable(Entity):
         """
         The Threshold History table. Notifications
         are unreliable so this table provides a
@@ -1142,7 +1125,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdthresholdhistoryentry
         
         	This entry is created each time a threshold  is breached.   Thus there is not necessarily a one to one  relationship to cnpdThresholdConfigTable  as not every Threshold configured will  be breached
-        	**type**\: list of  		 :py:class:`Cnpdthresholdhistoryentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry>`
+        	**type**\: list of  		 :py:class:`CnpdThresholdHistoryEntry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable.CnpdThresholdHistoryEntry>`
         
         
 
@@ -1152,15 +1135,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         _revision = '2002-08-16'
 
         def __init__(self):
-            super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable, self).__init__()
+            super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable, self).__init__()
 
             self.yang_name = "cnpdThresholdHistoryTable"
             self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnpdThresholdHistoryEntry", ("cnpdthresholdhistoryentry", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry))])
+            self._child_classes = OrderedDict([("cnpdThresholdHistoryEntry", ("cnpdthresholdhistoryentry", CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable.CnpdThresholdHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.cnpdthresholdhistoryentry = YList(self)
@@ -1168,10 +1150,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable, [], name, value)
+            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable, [], name, value)
 
 
-        class Cnpdthresholdhistoryentry(Entity):
+        class CnpdThresholdHistoryEntry(Entity):
             """
             This entry is created each time a threshold 
             is breached. 
@@ -1205,7 +1187,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdthresholdhistorytype
             
             	Describes whether this is an event caused by a rising or falling threshold breach
-            	**type**\:  :py:class:`Cnpdthresholdhistorytype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry.Cnpdthresholdhistorytype>`
+            	**type**\:  :py:class:`CnpdThresholdHistoryType <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable.CnpdThresholdHistoryEntry.CnpdThresholdHistoryType>`
             
             .. attribute:: cnpdthresholdhistorytime
             
@@ -1234,15 +1216,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             _revision = '2002-08-16'
 
             def __init__(self):
-                super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry, self).__init__()
+                super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable.CnpdThresholdHistoryEntry, self).__init__()
 
                 self.yang_name = "cnpdThresholdHistoryEntry"
                 self.yang_parent_name = "cnpdThresholdHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnpdthresholdhistoryindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnpdthresholdhistoryindex', YLeaf(YType.uint32, 'cnpdThresholdHistoryIndex')),
                     ('cnpdthresholdhistoryconfigindex', YLeaf(YType.uint32, 'cnpdThresholdHistoryConfigIndex')),
@@ -1263,11 +1244,11 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdThresholdHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry, ['cnpdthresholdhistoryindex', 'cnpdthresholdhistoryconfigindex', 'cnpdthresholdhistoryvalue', 'cnpdthresholdhistorytype', 'cnpdthresholdhistorytime', 'cnpdthresholdhistoryprotocol', 'cnpdthresholdhistorystatsselect'], name, value)
+                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable.CnpdThresholdHistoryEntry, ['cnpdthresholdhistoryindex', 'cnpdthresholdhistoryconfigindex', 'cnpdthresholdhistoryvalue', 'cnpdthresholdhistorytype', 'cnpdthresholdhistorytime', 'cnpdthresholdhistoryprotocol', 'cnpdthresholdhistorystatsselect'], name, value)
 
-            class Cnpdthresholdhistorytype(Enum):
+            class CnpdThresholdHistoryType(Enum):
                 """
-                Cnpdthresholdhistorytype (Enum Class)
+                CnpdThresholdHistoryType (Enum Class)
 
                 Describes whether this is an
 
@@ -1287,7 +1268,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
 
 
 
-    class Cnpdsupportedprotocolstable(Entity):
+    class CnpdSupportedProtocolsTable(Entity):
         """
         The Supported Protocols table lists all the 
         protocols and applications which NBAR is currently
@@ -1296,7 +1277,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdsupportedprotocolsentry
         
         	A entry in the Supported Protocols table reflecting key information about a protocol
-        	**type**\: list of  		 :py:class:`Cnpdsupportedprotocolsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry>`
+        	**type**\: list of  		 :py:class:`CnpdSupportedProtocolsEntry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable.CnpdSupportedProtocolsEntry>`
         
         
 
@@ -1306,15 +1287,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         _revision = '2002-08-16'
 
         def __init__(self):
-            super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable, self).__init__()
+            super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable, self).__init__()
 
             self.yang_name = "cnpdSupportedProtocolsTable"
             self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cnpdSupportedProtocolsEntry", ("cnpdsupportedprotocolsentry", CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry))])
+            self._child_classes = OrderedDict([("cnpdSupportedProtocolsEntry", ("cnpdsupportedprotocolsentry", CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable.CnpdSupportedProtocolsEntry))])
             self._leafs = OrderedDict()
 
             self.cnpdsupportedprotocolsentry = YList(self)
@@ -1322,10 +1302,10 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable, [], name, value)
+            self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable, [], name, value)
 
 
-        class Cnpdsupportedprotocolsentry(Entity):
+        class CnpdSupportedProtocolsEntry(Entity):
             """
             A entry in the Supported Protocols table reflecting
             key information about a protocol.
@@ -1352,15 +1332,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             _revision = '2002-08-16'
 
             def __init__(self):
-                super(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry, self).__init__()
+                super(CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable.CnpdSupportedProtocolsEntry, self).__init__()
 
                 self.yang_name = "cnpdSupportedProtocolsEntry"
                 self.yang_parent_name = "cnpdSupportedProtocolsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cnpdsupportedprotocolsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cnpdsupportedprotocolsindex', YLeaf(YType.uint32, 'cnpdSupportedProtocolsIndex')),
                     ('cnpdsupportedprotocolsname', YLeaf(YType.str, 'cnpdSupportedProtocolsName')),
@@ -1371,7 +1350,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdSupportedProtocolsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry, ['cnpdsupportedprotocolsindex', 'cnpdsupportedprotocolsname'], name, value)
+                self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable.CnpdSupportedProtocolsEntry, ['cnpdsupportedprotocolsindex', 'cnpdsupportedprotocolsname'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCONBARPROTOCOLDISCOVERYMIB()

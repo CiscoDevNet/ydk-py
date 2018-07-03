@@ -61,15 +61,16 @@ class CfmStatistics(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cfm-meps", ("cfm_meps", CfmStatistics.CfmMeps))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cfm-meps", ("cfm_meps", CfmStatistics.CfmMeps))])
         self._leafs = OrderedDict()
 
         self.cfm_meps = CfmStatistics.CfmMeps()
         self.cfm_meps.parent = self
         self._children_name_map["cfm_meps"] = "cfm-meps"
-        self._children_yang_names.add("cfm-meps")
         self._segment_path = lambda: "Cisco-IOS-XE-cfm-oper:cfm-statistics"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(CfmStatistics, [], name, value)
 
 
     class CfmMeps(Entity):
@@ -96,8 +97,7 @@ class CfmStatistics(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cfm-mep", ("cfm_mep", CfmStatistics.CfmMeps.CfmMep))])
+            self._child_classes = OrderedDict([("cfm-mep", ("cfm_mep", CfmStatistics.CfmMeps.CfmMep))])
             self._leafs = OrderedDict()
 
             self.cfm_mep = YList(self)
@@ -198,8 +198,7 @@ class CfmStatistics(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['domain_name','ma_name','mpid']
-                self._child_container_classes = OrderedDict([("last-cleared", ("last_cleared", CfmStatistics.CfmMeps.CfmMep.LastCleared))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("last-cleared", ("last_cleared", CfmStatistics.CfmMeps.CfmMep.LastCleared))])
                 self._leafs = OrderedDict([
                     ('domain_name', YLeaf(YType.str, 'domain-name')),
                     ('ma_name', YLeaf(YType.str, 'ma-name')),
@@ -226,7 +225,6 @@ class CfmStatistics(Entity):
                 self.last_cleared = CfmStatistics.CfmMeps.CfmMep.LastCleared()
                 self.last_cleared.parent = self
                 self._children_name_map["last_cleared"] = "last-cleared"
-                self._children_yang_names.add("last-cleared")
                 self._segment_path = lambda: "cfm-mep" + "[domain-name='" + str(self.domain_name) + "']" + "[ma-name='" + str(self.ma_name) + "']" + "[mpid='" + str(self.mpid) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-cfm-oper:cfm-statistics/cfm-meps/%s" % self._segment_path()
 
@@ -265,8 +263,7 @@ class CfmStatistics(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('never', YLeaf(YType.empty, 'never')),
                         ('time', YLeaf(YType.str, 'time')),
