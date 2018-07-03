@@ -30,6 +30,9 @@ pip_check_install  dist/*.tar.gz
 cd ../cisco-ios-xe
 python setup.py sdist
 pip_check_install  dist/*.tar.gz
+cd ../cisco-nx-os
+python setup.py sdist
+pip_check_install  dist/*.tar.gz
 
 echo "Running codec sample"
 cd ../core/samples
